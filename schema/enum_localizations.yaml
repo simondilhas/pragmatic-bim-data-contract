@@ -17,33 +17,24 @@ enum_localizations:
       de: Zone
 
   ZoneType:
-    spatial:
-      en: Spatial
-      de: Raeumlich
-    spatial_unit:
-      en: Spatial Unit
-      de: Raumeinheit
+    occupancy_unit:
+      en: Occupancy Unit
+      de: Nutzungseinheit
+    tenant:
+      en: Tenant
+      de: Mieter
+    functional:
+      en: Functional
+      de: Funktional
     cost:
       en: Cost
       de: Kosten
     fire:
       en: Fire
       de: Brandschutz
-    circulation:
-      en: Circulation
-      de: Erschliessung
-    usable:
-      en: Usable
-      de: Nutzbar
-    service:
-      en: Service
-      de: Technik
-    system:
-      en: System
-      de: System
-    analysis:
-      en: Analysis
-      de: Analyse
+    security:
+      en: Security
+      de: Sicherheit
 
   SpaceType:
     void:
@@ -58,6 +49,15 @@ enum_localizations:
     service:
       en: Service
       de: Technikflaeche
+    modeled_space:
+      en: Modeled Space
+      de: Modellierter Raum
+    gross_floor_area:
+      en: Gross Floor Area
+      de: Brutto-Grundflaeche
+    gross_volume:
+      en: Gross Volume
+      de: Brutto-Volumen
 
   SystemType:
     unit:
@@ -69,6 +69,20 @@ enum_localizations:
     terminal:
       en: Terminal
       de: Endgeraet
+
+  SystemDiscipline:
+    electrical:
+      en: Electrical
+      de: Elektro
+    sanitary:
+      en: Sanitary
+      de: Sanitaer
+    ventilation:
+      en: Ventilation
+      de: Lueftung
+    heating:
+      en: Heating
+      de: Heizung
 
   EquipmentType:
     hvac:

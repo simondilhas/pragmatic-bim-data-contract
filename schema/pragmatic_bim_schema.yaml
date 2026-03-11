@@ -12,6 +12,8 @@ prefixes:
   linkml: https://w3id.org/linkml/
   pbs: https://example.org/pragmatic-bim-schema/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
+  ifcowl: https://w3id.org/ifc/IFC4_ADD2#
+  bot: https://w3id.org/bot#
 
 default_prefix: pbs
 default_range: string
@@ -22,12 +24,14 @@ imports:
 classes:
   Entity:
     abstract: true
+    class_uri: pbs:Entity
     description: Common base class for all schema entities.
     slots:
       - id
       - name
       - localized_names
       - description
+      - meaning_uri
       - localized_descriptions
       - ifc_global_id
       - classifications
@@ -35,6 +39,7 @@ classes:
       - quantity_values
 
   Classification:
+    class_uri: pbs:Classification
     description: Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).
     slots:
       - classification_scheme
@@ -44,18 +49,21 @@ classes:
       - classification_source
 
   LocalizedText:
+    class_uri: pbs:LocalizedText
     description: Localized text value for a specific language tag.
     slots:
       - language_tag
       - text_value
 
   GeometryRepresentation:
+    class_uri: pbs:GeometryRepresentation
     description: Minimal geometry reference for an entity.
     slots:
       - geometry_reference
       - geometry_format
 
   QuantityValue:
+    class_uri: pbs:QuantityValue
     description: Minimal quantity record for costing and analysis.
     slots:
       - quantity_type
@@ -64,6 +72,9 @@ classes:
 
   ContextEntity:
     is_a: Entity
+    class_uri: pbs:ContextEntity
+    exact_mappings:
+      - ifcowl:IfcSpatialStructureElement
     description: Context node used to represent project, perimeter, building, level, or zone.
     tree_root: true
     slots:
@@ -77,6 +88,10 @@ classes:
   PhysicalElement:
     is_a: Entity
     abstract: true
+    class_uri: pbs:PhysicalElement
+    exact_mappings:
+      - bot:Element
+      - ifcowl:IfcElement
     description: Base class for physical elements that can be placed in building/level context.
     slots:
       - parent_building
@@ -84,6 +99,9 @@ classes:
 
   Separator:
     is_a: PhysicalElement
+    class_uri: pbs:Separator
+    exact_mappings:
+      - ifcowl:IfcBuildingElement
     description: Element that separates spaces or zones.
     slots:
       - separator_type
@@ -91,12 +109,18 @@ classes:
 
   Connection:
     is_a: PhysicalElement
+    class_uri: pbs:Connection
+    exact_mappings:
+      - ifcowl:IfcBuildingElement
     description: Physical element providing connection between spaces (for example door or window).
     slots:
       - connection_type
 
   Boundary:
     is_a: PhysicalElement
+    class_uri: pbs:Boundary
+    exact_mappings:
+      - ifcowl:IfcCovering
     description: Physical element acting as a boundary treatment (for example covering).
     slots:
       - boundary_type
@@ -104,6 +128,10 @@ classes:
 
   Space:
     is_a: Entity
+    class_uri: pbs:Space
+    exact_mappings:
+      - bot:Space
+      - ifcowl:IfcSpace
     description: Spatial container used for occupancy, circulation, service, or analysis.
     slots:
       - space_type
@@ -115,6 +143,10 @@ classes:
 
   Equipment:
     is_a: PhysicalElement
+    class_uri: pbs:Equipment
+    exact_mappings:
+      - bot:Element
+      - ifcowl:IfcDistributionElement
     description: Equipment item that is located in a space and assigned to a system.
     slots:
       - equipment_type
@@ -123,9 +155,13 @@ classes:
 
   System:
     is_a: Entity
+    class_uri: pbs:System
+    exact_mappings:
+      - ifcowl:IfcSystem
     description: Building service system grouping that serves spaces or zones.
     slots:
       - system_type
+      - system_discipline
       - parent_project
       - parent_building
       - serves_spaces
@@ -147,6 +183,10 @@ slots:
   description:
     range: string
     description: Default description text.
+
+  meaning_uri:
+    range: uriorcurie
+    description: Optional semantic URI for linking the entity instance to an external ontology concept.
 
   localized_names:
     multivalued: true
@@ -208,7 +248,26 @@ slots:
   classification_source:
     range: string
     description: Source authority or dataset for this classification.
+    class_uri: pbs:LocalizedText
+    description: Localized text value for a specific language tag.
+    slots:
+      - language_tag
+      - text_value
 
+  GeometryRepresentation:
+    class_uri: pbs:GeometryRepresentation
+    description: Minimal geometry reference for an entity.
+    slots:
+      - geometry_reference
+      - geometry_format
+
+  QuantityValue:
+    class_uri: pbs:QuantityValue
+    description: Minimal quantity record for costing and analysis.
+    slots:
+      - quantity_type
+      - quantity_value
+      - quantity_unit
   language_tag:
     range: string
     required: true
@@ -271,7 +330,12 @@ slots:
   system_type:
     range: SystemType
     required: true
-    description: Classification of system (unit, network, terminal).
+    description: Classification of system role (unit, network, terminal).
+
+  system_discipline:
+    range: SystemDiscipline
+    required: true
+    description: Classification of system discipline (electrical, sanitary, ventilation, heating).
 
   equipment_type:
     range: EquipmentType
@@ -385,72 +449,171 @@ slots:
 
 enums:
   ContextType:
+    enum_uri: pbs:ContextType
     permissible_values:
       project:
+        meaning: ifcowl:IfcProject
       perimeter:
+        meaning: ifcowl:IfcSite
+        meaning: bot:Site
       building:
+        meaning: bot:Building
       level:
+        meaning: bot:Storey
       zone:
+        meaning: bot:Zone
 
   ZoneType:
+    enum_uri: pbs:ZoneType
+    description: Classification of zone purpose and organizational intent.
     permissible_values:
-      spatial:
-      spatial_unit:
+      occupancy_unit:
+        description: Occupancy unit zone (for example apartment, office suite, or retail unit).
+        meaning: ifcowl:IfcSpatialZone
+      tenant:
+        description: Tenant area zone used for leasing and occupancy boundaries.
+        meaning: ifcowl:IfcSpatialZone
+      functional:
+        description: Functional grouping zone (for example clinical, retail, office support).
+        meaning: ifcowl:IfcSpatialZone
       cost:
+        description: Cost grouping zone for estimation and controlling.
+        meaning: ifcowl:IfcGroup
       fire:
-      circulation:
-      usable:
-      service:
-      system:
-      analysis:
+        description: Fire compartment or fire strategy grouping zone.
+        meaning: ifcowl:IfcSpatialZone
+      security:
+        description: Security management zone for access control and surveillance planning.
+        meaning: ifcowl:IfcSpatialZone
 
   SpaceType:
+    enum_uri: pbs:SpaceType
+    description: Classification of space semantics used by modeling and downstream conversion.
     permissible_values:
       void:
+        description: Non-occupiable or intentionally empty space in the model.
+        meaning: ifcowl:IfcSpace
       circulation:
+        description: Space primarily intended for movement and access.
+        meaning: ifcowl:IfcSpace
       usable:
+        description: Space intended for regular occupancy or primary use.
+        meaning: ifcowl:IfcSpace
       service:
+        description: Space primarily intended for technical/service functions.
+        meaning: ifcowl:IfcSpace
+      modeled_space:
+        description: Modeled space entity representing the geometry and identity of a space.
+        meaning: ifcowl:IfcSpace
+      gross_floor_area:
+        description: Space classification used when representing gross floor area as modeled space.
+        meaning: ifcowl:IfcSpace
+      gross_volume:
+        description: Space classification used when representing gross volume as modeled space.
+        meaning: ifcowl:IfcSpace
 
   SystemType:
+    enum_uri: pbs:SystemType
+    description: Role of an MEP-related element or grouping in the service chain.
     permissible_values:
       unit:
+        description: Generating or converting unit (for example AHU, chiller, heat pump).
+        meaning: ifcowl:IfcUnitaryEquipment
       network:
+        description: Distribution network element carrying flow (for example ducts, pipes, cable carriers).
+        meaning: ifcowl:IfcDistributionFlowElement
       terminal:
+        description: End/terminal element located in served spaces.
+        meaning: ifcowl:IfcFlowTerminal
+
+  SystemDiscipline:
+    enum_uri: pbs:SystemDiscipline
+    description: Discipline of a building service system.
+    permissible_values:
+      electrical:
+        description: Electrical power, lighting, and related electrical services.
+        meaning: ifcowl:IfcDistributionSystemEnum.ELECTRICAL
+      sanitary:
+        description: Water supply, drainage, and sanitary plumbing services.
+        meaning: ifcowl:IfcDistributionSystemEnum.PLUMBING
+      ventilation:
+        description: Air movement and ventilation services.
+        meaning: ifcowl:IfcDistributionSystemEnum.VENTILATION
+      heating:
+        description: Heat generation and heat distribution services.
+        meaning: ifcowl:IfcDistributionSystemEnum.HEATING
 
   EquipmentType:
+    enum_uri: pbs:EquipmentType
     permissible_values:
       hvac:
+        meaning: ifcowl:IfcDistributionElement
       electrical:
+        meaning: ifcowl:IfcElectricalElement
       plumbing:
+        meaning: ifcowl:IfcFlowTerminal
       fire_safety:
+        meaning: ifcowl:IfcFireSuppressionTerminal
       controls:
+        meaning: ifcowl:IfcDistributionControlElement
       furniture:
+        meaning: ifcowl:IfcFurniture
       other:
+        meaning: ifcowl:IfcElement
 
   ConnectionType:
+    enum_uri: pbs:ConnectionType
     permissible_values:
       door:
+        meaning: ifcowl:IfcDoor
       window:
+        meaning: ifcowl:IfcWindow
 
   SeparatorType:
+    enum_uri: pbs:SeparatorType
     permissible_values:
       wall:
-      slab:
+        meaning: ifcowl:IfcWall
+      floor:
+        meaning: ifcowl:IfcSlabTypeEnum.FLOOR
+      roof:
+        meaning: ifcowl:IfcSlabTypeEnum.ROOF
+      baseslab:
+        meaning: ifcowl:IfcSlabTypeEnum.BASESLAB
 
   BoundaryType:
+    enum_uri: pbs:BoundaryType
     permissible_values:
       covering:
+        meaning: ifcowl:IfcCovering
+      flooring:
+        meaning: ifcowl:IfcCoveringTypeEnum.FLOORING
+      ceiling:
+        meaning: ifcowl:IfcCoveringTypeEnum.CEILING
+      cladding:
+        meaning: ifcowl:IfcCoveringTypeEnum.CLADDING
 
   QuantityType:
+    enum_uri: pbs:QuantityType
     permissible_values:
       area_net_horizontal:
+        meaning: ifcowl:IfcQuantityArea
       area_gross_horizontal:
+        meaning: ifcowl:IfcQuantityArea
       area_net_vertical:
+        meaning: ifcowl:IfcQuantityArea
       area_gross_vertical:
+        meaning: ifcowl:IfcQuantityArea
       volume_net:
+        meaning: ifcowl:IfcQuantityVolume
       volume_gross:
+        meaning: ifcowl:IfcQuantityVolume
       length:
+        meaning: ifcowl:IfcQuantityLength
       width:
+        meaning: ifcowl:IfcQuantityLength
       height:
+        meaning: ifcowl:IfcQuantityLength
       perimeter:
+        meaning: ifcowl:IfcQuantityLength
 
