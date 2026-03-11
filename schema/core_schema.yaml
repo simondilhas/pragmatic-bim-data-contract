@@ -1,0 +1,195 @@
+id: https://example.org/pragmatic-bim-schema/core
+name: pragmatic_bim_core_schema
+title: Pragmatic BIM Schema - Core
+description: >
+  Core entities and reusable base slots.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  pbs: https://example.org/pragmatic-bim-schema/
+  ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
+  ifcowl: https://w3id.org/ifc/IFC4_ADD2#
+  bot: https://w3id.org/bot#
+
+default_prefix: pbs
+default_range: string
+
+imports:
+  - linkml:types
+
+classes:
+  Entity:
+    abstract: true
+    class_uri: pbs:Entity
+    description: Common base class for all schema entities.
+    slots:
+      - id
+      - name
+      - localized_names
+      - description
+      - meaning_uri
+      - localized_descriptions
+      - ifc_global_id
+      - classifications
+      - geometry_representations
+      - quantity_values
+      - cost_items
+      - cost_assemblies
+      - materials
+
+  Classification:
+    class_uri: pbs:Classification
+    description: Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).
+    slots:
+      - classification_scheme
+      - classification_code
+      - classification_label
+      - classification_version
+      - classification_source
+
+  GeometryRepresentation:
+    class_uri: pbs:GeometryRepresentation
+    description: Minimal geometry reference for an entity, separating representation from encoding format.
+    slots:
+      - geometry_reference
+      - geometry_representation
+      - geometry_format
+
+  QuantityValue:
+    class_uri: pbs:QuantityValue
+    description: Minimal quantity record for costing and analysis.
+    slots:
+      - quantity_type
+      - quantity_value
+      - quantity_unit
+
+  LocalizedText:
+    class_uri: pbs:LocalizedText
+    description: Localized text value for a specific language tag.
+    slots:
+      - language_tag
+      - text_value
+
+slots:
+  id:
+    identifier: true
+    required: true
+    range: string
+    description: Unique local identifier.
+
+  name:
+    required: true
+    range: string
+    description: Default display name.
+
+  description:
+    range: string
+    description: Default description text.
+
+  meaning_uri:
+    range: uriorcurie
+    description: Optional semantic URI for linking the entity instance to an external ontology concept.
+
+  localized_names:
+    multivalued: true
+    range: LocalizedText
+    inlined: true
+    description: Localized variants of name.
+
+  localized_descriptions:
+    multivalued: true
+    range: LocalizedText
+    inlined: true
+    description: Localized variants of description.
+
+  tags:
+    multivalued: true
+    range: string
+    description: Optional free-form labels for filtering/grouping.
+
+  ifc_global_id:
+    range: string
+    description: IFC GlobalId of the mapped entity.
+
+  classifications:
+    multivalued: true
+    range: Classification
+    inlined: true
+    description: Classification entries from IFC and other schemes.
+
+  geometry_representations:
+    multivalued: true
+    range: GeometryRepresentation
+    inlined: true
+    description: >
+      Geometry references associated with the entity. A single element may link to
+      multiple geometry representations to serve different intents (authoring,
+      coordination, analysis, visualization) without duplicating the element itself.
+
+  quantity_values:
+    multivalued: true
+    range: QuantityValue
+    inlined: true
+    description: Quantities associated with the entity.
+
+  classification_scheme:
+    range: string
+    required: true
+    description: Name of the classification scheme (for example ifc, uniclass, omniclass, custom).
+
+  classification_code:
+    range: string
+    required: true
+    description: Classification code inside the scheme.
+
+  classification_label:
+    range: string
+    description: Optional human-readable classification label.
+
+  classification_version:
+    range: string
+    description: Optional scheme/version identifier.
+
+  classification_source:
+    range: string
+    description: Source authority or dataset for this classification.
+
+  language_tag:
+    range: string
+    required: true
+    description: IETF BCP 47 language tag (for example en, de, pt-BR).
+
+  text_value:
+    range: string
+    required: true
+    description: Localized text value.
+
+  geometry_reference:
+    range: string
+    required: true
+    description: URI/path/hash/pointer to geometry payload.
+
+  geometry_representation:
+    range: GeometryRepresentationType
+    required: true
+    description: Representation kind/dimension (for example body_3d, footprint_2d, point), independent of file format.
+
+  geometry_format:
+    range: string
+    description: Optional serialization/encoding format (for example ifc, gltf, wkt, geojson), independent of representation kind.
+
+  quantity_type:
+    range: QuantityType
+    required: true
+    description: Controlled quantity type.
+
+  quantity_value:
+    range: double
+    required: true
+    description: Numeric quantity value.
+
+  quantity_unit:
+    range: string
+    required: true
+    description: Unit of the quantity value.

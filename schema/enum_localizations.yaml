@@ -1,4 +1,15 @@
 enum_localizations:
+  GeometryRepresentationType:
+    body_3d:
+      en: 3D Body
+      de: 3D Koerper
+    footprint_2d:
+      en: 2D Footprint
+      de: 2D Grundriss
+    point:
+      en: Point
+      de: Punkt
+
   ContextType:
     project:
       en: Project
@@ -107,7 +118,7 @@ enum_localizations:
       en: Other
       de: Sonstiges
 
-  ConnectionType:
+  ConnectionPhysicalType:
     door:
       en: Door
       de: Tuer
@@ -115,15 +126,95 @@ enum_localizations:
       en: Window
       de: Fenster
 
-  SeparatorType:
-    wall:
-      en: Wall
-      de: Wand
-    slab:
-      en: Slab
-      de: Decke
+  ConnectionVirtualType:
+    structural_joint:
+      en: Structural Joint
+      de: Strukturelle Fuge
+    adjacency:
+      en: Adjacency
+      de: Nachbarschaft
+    access:
+      en: Access
+      de: Zugang
+    other:
+      en: Other
+      de: Sonstiges
+
+  ConnectionRequirementDriver:
+    fire:
+      en: Fire
+      de: Brandschutz
+    security:
+      en: Security
+      de: Sicherheit
+    accessibility:
+      en: Accessibility
+      de: Barrierefreiheit
+    acoustic:
+      en: Acoustic
+      de: Akustik
+    thermal:
+      en: Thermal
+      de: Waerme
+    visual:
+      en: Visual
+      de: Visuell
+    structural:
+      en: Structural
+      de: Tragwerk
+
+  SeparatorWallType:
+    unit_boundary:
+      en: Unit Boundary
+      de: Einheitstrennung
+    vertical_circulation_boundary:
+      en: Vertical Circulation Boundary
+      de: Vertikale Erschliessungstrennung
+    horizontal_circulation_boundary:
+      en: Horizontal Circulation Boundary
+      de: Horizontale Erschliessungstrennung
+
+  SeparatorSlabType:
+    floor:
+      en: Floor
+      de: Boden
+    roof:
+      en: Roof
+      de: Dach
+    baseslab:
+      en: Base Slab
+      de: Bodenplatte
+    balcony:
+      en: Balcony
+      de: Balkon
+
+  SeparatorRequirementDriver:
+    acoustic:
+      en: Acoustic
+      de: Akustik
+    fire:
+      en: Fire
+      de: Brandschutz
+    thermal:
+      en: Thermal
+      de: Waerme
+    privacy:
+      en: Privacy
+      de: Privatsphaere
+    hygiene:
+      en: Hygiene
+      de: Hygiene
+    structural:
+      en: Structural
+      de: Tragwerk
 
   BoundaryType:
-    covering:
-      en: Covering
-      de: Bekleidung
+    flooring:
+      en: Flooring
+      de: Bodenbelag
+    ceiling:
+      en: Ceiling
+      de: Decke
+    cladding:
+      en: Cladding
+      de: Verkleidung
