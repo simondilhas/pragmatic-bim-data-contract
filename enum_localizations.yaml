@@ -1,0 +1,115 @@
+enum_localizations:
+  ContextType:
+    project:
+      en: Project
+      de: Projekt
+    perimeter:
+      en: Perimeter
+      de: Perimeter
+    building:
+      en: Building
+      de: Gebaeude
+    level:
+      en: Level
+      de: Ebene
+    zone:
+      en: Zone
+      de: Zone
+
+  ZoneType:
+    spatial:
+      en: Spatial
+      de: Raeumlich
+    spatial_unit:
+      en: Spatial Unit
+      de: Raumeinheit
+    cost:
+      en: Cost
+      de: Kosten
+    fire:
+      en: Fire
+      de: Brandschutz
+    circulation:
+      en: Circulation
+      de: Erschliessung
+    usable:
+      en: Usable
+      de: Nutzbar
+    service:
+      en: Service
+      de: Technik
+    system:
+      en: System
+      de: System
+    analysis:
+      en: Analysis
+      de: Analyse
+
+  SpaceType:
+    void:
+      en: Void
+      de: Leerraum
+    circulation:
+      en: Circulation
+      de: Erschliessung
+    usable:
+      en: Usable
+      de: Nutzflaeche
+    service:
+      en: Service
+      de: Technikflaeche
+
+  SystemType:
+    unit:
+      en: Unit
+      de: Einheit
+    network:
+      en: Network
+      de: Netz
+    terminal:
+      en: Terminal
+      de: Endgeraet
+
+  EquipmentType:
+    hvac:
+      en: HVAC
+      de: HLK
+    electrical:
+      en: Electrical
+      de: Elektro
+    plumbing:
+      en: Plumbing
+      de: Sanitaer
+    fire_safety:
+      en: Fire Safety
+      de: Brandschutz
+    controls:
+      en: Controls
+      de: Regelung
+    furniture:
+      en: Furniture
+      de: Mobiliar
+    other:
+      en: Other
+      de: Sonstiges
+
+  ConnectionType:
+    door:
+      en: Door
+      de: Tuer
+    window:
+      en: Window
+      de: Fenster
+
+  SeparatorType:
+    wall:
+      en: Wall
+      de: Wand
+    slab:
+      en: Slab
+      de: Decke
+
+  BoundaryType:
+    covering:
+      en: Covering
+      de: Bekleidung
