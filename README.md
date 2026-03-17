@@ -1,6 +1,5 @@
-# pragmatic-bim-data-contract
 
-Pragmatic BIM Data Contract
+#Pragmatic BIM Data Contract
 
 ## Why this exists
 
