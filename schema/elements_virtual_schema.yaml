@@ -66,25 +66,16 @@ classes:
     is_a: SpatialContext
     class_uri: pbs:ProjectContext
     description: Spatial context node constrained to project semantics.
-    slot_usage:
-      context_type:
-        equals_string: project
 
   PerimeterContext:
     is_a: SpatialContext
     class_uri: pbs:PerimeterContext
     description: Spatial context node constrained to perimeter semantics.
-    slot_usage:
-      context_type:
-        equals_string: perimeter
 
   LegalSiteContext:
     is_a: SpatialContext
     class_uri: pbs:LegalSiteContext
     description: Spatial context node constrained to legal site semantics.
-    slot_usage:
-      context_type:
-        equals_string: legal_site
 
   BuiltAssetContext:
     is_a: SpatialContext
@@ -96,33 +87,21 @@ classes:
     is_a: BuiltAssetContext
     class_uri: pbs:BuildingContext
     description: Spatial context node constrained to building semantics.
-    slot_usage:
-      context_type:
-        equals_string: building
 
   CivilStructureContext:
     is_a: BuiltAssetContext
     class_uri: pbs:CivilStructureContext
     description: Spatial context node constrained to civil structure semantics.
-    slot_usage:
-      context_type:
-        equals_string: civil_structure
 
   LevelContext:
     is_a: SpatialContext
     class_uri: pbs:LevelContext
     description: Spatial context node constrained to level/storey semantics.
-    slot_usage:
-      context_type:
-        equals_string: level
 
   ZoneContext:
     is_a: SpatialContext
     class_uri: pbs:ZoneContext
     description: Spatial context node constrained to zone semantics.
-    slot_usage:
-      context_type:
-        equals_string: zone
 
   Space:
     is_a: VirtualEntity
