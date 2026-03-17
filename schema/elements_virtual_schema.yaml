@@ -24,6 +24,11 @@ classes:
     abstract: true
     class_uri: pbs:VirtualEntity
     description: Abstract base class for non-physical, conceptual, or informational entities.
+    slots:
+      - cost_items
+      - cost_assemblies
+      - materials
+      - material_usages
 
   SpatialContext:
     is_a: VirtualEntity
@@ -40,6 +45,27 @@ classes:
       - parent_level
       - parent_zone
       - group_members
+    slot_usage:
+      parent_building:
+        range: BuildingContext
+      parent_level:
+        range: LevelContext
+
+  BuildingContext:
+    is_a: SpatialContext
+    class_uri: pbs:BuildingContext
+    description: Spatial context node constrained to building semantics.
+    slot_usage:
+      context_type:
+        equals_string: building
+
+  LevelContext:
+    is_a: SpatialContext
+    class_uri: pbs:LevelContext
+    description: Spatial context node constrained to level/storey semantics.
+    slot_usage:
+      context_type:
+        equals_string: level
 
   Space:
     is_a: VirtualEntity
@@ -55,6 +81,11 @@ classes:
       - parent_zone
       - bounded_by
       - contained_entities
+    slot_usage:
+      parent_building:
+        range: BuildingContext
+      parent_level:
+        range: LevelContext
 
   System:
     is_a: VirtualEntity
@@ -70,6 +101,9 @@ classes:
       - serves_spaces
       - serves_zones
       - contained_entities
+    slot_usage:
+      parent_building:
+        range: BuildingContext
 
   ConnectionVirtual:
     is_a: VirtualEntity
@@ -81,10 +115,11 @@ classes:
       - connects_spaces
       - connection_virtual_requirement_drivers
 
-  CostItem:
+  AbstractCostRecord:
     is_a: VirtualEntity
-    class_uri: pbs:CostItem
-    description: Cost record used for estimation and calculation, optionally linked to quantities.
+    abstract: true
+    class_uri: pbs:AbstractCostRecord
+    description: Abstract base for reusable cost record fields shared by atomic and aggregated cost records.
     slots:
       - cost_category
       - unit_cost
@@ -94,18 +129,16 @@ classes:
       - cost_quantity_unit
       - applies_to_entities
 
+  CostItem:
+    is_a: AbstractCostRecord
+    class_uri: pbs:CostItem
+    description: Cost record used for estimation and calculation, optionally linked to quantities.
+
   CostAssembly:
-    is_a: VirtualEntity
+    is_a: AbstractCostRecord
     class_uri: pbs:CostAssembly
     description: Aggregated unit price assembled from multiple cost items.
     slots:
-      - cost_category
-      - unit_cost
-      - currency
-      - cost_quantity_type
-      - cost_quantity_value
-      - cost_quantity_unit
-      - applies_to_entities
       - component_cost_items
 
   Material:
@@ -115,6 +148,15 @@ classes:
     slots:
       - material_category
       - material_specification
+
+  MaterialUsage:
+    class_uri: pbs:MaterialUsage
+    description: Material assignment with quantity details bound to a specific entity usage context.
+    slots:
+      - material
+      - quantity_type
+      - quantity_value
+      - quantity_unit
 
 slots:
   context_type:
@@ -129,14 +171,6 @@ slots:
   parent_project:
     range: SpatialContext
     description: Parent project context reference (context_type should be project).
-
-  parent_building:
-    range: SpatialContext
-    description: Parent building context reference (context_type should be building).
-
-  parent_level:
-    range: SpatialContext
-    description: Parent level/storey context reference (context_type should be level).
 
   parent_zone:
     range: SpatialContext
@@ -165,6 +199,7 @@ slots:
   bounded_by:
     multivalued: true
     range: PhysicalElement
+    inverse: bounded_space
     description: Physical elements that bound a space.
 
   contained_entities:
@@ -220,6 +255,12 @@ slots:
     inlined: true
     description: Material definitions associated with this entity.
 
+  material_usages:
+    multivalued: true
+    range: MaterialUsage
+    inlined: true
+    description: Material-specific quantity assignments for this entity.
+
   cost_category:
     range: string
     description: Cost category label (for example material, labor, equipment, overhead).
@@ -263,3 +304,8 @@ slots:
   material_specification:
     range: string
     description: Material grade, specification, or product description.
+
+  material:
+    range: Material
+    required: true
+    description: Referenced material for this usage record.

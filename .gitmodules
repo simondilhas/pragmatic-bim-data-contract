@@ -1,0 +1,3 @@
+[submodule "external/classifications"]
+	path = external/classifications
+	url = git@github.com:simondilhas/pragmatic-bim-classifications.git

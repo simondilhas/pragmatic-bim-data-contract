@@ -60,15 +60,12 @@ enum_localizations:
     service:
       en: Service
       de: Technikflaeche
-    modeled_space:
-      en: Modeled Space
-      de: Modellierter Raum
-    gross_floor_area:
-      en: Gross Floor Area
-      de: Brutto-Grundflaeche
-    gross_volume:
-      en: Gross Volume
-      de: Brutto-Volumen
+    modeled_gross_floor_area:
+      en: Modeled Gross Floor Area
+      de: Modellierte Brutto-Grundflaeche
+    modeled_gross_volume:
+      en: Modeled Gross Volume
+      de: Modelliertes Brutto-Volumen
 
   SystemType:
     unit:

@@ -37,6 +37,9 @@ The schema is structured into five core modules:
    - Semantic hooks: optional `meaning_uri` for external ontology linking.
    - Quantities and geometry: one entity can link to multiple geometry
      representations and quantity records for different downstream intents.
+   - Metadata and lifecycle: generic `metadata` entries plus `created_at`,
+     `modified_at`, `revision`, and `status` support IFC property capture and
+     QA/change tracking.
 
 2. Physical Elements (`elements_physical_schema.yaml`)
 
@@ -65,6 +68,9 @@ The schema is structured into five core modules:
    - Costing and materials: `CostItem` and `CostAssembly` can be attached to
      entities; material specifications are modeled as first-class virtual
      entities.
+   - Entry and traversal: `SpatialContext` is the root entry point
+     (`tree_root: true`); `Space` is intentionally non-root and traversed via
+     references/relationships in graph workflows.
 
 4. Controlled Vocabularies (`enums_schema.yaml`)
 
@@ -89,6 +95,40 @@ The schema is structured into five core modules:
 1. Clone the repository.
 2. Explore the schema files in `schema/`.
 3. Use or implement converter logic in `converter/` as needed by your workflow.
+
+## Private Extensions (SKOS/SPARQL)
+
+Copyright-restricted norm translations and derived SPARQL rules should live in
+a separate private repository and be consumed as a submodule.
+
+Recommended sibling checkout layout:
+
+- `../pragmatic-bim-schema` (this repository)
+- `../pragmatic-bim-classifications` (private repository)
+
+Recommended submodule path in this repository:
+
+- `external/classifications`
+
+Submodule setup (run locally, outside this sandbox):
+
+```bash
+git submodule add git@github.com:simondilhas/pragmatic-bim-classifications.git external/classifications
+git submodule update --init --recursive
+```
+
+Pinning to a tag/commit:
+
+```bash
+cd external/classifications
+git fetch --tags
+git checkout v2026.03
+cd ../..
+git add external/classifications .gitmodules
+git commit -m "Pin classifications submodule to v2026.03"
+```
+
+See `docs/classifications-integration.md` for auth and CI details.
 
 ## Contributing
 

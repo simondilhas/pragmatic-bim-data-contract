@@ -34,9 +34,12 @@ classes:
       - classifications
       - geometry_representations
       - quantity_values
-      - cost_items
-      - cost_assemblies
-      - materials
+      - documents
+      - metadata
+      - created_at
+      - modified_at
+      - revision
+      - status
 
   Classification:
     class_uri: pbs:Classification
@@ -45,6 +48,7 @@ classes:
       - classification_scheme
       - classification_code
       - classification_label
+      - classification_uri
       - classification_version
       - classification_source
 
@@ -70,6 +74,20 @@ classes:
     slots:
       - language_tag
       - text_value
+
+  MetadataEntry:
+    class_uri: pbs:MetadataEntry
+    description: Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data.
+    slots:
+      - metadata_key
+      - metadata_value
+
+  Document:
+    class_uri: pbs:Document
+    description: Reference to an external document stored in a file system, DMS, object storage, or URL.
+    slots:
+      - classifications
+      - storage_link
 
 slots:
   id:
@@ -110,7 +128,16 @@ slots:
 
   ifc_global_id:
     range: string
+    pattern: '^[0-3][0-9A-Za-z_$]{21}$'
     description: IFC GlobalId of the mapped entity.
+
+  parent_building:
+    range: Entity
+    description: Parent building context reference; typically points to a SpatialContext with context_type building.
+
+  parent_level:
+    range: Entity
+    description: Parent level/storey context reference; typically points to a SpatialContext with context_type level.
 
   classifications:
     multivalued: true
@@ -133,6 +160,34 @@ slots:
     inlined: true
     description: Quantities associated with the entity.
 
+  documents:
+    multivalued: true
+    range: Document
+    inlined: true
+    description: Linked documents associated with this entity.
+
+  metadata:
+    multivalued: true
+    range: MetadataEntry
+    inlined: true
+    description: Generic metadata container for IFC attributes/properties and project-specific extensions.
+
+  created_at:
+    range: datetime
+    description: Creation timestamp for this entity record.
+
+  modified_at:
+    range: datetime
+    description: Last modification timestamp for this entity record.
+
+  revision:
+    range: integer
+    description: Integer revision counter for change tracking.
+
+  status:
+    range: string
+    description: Lifecycle or QA status (for example draft, reviewed, approved).
+
   classification_scheme:
     range: string
     required: true
@@ -146,6 +201,10 @@ slots:
   classification_label:
     range: string
     description: Optional human-readable classification label.
+
+  classification_uri:
+    range: uriorcurie
+    description: Optional URI/CURIE that identifies the classification concept in an external registry.
 
   classification_version:
     range: string
@@ -193,3 +252,17 @@ slots:
     range: string
     required: true
     description: Unit of the quantity value.
+
+  metadata_key:
+    range: string
+    required: true
+    description: Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference.
+
+  metadata_value:
+    range: string
+    description: Metadata value serialized as text.
+
+  storage_link:
+    range: uriorcurie
+    required: true
+    description: URI/URL/path to the stored document location.

@@ -1,0 +1,15 @@
+{
+  "folders": [
+    { "name": "schema-public", "path": "." },
+    { "name": "classifications-private", "path": "./external/classifications" },
+    { "name": "rules-private", "path": "../pragmatic-bim-private-rules" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true
+    },
+    "search.exclude": {
+      "**/.git": true
+    }
+  }
+}

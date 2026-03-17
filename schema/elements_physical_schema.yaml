@@ -30,6 +30,11 @@ classes:
     slots:
       - parent_building
       - parent_level
+    slot_usage:
+      parent_building:
+        range: BuildingContext
+      parent_level:
+        range: LevelContext
 
   Separator:
     is_a: PhysicalElement
@@ -142,14 +147,9 @@ slots:
     inlined: true
     description: Level context nodes separated by this slab separator (context_type should be level).
 
-  contained_elements:
-    multivalued: true
-    range: PhysicalElement
-    inlined: true
-    description: Physical elements contained by the current node.
-
   bounded_space:
     range: Space
+    inverse: bounded_by
     description: Space bounded by this boundary element.
 
   equipment_type:
@@ -159,10 +159,12 @@ slots:
 
   parent_space:
     range: Space
+    inverse: contained_entities
     description: Parent space where the equipment is located.
 
   parent_system:
     multivalued: true
     range: System
+    inverse: contained_entities
     description: Parent systems that the equipment belongs to.
 
