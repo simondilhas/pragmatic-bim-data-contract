@@ -1,120 +1,97 @@
 # pragmatic-bim-schema
 
-An open-source project for defining and using a pragmatic BIM schema.
+A practical, open-source BIM schema for teams that want IFC-grade data without IFC-level complexity in day-to-day workflows.
 
-## Why
+## Why this project exists
 
-After creating many data models, the same design questions keep coming up.
-This project exists to capture those recurring decisions in one practical schema
-that can be reused and evolved instead of reinvented each time.
+Most BIM data pipelines repeatedly hit the same bottlenecks:
 
-## Project Structure
+- IFC exports are rich but heavy for analytics and application development.
+- Project teams need stable structures for spaces, systems, costs, materials, and performance checks.
+- Every organization ends up reinventing ad-hoc mappings and inconsistent naming.
 
-- `schema/00_pragmatic_bim_schema.yaml`: Root schema entrypoint importing all modules.
-- `schema/core_schema.yaml`: Core entities and reusable base slots.
-- `schema/performance_enums_schema.yaml`: Enums for normalized performance properties.
-- `schema/requirements_enums_schema.yaml`: Enums for requirement drivers and assessment status.
-- `schema/performance_schema.yaml`: Domain-specific normalized performance property classes.
-- `schema/requirements_schema.yaml`: Requirement-driver slots and assessment structures.
-- `schema/elements_physical_schema.yaml`: Physical element hierarchy and element-related slots.
-- `schema/elements_virtual_schema.yaml`: Virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `CostItem`, `CostAssembly`, `Material`) and their slots.
-- `schema/enums_schema.yaml`: All controlled vocabularies.
-- `schema/enum_localizations.yaml`: Enum label/localization metadata.
-- `converter/`: Converter module for transforming data to and from the schema. Setup, tests, and DB import/export commands are documented in `converter/README.md`.
+`pragmatic-bim-schema` provides a shared, opinionated middle layer: expressive enough to preserve meaningful BIM semantics, but simple enough for implementation, querying, and iteration.
 
-## Schema Overview
+## What it is useful for
 
-The Pragmatic BIM Schema is a streamlined, graph-oriented data model designed
-for BIM integration. It bridges the gap between complex IFC (Industry
-Foundation Classes) data and practical analysis workflows such as costing and
-querying.
+Use this schema when you need to:
 
-The schema is structured into five core modules:
+- **Normalize IFC and model data** into a graph-friendly representation.
+- **Run cross-domain analytics** (space + system + element + requirement + cost).
+- **Build repeatable import/export tooling** around one stable schema contract.
+- **Track requirements and assessments** (e.g., fire, acoustic, thermal, structural).
+- **Support multilingual UI/UX** with localized enum labels.
+- **Prepare data for downstream apps** (costing, QA dashboards, model checks, search).
 
-1. Core Schema (`core_schema.yaml`)
+In short: it helps teams move from "BIM as files" to "BIM as usable product data".
 
-   The foundation of the model. It defines the abstract `Entity` base and
-   shared metadata for all entity types.
+## Design principles
 
-   - Identification: local identifiers and IFC `ifc_global_id` mapping.
-   - Localization: multilingual names/descriptions via `LocalizedText`.
-   - Semantic hooks: optional `meaning_uri` for external ontology linking.
-   - Quantities and geometry: one entity can link to multiple geometry
-     representations and quantity records for different downstream intents.
-   - Metadata and lifecycle: generic `metadata` entries plus `created_at`,
-     `modified_at`, `revision`, and `status` support IFC property capture and
-     QA/change tracking.
+- **Pragmatic over exhaustive**: keep the model implementable.
+- **Graph-native relationships**: entities reference entities with IDs.
+- **Separation of concerns**: core, elements, requirements/performance, and vocabularies are split into focused modules.
+- **Interoperability hooks**: keep optional links to IFC/ontology identifiers where useful.
+- **Evolvable structure**: modules can expand without rewriting the whole model.
 
-2. Physical Elements (`elements_physical_schema.yaml`)
+## Project structure
 
-   This module captures tangible building components.
+- `schema/00_pragmatic_bim_schema.yaml`: root schema entrypoint importing all modules.
+- `schema/core_schema.yaml`: core entities and reusable base slots.
+- `schema/performance_enums_schema.yaml`: enums for normalized performance properties.
+- `schema/requirements_enums_schema.yaml`: enums for requirement drivers and assessment status.
+- `schema/performance_schema.yaml`: domain-specific normalized performance property classes.
+- `schema/requirements_schema.yaml`: requirement-driver slots and assessment structures.
+- `schema/elements_physical_schema.yaml`: physical element hierarchy and element-related slots.
+- `schema/elements_virtual_schema.yaml`: virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `CostItem`, `CostAssembly`, `Material`) and their slots.
+- `schema/enums_schema.yaml`: controlled vocabularies.
+- `schema/enum_localizations.yaml`: enum label/localization metadata.
+- `converter/`: converter module for transforming data to and from the schema (see `converter/README.md`).
 
-   - Separators: abstract `Separator` base with concrete `SeparatorWall` and
-     `SeparatorSlab`.
-   - Requirement drivers: performance-oriented drivers (fire, acoustic,
-     structural, etc.) for separators and physical connections.
-   - Physical connections: opening elements (`ConnectionPhysical`) such as doors
-     and windows.
-   - Equipment: HVAC/electrical/plumbing elements linked to parent spaces and
-     systems.
+## Schema overview
 
-3. Virtual Entities (`elements_virtual_schema.yaml`)
+The schema is organized into five core modules:
 
-   This module captures non-physical building logic.
+1. **Core schema** (`core_schema.yaml`)
+   - shared base entity model (`Entity`), identifiers, lifecycle metadata, localization, geometry links, quantities, and extensible metadata.
 
-   - Spatial context: a hierarchy (`project > perimeter > building > level >
-     zone`) represented with `SpatialContext` using parent references as the
-     single source of truth.
-   - Spaces: occupancy/circulation/service/analysis containers.
-   - Systems: service groupings serving spaces and zones.
-   - Virtual connections: logical/topological connections between spaces and/or
-     physical elements.
-   - Costing and materials: `CostItem` and `CostAssembly` can be attached to
-     entities; material specifications are modeled as first-class virtual
-     entities.
-   - Entry and traversal: `SpatialContext` is the root entry point
-     (`tree_root: true`); `Space` is intentionally non-root and traversed via
-     references/relationships in graph workflows.
+2. **Physical elements** (`elements_physical_schema.yaml`)
+   - tangible building components such as separators (walls/slabs), physical connections (e.g., doors/windows), and equipment.
 
-4. Controlled Vocabularies (`enums_schema.yaml`)
+3. **Virtual entities** (`elements_virtual_schema.yaml`)
+   - non-physical structure and logic: spatial context hierarchy, spaces, systems, virtual connections, costs, and materials.
 
-   Ensures consistency through controlled enumerations.
+4. **Controlled vocabularies** (`enums_schema.yaml`)
+   - canonical enums for consistent exchange and downstream logic.
 
-   - IFC-aware mappings: many values map to `ifcowl` or `bot`.
-   - Discipline logic: system/equipment categories for MEP domains.
+5. **Localizations** (`enum_localizations.yaml`)
+   - user-facing labels/translations for enums while preserving canonical values.
 
-5. Localizations (`enum_localizations.yaml`)
+## Modeling conventions
 
-   Provides human-readable enum translations for UI/UX, without changing the
-   underlying canonical values.
+- Entity-to-entity relationships are modeled as ID references (`inlined: false`).
+- Value objects that belong inside a record are embedded (`inlined: true`).
+- `cost_category` and `material_category` are intentionally open text for now and can later be aligned with stronger classification systems.
 
-## Modeling Conventions
+## Typical workflow
 
-- Graph edges are modeled as ID references (`inlined: false`) for
-  entity-to-entity relationships.
-- Embedded (`inlined: true`) structures are reserved for value objects that are
-  part of an entity record.
-- `cost_category` and `material_category` are intentionally open text for now;
-  they are planned to be replaced or complemented by classification-backed
-  modeling in a later iteration.
+1. Ingest BIM/IFC data with project-specific extraction logic.
+2. Map extracted entities to this schema.
+3. Store/query as graph or relational projections.
+4. Enrich with requirements, performance metrics, and cost/material metadata.
+5. Export, analyze, or feed application APIs.
 
-## Goals
+## Getting started
 
-- Keep schema definitions clear and easy to evolve.
-- Enable conversion workflows around a single source of truth schema.
-- Stay simple and practical for real-world usage.
+1. Clone this repository.
+2. Start with `schema/00_pragmatic_bim_schema.yaml` to understand module composition.
+3. Inspect module definitions in `schema/`.
+4. Use or extend the converter in `converter/`.
+5. Follow `converter/README.md` for converter setup and commands.
 
-## Getting Started
-
-1. Clone the repository.
-2. Explore the schema files in `schema/`.
-3. Use or implement converter logic in `converter/` as needed by your workflow.
-4. For converter quickstart and command usage, follow `converter/README.md`.
-
-## Private Extensions (SKOS/SPARQL)
+## Private extensions (SKOS/SPARQL)
 
 Copyright-restricted norm translations and derived SPARQL rules should live in
-a separate private repository and be consumed as a submodule.
+an external private repository and be consumed as a submodule.
 
 Recommended sibling checkout layout:
 
