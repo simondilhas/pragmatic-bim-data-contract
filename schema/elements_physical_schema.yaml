@@ -149,6 +149,5 @@ slots:
   parent_system:
     multivalued: true
     range: System
-    inverse: contained_entities
     description: Parent systems that the equipment belongs to.
 
