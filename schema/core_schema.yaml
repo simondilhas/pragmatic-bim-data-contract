@@ -133,11 +133,11 @@ slots:
 
   parent_building:
     range: Entity
-    description: Parent building context reference; typically points to a SpatialContext with context_type building.
+    description: Parent building context reference.
 
   parent_level:
     range: Entity
-    description: Parent level/storey context reference; typically points to a SpatialContext with context_type level.
+    description: Parent level/storey context reference.
 
   classifications:
     multivalued: true
@@ -186,8 +186,8 @@ slots:
     description: Integer revision counter for change tracking.
 
   status:
-    range: string
-    description: Lifecycle or QA status (for example draft, reviewed, approved).
+    range: StatusType
+    description: Lifecycle or QA status.
 
   classification_scheme:
     range: string

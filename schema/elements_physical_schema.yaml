@@ -26,13 +26,13 @@ classes:
     exact_mappings:
       - bot:Element
       - ifcowl:IfcElement
-    description: Base class for physical elements that can be placed in building/level context.
+    description: Base class for physical elements that can be placed in built asset/level context.
     slots:
       - parent_building
       - parent_level
     slot_usage:
       parent_building:
-        range: BuildingContext
+        range: BuiltAssetContext
       parent_level:
         range: LevelContext
 

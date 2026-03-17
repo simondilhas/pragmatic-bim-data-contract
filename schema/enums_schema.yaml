@@ -23,6 +23,8 @@ enums:
     enum_uri: pbs:GeometryRepresentationType
     description: Classification of geometric representation dimension/style.
     permissible_values:
+      axis:
+        description: Linear axis/centerline representation.
       body_3d:
         description: 3D volumetric/body representation.
       footprint_2d:
@@ -39,8 +41,12 @@ enums:
         meaning: ifcowl:IfcSite
         exact_mappings:
           - bot:Site
+      legal_site:
+        meaning: ifcowl:IfcSite
       building:
         meaning: bot:Building
+      civil_structure:
+        meaning: ifcowl:IfcCivilElement
       level:
         meaning: bot:Storey
       zone:
@@ -274,3 +280,17 @@ enums:
       perimeter:
         description: Boundary length around a 2D shape or footprint.
         meaning: ifcowl:IfcQuantityLength
+
+  StatusType:
+    enum_uri: pbs:StatusType
+    description: Lifecycle or QA gate status used for model progression and approvals.
+    permissible_values:
+      draft:
+        description: Work-in-progress state before formal review.
+        meaning: pbs:status_draft
+      reviewed:
+        description: Reviewed state pending final approval decision.
+        meaning: pbs:status_reviewed
+      approved:
+        description: Approved state accepted for downstream use.
+        meaning: pbs:status_approved

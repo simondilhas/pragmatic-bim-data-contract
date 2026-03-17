@@ -1,5 +1,8 @@
 enum_localizations:
   GeometryRepresentationType:
+    axis:
+      en: Axis
+      de: Achse
     body_3d:
       en: 3D Body
       de: 3D Koerper
@@ -17,9 +20,15 @@ enum_localizations:
     perimeter:
       en: Perimeter
       de: Perimeter
+    legal_site:
+      en: Legal Site
+      de: Rechtsgrundstueck
     building:
       en: Building
       de: Gebaeude
+    civil_structure:
+      en: Civil Structure
+      de: Ingenieurbauwerk
     level:
       en: Level
       de: Ebene

@@ -35,12 +35,14 @@ classes:
     class_uri: pbs:SpatialContext
     exact_mappings:
       - ifcowl:IfcSpatialStructureElement
-    description: Context node used to represent project, perimeter, building, level, or zone.
+    description: Context node used to represent project, perimeter, legal site, built asset, level, or zone.
     tree_root: true
     slots:
       - context_type
       - zone_type
       - parent_project
+      - parent_perimeter
+      - parent_legal_site
       - parent_building
       - parent_level
       - parent_zone
@@ -48,8 +50,12 @@ classes:
     slot_usage:
       parent_project:
         range: ProjectContext
+      parent_perimeter:
+        range: PerimeterContext
+      parent_legal_site:
+        range: LegalSiteContext
       parent_building:
-        range: BuildingContext
+        range: BuiltAssetContext
       parent_level:
         range: LevelContext
       parent_zone:
@@ -63,13 +69,43 @@ classes:
       context_type:
         equals_string: project
 
-  BuildingContext:
+  PerimeterContext:
     is_a: SpatialContext
+    class_uri: pbs:PerimeterContext
+    description: Spatial context node constrained to perimeter semantics.
+    slot_usage:
+      context_type:
+        equals_string: perimeter
+
+  LegalSiteContext:
+    is_a: SpatialContext
+    class_uri: pbs:LegalSiteContext
+    description: Spatial context node constrained to legal site semantics.
+    slot_usage:
+      context_type:
+        equals_string: legal_site
+
+  BuiltAssetContext:
+    is_a: SpatialContext
+    abstract: true
+    class_uri: pbs:BuiltAssetContext
+    description: Abstract spatial context for built assets such as buildings and civil structures.
+
+  BuildingContext:
+    is_a: BuiltAssetContext
     class_uri: pbs:BuildingContext
     description: Spatial context node constrained to building semantics.
     slot_usage:
       context_type:
         equals_string: building
+
+  CivilStructureContext:
+    is_a: BuiltAssetContext
+    class_uri: pbs:CivilStructureContext
+    description: Spatial context node constrained to civil structure semantics.
+    slot_usage:
+      context_type:
+        equals_string: civil_structure
 
   LevelContext:
     is_a: SpatialContext
@@ -103,7 +139,7 @@ classes:
       - contained_entities
     slot_usage:
       parent_building:
-        range: BuildingContext
+        range: BuiltAssetContext
       parent_level:
         range: LevelContext
 
@@ -125,7 +161,7 @@ classes:
       parent_project:
         range: ProjectContext
       parent_building:
-        range: BuildingContext
+        range: BuiltAssetContext
 
   ConnectionVirtual:
     is_a: VirtualEntity
@@ -184,7 +220,7 @@ slots:
   context_type:
     range: ContextType
     required: true
-    description: Classification of context entity (project, perimeter, building, level, zone).
+    description: Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).
 
   zone_type:
     range: ZoneType
@@ -193,6 +229,14 @@ slots:
   parent_project:
     range: ProjectContext
     description: Parent project context reference.
+
+  parent_perimeter:
+    range: PerimeterContext
+    description: Parent perimeter context reference.
+
+  parent_legal_site:
+    range: LegalSiteContext
+    description: Parent legal site context reference.
 
   parent_zone:
     range: ZoneContext
