@@ -39,7 +39,7 @@ jobs:
       - name: Install LinkML
         run: |
           python -m pip install --upgrade pip
-          pip install linkml
+          pip install linkml markdown
 
       - name: Generate schema outputs
         run: |
@@ -55,14 +55,12 @@ jobs:
             return 1
           }
 
-          SHEX_CMD="$(find_cmd gen-shex shexgen)" || { echo "No ShEx generator command found"; exit 1; }
           CSV_CMD="$(find_cmd gen-csv csvgen)" || { echo "No CSV generator command found"; exit 1; }
           PYDANTIC_CMD="$(find_cmd gen-pydantic pydanticgen)" || { echo "No Pydantic generator command found"; exit 1; }
           DOC_CMD="$(find_cmd gen-markdown gen-docs gen-doc)" || { echo "No docs generator command found"; exit 1; }
 
           gen-shacl schema/00_pragmatic_bim_schema.yaml > site/schema/pragmatic-bim.shacl.ttl
           gen-json-schema schema/00_pragmatic_bim_schema.yaml > site/schema/pragmatic-bim.schema.json
-          "$SHEX_CMD" schema/00_pragmatic_bim_schema.yaml > site/schema/pragmatic-bim.shex
           "$CSV_CMD" schema/00_pragmatic_bim_schema.yaml > site/schema/pragmatic-bim.csv
           "$PYDANTIC_CMD" schema/00_pragmatic_bim_schema.yaml > site/schema/pragmatic-bim.pydantic.py
 
@@ -81,6 +79,55 @@ jobs:
             "$DOC_CMD" schema/00_pragmatic_bim_schema.yaml > site/schema/pragmatic-bim.docs.md
           fi
 
+      - name: Render markdown docs as HTML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import markdown as md
+
+          schema_dir = Path("site/schema")
+          md_files = sorted(schema_dir.glob("*.md"))
+          if not md_files:
+            raise SystemExit("No markdown files found in site/schema")
+
+          style = """
+          body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+          h1, h2, h3, h4 { line-height: 1.25; }
+          table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+          th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+          th { background: #f6f8fa; }
+          code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+          pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+          a { color: #0969da; text-decoration: none; }
+          a:hover { text-decoration: underline; }
+          """
+
+          for md_file in md_files:
+            text = md_file.read_text(encoding="utf-8")
+            html_body = md.markdown(
+              text,
+              extensions=["tables", "fenced_code", "toc"],
+              output_format="html5",
+            )
+            html_body = re.sub(r'href="([^"]+)\.md"', r'href="\1.html"', html_body)
+            title = md_file.stem
+            html = f"""<!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <title>{title} - Pragmatic BIM Schema</title>
+              <style>{style}</style>
+            </head>
+            <body>
+              {html_body}
+            </body>
+          </html>
+          """
+            md_file.with_suffix(".html").write_text(html, encoding="utf-8")
+          PY
+
       - name: Write landing page
         run: |
           cat > site/index.html <<'HTML'
@@ -95,10 +142,10 @@ jobs:
               <ul>
                 <li><a href="./schema/pragmatic-bim.schema.json">JSON Schema</a></li>
                 <li><a href="./schema/pragmatic-bim.shacl.ttl">SHACL</a></li>
-                <li><a href="./schema/pragmatic-bim.shex">ShEx</a></li>
                 <li><a href="./schema/pragmatic-bim.csv">CSV</a></li>
                 <li><a href="./schema/pragmatic-bim.pydantic.py">Pydantic</a></li>
-                <li><a href="./schema/pragmatic-bim.docs.md">Docs (Markdown)</a></li>
+                <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
+                <li><a href="./schema/pragmatic-bim.docs.md">Docs (Markdown, raw)</a></li>
               </ul>
             </body>
           </html>

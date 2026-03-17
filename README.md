@@ -95,10 +95,10 @@ Generated schema artifacts are published via GitHub Pages from CI.
 - Landing page: `https://simondilhas.github.io/pragmatic-bim-schema/`
 - JSON Schema: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.schema.json`
 - SHACL: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.shacl.ttl`
-- ShEx: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.shex`
 - CSV: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.csv`
 - Pydantic: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.pydantic.py`
-- Docs (Markdown): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.md`
+- Docs (HTML): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.html`
+- Docs (Markdown, raw): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.md`
 
 Enable Pages once in repository settings:
 
