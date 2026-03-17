@@ -183,15 +183,41 @@ jobs:
             def repl(match):
               body = match.group(1)
               compact_lines = [line.rstrip() for line in body.splitlines() if line.strip()]
-              return "```mermaid\n" + "\n".join(compact_lines) + "\n```"
+              normalized = "\n".join(compact_lines)
+              # LinkML docs often emit click targets like ../Entity/ which 404 on Pages.
+              # Repoint them to local generated HTML pages in the same folder.
+              normalized = re.sub(
+                r'(click\s+([A-Za-z0-9_]+)\s+href\s+")\.\./([A-Za-z0-9_]+)/?(")',
+                lambda m: f'{m.group(1)}./{m.group(3)}.html{m.group(4)}',
+                normalized,
+              )
+              normalized = re.sub(
+                r"(click\s+([A-Za-z0-9_]+)\s+href\s+')\.\./([A-Za-z0-9_]+)/?(')",
+                lambda m: f"{m.group(1)}./{m.group(3)}.html{m.group(4)}",
+                normalized,
+              )
+              # Open diagram navigation targets in a new tab to preserve context.
+              normalized = re.sub(
+                r'^(click\s+[A-Za-z0-9_]+\s+href\s+["\'][^"\']+["\'](?:\s+["\'][^"\']*["\'])?)(\s+_[A-Za-z0-9]+)?\s*$',
+                lambda m: f"{m.group(1)} _blank",
+                normalized,
+                flags=re.MULTILINE,
+              )
+              return "```mermaid\n" + normalized + "\n```"
 
             return pattern.sub(repl, text)
 
           def render_mermaid_blocks(html: str) -> str:
-            pattern = re.compile(r'<pre><code class="language-mermaid">(.*?)</code></pre>', re.DOTALL)
+            pattern = re.compile(
+              r'<pre><code([^>]*)>(.*?)</code></pre>',
+              re.DOTALL | re.IGNORECASE,
+            )
 
             def repl(match):
-              code = html_lib.unescape(match.group(1))
+              attrs = match.group(1) or ""
+              if "mermaid" not in attrs.lower():
+                return match.group(0)
+              code = html_lib.unescape(match.group(2))
               return f'<div class="mermaid">\n{code}\n</div>'
 
             return pattern.sub(repl, html)
@@ -204,6 +230,8 @@ jobs:
 
           style = """
           body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+          .top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+          .top-nav a { margin-right: 0.9rem; font-weight: 600; }
           h1, h2, h3, h4 { line-height: 1.25; }
           table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
           th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
@@ -236,6 +264,10 @@ jobs:
               <style>{style}</style>
             </head>
             <body>
+              <nav class="top-nav">
+                <a href="../index.html">Home</a>
+                <a href="./pragmatic-bim.docs.html">Schema Index</a>
+              </nav>
               {html_body}
               <script type="module">
                 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
