@@ -87,11 +87,12 @@ jobs:
           import markdown as md
           import yaml
 
-          def load_class_order() -> dict[str, int]:
+          def load_class_metadata() -> tuple[dict[str, int], dict[str, str]]:
             root_path = Path("schema/00_pragmatic_bim_schema.yaml")
             root = yaml.safe_load(root_path.read_text(encoding="utf-8")) or {}
             imports = root.get("imports", [])
             order: dict[str, int] = {}
+            descriptions: dict[str, str] = {}
             idx = 0
             for item in imports:
               if not isinstance(item, str) or item.startswith("linkml:"):
@@ -102,13 +103,24 @@ jobs:
               doc = yaml.safe_load(schema_file.read_text(encoding="utf-8")) or {}
               classes = doc.get("classes", {})
               if isinstance(classes, dict):
-                for class_name in classes.keys():
+                for class_name, class_body in classes.items():
                   if class_name not in order:
                     order[class_name] = idx
                     idx += 1
-            return order
+                  if class_name not in descriptions and isinstance(class_body, dict):
+                    desc = class_body.get("description")
+                    if isinstance(desc, str) and desc.strip():
+                      descriptions[class_name] = " ".join(desc.split())
+            return order, descriptions
 
-          def reorder_classes_table(text: str, class_order: dict[str, int]) -> str:
+          def normalize_desc(value: str) -> str:
+            return " ".join(value.split()).strip()
+
+          def reorder_classes_table(
+            text: str,
+            class_order: dict[str, int],
+            class_descriptions: dict[str, str],
+          ) -> str:
             if "## Classes" not in text:
               return text
             lines = text.splitlines()
@@ -139,20 +151,36 @@ jobs:
             if not rows:
               return text
 
+            fixed_rows = []
+            for row in rows:
+              match = re.search(r"\[([A-Za-z0-9_]+)\]\([^)]+\.md\)", row)
+              if not match:
+                fixed_rows.append(row)
+                continue
+              class_name = match.group(1)
+              parts = row.split("|")
+              if len(parts) >= 4:
+                current_desc = normalize_desc(parts[2])
+                full_desc = class_descriptions.get(class_name)
+                if full_desc and (current_desc.endswith("...") or current_desc.endswith("…")):
+                  parts[2] = f" {full_desc} "
+                  row = "|".join(parts)
+              fixed_rows.append(row)
+
             def row_key(row: str):
               match = re.search(r"\[([A-Za-z0-9_]+)\]\([^)]+\.md\)", row)
               class_name = match.group(1) if match else ""
               order_idx = class_order.get(class_name, 10_000_000)
               return (order_idx, class_name.lower(), row.lower())
 
-            rows_sorted = sorted(rows, key=row_key)
+            rows_sorted = sorted(fixed_rows, key=row_key)
             return "\n".join(lines[:rows_start] + rows_sorted + lines[rows_end:])
 
           schema_dir = Path("site/schema")
           md_files = sorted(schema_dir.glob("*.md"))
           if not md_files:
             raise SystemExit("No markdown files found in site/schema")
-          class_order = load_class_order()
+          class_order, class_descriptions = load_class_metadata()
 
           style = """
           body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
@@ -169,7 +197,7 @@ jobs:
           for md_file in md_files:
             text = md_file.read_text(encoding="utf-8")
             if md_file.name == "pragmatic-bim.docs.md":
-              text = reorder_classes_table(text, class_order)
+              text = reorder_classes_table(text, class_order, class_descriptions)
             html_body = md.markdown(
               text,
               extensions=["tables", "fenced_code", "toc"],
