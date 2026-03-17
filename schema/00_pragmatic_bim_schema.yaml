@@ -21,6 +21,10 @@ default_range: string
 imports:
   - linkml:types
   - core_schema.yaml
+  - performance_enums_schema.yaml
+  - requirements_enums_schema.yaml
+  - performance_schema.yaml
+  - requirements_schema.yaml
   - elements_physical_schema.yaml
   - elements_virtual_schema.yaml
   - enums_schema.yaml

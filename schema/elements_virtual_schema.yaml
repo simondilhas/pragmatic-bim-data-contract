@@ -17,6 +17,7 @@ default_range: string
 
 imports:
   - linkml:types
+  - requirements_schema.yaml
 
 classes:
   VirtualEntity:
@@ -297,11 +298,6 @@ slots:
     multivalued: true
     range: Space
     description: Spaces connected by this virtual connection.
-
-  connection_virtual_requirement_drivers:
-    multivalued: true
-    range: ConnectionRequirementDriver
-    description: Main requirement drivers for this virtual connection.
 
   cost_items:
     multivalued: true

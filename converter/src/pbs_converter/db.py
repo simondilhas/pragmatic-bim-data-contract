@@ -8,8 +8,8 @@ from sqlalchemy import create_engine, select
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker
 
-from pbs_converter.models import Base, EntityModel, RelationModel
-from pbs_converter.schema_records import EntityRecord, RelationRecord
+from pbs_converter.models import Base, EntityModel, GeometryModel, RelationModel
+from pbs_converter.schema_records import EntityRecord, GeometryRecord, RelationRecord
 
 
 def build_engine(database_url: str) -> Engine:
@@ -71,6 +71,37 @@ def replace_relations(session: Session, relations: Iterable[RelationRecord]) -> 
             )
             session.add(existing)
         else:
+            existing.payload = record.payload
+            existing.source = record.source
+        count += 1
+    return count
+
+
+def replace_geometries(session: Session, geometries: Iterable[GeometryRecord]) -> int:
+    """Upsert geometry rows by entity+representation+format variant."""
+    # Ensure pending geometry inserts from earlier operations are visible to lookups.
+    session.flush()
+    count = 0
+    for record in geometries:
+        existing = session.execute(
+            select(GeometryModel).where(
+                GeometryModel.entity_id == record.entity_id,
+                GeometryModel.geometry_representation == record.geometry_representation,
+                GeometryModel.geometry_format == record.geometry_format,
+            )
+        ).scalar_one_or_none()
+        if existing is None:
+            existing = GeometryModel(
+                entity_id=record.entity_id,
+                geometry_representation=record.geometry_representation,
+                geometry_format=record.geometry_format,
+                geometry_reference=record.geometry_reference,
+                payload=record.payload,
+                source=record.source,
+            )
+            session.add(existing)
+        else:
+            existing.geometry_reference = record.geometry_reference
             existing.payload = record.payload
             existing.source = record.source
         count += 1

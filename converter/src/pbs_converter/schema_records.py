@@ -26,3 +26,15 @@ class RelationRecord:
     to_id: str
     payload: dict[str, Any] = field(default_factory=dict)
     source: str | None = None
+
+
+@dataclass(slots=True)
+class GeometryRecord:
+    """In-memory representation of one geometry representation row."""
+
+    entity_id: str
+    geometry_representation: str
+    geometry_format: str
+    geometry_reference: str
+    payload: dict[str, Any] = field(default_factory=dict)
+    source: str | None = None

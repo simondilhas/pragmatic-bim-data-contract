@@ -6,7 +6,10 @@ IFC converter and persistence layer for the Pragmatic BIM schema.
 
 - Parses IFC input.
 - Maps IFC entities/relations to Pragmatic BIM entities/relations.
-- Validates required slots and enum values using `schema/enums_schema.yaml`.
+- Validates required slots and enum values using:
+  - `schema/enums_schema.yaml`
+  - `schema/performance_enums_schema.yaml`
+  - `schema/requirements_enums_schema.yaml`
 - Writes to a SQLAlchemy-backed DB using one codepath for:
   - SQLite (`sqlite:///...`)
   - PostgreSQL (`postgresql+psycopg://...`)

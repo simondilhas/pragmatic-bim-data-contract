@@ -6,12 +6,13 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from pbs_converter.geometry_ingester import build_geometry_records
 from pbs_converter.mapping import (
     IFC_SPATIAL_PARENT_SLOT,
     map_ifc_product_to_entity,
     relation,
 )
-from pbs_converter.schema_records import EntityRecord, RelationRecord
+from pbs_converter.schema_records import EntityRecord, GeometryRecord, RelationRecord
 
 try:
     import ifcopenshell
@@ -25,6 +26,7 @@ class ReadResult:
 
     entities: list[EntityRecord]
     relations: list[RelationRecord]
+    geometries: list[GeometryRecord]
     warnings: list[str]
 
 
@@ -61,6 +63,7 @@ def read_ifc(ifc_path: Path) -> ReadResult:
     model = ifcopenshell.open(str(ifc_path))
     entities: list[EntityRecord] = []
     relations: list[RelationRecord] = []
+    geometries: list[GeometryRecord] = []
     warnings: list[str] = []
 
     for obj in _iter_ifc_objects(model):
@@ -75,6 +78,9 @@ def read_ifc(ifc_path: Path) -> ReadResult:
         )
         if entity:
             entities.append(entity)
+            geometry_records, geometry_warnings = build_geometry_records(obj, entity.id)
+            geometries.extend(geometry_records)
+            warnings.extend(geometry_warnings)
 
     # Spatial parent references from decomposition/containment heuristics.
     for rel in model.by_type("IfcRelAggregates"):
@@ -121,4 +127,4 @@ def read_ifc(ifc_path: Path) -> ReadResult:
         if first_global and second_global:
             relations.append(relation(first_global, "connects_physical_elements", second_global, source="IfcRelConnectsElements"))
 
-    return ReadResult(entities=entities, relations=relations, warnings=warnings)
+    return ReadResult(entities=entities, relations=relations, geometries=geometries, warnings=warnings)

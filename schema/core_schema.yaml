@@ -36,6 +36,7 @@ classes:
       - quantity_values
       - documents
       - metadata
+      - performance_properties
       - created_at
       - modified_at
       - revision
@@ -88,6 +89,24 @@ classes:
     slots:
       - classifications
       - storage_link
+
+  PerformanceProperty:
+    abstract: true
+    class_uri: pbs:PerformanceProperty
+    description: >
+      Normalized performance/property record derived from raw IFC PropertySet values
+      with source traceability and strong typing through domain-specific subclasses.
+    slots:
+      - property_key
+      - property_value_type
+      - property_value_string
+      - property_value_number
+      - property_value_boolean
+      - property_unit
+      - source_pset
+      - source_property
+      - source_value_raw
+      - mapping_version
 
 slots:
   id:
@@ -171,6 +190,14 @@ slots:
     range: MetadataEntry
     inlined: true
     description: Generic metadata container for IFC attributes/properties and project-specific extensions.
+
+  performance_properties:
+    multivalued: true
+    range: PerformanceProperty
+    inlined: true
+    description: >
+      Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/
+      security/material) extracted from raw IFC PropertySet values.
 
   created_at:
     range: datetime
@@ -263,6 +290,48 @@ slots:
   metadata_value:
     range: string
     description: Metadata value serialized as text.
+
+  property_key:
+    range: string
+    required: true
+    description: Canonical key inside the domain; constrained via subclass slot_usage to a domain-specific enum.
+
+  property_value_type:
+    range: PerformancePropertyValueType
+    required: true
+    description: Value type discriminator for normalized storage (for example string, number, boolean).
+
+  property_value_string:
+    range: string
+    description: String value when property_value_type is string.
+
+  property_value_number:
+    range: double
+    description: Numeric value when property_value_type is number.
+
+  property_value_boolean:
+    range: boolean
+    description: Boolean value when property_value_type is boolean.
+
+  property_unit:
+    range: string
+    description: Normalized unit where applicable (for example min, dB, W/m2K).
+
+  source_pset:
+    range: string
+    description: Original IFC PropertySet name (for example Pset_WallCommon).
+
+  source_property:
+    range: string
+    description: Original property name inside the source PropertySet (for example FireRating).
+
+  source_value_raw:
+    range: string
+    description: Raw source value before normalization.
+
+  mapping_version:
+    range: string
+    description: Mapping specification version used to derive the normalized property.
 
   storage_link:
     range: uriorcurie

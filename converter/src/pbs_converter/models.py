@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
-from sqlalchemy import DateTime, ForeignKey, Index, String, Text, UniqueConstraint, func
+from sqlalchemy import DateTime, ForeignKey, Index, Integer, String, Text, UniqueConstraint, func
 from sqlalchemy.dialects.sqlite import JSON as SQLiteJSON
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.types import JSON
@@ -43,6 +43,10 @@ class EntityModel(Base):
         cascade="all, delete-orphan",
         foreign_keys="RelationModel.to_id",
     )
+    geometries: Mapped[list["GeometryModel"]] = relationship(
+        back_populates="entity",
+        cascade="all, delete-orphan",
+    )
 
 
 class RelationModel(Base):
@@ -65,3 +69,36 @@ class RelationModel(Base):
 
     from_entity: Mapped[EntityModel] = relationship(back_populates="outgoing_relations", foreign_keys=[from_id])
     to_entity: Mapped[EntityModel] = relationship(back_populates="incoming_relations", foreign_keys=[to_id])
+
+
+class GeometryModel(Base):
+    """Geometry representations attached to canonical entities."""
+
+    __tablename__ = "entity_geometries"
+    __table_args__ = (
+        UniqueConstraint(
+            "entity_id",
+            "geometry_representation",
+            "geometry_format",
+            name="uq_entity_geometry_variant",
+        ),
+        Index("ix_entity_geometries_entity_id", "entity_id"),
+        Index("ix_entity_geometries_representation", "geometry_representation"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    entity_id: Mapped[str] = mapped_column(String(128), ForeignKey("entities.id", ondelete="CASCADE"), nullable=False)
+    geometry_representation: Mapped[str] = mapped_column(String(64), nullable=False)
+    geometry_format: Mapped[str] = mapped_column(String(64), nullable=False)
+    geometry_reference: Mapped[str] = mapped_column(Text, nullable=False)
+    payload: Mapped[dict[str, Any]] = mapped_column(JSON().with_variant(SQLiteJSON, "sqlite"), default=dict)
+    source: Mapped[str | None] = mapped_column(Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        onupdate=func.now(),
+        nullable=False,
+    )
+
+    entity: Mapped[EntityModel] = relationship(back_populates="geometries")

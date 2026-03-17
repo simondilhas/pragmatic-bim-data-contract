@@ -6,7 +6,13 @@ from pbs_converter.validator import RecordValidator
 
 def test_validator_accepts_valid_minimal_records() -> None:
     repo_root = Path(__file__).resolve().parents[2]
-    validator = RecordValidator(repo_root / "schema" / "enums_schema.yaml")
+    validator = RecordValidator(
+        [
+            repo_root / "schema" / "enums_schema.yaml",
+            repo_root / "schema" / "performance_enums_schema.yaml",
+            repo_root / "schema" / "requirements_enums_schema.yaml",
+        ]
+    )
     entities = [
         EntityRecord(id="3H7gK7S6v3A8mM2f1ABC12", type="Space", name="Room 101", ifc_global_id="3H7gK7S6v3A8mM2f1ABC12", payload={"space_type": "usable"}),
         EntityRecord(
@@ -26,7 +32,13 @@ def test_validator_accepts_valid_minimal_records() -> None:
 
 def test_validator_rejects_invalid_enum_value() -> None:
     repo_root = Path(__file__).resolve().parents[2]
-    validator = RecordValidator(repo_root / "schema" / "enums_schema.yaml")
+    validator = RecordValidator(
+        [
+            repo_root / "schema" / "enums_schema.yaml",
+            repo_root / "schema" / "performance_enums_schema.yaml",
+            repo_root / "schema" / "requirements_enums_schema.yaml",
+        ]
+    )
     entities = [
         EntityRecord(
             id="3H7gK7S6v3A8mM2f1ABC12",

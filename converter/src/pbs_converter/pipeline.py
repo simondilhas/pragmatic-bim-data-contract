@@ -7,7 +7,7 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
-from pbs_converter.db import replace_relations, upsert_entities
+from pbs_converter.db import replace_geometries, replace_relations, upsert_entities
 from pbs_converter.ifc_reader import read_ifc
 from pbs_converter.validator import RecordValidator
 
@@ -18,6 +18,7 @@ class PipelineStats:
 
     entities_written: int
     relations_written: int
+    geometries_written: int
     warnings: list[str]
     errors: list[str]
 
@@ -26,22 +27,24 @@ def run_ifc_conversion(
     *,
     session: Session,
     ifc_file: Path,
-    enums_schema_file: Path,
+    enums_schema_files: list[Path],
     strict: bool = False,
 ) -> PipelineStats:
     """Read IFC, validate mapped records, and persist to DB."""
     read_result = read_ifc(ifc_file)
-    validator = RecordValidator(enums_schema_file=enums_schema_file)
+    validator = RecordValidator(enums_schema_files=enums_schema_files)
     validation = validator.validate(read_result.entities, read_result.relations, strict=strict)
 
     entities_written = upsert_entities(session, validation.entities)
     relations_written = replace_relations(session, validation.relations)
+    geometries_written = replace_geometries(session, read_result.geometries)
     session.commit()
 
     warnings = [*read_result.warnings, *validation.warnings]
     return PipelineStats(
         entities_written=entities_written,
         relations_written=relations_written,
+        geometries_written=geometries_written,
         warnings=warnings,
         errors=validation.errors,
     )

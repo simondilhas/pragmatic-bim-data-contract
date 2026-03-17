@@ -25,8 +25,8 @@ class ValidationResult:
 class RecordValidator:
     """Validate and normalize records against schema constraints."""
 
-    def __init__(self, enums_schema_file: Path) -> None:
-        self.enums = EnumCatalog.from_schema(enums_schema_file)
+    def __init__(self, enums_schema_files: list[Path]) -> None:
+        self.enums = EnumCatalog.from_schemas(enums_schema_files)
 
     def validate(self, entities: list[EntityRecord], relations: list[RelationRecord], strict: bool = False) -> ValidationResult:
         """Validate records and return normalized output."""

@@ -60,18 +60,23 @@ def _run_convert_ifc(args: argparse.Namespace) -> None:
     engine = build_engine(args.database_url)
     session_factory = build_session_factory(engine)
     repo_root = _repo_root_from_here()
-    enums_schema = repo_root / "schema" / "enums_schema.yaml"
+    enum_schemas = [
+        repo_root / "schema" / "enums_schema.yaml",
+        repo_root / "schema" / "performance_enums_schema.yaml",
+        repo_root / "schema" / "requirements_enums_schema.yaml",
+    ]
     ifc_file = Path(args.ifc_file).resolve()
 
     with session_factory() as session:
         stats = run_ifc_conversion(
             session=session,
             ifc_file=ifc_file,
-            enums_schema_file=enums_schema,
+            enums_schema_files=enum_schemas,
             strict=args.strict,
         )
     print(f"Entities written: {stats.entities_written}")
     print(f"Relations written: {stats.relations_written}")
+    print(f"Geometries written: {stats.geometries_written}")
     if stats.warnings:
         print("Warnings:")
         for warning in stats.warnings:

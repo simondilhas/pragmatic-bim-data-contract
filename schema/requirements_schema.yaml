@@ -1,0 +1,77 @@
+id: https://example.org/pragmatic-bim-schema/requirements
+name: pragmatic_bim_requirements_schema
+title: Pragmatic BIM Schema - Requirements
+description: >
+  Requirement-driver slots and requirement assessment structures.
+license: MIT
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  pbs: https://example.org/pragmatic-bim-schema/
+  ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
+  ifcowl: https://w3id.org/ifc/IFC4_ADD2#
+  bot: https://w3id.org/bot#
+
+default_prefix: pbs
+default_range: string
+
+imports:
+  - linkml:types
+  - core_schema.yaml
+  - requirements_enums_schema.yaml
+
+classes:
+  RequirementAssessment:
+    class_uri: pbs:RequirementAssessment
+    description: >
+      Optional assessment record linking requirement intent, normalized property
+      evidence, and compliance result for an entity.
+    slots:
+      - requirement_driver
+      - assessed_property_key
+      - requirement_target
+      - requirement_status
+      - requirement_evidence
+
+slots:
+  separator_requirement_drivers:
+    multivalued: true
+    range: SeparatorRequirementDriver
+    description: >
+      Performance requirement drivers for this separator. Multiple values are
+      allowed because one separator may need to satisfy several requirements.
+
+  connection_physical_requirement_drivers:
+    multivalued: true
+    range: ConnectionRequirementDriver
+    description: >
+      Performance requirement drivers for this physical connection element.
+      Multiple values are allowed because one connection may need to satisfy
+      several requirements.
+
+  connection_virtual_requirement_drivers:
+    multivalued: true
+    range: ConnectionRequirementDriver
+    description: Main requirement drivers for this virtual connection.
+
+  requirement_driver:
+    range: string
+    required: true
+    description: Requirement driver key used in assessment context (for example fire, acoustic, structural, security).
+
+  assessed_property_key:
+    range: string
+    required: true
+    description: Canonical normalized property key used as evidence for requirement evaluation.
+
+  requirement_target:
+    range: string
+    description: Target criterion or threshold used by the requirement rule.
+
+  requirement_status:
+    range: RequirementStatusType
+    description: Assessment result status (for example pass, fail, unknown).
+
+  requirement_evidence:
+    range: string
+    description: Human-readable evidence or machine rule reference supporting the assessment.

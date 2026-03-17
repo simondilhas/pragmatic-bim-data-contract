@@ -99,14 +99,15 @@ class EnumCatalog:
     values: dict[str, set[str]]
 
     @classmethod
-    def from_schema(cls, enums_schema_file: Path) -> "EnumCatalog":
-        """Load permissible enum values from LinkML enums schema."""
-        with enums_schema_file.open("r", encoding="utf-8") as handle:
-            parsed = yaml.safe_load(handle)
+    def from_schemas(cls, enums_schema_files: list[Path]) -> "EnumCatalog":
+        """Load permissible enum values from one or more LinkML enums schema files."""
         values: dict[str, set[str]] = {}
-        for enum_name, enum_payload in (parsed.get("enums") or {}).items():
-            permissible = enum_payload.get("permissible_values") or {}
-            values[enum_name] = set(permissible.keys())
+        for enums_schema_file in enums_schema_files:
+            with enums_schema_file.open("r", encoding="utf-8") as handle:
+                parsed = yaml.safe_load(handle)
+            for enum_name, enum_payload in (parsed.get("enums") or {}).items():
+                permissible = enum_payload.get("permissible_values") or {}
+                values[enum_name] = set(permissible.keys())
         return cls(values=values)
 
 

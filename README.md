@@ -12,6 +12,10 @@ that can be reused and evolved instead of reinvented each time.
 
 - `schema/00_pragmatic_bim_schema.yaml`: Root schema entrypoint importing all modules.
 - `schema/core_schema.yaml`: Core entities and reusable base slots.
+- `schema/performance_enums_schema.yaml`: Enums for normalized performance properties.
+- `schema/requirements_enums_schema.yaml`: Enums for requirement drivers and assessment status.
+- `schema/performance_schema.yaml`: Domain-specific normalized performance property classes.
+- `schema/requirements_schema.yaml`: Requirement-driver slots and assessment structures.
 - `schema/elements_physical_schema.yaml`: Physical element hierarchy and element-related slots.
 - `schema/elements_virtual_schema.yaml`: Virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `CostItem`, `CostAssembly`, `Material`) and their slots.
 - `schema/enums_schema.yaml`: All controlled vocabularies.
