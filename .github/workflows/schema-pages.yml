@@ -1,15 +1,17 @@
-name: Publish Schemas to GitHub Pages
+name: Publish Stable Schema Release to GitHub Pages
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 on:
   push:
-    branches: ["main"]
-    paths:
-      - "schema/**"
-      - ".github/workflows/schema-pages.yml"
+    tags: ["v*"]
   workflow_dispatch:
+    inputs:
+      release_version:
+        description: "Release version (for manual runs), e.g. v1.2.0"
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -17,12 +19,14 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-stable
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RELEASE_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || inputs.release_version }}
 
     steps:
       - name: Checkout
@@ -78,6 +82,15 @@ jobs:
           else
             "$DOC_CMD" schema/00_pragmatic_bim_data_contract.yaml > site/schema/pragmatic-bim.docs.md
           fi
+
+          case "$RELEASE_VERSION" in
+            v[0-9]*)
+              ;;
+            *)
+              echo "RELEASE_VERSION must start with 'v' (got: $RELEASE_VERSION)"
+              exit 1
+              ;;
+          esac
 
       - name: Render markdown docs as HTML
         run: |
@@ -372,10 +385,42 @@ jobs:
           <html lang="en">
             <head>
               <meta charset="utf-8">
-              <title>Pragmatic BIM Schema</title>
+              <title>Pragmatic BIM Schema (Stable)</title>
             </head>
             <body>
-              <h1>Pragmatic BIM Schema</h1>
+              <h1>Pragmatic BIM Schema (Stable)</h1>
+              <p>Latest stable release artifacts are available here.</p>
+              <ul>
+                <li><a href="./schema/pragmatic-bim.schema.json">JSON Schema</a></li>
+                <li><a href="./schema/pragmatic-bim.shacl.ttl">SHACL</a></li>
+                <li><a href="./schema/pragmatic-bim.csv">CSV</a></li>
+                <li><a href="./schema/pragmatic-bim.pydantic.py">Pydantic</a></li>
+                <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
+                <li><a href="./schema/pragmatic-bim.docs.md">Docs (Markdown, raw)</a></li>
+                <li><a href="./latest/index.html">Latest stable alias</a></li>
+              </ul>
+            </body>
+          </html>
+          HTML
+
+      - name: Publish latest and versioned snapshots
+        run: |
+          mkdir -p "site/latest" "site/$RELEASE_VERSION"
+
+          cp -R site/schema "site/latest/"
+          cp -R site/schema "site/$RELEASE_VERSION/"
+          cp site/index.html "site/latest/index.html"
+
+          cat > "site/$RELEASE_VERSION/index.html" <<HTML
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <title>Pragmatic BIM Schema ($RELEASE_VERSION)</title>
+            </head>
+            <body>
+              <h1>Pragmatic BIM Schema ($RELEASE_VERSION)</h1>
+              <p>Version-pinned release artifacts.</p>
               <ul>
                 <li><a href="./schema/pragmatic-bim.schema.json">JSON Schema</a></li>
                 <li><a href="./schema/pragmatic-bim.shacl.ttl">SHACL</a></li>
@@ -387,6 +432,13 @@ jobs:
             </body>
           </html>
           HTML
+
+          cat > site/versions.json <<JSON
+          {
+            "latest": "$RELEASE_VERSION",
+            "versions": ["$RELEASE_VERSION"]
+          }
+          JSON
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

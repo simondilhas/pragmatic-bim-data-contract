@@ -163,17 +163,21 @@ The schema is organized into five core modules:
 4. Use or extend the converter in `converter/`.
 5. Follow `converter/README.md` for converter setup and commands.
 
-## Hosted schema URIs (GitHub Pages)
+## Hosted schema URIs (GitHub Pages / custom domain)
 
-Generated schema artifacts are published via GitHub Pages from CI.
+Generated schema artifacts are published via GitHub Pages from stable release tags (`v*`).
 
-- Landing page: `https://simondilhas.github.io/pragmatic-bim-data-contract/`
-- Docs (HTML): `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.docs.html`
-- JSON Schema: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.schema.json`
-- SHACL: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.shacl.ttl`
-- CSV: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.csv`
-- Pydantic: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.pydantic.py`
-- Docs (Markdown, raw): `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.docs.md`
+- Stable landing page: `https://schema.pragmaticbim.ch/`
+- Stable docs (HTML): `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html`
+- Stable JSON Schema: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json`
+- Stable SHACL: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl`
+- Stable CSV: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv`
+- Stable Pydantic: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py`
+- Stable docs (Markdown, raw): `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md`
+- Latest stable alias: `https://schema.pragmaticbim.ch/latest/`
+- Version-pinned snapshot: `https://schema.pragmaticbim.ch/vX.Y.Z/`
+
+Development and pull request validation remain in CI (`schema-generation.yml`) and are not deployed to the stable Pages root.
 
 Enable Pages once in repository settings:
 
