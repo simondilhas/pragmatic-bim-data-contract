@@ -17,8 +17,8 @@ default_range: string
 
 imports:
   - linkml:types
-  - core_schema.yaml
-  - requirements_enums_schema.yaml
+  - core_schema
+  - requirements_enums_schema
 
 classes:
   RequirementAssessment:

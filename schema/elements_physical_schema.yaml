@@ -17,7 +17,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - requirements_schema.yaml
+  - requirements_schema
 
 classes:
   PhysicalElement:
