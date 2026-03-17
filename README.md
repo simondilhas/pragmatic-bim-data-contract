@@ -84,6 +84,16 @@ The schema is structured into five core modules:
    Provides human-readable enum translations for UI/UX, without changing the
    underlying canonical values.
 
+## Modeling Conventions
+
+- Graph edges are modeled as ID references (`inlined: false`) for
+  entity-to-entity relationships.
+- Embedded (`inlined: true`) structures are reserved for value objects that are
+  part of an entity record.
+- `cost_category` and `material_category` are intentionally open text for now;
+  they are planned to be replaced or complemented by classification-backed
+  modeling in a later iteration.
+
 ## Goals
 
 - Keep schema definitions clear and easy to evolve.

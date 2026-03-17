@@ -182,6 +182,7 @@ slots:
 
   revision:
     range: integer
+    minimum_value: 0
     description: Integer revision counter for change tracking.
 
   status:
@@ -246,6 +247,7 @@ slots:
   quantity_value:
     range: double
     required: true
+    minimum_value: 0
     description: Numeric quantity value.
 
   quantity_unit:

@@ -138,14 +138,12 @@ slots:
   separates_spaces:
     multivalued: true
     range: Space
-    inlined: true
     description: Spaces separated by this separator element.
 
   separates_levels:
     multivalued: true
-    range: SpatialContext
-    inlined: true
-    description: Level context nodes separated by this slab separator (context_type should be level).
+    range: LevelContext
+    description: Level context nodes separated by this slab separator.
 
   bounded_space:
     range: Space
