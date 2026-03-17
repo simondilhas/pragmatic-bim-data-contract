@@ -2,7 +2,7 @@ id: https://example.org/pragmatic-bim-data-contract/requirements
 name: pragmatic_bim_requirements_schema
 title: Pragmatic BIM Data Contract - Requirements
 description: >
-  Requirement-driver slots and requirement assessment structures.
+  Requirement-driver slots.
 license: MIT
 
 prefixes:
@@ -19,19 +19,6 @@ imports:
   - linkml:types
   - core_schema
   - requirements_enums_schema
-
-classes:
-  RequirementAssessment:
-    class_uri: pbs:RequirementAssessment
-    description: >
-      Optional assessment record linking requirement intent, normalized property
-      evidence, and compliance result for an entity.
-    slots:
-      - requirement_driver
-      - assessed_property_key
-      - requirement_target
-      - requirement_status
-      - requirement_evidence
 
 slots:
   separator_requirement_drivers:
@@ -54,24 +41,3 @@ slots:
     range: ConnectionRequirementDriver
     description: Main requirement drivers for this virtual connection.
 
-  requirement_driver:
-    range: string
-    required: true
-    description: Requirement driver key used in assessment context (for example fire, acoustic, structural, security).
-
-  assessed_property_key:
-    range: string
-    required: true
-    description: Canonical normalized property key used as evidence for requirement evaluation.
-
-  requirement_target:
-    range: string
-    description: Target criterion or threshold used by the requirement rule.
-
-  requirement_status:
-    range: RequirementStatusType
-    description: Assessment result status (for example pass, fail, unknown).
-
-  requirement_evidence:
-    range: string
-    description: Human-readable evidence or machine rule reference supporting the assessment.

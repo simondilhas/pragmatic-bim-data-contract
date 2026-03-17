@@ -55,13 +55,3 @@ enums:
       structural:
         meaning: pbs:requirement_driver_structural
 
-  RequirementStatusType:
-    enum_uri: pbs:RequirementStatusType
-    description: Assessment status for requirement evaluation records.
-    permissible_values:
-      pass:
-        meaning: pbs:requirement_status_pass
-      fail:
-        meaning: pbs:requirement_status_fail
-      unknown:
-        meaning: pbs:requirement_status_unknown

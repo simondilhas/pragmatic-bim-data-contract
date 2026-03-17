@@ -76,26 +76,12 @@ classes:
       - quantity_value
       - quantity_unit
 
-  LocalizedText:
-    class_uri: pbs:LocalizedText
-    description: Localized text value for a specific language tag.
-    slots:
-      - language_tag
-      - text_value
-
   MetadataEntry:
     class_uri: pbs:MetadataEntry
     description: Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data.
     slots:
       - metadata_key
       - metadata_value
-
-  Document:
-    class_uri: pbs:Document
-    description: Reference to an external document stored in a file system, DMS, object storage, or URL.
-    slots:
-      - classifications
-      - storage_link
 
   PerformanceProperty:
     abstract: true
@@ -140,6 +126,20 @@ classes:
       - due_at
       - related_decision
       - task_notes
+
+  Document:
+    class_uri: pbs:Document
+    description: Reference to an external document stored in a file system, DMS, object storage, or URL.
+    slots:
+      - classifications
+      - storage_link
+
+  LocalizedText:
+    class_uri: pbs:LocalizedText
+    description: Localized text value for a specific language tag.
+    slots:
+      - language_tag
+      - text_value
 
 slots:
   id:
