@@ -42,7 +42,7 @@ enums:
         exact_mappings:
           - bot:Site
       legal_site:
-        meaning: ifcowl:IfcSite
+        meaning: pbs:LegalSiteContext
       building:
         meaning: bot:Building
       civil_structure:
