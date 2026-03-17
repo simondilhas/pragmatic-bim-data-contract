@@ -1,13 +1,13 @@
-id: https://example.org/pragmatic-bim-schema/requirements
+id: https://example.org/pragmatic-bim-data-contract/requirements
 name: pragmatic_bim_requirements_schema
-title: Pragmatic BIM Schema - Requirements
+title: Pragmatic BIM Data Contract - Requirements
 description: >
   Requirement-driver slots and requirement assessment structures.
 license: MIT
 
 prefixes:
   linkml: https://w3id.org/linkml/
-  pbs: https://example.org/pragmatic-bim-schema/
+  pbs: https://example.org/pragmatic-bim-data-contract/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#

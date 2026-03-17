@@ -1,13 +1,13 @@
-id: https://example.org/pragmatic-bim-schema/enums
+id: https://example.org/pragmatic-bim-data-contract/enums
 name: pragmatic_bim_enums_schema
-title: Pragmatic BIM Schema - Enums
+title: Pragmatic BIM Data Contract - Enums
 description: >
   Controlled vocabularies for core, context, elements, and costing.
 license: MIT
 
 prefixes:
   linkml: https://w3id.org/linkml/
-  pbs: https://example.org/pragmatic-bim-schema/
+  pbs: https://example.org/pragmatic-bim-data-contract/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#

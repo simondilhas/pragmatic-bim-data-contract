@@ -1,4 +1,4 @@
-# pragmatic-bim-schema
+# pragmatic-bim-data-contract
 
 Pragmatic BIM Data Contract
 
@@ -111,7 +111,7 @@ Without having to:
 
 ## Project structure
 
-- `schema/00_pragmatic_bim_schema.yaml`: root schema entrypoint importing all modules.
+- `schema/00_pragmatic_bim_data_contract.yaml`: root schema entrypoint importing all modules.
 - `schema/core_schema.yaml`: core entities and reusable base slots.
 - `schema/performance_enums_schema.yaml`: enums for normalized performance properties.
 - `schema/requirements_enums_schema.yaml`: enums for requirement drivers and assessment status.
@@ -159,7 +159,7 @@ The schema is organized into five core modules:
 ## Getting started
 
 1. Clone this repository.
-2. Start with `schema/00_pragmatic_bim_schema.yaml` to understand module composition.
+2. Start with `schema/00_pragmatic_bim_data_contract.yaml` to understand module composition.
 3. Inspect module definitions in `schema/`.
 4. Use or extend the converter in `converter/`.
 5. Follow `converter/README.md` for converter setup and commands.
@@ -168,13 +168,13 @@ The schema is organized into five core modules:
 
 Generated schema artifacts are published via GitHub Pages from CI.
 
-- Landing page: `https://simondilhas.github.io/pragmatic-bim-schema/`
-- Docs (HTML): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.html`
-- JSON Schema: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.schema.json`
-- SHACL: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.shacl.ttl`
-- CSV: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.csv`
-- Pydantic: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.pydantic.py`
-- Docs (Markdown, raw): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.md`
+- Landing page: `https://simondilhas.github.io/pragmatic-bim-data-contract/`
+- Docs (HTML): `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.docs.html`
+- JSON Schema: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.schema.json`
+- SHACL: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.shacl.ttl`
+- CSV: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.csv`
+- Pydantic: `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.pydantic.py`
+- Docs (Markdown, raw): `https://simondilhas.github.io/pragmatic-bim-data-contract/schema/pragmatic-bim.docs.md`
 
 Enable Pages once in repository settings:
 
@@ -188,7 +188,7 @@ an external private repository and be consumed as a submodule.
 
 Recommended sibling checkout layout:
 
-- `../pragmatic-bim-schema` (this repository)
+- `../pragmatic-bim-data-contract` (this repository)
 - `../pragmatic-bim-classifications` (private repository)
 
 Recommended submodule path in this repository:
