@@ -16,7 +16,7 @@ that can be reused and evolved instead of reinvented each time.
 - `schema/elements_virtual_schema.yaml`: Virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `CostItem`, `CostAssembly`, `Material`) and their slots.
 - `schema/enums_schema.yaml`: All controlled vocabularies.
 - `schema/enum_localizations.yaml`: Enum label/localization metadata.
-- `converter/`: Converter module for transforming data to and from the schema.
+- `converter/`: Converter module for transforming data to and from the schema. Setup, tests, and DB import/export commands are documented in `converter/README.md`.
 
 ## Schema Overview
 
@@ -105,6 +105,7 @@ The schema is structured into five core modules:
 1. Clone the repository.
 2. Explore the schema files in `schema/`.
 3. Use or implement converter logic in `converter/` as needed by your workflow.
+4. For converter quickstart and command usage, follow `converter/README.md`.
 
 ## Private Extensions (SKOS/SPARQL)
 
@@ -137,8 +138,6 @@ cd ../..
 git add external/classifications .gitmodules
 git commit -m "Pin classifications submodule to v2026.03"
 ```
-
-See `docs/classifications-integration.md` for auth and CI details.
 
 ## Contributing
 
