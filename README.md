@@ -88,6 +88,23 @@ The schema is organized into five core modules:
 4. Use or extend the converter in `converter/`.
 5. Follow `converter/README.md` for converter setup and commands.
 
+## Hosted schema URIs (GitHub Pages)
+
+Generated schema artifacts are published via GitHub Pages from CI.
+
+- Landing page: `https://simondilhas.github.io/pragmatic-bim-schema/`
+- JSON Schema: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.schema.json`
+- SHACL: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.shacl.ttl`
+- ShEx: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.shex`
+- CSV: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.csv`
+- Pydantic: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.pydantic.py`
+- Docs (Markdown): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.md`
+
+Enable Pages once in repository settings:
+
+1. Go to `Settings` -> `Pages`.
+2. Under Build and deployment, set Source to `GitHub Actions`.
+
 ## Private extensions (SKOS/SPARQL)
 
 Copyright-restricted norm translations and derived SPARQL rules should live in
@@ -130,4 +147,4 @@ Contributions are welcome.
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE` for details. test
+This project is licensed under the MIT License. See `LICENSE` for details.
