@@ -309,7 +309,7 @@ jobs:
                 const applyScale = () => {{
                   const el = modalContent.querySelector(".modal-diagram");
                   if (!el) return;
-                  el.style.transform = `scale(${{scale}})`;
+                  el.style.transform = "scale(" + scale + ")";
                 }};
 
                 const openModal = (sourceDiagram) => {{
