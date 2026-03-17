@@ -84,6 +84,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
+          import html as html_lib
           import markdown as md
           import yaml
 
@@ -176,6 +177,25 @@ jobs:
             rows_sorted = sorted(fixed_rows, key=row_key)
             return "\n".join(lines[:rows_start] + rows_sorted + lines[rows_end:])
 
+          def normalize_mermaid_blocks(text: str) -> str:
+            pattern = re.compile(r"```mermaid\s*\n(.*?)\n```", re.DOTALL)
+
+            def repl(match):
+              body = match.group(1)
+              compact_lines = [line.rstrip() for line in body.splitlines() if line.strip()]
+              return "```mermaid\n" + "\n".join(compact_lines) + "\n```"
+
+            return pattern.sub(repl, text)
+
+          def render_mermaid_blocks(html: str) -> str:
+            pattern = re.compile(r'<pre><code class="language-mermaid">(.*?)</code></pre>', re.DOTALL)
+
+            def repl(match):
+              code = html_lib.unescape(match.group(1))
+              return f'<div class="mermaid">\n{code}\n</div>'
+
+            return pattern.sub(repl, html)
+
           schema_dir = Path("site/schema")
           md_files = sorted(schema_dir.glob("*.md"))
           if not md_files:
@@ -198,12 +218,14 @@ jobs:
             text = md_file.read_text(encoding="utf-8")
             if md_file.name == "pragmatic-bim.docs.md":
               text = reorder_classes_table(text, class_order, class_descriptions)
+            text = normalize_mermaid_blocks(text)
             html_body = md.markdown(
               text,
               extensions=["tables", "fenced_code", "toc"],
               output_format="html5",
             )
             html_body = re.sub(r'href="([^"]+)\.md"', r'href="\1.html"', html_body)
+            html_body = render_mermaid_blocks(html_body)
             title = md_file.stem
             html = f"""<!doctype html>
           <html lang="en">
@@ -215,6 +237,10 @@ jobs:
             </head>
             <body>
               {html_body}
+              <script type="module">
+                import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+                mermaid.initialize({{ startOnLoad: true, securityLevel: "loose" }});
+              </script>
             </body>
           </html>
           """
