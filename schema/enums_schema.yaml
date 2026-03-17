@@ -133,27 +133,81 @@ enums:
     enum_uri: pbs:EquipmentType
     permissible_values:
       hvac:
+        description: HVAC endpoint/device such as terminal units or packaged devices.
         meaning: ifcowl:IfcDistributionElement
       electrical:
+        description: Electrical endpoint/device such as appliances, outlets, or fixtures.
         meaning: ifcowl:IfcElectricalElement
       plumbing:
+        description: Plumbing endpoint/device such as sanitary terminals and fixtures.
         meaning: ifcowl:IfcFlowTerminal
       fire_safety:
+        description: Fire safety endpoint/device such as suppression terminals and alarms.
         meaning: ifcowl:IfcFireSuppressionTerminal
       controls:
+        description: Monitoring/control device such as sensors, actuators, and controllers.
         meaning: ifcowl:IfcDistributionControlElement
       furniture:
+        description: Furniture/device objects treated as endpoint assets.
         meaning: ifcowl:IfcFurniture
       other:
+        description: Other endpoint/device element not covered by controlled values.
         meaning: ifcowl:IfcElement
 
   ConnectionPhysicalType:
     enum_uri: pbs:ConnectionPhysicalType
+    description: Classification of physical connector elements that connect spaces.
     permissible_values:
       door:
+        description: Human access connector via a door element.
         meaning: ifcowl:IfcDoor
       window:
+        description: Visual/daylight connector via a window element.
         meaning: ifcowl:IfcWindow
+      duct:
+        description: Air distribution connector segment.
+        meaning: ifcowl:IfcDuctSegment
+      pipe:
+        description: Fluid/gas distribution connector segment.
+        meaning: ifcowl:IfcPipeSegment
+      cable:
+        description: Electrical/data cable connector segment.
+        meaning: ifcowl:IfcCableSegment
+      conduit:
+        description: Electrical/data conduit connector segment.
+        meaning: ifcowl:IfcConduitSegment
+      opening_other:
+        description: Other opening-style connector not covered by door/window.
+        meaning: ifcowl:IfcOpeningElement
+      network_other:
+        description: Other network connector segment not covered by controlled values.
+        meaning: ifcowl:IfcFlowSegment
+
+  TransportMedium:
+    enum_uri: pbs:TransportMedium
+    description: Primary medium transported through or enabled by a physical connector.
+    permissible_values:
+      human_access:
+        description: Human movement/access medium.
+        meaning: pbs:transport_medium_human_access
+      daylight_view:
+        description: Daylight/view medium.
+        meaning: pbs:transport_medium_daylight_view
+      air:
+        description: Air medium.
+        meaning: pbs:transport_medium_air
+      liquid:
+        description: Liquid medium.
+        meaning: pbs:transport_medium_liquid
+      gas:
+        description: Gas medium.
+        meaning: pbs:transport_medium_gas
+      electricity:
+        description: Electrical energy medium.
+        meaning: pbs:transport_medium_electricity
+      data:
+        description: Data/signal medium.
+        meaning: pbs:transport_medium_data
 
   ConnectionVirtualType:
     enum_uri: pbs:ConnectionVirtualType

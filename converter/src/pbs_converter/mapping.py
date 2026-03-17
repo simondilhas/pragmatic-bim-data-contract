@@ -22,8 +22,17 @@ IFC_CLASS_TO_PBS_TYPE: dict[str, str] = {
     "IfcSlab": "SeparatorSlab",
     "IfcDoor": "ConnectionPhysical",
     "IfcWindow": "ConnectionPhysical",
+    "IfcDuctSegment": "ConnectionPhysical",
+    "IfcPipeSegment": "ConnectionPhysical",
+    "IfcCableSegment": "ConnectionPhysical",
+    "IfcCableCarrierSegment": "ConnectionPhysical",
+    "IfcConduitSegment": "ConnectionPhysical",
     "IfcCovering": "Boundary",
-    "IfcDistributionElement": "Equipment",
+    "IfcFlowTerminal": "Equipment",
+    "IfcDistributionControlElement": "Equipment",
+    "IfcUnitaryEquipment": "Equipment",
+    "IfcElectricAppliance": "Equipment",
+    "IfcSanitaryTerminal": "Equipment",
 }
 
 CLASS_DEFAULT_SLOT_VALUES: dict[str, dict[str, Any]] = {
@@ -36,9 +45,19 @@ CLASS_DEFAULT_SLOT_VALUES: dict[str, dict[str, Any]] = {
     "System": {"system_type": "network", "system_discipline": "ventilation"},
     "SeparatorWall": {"separator_wall_type": "unit_boundary"},
     "SeparatorSlab": {"separator_slab_type": "floor"},
-    "ConnectionPhysical": {"connection_physical_type": "door"},
+    "ConnectionPhysical": {"connection_physical_type": "opening_other", "transport_medium": "human_access"},
     "Boundary": {"boundary_type": "cladding"},
     "Equipment": {"equipment_type": "other"},
+}
+
+IFC_CLASS_DEFAULT_SLOT_VALUES: dict[str, dict[str, Any]] = {
+    "IfcDoor": {"connection_physical_type": "door", "transport_medium": "human_access"},
+    "IfcWindow": {"connection_physical_type": "window", "transport_medium": "daylight_view"},
+    "IfcDuctSegment": {"connection_physical_type": "duct", "transport_medium": "air"},
+    "IfcPipeSegment": {"connection_physical_type": "pipe", "transport_medium": "liquid"},
+    "IfcCableSegment": {"connection_physical_type": "cable", "transport_medium": "electricity"},
+    "IfcCableCarrierSegment": {"connection_physical_type": "cable", "transport_medium": "electricity"},
+    "IfcConduitSegment": {"connection_physical_type": "conduit", "transport_medium": "electricity"},
 }
 
 IFC_REL_CLASS_TO_RELATION_TYPE: dict[str, str] = {
@@ -67,7 +86,7 @@ REQUIRED_SLOTS_BY_CLASS: dict[str, set[str]] = {
     "System": {"id", "name", "system_type", "system_discipline"},
     "SeparatorWall": {"id", "name", "separator_wall_type"},
     "SeparatorSlab": {"id", "name", "separator_slab_type"},
-    "ConnectionPhysical": {"id", "name", "connection_physical_type"},
+    "ConnectionPhysical": {"id", "name", "connection_physical_type", "transport_medium"},
     "Boundary": {"id", "name", "boundary_type"},
     "Equipment": {"id", "name", "equipment_type"},
 }
@@ -80,6 +99,7 @@ ENUM_NAMES_BY_SLOT: dict[str, str] = {
     "system_discipline": "SystemDiscipline",
     "equipment_type": "EquipmentType",
     "connection_physical_type": "ConnectionPhysicalType",
+    "transport_medium": "TransportMedium",
     "connection_virtual_type": "ConnectionVirtualType",
     "connection_virtual_requirement_drivers": "ConnectionRequirementDriver",
     "connection_physical_requirement_drivers": "ConnectionRequirementDriver",
@@ -124,6 +144,7 @@ def map_ifc_product_to_entity(
         return None
     payload: dict[str, Any] = {}
     payload.update(CLASS_DEFAULT_SLOT_VALUES.get(pbs_type, {}))
+    payload.update(IFC_CLASS_DEFAULT_SLOT_VALUES.get(ifc_class_name, {}))
     if extra_payload:
         payload.update(extra_payload)
     entity_name = name or f"{ifc_class_name}-{global_id}"

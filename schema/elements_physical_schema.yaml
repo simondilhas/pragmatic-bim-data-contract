@@ -73,9 +73,12 @@ classes:
     exact_mappings:
       - ifcowl:IfcDoor
       - ifcowl:IfcWindow
-    description: Physical opening element providing functional connection between spaces (for example door or window).
+      - ifcowl:IfcFlowSegment
+      - ifcowl:IfcCableCarrierSegment
+    description: Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable).
     slots:
       - connection_physical_type
+      - transport_medium
       - connection_physical_requirement_drivers
 
   Boundary:
@@ -94,7 +97,7 @@ classes:
     exact_mappings:
       - bot:Element
       - ifcowl:IfcDistributionElement
-    description: Equipment item that is located in a space and assigned to a system.
+    description: Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system.
     slots:
       - equipment_type
       - parent_space
@@ -104,7 +107,12 @@ slots:
   connection_physical_type:
     range: ConnectionPhysicalType
     required: true
-    description: Classification of physical opening element type (for example door, window).
+    description: Classification of physical connector type (for example door, window, duct, pipe, cable).
+
+  transport_medium:
+    range: TransportMedium
+    required: true
+    description: Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity).
 
   separator_wall_type:
     range: SeparatorWallType

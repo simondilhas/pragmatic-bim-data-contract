@@ -131,7 +131,7 @@ The schema is organized into five core modules:
    - shared base entity model (`Entity`), identifiers, lifecycle metadata, localization, geometry links, quantities, and extensible metadata.
 
 2. **Physical elements** (`elements_physical_schema.yaml`)
-   - tangible building components such as separators (walls/slabs), physical connections (e.g., doors/windows), and equipment.
+   - tangible building components such as separators (walls/slabs), physical connections (e.g., doors/windows/ducts/pipes/cables), and endpoint equipment/devices.
 
 3. **Virtual entities** (`elements_virtual_schema.yaml`)
    - non-physical structure and logic: spatial context hierarchy, spaces, systems, virtual connections, costs, and materials.

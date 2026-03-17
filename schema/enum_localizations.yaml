@@ -131,6 +131,47 @@ enum_localizations:
     window:
       en: Window
       de: Fenster
+    duct:
+      en: Duct
+      de: Luftkanal
+    pipe:
+      en: Pipe
+      de: Rohr
+    cable:
+      en: Cable
+      de: Kabel
+    conduit:
+      en: Conduit
+      de: Leerrohr
+    opening_other:
+      en: Opening Other
+      de: Sonstige Oeffnung
+    network_other:
+      en: Network Other
+      de: Sonstiges Netz
+
+  TransportMedium:
+    human_access:
+      en: Human Access
+      de: Personenverkehr
+    daylight_view:
+      en: Daylight/View
+      de: Tageslicht/Sicht
+    air:
+      en: Air
+      de: Luft
+    liquid:
+      en: Liquid
+      de: Fluessigkeit
+    gas:
+      en: Gas
+      de: Gas
+    electricity:
+      en: Electricity
+      de: Elektrizitaet
+    data:
+      en: Data
+      de: Daten
 
   ConnectionVirtualType:
     structural_joint:

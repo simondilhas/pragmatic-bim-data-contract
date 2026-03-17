@@ -47,8 +47,17 @@ def _iter_ifc_objects(model: Any) -> list[Any]:
         "IfcSlab",
         "IfcDoor",
         "IfcWindow",
+        "IfcDuctSegment",
+        "IfcPipeSegment",
+        "IfcCableSegment",
+        "IfcCableCarrierSegment",
+        "IfcConduitSegment",
         "IfcCovering",
-        "IfcDistributionElement",
+        "IfcFlowTerminal",
+        "IfcDistributionControlElement",
+        "IfcUnitaryEquipment",
+        "IfcElectricAppliance",
+        "IfcSanitaryTerminal",
     ]
     objects: list[Any] = []
     for cls in classes:
