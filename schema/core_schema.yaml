@@ -11,6 +11,11 @@ prefixes:
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#
+  prov: http://www.w3.org/ns/prov#
+  dcterms: http://purl.org/dc/terms/
+  schema: https://schema.org/
+  adms: http://www.w3.org/ns/adms#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
 
 default_prefix: pbs
 default_range: string
@@ -37,6 +42,8 @@ classes:
       - documents
       - metadata
       - performance_properties
+      - decisions
+      - tasks
       - created_at
       - modified_at
       - revision
@@ -107,6 +114,32 @@ classes:
       - source_property
       - source_value_raw
       - mapping_version
+
+  Decision:
+    class_uri: pbs:Decision
+    exact_mappings:
+      - prov:Entity
+    description: Decision record linked to an entity for workflow traceability and governance.
+    slots:
+      - decision_type
+      - decision_status
+      - decided_by
+      - decided_at
+      - rationale
+
+  Task:
+    class_uri: pbs:Task
+    exact_mappings:
+      - schema:Action
+      - prov:Activity
+    description: Action/task record linked to an entity for implementation and follow-up workflows.
+    slots:
+      - task_type
+      - task_status
+      - assignee
+      - due_at
+      - related_decision
+      - task_notes
 
 slots:
   id:
@@ -198,6 +231,73 @@ slots:
     description: >
       Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/
       security/material) extracted from raw IFC PropertySet values.
+
+  decisions:
+    multivalued: true
+    range: Decision
+    inlined: true
+    description: Decision records associated with this entity.
+
+  tasks:
+    multivalued: true
+    range: Task
+    inlined: true
+    description: Tasks associated with this entity.
+
+  decision_type:
+    range: uriorcurie
+    slot_uri: dcterms:type
+    description: Decision type expressed as a URI/CURIE from a controlled vocabulary.
+
+  decision_status:
+    range: uriorcurie
+    slot_uri: adms:status
+    description: Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded).
+
+  decided_by:
+    range: uriorcurie
+    slot_uri: prov:wasAttributedTo
+    description: URI/CURIE for the agent responsible for the decision.
+
+  decided_at:
+    range: datetime
+    slot_uri: dcterms:created
+    description: Timestamp when the decision was made.
+
+  rationale:
+    range: string
+    slot_uri: dcterms:description
+    description: Human-readable rationale that explains why the decision was made.
+
+  task_type:
+    range: uriorcurie
+    slot_uri: dcterms:type
+    description: Task type expressed as a URI/CURIE from a controlled vocabulary.
+
+  task_status:
+    range: uriorcurie
+    slot_uri: schema:actionStatus
+    description: Task status URI/CURIE aligned with action status vocabularies.
+
+  assignee:
+    range: uriorcurie
+    slot_uri: schema:agent
+    description: URI/CURIE for the responsible agent.
+
+  due_at:
+    range: datetime
+    slot_uri: schema:deadline
+    description: Due timestamp for task completion.
+
+  related_decision:
+    range: Decision
+    slot_uri: prov:used
+    description: Optional reference to a decision that informs or drives this task.
+
+  task_notes:
+    range: string
+    slot_uri: rdfs:comment
+    description: Additional notes or implementation details for the task.
 
   created_at:
     range: datetime

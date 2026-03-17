@@ -1,37 +1,113 @@
 # pragmatic-bim-schema
 
-A practical, open-source BIM schema for teams that want IFC-grade data without IFC-level complexity in day-to-day workflows.
+Pragmatic BIM Data Contract
 
-## Why this project exists
+## Why this exists
 
-Most BIM data pipelines repeatedly hit the same bottlenecks:
+BIM data is hard to use.
 
-- IFC exports are rich but heavy for analytics and application development.
-- Project teams need stable structures for spaces, systems, costs, materials, and performance checks.
-- Every organization ends up reinventing ad-hoc mappings and inconsistent naming.
+Not because the data is missing, but because it is buried in complexity:
 
-`pragmatic-bim-schema` provides a shared, opinionated middle layer: expressive enough to preserve meaningful BIM semantics, but simple enough for implementation, querying, and iteration.
+- IFC (Industry Foundation Classes) is powerful but:
+  - too complex (hundreds of entities and deep relationships)
+  - inconsistent across tools and projects
+  - difficult to query for real workflows
+- IDS (Information Delivery Specification) focuses on data validation, but not on
+  complex conditional validation logic (for example: if a building is below 25 m,
+  staircase walls must be EI90).
+- bSDD (buildingSMART Data Dictionary) focuses on classification, not workflows.
 
-## What it is useful for
+Result: teams cannot reliably build automation, dashboards, or simulations on top
+of BIM data without heavy preprocessing.
 
-Use this schema when you need to:
+## What this is
 
-- **Normalize IFC and model data** into a graph-friendly representation.
-- **Run cross-domain analytics** (space + system + element + requirement + cost).
-- **Build repeatable import/export tooling** around one stable schema contract.
-- **Track requirements and assessments** (e.g., fire, acoustic, thermal, structural).
-- **Support multilingual UI/UX** with localized enum labels.
-- **Prepare data for downstream apps** (costing, QA dashboards, model checks, search).
+This project defines a pragmatic BIM data contract: a minimal, opinionated
+structure for BIM data designed for workflows, not modeling.
 
-In short: it helps teams move from "BIM as files" to "BIM as usable product data".
+It acts as a layer between:
 
-## Design principles
+- complex source data (for example IFC)
+- and real applications (QTO, simulations, dashboards, quality checks)
 
-- **Pragmatic over exhaustive**: keep the model implementable.
-- **Graph-native relationships**: entities reference entities with IDs.
-- **Separation of concerns**: core, elements, requirements/performance, and vocabularies are split into focused modules.
-- **Interoperability hooks**: keep optional links to IFC/ontology identifiers where useful.
-- **Evolvable structure**: modules can expand without rewriting the whole model.
+## Core idea
+
+Instead of trying to standardize everything, this contract:
+
+- reduces complexity
+- enforces consistency
+- focuses on what is actually needed
+
+It is intentionally limited.
+
+## Principles
+
+### 1) Not a replacement for IFC
+
+This contract does not compete with IFC.
+
+IFC remains:
+
+- the exchange format
+- the source of truth
+
+This contract exists to make IFC usable in day-to-day workflows.
+
+### 2) Designed for workflows, not modeling
+
+This contract is built for:
+
+- querying data
+- running calculations
+- feeding simulations
+- building applications
+
+Not for:
+
+- authoring models
+- preserving full semantic richness
+
+### 3) Opinionated by design
+
+Flexibility is often the enemy of automation. This contract intentionally:
+
+- limits structure
+- enforces naming
+- reduces ambiguity
+
+If your use case requires full flexibility, use IFC directly.
+
+### 4) Abstraction over completeness
+
+This project intentionally ignores large parts of IFC.
+
+Only data required for real workflows is included.
+
+### 5) Consistency over universality
+
+This is not a universal standard.
+
+It is a consistent contract that enables:
+
+- repeatable queries
+- predictable pipelines
+- reliable automation
+
+## What this enables
+
+Using this contract, you can build:
+
+- quantity takeoff pipelines
+- room and space analysis
+- simulation input models
+- project dashboards
+- validation workflows
+
+Without having to:
+
+- traverse complex IFC relationships
+- handle inconsistent structures
+- rebuild logic for every project
 
 ## Project structure
 
@@ -72,7 +148,7 @@ The schema is organized into five core modules:
 - Value objects that belong inside a record are embedded (`inlined: true`).
 - `cost_category` and `material_category` are intentionally open text for now and can later be aligned with stronger classification systems.
 
-## Typical workflow
+## How it fits in a workflow
 
 1. Ingest BIM/IFC data with project-specific extraction logic.
 2. Map extracted entities to this schema.
@@ -93,7 +169,7 @@ The schema is organized into five core modules:
 Generated schema artifacts are published via GitHub Pages from CI.
 
 - Landing page: `https://simondilhas.github.io/pragmatic-bim-schema/`
-- Docs (HTML): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.html
+- Docs (HTML): `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.docs.html`
 - JSON Schema: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.schema.json`
 - SHACL: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.shacl.ttl`
 - CSV: `https://simondilhas.github.io/pragmatic-bim-schema/schema/pragmatic-bim.csv`

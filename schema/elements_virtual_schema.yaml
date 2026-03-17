@@ -29,7 +29,6 @@ classes:
       - cost_items
       - cost_assemblies
       - materials
-      - material_usages
 
   SpatialContext:
     is_a: VirtualEntity
@@ -187,15 +186,6 @@ classes:
       - material_category
       - material_specification
 
-  MaterialUsage:
-    class_uri: pbs:MaterialUsage
-    description: Material assignment with quantity details bound to a specific entity usage context.
-    slots:
-      - material
-      - quantity_type
-      - quantity_value
-      - quantity_unit
-
 slots:
   context_type:
     range: ContextType
@@ -296,12 +286,6 @@ slots:
     inlined: false
     description: Material definitions associated with this entity.
 
-  material_usages:
-    multivalued: true
-    range: MaterialUsage
-    inlined: false
-    description: Material-specific quantity assignments for this entity.
-
   cost_category:
     range: string
     description: Cost category label kept intentionally open pending classification-backed modeling.
@@ -350,7 +334,3 @@ slots:
     range: string
     description: Material grade, specification, or product description.
 
-  material:
-    range: Material
-    required: true
-    description: Referenced material for this usage record.
