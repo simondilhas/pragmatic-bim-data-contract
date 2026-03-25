@@ -304,9 +304,18 @@ enums:
       draft:
         description: Work-in-progress state before formal review.
         meaning: pbs:status_draft
+      submitted:
+        description: Submitted state for review or approval.
+        meaning: pbs:status_submitted
       reviewed:
         description: Reviewed state pending final approval decision.
         meaning: pbs:status_reviewed
       approved:
         description: Approved state accepted for downstream use.
         meaning: pbs:status_approved
+      rejected:
+        description: Rejected state not accepted for downstream use.
+        meaning: pbs:status_rejected
+      archived:
+        description: Archived state no longer in use.
+        meaning: pbs:status_archived

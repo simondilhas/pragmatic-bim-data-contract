@@ -50,16 +50,29 @@ classes:
       - revision
       - status
 
-  Person:
+  Agent:
     is_a: Entity
+    abstract: true
+    class_uri: pbs:Agent
+    exact_mappings:
+      - prov:Agent
+    description: Abstract base class for people or organizations acting in workflow and communication roles.
+    slots:
+      - postal_addresses
+      - contact_points
+
+  Person:
+    is_a: Agent
     class_uri: pbs:Person
     exact_mappings:
       - schema:Person
       - prov:Agent
     description: Individual stakeholder, contributor, assignee, or responsible party represented in the schema.
+    slots:
+      - belongs_to_company
 
   Company:
-    is_a: Entity
+    is_a: Agent
     class_uri: pbs:Company
     exact_mappings:
       - schema:Organization
@@ -165,6 +178,33 @@ classes:
     slots:
       - classifications
       - storage_link
+
+  PostalAddress:
+    class_uri: pbs:PostalAddress
+    exact_mappings:
+      - schema:PostalAddress
+    description: Structured postal or physical address for an agent.
+    slots:
+      - street_address
+      - post_office_box_number
+      - postal_code
+      - address_locality
+      - address_region
+      - address_country
+      - address_country_code
+
+  ContactPoint:
+    class_uri: pbs:ContactPoint
+    exact_mappings:
+      - schema:ContactPoint
+    description: Structured communication endpoint or profile for an agent.
+    slots:
+      - contact_channel_type
+      - contact_value
+      - contact_uri
+      - usage_context
+      - is_preferred
+      - availability_notes
 
   LocalizedText:
     class_uri: pbs:LocalizedText
@@ -282,6 +322,23 @@ slots:
     inlined: true
     description: Messages associated with this entity.
 
+  postal_addresses:
+    multivalued: true
+    range: PostalAddress
+    inlined: true
+    description: Structured postal or physical addresses associated with this agent.
+
+  contact_points:
+    multivalued: true
+    range: ContactPoint
+    inlined: true
+    description: Structured communication channels and profiles associated with this agent.
+
+  belongs_to_company:
+    range: Company
+    inlined: false
+    description: Optional company that the person belongs to.
+
   decision_type:
     range: uriorcurie
     slot_uri: dcterms:type
@@ -293,9 +350,10 @@ slots:
     description: Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded).
 
   decided_by:
-    range: uriorcurie
+    range: Agent
     slot_uri: prov:wasAttributedTo
-    description: URI/CURIE for the agent responsible for the decision.
+    inlined: false
+    description: Agent responsible for the decision.
 
   decided_at:
     range: datetime
@@ -318,9 +376,10 @@ slots:
     description: Task status URI/CURIE aligned with action status vocabularies.
 
   assignee:
-    range: uriorcurie
+    range: Agent
     slot_uri: schema:agent
-    description: URI/CURIE for the responsible agent.
+    inlined: false
+    description: Responsible agent.
 
   due_at:
     range: datetime
@@ -343,15 +402,17 @@ slots:
     description: Message type expressed as a URI/CURIE from a controlled vocabulary.
 
   sender:
-    range: uriorcurie
+    range: Agent
     slot_uri: schema:sender
-    description: URI/CURIE for the agent that sent the message.
+    inlined: false
+    description: Agent that sent the message.
 
   recipients:
     multivalued: true
-    range: uriorcurie
+    range: Agent
     slot_uri: schema:recipient
-    description: URI/CURIE values for the agents that received the message.
+    inlined: false
+    description: Agents that received the message.
 
   sent_at:
     range: datetime
@@ -367,6 +428,64 @@ slots:
     range: string
     slot_uri: schema:text
     description: Human-readable message content.
+
+  street_address:
+    range: string
+    slot_uri: schema:streetAddress
+    description: Street name and house number or equivalent address line.
+
+  post_office_box_number:
+    range: string
+    slot_uri: schema:postOfficeBoxNumber
+    description: Post office box number where applicable.
+
+  postal_code:
+    range: string
+    slot_uri: schema:postalCode
+    description: Postal or ZIP code.
+
+  address_locality:
+    range: string
+    slot_uri: schema:addressLocality
+    description: Locality, city, or town.
+
+  address_region:
+    range: string
+    slot_uri: schema:addressRegion
+    description: Region, state, canton, or province.
+
+  address_country:
+    range: string
+    slot_uri: schema:addressCountry
+    description: Country name.
+
+  address_country_code:
+    range: string
+    description: Optional ISO 3166-1 alpha-2 or alpha-3 country code.
+
+  contact_channel_type:
+    range: string
+    description: Communication channel type such as email, phone, website, linkedin, whatsapp, signal, slack, teams, or telegram.
+
+  contact_value:
+    range: string
+    description: Human-readable contact value such as an email address, phone number, handle, or username.
+
+  contact_uri:
+    range: uriorcurie
+    description: URI for the contact endpoint or profile where applicable.
+
+  usage_context:
+    range: string
+    description: Optional usage context such as work, personal, support, billing, or emergency.
+
+  is_preferred:
+    range: boolean
+    description: Indicates whether this is the preferred contact point.
+
+  availability_notes:
+    range: string
+    description: Optional notes about availability, office hours, or response expectations.
 
   created_at:
     range: datetime
@@ -506,3 +625,4 @@ slots:
     range: uriorcurie
     required: true
     description: URI/URL/path to the stored document location.
+
