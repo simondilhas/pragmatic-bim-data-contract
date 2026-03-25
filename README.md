@@ -146,6 +146,7 @@ The schema is organized into five core modules:
 - Entity-to-entity relationships are modeled as ID references (`inlined: false`).
 - Value objects that belong inside a record are embedded (`inlined: true`).
 - `cost_category` and `material_category` are intentionally open text for now and can later be aligned with stronger classification systems.
+- Units can be carried as plain strings for operational compatibility and optionally accompanied by unit URIs (for example QUDT) for stronger semantic alignment.
 
 ## How it fits in a workflow
 
@@ -186,35 +187,13 @@ Enable Pages once in repository settings:
 
 ## Private extensions (SKOS/SPARQL)
 
-Copyright-restricted norm translations and derived SPARQL rules should live in
-an external private repository and be consumed as a submodule.
+Classification assets and private SKOS/SPARQL rules are currently maintained in
+the sibling repository `../pragmatic-bim-private-rules`.
 
-Recommended sibling checkout layout:
+Recommended local checkout layout:
 
 - `../pragmatic-bim-data-contract` (this repository)
-- `../pragmatic-bim-classifications` (private repository)
-
-Recommended submodule path in this repository:
-
-- `external/classifications`
-
-Submodule setup (run locally, outside this sandbox):
-
-```bash
-git submodule add git@github.com:simondilhas/pragmatic-bim-classifications.git external/classifications
-git submodule update --init --recursive
-```
-
-Pinning to a tag/commit:
-
-```bash
-cd external/classifications
-git fetch --tags
-git checkout v2026.03
-cd ../..
-git add external/classifications .gitmodules
-git commit -m "Pin classifications submodule to v2026.03"
-```
+- `../pragmatic-bim-private-rules`
 
 ## Contributing
 

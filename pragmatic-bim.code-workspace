@@ -1,8 +1,13 @@
 {
   "folders": [
-    { "name": "schema-public", "path": "." },
-    { "name": "classifications-private", "path": "./external/classifications" },
-    { "name": "rules-private", "path": "../pragmatic-bim-private-rules" }
+    {
+      "name": "schema-public",
+      "path": "."
+    },
+    {
+      "name": "rules-private",
+      "path": "../pragmatic-bim-private-rules"
+    }
   ],
   "settings": {
     "files.exclude": {

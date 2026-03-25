@@ -105,6 +105,7 @@ classes:
       - quantity_type
       - quantity_value
       - quantity_unit
+      - quantity_unit_uri
 
   MetadataEntry:
     class_uri: pbs:MetadataEntry
@@ -126,6 +127,7 @@ classes:
       - property_value_number
       - property_value_boolean
       - property_unit
+      - property_unit_uri
       - source_pset
       - source_property
       - source_value_raw
@@ -570,6 +572,10 @@ slots:
     required: true
     description: Unit of the quantity value.
 
+  quantity_unit_uri:
+    range: uriorcurie
+    description: Optional URI that identifies the quantity unit in an external vocabulary such as QUDT.
+
   metadata_key:
     range: string
     required: true
@@ -604,6 +610,10 @@ slots:
   property_unit:
     range: string
     description: Normalized unit where applicable (for example min, dB, W/m2K).
+
+  property_unit_uri:
+    range: uriorcurie
+    description: Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.
 
   source_pset:
     range: string
