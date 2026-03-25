@@ -44,10 +44,27 @@ classes:
       - performance_properties
       - decisions
       - tasks
+      - messages
       - created_at
       - modified_at
       - revision
       - status
+
+  Person:
+    is_a: Entity
+    class_uri: pbs:Person
+    exact_mappings:
+      - schema:Person
+      - prov:Agent
+    description: Individual stakeholder, contributor, assignee, or responsible party represented in the schema.
+
+  Company:
+    is_a: Entity
+    class_uri: pbs:Company
+    exact_mappings:
+      - schema:Organization
+      - prov:Agent
+    description: Organization, company, or legal entity participating in the project or asset lifecycle.
 
   Classification:
     class_uri: pbs:Classification
@@ -126,6 +143,21 @@ classes:
       - due_at
       - related_decision
       - task_notes
+
+  Message:
+    is_a: Entity
+    class_uri: pbs:Message
+    exact_mappings:
+      - schema:Message
+      - prov:Entity
+    description: Message or communication record linked to an entity for coordination and traceability.
+    slots:
+      - message_type
+      - sender
+      - recipients
+      - sent_at
+      - message_subject
+      - message_body
 
   Document:
     class_uri: pbs:Document
@@ -244,6 +276,12 @@ slots:
     inlined: true
     description: Tasks associated with this entity.
 
+  messages:
+    multivalued: true
+    range: Message
+    inlined: true
+    description: Messages associated with this entity.
+
   decision_type:
     range: uriorcurie
     slot_uri: dcterms:type
@@ -298,6 +336,37 @@ slots:
     range: string
     slot_uri: rdfs:comment
     description: Additional notes or implementation details for the task.
+
+  message_type:
+    range: uriorcurie
+    slot_uri: dcterms:type
+    description: Message type expressed as a URI/CURIE from a controlled vocabulary.
+
+  sender:
+    range: uriorcurie
+    slot_uri: schema:sender
+    description: URI/CURIE for the agent that sent the message.
+
+  recipients:
+    multivalued: true
+    range: uriorcurie
+    slot_uri: schema:recipient
+    description: URI/CURIE values for the agents that received the message.
+
+  sent_at:
+    range: datetime
+    slot_uri: schema:dateSent
+    description: Timestamp when the message was sent.
+
+  message_subject:
+    range: string
+    slot_uri: schema:headline
+    description: Optional subject or headline for the message.
+
+  message_body:
+    range: string
+    slot_uri: schema:text
+    description: Human-readable message content.
 
   created_at:
     range: datetime
