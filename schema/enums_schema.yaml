@@ -2,7 +2,7 @@ id: https://example.org/pragmatic-bim-data-contract/enums
 name: pragmatic_bim_enums_schema
 title: Pragmatic BIM Data Contract - Enums
 description: >
-  Controlled vocabularies for core, context, elements, and costing.
+  Controlled vocabularies for core, context, elements, scheduling, and costing.
 license: MIT
 
 prefixes:
@@ -262,6 +262,23 @@ enums:
         meaning: ifcowl:IfcCoveringTypeEnum.CEILING
       cladding:
         meaning: ifcowl:IfcCoveringTypeEnum.CLADDING
+
+  ScheduleDependencyType:
+    enum_uri: pbs:ScheduleDependencyType
+    description: Precedence logic between two schedule items.
+    permissible_values:
+      finish_to_start:
+        description: Successor starts when the predecessor finishes.
+        meaning: pbs:schedule_dependency_type_finish_to_start
+      start_to_start:
+        description: Successor starts when the predecessor starts.
+        meaning: pbs:schedule_dependency_type_start_to_start
+      finish_to_finish:
+        description: Successor finishes when the predecessor finishes.
+        meaning: pbs:schedule_dependency_type_finish_to_finish
+      start_to_finish:
+        description: Successor finishes when the predecessor starts.
+        meaning: pbs:schedule_dependency_type_start_to_finish
 
   QuantityType:
     enum_uri: pbs:QuantityType

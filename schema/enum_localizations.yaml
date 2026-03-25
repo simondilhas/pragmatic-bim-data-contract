@@ -265,3 +265,17 @@ enum_localizations:
     cladding:
       en: Cladding
       de: Verkleidung
+
+  ScheduleDependencyType:
+    finish_to_start:
+      en: Finish to Start
+      de: Ende zu Start
+    start_to_start:
+      en: Start to Start
+      de: Start zu Start
+    finish_to_finish:
+      en: Finish to Finish
+      de: Ende zu Ende
+    start_to_finish:
+      en: Start to Finish
+      de: Start zu Ende

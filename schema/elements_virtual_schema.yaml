@@ -2,7 +2,7 @@ id: https://example.org/pragmatic-bim-data-contract/elements-virtual
 name: pragmatic_bim_elements_virtual_schema
 title: Pragmatic BIM Data Contract - Elements Virtual
 description: >
-  Virtual entities such as context, space, system, and cost/material information.
+  Virtual entities such as context, space, system, schedule, and cost/material information.
 license: MIT
 
 prefixes:
@@ -152,6 +152,45 @@ classes:
       - connects_spaces
       - connection_virtual_requirement_drivers
 
+  ScheduleTemplate:
+    is_a: Entity
+    class_uri: pbs:ScheduleTemplate
+    description: Reusable schedule container defining items, milestones, and dependencies for a scoped plan.
+    slots:
+      - scheduled_entities
+      - schedule_items
+      - schedule_dependencies
+
+  ScheduleItem:
+    is_a: Entity
+    class_uri: pbs:ScheduleItem
+    description: Planned work item with baseline and actual dates, linked to a schedule template and optional model entities.
+    slots:
+      - schedule_template
+      - scheduled_entities
+      - planned_start_at
+      - planned_finish_at
+      - actual_start_at
+      - actual_finish_at
+
+  Milestone:
+    is_a: ScheduleItem
+    class_uri: pbs:Milestone
+    description: Zero-duration checkpoint or delivery target within a schedule.
+    slots:
+      - milestone_at
+
+  ScheduleDependency:
+    is_a: Entity
+    class_uri: pbs:ScheduleDependency
+    description: Precedence relationship between two schedule items, optionally with lag.
+    slots:
+      - schedule_template
+      - predecessor_item
+      - successor_item
+      - dependency_type
+      - lag_days
+
   AbstractCostRecord:
     is_a: VirtualEntity
     abstract: true
@@ -267,6 +306,68 @@ slots:
     multivalued: true
     range: Space
     description: Spaces connected by this virtual connection.
+
+  scheduled_entities:
+    multivalued: true
+    range: Entity
+    inlined: false
+    description: Model entities that this schedule template or schedule item applies to.
+
+  schedule_items:
+    multivalued: true
+    range: ScheduleItem
+    inlined: false
+    description: Schedule items contained in this template; milestone instances may also appear through the ScheduleItem subtype.
+
+  schedule_dependencies:
+    multivalued: true
+    range: ScheduleDependency
+    inlined: false
+    description: Dependency relationships used within this schedule template.
+
+  schedule_template:
+    range: ScheduleTemplate
+    inlined: false
+    description: Parent schedule template this item or dependency belongs to.
+
+  planned_start_at:
+    range: datetime
+    description: Planned start timestamp for the schedule item.
+
+  planned_finish_at:
+    range: datetime
+    description: Planned finish timestamp for the schedule item.
+
+  actual_start_at:
+    range: datetime
+    description: Actual start timestamp for the schedule item where known.
+
+  actual_finish_at:
+    range: datetime
+    description: Actual finish timestamp for the schedule item where known.
+
+  milestone_at:
+    range: datetime
+    description: Target timestamp for the milestone checkpoint.
+
+  predecessor_item:
+    range: ScheduleItem
+    inlined: false
+    description: Schedule item that must occur before the successor item.
+
+  successor_item:
+    range: ScheduleItem
+    inlined: false
+    description: Schedule item whose timing is constrained by the predecessor item.
+
+  dependency_type:
+    range: ScheduleDependencyType
+    required: true
+    description: Precedence logic used between the predecessor and successor items.
+
+  lag_days:
+    range: double
+    description: Optional lag or lead offset in days applied to the dependency relation.
 
   cost_items:
     multivalued: true

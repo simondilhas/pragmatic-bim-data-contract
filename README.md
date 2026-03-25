@@ -117,7 +117,7 @@ Without having to:
 - `schema/performance_schema.yaml`: domain-specific normalized performance property classes.
 - `schema/requirements_schema.yaml`: requirement-driver slots and assessment structures.
 - `schema/elements_physical_schema.yaml`: physical element hierarchy and element-related slots.
-- `schema/elements_virtual_schema.yaml`: virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `CostItem`, `CostAssembly`, `Material`) and their slots.
+- `schema/elements_virtual_schema.yaml`: virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `ScheduleTemplate`, `ScheduleItem`, `Milestone`, `ScheduleDependency`, `CostItem`, `CostAssembly`, `Material`) and their slots.
 - `schema/enums_schema.yaml`: controlled vocabularies.
 - `schema/enum_localizations.yaml`: enum label/localization metadata.
 - `converter/`: converter module for transforming data to and from the schema (see `converter/README.md`).
@@ -133,7 +133,7 @@ The schema is organized into five core modules:
    - tangible building components such as separators (walls/slabs), physical connections (e.g., doors/windows/ducts/pipes/cables), and endpoint equipment/devices.
 
 3. **Virtual entities** (`elements_virtual_schema.yaml`)
-   - non-physical structure and logic: spatial context hierarchy, spaces, systems, virtual connections, costs, and materials.
+   - non-physical structure and logic: spatial context hierarchy, spaces, systems, virtual connections, schedules, costs, and materials.
 
 4. **Controlled vocabularies** (`enums_schema.yaml`)
    - canonical enums for consistent exchange and downstream logic.
@@ -153,7 +153,7 @@ The schema is organized into five core modules:
 1. Ingest BIM/IFC data with project-specific extraction logic.
 2. Map extracted entities to this schema.
 3. Store/query as graph or relational projections.
-4. Enrich with requirements, performance metrics, and cost/material metadata.
+4. Enrich with requirements, performance metrics, schedules, and cost/material metadata.
 5. Export, analyze, or feed application APIs.
 
 ## Getting started
