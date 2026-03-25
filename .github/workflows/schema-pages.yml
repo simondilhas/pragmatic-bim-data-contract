@@ -2,6 +2,7 @@ name: Publish Stable Schema Release to GitHub Pages
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  SCHEMA_ROOT: schema/00_pragmatic_bim_data_contract.yaml
 
 on:
   push:
@@ -79,13 +80,13 @@ jobs:
           PYDANTIC_CMD="$(find_cmd gen-pydantic pydanticgen)" || { echo "No Pydantic generator command found"; exit 1; }
           DOC_CMD="$(find_cmd gen-markdown gen-docs gen-doc)" || { echo "No docs generator command found"; exit 1; }
 
-          gen-shacl schema/00_pragmatic_bim_data_contract.yaml > site/schema/pragmatic-bim.shacl.ttl
-          gen-json-schema schema/00_pragmatic_bim_data_contract.yaml > site/schema/pragmatic-bim.schema.json
-          "$CSV_CMD" schema/00_pragmatic_bim_data_contract.yaml > site/schema/pragmatic-bim.csv
-          "$PYDANTIC_CMD" schema/00_pragmatic_bim_data_contract.yaml > site/schema/pragmatic-bim.pydantic.py
+          gen-shacl "$SCHEMA_ROOT" > site/schema/pragmatic-bim.shacl.ttl
+          gen-json-schema "$SCHEMA_ROOT" > site/schema/pragmatic-bim.schema.json
+          "$CSV_CMD" "$SCHEMA_ROOT" > site/schema/pragmatic-bim.csv
+          "$PYDANTIC_CMD" "$SCHEMA_ROOT" > site/schema/pragmatic-bim.pydantic.py
 
           if [ "$DOC_CMD" = "gen-doc" ] || [ "$DOC_CMD" = "gen-docs" ]; then
-            "$DOC_CMD" -d site/schema schema/00_pragmatic_bim_data_contract.yaml
+            "$DOC_CMD" -d site/schema "$SCHEMA_ROOT"
             if [ -f site/schema/00_pragmatic_bim_data_contract.md ]; then
               cp site/schema/00_pragmatic_bim_data_contract.md site/schema/pragmatic-bim.docs.md
             elif [ -f site/schema/index.md ]; then
@@ -96,7 +97,7 @@ jobs:
               cp "$DOC_FILE" site/schema/pragmatic-bim.docs.md
             fi
           else
-            "$DOC_CMD" schema/00_pragmatic_bim_data_contract.yaml > site/schema/pragmatic-bim.docs.md
+            "$DOC_CMD" "$SCHEMA_ROOT" > site/schema/pragmatic-bim.docs.md
           fi
 
           case "$RELEASE_VERSION" in
@@ -118,7 +119,7 @@ jobs:
           import yaml
 
           def load_class_metadata() -> tuple[dict[str, int], dict[str, str], dict[str, str]]:
-            root_path = Path("schema/00_pragmatic_bim_data_contract.yaml")
+            root_path = Path(os.environ["SCHEMA_ROOT"])
             root = yaml.safe_load(root_path.read_text(encoding="utf-8")) or {}
             imports = root.get("imports", [])
             order: dict[str, int] = {}

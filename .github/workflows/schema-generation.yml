@@ -2,6 +2,7 @@ name: Schema Generation
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  SCHEMA_ROOT: schema/00_pragmatic_bim_data_contract.yaml
 
 on:
   push:
@@ -53,12 +54,12 @@ jobs:
           PYDANTIC_CMD="$(find_cmd gen-pydantic pydanticgen)" || { echo "No Pydantic generator command found"; exit 1; }
           DOC_CMD="$(find_cmd gen-markdown gen-docs gen-doc)" || { echo "No docs generator command found"; exit 1; }
 
-          gen-shacl schema/00_pragmatic_bim_data_contract.yaml > build/schema/pragmatic-bim.shacl.ttl
-          gen-json-schema schema/00_pragmatic_bim_data_contract.yaml > build/schema/pragmatic-bim.schema.json
-          "$CSV_CMD" schema/00_pragmatic_bim_data_contract.yaml > build/schema/pragmatic-bim.csv
-          "$PYDANTIC_CMD" schema/00_pragmatic_bim_data_contract.yaml > build/schema/pragmatic-bim.pydantic.py
+          gen-shacl "$SCHEMA_ROOT" > build/schema/pragmatic-bim.shacl.ttl
+          gen-json-schema "$SCHEMA_ROOT" > build/schema/pragmatic-bim.schema.json
+          "$CSV_CMD" "$SCHEMA_ROOT" > build/schema/pragmatic-bim.csv
+          "$PYDANTIC_CMD" "$SCHEMA_ROOT" > build/schema/pragmatic-bim.pydantic.py
           if [ "$DOC_CMD" = "gen-doc" ] || [ "$DOC_CMD" = "gen-docs" ]; then
-            "$DOC_CMD" -d build/schema schema/00_pragmatic_bim_data_contract.yaml
+            "$DOC_CMD" -d build/schema "$SCHEMA_ROOT"
             if [ -f build/schema/00_pragmatic_bim_data_contract.md ]; then
               cp build/schema/00_pragmatic_bim_data_contract.md build/schema/pragmatic-bim.docs.md
             elif [ -f build/schema/index.md ]; then
@@ -69,7 +70,7 @@ jobs:
               cp "$DOC_FILE" build/schema/pragmatic-bim.docs.md
             fi
           else
-            "$DOC_CMD" schema/00_pragmatic_bim_data_contract.yaml > build/schema/pragmatic-bim.docs.md
+            "$DOC_CMD" "$SCHEMA_ROOT" > build/schema/pragmatic-bim.docs.md
           fi
 
       - name: Upload generated schemas
