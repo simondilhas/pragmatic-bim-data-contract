@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>pragmatic-bim.docs - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <h1 id="pragmatic-bim-data-contract">Pragmatic BIM Data Contract</h1>
+<p>To provide a simple, implementation-ready BIM data model for integration, querying, costing, and analysis workflows, this schema defines a pragmatic, graph-first LinkML structure that is IFC-aware and extensible across classification schemes.</p>
+<p>URI: https://example.org/pragmatic-bim-data-contract</p>
+<p>Name: pragmatic_bim_data_contract</p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td>Common base class for all schema entities</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Agent.html">Agent</a></td>
+<td>Abstract base class for people or organizations acting in workflow and communication roles.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Person.html">Person</a></td>
+<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Company.html">Company</a></td>
+<td>Organization, company, or legal entity participating in the project or asset lifecycle.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Message.html">Message</a></td>
+<td>Message or communication record linked to an entity for coordination and traceability.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PhysicalElement.html">PhysicalElement</a></td>
+<td>Base class for physical elements that can be placed in built asset/level context.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Separator.html">Separator</a></td>
+<td>Abstract base class for elements that separate spaces or zones</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SeparatorWall.html">SeparatorWall</a></td>
+<td>Wall-based separating element</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td>Slab-based separating element (for example floor/roof/base slab separators)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td>Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Boundary.html">Boundary</a></td>
+<td>Physical element acting as a boundary treatment (for example covering)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Equipment.html">Equipment</a></td>
+<td>Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="VirtualEntity.html">VirtualEntity</a></td>
+<td>Abstract base class for non-physical, conceptual, or informational entities</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SpatialContext.html">SpatialContext</a></td>
+<td>Context node used to represent project, perimeter, legal site, built asset, level, or zone.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ProjectContext.html">ProjectContext</a></td>
+<td>Spatial context node constrained to project semantics</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PerimeterContext.html">PerimeterContext</a></td>
+<td>Spatial context node constrained to perimeter semantics</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td>Spatial context node constrained to legal site semantics</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td>Abstract spatial context for built assets such as buildings and civil structures.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="BuildingContext.html">BuildingContext</a></td>
+<td>Spatial context node constrained to building semantics</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td>Spatial context node constrained to civil structure semantics</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="LevelContext.html">LevelContext</a></td>
+<td>Spatial context node constrained to level/storey semantics</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ZoneContext.html">ZoneContext</a></td>
+<td>Spatial context node constrained to zone semantics</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Space.html">Space</a></td>
+<td>Spatial container used for occupancy, circulation, service, or analysis</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="System.html">System</a></td>
+<td>Building service system grouping that serves spaces or zones</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td>Logical or topological connection between spaces and/or physical elements</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td>Abstract base for reusable cost record fields shared by atomic and aggregated cost records.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostItem.html">CostItem</a></td>
+<td>Cost record used for estimation and calculation, optionally linked to quantities.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostAssembly.html">CostAssembly</a></td>
+<td>Aggregated unit price assembled from multiple cost items</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Material.html">Material</a></td>
+<td>Material definition that can be associated with one or more entities</td>
+</tr>
+<tr>
+<td><a href="Classification.html">Classification</a></td>
+<td>Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).</td>
+</tr>
+<tr>
+<td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+<td>Minimal geometry reference for an entity, separating representation from encoding format.</td>
+</tr>
+<tr>
+<td><a href="QuantityValue.html">QuantityValue</a></td>
+<td>Minimal quantity record for costing and analysis</td>
+</tr>
+<tr>
+<td><a href="MetadataEntry.html">MetadataEntry</a></td>
+<td>Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data.</td>
+</tr>
+<tr>
+<td><a href="PerformanceProperty.html">PerformanceProperty</a></td>
+<td>Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FireProperty.html">FireProperty</a></td>
+<td>Normalized fire-related property</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AcousticProperty.html">AcousticProperty</a></td>
+<td>Normalized acoustic-related property</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ThermalProperty.html">ThermalProperty</a></td>
+<td>Normalized thermal-related property</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="StructuralProperty.html">StructuralProperty</a></td>
+<td>Normalized structural-related property</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SecurityProperty.html">SecurityProperty</a></td>
+<td>Normalized security-related property</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MaterialProperty.html">MaterialProperty</a></td>
+<td>Normalized material-related property</td>
+</tr>
+<tr>
+<td><a href="Decision.html">Decision</a></td>
+<td>Decision record linked to an entity for workflow traceability and governance</td>
+</tr>
+<tr>
+<td><a href="Task.html">Task</a></td>
+<td>Action/task record linked to an entity for implementation and follow-up workflows.</td>
+</tr>
+<tr>
+<td><a href="Document.html">Document</a></td>
+<td>Reference to an external document stored in a file system, DMS, object storage, or URL.</td>
+</tr>
+<tr>
+<td><a href="PostalAddress.html">PostalAddress</a></td>
+<td>Structured postal or physical address for an agent</td>
+</tr>
+<tr>
+<td><a href="ContactPoint.html">ContactPoint</a></td>
+<td>Structured communication endpoint or profile for an agent</td>
+</tr>
+<tr>
+<td><a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized text value for a specific language tag</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="address_country.html">address_country</a></td>
+<td>Country name</td>
+</tr>
+<tr>
+<td><a href="address_country_code.html">address_country_code</a></td>
+<td>Optional ISO 3166-1 alpha-2 or alpha-3 country code</td>
+</tr>
+<tr>
+<td><a href="address_locality.html">address_locality</a></td>
+<td>Locality, city, or town</td>
+</tr>
+<tr>
+<td><a href="address_region.html">address_region</a></td>
+<td>Region, state, canton, or province</td>
+</tr>
+<tr>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>Entities this cost item applies to</td>
+</tr>
+<tr>
+<td><a href="assignee.html">assignee</a></td>
+<td>Responsible agent</td>
+</tr>
+<tr>
+<td><a href="availability_notes.html">availability_notes</a></td>
+<td>Optional notes about availability, office hours, or response expectations</td>
+</tr>
+<tr>
+<td><a href="belongs_to_company.html">belongs_to_company</a></td>
+<td>Optional company that the person belongs to</td>
+</tr>
+<tr>
+<td><a href="boundary_type.html">boundary_type</a></td>
+<td>Classification of boundary element (e</td>
+</tr>
+<tr>
+<td><a href="bounded_by.html">bounded_by</a></td>
+<td>Physical elements that bound a space</td>
+</tr>
+<tr>
+<td><a href="bounded_space.html">bounded_space</a></td>
+<td>Space bounded by this boundary element</td>
+</tr>
+<tr>
+<td><a href="classification_code.html">classification_code</a></td>
+<td>Classification code inside the scheme</td>
+</tr>
+<tr>
+<td><a href="classification_label.html">classification_label</a></td>
+<td>Optional human-readable classification label</td>
+</tr>
+<tr>
+<td><a href="classification_scheme.html">classification_scheme</a></td>
+<td>Name of the classification scheme (for example ifc, uniclass, omniclass, cust...</td>
+</tr>
+<tr>
+<td><a href="classification_source.html">classification_source</a></td>
+<td>Source authority or dataset for this classification</td>
+</tr>
+<tr>
+<td><a href="classification_uri.html">classification_uri</a></td>
+<td>Optional URI/CURIE that identifies the classification concept in an external ...</td>
+</tr>
+<tr>
+<td><a href="classification_version.html">classification_version</a></td>
+<td>Optional scheme/version identifier</td>
+</tr>
+<tr>
+<td><a href="classifications.html">classifications</a></td>
+<td>Classification entries from IFC and other schemes</td>
+</tr>
+<tr>
+<td><a href="component_cost_items.html">component_cost_items</a></td>
+<td>Atomic cost items that are aggregated into this cost assembly</td>
+</tr>
+<tr>
+<td><a href="connection_physical_requirement_drivers.html">connection_physical_requirement_drivers</a></td>
+<td>Performance requirement drivers for this physical connection element</td>
+</tr>
+<tr>
+<td><a href="connection_physical_type.html">connection_physical_type</a></td>
+<td>Classification of physical connector type (for example door, window, duct, pi...</td>
+</tr>
+<tr>
+<td><a href="connection_virtual_requirement_drivers.html">connection_virtual_requirement_drivers</a></td>
+<td>Main requirement drivers for this virtual connection</td>
+</tr>
+<tr>
+<td><a href="connection_virtual_type.html">connection_virtual_type</a></td>
+<td>Classification of virtual connection semantics (for example structural_joint,...</td>
+</tr>
+<tr>
+<td><a href="connects_physical_elements.html">connects_physical_elements</a></td>
+<td>Physical elements connected by this virtual connection (for example wall-wall...</td>
+</tr>
+<tr>
+<td><a href="connects_spaces.html">connects_spaces</a></td>
+<td>Spaces connected by this virtual connection</td>
+</tr>
+<tr>
+<td><a href="contact_channel_type.html">contact_channel_type</a></td>
+<td>Communication channel type such as email, phone, website, linkedin, whatsapp,...</td>
+</tr>
+<tr>
+<td><a href="contact_points.html">contact_points</a></td>
+<td>Structured communication channels and profiles associated with this agent</td>
+</tr>
+<tr>
+<td><a href="contact_uri.html">contact_uri</a></td>
+<td>URI for the contact endpoint or profile where applicable</td>
+</tr>
+<tr>
+<td><a href="contact_value.html">contact_value</a></td>
+<td>Human-readable contact value such as an email address, phone number, handle, ...</td>
+</tr>
+<tr>
+<td><a href="contained_entities.html">contained_entities</a></td>
+<td>Generic containment for associated entities</td>
+</tr>
+<tr>
+<td><a href="context_type.html">context_type</a></td>
+<td>Classification of context entity (project, perimeter, legal_site, building, c...</td>
+</tr>
+<tr>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>Aggregated unit prices associated with this entity</td>
+</tr>
+<tr>
+<td><a href="cost_category.html">cost_category</a></td>
+<td>Cost category label kept intentionally open pending classification-backed mod...</td>
+</tr>
+<tr>
+<td><a href="cost_items.html">cost_items</a></td>
+<td>Cost items associated with this entity</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_type.html">cost_quantity_type</a></td>
+<td>Quantity type used as basis for this cost calculation</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_unit.html">cost_quantity_unit</a></td>
+<td>Unit of the cost quantity value</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_value.html">cost_quantity_value</a></td>
+<td>Quantity magnitude used as basis for this cost calculation</td>
+</tr>
+<tr>
+<td><a href="created_at.html">created_at</a></td>
+<td>Creation timestamp for this entity record</td>
+</tr>
+<tr>
+<td><a href="currency.html">currency</a></td>
+<td>ISO 4217 currency code (for example EUR, USD)</td>
+</tr>
+<tr>
+<td><a href="decided_at.html">decided_at</a></td>
+<td>Timestamp when the decision was made</td>
+</tr>
+<tr>
+<td><a href="decided_by.html">decided_by</a></td>
+<td>Agent responsible for the decision</td>
+</tr>
+<tr>
+<td><a href="decision_status.html">decision_status</a></td>
+<td>Decision status expressed as a URI/CURIE (for example proposed, accepted, rej...</td>
+</tr>
+<tr>
+<td><a href="decision_type.html">decision_type</a></td>
+<td>Decision type expressed as a URI/CURIE from a controlled vocabulary</td>
+</tr>
+<tr>
+<td><a href="decisions.html">decisions</a></td>
+<td>Decision records associated with this entity</td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>Default description text</td>
+</tr>
+<tr>
+<td><a href="documents.html">documents</a></td>
+<td>Linked documents associated with this entity</td>
+</tr>
+<tr>
+<td><a href="due_at.html">due_at</a></td>
+<td>Due timestamp for task completion</td>
+</tr>
+<tr>
+<td><a href="equipment_type.html">equipment_type</a></td>
+<td>Classification of equipment (for example HVAC, electrical, plumbing)</td>
+</tr>
+<tr>
+<td><a href="geometry_format.html">geometry_format</a></td>
+<td>Optional serialization/encoding format (for example ifc, gltf, wkt, geojson),...</td>
+</tr>
+<tr>
+<td><a href="geometry_reference.html">geometry_reference</a></td>
+<td>URI/path/hash/pointer to geometry payload</td>
+</tr>
+<tr>
+<td><a href="geometry_representation.html">geometry_representation</a></td>
+<td>Representation kind/dimension (for example body_3d, footprint_2d, point), ind...</td>
+</tr>
+<tr>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>Geometry references associated with the entity</td>
+</tr>
+<tr>
+<td><a href="group_members.html">group_members</a></td>
+<td>Zone members; may include spaces, separations, systems, etc</td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>Unique local identifier</td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+</tr>
+<tr>
+<td><a href="is_preferred.html">is_preferred</a></td>
+<td>Indicates whether this is the preferred contact point</td>
+</tr>
+<tr>
+<td><a href="language_tag.html">language_tag</a></td>
+<td>IETF BCP 47 language tag (for example en, de, pt-BR)</td>
+</tr>
+<tr>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>Localized variants of description</td>
+</tr>
+<tr>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>Localized variants of name</td>
+</tr>
+<tr>
+<td><a href="mapping_version.html">mapping_version</a></td>
+<td>Mapping specification version used to derive the normalized property</td>
+</tr>
+<tr>
+<td><a href="material_category.html">material_category</a></td>
+<td>Material category label kept intentionally open pending classification-backed...</td>
+</tr>
+<tr>
+<td><a href="material_specification.html">material_specification</a></td>
+<td>Material grade, specification, or product description</td>
+</tr>
+<tr>
+<td><a href="materials.html">materials</a></td>
+<td>Material definitions associated with this entity</td>
+</tr>
+<tr>
+<td><a href="meaning_uri.html">meaning_uri</a></td>
+<td>Optional semantic URI for linking the entity instance to an external ontology...</td>
+</tr>
+<tr>
+<td><a href="message_body.html">message_body</a></td>
+<td>Human-readable message content</td>
+</tr>
+<tr>
+<td><a href="message_subject.html">message_subject</a></td>
+<td>Optional subject or headline for the message</td>
+</tr>
+<tr>
+<td><a href="message_type.html">message_type</a></td>
+<td>Message type expressed as a URI/CURIE from a controlled vocabulary</td>
+</tr>
+<tr>
+<td><a href="messages.html">messages</a></td>
+<td>Messages associated with this entity</td>
+</tr>
+<tr>
+<td><a href="metadata.html">metadata</a></td>
+<td>Generic metadata container for IFC attributes/properties and project-specific...</td>
+</tr>
+<tr>
+<td><a href="metadata_key.html">metadata_key</a></td>
+<td>Metadata key, for example IfcWall</td>
+</tr>
+<tr>
+<td><a href="metadata_value.html">metadata_value</a></td>
+<td>Metadata value serialized as text</td>
+</tr>
+<tr>
+<td><a href="modified_at.html">modified_at</a></td>
+<td>Last modification timestamp for this entity record</td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>Default display name</td>
+</tr>
+<tr>
+<td><a href="parent_building.html">parent_building</a></td>
+<td>Parent building context reference</td>
+</tr>
+<tr>
+<td><a href="parent_legal_site.html">parent_legal_site</a></td>
+<td>Parent legal site context reference</td>
+</tr>
+<tr>
+<td><a href="parent_level.html">parent_level</a></td>
+<td>Parent level/storey context reference</td>
+</tr>
+<tr>
+<td><a href="parent_perimeter.html">parent_perimeter</a></td>
+<td>Parent perimeter context reference</td>
+</tr>
+<tr>
+<td><a href="parent_project.html">parent_project</a></td>
+<td>Parent project context reference</td>
+</tr>
+<tr>
+<td><a href="parent_space.html">parent_space</a></td>
+<td>Parent space where the equipment is located</td>
+</tr>
+<tr>
+<td><a href="parent_system.html">parent_system</a></td>
+<td>Parent systems that the equipment belongs to</td>
+</tr>
+<tr>
+<td><a href="parent_zone.html">parent_zone</a></td>
+<td>Parent zone context reference</td>
+</tr>
+<tr>
+<td><a href="performance_properties.html">performance_properties</a></td>
+<td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structura...</td>
+</tr>
+<tr>
+<td><a href="post_office_box_number.html">post_office_box_number</a></td>
+<td>Post office box number where applicable</td>
+</tr>
+<tr>
+<td><a href="postal_addresses.html">postal_addresses</a></td>
+<td>Structured postal or physical addresses associated with this agent</td>
+</tr>
+<tr>
+<td><a href="postal_code.html">postal_code</a></td>
+<td>Postal or ZIP code</td>
+</tr>
+<tr>
+<td><a href="property_key.html">property_key</a></td>
+<td>Canonical key inside the domain; constrained via subclass slot_usage to a dom...</td>
+</tr>
+<tr>
+<td><a href="property_unit.html">property_unit</a></td>
+<td>Normalized unit where applicable (for example min, dB, W/m2K)</td>
+</tr>
+<tr>
+<td><a href="property_value_boolean.html">property_value_boolean</a></td>
+<td>Boolean value when property_value_type is boolean</td>
+</tr>
+<tr>
+<td><a href="property_value_number.html">property_value_number</a></td>
+<td>Numeric value when property_value_type is number</td>
+</tr>
+<tr>
+<td><a href="property_value_string.html">property_value_string</a></td>
+<td>String value when property_value_type is string</td>
+</tr>
+<tr>
+<td><a href="property_value_type.html">property_value_type</a></td>
+<td>Value type discriminator for normalized storage (for example string, number, ...</td>
+</tr>
+<tr>
+<td><a href="quantity_type.html">quantity_type</a></td>
+<td>Controlled quantity type</td>
+</tr>
+<tr>
+<td><a href="quantity_unit.html">quantity_unit</a></td>
+<td>Unit of the quantity value</td>
+</tr>
+<tr>
+<td><a href="quantity_value.html">quantity_value</a></td>
+<td>Numeric quantity value</td>
+</tr>
+<tr>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>Quantities associated with the entity</td>
+</tr>
+<tr>
+<td><a href="rationale.html">rationale</a></td>
+<td>Human-readable rationale that explains why the decision was made</td>
+</tr>
+<tr>
+<td><a href="recipients.html">recipients</a></td>
+<td>Agents that received the message</td>
+</tr>
+<tr>
+<td><a href="related_decision.html">related_decision</a></td>
+<td>Optional reference to a decision that informs or drives this task</td>
+</tr>
+<tr>
+<td><a href="revision.html">revision</a></td>
+<td>Integer revision counter for change tracking</td>
+</tr>
+<tr>
+<td><a href="sender.html">sender</a></td>
+<td>Agent that sent the message</td>
+</tr>
+<tr>
+<td><a href="sent_at.html">sent_at</a></td>
+<td>Timestamp when the message was sent</td>
+</tr>
+<tr>
+<td><a href="separates_levels.html">separates_levels</a></td>
+<td>Level context nodes separated by this slab separator</td>
+</tr>
+<tr>
+<td><a href="separates_spaces.html">separates_spaces</a></td>
+<td>Spaces separated by this separator element</td>
+</tr>
+<tr>
+<td><a href="separator_requirement_drivers.html">separator_requirement_drivers</a></td>
+<td>Performance requirement drivers for this separator</td>
+</tr>
+<tr>
+<td><a href="separator_slab_type.html">separator_slab_type</a></td>
+<td>Classification of slab-based separator element (for example floor/roof/base s...</td>
+</tr>
+<tr>
+<td><a href="separator_wall_type.html">separator_wall_type</a></td>
+<td>Classification of wall-based separator element</td>
+</tr>
+<tr>
+<td><a href="serves_spaces.html">serves_spaces</a></td>
+<td>Spaces served by this system</td>
+</tr>
+<tr>
+<td><a href="serves_zones.html">serves_zones</a></td>
+<td>Zone context nodes served by this system</td>
+</tr>
+<tr>
+<td><a href="source_property.html">source_property</a></td>
+<td>Original property name inside the source PropertySet (for example FireRating)</td>
+</tr>
+<tr>
+<td><a href="source_pset.html">source_pset</a></td>
+<td>Original IFC PropertySet name (for example Pset_WallCommon)</td>
+</tr>
+<tr>
+<td><a href="source_value_raw.html">source_value_raw</a></td>
+<td>Raw source value before normalization</td>
+</tr>
+<tr>
+<td><a href="space_type.html">space_type</a></td>
+<td>Classification of space (void, circulation, usable, service)</td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>Lifecycle or QA status</td>
+</tr>
+<tr>
+<td><a href="storage_link.html">storage_link</a></td>
+<td>URI/URL/path to the stored document location</td>
+</tr>
+<tr>
+<td><a href="street_address.html">street_address</a></td>
+<td>Street name and house number or equivalent address line</td>
+</tr>
+<tr>
+<td><a href="system_discipline.html">system_discipline</a></td>
+<td>Classification of system discipline (electrical, sanitary, ventilation, heati...</td>
+</tr>
+<tr>
+<td><a href="system_type.html">system_type</a></td>
+<td>Classification of system role (unit, network, terminal)</td>
+</tr>
+<tr>
+<td><a href="tags.html">tags</a></td>
+<td>Optional free-form labels for filtering/grouping</td>
+</tr>
+<tr>
+<td><a href="task_notes.html">task_notes</a></td>
+<td>Additional notes or implementation details for the task</td>
+</tr>
+<tr>
+<td><a href="task_status.html">task_status</a></td>
+<td>Task status URI/CURIE aligned with action status vocabularies</td>
+</tr>
+<tr>
+<td><a href="task_type.html">task_type</a></td>
+<td>Task type expressed as a URI/CURIE from a controlled vocabulary</td>
+</tr>
+<tr>
+<td><a href="tasks.html">tasks</a></td>
+<td>Tasks associated with this entity</td>
+</tr>
+<tr>
+<td><a href="text_value.html">text_value</a></td>
+<td>Localized text value</td>
+</tr>
+<tr>
+<td><a href="transport_medium.html">transport_medium</a></td>
+<td>Primary transport medium carried or enabled by the connector (for example hum...</td>
+</tr>
+<tr>
+<td><a href="unit_cost.html">unit_cost</a></td>
+<td>Unit cost for this cost item</td>
+</tr>
+<tr>
+<td><a href="usage_context.html">usage_context</a></td>
+<td>Optional usage context such as work, personal, support, billing, or emergency</td>
+</tr>
+<tr>
+<td><a href="zone_type.html">zone_type</a></td>
+<td>Optional zone classification; intended for SpatialContext nodes where context...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enumerations">Enumerations</h2>
+<table>
+<thead>
+<tr>
+<th>Enumeration</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="AcousticPropertyKey.html">AcousticPropertyKey</a></td>
+<td>Canonical acoustic-related keys derived from IFC PropertySets</td>
+</tr>
+<tr>
+<td><a href="BoundaryType.html">BoundaryType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysicalType.html">ConnectionPhysicalType</a></td>
+<td>Classification of physical connector elements that connect spaces</td>
+</tr>
+<tr>
+<td><a href="ConnectionRequirementDriver.html">ConnectionRequirementDriver</a></td>
+<td>Main requirement drivers for connection element performance</td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtualType.html">ConnectionVirtualType</a></td>
+<td>Classification of virtual connection semantics using schema-internal meanings...</td>
+</tr>
+<tr>
+<td><a href="ContextType.html">ContextType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="EquipmentType.html">EquipmentType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="FirePropertyKey.html">FirePropertyKey</a></td>
+<td>Canonical fire-related keys derived from IFC PropertySets</td>
+</tr>
+<tr>
+<td><a href="GeometryRepresentationType.html">GeometryRepresentationType</a></td>
+<td>Classification of geometric representation dimension/style</td>
+</tr>
+<tr>
+<td><a href="MaterialPropertyKey.html">MaterialPropertyKey</a></td>
+<td>Canonical material-related keys derived from IFC PropertySets and material me...</td>
+</tr>
+<tr>
+<td><a href="PerformancePropertyValueType.html">PerformancePropertyValueType</a></td>
+<td>Type discriminator for normalized performance property values</td>
+</tr>
+<tr>
+<td><a href="QuantityType.html">QuantityType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="SecurityPropertyKey.html">SecurityPropertyKey</a></td>
+<td>Canonical security-related keys derived from IFC PropertySets</td>
+</tr>
+<tr>
+<td><a href="SeparatorRequirementDriver.html">SeparatorRequirementDriver</a></td>
+<td>Main requirement drivers for separator performance</td>
+</tr>
+<tr>
+<td><a href="SeparatorSlabType.html">SeparatorSlabType</a></td>
+<td>Classification of slab-based separator elements</td>
+</tr>
+<tr>
+<td><a href="SeparatorWallType.html">SeparatorWallType</a></td>
+<td>Classification of wall-based separator elements</td>
+</tr>
+<tr>
+<td><a href="SpaceType.html">SpaceType</a></td>
+<td>Classification of space semantics used by modeling and downstream conversion</td>
+</tr>
+<tr>
+<td><a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA gate status used for model progression and approvals</td>
+</tr>
+<tr>
+<td><a href="StructuralPropertyKey.html">StructuralPropertyKey</a></td>
+<td>Canonical structural-related keys derived from IFC PropertySets</td>
+</tr>
+<tr>
+<td><a href="SystemDiscipline.html">SystemDiscipline</a></td>
+<td>Discipline of a building service system</td>
+</tr>
+<tr>
+<td><a href="SystemType.html">SystemType</a></td>
+<td>Role of an MEP-related element or grouping in the service chain</td>
+</tr>
+<tr>
+<td><a href="ThermalPropertyKey.html">ThermalPropertyKey</a></td>
+<td>Canonical thermal-related keys derived from IFC PropertySets</td>
+</tr>
+<tr>
+<td><a href="TransportMedium.html">TransportMedium</a></td>
+<td>Primary medium transported through or enabled by a physical connector</td>
+</tr>
+<tr>
+<td><a href="ZoneType.html">ZoneType</a></td>
+<td>Classification of zone purpose and organizational intent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="types">Types</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Boolean.html">Boolean</a></td>
+<td>A binary (true or false) value</td>
+</tr>
+<tr>
+<td><a href="Curie.html">Curie</a></td>
+<td>a compact URI</td>
+</tr>
+<tr>
+<td><a href="Date.html">Date</a></td>
+<td>a date (year, month and day) in an idealized calendar</td>
+</tr>
+<tr>
+<td><a href="DateOrDatetime.html">DateOrDatetime</a></td>
+<td>Either a date or a datetime</td>
+</tr>
+<tr>
+<td><a href="Datetime.html">Datetime</a></td>
+<td>The combination of a date and time</td>
+</tr>
+<tr>
+<td><a href="Decimal.html">Decimal</a></td>
+<td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
+</tr>
+<tr>
+<td><a href="Double.html">Double</a></td>
+<td>A real number that conforms to the xsd:double specification</td>
+</tr>
+<tr>
+<td><a href="Float.html">Float</a></td>
+<td>A real number that conforms to the xsd:float specification</td>
+</tr>
+<tr>
+<td><a href="Integer.html">Integer</a></td>
+<td>An integer</td>
+</tr>
+<tr>
+<td><a href="Jsonpath.html">Jsonpath</a></td>
+<td>A string encoding a JSON Path</td>
+</tr>
+<tr>
+<td><a href="Jsonpointer.html">Jsonpointer</a></td>
+<td>A string encoding a JSON Pointer</td>
+</tr>
+<tr>
+<td><a href="Ncname.html">Ncname</a></td>
+<td>Prefix part of CURIE</td>
+</tr>
+<tr>
+<td><a href="Nodeidentifier.html">Nodeidentifier</a></td>
+<td>A URI, CURIE or BNODE that represents a node in a model</td>
+</tr>
+<tr>
+<td><a href="Objectidentifier.html">Objectidentifier</a></td>
+<td>A URI or CURIE that represents an object in the model</td>
+</tr>
+<tr>
+<td><a href="Sparqlpath.html">Sparqlpath</a></td>
+<td>A string encoding a SPARQL Property Path</td>
+</tr>
+<tr>
+<td><a href="String.html">String</a></td>
+<td>A character string</td>
+</tr>
+<tr>
+<td><a href="Time.html">Time</a></td>
+<td>A time object represents a (local) time of day, independent of any particular...</td>
+</tr>
+<tr>
+<td><a href="Uri.html">Uri</a></td>
+<td>a complete URI</td>
+</tr>
+<tr>
+<td><a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>a URI or a CURIE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="subsets">Subsets</h2>
+<table>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

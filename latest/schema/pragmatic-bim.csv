@@ -1,0 +1,48 @@
+id,mappings,description
+AbstractCostRecord,,Abstract base for reusable cost record fields shared by atomic and aggregated cost records.
+AcousticProperty,,Normalized acoustic-related property.
+Agent,,Abstract base class for people or organizations acting in workflow and communication roles.
+Boundary,,Physical element acting as a boundary treatment (for example covering).
+BuildingContext,,Spatial context node constrained to building semantics.
+BuiltAssetContext,,Abstract spatial context for built assets such as buildings and civil structures.
+CivilStructureContext,,Spatial context node constrained to civil structure semantics.
+Classification,,"Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom)."
+Company,,"Organization, company, or legal entity participating in the project or asset lifecycle."
+ConnectionPhysical,,"Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable)."
+ConnectionVirtual,,Logical or topological connection between spaces and/or physical elements.
+ContactPoint,,Structured communication endpoint or profile for an agent.
+CostAssembly,,Aggregated unit price assembled from multiple cost items.
+CostItem,,"Cost record used for estimation and calculation, optionally linked to quantities."
+Decision,,Decision record linked to an entity for workflow traceability and governance.
+Document,,"Reference to an external document stored in a file system, DMS, object storage, or URL."
+Entity,,Common base class for all schema entities.
+Equipment,,"Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system."
+FireProperty,,Normalized fire-related property.
+GeometryRepresentation,,"Minimal geometry reference for an entity, separating representation from encoding format."
+LegalSiteContext,,Spatial context node constrained to legal site semantics.
+LevelContext,,Spatial context node constrained to level/storey semantics.
+LocalizedText,,Localized text value for a specific language tag.
+Material,,Material definition that can be associated with one or more entities.
+MaterialProperty,,Normalized material-related property.
+Message,,Message or communication record linked to an entity for coordination and traceability.
+MetadataEntry,,"Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data."
+PerformanceProperty,,Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses.
+PerimeterContext,,Spatial context node constrained to perimeter semantics.
+Person,,"Individual stakeholder, contributor, assignee, or responsible party represented in the schema."
+PhysicalElement,,Base class for physical elements that can be placed in built asset/level context.
+PostalAddress,,Structured postal or physical address for an agent.
+ProjectContext,,Spatial context node constrained to project semantics.
+QuantityValue,,Minimal quantity record for costing and analysis.
+SecurityProperty,,Normalized security-related property.
+Separator,,Abstract base class for elements that separate spaces or zones.
+SeparatorSlab,,Slab-based separating element (for example floor/roof/base slab separators).
+SeparatorWall,,Wall-based separating element.
+Space,,"Spatial container used for occupancy, circulation, service, or analysis."
+SpatialContext,,"Context node used to represent project, perimeter, legal site, built asset, level, or zone."
+StructuralProperty,,Normalized structural-related property.
+System,,Building service system grouping that serves spaces or zones.
+Task,,Action/task record linked to an entity for implementation and follow-up workflows.
+ThermalProperty,,Normalized thermal-related property.
+VirtualEntity,,"Abstract base class for non-physical, conceptual, or informational entities."
+ZoneContext,,Spatial context node constrained to zone semantics.
+

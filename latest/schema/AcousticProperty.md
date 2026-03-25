@@ -1,0 +1,279 @@
+
+
+# Class: AcousticProperty 
+
+
+_Normalized acoustic-related property._
+
+
+
+
+
+URI: [pbs:AcousticProperty](https://example.org/pragmatic-bim-data-contract/AcousticProperty)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class AcousticProperty
+    click AcousticProperty href "../AcousticProperty/"
+      PerformanceProperty <|-- AcousticProperty
+        click PerformanceProperty href "../PerformanceProperty/"
+      
+      AcousticProperty : mapping_version
+        
+      AcousticProperty : property_key
+        
+          
+    
+        
+        
+        AcousticProperty --> "1" AcousticPropertyKey : property_key
+        click AcousticPropertyKey href "../AcousticPropertyKey/"
+    
+
+        
+      AcousticProperty : property_unit
+        
+      AcousticProperty : property_value_boolean
+        
+      AcousticProperty : property_value_number
+        
+      AcousticProperty : property_value_string
+        
+      AcousticProperty : property_value_type
+        
+          
+    
+        
+        
+        AcousticProperty --> "1" PerformancePropertyValueType : property_value_type
+        click PerformancePropertyValueType href "../PerformancePropertyValueType/"
+    
+
+        
+      AcousticProperty : source_property
+        
+      AcousticProperty : source_pset
+        
+      AcousticProperty : source_value_raw
+        
+      
+```
+
+
+
+
+
+## Inheritance
+* [PerformanceProperty](PerformanceProperty.md)
+    * **AcousticProperty**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [pbs:AcousticProperty](https://example.org/pragmatic-bim-data-contract/AcousticProperty) |
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [property_key](property_key.md) | 1 <br/> [AcousticPropertyKey](AcousticPropertyKey.md) | Canonical key inside the domain; constrained via subclass slot_usage to a dom... | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_type](property_value_type.md) | 1 <br/> [PerformancePropertyValueType](PerformancePropertyValueType.md) | Value type discriminator for normalized storage (for example string, number, ... | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_string](property_value_string.md) | 0..1 <br/> [String](String.md) | String value when property_value_type is string | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_number](property_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric value when property_value_type is number | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_boolean](property_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean value when property_value_type is boolean | [PerformanceProperty](PerformanceProperty.md) |
+| [property_unit](property_unit.md) | 0..1 <br/> [String](String.md) | Normalized unit where applicable (for example min, dB, W/m2K) | [PerformanceProperty](PerformanceProperty.md) |
+| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon) | [PerformanceProperty](PerformanceProperty.md) |
+| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating) | [PerformanceProperty](PerformanceProperty.md) |
+| [source_value_raw](source_value_raw.md) | 0..1 <br/> [String](String.md) | Raw source value before normalization | [PerformanceProperty](PerformanceProperty.md) |
+| [mapping_version](mapping_version.md) | 0..1 <br/> [String](String.md) | Mapping specification version used to derive the normalized property | [PerformanceProperty](PerformanceProperty.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.org/pragmatic-bim-data-contract
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:AcousticProperty |
+| native | pbs:AcousticProperty |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: AcousticProperty
+description: Normalized acoustic-related property.
+from_schema: https://example.org/pragmatic-bim-data-contract
+is_a: PerformanceProperty
+slot_usage:
+  property_key:
+    name: property_key
+    range: AcousticPropertyKey
+class_uri: pbs:AcousticProperty
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: AcousticProperty
+description: Normalized acoustic-related property.
+from_schema: https://example.org/pragmatic-bim-data-contract
+is_a: PerformanceProperty
+slot_usage:
+  property_key:
+    name: property_key
+    range: AcousticPropertyKey
+attributes:
+  property_key:
+    name: property_key
+    description: Canonical key inside the domain; constrained via subclass slot_usage
+      to a domain-specific enum.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: property_key
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: AcousticPropertyKey
+    required: true
+  property_value_type:
+    name: property_value_type
+    description: Value type discriminator for normalized storage (for example string,
+      number, boolean).
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: property_value_type
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: PerformancePropertyValueType
+    required: true
+  property_value_string:
+    name: property_value_string
+    description: String value when property_value_type is string.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: property_value_string
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: string
+  property_value_number:
+    name: property_value_number
+    description: Numeric value when property_value_type is number.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: property_value_number
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: double
+  property_value_boolean:
+    name: property_value_boolean
+    description: Boolean value when property_value_type is boolean.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: property_value_boolean
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: boolean
+  property_unit:
+    name: property_unit
+    description: Normalized unit where applicable (for example min, dB, W/m2K).
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: property_unit
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: string
+  source_pset:
+    name: source_pset
+    description: Original IFC PropertySet name (for example Pset_WallCommon).
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: source_pset
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: string
+  source_property:
+    name: source_property
+    description: Original property name inside the source PropertySet (for example
+      FireRating).
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: source_property
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: string
+  source_value_raw:
+    name: source_value_raw
+    description: Raw source value before normalization.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: source_value_raw
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: string
+  mapping_version:
+    name: mapping_version
+    description: Mapping specification version used to derive the normalized property.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: mapping_version
+    owner: AcousticProperty
+    domain_of:
+    - PerformanceProperty
+    range: string
+class_uri: pbs:AcousticProperty
+
+```
+</details>

@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Separator - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <h1 id="class-separator">Class: Separator</h1>
+<p><em>Abstract base class for elements that separate spaces or zones.</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
+<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/Separator">pbs:Separator</a></p>
+<div class="mermaid">
+ classDiagram
+    class Separator
+    click Separator href "./Separator.html"
+      PhysicalElement <|-- Separator
+        click PhysicalElement href "./PhysicalElement.html"
+      Separator <|-- SeparatorWall
+        click SeparatorWall href "./SeparatorWall.html"
+      Separator <|-- SeparatorSlab
+        click SeparatorSlab href "./SeparatorSlab.html"
+      Separator : classifications
+        Separator --> "*" Classification : classifications
+        click Classification href "./Classification.html"
+      Separator : created_at
+      Separator : decisions
+        Separator --> "*" Decision : decisions
+        click Decision href "./Decision.html"
+      Separator : description
+      Separator : documents
+        Separator --> "*" Document : documents
+        click Document href "./Document.html"
+      Separator : geometry_representations
+        Separator --> "*" GeometryRepresentation : geometry_representations
+        click GeometryRepresentation href "./GeometryRepresentation.html"
+      Separator : id
+      Separator : ifc_global_id
+      Separator : localized_descriptions
+        Separator --> "*" LocalizedText : localized_descriptions
+        click LocalizedText href "./LocalizedText.html"
+      Separator : localized_names
+        Separator --> "*" LocalizedText : localized_names
+        click LocalizedText href "./LocalizedText.html"
+      Separator : meaning_uri
+      Separator : messages
+        Separator --> "*" Message : messages
+        click Message href "./Message.html"
+      Separator : metadata
+        Separator --> "*" MetadataEntry : metadata
+        click MetadataEntry href "./MetadataEntry.html"
+      Separator : modified_at
+      Separator : name
+      Separator : parent_building
+        Separator --> "0..1" BuiltAssetContext : parent_building
+        click BuiltAssetContext href "./BuiltAssetContext.html"
+      Separator : parent_level
+        Separator --> "0..1" LevelContext : parent_level
+        click LevelContext href "./LevelContext.html"
+      Separator : performance_properties
+        Separator --> "*" PerformanceProperty : performance_properties
+        click PerformanceProperty href "./PerformanceProperty.html"
+      Separator : quantity_values
+        Separator --> "*" QuantityValue : quantity_values
+        click QuantityValue href "./QuantityValue.html"
+      Separator : revision
+      Separator : separator_requirement_drivers
+        Separator --> "*" SeparatorRequirementDriver : separator_requirement_drivers
+        click SeparatorRequirementDriver href "./SeparatorRequirementDriver.html"
+      Separator : status
+        Separator --> "0..1" StatusType : status
+        click StatusType href "./StatusType.html"
+      Separator : tasks
+        Separator --> "*" Task : tasks
+        click Task href "./Task.html"
+
+</div>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="Entity.html">Entity</a><ul>
+<li><a href="PhysicalElement.html">PhysicalElement</a><ul>
+<li><strong>Separator</strong><ul>
+<li><a href="SeparatorWall.html">SeparatorWall</a></li>
+<li><a href="SeparatorSlab.html">SeparatorSlab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://example.org/pragmatic-bim-data-contract/Separator">pbs:Separator</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="separator_requirement_drivers.html">separator_requirement_drivers</a></td>
+<td>* <br/> <a href="SeparatorRequirementDriver.html">SeparatorRequirementDriver</a></td>
+<td>Performance requirement drivers for this separator</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="parent_building.html">parent_building</a></td>
+<td>0..1 <br/> <a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td>Parent building context reference</td>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+</tr>
+<tr>
+<td><a href="parent_level.html">parent_level</a></td>
+<td>0..1 <br/> <a href="LevelContext.html">LevelContext</a></td>
+<td>Parent level/storey context reference</td>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="meaning_uri.html">meaning_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional semantic URI for linking the entity instance to an external ontology...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of description</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="classifications.html">classifications</a></td>
+<td>* <br/> <a href="Classification.html">Classification</a></td>
+<td>Classification entries from IFC and other schemes</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>* <br/> <a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+<td>Geometry references associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>* <br/> <a href="QuantityValue.html">QuantityValue</a></td>
+<td>Quantities associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="documents.html">documents</a></td>
+<td>* <br/> <a href="Document.html">Document</a></td>
+<td>Linked documents associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="metadata.html">metadata</a></td>
+<td>* <br/> <a href="MetadataEntry.html">MetadataEntry</a></td>
+<td>Generic metadata container for IFC attributes/properties and project-specific...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="performance_properties.html">performance_properties</a></td>
+<td>* <br/> <a href="PerformanceProperty.html">PerformanceProperty</a></td>
+<td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structura...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="decisions.html">decisions</a></td>
+<td>* <br/> <a href="Decision.html">Decision</a></td>
+<td>Decision records associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="tasks.html">tasks</a></td>
+<td>* <br/> <a href="Task.html">Task</a></td>
+<td>Tasks associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="messages.html">messages</a></td>
+<td>* <br/> <a href="Message.html">Message</a></td>
+<td>Messages associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="created_at.html">created_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Creation timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="modified_at.html">modified_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Last modification timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="revision.html">revision</a></td>
+<td>0..1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Integer revision counter for change tracking</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Separator</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Separator</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>ifcowl:IfcBuildingElement</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
+<details>
+
+<pre><code class="language-yaml">name: Separator
+description: Abstract base class for elements that separate spaces or zones.
+from_schema: https://example.org/pragmatic-bim-data-contract
+exact_mappings:
+- ifcowl:IfcBuildingElement
+is_a: PhysicalElement
+abstract: true
+slots:
+- separator_requirement_drivers
+class_uri: pbs:Separator
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: Separator
+description: Abstract base class for elements that separate spaces or zones.
+from_schema: https://example.org/pragmatic-bim-data-contract
+exact_mappings:
+- ifcowl:IfcBuildingElement
+is_a: PhysicalElement
+abstract: true
+attributes:
+  separator_requirement_drivers:
+    name: separator_requirement_drivers
+    description: 'Performance requirement drivers for this separator. Multiple values
+      are allowed because one separator may need to satisfy several requirements.
+
+      '
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: separator_requirement_drivers
+    owner: Separator
+    domain_of:
+    - Separator
+    range: SeparatorRequirementDriver
+    multivalued: true
+  parent_building:
+    name: parent_building
+    description: Parent building context reference.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: parent_building
+    owner: Separator
+    domain_of:
+    - PhysicalElement
+    - SpatialContext
+    - Space
+    - System
+    range: BuiltAssetContext
+  parent_level:
+    name: parent_level
+    description: Parent level/storey context reference.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: parent_level
+    owner: Separator
+    domain_of:
+    - PhysicalElement
+    - SpatialContext
+    - Space
+    range: LevelContext
+  id:
+    name: id
+    description: Unique local identifier.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Separator
+    domain_of:
+    - Entity
+    range: string
+    required: true
+  name:
+    name: name
+    description: Default display name.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: name
+    owner: Separator
+    domain_of:
+    - Entity
+    range: string
+    required: true
+  localized_names:
+    name: localized_names
+    description: Localized variants of name.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: localized_names
+    owner: Separator
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  description:
+    name: description
+    description: Default description text.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: description
+    owner: Separator
+    domain_of:
+    - Entity
+    range: string
+  meaning_uri:
+    name: meaning_uri
+    description: Optional semantic URI for linking the entity instance to an external
+      ontology concept.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: meaning_uri
+    owner: Separator
+    domain_of:
+    - Entity
+    range: uriorcurie
+  localized_descriptions:
+    name: localized_descriptions
+    description: Localized variants of description.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: localized_descriptions
+    owner: Separator
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  ifc_global_id:
+    name: ifc_global_id
+    description: IFC GlobalId of the mapped entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: ifc_global_id
+    owner: Separator
+    domain_of:
+    - Entity
+    range: string
+    pattern: ^[0-3][0-9A-Za-z_$]{21}$
+  classifications:
+    name: classifications
+    description: Classification entries from IFC and other schemes.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: classifications
+    owner: Separator
+    domain_of:
+    - Entity
+    - Document
+    range: Classification
+    multivalued: true
+    inlined: true
+  geometry_representations:
+    name: geometry_representations
+    description: 'Geometry references associated with the entity. A single element
+      may link to multiple geometry representations to serve different intents (authoring,
+      coordination, analysis, visualization) without duplicating the element itself.
+
+      '
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: geometry_representations
+    owner: Separator
+    domain_of:
+    - Entity
+    range: GeometryRepresentation
+    multivalued: true
+    inlined: true
+  quantity_values:
+    name: quantity_values
+    description: Quantities associated with the entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: quantity_values
+    owner: Separator
+    domain_of:
+    - Entity
+    range: QuantityValue
+    multivalued: true
+    inlined: true
+  documents:
+    name: documents
+    description: Linked documents associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: documents
+    owner: Separator
+    domain_of:
+    - Entity
+    range: Document
+    multivalued: true
+    inlined: true
+  metadata:
+    name: metadata
+    description: Generic metadata container for IFC attributes/properties and project-specific
+      extensions.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: metadata
+    owner: Separator
+    domain_of:
+    - Entity
+    range: MetadataEntry
+    multivalued: true
+    inlined: true
+  performance_properties:
+    name: performance_properties
+    description: 'Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/
+      security/material) extracted from raw IFC PropertySet values.
+
+      '
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: performance_properties
+    owner: Separator
+    domain_of:
+    - Entity
+    range: PerformanceProperty
+    multivalued: true
+    inlined: true
+  decisions:
+    name: decisions
+    description: Decision records associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: decisions
+    owner: Separator
+    domain_of:
+    - Entity
+    range: Decision
+    multivalued: true
+    inlined: true
+  tasks:
+    name: tasks
+    description: Tasks associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: tasks
+    owner: Separator
+    domain_of:
+    - Entity
+    range: Task
+    multivalued: true
+    inlined: true
+  messages:
+    name: messages
+    description: Messages associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: messages
+    owner: Separator
+    domain_of:
+    - Entity
+    range: Message
+    multivalued: true
+    inlined: true
+  created_at:
+    name: created_at
+    description: Creation timestamp for this entity record.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: created_at
+    owner: Separator
+    domain_of:
+    - Entity
+    range: datetime
+  modified_at:
+    name: modified_at
+    description: Last modification timestamp for this entity record.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: modified_at
+    owner: Separator
+    domain_of:
+    - Entity
+    range: datetime
+  revision:
+    name: revision
+    description: Integer revision counter for change tracking.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: revision
+    owner: Separator
+    domain_of:
+    - Entity
+    range: integer
+    minimum_value: 0
+  status:
+    name: status
+    description: Lifecycle or QA status.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: status
+    owner: Separator
+    domain_of:
+    - Entity
+    range: StatusType
+class_uri: pbs:Separator
+
+</code></pre>
+
+</details>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

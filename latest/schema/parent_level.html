@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>parent_level - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <h1 id="slot-parent_level">Slot: parent_level</h1>
+<p><em>Parent level/storey context reference.</em></p>
+<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/parent_level">pbs:parent_level</a>
+Alias: parent_level</p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Modifies Slot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td>Context node used to represent project, perimeter, legal site, built asset, l...</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td>Spatial context node constrained to civil structure semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td>Spatial context node constrained to zone semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td>Slab-based separating element (for example floor/roof/base slab separators)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td>Spatial context node constrained to project semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td>Spatial context node constrained to building semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td>Spatial context node constrained to legal site semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td>Wall-based separating element</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td>Base class for physical elements that can be placed in built asset/level cont...</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td>Spatial context node constrained to perimeter semantics</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td>Abstract spatial context for built assets such as buildings and civil structu...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td>Endpoint or device element (for example terminal, unit, control device, senso...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td>Physical element acting as a boundary treatment (for example covering)</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td>Physical connector providing functional connection between spaces (for exampl...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td>Abstract base class for elements that separate spaces or zones</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td>Spatial container used for occupancy, circulation, service, or analysis</td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td>Spatial context node constrained to level/storey semantics</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
+<h3 id="type-and-range">Type and Range</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Range</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td>Domain Of</td>
+<td><a href="PhysicalElement.html">PhysicalElement</a>, <a href="SpatialContext.html">SpatialContext</a>, <a href="Space.html">Space</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:parent_level</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:parent_level</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: parent_level
+description: Parent level/storey context reference.
+from_schema: https://example.org/pragmatic-bim-data-contract
+rank: 1000
+alias: parent_level
+domain_of:
+- PhysicalElement
+- SpatialContext
+- Space
+range: Entity
+
+</code></pre>
+
+</details>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

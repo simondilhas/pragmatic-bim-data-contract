@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QuantityType - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <h1 id="enum-quantitytype">Enum: QuantityType</h1>
+<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/QuantityType">pbs:QuantityType</a></p>
+<p><strong>Enum URI:</strong> <a href="https://example.org/pragmatic-bim-data-contract/QuantityType">pbs:QuantityType</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>area_net_horizontal</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Net horizontal area, typically usable floor area excluding non-net parts</td>
+</tr>
+<tr>
+<td>area_gross_horizontal</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Gross horizontal area, typically measured to outer boundaries</td>
+</tr>
+<tr>
+<td>area_net_vertical</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Net vertical area, typically wall or facade area excluding deductions</td>
+</tr>
+<tr>
+<td>area_gross_vertical</td>
+<td>ifcowl:IfcQuantityArea</td>
+<td>Gross vertical area, typically full wall or facade area including non-net por...</td>
+</tr>
+<tr>
+<td>volume_net</td>
+<td>ifcowl:IfcQuantityVolume</td>
+<td>Net enclosed volume after subtracting non-counted voids or deductions</td>
+</tr>
+<tr>
+<td>volume_gross</td>
+<td>ifcowl:IfcQuantityVolume</td>
+<td>Gross enclosed volume measured to external or gross boundaries</td>
+</tr>
+<tr>
+<td>length</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Linear extent of an element or feature</td>
+</tr>
+<tr>
+<td>width</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Width dimension of an element, opening, or space proxy</td>
+</tr>
+<tr>
+<td>height</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Height dimension of an element, opening, or space proxy</td>
+</tr>
+<tr>
+<td>perimeter</td>
+<td>ifcowl:IfcQuantityLength</td>
+<td>Boundary length around a 2D shape or footprint</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="quantity_type.html">quantity_type</a></td>
+<td>Controlled quantity type</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_type.html">cost_quantity_type</a></td>
+<td>Quantity type used as basis for this cost calculation</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
+</ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: QuantityType
+from_schema: https://example.org/pragmatic-bim-data-contract
+rank: 1000
+enum_uri: pbs:QuantityType
+permissible_values:
+  area_net_horizontal:
+    text: area_net_horizontal
+    description: Net horizontal area, typically usable floor area excluding non-net
+      parts.
+    meaning: ifcowl:IfcQuantityArea
+  area_gross_horizontal:
+    text: area_gross_horizontal
+    description: Gross horizontal area, typically measured to outer boundaries.
+    meaning: ifcowl:IfcQuantityArea
+  area_net_vertical:
+    text: area_net_vertical
+    description: Net vertical area, typically wall or facade area excluding deductions.
+    meaning: ifcowl:IfcQuantityArea
+  area_gross_vertical:
+    text: area_gross_vertical
+    description: Gross vertical area, typically full wall or facade area including
+      non-net portions.
+    meaning: ifcowl:IfcQuantityArea
+  volume_net:
+    text: volume_net
+    description: Net enclosed volume after subtracting non-counted voids or deductions.
+    meaning: ifcowl:IfcQuantityVolume
+  volume_gross:
+    text: volume_gross
+    description: Gross enclosed volume measured to external or gross boundaries.
+    meaning: ifcowl:IfcQuantityVolume
+  length:
+    text: length
+    description: Linear extent of an element or feature.
+    meaning: ifcowl:IfcQuantityLength
+  width:
+    text: width
+    description: Width dimension of an element, opening, or space proxy.
+    meaning: ifcowl:IfcQuantityLength
+  height:
+    text: height
+    description: Height dimension of an element, opening, or space proxy.
+    meaning: ifcowl:IfcQuantityLength
+  perimeter:
+    text: perimeter
+    description: Boundary length around a 2D shape or footprint.
+    meaning: ifcowl:IfcQuantityLength
+
+</code></pre>
+
+</details>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>
