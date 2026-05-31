@@ -12,7 +12,7 @@ flowchart TB
   Root --> core["Core"]
   Root --> performance_enums["Performance Enums"]
   Root --> requirements_enums["Requirements Enums"]
-  Root --> performance["Performance"]
+  Root --> performance["Entity Performance Properties"]
   Root --> requirements["Requirements"]
   Root --> elements_physical["Elements Physical"]
   Root --> elements_virtual["Elements Virtual"]
@@ -34,17 +34,15 @@ classDiagram
   PhysicalElement <|-- ConnectionPhysical
   PhysicalElement <|-- Equipment
   PhysicalElement <|-- Separator
-  Entity <|-- ScheduleDependency
-  Entity <|-- ScheduleItem
-  ScheduleItem <|-- Milestone
-  Entity <|-- ScheduleTemplate
   Entity <|-- VirtualEntity
   VirtualEntity <|-- AbstractCostRecord
+  VirtualEntity <|-- AbstractTimeRecord
   VirtualEntity <|-- ConnectionVirtual
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
   VirtualEntity <|-- System
+  VirtualEntity <|-- TimeDependency
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty
@@ -69,14 +67,14 @@ classDiagram
   PhysicalElement <|-- Separator
   Separator <|-- SeparatorSlab
   Separator <|-- SeparatorWall
-  Entity <|-- ScheduleDependency
-  Entity <|-- ScheduleItem
-  ScheduleItem <|-- Milestone
-  Entity <|-- ScheduleTemplate
   Entity <|-- VirtualEntity
   VirtualEntity <|-- AbstractCostRecord
   AbstractCostRecord <|-- CostAssembly
   AbstractCostRecord <|-- CostItem
+  VirtualEntity <|-- AbstractTimeRecord
+  AbstractTimeRecord <|-- TimeItem
+  TimeItem <|-- Milestone
+  AbstractTimeRecord <|-- TimePlan
   VirtualEntity <|-- ConnectionVirtual
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
@@ -90,9 +88,10 @@ classDiagram
   SpatialContext <|-- ProjectContext
   SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
+  VirtualEntity <|-- TimeDependency
 ```
 
-### Performance properties
+### Entity performance properties
 
 ```mermaid
 classDiagram
@@ -103,5 +102,34 @@ classDiagram
   PerformanceProperty <|-- SecurityProperty
   PerformanceProperty <|-- StructuralProperty
   PerformanceProperty <|-- ThermalProperty
+```
+
+### Requirements
+
+```mermaid
+classDiagram
+  direction TB
+  Requirement <|-- BriefRequirement
+  Requirement <|-- PerformanceRequirement
+  Requirement <|-- RegulatoryRequirement
+  Requirement <|-- SpatialRequirement
+```
+
+### Changes
+
+```mermaid
+classDiagram
+  direction TB
+  Change <|-- AdditionChange
+  Change <|-- DeletionChange
+  Change <|-- GeometryChange
+  Change <|-- MatchChange
+  Change <|-- PropertyChange
+  Change <|-- RequirementChange
+  ChangeSet *-- Change
+  PropertyChange *-- PropertyDelta
+  RequirementChange *-- PropertyDelta
+  Change *-- StateRef
+  ChangeSet *-- StateRef
 ```
 

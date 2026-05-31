@@ -267,22 +267,22 @@ enums:
       cladding:
         meaning: ifcowl:IfcCoveringTypeEnum.CLADDING
 
-  ScheduleDependencyType:
-    enum_uri: pbs:ScheduleDependencyType
-    description: Precedence logic between two schedule items.
+  TimeDependencyType:
+    enum_uri: pbs:TimeDependencyType
+    description: Precedence logic between two time items.
     permissible_values:
       finish_to_start:
         description: Successor starts when the predecessor finishes.
-        meaning: pbs:schedule_dependency_type_finish_to_start
+        meaning: pbs:time_dependency_type_finish_to_start
       start_to_start:
         description: Successor starts when the predecessor starts.
-        meaning: pbs:schedule_dependency_type_start_to_start
+        meaning: pbs:time_dependency_type_start_to_start
       finish_to_finish:
         description: Successor finishes when the predecessor finishes.
-        meaning: pbs:schedule_dependency_type_finish_to_finish
+        meaning: pbs:time_dependency_type_finish_to_finish
       start_to_finish:
         description: Successor finishes when the predecessor starts.
-        meaning: pbs:schedule_dependency_type_start_to_finish
+        meaning: pbs:time_dependency_type_start_to_finish
 
   QuantityType:
     enum_uri: pbs:QuantityType
@@ -318,28 +318,96 @@ enums:
         description: Boundary length around a 2D shape or footprint.
         meaning: ifcowl:IfcQuantityLength
 
-  ChangeKind:
-    enum_uri: pbs:ChangeKind
-    description: Severity or category of change detected between two revisions.
+  ContentKind:
+    enum_uri: pbs:ContentKind
+    description: Top-level content category for adapter projection and schema routing.
+    permissible_values:
+      physical:
+        description: Tangible BIM element from the physical elements module.
+        meaning: pbs:content_kind_physical
+      virtual:
+        description: Non-physical conceptual entity (space, system, time/cost record, etc.).
+        meaning: pbs:content_kind_virtual
+      context:
+        description: Spatial context node (project, site, building, level, zone).
+        meaning: pbs:content_kind_context
+      requirement:
+        description: Prescriptive requirement record.
+        meaning: pbs:content_kind_requirement
+      change:
+        description: Revision diff or audit record.
+        meaning: pbs:content_kind_change
+
+  RequirementDomain:
+    enum_uri: pbs:RequirementDomain
+    description: Domain of a prescriptive requirement record.
+    permissible_values:
+      performance:
+        description: Performance targets (U-value, fire rating, airflow, acoustic, etc.).
+        meaning: pbs:requirement_domain_performance
+      spatial:
+        description: Spatial constraints (min area, min height, adjacency, etc.).
+        meaning: pbs:requirement_domain_spatial
+      regulatory:
+        description: Regulatory references (building code, norm, standard).
+        meaning: pbs:requirement_domain_regulatory
+      brief:
+        description: Client or programme requirement, including free-standing brief items.
+        meaning: pbs:requirement_domain_brief
+
+  ChangeType:
+    enum_uri: pbs:ChangeType
+    description: Category of change detected between two revisions.
+    permissible_values:
+      geometry_change:
+        description: Geometry or representation changed.
+        meaning: pbs:change_type_geometry_change
+      property_change:
+        description: Attribute, PropertySet, or schema slot changed.
+        meaning: pbs:change_type_property_change
+      requirement_change:
+        description: Requirement record or field changed.
+        meaning: pbs:change_type_requirement_change
+      match_change:
+        description: Entity match status against a requirement changed (met / unmet).
+        meaning: pbs:change_type_match_change
+      addition:
+        description: New entity or requirement introduced.
+        meaning: pbs:change_type_addition
+      deletion:
+        description: Entity or requirement removed.
+        meaning: pbs:change_type_deletion
+
+  ChangeSeverity:
+    enum_uri: pbs:ChangeSeverity
+    description: Optional severity of a change independent of change type.
     permissible_values:
       unchanged:
         description: No material difference (typically omitted from persisted Change records).
-        meaning: pbs:change_kind_unchanged
+        meaning: pbs:change_severity_unchanged
       minor:
         description: Small attribute, metadata, or wording adjustment.
-        meaning: pbs:change_kind_minor
+        meaning: pbs:change_severity_minor
       major:
         description: Significant attribute, geometry, relationship, or structural content change.
-        meaning: pbs:change_kind_major
+        meaning: pbs:change_severity_major
       rewritten:
         description: Subject substantially replaced while retaining the same identity.
-        meaning: pbs:change_kind_rewritten
-      new:
-        description: Subject introduced in to_revision (absent in from_revision).
-        meaning: pbs:change_kind_new
-      deleted:
-        description: Subject removed in to_revision (present in from_revision).
-        meaning: pbs:change_kind_deleted
+        meaning: pbs:change_severity_rewritten
+
+  MatchStatus:
+    enum_uri: pbs:MatchStatus
+    description: Whether an entity satisfies a related requirement at the target revision.
+    permissible_values:
+      met:
+        description: Subject satisfies the requirement.
+        meaning: pbs:match_status_met
+      unmet:
+        description: Subject no longer satisfies the requirement.
+        meaning: pbs:match_status_unmet
+      unknown:
+        description: Match could not be determined.
+        meaning: pbs:match_status_unknown
 
   ChangeIntentVerdict:
     enum_uri: pbs:ChangeIntentVerdict

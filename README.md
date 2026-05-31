@@ -11,6 +11,11 @@ Not because the data is missing, but because it is buried in complexity:
   - too complex (hundreds of entities and deep relationships)
   - inconsistent across tools and projects
   - difficult to query for real workflows
+  - mixes **performance** (what a product or assembly actually delivers) with
+    **requirements** (what a project or regulation demands) in the same property
+    sets and attributes, so compliance checks and product data stay entangled
+  - treats **change** as an afterthought: revisions are file swaps, not structured
+    diff records you can query, aggregate, or feed into workflows
 - IDS (Information Delivery Specification) focuses on data validation, but not on
   complex conditional validation logic (for example: if a building is below 25 m,
   staircase walls must be EI90).
@@ -36,6 +41,10 @@ Instead of trying to standardize everything, this contract:
 - reduces complexity
 - enforces consistency
 - focuses on what is actually needed
+- separates performance properties from requirement drivers so each can be queried,
+  validated, and updated independently
+- models change as first-class data (`Change`, `ChangeSet`, `PropertyDelta`) rather
+  than relying on opaque file diffs
 
 It is intentionally limited.
 
@@ -114,11 +123,11 @@ Without having to:
 - `schema/core_schema.yaml`: core entities and reusable base slots.
 - `schema/performance_enums_schema.yaml`: enums for normalized performance properties.
 - `schema/requirements_enums_schema.yaml`: enums for requirement drivers and assessment status.
-- `schema/performance_schema.yaml`: domain-specific normalized performance property classes.
-- `schema/requirements_schema.yaml`: requirement-driver slots and assessment structures.
+- `schema/performance_schema.yaml`: normalized performance properties stored on `Entity` (extracted IFC values).
+- `schema/requirements_schema.yaml`: prescriptive requirement records and element-level requirement-driver slots.
 - `schema/elements_physical_schema.yaml`: physical element hierarchy and element-related slots.
-- `schema/elements_virtual_schema.yaml`: virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `ScheduleTemplate`, `ScheduleItem`, `Milestone`, `ScheduleDependency`, `CostItem`, `CostAssembly`, `Material`) and their slots.
-- `schema/changes_schema.yaml`: change detection and revision diff records (`Change`, `ChangeSet`, `PropertyDelta`, `StateRef`).
+- `schema/elements_virtual_schema.yaml`: virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `TimeItem`, `Milestone`, `TimePlan`, `TimeDependency`, `CostItem`, `CostAssembly`, `Material`) and their slots.
+- `schema/changes_schema.yaml`: typed change records (`PropertyChange`, `GeometryChange`, `MatchChange`, …) and `ChangeSet` batches.
 - `schema/enums_schema.yaml`: controlled vocabularies.
 - `schema/enum_localizations.yaml`: enum label/localization metadata.
 - `mappings/`: declarative IFC → schema mapping for external ingestion adapters (see `mappings/README.md`; run `python scripts/merge_ifc_mapping.py` after edits).
@@ -131,7 +140,7 @@ flowchart TB
   Root --> core["Core"]
   Root --> performance_enums["Performance Enums"]
   Root --> requirements_enums["Requirements Enums"]
-  Root --> performance["Performance"]
+  Root --> performance["Entity Performance Properties"]
   Root --> requirements["Requirements"]
   Root --> elements_physical["Elements Physical"]
   Root --> elements_virtual["Elements Virtual"]
@@ -155,17 +164,15 @@ classDiagram
   PhysicalElement <|-- ConnectionPhysical
   PhysicalElement <|-- Equipment
   PhysicalElement <|-- Separator
-  Entity <|-- ScheduleDependency
-  Entity <|-- ScheduleItem
-  ScheduleItem <|-- Milestone
-  Entity <|-- ScheduleTemplate
   Entity <|-- VirtualEntity
   VirtualEntity <|-- AbstractCostRecord
+  VirtualEntity <|-- AbstractTimeRecord
   VirtualEntity <|-- ConnectionVirtual
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
   VirtualEntity <|-- System
+  VirtualEntity <|-- TimeDependency
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty
@@ -177,25 +184,44 @@ classDiagram
 
 Interactive full class hierarchy: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
 
-The schema is organized into five core modules:
+### Three pillars
 
-1. **Core schema** (`core_schema.yaml`)
-   - shared base entity model (`Entity`), identifiers, lifecycle metadata, localization, geometry links, quantities, and extensible metadata.
+The contract groups data into three top-level concerns (see [`ContentKind`](schema/enums_schema.yaml) for adapter projection):
 
-2. **Physical elements** (`elements_physical_schema.yaml`)
-   - tangible building components such as separators (walls/slabs), physical connections (e.g., doors/windows/ducts/pipes/cables), and endpoint equipment/devices.
+1. **Entities** — BIM and project graph (`Entity` subclasses: physical, virtual, context). Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
+2. **Requirements** — prescriptive records (`Requirement` subclasses) with `requirement_domain`: `performance`, `spatial`, `regulatory`, `brief`.
+3. **Changes** — revision diff records (`Change` subclasses) with `change_type`: `geometry_change`, `property_change`, `requirement_change`, `match_change`, `addition`, `deletion`; optional `change_severity` for magnitude.
 
-3. **Virtual entities** (`elements_virtual_schema.yaml`)
-   - non-physical structure and logic: spatial context hierarchy, spaces, systems, virtual connections, schedules, costs, and materials.
+Supporting modules: **core**, **performance** (entity property facets), **enums**, **enum localizations**, **elements physical/virtual**, **changes** helpers (`StateRef`, `PropertyDelta`).
 
-4. **Controlled vocabularies** (`enums_schema.yaml`)
-   - canonical enums for consistent exchange and downstream logic.
+<!-- diagram:requirements-overview begin -->
+```mermaid
+classDiagram
+  direction TB
+  Requirement <|-- BriefRequirement
+  Requirement <|-- PerformanceRequirement
+  Requirement <|-- RegulatoryRequirement
+  Requirement <|-- SpatialRequirement
+```
+<!-- diagram:requirements-overview end -->
 
-5. **Localizations** (`enum_localizations.yaml`)
-   - user-facing labels/translations for enums while preserving canonical values.
-
-6. **Changes** (`changes_schema.yaml`)
-   - revision diff records for IFC models, documents, and entity fields (`Change`, `ChangeSet`, `PropertyDelta`, `StateRef`).
+<!-- diagram:changes-overview begin -->
+```mermaid
+classDiagram
+  direction TB
+  Change <|-- AdditionChange
+  Change <|-- DeletionChange
+  Change <|-- GeometryChange
+  Change <|-- MatchChange
+  Change <|-- PropertyChange
+  Change <|-- RequirementChange
+  ChangeSet *-- Change
+  PropertyChange *-- PropertyDelta
+  RequirementChange *-- PropertyDelta
+  Change *-- StateRef
+  ChangeSet *-- StateRef
+```
+<!-- diagram:changes-overview end -->
 
 Browse the generated schema documentation at [https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
 
@@ -256,7 +282,7 @@ Module slug → primary doc entry:
 | `core` | `Entity.html` |
 | `elements-virtual` | `VirtualEntity.html` |
 | `elements-physical` | `PhysicalElement.html` |
-| `changes` | `Change.html` |
+| `changes` | `PropertyChange.html`, `ChangeSet.html` |
 | `performance` | `FireProperty.html` |
 | `requirements` | schema index (slots-only module) |
 | `enums` | `GeometryRepresentationType.html` |

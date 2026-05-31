@@ -1,0 +1,13 @@
+classDiagram
+  direction TB
+  Change <|-- AdditionChange
+  Change <|-- DeletionChange
+  Change <|-- GeometryChange
+  Change <|-- MatchChange
+  Change <|-- PropertyChange
+  Change <|-- RequirementChange
+  ChangeSet *-- Change
+  PropertyChange *-- PropertyDelta
+  RequirementChange *-- PropertyDelta
+  Change *-- StateRef
+  ChangeSet *-- StateRef

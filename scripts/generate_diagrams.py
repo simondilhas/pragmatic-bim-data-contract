@@ -21,10 +21,15 @@ BASE_URL = "https://schema.pragmaticbim.ch"
 README_MARKERS = {
     "module-map": "module-map",
     "entity-overview": "entity-overview",
+    "requirements-overview": "requirements-overview",
+    "changes-overview": "changes-overview",
 }
 PREAMBLE_MARKER = "<!-- schema-diagrams-preamble -->"
 ENTITY_ROOT = "Entity"
 PERFORMANCE_ROOT = "PerformanceProperty"
+REQUIREMENT_ROOT = "Requirement"
+CHANGE_ROOT = "Change"
+CHANGES_SCHEMA = "changes_schema"
 
 
 def load_root_imports(schema_dir: Path) -> list[str]:
@@ -142,6 +147,83 @@ def render_class_diagram(edges: set[tuple[str, str]]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def render_class_diagram_mixed(
+    inheritance: set[tuple[str, str]],
+    composition: set[tuple[str, str]],
+) -> str:
+    lines = ["classDiagram", "  direction TB"]
+    for child, parent in order_edges_depth_first(inheritance):
+        lines.append(f"  {parent} <|-- {child}")
+    for contained, container in sorted(composition):
+        lines.append(f"  {container} *-- {contained}")
+    return "\n".join(lines) + "\n"
+
+
+def nodes_in_subtrees(parents: dict[str, str], roots: list[str]) -> set[str]:
+    nodes: set[str] = set(roots)
+    for root in roots:
+        nodes |= {child for child, parent in subtree_edges(parents, root)}
+    return nodes
+
+
+def filter_inheritance_edges(
+    edges: set[tuple[str, str]], allowed: set[str]
+) -> set[tuple[str, str]]:
+    return {(child, parent) for child, parent in edges if child in allowed and parent in allowed}
+
+
+def load_schema_doc(schema_dir: Path, import_name: str) -> dict:
+    schema_file = schema_dir / f"{import_name}.yaml"
+    return yaml.safe_load(schema_file.read_text(encoding="utf-8")) or {}
+
+
+def module_class_names(schema_dir: Path, import_name: str) -> set[str]:
+    doc = load_schema_doc(schema_dir, import_name)
+    classes = doc.get("classes", {})
+    if not isinstance(classes, dict):
+        return set()
+    return set(classes.keys())
+
+
+def composition_edges_from_slots(
+    schema_dir: Path,
+    import_name: str,
+    *,
+    allowed_containers: set[str] | None = None,
+) -> set[tuple[str, str]]:
+    """Return (contained, container) pairs for inlined slot ranges declared on module classes."""
+    doc = load_schema_doc(schema_dir, import_name)
+    classes = doc.get("classes", {})
+    slots_global = doc.get("slots", {})
+    if not isinstance(classes, dict) or not isinstance(slots_global, dict):
+        return set()
+
+    module_classes = set(classes.keys())
+    edges: set[tuple[str, str]] = set()
+
+    for class_name, class_body in classes.items():
+        if not isinstance(class_body, dict):
+            continue
+        if allowed_containers is not None and class_name not in allowed_containers:
+            continue
+        slot_names = class_body.get("slots", [])
+        if not isinstance(slot_names, list):
+            continue
+        for slot_name in slot_names:
+            if not isinstance(slot_name, str):
+                continue
+            slot_def = slots_global.get(slot_name, {})
+            if not isinstance(slot_def, dict):
+                continue
+            if not slot_def.get("inlined", False):
+                continue
+            range_name = slot_def.get("range")
+            if not isinstance(range_name, str) or range_name not in module_classes:
+                continue
+            edges.add((range_name, class_name))
+    return edges
+
+
 def subtree_edges(parents: dict[str, str], root: str) -> set[tuple[str, str]]:
     """Collect all (child, parent) edges in the inheritance subtree under root."""
     edges: set[tuple[str, str]] = set()
@@ -240,6 +322,8 @@ def render_docs_preamble(
     entity_shallow: str,
     entity_branch: str,
     performance_branch: str,
+    requirements_branch: str,
+    changes_branch: str,
 ) -> str:
     return (
         f"{PREAMBLE_MARKER}\n\n"
@@ -253,8 +337,12 @@ def render_docs_preamble(
         f"```mermaid\n{entity_shallow.strip()}\n```\n\n"
         "### Entity model\n\n"
         f"```mermaid\n{entity_branch.strip()}\n```\n\n"
-        "### Performance properties\n\n"
+        "### Entity performance properties\n\n"
         f"```mermaid\n{performance_branch.strip()}\n```\n\n"
+        "### Requirements\n\n"
+        f"```mermaid\n{requirements_branch.strip()}\n```\n\n"
+        "### Changes\n\n"
+        f"```mermaid\n{changes_branch.strip()}\n```\n\n"
     )
 
 
@@ -301,10 +389,18 @@ def collect_outputs(schema_dir: Path) -> dict[str, str]:
 
     module_map = render_module_map(modules_in_root, interactive=False)
     module_map_interactive = render_module_map(modules_in_root, interactive=True)
-    entity_full = render_class_diagram(all_is_a_edges(parents))
-    entity_readme = render_class_diagram(shallow_is_a_edges(parents, max_depth=2))
+    all_inheritance = all_is_a_edges(parents)
+    entity_nodes = nodes_in_subtrees(parents, [ENTITY_ROOT, PERFORMANCE_ROOT])
+    entity_full = render_class_diagram(filter_inheritance_edges(all_inheritance, entity_nodes))
+    entity_readme = render_class_diagram(
+        filter_inheritance_edges(shallow_is_a_edges(parents, max_depth=2), entity_nodes)
+    )
     entity_branch = render_class_diagram(subtree_edges(parents, ENTITY_ROOT))
     performance_branch = render_class_diagram(subtree_edges(parents, PERFORMANCE_ROOT))
+    requirements_branch = render_class_diagram(subtree_edges(parents, REQUIREMENT_ROOT))
+    change_inheritance = subtree_edges(parents, CHANGE_ROOT)
+    change_composition = composition_edges_from_slots(schema_dir, CHANGES_SCHEMA)
+    changes_branch = render_class_diagram_mixed(change_inheritance, change_composition)
 
     outputs: dict[str, str] = {
         "module-map.mmd": module_map,
@@ -313,11 +409,15 @@ def collect_outputs(schema_dir: Path) -> dict[str, str]:
         "entity-overview-readme.mmd": entity_readme,
         "entity-overview-entity.mmd": entity_branch,
         "entity-overview-performance.mmd": performance_branch,
+        "entity-overview-requirements.mmd": requirements_branch,
+        "entity-overview-changes.mmd": changes_branch,
         "docs-preamble.md": render_docs_preamble(
             module_map,
             entity_readme,
             entity_branch,
             performance_branch,
+            requirements_branch,
+            changes_branch,
         ),
     }
 
@@ -326,6 +426,11 @@ def collect_outputs(schema_dir: Path) -> dict[str, str]:
         if not import_name:
             continue
         edges = module_class_edges(schema_dir, import_name, parents)
+        if import_name == CHANGES_SCHEMA:
+            comp = composition_edges_from_slots(schema_dir, import_name)
+            if edges or comp:
+                outputs[f"modules/{module['slug']}.mmd"] = render_class_diagram_mixed(edges, comp)
+            continue
         if not edges:
             continue
         outputs[f"modules/{module['slug']}.mmd"] = render_class_diagram(edges)
@@ -379,6 +484,8 @@ def generate(
                     {
                         "module-map": outputs["module-map.mmd"],
                         "entity-overview": outputs["entity-overview-readme.mmd"],
+                        "requirements-overview": outputs["entity-overview-requirements.mmd"],
+                        "changes-overview": outputs["entity-overview-changes.mmd"],
                     },
                 )
             errors = compare_trees(diagrams_dir, tmp_dir)
@@ -412,6 +519,8 @@ def generate(
             {
                 "module-map": outputs["module-map.mmd"],
                 "entity-overview": outputs["entity-overview-readme.mmd"],
+                "requirements-overview": outputs["entity-overview-requirements.mmd"],
+                "changes-overview": outputs["entity-overview-changes.mmd"],
             },
         )
     print(f"Generated {len(outputs)} diagram artifacts in {diagrams_dir}")

@@ -9,17 +9,15 @@ classDiagram
   PhysicalElement <|-- ConnectionPhysical
   PhysicalElement <|-- Equipment
   PhysicalElement <|-- Separator
-  Entity <|-- ScheduleDependency
-  Entity <|-- ScheduleItem
-  ScheduleItem <|-- Milestone
-  Entity <|-- ScheduleTemplate
   Entity <|-- VirtualEntity
   VirtualEntity <|-- AbstractCostRecord
+  VirtualEntity <|-- AbstractTimeRecord
   VirtualEntity <|-- ConnectionVirtual
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
   VirtualEntity <|-- System
+  VirtualEntity <|-- TimeDependency
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty

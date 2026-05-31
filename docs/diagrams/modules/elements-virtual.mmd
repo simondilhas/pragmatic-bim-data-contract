@@ -1,13 +1,13 @@
 classDiagram
   direction TB
-  Entity <|-- ScheduleDependency
-  Entity <|-- ScheduleItem
-  ScheduleItem <|-- Milestone
-  Entity <|-- ScheduleTemplate
   Entity <|-- VirtualEntity
   VirtualEntity <|-- AbstractCostRecord
   AbstractCostRecord <|-- CostAssembly
   AbstractCostRecord <|-- CostItem
+  VirtualEntity <|-- AbstractTimeRecord
+  AbstractTimeRecord <|-- TimeItem
+  TimeItem <|-- Milestone
+  AbstractTimeRecord <|-- TimePlan
   VirtualEntity <|-- ConnectionVirtual
   VirtualEntity <|-- Material
   VirtualEntity <|-- Space
@@ -21,3 +21,4 @@ classDiagram
   SpatialContext <|-- ProjectContext
   SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
+  VirtualEntity <|-- TimeDependency

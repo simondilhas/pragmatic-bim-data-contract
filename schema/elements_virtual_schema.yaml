@@ -2,7 +2,7 @@ id: https://schema.pragmaticbim.ch/elements-virtual
 name: pragmatic_bim_elements_virtual_schema
 title: Pragmatic BIM Data Contract - Elements Virtual
 description: >
-  Virtual entities such as context, space, system, schedule, and cost/material information.
+  Virtual entities such as context, space, system, time, cost, and material information.
 license: MIT
 
 see_also:
@@ -32,6 +32,8 @@ classes:
     slots:
       - cost_items
       - cost_assemblies
+      - time_items
+      - time_plans
       - materials
 
   SpatialContext:
@@ -156,40 +158,46 @@ classes:
       - connects_spaces
       - connection_virtual_requirement_drivers
 
-  ScheduleTemplate:
-    is_a: Entity
-    class_uri: pbs:ScheduleTemplate
-    description: Reusable schedule container defining items, milestones, and dependencies for a scoped plan.
+  AbstractTimeRecord:
+    is_a: VirtualEntity
+    abstract: true
+    class_uri: pbs:AbstractTimeRecord
+    description: Abstract base for reusable time/schedule record fields shared by atomic and grouped time records.
     slots:
-      - scheduled_entities
-      - schedule_items
-      - schedule_dependencies
+      - applies_to_entities
 
-  ScheduleItem:
-    is_a: Entity
-    class_uri: pbs:ScheduleItem
-    description: Planned work item with baseline and actual dates, linked to a schedule template and optional model entities.
+  TimeItem:
+    is_a: AbstractTimeRecord
+    class_uri: pbs:TimeItem
+    description: Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.
     slots:
-      - schedule_template
-      - scheduled_entities
+      - time_plan
       - planned_start_at
       - planned_finish_at
       - actual_start_at
       - actual_finish_at
 
   Milestone:
-    is_a: ScheduleItem
+    is_a: TimeItem
     class_uri: pbs:Milestone
-    description: Zero-duration checkpoint or delivery target within a schedule.
+    description: Zero-duration checkpoint or delivery target within a time plan.
     slots:
       - milestone_at
 
-  ScheduleDependency:
-    is_a: Entity
-    class_uri: pbs:ScheduleDependency
-    description: Precedence relationship between two schedule items, optionally with lag.
+  TimePlan:
+    is_a: AbstractTimeRecord
+    class_uri: pbs:TimePlan
+    description: Grouped schedule container defining component items, milestones, and dependencies for a scoped plan.
     slots:
-      - schedule_template
+      - component_time_items
+      - time_dependencies
+
+  TimeDependency:
+    is_a: VirtualEntity
+    class_uri: pbs:TimeDependency
+    description: Precedence relationship between two time items within a plan, optionally with lag.
+    slots:
+      - time_plan
       - predecessor_item
       - successor_item
       - dependency_type
@@ -311,61 +319,67 @@ slots:
     range: Space
     description: Spaces connected by this virtual connection.
 
-  scheduled_entities:
+  time_items:
     multivalued: true
-    range: Entity
+    range: TimeItem
     inlined: false
-    description: Model entities that this schedule template or schedule item applies to.
+    description: Time items associated with this entity.
 
-  schedule_items:
+  time_plans:
     multivalued: true
-    range: ScheduleItem
+    range: TimePlan
     inlined: false
-    description: Schedule items contained in this template; milestone instances may also appear through the ScheduleItem subtype.
+    description: Grouped time plans associated with this entity.
 
-  schedule_dependencies:
+  time_plan:
+    range: TimePlan
+    inlined: false
+    description: Parent time plan this item or dependency belongs to.
+
+  component_time_items:
     multivalued: true
-    range: ScheduleDependency
+    range: TimeItem
     inlined: false
-    description: Dependency relationships used within this schedule template.
+    description: Time items contained in this plan; milestone instances may also appear through the TimeItem subtype.
 
-  schedule_template:
-    range: ScheduleTemplate
+  time_dependencies:
+    multivalued: true
+    range: TimeDependency
     inlined: false
-    description: Parent schedule template this item or dependency belongs to.
+    description: Dependency relationships used within this time plan.
 
   planned_start_at:
     range: datetime
-    description: Planned start timestamp for the schedule item.
+    description: Planned start timestamp for the time item.
 
   planned_finish_at:
     range: datetime
-    description: Planned finish timestamp for the schedule item.
+    description: Planned finish timestamp for the time item.
 
   actual_start_at:
     range: datetime
-    description: Actual start timestamp for the schedule item where known.
+    description: Actual start timestamp for the time item where known.
 
   actual_finish_at:
     range: datetime
-    description: Actual finish timestamp for the schedule item where known.
+    description: Actual finish timestamp for the time item where known.
 
   milestone_at:
     range: datetime
     description: Target timestamp for the milestone checkpoint.
 
   predecessor_item:
-    range: ScheduleItem
+    range: TimeItem
     inlined: false
-    description: Schedule item that must occur before the successor item.
+    description: Time item that must occur before the successor item.
 
   successor_item:
-    range: ScheduleItem
+    range: TimeItem
     inlined: false
-    description: Schedule item whose timing is constrained by the predecessor item.
+    description: Time item whose timing is constrained by the predecessor item.
 
   dependency_type:
-    range: ScheduleDependencyType
+    range: TimeDependencyType
     required: true
     description: Precedence logic used between the predecessor and successor items.
 

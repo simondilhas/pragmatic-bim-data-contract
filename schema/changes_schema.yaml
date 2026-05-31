@@ -53,15 +53,15 @@ classes:
       - ifc_attribute_name
 
   Change:
+    abstract: true
     class_uri: pbs:Change
-    exact_mappings:
-      - prov:Activity
     description: >
-      Detected difference for one subject between two revisions.
+      Detected difference for one subject between two revisions (content_kind change).
       Supports IFC model diffs, document/text diffs, and schema-entity field changes.
     slots:
       - id
-      - change_kind
+      - change_type
+      - change_severity
       - intent_verdict
       - affected_subject_id
       - affected_subject_type
@@ -72,11 +72,87 @@ classes:
       - to_revision
       - from_state_ref
       - to_state_ref
-      - property_delta
       - triggered_task
       - triggered_process
       - detected_at
       - change_source
+    slot_usage:
+      id:
+        required: true
+        identifier: true
+      change_type:
+        required: true
+
+  PropertyChange:
+    is_a: Change
+    class_uri: pbs:PropertyChange
+    exact_mappings:
+      - prov:Activity
+    description: Attribute, PropertySet, schema slot, or document field change.
+    slots:
+      - property_delta
+    slot_usage:
+      change_type:
+        equals_string: property_change
+
+  GeometryChange:
+    is_a: Change
+    class_uri: pbs:GeometryChange
+    exact_mappings:
+      - prov:Activity
+    description: Geometry or representation change for a subject.
+    slots:
+      - affected_geometry_role
+    slot_usage:
+      change_type:
+        equals_string: geometry_change
+
+  RequirementChange:
+    is_a: Change
+    class_uri: pbs:RequirementChange
+    exact_mappings:
+      - prov:Activity
+    description: Change to a requirement record or its fields.
+    slots:
+      - affected_requirement_id
+      - property_delta
+    slot_usage:
+      change_type:
+        equals_string: requirement_change
+
+  MatchChange:
+    is_a: Change
+    class_uri: pbs:MatchChange
+    exact_mappings:
+      - prov:Activity
+    description: >
+      Entity match status against a requirement changed (previously met / no longer meets).
+    slots:
+      - related_requirement_id
+      - match_status
+    slot_usage:
+      change_type:
+        equals_string: match_change
+
+  AdditionChange:
+    is_a: Change
+    class_uri: pbs:AdditionChange
+    exact_mappings:
+      - prov:Activity
+    description: New entity or requirement introduced in to_revision.
+    slot_usage:
+      change_type:
+        equals_string: addition
+
+  DeletionChange:
+    is_a: Change
+    class_uri: pbs:DeletionChange
+    exact_mappings:
+      - prov:Activity
+    description: Entity or requirement removed in to_revision.
+    slot_usage:
+      change_type:
+        equals_string: deletion
 
   ChangeSet:
     class_uri: pbs:ChangeSet
@@ -93,6 +169,10 @@ classes:
       - document_state_refs
       - produced_at
       - produced_by
+    slot_usage:
+      id:
+        required: true
+        identifier: true
 
 slots:
   state_ref:
@@ -138,10 +218,14 @@ slots:
     range: string
     description: IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId).
 
-  change_kind:
-    range: ChangeKind
+  change_type:
+    range: ChangeType
     required: true
-    description: Severity or category of change detected between two revisions.
+    description: Category of change detected between two revisions.
+
+  change_severity:
+    range: ChangeSeverity
+    description: Optional severity independent of change type.
 
   intent_verdict:
     range: ChangeIntentVerdict
@@ -195,6 +279,24 @@ slots:
     range: PropertyDelta
     inlined: true
     description: Field-level differences detected between the two revision states.
+
+  affected_geometry_role:
+    range: GeometryRepresentationType
+    description: Geometry role affected when change_type is geometry_change.
+
+  affected_requirement_id:
+    range: string
+    description: Identifier of the requirement record affected by this change.
+
+  related_requirement_id:
+    range: string
+    required: true
+    description: Requirement identifier for match_change records.
+
+  match_status:
+    range: MatchStatus
+    required: true
+    description: Whether the subject met the requirement at the target revision.
 
   triggered_task:
     range: string

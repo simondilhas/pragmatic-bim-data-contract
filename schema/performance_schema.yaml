@@ -1,8 +1,8 @@
 id: https://schema.pragmaticbim.ch/performance
 name: pragmatic_bim_performance_schema
-title: Pragmatic BIM Data Contract - Performance
+title: Pragmatic BIM Data Contract - Entity Performance Properties
 description: >
-  Domain-specific normalized performance property classes.
+  Domain-specific normalized performance property classes extracted from IFC and stored on Entity.
 license: MIT
 
 see_also:

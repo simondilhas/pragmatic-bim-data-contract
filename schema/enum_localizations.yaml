@@ -235,6 +235,31 @@ enum_localizations:
       en: Balcony
       de: Balkon
 
+  SpatialAdjacencyKind:
+    adjacent_to:
+      en: Adjacent To
+      de: Angrenzend an
+    not_adjacent_to:
+      en: Not Adjacent To
+      de: Nicht angrenzend an
+    min_clear_distance:
+      en: Minimum Clear Distance
+      de: Mindestabstand
+
+  RequirementTargetOperator:
+    equals:
+      en: Equals
+      de: Gleich
+    minimum:
+      en: Minimum
+      de: Minimum
+    maximum:
+      en: Maximum
+      de: Maximum
+    range:
+      en: Range
+      de: Bereich
+
   SeparatorRequirementDriver:
     acoustic:
       en: Acoustic
@@ -266,7 +291,7 @@ enum_localizations:
       en: Cladding
       de: Verkleidung
 
-  ScheduleDependencyType:
+  TimeDependencyType:
     finish_to_start:
       en: Finish to Start
       de: Ende zu Start
@@ -280,7 +305,58 @@ enum_localizations:
       en: Start to Finish
       de: Start zu Ende
 
-  ChangeKind:
+  ContentKind:
+    physical:
+      en: Physical
+      de: Physisch
+    virtual:
+      en: Virtual
+      de: Virtuell
+    context:
+      en: Context
+      de: Kontext
+    requirement:
+      en: Requirement
+      de: Anforderung
+    change:
+      en: Change
+      de: Aenderung
+
+  RequirementDomain:
+    performance:
+      en: Performance
+      de: Leistung
+    spatial:
+      en: Spatial
+      de: Raumlich
+    regulatory:
+      en: Regulatory
+      de: Regulatorisch
+    brief:
+      en: Brief
+      de: Briefing
+
+  ChangeType:
+    geometry_change:
+      en: Geometry Change
+      de: Geometrieaenderung
+    property_change:
+      en: Property Change
+      de: Eigenschaftsaenderung
+    requirement_change:
+      en: Requirement Change
+      de: Anforderungsaenderung
+    match_change:
+      en: Match Change
+      de: Erfuellungsaenderung
+    addition:
+      en: Addition
+      de: Hinzufuegung
+    deletion:
+      en: Deletion
+      de: Loeschung
+
+  ChangeSeverity:
     unchanged:
       en: Unchanged
       de: Unveraendert
@@ -293,12 +369,17 @@ enum_localizations:
     rewritten:
       en: Rewritten
       de: Neu geschrieben
-    new:
-      en: New
-      de: Neu
-    deleted:
-      en: Deleted
-      de: Geloescht
+
+  MatchStatus:
+    met:
+      en: Met
+      de: Erfuellt
+    unmet:
+      en: Unmet
+      de: Nicht erfuellt
+    unknown:
+      en: Unknown
+      de: Unbekannt
 
   ChangeIntentVerdict:
     stable:

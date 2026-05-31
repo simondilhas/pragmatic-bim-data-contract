@@ -136,8 +136,12 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 | `content_kind` | PBS module | Examples |
 |----------------|------------|----------|
 | `physical` | [`elements_physical_schema.yaml`](../schema/elements_physical_schema.yaml) | `SeparatorWall`, `ConnectionPhysical`, `Equipment`, `PhysicalElement` |
-| `virtual` | [`elements_virtual_schema.yaml`](../schema/elements_virtual_schema.yaml) | `Space`, `System`, `ConnectionVirtual` |
+| `virtual` | [`elements_virtual_schema.yaml`](../schema/elements_virtual_schema.yaml) | `Space`, `System`, `ConnectionVirtual`, `TimeItem`, `CostItem` |
 | `context` | Spatial context subclasses | `BuildingContext`, `LevelContext`, `ZoneContext`, `PerimeterContext` |
+| `requirement` | [`requirements_schema.yaml`](../schema/requirements_schema.yaml) | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement` |
+| `change` | [`changes_schema.yaml`](../schema/changes_schema.yaml) | `PropertyChange`, `GeometryChange`, `MatchChange`, `AdditionChange`, `DeletionChange` |
+
+`requirement` and `change` rows are **not** produced from IFC entity mapping blocks today. Adapters or validation pipelines create them directly. Use `requirement_domain` or `change_type` as the second-level discriminator alongside `canonical_type`.
 
 **Variant suffixes** disambiguate IFC `PredefinedType` or transport role without inventing new PBS classes:
 

@@ -59,3 +59,30 @@ enums:
       structural:
         meaning: pbs:requirement_driver_structural
 
+  SpatialAdjacencyKind:
+    enum_uri: pbs:SpatialAdjacencyKind
+    description: Spatial adjacency semantics for spatial requirements.
+    permissible_values:
+      adjacent_to:
+        description: Subject must be adjacent to the related entity or space.
+        meaning: pbs:spatial_adjacency_adjacent_to
+      not_adjacent_to:
+        description: Subject must not be adjacent to the related entity or space.
+        meaning: pbs:spatial_adjacency_not_adjacent_to
+      min_clear_distance:
+        description: Minimum clear distance to the related entity or space.
+        meaning: pbs:spatial_adjacency_min_clear_distance
+
+  RequirementTargetOperator:
+    enum_uri: pbs:RequirementTargetOperator
+    description: Comparison operator for numeric or textual requirement targets.
+    permissible_values:
+      equals:
+        meaning: pbs:requirement_target_operator_equals
+      minimum:
+        meaning: pbs:requirement_target_operator_minimum
+      maximum:
+        meaning: pbs:requirement_target_operator_maximum
+      range:
+        meaning: pbs:requirement_target_operator_range
+
