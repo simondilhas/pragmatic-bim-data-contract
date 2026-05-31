@@ -112,6 +112,7 @@ jobs:
       - name: Render markdown docs as HTML
         run: |
           python - <<'PY'
+          import os
           from pathlib import Path
           import re
           import html as html_lib
