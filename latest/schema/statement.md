@@ -25,7 +25,7 @@ URI: [pbs:statement](https://schema.pragmaticbim.ch/statement)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items |  no  |
+| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items. |  no  |
 
 
 

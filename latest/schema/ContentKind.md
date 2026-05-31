@@ -23,11 +23,11 @@ URI: [pbs:ContentKind](https://schema.pragmaticbim.ch/ContentKind)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| physical | pbs:content_kind_physical | Tangible BIM element from the physical elements module |
-| virtual | pbs:content_kind_virtual | Non-physical conceptual entity (space, system, time/cost record, etc |
-| context | pbs:content_kind_context | Spatial context node (project, site, building, level, zone) |
-| requirement | pbs:content_kind_requirement | Prescriptive requirement record |
-| change | pbs:content_kind_change | Revision diff or audit record |
+| physical | pbs:content_kind_physical | Tangible BIM element from the physical elements module. |
+| virtual | pbs:content_kind_virtual | Non-physical conceptual entity (space, system, time/cost record, etc.). |
+| context | pbs:content_kind_context | Spatial context node (project, site, building, level, zone). |
+| requirement | pbs:content_kind_requirement | Prescriptive requirement record. |
+| change | pbs:content_kind_change | Revision diff or audit record. |
 
 
 

@@ -1,539 +1,5 @@
 {
     "$defs": {
-        "AbstractCostRecord": {
-            "additionalProperties": false,
-            "description": "Abstract base for reusable cost record fields shared by atomic and aggregated cost records.",
-            "properties": {
-                "applies_to_entities": {
-                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "classifications": {
-                    "description": "Classification entries from IFC and other schemes.",
-                    "items": {
-                        "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_category": {
-                    "description": "Cost category label kept intentionally open pending classification-backed modeling.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_quantity_type": {
-                    "$ref": "#/$defs/QuantityType",
-                    "description": "Quantity type used as basis for this cost calculation."
-                },
-                "cost_quantity_unit": {
-                    "description": "Unit of the cost quantity value.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "cost_quantity_value": {
-                    "description": "Quantity magnitude used as basis for this cost calculation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "created_at": {
-                    "description": "Creation timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "currency": {
-                    "description": "ISO 4217 currency code (for example EUR, USD).",
-                    "pattern": "^[A-Z]{3}$",
-                    "type": "string"
-                },
-                "decisions": {
-                    "description": "Decision records associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Decision"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Default description text.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "documents": {
-                    "description": "Linked documents associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Document"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "geometry_representations": {
-                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
-                    "items": {
-                        "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "Unique local identifier.",
-                    "type": "string"
-                },
-                "ifc_global_id": {
-                    "description": "IFC GlobalId of the mapped entity.",
-                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "localized_descriptions": {
-                    "description": "Localized variants of description.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "localized_names": {
-                    "description": "Localized variants of name.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "materials": {
-                    "description": "Material definitions associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "meaning_uri": {
-                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "messages": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Message__identifier_optional"
-                            },
-                            {
-                                "description": "Default display name.",
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "description": "Messages associated with this entity.",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "metadata": {
-                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
-                    "items": {
-                        "$ref": "#/$defs/MetadataEntry"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "modified_at": {
-                    "description": "Last modification timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Default display name.",
-                    "type": "string"
-                },
-                "performance_properties": {
-                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
-                    "items": {
-                        "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "quantity_values": {
-                    "description": "Quantities associated with the entity.",
-                    "items": {
-                        "$ref": "#/$defs/QuantityValue"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "revision": {
-                    "description": "Integer revision counter for change tracking.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "status": {
-                    "$ref": "#/$defs/StatusType",
-                    "description": "Lifecycle or QA status."
-                },
-                "tasks": {
-                    "description": "Tasks associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Task"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "unit_cost": {
-                    "description": "Unit cost for this cost item.",
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "unit_cost",
-                "currency",
-                "id",
-                "name"
-            ],
-            "title": "AbstractCostRecord",
-            "type": "object"
-        },
-        "AbstractTimeRecord": {
-            "additionalProperties": false,
-            "description": "Abstract base for reusable time/schedule record fields shared by atomic and grouped time records.",
-            "properties": {
-                "applies_to_entities": {
-                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "classifications": {
-                    "description": "Classification entries from IFC and other schemes.",
-                    "items": {
-                        "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "created_at": {
-                    "description": "Creation timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "decisions": {
-                    "description": "Decision records associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Decision"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Default description text.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "documents": {
-                    "description": "Linked documents associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Document"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "geometry_representations": {
-                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
-                    "items": {
-                        "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "Unique local identifier.",
-                    "type": "string"
-                },
-                "ifc_global_id": {
-                    "description": "IFC GlobalId of the mapped entity.",
-                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "localized_descriptions": {
-                    "description": "Localized variants of description.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "localized_names": {
-                    "description": "Localized variants of name.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "materials": {
-                    "description": "Material definitions associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "meaning_uri": {
-                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "messages": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Message__identifier_optional"
-                            },
-                            {
-                                "description": "Default display name.",
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "description": "Messages associated with this entity.",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "metadata": {
-                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
-                    "items": {
-                        "$ref": "#/$defs/MetadataEntry"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "modified_at": {
-                    "description": "Last modification timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Default display name.",
-                    "type": "string"
-                },
-                "performance_properties": {
-                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
-                    "items": {
-                        "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "quantity_values": {
-                    "description": "Quantities associated with the entity.",
-                    "items": {
-                        "$ref": "#/$defs/QuantityValue"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "revision": {
-                    "description": "Integer revision counter for change tracking.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "status": {
-                    "$ref": "#/$defs/StatusType",
-                    "description": "Lifecycle or QA status."
-                },
-                "tasks": {
-                    "description": "Tasks associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Task"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ],
-            "title": "AbstractTimeRecord",
-            "type": "object"
-        },
         "AcousticProperty": {
             "additionalProperties": false,
             "description": "Normalized acoustic-related property.",
@@ -658,9 +124,8 @@
                     ]
                 },
                 "change_type": {
-                    "const": "addition",
-                    "description": "Category of change detected between two revisions.",
-                    "type": "string"
+                    "$ref": "#/$defs/ChangeType",
+                    "description": "Category of change detected between two revisions."
                 },
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
@@ -682,17 +147,6 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
-                },
                 "id": {
                     "description": "Unique local identifier.",
                     "type": "string"
@@ -713,17 +167,6 @@
                     "description": "Target revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
-                },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -1219,11 +662,6 @@
                         "null"
                     ]
                 },
-                "requirement_domain": {
-                    "const": "brief",
-                    "description": "Domain of this requirement record (performance, spatial, regulatory, brief).",
-                    "type": "string"
-                },
                 "source_document": {
                     "description": "Optional URI to norm, brief, or source document backing this requirement.",
                     "type": [
@@ -1245,8 +683,7 @@
             },
             "required": [
                 "id",
-                "name",
-                "requirement_domain"
+                "name"
             ],
             "title": "BriefRequirement",
             "type": "object"
@@ -1269,18 +706,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -1517,18 +944,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -1568,18 +985,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -1816,18 +1223,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -1851,7 +1248,7 @@
         },
         "Change": {
             "additionalProperties": false,
-            "description": "Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes.",
+            "description": "Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation.",
             "properties": {
                 "affected_subject_id": {
                     "description": "Identifier of the changed subject (entity id, document id, or external key).",
@@ -1903,17 +1300,6 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
-                },
                 "id": {
                     "description": "Unique local identifier.",
                     "type": "string"
@@ -1934,17 +1320,6 @@
                     "description": "Target revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
-                },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -1995,10 +1370,10 @@
                         "null"
                     ]
                 },
-                "document_state_refs": {
-                    "description": "Optional baseline document states for the comparison that produced this changeset.",
+                "document_state_uris": {
+                    "description": "Optional URIs or content hashes for baseline document states used in this comparison.",
                     "items": {
-                        "$ref": "#/$defs/StateRef"
+                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -2014,16 +1389,12 @@
                     "description": "Unique local identifier.",
                     "type": "string"
                 },
-                "ifc_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Optional baseline IFC model state for the comparison that produced this changeset."
+                "ifc_state_uri": {
+                    "description": "Optional URI, path, or content hash for the baseline IFC model state used in this comparison.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "produced_at": {
                     "description": "Timestamp when this changeset was produced.",
@@ -2080,7 +1451,7 @@
         },
         "Change__identifier_optional": {
             "additionalProperties": false,
-            "description": "Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes.",
+            "description": "Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation.",
             "properties": {
                 "affected_subject_id": {
                     "description": "Identifier of the changed subject (entity id, document id, or external key).",
@@ -2132,17 +1503,6 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
-                },
                 "id": {
                     "description": "Unique local identifier.",
                     "type": "string"
@@ -2163,17 +1523,6 @@
                     "description": "Target revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
-                },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -2218,18 +1567,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -2466,18 +1805,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -3054,18 +2383,8 @@
                         "null"
                     ]
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -3250,18 +2569,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -3366,9 +2675,9 @@
             "title": "ContextType",
             "type": "string"
         },
-        "CostAssembly": {
+        "CostRecord": {
             "additionalProperties": false,
-            "description": "Aggregated unit price assembled from multiple cost items.",
+            "description": "Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -3391,17 +2700,7 @@
                     ]
                 },
                 "component_cost_items": {
-                    "description": "Atomic cost items that are aggregated into this cost assembly.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
+                    "description": "Cost records aggregated into this assembly record.",
                     "items": {
                         "type": "string"
                     },
@@ -3414,16 +2713,6 @@
                     "description": "Cost category label kept intentionally open pending classification-backed modeling.",
                     "type": [
                         "string",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
                         "null"
                     ]
                 },
@@ -3443,6 +2732,16 @@
                     "minimum": 0,
                     "type": [
                         "number",
+                        "null"
+                    ]
+                },
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
                         "null"
                     ]
                 },
@@ -3627,18 +2926,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -3659,293 +2948,7 @@
                 "id",
                 "name"
             ],
-            "title": "CostAssembly",
-            "type": "object"
-        },
-        "CostItem": {
-            "additionalProperties": false,
-            "description": "Cost record used for estimation and calculation, optionally linked to quantities.",
-            "properties": {
-                "applies_to_entities": {
-                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "classifications": {
-                    "description": "Classification entries from IFC and other schemes.",
-                    "items": {
-                        "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_category": {
-                    "description": "Cost category label kept intentionally open pending classification-backed modeling.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_quantity_type": {
-                    "$ref": "#/$defs/QuantityType",
-                    "description": "Quantity type used as basis for this cost calculation."
-                },
-                "cost_quantity_unit": {
-                    "description": "Unit of the cost quantity value.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "cost_quantity_value": {
-                    "description": "Quantity magnitude used as basis for this cost calculation.",
-                    "minimum": 0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "created_at": {
-                    "description": "Creation timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "currency": {
-                    "description": "ISO 4217 currency code (for example EUR, USD).",
-                    "pattern": "^[A-Z]{3}$",
-                    "type": "string"
-                },
-                "decisions": {
-                    "description": "Decision records associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Decision"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Default description text.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "documents": {
-                    "description": "Linked documents associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Document"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "geometry_representations": {
-                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
-                    "items": {
-                        "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "Unique local identifier.",
-                    "type": "string"
-                },
-                "ifc_global_id": {
-                    "description": "IFC GlobalId of the mapped entity.",
-                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "localized_descriptions": {
-                    "description": "Localized variants of description.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "localized_names": {
-                    "description": "Localized variants of name.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "materials": {
-                    "description": "Material definitions associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "meaning_uri": {
-                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "messages": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Message__identifier_optional"
-                            },
-                            {
-                                "description": "Default display name.",
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "description": "Messages associated with this entity.",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "metadata": {
-                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
-                    "items": {
-                        "$ref": "#/$defs/MetadataEntry"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "modified_at": {
-                    "description": "Last modification timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Default display name.",
-                    "type": "string"
-                },
-                "performance_properties": {
-                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
-                    "items": {
-                        "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "quantity_values": {
-                    "description": "Quantities associated with the entity.",
-                    "items": {
-                        "$ref": "#/$defs/QuantityValue"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "revision": {
-                    "description": "Integer revision counter for change tracking.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "status": {
-                    "$ref": "#/$defs/StatusType",
-                    "description": "Lifecycle or QA status."
-                },
-                "tasks": {
-                    "description": "Tasks associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Task"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "unit_cost": {
-                    "description": "Unit cost for this cost item.",
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "unit_cost",
-                "currency",
-                "id",
-                "name"
-            ],
-            "title": "CostItem",
+            "title": "CostRecord",
             "type": "object"
         },
         "Decision": {
@@ -4023,9 +3026,8 @@
                     ]
                 },
                 "change_type": {
-                    "const": "deletion",
-                    "description": "Category of change detected between two revisions.",
-                    "type": "string"
+                    "$ref": "#/$defs/ChangeType",
+                    "description": "Category of change detected between two revisions."
                 },
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
@@ -4047,17 +3049,6 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
-                },
                 "id": {
                     "description": "Unique local identifier.",
                     "type": "string"
@@ -4078,17 +3069,6 @@
                     "description": "Target revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
-                },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -4115,6 +3095,17 @@
             ],
             "title": "DeletionChange",
             "type": "object"
+        },
+        "DependencyType": {
+            "description": "Precedence logic between two time records (FS finish-to-start, SS start-to-start, FF finish-to-finish, SF start-to-finish).",
+            "enum": [
+                "FS",
+                "SS",
+                "FF",
+                "SF"
+            ],
+            "title": "DependencyType",
+            "type": "string"
         },
         "Document": {
             "additionalProperties": false,
@@ -4673,7 +3664,7 @@
             "properties": {
                 "affected_geometry_role": {
                     "$ref": "#/$defs/GeometryRepresentationType",
-                    "description": "Geometry role affected when change_type is geometry_change."
+                    "description": "Geometry role affected for GeometryChange records."
                 },
                 "affected_subject_id": {
                     "description": "Identifier of the changed subject (entity id, document id, or external key).",
@@ -4702,9 +3693,8 @@
                     ]
                 },
                 "change_type": {
-                    "const": "geometry_change",
-                    "description": "Category of change detected between two revisions.",
-                    "type": "string"
+                    "$ref": "#/$defs/ChangeType",
+                    "description": "Category of change detected between two revisions."
                 },
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
@@ -4726,17 +3716,6 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
-                },
                 "id": {
                     "description": "Unique local identifier.",
                     "type": "string"
@@ -4757,17 +3736,6 @@
                     "description": "Target revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
-                },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -4851,18 +3819,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -5099,18 +4057,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -5150,18 +4098,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -5398,18 +4336,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -5482,9 +4410,8 @@
                     ]
                 },
                 "change_type": {
-                    "const": "match_change",
-                    "description": "Category of change detected between two revisions.",
-                    "type": "string"
+                    "$ref": "#/$defs/ChangeType",
+                    "description": "Category of change detected between two revisions."
                 },
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
@@ -5505,17 +4432,6 @@
                     "description": "Source revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
-                },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
                 },
                 "id": {
                     "description": "Unique local identifier.",
@@ -5545,17 +4461,6 @@
                     "description": "Target revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
-                },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -5609,18 +4514,8 @@
                         "null"
                     ]
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -5819,18 +4714,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -6430,301 +5315,6 @@
             "title": "MetadataEntry",
             "type": "object"
         },
-        "Milestone": {
-            "additionalProperties": false,
-            "description": "Zero-duration checkpoint or delivery target within a time plan.",
-            "properties": {
-                "actual_finish_at": {
-                    "description": "Actual finish timestamp for the time item where known.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "actual_start_at": {
-                    "description": "Actual start timestamp for the time item where known.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "applies_to_entities": {
-                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "classifications": {
-                    "description": "Classification entries from IFC and other schemes.",
-                    "items": {
-                        "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "created_at": {
-                    "description": "Creation timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "decisions": {
-                    "description": "Decision records associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Decision"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Default description text.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "documents": {
-                    "description": "Linked documents associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Document"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "geometry_representations": {
-                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
-                    "items": {
-                        "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "Unique local identifier.",
-                    "type": "string"
-                },
-                "ifc_global_id": {
-                    "description": "IFC GlobalId of the mapped entity.",
-                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "localized_descriptions": {
-                    "description": "Localized variants of description.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "localized_names": {
-                    "description": "Localized variants of name.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "materials": {
-                    "description": "Material definitions associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "meaning_uri": {
-                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "messages": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Message__identifier_optional"
-                            },
-                            {
-                                "description": "Default display name.",
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "description": "Messages associated with this entity.",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "metadata": {
-                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
-                    "items": {
-                        "$ref": "#/$defs/MetadataEntry"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "milestone_at": {
-                    "description": "Target timestamp for the milestone checkpoint.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "modified_at": {
-                    "description": "Last modification timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Default display name.",
-                    "type": "string"
-                },
-                "performance_properties": {
-                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
-                    "items": {
-                        "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "planned_finish_at": {
-                    "description": "Planned finish timestamp for the time item.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "planned_start_at": {
-                    "description": "Planned start timestamp for the time item.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "quantity_values": {
-                    "description": "Quantities associated with the entity.",
-                    "items": {
-                        "$ref": "#/$defs/QuantityValue"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "revision": {
-                    "description": "Integer revision counter for change tracking.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "status": {
-                    "$ref": "#/$defs/StatusType",
-                    "description": "Lifecycle or QA status."
-                },
-                "tasks": {
-                    "description": "Tasks associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Task"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plan": {
-                    "description": "Parent time plan this item or dependency belongs to.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ],
-            "title": "Milestone",
-            "type": "object"
-        },
         "PerformanceProperty": {
             "additionalProperties": false,
             "description": "Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses.",
@@ -6847,11 +5437,6 @@
                     "description": "Default display name.",
                     "type": "string"
                 },
-                "requirement_domain": {
-                    "const": "performance",
-                    "description": "Domain of this requirement record (performance, spatial, regulatory, brief).",
-                    "type": "string"
-                },
                 "requirement_property_key": {
                     "description": "Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance property keys where applicable.\n",
                     "type": "string"
@@ -6910,8 +5495,7 @@
             "required": [
                 "requirement_property_key",
                 "id",
-                "name",
-                "requirement_domain"
+                "name"
             ],
             "title": "PerformanceRequirement",
             "type": "object"
@@ -6934,18 +5518,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -7182,18 +5756,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -7707,18 +6271,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -7955,18 +6509,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -8019,9 +6563,8 @@
                     ]
                 },
                 "change_type": {
-                    "const": "property_change",
-                    "description": "Category of change detected between two revisions.",
-                    "type": "string"
+                    "$ref": "#/$defs/ChangeType",
+                    "description": "Category of change detected between two revisions."
                 },
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
@@ -8043,20 +6586,23 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
+                "from_value": {
+                    "description": "Prior value serialized as text. Absent or null for new subjects or fields.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "Unique local identifier.",
                     "type": "string"
+                },
+                "ifc_attribute_name": {
+                    "description": "IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "ifc_global_id": {
                     "description": "IFC GlobalId of the mapped entity.",
@@ -8070,13 +6616,25 @@
                     "$ref": "#/$defs/ChangeIntentVerdict",
                     "description": "Intent stability verdict from an automated judge (for example iterthink STABLE/NEW)."
                 },
-                "property_delta": {
-                    "description": "Field-level differences detected between the two revision states.",
-                    "items": {
-                        "$ref": "#/$defs/PropertyDelta"
-                    },
+                "property_path": {
+                    "description": "Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389.\n",
+                    "type": "string"
+                },
+                "property_path_kind": {
+                    "$ref": "#/$defs/PropertyPathKind",
+                    "description": "Classification of the property path for downstream diff interpretation."
+                },
+                "source_property": {
+                    "description": "IFC property name within the PropertySet when property_path_kind is ifc_pset.",
                     "type": [
-                        "array",
+                        "string",
+                        "null"
+                    ]
+                },
+                "source_pset": {
+                    "description": "IFC PropertySet name when property_path_kind is ifc_pset.",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -8085,16 +6643,12 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
+                "to_value": {
+                    "description": "New value serialized as text. Absent or null for deleted subjects or fields.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -8112,6 +6666,8 @@
                 }
             },
             "required": [
+                "property_path",
+                "property_path_kind",
                 "id",
                 "change_type",
                 "affected_subject_id",
@@ -8120,61 +6676,6 @@
                 "to_revision"
             ],
             "title": "PropertyChange",
-            "type": "object"
-        },
-        "PropertyDelta": {
-            "additionalProperties": false,
-            "description": "Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans.",
-            "properties": {
-                "from_value": {
-                    "description": "Prior value serialized as text. Absent or null for new subjects or fields.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "ifc_attribute_name": {
-                    "description": "IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "property_path": {
-                    "description": "Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389.\n",
-                    "type": "string"
-                },
-                "property_path_kind": {
-                    "$ref": "#/$defs/PropertyPathKind",
-                    "description": "Classification of the property path for downstream diff interpretation."
-                },
-                "source_property": {
-                    "description": "Original property name inside the source PropertySet (for example FireRating).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "source_pset": {
-                    "description": "Original IFC PropertySet name (for example Pset_WallCommon).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "to_value": {
-                    "description": "New value serialized as text. Absent or null for deleted subjects or fields.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "property_path",
-                "property_path_kind"
-            ],
-            "title": "PropertyDelta",
             "type": "object"
         },
         "PropertyPathKind": {
@@ -8289,11 +6790,6 @@
                         "null"
                     ]
                 },
-                "requirement_domain": {
-                    "const": "regulatory",
-                    "description": "Domain of this requirement record (performance, spatial, regulatory, brief).",
-                    "type": "string"
-                },
                 "source_document": {
                     "description": "Optional URI to norm, brief, or source document backing this requirement.",
                     "type": [
@@ -8308,15 +6804,14 @@
             },
             "required": [
                 "id",
-                "name",
-                "requirement_domain"
+                "name"
             ],
             "title": "RegulatoryRequirement",
             "type": "object"
         },
         "Requirement": {
             "additionalProperties": false,
-            "description": "Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities.",
+            "description": "Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -8343,10 +6838,6 @@
                     "description": "Default display name.",
                     "type": "string"
                 },
-                "requirement_domain": {
-                    "$ref": "#/$defs/RequirementDomain",
-                    "description": "Domain of this requirement record (performance, spatial, regulatory, brief)."
-                },
                 "source_document": {
                     "description": "Optional URI to norm, brief, or source document backing this requirement.",
                     "type": [
@@ -8361,8 +6852,7 @@
             },
             "required": [
                 "id",
-                "name",
-                "requirement_domain"
+                "name"
             ],
             "title": "Requirement",
             "type": "object"
@@ -8405,9 +6895,8 @@
                     ]
                 },
                 "change_type": {
-                    "const": "requirement_change",
-                    "description": "Category of change detected between two revisions.",
-                    "type": "string"
+                    "$ref": "#/$defs/ChangeType",
+                    "description": "Category of change detected between two revisions."
                 },
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
@@ -8429,16 +6918,12 @@
                     "minimum": 0,
                     "type": "integer"
                 },
-                "from_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the source revision."
+                "from_value": {
+                    "description": "Prior value serialized as text. Absent or null for new subjects or fields.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "Unique local identifier.",
@@ -8456,31 +6941,25 @@
                     "$ref": "#/$defs/ChangeIntentVerdict",
                     "description": "Intent stability verdict from an automated judge (for example iterthink STABLE/NEW)."
                 },
-                "property_delta": {
-                    "description": "Field-level differences detected between the two revision states.",
-                    "items": {
-                        "$ref": "#/$defs/PropertyDelta"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                "property_path": {
+                    "description": "Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389.\n",
+                    "type": "string"
+                },
+                "property_path_kind": {
+                    "$ref": "#/$defs/PropertyPathKind",
+                    "description": "Classification of the property path for downstream diff interpretation."
                 },
                 "to_revision": {
                     "description": "Target revision number for this change.",
                     "minimum": 0,
                     "type": "integer"
                 },
-                "to_state_ref": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/StateRef"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Content state pointer at the target revision."
+                "to_value": {
+                    "description": "New value serialized as text. Absent or null for deleted subjects or fields.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "triggered_process": {
                     "description": "External workflow process URI (for example yourcompanyos process instance).",
@@ -8498,6 +6977,8 @@
                 }
             },
             "required": [
+                "property_path",
+                "property_path_kind",
                 "id",
                 "change_type",
                 "affected_subject_id",
@@ -8507,17 +6988,6 @@
             ],
             "title": "RequirementChange",
             "type": "object"
-        },
-        "RequirementDomain": {
-            "description": "Domain of a prescriptive requirement record.",
-            "enum": [
-                "performance",
-                "spatial",
-                "regulatory",
-                "brief"
-            ],
-            "title": "RequirementDomain",
-            "type": "string"
         },
         "RequirementTargetOperator": {
             "description": "Comparison operator for numeric or textual requirement targets.",
@@ -9357,18 +7827,8 @@
                         "null"
                     ]
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -9578,18 +8038,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -9648,18 +8098,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -9896,18 +8336,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -9993,11 +8423,6 @@
                         "null"
                     ]
                 },
-                "requirement_domain": {
-                    "const": "spatial",
-                    "description": "Domain of this requirement record (performance, spatial, regulatory, brief).",
-                    "type": "string"
-                },
                 "source_document": {
                     "description": "Optional URI to norm, brief, or source document backing this requirement.",
                     "type": [
@@ -10012,58 +8437,10 @@
             },
             "required": [
                 "id",
-                "name",
-                "requirement_domain"
+                "name"
             ],
             "title": "SpatialRequirement",
             "type": "object"
-        },
-        "StateRef": {
-            "additionalProperties": false,
-            "description": "Pointer to a content state at a specific revision. Covers IFC models, geometry payloads, documents, and extracted text.",
-            "properties": {
-                "state_ref": {
-                    "description": "URI, path, or content hash identifying the stored content state.",
-                    "type": "string"
-                },
-                "state_ref_format": {
-                    "description": "Optional serialization format (for example ifc, gltf, pdf, docx, markdown, plain_text, json).\n",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "state_ref_kind": {
-                    "$ref": "#/$defs/StateRefKind",
-                    "description": "Kind of content referenced (for example ifc_model, document, text_extract)."
-                },
-                "state_ref_label": {
-                    "description": "Optional human-readable label (for example LOD300 export, Spec v3 draft).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "state_ref",
-                "state_ref_kind"
-            ],
-            "title": "StateRef",
-            "type": "object"
-        },
-        "StateRefKind": {
-            "description": "Kind of content referenced by a StateRef pointer.",
-            "enum": [
-                "ifc_model",
-                "geometry",
-                "document",
-                "text_extract",
-                "entity_record",
-                "other"
-            ],
-            "title": "StateRefKind",
-            "type": "string"
         },
         "StatusType": {
             "description": "Lifecycle or QA gate status used for model progression and approvals.",
@@ -10195,18 +8572,8 @@
                         "null"
                     ]
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -10433,18 +8800,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -10639,294 +8996,37 @@
             "title": "ThermalPropertyKey",
             "type": "string"
         },
-        "TimeDependency": {
+        "TimeLink": {
             "additionalProperties": false,
-            "description": "Precedence relationship between two time items within a plan, optionally with lag.",
+            "description": "Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity \u2014 no id, no mixin. Owned by the predecessor record.",
             "properties": {
-                "classifications": {
-                    "description": "Classification entries from IFC and other schemes.",
-                    "items": {
-                        "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "created_at": {
-                    "description": "Creation timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "decisions": {
-                    "description": "Decision records associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Decision"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "dependency_type": {
-                    "$ref": "#/$defs/TimeDependencyType",
-                    "description": "Precedence logic used between the predecessor and successor items."
-                },
-                "description": {
-                    "description": "Default description text.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "documents": {
-                    "description": "Linked documents associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Document"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "geometry_representations": {
-                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
-                    "items": {
-                        "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "Unique local identifier.",
-                    "type": "string"
-                },
-                "ifc_global_id": {
-                    "description": "IFC GlobalId of the mapped entity.",
-                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "$ref": "#/$defs/DependencyType",
+                    "description": "FS | SS | FF | SF"
                 },
                 "lag_days": {
-                    "description": "Optional lag or lead offset in days applied to the dependency relation.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "localized_descriptions": {
-                    "description": "Localized variants of description.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "localized_names": {
-                    "description": "Localized variants of name.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "materials": {
-                    "description": "Material definitions associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "meaning_uri": {
-                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "messages": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Message__identifier_optional"
-                            },
-                            {
-                                "description": "Default display name.",
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "description": "Messages associated with this entity.",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "metadata": {
-                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
-                    "items": {
-                        "$ref": "#/$defs/MetadataEntry"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "modified_at": {
-                    "description": "Last modification timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Default display name.",
-                    "type": "string"
-                },
-                "performance_properties": {
-                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
-                    "items": {
-                        "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "predecessor_item": {
-                    "description": "Time item that must occur before the successor item.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "quantity_values": {
-                    "description": "Quantities associated with the entity.",
-                    "items": {
-                        "$ref": "#/$defs/QuantityValue"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "revision": {
-                    "description": "Integer revision counter for change tracking.",
-                    "minimum": 0,
                     "type": [
                         "integer",
                         "null"
                     ]
                 },
-                "status": {
-                    "$ref": "#/$defs/StatusType",
-                    "description": "Lifecycle or QA status."
-                },
-                "successor_item": {
-                    "description": "Time item whose timing is constrained by the predecessor item.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "tasks": {
-                    "description": "Tasks associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Task"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plan": {
-                    "description": "Parent time plan this item or dependency belongs to.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                "target_item": {
+                    "description": "The successor TimeRecord.",
+                    "type": "string"
                 }
             },
             "required": [
-                "dependency_type",
-                "id",
-                "name"
+                "target_item"
             ],
-            "title": "TimeDependency",
+            "title": "TimeLink",
             "type": "object"
         },
-        "TimeDependencyType": {
-            "description": "Precedence logic between two time items.",
-            "enum": [
-                "finish_to_start",
-                "start_to_start",
-                "finish_to_finish",
-                "start_to_finish"
-            ],
-            "title": "TimeDependencyType",
-            "type": "string"
-        },
-        "TimeItem": {
+        "TimeRecord": {
             "additionalProperties": false,
-            "description": "Planned work item with baseline and actual dates, optionally linked to model entities and a time plan.",
+            "description": "Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. \u2014 Set milestone_at to mark as a zero-duration checkpoint. \u2014 Populate component_time_items to act as a plan container.",
             "properties": {
                 "actual_finish_at": {
-                    "description": "Actual finish timestamp for the time item where known.",
+                    "description": "Actual finish timestamp for the time record where known.",
                     "format": "date-time",
                     "type": [
                         "string",
@@ -10934,7 +9034,7 @@
                     ]
                 },
                 "actual_start_at": {
-                    "description": "Actual start timestamp for the time item where known.",
+                    "description": "Actual start timestamp for the time record where known.",
                     "format": "date-time",
                     "type": [
                         "string",
@@ -10961,8 +9061,8 @@
                         "null"
                     ]
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
+                "component_time_items": {
+                    "description": "Time records contained in this plan; set milestone_at on a record to mark it as a checkpoint.",
                     "items": {
                         "type": "string"
                     },
@@ -10971,8 +9071,8 @@
                         "null"
                     ]
                 },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -11100,6 +9200,14 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "milestone_at": {
+                    "description": "Target timestamp for a zero-duration milestone checkpoint.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -11126,7 +9234,7 @@
                     ]
                 },
                 "planned_finish_at": {
-                    "description": "Planned finish timestamp for the time item.",
+                    "description": "Planned finish timestamp for the time record.",
                     "format": "date-time",
                     "type": [
                         "string",
@@ -11134,7 +9242,7 @@
                     ]
                 },
                 "planned_start_at": {
-                    "description": "Planned start timestamp for the time item.",
+                    "description": "Planned start timestamp for the time record.",
                     "format": "date-time",
                     "type": [
                         "string",
@@ -11163,20 +9271,20 @@
                     "$ref": "#/$defs/StatusType",
                     "description": "Lifecycle or QA status."
                 },
-                "tasks": {
-                    "description": "Tasks associated with this entity.",
+                "successors": {
+                    "description": "Forward precedence links to successor records. Reverse lookup (find all predecessors of X) requires scanning all TimeRecord.successors \u2014 acceptable for document exchange, not for live graph queries.",
                     "items": {
-                        "$ref": "#/$defs/Task"
+                        "$ref": "#/$defs/TimeLink"
                     },
                     "type": [
                         "array",
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
+                "tasks": {
+                    "description": "Tasks associated with this entity.",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/Task"
                     },
                     "type": [
                         "array",
@@ -11184,14 +9292,14 @@
                     ]
                 },
                 "time_plan": {
-                    "description": "Parent time plan this item or dependency belongs to.",
+                    "description": "Parent time plan this record belongs to.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -11205,275 +9313,7 @@
                 "id",
                 "name"
             ],
-            "title": "TimeItem",
-            "type": "object"
-        },
-        "TimePlan": {
-            "additionalProperties": false,
-            "description": "Grouped schedule container defining component items, milestones, and dependencies for a scoped plan.",
-            "properties": {
-                "applies_to_entities": {
-                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "classifications": {
-                    "description": "Classification entries from IFC and other schemes.",
-                    "items": {
-                        "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "component_time_items": {
-                    "description": "Time items contained in this plan; milestone instances may also appear through the TimeItem subtype.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "created_at": {
-                    "description": "Creation timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "decisions": {
-                    "description": "Decision records associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Decision"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Default description text.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "documents": {
-                    "description": "Linked documents associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Document"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "geometry_representations": {
-                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
-                    "items": {
-                        "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "Unique local identifier.",
-                    "type": "string"
-                },
-                "ifc_global_id": {
-                    "description": "IFC GlobalId of the mapped entity.",
-                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "localized_descriptions": {
-                    "description": "Localized variants of description.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "localized_names": {
-                    "description": "Localized variants of name.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "materials": {
-                    "description": "Material definitions associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "meaning_uri": {
-                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "messages": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Message__identifier_optional"
-                            },
-                            {
-                                "description": "Default display name.",
-                                "type": "string"
-                            }
-                        ]
-                    },
-                    "description": "Messages associated with this entity.",
-                    "type": [
-                        "object",
-                        "null"
-                    ]
-                },
-                "metadata": {
-                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
-                    "items": {
-                        "$ref": "#/$defs/MetadataEntry"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "modified_at": {
-                    "description": "Last modification timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Default display name.",
-                    "type": "string"
-                },
-                "performance_properties": {
-                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
-                    "items": {
-                        "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "quantity_values": {
-                    "description": "Quantities associated with the entity.",
-                    "items": {
-                        "$ref": "#/$defs/QuantityValue"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "revision": {
-                    "description": "Integer revision counter for change tracking.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "status": {
-                    "$ref": "#/$defs/StatusType",
-                    "description": "Lifecycle or QA status."
-                },
-                "tasks": {
-                    "description": "Tasks associated with this entity.",
-                    "items": {
-                        "$ref": "#/$defs/Task"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_dependencies": {
-                    "description": "Dependency relationships used within this time plan.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "id",
-                "name"
-            ],
-            "title": "TimePlan",
+            "title": "TimeRecord",
             "type": "object"
         },
         "TransportMedium": {
@@ -11504,18 +9344,8 @@
                         "null"
                     ]
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -11700,18 +9530,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -11746,18 +9566,8 @@
                     "$ref": "#/$defs/ContextType",
                     "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
                 },
-                "cost_assemblies": {
-                    "description": "Aggregated unit prices associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "cost_items": {
-                    "description": "Cost items associated with this entity.",
+                "cost_records": {
+                    "description": "Cost records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -11994,18 +9804,8 @@
                         "null"
                     ]
                 },
-                "time_items": {
-                    "description": "Time items associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "time_plans": {
-                    "description": "Grouped time plans associated with this entity.",
+                "time_records": {
+                    "description": "Time records associated with this entity.",
                     "items": {
                         "type": "string"
                     },
@@ -12061,18 +9861,8 @@
             "$ref": "#/$defs/ContextType",
             "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
         },
-        "cost_assemblies": {
-            "description": "Aggregated unit prices associated with this entity.",
-            "items": {
-                "type": "string"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "cost_items": {
-            "description": "Cost items associated with this entity.",
+        "cost_records": {
+            "description": "Cost records associated with this entity.",
             "items": {
                 "type": "string"
             },
@@ -12309,18 +10099,8 @@
                 "null"
             ]
         },
-        "time_items": {
-            "description": "Time items associated with this entity.",
-            "items": {
-                "type": "string"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "time_plans": {
-            "description": "Grouped time plans associated with this entity.",
+        "time_records": {
+            "description": "Time records associated with this entity.",
             "items": {
                 "type": "string"
             },

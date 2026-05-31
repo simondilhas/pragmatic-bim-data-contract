@@ -25,7 +25,7 @@ URI: [pbs:separator_wall_type](https://schema.pragmaticbim.ch/separator_wall_typ
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SeparatorWall](SeparatorWall.md) | Wall-based separating element |  no  |
+| [SeparatorWall](SeparatorWall.md) | Wall-based separating element. |  no  |
 
 
 

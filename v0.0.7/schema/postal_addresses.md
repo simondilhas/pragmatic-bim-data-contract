@@ -25,9 +25,9 @@ URI: [pbs:postal_addresses](https://schema.pragmaticbim.ch/postal_addresses)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
-| [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
+| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
 
 
 

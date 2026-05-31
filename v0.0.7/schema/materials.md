@@ -25,23 +25,22 @@ URI: [pbs:materials](https://schema.pragmaticbim.ch/materials)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [VirtualEntity](VirtualEntity.md) | Abstract base class for non-physical, conceptual, or informational entities |  no  |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
-| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
-| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
-| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
-| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
-| [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
+| [VirtualEntity](VirtualEntity.md) | Abstract base class for non-physical, conceptual, or informational entities. |  no  |
+| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, level, or zone. |  no  |
+| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics. |  no  |
+| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics. |  no  |
+| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics. |  no  |
+| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structures. |  no  |
+| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics. |  no  |
+| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics. |  no  |
+| [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics. |  no  |
+| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics. |  no  |
+| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis. |  no  |
+| [System](System.md) | Building service system grouping that serves spaces or zones. |  no  |
+| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements. |  no  |
+| [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
+| [Material](Material.md) | Material definition that can be associated with one or more entities. |  no  |
 
 
 

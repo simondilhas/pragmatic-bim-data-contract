@@ -23,20 +23,13 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 ```mermaid
  classDiagram
     class Classification
-    click Classification href "../Classification/"
+    click Classification href "./Classification.html"
       Classification : classification_code
-        
       Classification : classification_label
-        
       Classification : classification_scheme
-        
       Classification : classification_source
-        
       Classification : classification_uri
-        
       Classification : classification_version
-        
-      
 ```
 
 
@@ -55,12 +48,12 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [classification_scheme](classification_scheme.md) | 1 <br/> [String](String.md) | Name of the classification scheme (for example ifc, uniclass, omniclass, cust... | direct |
-| [classification_code](classification_code.md) | 1 <br/> [String](String.md) | Classification code inside the scheme | direct |
-| [classification_label](classification_label.md) | 0..1 <br/> [String](String.md) | Optional human-readable classification label | direct |
-| [classification_uri](classification_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI/CURIE that identifies the classification concept in an external ... | direct |
-| [classification_version](classification_version.md) | 0..1 <br/> [String](String.md) | Optional scheme/version identifier | direct |
-| [classification_source](classification_source.md) | 0..1 <br/> [String](String.md) | Source authority or dataset for this classification | direct |
+| [classification_scheme](classification_scheme.md) | 1 <br/> [String](String.md) | Name of the classification scheme (for example ifc, uniclass, omniclass, custom). | direct |
+| [classification_code](classification_code.md) | 1 <br/> [String](String.md) | Classification code inside the scheme. | direct |
+| [classification_label](classification_label.md) | 0..1 <br/> [String](String.md) | Optional human-readable classification label. | direct |
+| [classification_uri](classification_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI/CURIE that identifies the classification concept in an external registry. | direct |
+| [classification_version](classification_version.md) | 0..1 <br/> [String](String.md) | Optional scheme/version identifier. | direct |
+| [classification_source](classification_source.md) | 0..1 <br/> [String](String.md) | Source authority or dataset for this classification. | direct |
 
 
 
@@ -96,13 +89,8 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 | [Space](Space.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [System](System.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ScheduleItem](ScheduleItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Milestone](Milestone.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ScheduleDependency](ScheduleDependency.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [CostItem](CostItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [CostAssembly](CostAssembly.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [TimeRecord](TimeRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [CostRecord](CostRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Material](Material.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 
 

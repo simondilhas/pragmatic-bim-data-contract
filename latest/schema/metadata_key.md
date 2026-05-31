@@ -25,7 +25,7 @@ URI: [pbs:metadata_key](https://schema.pragmaticbim.ch/metadata_key)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [MetadataEntry](MetadataEntry.md) | Generic metadata entry for storing IFC attributes, PropertySet fields, or pro... |  no  |
+| [MetadataEntry](MetadataEntry.md) | Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data. |  no  |
 
 
 

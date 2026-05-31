@@ -23,12 +23,12 @@ URI: [pbs:StatusType](https://schema.pragmaticbim.ch/StatusType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| draft | pbs:status_draft | Work-in-progress state before formal review |
-| submitted | pbs:status_submitted | Submitted state for review or approval |
-| reviewed | pbs:status_reviewed | Reviewed state pending final approval decision |
-| approved | pbs:status_approved | Approved state accepted for downstream use |
-| rejected | pbs:status_rejected | Rejected state not accepted for downstream use |
-| archived | pbs:status_archived | Archived state no longer in use |
+| draft | pbs:status_draft | Work-in-progress state before formal review. |
+| submitted | pbs:status_submitted | Submitted state for review or approval. |
+| reviewed | pbs:status_reviewed | Reviewed state pending final approval decision. |
+| approved | pbs:status_approved | Approved state accepted for downstream use. |
+| rejected | pbs:status_rejected | Rejected state not accepted for downstream use. |
+| archived | pbs:status_archived | Archived state no longer in use. |
 
 
 
@@ -37,7 +37,7 @@ URI: [pbs:StatusType](https://schema.pragmaticbim.ch/StatusType)
 
 | Name | Description |
 | ---  | --- |
-| [status](status.md) | Lifecycle or QA status |
+| [status](status.md) | Lifecycle or QA status. |
 
 
 

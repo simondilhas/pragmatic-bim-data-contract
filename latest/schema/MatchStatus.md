@@ -23,9 +23,9 @@ URI: [pbs:MatchStatus](https://schema.pragmaticbim.ch/MatchStatus)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| met | pbs:match_status_met | Subject satisfies the requirement |
-| unmet | pbs:match_status_unmet | Subject no longer satisfies the requirement |
-| unknown | pbs:match_status_unknown | Match could not be determined |
+| met | pbs:match_status_met | Subject satisfies the requirement. |
+| unmet | pbs:match_status_unmet | Subject no longer satisfies the requirement. |
+| unknown | pbs:match_status_unknown | Match could not be determined. |
 
 
 
@@ -34,7 +34,7 @@ URI: [pbs:MatchStatus](https://schema.pragmaticbim.ch/MatchStatus)
 
 | Name | Description |
 | ---  | --- |
-| [match_status](match_status.md) | Whether the subject met the requirement at the target revision |
+| [match_status](match_status.md) | Whether the subject met the requirement at the target revision. |
 
 
 

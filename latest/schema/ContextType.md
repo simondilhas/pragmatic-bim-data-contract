@@ -33,7 +33,7 @@ URI: [pbs:ContextType](https://schema.pragmaticbim.ch/ContextType)
 
 | Name | Description |
 | ---  | --- |
-| [context_type](context_type.md) | Classification of context entity (project, perimeter, legal_site, building, c... |
+| [context_type](context_type.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). |
 
 
 

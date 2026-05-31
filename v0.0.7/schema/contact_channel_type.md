@@ -25,7 +25,7 @@ URI: [pbs:contact_channel_type](https://schema.pragmaticbim.ch/contact_channel_t
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent |  no  |
+| [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent. |  no  |
 
 
 

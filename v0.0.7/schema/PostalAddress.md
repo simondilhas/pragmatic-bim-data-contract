@@ -23,22 +23,14 @@ URI: [pbs:PostalAddress](https://schema.pragmaticbim.ch/PostalAddress)
 ```mermaid
  classDiagram
     class PostalAddress
-    click PostalAddress href "../PostalAddress/"
+    click PostalAddress href "./PostalAddress.html"
       PostalAddress : address_country
-        
       PostalAddress : address_country_code
-        
       PostalAddress : address_locality
-        
       PostalAddress : address_region
-        
       PostalAddress : post_office_box_number
-        
       PostalAddress : postal_code
-        
       PostalAddress : street_address
-        
-      
 ```
 
 
@@ -57,13 +49,13 @@ URI: [pbs:PostalAddress](https://schema.pragmaticbim.ch/PostalAddress)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [street_address](street_address.md) | 0..1 <br/> [String](String.md) | Street name and house number or equivalent address line | direct |
-| [post_office_box_number](post_office_box_number.md) | 0..1 <br/> [String](String.md) | Post office box number where applicable | direct |
-| [postal_code](postal_code.md) | 0..1 <br/> [String](String.md) | Postal or ZIP code | direct |
-| [address_locality](address_locality.md) | 0..1 <br/> [String](String.md) | Locality, city, or town | direct |
-| [address_region](address_region.md) | 0..1 <br/> [String](String.md) | Region, state, canton, or province | direct |
-| [address_country](address_country.md) | 0..1 <br/> [String](String.md) | Country name | direct |
-| [address_country_code](address_country_code.md) | 0..1 <br/> [String](String.md) | Optional ISO 3166-1 alpha-2 or alpha-3 country code | direct |
+| [street_address](street_address.md) | 0..1 <br/> [String](String.md) | Street name and house number or equivalent address line. | direct |
+| [post_office_box_number](post_office_box_number.md) | 0..1 <br/> [String](String.md) | Post office box number where applicable. | direct |
+| [postal_code](postal_code.md) | 0..1 <br/> [String](String.md) | Postal or ZIP code. | direct |
+| [address_locality](address_locality.md) | 0..1 <br/> [String](String.md) | Locality, city, or town. | direct |
+| [address_region](address_region.md) | 0..1 <br/> [String](String.md) | Region, state, canton, or province. | direct |
+| [address_country](address_country.md) | 0..1 <br/> [String](String.md) | Country name. | direct |
+| [address_country_code](address_country_code.md) | 0..1 <br/> [String](String.md) | Optional ISO 3166-1 alpha-2 or alpha-3 country code. | direct |
 
 
 

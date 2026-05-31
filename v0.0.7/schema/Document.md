@@ -23,23 +23,12 @@ URI: [pbs:Document](https://schema.pragmaticbim.ch/Document)
 ```mermaid
  classDiagram
     class Document
-    click Document href "../Document/"
+    click Document href "./Document.html"
       Document : classifications
-        
-          
-    
-        
-        
         Document --> "*" Classification : classifications
-        click Classification href "../Classification/"
-    
-
-        
+        click Classification href "./Classification.html"
       Document : id
-        
       Document : storage_link
-        
-      
 ```
 
 
@@ -58,9 +47,9 @@ URI: [pbs:Document](https://schema.pragmaticbim.ch/Document)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [id](id.md) | 0..1 <br/> [String](String.md) | Optional stable identifier when referenced externally (for example from Chang... | direct |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | direct |
-| [storage_link](storage_link.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI/URL/path to the stored document location | direct |
+| [id](id.md) | 0..1 <br/> [String](String.md) | Optional stable identifier when referenced externally (for example from Change records). | direct |
+| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | direct |
+| [storage_link](storage_link.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI/URL/path to the stored document location. | direct |
 
 
 
@@ -95,13 +84,8 @@ URI: [pbs:Document](https://schema.pragmaticbim.ch/Document)
 | [Space](Space.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [System](System.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [ScheduleItem](ScheduleItem.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [Milestone](Milestone.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [ScheduleDependency](ScheduleDependency.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [CostItem](CostItem.md) | [documents](documents.md) | range | [Document](Document.md) |
-| [CostAssembly](CostAssembly.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [TimeRecord](TimeRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [CostRecord](CostRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [Material](Material.md) | [documents](documents.md) | range | [Document](Document.md) |
 
 
@@ -197,6 +181,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string

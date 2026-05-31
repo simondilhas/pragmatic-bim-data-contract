@@ -25,15 +25,15 @@ URI: [pbs:context_type](https://schema.pragmaticbim.ch/context_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
-| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
+| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, level, or zone. |  no  |
+| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics. |  no  |
+| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics. |  no  |
+| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics. |  no  |
+| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structures. |  no  |
+| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics. |  no  |
+| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics. |  no  |
+| [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics. |  no  |
+| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics. |  no  |
 
 
 

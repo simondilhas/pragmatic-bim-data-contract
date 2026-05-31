@@ -8,46 +8,28 @@
       "landing_page": "https://schema.pragmaticbim.ch/changes"
     },
     {
-      "slug": "core",
-      "id": "https://schema.pragmaticbim.ch/core",
-      "title": "Pragmatic BIM Data Contract - Core",
-      "landing_page": "https://schema.pragmaticbim.ch/core"
+      "slug": "entity/core",
+      "id": "https://schema.pragmaticbim.ch/entity/core",
+      "title": "Pragmatic BIM Data Contract - Entity Core",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/core"
     },
     {
-      "slug": "elements-physical",
-      "id": "https://schema.pragmaticbim.ch/elements-physical",
-      "title": "Pragmatic BIM Data Contract - Elements Physical",
-      "landing_page": "https://schema.pragmaticbim.ch/elements-physical"
+      "slug": "entity/performance",
+      "id": "https://schema.pragmaticbim.ch/entity/performance",
+      "title": "Pragmatic BIM Data Contract - Entity Performance",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/performance"
     },
     {
-      "slug": "elements-virtual",
-      "id": "https://schema.pragmaticbim.ch/elements-virtual",
-      "title": "Pragmatic BIM Data Contract - Elements Virtual",
-      "landing_page": "https://schema.pragmaticbim.ch/elements-virtual"
+      "slug": "entity/physical",
+      "id": "https://schema.pragmaticbim.ch/entity/physical",
+      "title": "Pragmatic BIM Data Contract - Entity Physical",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/physical"
     },
     {
-      "slug": "enums",
-      "id": "https://schema.pragmaticbim.ch/enums",
-      "title": "Pragmatic BIM Data Contract - Enums",
-      "landing_page": "https://schema.pragmaticbim.ch/enums"
-    },
-    {
-      "slug": "performance-enums",
-      "id": "https://schema.pragmaticbim.ch/performance-enums",
-      "title": "Pragmatic BIM Data Contract - Performance Enums",
-      "landing_page": "https://schema.pragmaticbim.ch/performance-enums"
-    },
-    {
-      "slug": "performance",
-      "id": "https://schema.pragmaticbim.ch/performance",
-      "title": "Pragmatic BIM Data Contract - Entity Performance Properties",
-      "landing_page": "https://schema.pragmaticbim.ch/performance"
-    },
-    {
-      "slug": "requirements-enums",
-      "id": "https://schema.pragmaticbim.ch/requirements-enums",
-      "title": "Pragmatic BIM Data Contract - Requirements Enums",
-      "landing_page": "https://schema.pragmaticbim.ch/requirements-enums"
+      "slug": "entity/virtual",
+      "id": "https://schema.pragmaticbim.ch/entity/virtual",
+      "title": "Pragmatic BIM Data Contract - Entity Virtual",
+      "landing_page": "https://schema.pragmaticbim.ch/entity/virtual"
     },
     {
       "slug": "requirements",

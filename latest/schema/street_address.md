@@ -25,7 +25,7 @@ URI: [schema:streetAddress](http://schema.org/streetAddress)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent |  no  |
+| [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent. |  no  |
 
 
 

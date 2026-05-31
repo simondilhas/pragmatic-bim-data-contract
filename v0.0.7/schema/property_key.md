@@ -25,13 +25,13 @@ URI: [pbs:property_key](https://schema.pragmaticbim.ch/property_key)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
-| [FireProperty](FireProperty.md) | Normalized fire-related property |  yes  |
-| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  yes  |
-| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  yes  |
-| [StructuralProperty](StructuralProperty.md) | Normalized structural-related property |  yes  |
-| [SecurityProperty](SecurityProperty.md) | Normalized security-related property |  yes  |
-| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  yes  |
+| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses. |  no  |
+| [FireProperty](FireProperty.md) | Normalized fire-related property. |  yes  |
+| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property. |  yes  |
+| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property. |  yes  |
+| [StructuralProperty](StructuralProperty.md) | Normalized structural-related property. |  yes  |
+| [SecurityProperty](SecurityProperty.md) | Normalized security-related property. |  yes  |
+| [MaterialProperty](MaterialProperty.md) | Normalized material-related property. |  yes  |
 
 
 

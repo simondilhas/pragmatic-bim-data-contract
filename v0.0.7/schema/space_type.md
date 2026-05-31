@@ -25,7 +25,7 @@ URI: [pbs:space_type](https://schema.pragmaticbim.ch/space_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
+| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis. |  no  |
 
 
 

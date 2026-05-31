@@ -25,7 +25,7 @@ URI: [pbs:geometry_representation](https://schema.pragmaticbim.ch/geometry_repre
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [GeometryRepresentation](GeometryRepresentation.md) | Minimal geometry reference for an entity, separating representation from enco... |  no  |
+| [GeometryRepresentation](GeometryRepresentation.md) | Minimal geometry reference for an entity, separating representation from encoding format. |  no  |
 
 
 

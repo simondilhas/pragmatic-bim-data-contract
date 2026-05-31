@@ -27,9 +27,9 @@ URI: [pbs:separator_requirement_drivers](https://schema.pragmaticbim.ch/separato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Separator](Separator.md) | Abstract base class for elements that separate spaces or zones |  no  |
-| [SeparatorWall](SeparatorWall.md) | Wall-based separating element |  no  |
-| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators) |  no  |
+| [Separator](Separator.md) | Abstract base class for elements that separate spaces or zones. |  no  |
+| [SeparatorWall](SeparatorWall.md) | Wall-based separating element. |  no  |
+| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators). |  no  |
 
 
 

@@ -25,199 +25,66 @@ URI: [pbs:Separator](https://schema.pragmaticbim.ch/Separator)
 ```mermaid
  classDiagram
     class Separator
-    click Separator href "../Separator/"
+    click Separator href "./Separator.html"
       PhysicalElement <|-- Separator
-        click PhysicalElement href "../PhysicalElement/"
-      
-
+        click PhysicalElement href "./PhysicalElement.html"
       Separator <|-- SeparatorWall
-        click SeparatorWall href "../SeparatorWall/"
+        click SeparatorWall href "./SeparatorWall.html"
       Separator <|-- SeparatorSlab
-        click SeparatorSlab href "../SeparatorSlab/"
-      
-
+        click SeparatorSlab href "./SeparatorSlab.html"
       Separator : classifications
-        
-          
-    
-        
-        
         Separator --> "*" Classification : classifications
-        click Classification href "../Classification/"
-    
-
-        
+        click Classification href "./Classification.html"
       Separator : created_at
-        
       Separator : decisions
-        
-          
-    
-        
-        
         Separator --> "*" Decision : decisions
-        click Decision href "../Decision/"
-    
-
-        
+        click Decision href "./Decision.html"
       Separator : description
-        
       Separator : documents
-        
-          
-    
-        
-        
         Separator --> "*" Document : documents
-        click Document href "../Document/"
-    
-
-        
+        click Document href "./Document.html"
       Separator : geometry_representations
-        
-          
-    
-        
-        
         Separator --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "../GeometryRepresentation/"
-    
-
-        
+        click GeometryRepresentation href "./GeometryRepresentation.html"
       Separator : id
-        
       Separator : ifc_global_id
-        
       Separator : localized_descriptions
-        
-          
-    
-        
-        
         Separator --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       Separator : localized_names
-        
-          
-    
-        
-        
         Separator --> "*" LocalizedText : localized_names
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       Separator : meaning_uri
-        
       Separator : messages
-        
-          
-    
-        
-        
         Separator --> "*" Message : messages
-        click Message href "../Message/"
-    
-
-        
+        click Message href "./Message.html"
       Separator : metadata
-        
-          
-    
-        
-        
         Separator --> "*" MetadataEntry : metadata
-        click MetadataEntry href "../MetadataEntry/"
-    
-
-        
+        click MetadataEntry href "./MetadataEntry.html"
       Separator : modified_at
-        
       Separator : name
-        
       Separator : parent_building
-        
-          
-    
-        
-        
         Separator --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "../BuiltAssetContext/"
-    
-
-        
+        click BuiltAssetContext href "./BuiltAssetContext.html"
       Separator : parent_level
-        
-          
-    
-        
-        
         Separator --> "0..1" LevelContext : parent_level
-        click LevelContext href "../LevelContext/"
-    
-
-        
+        click LevelContext href "./LevelContext.html"
       Separator : performance_properties
-        
-          
-    
-        
-        
         Separator --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "../PerformanceProperty/"
-    
-
-        
+        click PerformanceProperty href "./PerformanceProperty.html"
       Separator : quantity_values
-        
-          
-    
-        
-        
         Separator --> "*" QuantityValue : quantity_values
-        click QuantityValue href "../QuantityValue/"
-    
-
-        
+        click QuantityValue href "./QuantityValue.html"
       Separator : revision
-        
       Separator : separator_requirement_drivers
-        
-          
-    
-        
-        
         Separator --> "*" SeparatorRequirementDriver : separator_requirement_drivers
-        click SeparatorRequirementDriver href "../SeparatorRequirementDriver/"
-    
-
-        
+        click SeparatorRequirementDriver href "./SeparatorRequirementDriver.html"
       Separator : status
-        
-          
-    
-        
-        
         Separator --> "0..1" StatusType : status
-        click StatusType href "../StatusType/"
-    
-
-        
+        click StatusType href "./StatusType.html"
       Separator : tasks
-        
-          
-    
-        
-        
         Separator --> "*" Task : tasks
-        click Task href "../Task/"
-    
-
-        
-      
+        click Task href "./Task.html"
 ```
 
 
@@ -243,29 +110,29 @@ URI: [pbs:Separator](https://schema.pragmaticbim.ch/Separator)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [separator_requirement_drivers](separator_requirement_drivers.md) | * <br/> [SeparatorRequirementDriver](SeparatorRequirementDriver.md) | Performance requirement drivers for this separator | direct |
-| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference | [PhysicalElement](PhysicalElement.md) |
-| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference | [PhysicalElement](PhysicalElement.md) |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
-| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
-| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
-| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
-| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
-| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
-| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
-| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
-| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
-| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
-| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
+| [separator_requirement_drivers](separator_requirement_drivers.md) | * <br/> [SeparatorRequirementDriver](SeparatorRequirementDriver.md) | Performance requirement drivers for this separator. Multiple values are allowed because one separator may need to satisfy several requirements. | direct |
+| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [PhysicalElement](PhysicalElement.md) |
+| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | [PhysicalElement](PhysicalElement.md) |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
+| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | [Entity](Entity.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Entity](Entity.md) |
+| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology concept. | [Entity](Entity.md) |
+| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description. | [Entity](Entity.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Entity](Entity.md) |
+| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | [Entity](Entity.md) |
+| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | [Entity](Entity.md) |
+| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | [Entity](Entity.md) |
+| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | [Entity](Entity.md) |
+| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | [Entity](Entity.md) |
+| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | [Entity](Entity.md) |
+| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | [Entity](Entity.md) |
+| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | [Entity](Entity.md) |
+| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | [Entity](Entity.md) |
+| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | [Entity](Entity.md) |
+| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | [Entity](Entity.md) |
+| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | [Entity](Entity.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Entity](Entity.md) |
 
 
 
@@ -389,6 +256,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -401,6 +269,7 @@ attributes:
     owner: Separator
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -422,6 +291,7 @@ attributes:
     owner: Separator
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -599,6 +469,7 @@ attributes:
     owner: Separator
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:Separator
 

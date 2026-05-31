@@ -23,12 +23,12 @@ URI: [pbs:SpaceType](https://schema.pragmaticbim.ch/SpaceType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| void | ifcowl:IfcSpace | Non-occupiable or intentionally empty space in the model |
-| circulation | ifcowl:IfcSpace | Space primarily intended for movement and access |
-| usable | ifcowl:IfcSpace | Space intended for regular occupancy or primary use |
-| service | ifcowl:IfcSpace | Space primarily intended for technical/service functions |
-| modeled_gross_floor_area | ifcowl:IfcSpace | Space classification used when representing gross floor area as modeled space |
-| modeled_gross_volume | ifcowl:IfcSpace | Space classification used when representing gross volume as modeled space |
+| void | ifcowl:IfcSpace | Non-occupiable or intentionally empty space in the model. |
+| circulation | ifcowl:IfcSpace | Space primarily intended for movement and access. |
+| usable | ifcowl:IfcSpace | Space intended for regular occupancy or primary use. |
+| service | ifcowl:IfcSpace | Space primarily intended for technical/service functions. |
+| modeled_gross_floor_area | ifcowl:IfcSpace | Space classification used when representing gross floor area as modeled space. |
+| modeled_gross_volume | ifcowl:IfcSpace | Space classification used when representing gross volume as modeled space. |
 
 
 
@@ -37,7 +37,7 @@ URI: [pbs:SpaceType](https://schema.pragmaticbim.ch/SpaceType)
 
 | Name | Description |
 | ---  | --- |
-| [space_type](space_type.md) | Classification of space (void, circulation, usable, service) |
+| [space_type](space_type.md) | Classification of space (void, circulation, usable, service). |
 
 
 

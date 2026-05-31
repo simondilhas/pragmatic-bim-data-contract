@@ -27,52 +27,32 @@ URI: [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformancePropert
 ```mermaid
  classDiagram
     class PerformanceProperty
-    click PerformanceProperty href "../PerformanceProperty/"
+    click PerformanceProperty href "./PerformanceProperty.html"
       PerformanceProperty <|-- FireProperty
-        click FireProperty href "../FireProperty/"
+        click FireProperty href "./FireProperty.html"
       PerformanceProperty <|-- AcousticProperty
-        click AcousticProperty href "../AcousticProperty/"
+        click AcousticProperty href "./AcousticProperty.html"
       PerformanceProperty <|-- ThermalProperty
-        click ThermalProperty href "../ThermalProperty/"
+        click ThermalProperty href "./ThermalProperty.html"
       PerformanceProperty <|-- StructuralProperty
-        click StructuralProperty href "../StructuralProperty/"
+        click StructuralProperty href "./StructuralProperty.html"
       PerformanceProperty <|-- SecurityProperty
-        click SecurityProperty href "../SecurityProperty/"
+        click SecurityProperty href "./SecurityProperty.html"
       PerformanceProperty <|-- MaterialProperty
-        click MaterialProperty href "../MaterialProperty/"
-      
+        click MaterialProperty href "./MaterialProperty.html"
       PerformanceProperty : mapping_version
-        
       PerformanceProperty : property_key
-        
       PerformanceProperty : property_unit
-        
       PerformanceProperty : property_unit_uri
-        
       PerformanceProperty : property_value_boolean
-        
       PerformanceProperty : property_value_number
-        
       PerformanceProperty : property_value_string
-        
       PerformanceProperty : property_value_type
-        
-          
-    
-        
-        
         PerformanceProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "../PerformancePropertyValueType/"
-    
-
-        
+        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
       PerformanceProperty : source_property
-        
       PerformanceProperty : source_pset
-        
       PerformanceProperty : source_value_raw
-        
-      
 ```
 
 
@@ -100,17 +80,17 @@ URI: [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformancePropert
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [property_key](property_key.md) | 1 <br/> [String](String.md) | Canonical key inside the domain; constrained via subclass slot_usage to a dom... | direct |
-| [property_value_type](property_value_type.md) | 1 <br/> [PerformancePropertyValueType](PerformancePropertyValueType.md) | Value type discriminator for normalized storage (for example string, number, ... | direct |
-| [property_value_string](property_value_string.md) | 0..1 <br/> [String](String.md) | String value when property_value_type is string | direct |
-| [property_value_number](property_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric value when property_value_type is number | direct |
-| [property_value_boolean](property_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean value when property_value_type is boolean | direct |
-| [property_unit](property_unit.md) | 0..1 <br/> [String](String.md) | Normalized unit where applicable (for example min, dB, W/m2K) | direct |
-| [property_unit_uri](property_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the normalized property unit in an external voca... | direct |
-| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon) | direct |
-| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating) | direct |
-| [source_value_raw](source_value_raw.md) | 0..1 <br/> [String](String.md) | Raw source value before normalization | direct |
-| [mapping_version](mapping_version.md) | 0..1 <br/> [String](String.md) | Mapping specification version used to derive the normalized property | direct |
+| [property_key](property_key.md) | 1 <br/> [String](String.md) | Canonical key inside the domain; constrained via subclass slot_usage to a domain-specific enum. | direct |
+| [property_value_type](property_value_type.md) | 1 <br/> [PerformancePropertyValueType](PerformancePropertyValueType.md) | Value type discriminator for normalized storage (for example string, number, boolean). | direct |
+| [property_value_string](property_value_string.md) | 0..1 <br/> [String](String.md) | String value when property_value_type is string. | direct |
+| [property_value_number](property_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric value when property_value_type is number. | direct |
+| [property_value_boolean](property_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean value when property_value_type is boolean. | direct |
+| [property_unit](property_unit.md) | 0..1 <br/> [String](String.md) | Normalized unit where applicable (for example min, dB, W/m2K). | direct |
+| [property_unit_uri](property_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT. | direct |
+| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon). | direct |
+| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating). | direct |
+| [source_value_raw](source_value_raw.md) | 0..1 <br/> [String](String.md) | Raw source value before normalization. | direct |
+| [mapping_version](mapping_version.md) | 0..1 <br/> [String](String.md) | Mapping specification version used to derive the normalized property. | direct |
 
 
 
@@ -145,14 +125,8 @@ URI: [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformancePropert
 | [Space](Space.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [System](System.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [TimeItem](TimeItem.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [Milestone](Milestone.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [TimePlan](TimePlan.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [TimeDependency](TimeDependency.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [CostItem](CostItem.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
-| [CostAssembly](CostAssembly.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [TimeRecord](TimeRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [CostRecord](CostRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [Material](Material.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 
 
@@ -312,7 +286,7 @@ attributes:
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_property:
     name: source_property
@@ -323,7 +297,7 @@ attributes:
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_value_raw:
     name: source_value_raw

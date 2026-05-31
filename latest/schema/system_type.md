@@ -25,7 +25,7 @@ URI: [pbs:system_type](https://schema.pragmaticbim.ch/system_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
+| [System](System.md) | Building service system grouping that serves spaces or zones. |  no  |
 
 
 

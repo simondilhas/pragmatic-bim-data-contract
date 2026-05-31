@@ -23,27 +23,14 @@ URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
 ```mermaid
  classDiagram
     class Decision
-    click Decision href "../Decision/"
+    click Decision href "./Decision.html"
       Decision : decided_at
-        
       Decision : decided_by
-        
-          
-    
-        
-        
         Decision --> "0..1" Agent : decided_by
-        click Agent href "../Agent/"
-    
-
-        
+        click Agent href "./Agent.html"
       Decision : decision_status
-        
       Decision : decision_type
-        
       Decision : rationale
-        
-      
 ```
 
 
@@ -62,11 +49,11 @@ URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [decision_type](decision_type.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Decision type expressed as a URI/CURIE from a controlled vocabulary | direct |
-| [decision_status](decision_status.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Decision status expressed as a URI/CURIE (for example proposed, accepted, rej... | direct |
-| [decided_by](decided_by.md) | 0..1 <br/> [Agent](Agent.md) | Agent responsible for the decision | direct |
-| [decided_at](decided_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when the decision was made | direct |
-| [rationale](rationale.md) | 0..1 <br/> [String](String.md) | Human-readable rationale that explains why the decision was made | direct |
+| [decision_type](decision_type.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Decision type expressed as a URI/CURIE from a controlled vocabulary. | direct |
+| [decision_status](decision_status.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded). | direct |
+| [decided_by](decided_by.md) | 0..1 <br/> [Agent](Agent.md) | Agent responsible for the decision. | direct |
+| [decided_at](decided_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when the decision was made. | direct |
+| [rationale](rationale.md) | 0..1 <br/> [String](String.md) | Human-readable rationale that explains why the decision was made. | direct |
 
 
 
@@ -102,14 +89,8 @@ URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
 | [Space](Space.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [System](System.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimeItem](TimeItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [Milestone](Milestone.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimePlan](TimePlan.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [TimeDependency](TimeDependency.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [CostItem](CostItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
-| [CostAssembly](CostAssembly.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [TimeRecord](TimeRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [CostRecord](CostRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [Material](Material.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 
 

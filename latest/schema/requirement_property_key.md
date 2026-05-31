@@ -27,7 +27,7 @@ URI: [pbs:requirement_property_key](https://schema.pragmaticbim.ch/requirement_p
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc |  no  |
+| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |  no  |
 
 
 

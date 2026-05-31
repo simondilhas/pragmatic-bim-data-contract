@@ -25,7 +25,7 @@ URI: [pbs:usage_context](https://schema.pragmaticbim.ch/usage_context)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent |  no  |
+| [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent. |  no  |
 
 
 

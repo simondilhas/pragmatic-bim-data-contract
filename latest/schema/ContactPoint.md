@@ -23,20 +23,13 @@ URI: [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint)
 ```mermaid
  classDiagram
     class ContactPoint
-    click ContactPoint href "../ContactPoint/"
+    click ContactPoint href "./ContactPoint.html"
       ContactPoint : availability_notes
-        
       ContactPoint : contact_channel_type
-        
       ContactPoint : contact_uri
-        
       ContactPoint : contact_value
-        
       ContactPoint : is_preferred
-        
       ContactPoint : usage_context
-        
-      
 ```
 
 
@@ -55,12 +48,12 @@ URI: [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [contact_channel_type](contact_channel_type.md) | 0..1 <br/> [String](String.md) | Communication channel type such as email, phone, website, linkedin, whatsapp,... | direct |
-| [contact_value](contact_value.md) | 0..1 <br/> [String](String.md) | Human-readable contact value such as an email address, phone number, handle, ... | direct |
-| [contact_uri](contact_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI for the contact endpoint or profile where applicable | direct |
-| [usage_context](usage_context.md) | 0..1 <br/> [String](String.md) | Optional usage context such as work, personal, support, billing, or emergency | direct |
-| [is_preferred](is_preferred.md) | 0..1 <br/> [Boolean](Boolean.md) | Indicates whether this is the preferred contact point | direct |
-| [availability_notes](availability_notes.md) | 0..1 <br/> [String](String.md) | Optional notes about availability, office hours, or response expectations | direct |
+| [contact_channel_type](contact_channel_type.md) | 0..1 <br/> [String](String.md) | Communication channel type such as email, phone, website, linkedin, whatsapp, signal, slack, teams, or telegram. | direct |
+| [contact_value](contact_value.md) | 0..1 <br/> [String](String.md) | Human-readable contact value such as an email address, phone number, handle, or username. | direct |
+| [contact_uri](contact_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI for the contact endpoint or profile where applicable. | direct |
+| [usage_context](usage_context.md) | 0..1 <br/> [String](String.md) | Optional usage context such as work, personal, support, billing, or emergency. | direct |
+| [is_preferred](is_preferred.md) | 0..1 <br/> [Boolean](Boolean.md) | Indicates whether this is the preferred contact point. | direct |
+| [availability_notes](availability_notes.md) | 0..1 <br/> [String](String.md) | Optional notes about availability, office hours, or response expectations. | direct |
 
 
 

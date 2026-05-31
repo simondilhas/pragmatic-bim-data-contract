@@ -23,214 +23,68 @@ URI: [pbs:SeparatorSlab](https://schema.pragmaticbim.ch/SeparatorSlab)
 ```mermaid
  classDiagram
     class SeparatorSlab
-    click SeparatorSlab href "../SeparatorSlab/"
+    click SeparatorSlab href "./SeparatorSlab.html"
       Separator <|-- SeparatorSlab
-        click Separator href "../Separator/"
-      
+        click Separator href "./Separator.html"
       SeparatorSlab : classifications
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" Classification : classifications
-        click Classification href "../Classification/"
-    
-
-        
+        click Classification href "./Classification.html"
       SeparatorSlab : created_at
-        
       SeparatorSlab : decisions
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" Decision : decisions
-        click Decision href "../Decision/"
-    
-
-        
+        click Decision href "./Decision.html"
       SeparatorSlab : description
-        
       SeparatorSlab : documents
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" Document : documents
-        click Document href "../Document/"
-    
-
-        
+        click Document href "./Document.html"
       SeparatorSlab : geometry_representations
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "../GeometryRepresentation/"
-    
-
-        
+        click GeometryRepresentation href "./GeometryRepresentation.html"
       SeparatorSlab : id
-        
       SeparatorSlab : ifc_global_id
-        
       SeparatorSlab : localized_descriptions
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       SeparatorSlab : localized_names
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" LocalizedText : localized_names
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       SeparatorSlab : meaning_uri
-        
       SeparatorSlab : messages
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" Message : messages
-        click Message href "../Message/"
-    
-
-        
+        click Message href "./Message.html"
       SeparatorSlab : metadata
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" MetadataEntry : metadata
-        click MetadataEntry href "../MetadataEntry/"
-    
-
-        
+        click MetadataEntry href "./MetadataEntry.html"
       SeparatorSlab : modified_at
-        
       SeparatorSlab : name
-        
       SeparatorSlab : parent_building
-        
-          
-    
-        
-        
         SeparatorSlab --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "../BuiltAssetContext/"
-    
-
-        
+        click BuiltAssetContext href "./BuiltAssetContext.html"
       SeparatorSlab : parent_level
-        
-          
-    
-        
-        
         SeparatorSlab --> "0..1" LevelContext : parent_level
-        click LevelContext href "../LevelContext/"
-    
-
-        
+        click LevelContext href "./LevelContext.html"
       SeparatorSlab : performance_properties
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "../PerformanceProperty/"
-    
-
-        
+        click PerformanceProperty href "./PerformanceProperty.html"
       SeparatorSlab : quantity_values
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" QuantityValue : quantity_values
-        click QuantityValue href "../QuantityValue/"
-    
-
-        
+        click QuantityValue href "./QuantityValue.html"
       SeparatorSlab : revision
-        
       SeparatorSlab : separates_levels
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" LevelContext : separates_levels
-        click LevelContext href "../LevelContext/"
-    
-
-        
+        click LevelContext href "./LevelContext.html"
       SeparatorSlab : separator_requirement_drivers
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" SeparatorRequirementDriver : separator_requirement_drivers
-        click SeparatorRequirementDriver href "../SeparatorRequirementDriver/"
-    
-
-        
+        click SeparatorRequirementDriver href "./SeparatorRequirementDriver.html"
       SeparatorSlab : separator_slab_type
-        
-          
-    
-        
-        
         SeparatorSlab --> "1" SeparatorSlabType : separator_slab_type
-        click SeparatorSlabType href "../SeparatorSlabType/"
-    
-
-        
+        click SeparatorSlabType href "./SeparatorSlabType.html"
       SeparatorSlab : status
-        
-          
-    
-        
-        
         SeparatorSlab --> "0..1" StatusType : status
-        click StatusType href "../StatusType/"
-    
-
-        
+        click StatusType href "./StatusType.html"
       SeparatorSlab : tasks
-        
-          
-    
-        
-        
         SeparatorSlab --> "*" Task : tasks
-        click Task href "../Task/"
-    
-
-        
-      
+        click Task href "./Task.html"
 ```
 
 
@@ -255,31 +109,31 @@ URI: [pbs:SeparatorSlab](https://schema.pragmaticbim.ch/SeparatorSlab)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [separator_slab_type](separator_slab_type.md) | 1 <br/> [SeparatorSlabType](SeparatorSlabType.md) | Classification of slab-based separator element (for example floor/roof/base s... | direct |
-| [separates_levels](separates_levels.md) | * <br/> [LevelContext](LevelContext.md) | Level context nodes separated by this slab separator | direct |
-| [separator_requirement_drivers](separator_requirement_drivers.md) | * <br/> [SeparatorRequirementDriver](SeparatorRequirementDriver.md) | Performance requirement drivers for this separator | [Separator](Separator.md) |
-| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference | [PhysicalElement](PhysicalElement.md) |
-| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference | [PhysicalElement](PhysicalElement.md) |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
-| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
-| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
-| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
-| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
-| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
-| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
-| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
-| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
-| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
-| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
+| [separator_slab_type](separator_slab_type.md) | 1 <br/> [SeparatorSlabType](SeparatorSlabType.md) | Classification of slab-based separator element (for example floor/roof/base slab). | direct |
+| [separates_levels](separates_levels.md) | * <br/> [LevelContext](LevelContext.md) | Level context nodes separated by this slab separator. | direct |
+| [separator_requirement_drivers](separator_requirement_drivers.md) | * <br/> [SeparatorRequirementDriver](SeparatorRequirementDriver.md) | Performance requirement drivers for this separator. Multiple values are allowed because one separator may need to satisfy several requirements. | [Separator](Separator.md) |
+| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [PhysicalElement](PhysicalElement.md) |
+| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | [PhysicalElement](PhysicalElement.md) |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
+| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | [Entity](Entity.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Entity](Entity.md) |
+| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology concept. | [Entity](Entity.md) |
+| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description. | [Entity](Entity.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Entity](Entity.md) |
+| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | [Entity](Entity.md) |
+| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | [Entity](Entity.md) |
+| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | [Entity](Entity.md) |
+| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | [Entity](Entity.md) |
+| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | [Entity](Entity.md) |
+| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | [Entity](Entity.md) |
+| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | [Entity](Entity.md) |
+| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | [Entity](Entity.md) |
+| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | [Entity](Entity.md) |
+| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | [Entity](Entity.md) |
+| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | [Entity](Entity.md) |
+| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | [Entity](Entity.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Entity](Entity.md) |
 
 
 

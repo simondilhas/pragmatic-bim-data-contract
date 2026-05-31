@@ -23,12 +23,12 @@ URI: [pbs:ZoneType](https://schema.pragmaticbim.ch/ZoneType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| occupancy_unit | ifcowl:IfcSpatialZone | Occupancy unit zone (for example apartment, office suite, or retail unit) |
-| tenant | ifcowl:IfcSpatialZone | Tenant area zone used for leasing and occupancy boundaries |
-| functional | ifcowl:IfcSpatialZone | Functional grouping zone (for example clinical, retail, office support) |
-| cost | ifcowl:IfcGroup | Cost grouping zone for estimation and controlling |
-| fire | ifcowl:IfcSpatialZone | Fire compartment or fire strategy grouping zone |
-| security | ifcowl:IfcSpatialZone | Security management zone for access control and surveillance planning |
+| occupancy_unit | ifcowl:IfcSpatialZone | Occupancy unit zone (for example apartment, office suite, or retail unit). |
+| tenant | ifcowl:IfcSpatialZone | Tenant area zone used for leasing and occupancy boundaries. |
+| functional | ifcowl:IfcSpatialZone | Functional grouping zone (for example clinical, retail, office support). |
+| cost | ifcowl:IfcGroup | Cost grouping zone for estimation and controlling. |
+| fire | ifcowl:IfcSpatialZone | Fire compartment or fire strategy grouping zone. |
+| security | ifcowl:IfcSpatialZone | Security management zone for access control and surveillance planning. |
 
 
 
@@ -37,7 +37,7 @@ URI: [pbs:ZoneType](https://schema.pragmaticbim.ch/ZoneType)
 
 | Name | Description |
 | ---  | --- |
-| [zone_type](zone_type.md) | Optional zone classification; intended for SpatialContext nodes where context... |
+| [zone_type](zone_type.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. |
 
 
 

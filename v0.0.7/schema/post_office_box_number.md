@@ -25,7 +25,7 @@ URI: [schema:postOfficeBoxNumber](http://schema.org/postOfficeBoxNumber)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent |  no  |
+| [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent. |  no  |
 
 
 

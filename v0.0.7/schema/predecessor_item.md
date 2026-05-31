@@ -6,7 +6,7 @@ search:
 # Slot: predecessor_item 
 
 
-_Schedule item that must occur before the successor item._
+_Time item that must occur before the successor item._
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:predecessor_item](https://schema.pragmaticbim.ch/predecessor_item)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ScheduleDependency](ScheduleDependency.md) | Precedence relationship between two schedule items, optionally with lag |  no  |
+| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
 
 
 
@@ -38,8 +38,8 @@ URI: [pbs:predecessor_item](https://schema.pragmaticbim.ch/predecessor_item)
 
 | Property | Value |
 | --- | --- |
-| Range | [ScheduleItem](ScheduleItem.md) |
-| Domain Of | [ScheduleDependency](ScheduleDependency.md) |
+| Range | [TimeItem](TimeItem.md) |
+| Domain Of | [TimeDependency](TimeDependency.md) |
 
 ### Cardinality and Requirements
 
@@ -84,12 +84,12 @@ URI: [pbs:predecessor_item](https://schema.pragmaticbim.ch/predecessor_item)
 <details>
 ```yaml
 name: predecessor_item
-description: Schedule item that must occur before the successor item.
+description: Time item that must occur before the successor item.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- ScheduleDependency
-range: ScheduleItem
+- TimeDependency
+range: TimeItem
 inlined: false
 
 ```

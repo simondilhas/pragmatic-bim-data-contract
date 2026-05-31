@@ -23,8 +23,8 @@ URI: [pbs:ChangeIntentVerdict](https://schema.pragmaticbim.ch/ChangeIntentVerdic
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| stable | pbs:change_intent_verdict_stable | Change preserves design intent; downstream rules may treat as cosmetic |
-| new_intent | pbs:change_intent_verdict_new_intent | Change alters design intent; may require re-evaluation or new tasks |
+| stable | pbs:change_intent_verdict_stable | Change preserves design intent; downstream rules may treat as cosmetic. |
+| new_intent | pbs:change_intent_verdict_new_intent | Change alters design intent; may require re-evaluation or new tasks. |
 
 
 
@@ -33,7 +33,7 @@ URI: [pbs:ChangeIntentVerdict](https://schema.pragmaticbim.ch/ChangeIntentVerdic
 
 | Name | Description |
 | ---  | --- |
-| [intent_verdict](intent_verdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... |
+| [intent_verdict](intent_verdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). |
 
 
 

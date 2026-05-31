@@ -25,7 +25,7 @@ URI: [dcterms:created](http://purl.org/dc/terms/created)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions |  no  |
+| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions. |  no  |
 
 
 

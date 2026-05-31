@@ -25,7 +25,7 @@ URI: [pbs:changes](https://schema.pragmaticbim.ch/changes)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions |  no  |
+| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions. |  no  |
 
 
 

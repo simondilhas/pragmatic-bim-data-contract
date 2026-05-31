@@ -23,12 +23,12 @@ URI: [pbs:ChangeType](https://schema.pragmaticbim.ch/ChangeType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| geometry_change | pbs:change_type_geometry_change | Geometry or representation changed |
-| property_change | pbs:change_type_property_change | Attribute, PropertySet, or schema slot changed |
-| requirement_change | pbs:change_type_requirement_change | Requirement record or field changed |
-| match_change | pbs:change_type_match_change | Entity match status against a requirement changed (met / unmet) |
-| addition | pbs:change_type_addition | New entity or requirement introduced |
-| deletion | pbs:change_type_deletion | Entity or requirement removed |
+| geometry_change | pbs:change_type_geometry_change | Geometry or representation changed. |
+| property_change | pbs:change_type_property_change | Attribute, PropertySet, or schema slot changed. |
+| requirement_change | pbs:change_type_requirement_change | Requirement record or field changed. |
+| match_change | pbs:change_type_match_change | Entity match status against a requirement changed (met / unmet). |
+| addition | pbs:change_type_addition | New entity or requirement introduced. |
+| deletion | pbs:change_type_deletion | Entity or requirement removed. |
 
 
 
@@ -37,7 +37,7 @@ URI: [pbs:ChangeType](https://schema.pragmaticbim.ch/ChangeType)
 
 | Name | Description |
 | ---  | --- |
-| [change_type](change_type.md) | Category of change detected between two revisions |
+| [change_type](change_type.md) | Category of change detected between two revisions. |
 
 
 

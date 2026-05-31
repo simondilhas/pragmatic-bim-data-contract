@@ -25,7 +25,7 @@ URI: [schema:actionStatus](http://schema.org/actionStatus)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workf... |  no  |
+| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  no  |
 
 
 

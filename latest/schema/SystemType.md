@@ -23,9 +23,9 @@ URI: [pbs:SystemType](https://schema.pragmaticbim.ch/SystemType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| unit | ifcowl:IfcUnitaryEquipment | Generating or converting unit (for example AHU, chiller, heat pump) |
-| network | ifcowl:IfcDistributionFlowElement | Distribution network element carrying flow (for example ducts, pipes, cable c... |
-| terminal | ifcowl:IfcFlowTerminal | End/terminal element located in served spaces |
+| unit | ifcowl:IfcUnitaryEquipment | Generating or converting unit (for example AHU, chiller, heat pump). |
+| network | ifcowl:IfcDistributionFlowElement | Distribution network element carrying flow (for example ducts, pipes, cable carriers). |
+| terminal | ifcowl:IfcFlowTerminal | End/terminal element located in served spaces. |
 
 
 
@@ -34,7 +34,7 @@ URI: [pbs:SystemType](https://schema.pragmaticbim.ch/SystemType)
 
 | Name | Description |
 | ---  | --- |
-| [system_type](system_type.md) | Classification of system role (unit, network, terminal) |
+| [system_type](system_type.md) | Classification of system role (unit, network, terminal). |
 
 
 

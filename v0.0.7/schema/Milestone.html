@@ -38,29 +38,29 @@ a:hover { text-decoration: underline; }
   boost: 10.0</p>
 <hr>
 <h1 id="class-milestone">Class: Milestone</h1>
-<p><em>Zero-duration checkpoint or delivery target within a schedule.</em></p>
-<div data-search-exclude markdown="1">
-
-
-
-URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
-
-
-
-
-
-
+<p><em>Zero-duration checkpoint or delivery target within a time plan.</em></p>
+<div data-search-exclude>
+<p>URI: <a href="https://schema.pragmaticbim.ch/Milestone">pbs:Milestone</a></p>
 <div class="mermaid">
  classDiagram
     class Milestone
     click Milestone href "./Milestone.html"
-      ScheduleItem <|-- Milestone
-        click ScheduleItem href "./ScheduleItem.html"
+      TimeItem <|-- Milestone
+        click TimeItem href "./TimeItem.html"
       Milestone : actual_finish_at
       Milestone : actual_start_at
+      Milestone : applies_to_entities
+        Milestone --> "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
       Milestone : classifications
         Milestone --> "*" Classification : classifications
         click Classification href "./Classification.html"
+      Milestone : cost_assemblies
+        Milestone --> "*" CostAssembly : cost_assemblies
+        click CostAssembly href "./CostAssembly.html"
+      Milestone : cost_items
+        Milestone --> "*" CostItem : cost_items
+        click CostItem href "./CostItem.html"
       Milestone : created_at
       Milestone : decisions
         Milestone --> "*" Decision : decisions
@@ -80,6 +80,9 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
       Milestone : localized_names
         Milestone --> "*" LocalizedText : localized_names
         click LocalizedText href "./LocalizedText.html"
+      Milestone : materials
+        Milestone --> "*" Material : materials
+        click Material href "./Material.html"
       Milestone : meaning_uri
       Milestone : messages
         Milestone --> "*" Message : messages
@@ -99,123 +102,292 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
         Milestone --> "*" QuantityValue : quantity_values
         click QuantityValue href "./QuantityValue.html"
       Milestone : revision
-      Milestone : schedule_template
-        Milestone --> "0..1" ScheduleTemplate : schedule_template
-        click ScheduleTemplate href "./ScheduleTemplate.html"
-      Milestone : scheduled_entities
-        Milestone --> "*" Entity : scheduled_entities
-        click Entity href "./Entity.html"
       Milestone : status
         Milestone --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
       Milestone : tasks
         Milestone --> "*" Task : tasks
         click Task href "./Task.html"
+      Milestone : time_items
+        Milestone --> "*" TimeItem : time_items
+        click TimeItem href "./TimeItem.html"
+      Milestone : time_plan
+        Milestone --> "0..1" TimePlan : time_plan
+        click TimePlan href "./TimePlan.html"
+      Milestone : time_plans
+        Milestone --> "*" TimePlan : time_plans
+        click TimePlan href "./TimePlan.html"
 
 </div>
-
-
-
-
-
-
-## Inheritance
-* [Entity](Entity.md)
-    * [ScheduleItem](ScheduleItem.md)
-        * **Milestone**
-
-
-## Class Properties
-
-| Property | Value |
-| --- | --- |
-| Class URI | [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone) |
-
-
-## Slots
-
-| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- |
-| [milestone_at](milestone_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Target timestamp for the milestone checkpoint | direct |
-| [schedule_template](schedule_template.md) | 0..1 <br/> [ScheduleTemplate](ScheduleTemplate.md) | Parent schedule template this item or dependency belongs to | [ScheduleItem](ScheduleItem.md) |
-| [scheduled_entities](scheduled_entities.md) | * <br/> [Entity](Entity.md) | Model entities that this schedule template or schedule item applies to | [ScheduleItem](ScheduleItem.md) |
-| [planned_start_at](planned_start_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Planned start timestamp for the schedule item | [ScheduleItem](ScheduleItem.md) |
-| [planned_finish_at](planned_finish_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Planned finish timestamp for the schedule item | [ScheduleItem](ScheduleItem.md) |
-| [actual_start_at](actual_start_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Actual start timestamp for the schedule item where known | [ScheduleItem](ScheduleItem.md) |
-| [actual_finish_at](actual_finish_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Actual finish timestamp for the schedule item where known | [ScheduleItem](ScheduleItem.md) |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
-| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
-| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
-| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
-| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
-| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
-| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
-| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
-| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
-| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
-| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Identifier and Mapping Information
-
-
-
-
-
-### Schema Source
-
-
-* from schema: https://schema.pragmaticbim.ch
-
-
-
-
-## Mappings
-
-| Mapping Type | Mapped Value |
-| ---  | ---  |
-| self | pbs:Milestone |
-| native | pbs:Milestone |
-
-
-
-
-
-
-## LinkML Source
-
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="Entity.html">Entity</a><ul>
+<li><a href="VirtualEntity.html">VirtualEntity</a><ul>
+<li><a href="AbstractTimeRecord.html">AbstractTimeRecord</a><ul>
+<li><a href="TimeItem.html">TimeItem</a><ul>
+<li><strong>Milestone</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://schema.pragmaticbim.ch/Milestone">pbs:Milestone</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="milestone_at.html">milestone_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Target timestamp for the milestone checkpoint</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="time_plan.html">time_plan</a></td>
+<td>0..1 <br/> <a href="TimePlan.html">TimePlan</a></td>
+<td>Parent time plan this item or dependency belongs to</td>
+<td><a href="TimeItem.html">TimeItem</a></td>
+</tr>
+<tr>
+<td><a href="planned_start_at.html">planned_start_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Planned start timestamp for the time item</td>
+<td><a href="TimeItem.html">TimeItem</a></td>
+</tr>
+<tr>
+<td><a href="planned_finish_at.html">planned_finish_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Planned finish timestamp for the time item</td>
+<td><a href="TimeItem.html">TimeItem</a></td>
+</tr>
+<tr>
+<td><a href="actual_start_at.html">actual_start_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Actual start timestamp for the time item where known</td>
+<td><a href="TimeItem.html">TimeItem</a></td>
+</tr>
+<tr>
+<td><a href="actual_finish_at.html">actual_finish_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Actual finish timestamp for the time item where known</td>
+<td><a href="TimeItem.html">TimeItem</a></td>
+</tr>
+<tr>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>* <br/> <a href="Entity.html">Entity</a></td>
+<td>Model entities this record applies to (requirements, cost items, schedule ite...</td>
+<td><a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+</tr>
+<tr>
+<td><a href="cost_items.html">cost_items</a></td>
+<td>* <br/> <a href="CostItem.html">CostItem</a></td>
+<td>Cost items associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>* <br/> <a href="CostAssembly.html">CostAssembly</a></td>
+<td>Aggregated unit prices associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="time_items.html">time_items</a></td>
+<td>* <br/> <a href="TimeItem.html">TimeItem</a></td>
+<td>Time items associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="time_plans.html">time_plans</a></td>
+<td>* <br/> <a href="TimePlan.html">TimePlan</a></td>
+<td>Grouped time plans associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="materials.html">materials</a></td>
+<td>* <br/> <a href="Material.html">Material</a></td>
+<td>Material definitions associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="meaning_uri.html">meaning_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional semantic URI for linking the entity instance to an external ontology...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of description</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="classifications.html">classifications</a></td>
+<td>* <br/> <a href="Classification.html">Classification</a></td>
+<td>Classification entries from IFC and other schemes</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>* <br/> <a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+<td>Geometry references associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>* <br/> <a href="QuantityValue.html">QuantityValue</a></td>
+<td>Quantities associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="documents.html">documents</a></td>
+<td>* <br/> <a href="Document.html">Document</a></td>
+<td>Linked documents associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="metadata.html">metadata</a></td>
+<td>* <br/> <a href="MetadataEntry.html">MetadataEntry</a></td>
+<td>Generic metadata container for IFC attributes/properties and project-specific...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="performance_properties.html">performance_properties</a></td>
+<td>* <br/> <a href="PerformanceProperty.html">PerformanceProperty</a></td>
+<td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structura...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="decisions.html">decisions</a></td>
+<td>* <br/> <a href="Decision.html">Decision</a></td>
+<td>Decision records associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="tasks.html">tasks</a></td>
+<td>* <br/> <a href="Task.html">Task</a></td>
+<td>Tasks associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="messages.html">messages</a></td>
+<td>* <br/> <a href="Message.html">Message</a></td>
+<td>Messages associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="created_at.html">created_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Creation timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="modified_at.html">modified_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Last modification timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="revision.html">revision</a></td>
+<td>0..1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Integer revision counter for change tracking</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://schema.pragmaticbim.ch</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Milestone</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Milestone</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-
-### Direct
-
+<h3 id="direct">Direct</h3>
 <details>
 
 <pre><code class="language-yaml">name: Milestone
-description: Zero-duration checkpoint or delivery target within a schedule.
+description: Zero-duration checkpoint or delivery target within a time plan.
 from_schema: https://schema.pragmaticbim.ch
-is_a: ScheduleItem
+is_a: TimeItem
 slots:
 - milestone_at
 class_uri: pbs:Milestone
@@ -223,15 +395,13 @@ class_uri: pbs:Milestone
 </code></pre>
 
 </details>
-
-### Induced
-
+<h3 id="induced">Induced</h3>
 <details>
 
 <pre><code class="language-yaml">name: Milestone
-description: Zero-duration checkpoint or delivery target within a schedule.
+description: Zero-duration checkpoint or delivery target within a time plan.
 from_schema: https://schema.pragmaticbim.ch
-is_a: ScheduleItem
+is_a: TimeItem
 attributes:
   milestone_at:
     name: milestone_at
@@ -242,66 +412,122 @@ attributes:
     domain_of:
     - Milestone
     range: datetime
-  schedule_template:
-    name: schedule_template
-    description: Parent schedule template this item or dependency belongs to.
+  time_plan:
+    name: time_plan
+    description: Parent time plan this item or dependency belongs to.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
-    - ScheduleDependency
-    range: ScheduleTemplate
-    inlined: false
-  scheduled_entities:
-    name: scheduled_entities
-    description: Model entities that this schedule template or schedule item applies
-      to.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Milestone
-    domain_of:
-    - ScheduleTemplate
-    - ScheduleItem
-    range: Entity
-    multivalued: true
+    - TimeItem
+    - TimeDependency
+    range: TimePlan
     inlined: false
   planned_start_at:
     name: planned_start_at
-    description: Planned start timestamp for the schedule item.
+    description: Planned start timestamp for the time item.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
   planned_finish_at:
     name: planned_finish_at
-    description: Planned finish timestamp for the schedule item.
+    description: Planned finish timestamp for the time item.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
   actual_start_at:
     name: actual_start_at
-    description: Actual start timestamp for the schedule item where known.
+    description: Actual start timestamp for the time item where known.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
   actual_finish_at:
     name: actual_finish_at
-    description: Actual finish timestamp for the schedule item where known.
+    description: Actual finish timestamp for the time item where known.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
+  applies_to_entities:
+    name: applies_to_entities
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - Requirement
+    - AbstractTimeRecord
+    - AbstractCostRecord
+    range: Entity
+    multivalued: true
+    inlined: false
+  cost_items:
+    name: cost_items
+    description: Cost items associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: CostItem
+    multivalued: true
+    inlined: false
+  cost_assemblies:
+    name: cost_assemblies
+    description: Aggregated unit prices associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: CostAssembly
+    multivalued: true
+    inlined: false
+  time_items:
+    name: time_items
+    description: Time items associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: TimeItem
+    multivalued: true
+    inlined: false
+  time_plans:
+    name: time_plans
+    description: Grouped time plans associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: TimePlan
+    multivalued: true
+    inlined: false
+  materials:
+    name: materials
+    description: Material definitions associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: Material
+    multivalued: true
+    inlined: false
   id:
     name: id
     description: Unique local identifier.
@@ -313,6 +539,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -325,6 +552,7 @@ attributes:
     owner: Milestone
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -346,6 +574,7 @@ attributes:
     owner: Milestone
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -523,12 +752,14 @@ attributes:
     owner: Milestone
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:Milestone
 
 </code></pre>
 
-</details></div>
+</details>
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

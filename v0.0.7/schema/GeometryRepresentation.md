@@ -23,23 +23,12 @@ URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryReprese
 ```mermaid
  classDiagram
     class GeometryRepresentation
-    click GeometryRepresentation href "../GeometryRepresentation/"
+    click GeometryRepresentation href "./GeometryRepresentation.html"
       GeometryRepresentation : geometry_format
-        
       GeometryRepresentation : geometry_reference
-        
       GeometryRepresentation : geometry_representation
-        
-          
-    
-        
-        
         GeometryRepresentation --> "1" GeometryRepresentationType : geometry_representation
-        click GeometryRepresentationType href "../GeometryRepresentationType/"
-    
-
-        
-      
+        click GeometryRepresentationType href "./GeometryRepresentationType.html"
 ```
 
 
@@ -58,9 +47,9 @@ URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryReprese
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [geometry_reference](geometry_reference.md) | 1 <br/> [String](String.md) | URI/path/hash/pointer to geometry payload | direct |
-| [geometry_representation](geometry_representation.md) | 1 <br/> [GeometryRepresentationType](GeometryRepresentationType.md) | Representation kind/dimension (for example body_3d, footprint_2d, point), ind... | direct |
-| [geometry_format](geometry_format.md) | 0..1 <br/> [String](String.md) | Optional serialization/encoding format (for example ifc, gltf, wkt, geojson),... | direct |
+| [geometry_reference](geometry_reference.md) | 1 <br/> [String](String.md) | URI/path/hash/pointer to geometry payload. | direct |
+| [geometry_representation](geometry_representation.md) | 1 <br/> [GeometryRepresentationType](GeometryRepresentationType.md) | Representation kind/dimension (for example body_3d, footprint_2d, point), independent of file format. | direct |
+| [geometry_format](geometry_format.md) | 0..1 <br/> [String](String.md) | Optional serialization/encoding format (for example ifc, gltf, wkt, geojson), independent of representation kind. | direct |
 
 
 
@@ -95,13 +84,8 @@ URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryReprese
 | [Space](Space.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [System](System.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [ScheduleItem](ScheduleItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [Milestone](Milestone.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [ScheduleDependency](ScheduleDependency.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [CostItem](CostItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
-| [CostAssembly](CostAssembly.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [TimeRecord](TimeRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [CostRecord](CostRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [Material](Material.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 
 

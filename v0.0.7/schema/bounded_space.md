@@ -25,7 +25,7 @@ URI: [pbs:bounded_space](https://schema.pragmaticbim.ch/bounded_space)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering) |  no  |
+| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering). |  no  |
 
 
 

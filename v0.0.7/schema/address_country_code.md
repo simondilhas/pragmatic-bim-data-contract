@@ -25,7 +25,7 @@ URI: [pbs:address_country_code](https://schema.pragmaticbim.ch/address_country_c
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent |  no  |
+| [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent. |  no  |
 
 
 

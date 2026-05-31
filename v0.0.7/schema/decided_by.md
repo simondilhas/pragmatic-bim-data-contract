@@ -25,7 +25,7 @@ URI: [prov:wasAttributedTo](http://www.w3.org/ns/prov#wasAttributedTo)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Decision](Decision.md) | Decision record linked to an entity for workflow traceability and governance |  no  |
+| [Decision](Decision.md) | Decision record linked to an entity for workflow traceability and governance. |  no  |
 
 
 

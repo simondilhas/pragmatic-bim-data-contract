@@ -25,14 +25,14 @@ URI: [pbs:source_property](https://schema.pragmaticbim.ch/source_property)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
-| [PropertyDelta](PropertyDelta.md) | Field-level difference between two revision states |  no  |
-| [FireProperty](FireProperty.md) | Normalized fire-related property |  no  |
-| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
-| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
-| [StructuralProperty](StructuralProperty.md) | Normalized structural-related property |  no  |
-| [SecurityProperty](SecurityProperty.md) | Normalized security-related property |  no  |
-| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
+| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses. |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  yes  |
+| [FireProperty](FireProperty.md) | Normalized fire-related property. |  no  |
+| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property. |  no  |
+| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property. |  no  |
+| [StructuralProperty](StructuralProperty.md) | Normalized structural-related property. |  no  |
+| [SecurityProperty](SecurityProperty.md) | Normalized security-related property. |  no  |
+| [MaterialProperty](MaterialProperty.md) | Normalized material-related property. |  no  |
 
 
 
@@ -46,7 +46,7 @@ URI: [pbs:source_property](https://schema.pragmaticbim.ch/source_property)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [PerformanceProperty](PerformanceProperty.md), [PropertyDelta](PropertyDelta.md) |
+| Domain Of | [PerformanceProperty](PerformanceProperty.md), [PropertyChange](PropertyChange.md) |
 
 ### Cardinality and Requirements
 
@@ -96,7 +96,7 @@ from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - PerformanceProperty
-- PropertyDelta
+- PropertyChange
 range: string
 
 ```

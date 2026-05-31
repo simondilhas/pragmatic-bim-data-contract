@@ -23,11 +23,11 @@ URI: [pbs:PropertyPathKind](https://schema.pragmaticbim.ch/PropertyPathKind)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| ifc_attribute | pbs:property_path_kind_ifc_attribute | Direct IFC entity attribute (for example IfcWall |
-| ifc_pset | pbs:property_path_kind_ifc_pset | IFC PropertySet property (for example Pset_WallCommon |
-| schema_slot | pbs:property_path_kind_schema_slot | Field on a schema entity (for example description, space_type) |
-| document_field | pbs:property_path_kind_document_field | Structured field in an extracted document (for example section |
-| text_span | pbs:property_path_kind_text_span | Free-text span anchor (for example body:char_offset:1204-1389) |
+| ifc_attribute | pbs:property_path_kind_ifc_attribute | Direct IFC entity attribute (for example IfcWall.Name). |
+| ifc_pset | pbs:property_path_kind_ifc_pset | IFC PropertySet property (for example Pset_WallCommon.FireRating). |
+| schema_slot | pbs:property_path_kind_schema_slot | Field on a schema entity (for example description, space_type). |
+| document_field | pbs:property_path_kind_document_field | Structured field in an extracted document (for example section.4.2.title). |
+| text_span | pbs:property_path_kind_text_span | Free-text span anchor (for example body:char_offset:1204-1389). |
 
 
 
@@ -36,7 +36,7 @@ URI: [pbs:PropertyPathKind](https://schema.pragmaticbim.ch/PropertyPathKind)
 
 | Name | Description |
 | ---  | --- |
-| [property_path_kind](property_path_kind.md) | Classification of the property path for downstream diff interpretation |
+| [property_path_kind](property_path_kind.md) | Classification of the property path for downstream diff interpretation. |
 
 
 

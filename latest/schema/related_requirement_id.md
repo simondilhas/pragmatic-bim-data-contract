@@ -25,7 +25,7 @@ URI: [pbs:related_requirement_id](https://schema.pragmaticbim.ch/related_require
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer... |  no  |
+| [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer meets). |  no  |
 
 
 

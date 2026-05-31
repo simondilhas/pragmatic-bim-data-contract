@@ -25,7 +25,7 @@ URI: [pbs:language_tag](https://schema.pragmaticbim.ch/language_tag)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [LocalizedText](LocalizedText.md) | Localized text value for a specific language tag |  no  |
+| [LocalizedText](LocalizedText.md) | Localized text value for a specific language tag. |  no  |
 
 
 

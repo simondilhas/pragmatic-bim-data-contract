@@ -25,7 +25,7 @@ URI: [prov:wasAttributedTo](http://www.w3.org/ns/prov#wasAttributedTo)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions |  no  |
+| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions. |  no  |
 
 
 

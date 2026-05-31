@@ -29,7 +29,7 @@ URI: [pbs:BoundaryType](https://schema.pragmaticbim.ch/BoundaryType)
 
 | Name | Description |
 | ---  | --- |
-| [boundary_type](boundary_type.md) | Classification of boundary element (e |
+| [boundary_type](boundary_type.md) | Classification of boundary element (e.g., covering). |
 
 
 

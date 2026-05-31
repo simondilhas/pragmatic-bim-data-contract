@@ -25,7 +25,7 @@ URI: [schema:dateSent](http://schema.org/dateSent)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and trac... |  no  |
+| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
 
 
 

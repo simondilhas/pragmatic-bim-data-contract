@@ -25,7 +25,7 @@ URI: [pbs:parent_system](https://schema.pragmaticbim.ch/parent_system)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Equipment](Equipment.md) | Endpoint or device element (for example terminal, unit, control device, senso... |  no  |
+| [Equipment](Equipment.md) | Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system. |  no  |
 
 
 

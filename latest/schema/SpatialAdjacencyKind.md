@@ -23,9 +23,9 @@ URI: [pbs:SpatialAdjacencyKind](https://schema.pragmaticbim.ch/SpatialAdjacencyK
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| adjacent_to | pbs:spatial_adjacency_adjacent_to | Subject must be adjacent to the related entity or space |
-| not_adjacent_to | pbs:spatial_adjacency_not_adjacent_to | Subject must not be adjacent to the related entity or space |
-| min_clear_distance | pbs:spatial_adjacency_min_clear_distance | Minimum clear distance to the related entity or space |
+| adjacent_to | pbs:spatial_adjacency_adjacent_to | Subject must be adjacent to the related entity or space. |
+| not_adjacent_to | pbs:spatial_adjacency_not_adjacent_to | Subject must not be adjacent to the related entity or space. |
+| min_clear_distance | pbs:spatial_adjacency_min_clear_distance | Minimum clear distance to the related entity or space. |
 
 
 
@@ -34,7 +34,7 @@ URI: [pbs:SpatialAdjacencyKind](https://schema.pragmaticbim.ch/SpatialAdjacencyK
 
 | Name | Description |
 | ---  | --- |
-| [adjacency_kind](adjacency_kind.md) | Adjacency semantics when this spatial requirement involves another subject |
+| [adjacency_kind](adjacency_kind.md) | Adjacency semantics when this spatial requirement involves another subject. |
 
 
 

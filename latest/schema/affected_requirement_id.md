@@ -25,7 +25,7 @@ URI: [pbs:affected_requirement_id](https://schema.pragmaticbim.ch/affected_requi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
 
 
 

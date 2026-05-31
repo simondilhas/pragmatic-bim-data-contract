@@ -23,258 +23,80 @@ URI: [pbs:Space](https://schema.pragmaticbim.ch/Space)
 ```mermaid
  classDiagram
     class Space
-    click Space href "../Space/"
+    click Space href "./Space.html"
       VirtualEntity <|-- Space
-        click VirtualEntity href "../VirtualEntity/"
-      
+        click VirtualEntity href "./VirtualEntity.html"
       Space : bounded_by
-        
-          
-    
-        
-        
         Space --> "*" PhysicalElement : bounded_by
-        click PhysicalElement href "../PhysicalElement/"
-    
-
-        
+        click PhysicalElement href "./PhysicalElement.html"
       Space : classifications
-        
-          
-    
-        
-        
         Space --> "*" Classification : classifications
-        click Classification href "../Classification/"
-    
-
-        
+        click Classification href "./Classification.html"
       Space : contained_entities
-        
-          
-    
-        
-        
         Space --> "*" Entity : contained_entities
-        click Entity href "../Entity/"
-    
-
-        
-      Space : cost_assemblies
-        
-          
-    
-        
-        
-        Space --> "*" CostAssembly : cost_assemblies
-        click CostAssembly href "../CostAssembly/"
-    
-
-        
-      Space : cost_items
-        
-          
-    
-        
-        
-        Space --> "*" CostItem : cost_items
-        click CostItem href "../CostItem/"
-    
-
-        
+        click Entity href "./Entity.html"
+      Space : cost_records
+        Space --> "*" CostRecord : cost_records
+        click CostRecord href "./CostRecord.html"
       Space : created_at
-        
       Space : decisions
-        
-          
-    
-        
-        
         Space --> "*" Decision : decisions
-        click Decision href "../Decision/"
-    
-
-        
+        click Decision href "./Decision.html"
       Space : description
-        
       Space : documents
-        
-          
-    
-        
-        
         Space --> "*" Document : documents
-        click Document href "../Document/"
-    
-
-        
+        click Document href "./Document.html"
       Space : geometry_representations
-        
-          
-    
-        
-        
         Space --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "../GeometryRepresentation/"
-    
-
-        
+        click GeometryRepresentation href "./GeometryRepresentation.html"
       Space : id
-        
       Space : ifc_global_id
-        
       Space : localized_descriptions
-        
-          
-    
-        
-        
         Space --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       Space : localized_names
-        
-          
-    
-        
-        
         Space --> "*" LocalizedText : localized_names
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       Space : materials
-        
-          
-    
-        
-        
         Space --> "*" Material : materials
-        click Material href "../Material/"
-    
-
-        
+        click Material href "./Material.html"
       Space : meaning_uri
-        
       Space : messages
-        
-          
-    
-        
-        
         Space --> "*" Message : messages
-        click Message href "../Message/"
-    
-
-        
+        click Message href "./Message.html"
       Space : metadata
-        
-          
-    
-        
-        
         Space --> "*" MetadataEntry : metadata
-        click MetadataEntry href "../MetadataEntry/"
-    
-
-        
+        click MetadataEntry href "./MetadataEntry.html"
       Space : modified_at
-        
       Space : name
-        
       Space : parent_building
-        
-          
-    
-        
-        
         Space --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "../BuiltAssetContext/"
-    
-
-        
+        click BuiltAssetContext href "./BuiltAssetContext.html"
       Space : parent_level
-        
-          
-    
-        
-        
         Space --> "0..1" LevelContext : parent_level
-        click LevelContext href "../LevelContext/"
-    
-
-        
+        click LevelContext href "./LevelContext.html"
       Space : parent_zone
-        
-          
-    
-        
-        
         Space --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "../ZoneContext/"
-    
-
-        
+        click ZoneContext href "./ZoneContext.html"
       Space : performance_properties
-        
-          
-    
-        
-        
         Space --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "../PerformanceProperty/"
-    
-
-        
+        click PerformanceProperty href "./PerformanceProperty.html"
       Space : quantity_values
-        
-          
-    
-        
-        
         Space --> "*" QuantityValue : quantity_values
-        click QuantityValue href "../QuantityValue/"
-    
-
-        
+        click QuantityValue href "./QuantityValue.html"
       Space : revision
-        
       Space : space_type
-        
-          
-    
-        
-        
         Space --> "1" SpaceType : space_type
-        click SpaceType href "../SpaceType/"
-    
-
-        
+        click SpaceType href "./SpaceType.html"
       Space : status
-        
-          
-    
-        
-        
         Space --> "0..1" StatusType : status
-        click StatusType href "../StatusType/"
-    
-
-        
+        click StatusType href "./StatusType.html"
       Space : tasks
-        
-          
-    
-        
-        
         Space --> "*" Task : tasks
-        click Task href "../Task/"
-    
-
-        
-      
+        click Task href "./Task.html"
+      Space : time_records
+        Space --> "*" TimeRecord : time_records
+        click TimeRecord href "./TimeRecord.html"
 ```
 
 
@@ -298,35 +120,35 @@ URI: [pbs:Space](https://schema.pragmaticbim.ch/Space)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [space_type](space_type.md) | 1 <br/> [SpaceType](SpaceType.md) | Classification of space (void, circulation, usable, service) | direct |
-| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference | direct |
-| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference | direct |
-| [parent_zone](parent_zone.md) | 0..1 <br/> [ZoneContext](ZoneContext.md) | Parent zone context reference | direct |
-| [bounded_by](bounded_by.md) | * <br/> [PhysicalElement](PhysicalElement.md) | Physical elements that bound a space | direct |
-| [contained_entities](contained_entities.md) | * <br/> [Entity](Entity.md) | Generic containment for associated entities | direct |
-| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity | [VirtualEntity](VirtualEntity.md) |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
-| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
-| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
-| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
-| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
-| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
-| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
-| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
-| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
-| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
-| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
+| [space_type](space_type.md) | 1 <br/> [SpaceType](SpaceType.md) | Classification of space (void, circulation, usable, service). | direct |
+| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | direct |
+| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | direct |
+| [parent_zone](parent_zone.md) | 0..1 <br/> [ZoneContext](ZoneContext.md) | Parent zone context reference. | direct |
+| [bounded_by](bounded_by.md) | * <br/> [PhysicalElement](PhysicalElement.md) | Physical elements that bound a space. | direct |
+| [contained_entities](contained_entities.md) | * <br/> [Entity](Entity.md) | Generic containment for associated entities. | direct |
+| [cost_records](cost_records.md) | * <br/> [CostRecord](CostRecord.md) | Cost records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [time_records](time_records.md) | * <br/> [TimeRecord](TimeRecord.md) | Time records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity. | [VirtualEntity](VirtualEntity.md) |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
+| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | [Entity](Entity.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Entity](Entity.md) |
+| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology concept. | [Entity](Entity.md) |
+| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description. | [Entity](Entity.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Entity](Entity.md) |
+| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | [Entity](Entity.md) |
+| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | [Entity](Entity.md) |
+| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | [Entity](Entity.md) |
+| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | [Entity](Entity.md) |
+| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | [Entity](Entity.md) |
+| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | [Entity](Entity.md) |
+| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | [Entity](Entity.md) |
+| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | [Entity](Entity.md) |
+| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | [Entity](Entity.md) |
+| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | [Entity](Entity.md) |
+| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | [Entity](Entity.md) |
+| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | [Entity](Entity.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Entity](Entity.md) |
 
 
 
@@ -498,26 +320,26 @@ attributes:
     - System
     range: Entity
     multivalued: true
-  cost_items:
-    name: cost_items
-    description: Cost items associated with this entity.
+  cost_records:
+    name: cost_records
+    description: Cost records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Space
     domain_of:
     - VirtualEntity
-    range: CostItem
+    range: CostRecord
     multivalued: true
     inlined: false
-  cost_assemblies:
-    name: cost_assemblies
-    description: Aggregated unit prices associated with this entity.
+  time_records:
+    name: time_records
+    description: Time records associated with this entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Space
     domain_of:
     - VirtualEntity
-    range: CostAssembly
+    range: TimeRecord
     multivalued: true
     inlined: false
   materials:
@@ -542,6 +364,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -554,6 +377,7 @@ attributes:
     owner: Space
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -575,6 +399,7 @@ attributes:
     owner: Space
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -752,6 +577,7 @@ attributes:
     owner: Space
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:Space
 

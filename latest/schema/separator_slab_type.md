@@ -25,7 +25,7 @@ URI: [pbs:separator_slab_type](https://schema.pragmaticbim.ch/separator_slab_typ
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators) |  no  |
+| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators). |  no  |
 
 
 

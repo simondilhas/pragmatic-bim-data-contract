@@ -25,7 +25,7 @@ URI: [pbs:min_clear_distance](https://schema.pragmaticbim.ch/min_clear_distance)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc |  no  |
+| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |  no  |
 
 
 

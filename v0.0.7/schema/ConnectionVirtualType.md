@@ -23,10 +23,10 @@ URI: [pbs:ConnectionVirtualType](https://schema.pragmaticbim.ch/ConnectionVirtua
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| structural_joint | pbs:connection_virtual_type_structural_joint | Logical structural continuity or structural joint relation |
-| adjacency | pbs:connection_virtual_type_adjacency | Topological adjacency relation without implying a physical opening |
-| access | pbs:connection_virtual_type_access | Access relation indicating passability or navigational linkage |
-| other | pbs:connection_virtual_type_other | Other virtual connection semantics not covered by the controlled values |
+| structural_joint | pbs:connection_virtual_type_structural_joint | Logical structural continuity or structural joint relation. |
+| adjacency | pbs:connection_virtual_type_adjacency | Topological adjacency relation without implying a physical opening. |
+| access | pbs:connection_virtual_type_access | Access relation indicating passability or navigational linkage. |
+| other | pbs:connection_virtual_type_other | Other virtual connection semantics not covered by the controlled values. |
 
 
 
@@ -35,7 +35,7 @@ URI: [pbs:ConnectionVirtualType](https://schema.pragmaticbim.ch/ConnectionVirtua
 
 | Name | Description |
 | ---  | --- |
-| [connection_virtual_type](connection_virtual_type.md) | Classification of virtual connection semantics (for example structural_joint,... |
+| [connection_virtual_type](connection_virtual_type.md) | Classification of virtual connection semantics (for example structural_joint, adjacency, access). |
 
 
 

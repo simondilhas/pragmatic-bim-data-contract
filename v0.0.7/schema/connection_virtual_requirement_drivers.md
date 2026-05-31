@@ -25,7 +25,7 @@ URI: [pbs:connection_virtual_requirement_drivers](https://schema.pragmaticbim.ch
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
+| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements. |  no  |
 
 
 

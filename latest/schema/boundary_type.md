@@ -25,7 +25,7 @@ URI: [pbs:boundary_type](https://schema.pragmaticbim.ch/boundary_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering) |  no  |
+| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering). |  no  |
 
 
 

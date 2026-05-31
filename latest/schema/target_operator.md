@@ -25,7 +25,7 @@ URI: [pbs:target_operator](https://schema.pragmaticbim.ch/target_operator)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc |  no  |
+| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |  no  |
 
 
 

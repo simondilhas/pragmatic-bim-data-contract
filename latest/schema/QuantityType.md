@@ -18,16 +18,16 @@ URI: [pbs:QuantityType](https://schema.pragmaticbim.ch/QuantityType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| area_net_horizontal | ifcowl:IfcQuantityArea | Net horizontal area, typically usable floor area excluding non-net parts |
-| area_gross_horizontal | ifcowl:IfcQuantityArea | Gross horizontal area, typically measured to outer boundaries |
-| area_net_vertical | ifcowl:IfcQuantityArea | Net vertical area, typically wall or facade area excluding deductions |
-| area_gross_vertical | ifcowl:IfcQuantityArea | Gross vertical area, typically full wall or facade area including non-net por... |
-| volume_net | ifcowl:IfcQuantityVolume | Net enclosed volume after subtracting non-counted voids or deductions |
-| volume_gross | ifcowl:IfcQuantityVolume | Gross enclosed volume measured to external or gross boundaries |
-| length | ifcowl:IfcQuantityLength | Linear extent of an element or feature |
-| width | ifcowl:IfcQuantityLength | Width dimension of an element, opening, or space proxy |
-| height | ifcowl:IfcQuantityLength | Height dimension of an element, opening, or space proxy |
-| perimeter | ifcowl:IfcQuantityLength | Boundary length around a 2D shape or footprint |
+| area_net_horizontal | ifcowl:IfcQuantityArea | Net horizontal area, typically usable floor area excluding non-net parts. |
+| area_gross_horizontal | ifcowl:IfcQuantityArea | Gross horizontal area, typically measured to outer boundaries. |
+| area_net_vertical | ifcowl:IfcQuantityArea | Net vertical area, typically wall or facade area excluding deductions. |
+| area_gross_vertical | ifcowl:IfcQuantityArea | Gross vertical area, typically full wall or facade area including non-net portions. |
+| volume_net | ifcowl:IfcQuantityVolume | Net enclosed volume after subtracting non-counted voids or deductions. |
+| volume_gross | ifcowl:IfcQuantityVolume | Gross enclosed volume measured to external or gross boundaries. |
+| length | ifcowl:IfcQuantityLength | Linear extent of an element or feature. |
+| width | ifcowl:IfcQuantityLength | Width dimension of an element, opening, or space proxy. |
+| height | ifcowl:IfcQuantityLength | Height dimension of an element, opening, or space proxy. |
+| perimeter | ifcowl:IfcQuantityLength | Boundary length around a 2D shape or footprint. |
 
 
 
@@ -36,8 +36,8 @@ URI: [pbs:QuantityType](https://schema.pragmaticbim.ch/QuantityType)
 
 | Name | Description |
 | ---  | --- |
-| [quantity_type](quantity_type.md) | Controlled quantity type |
-| [cost_quantity_type](cost_quantity_type.md) | Quantity type used as basis for this cost calculation |
+| [quantity_type](quantity_type.md) | Controlled quantity type. |
+| [cost_quantity_type](cost_quantity_type.md) | Quantity type used as basis for this cost calculation. |
 
 
 

@@ -23,9 +23,9 @@ URI: [pbs:SeparatorWallType](https://schema.pragmaticbim.ch/SeparatorWallType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| unit_boundary | ifcowl:IfcWall | Wall separator that defines boundaries between occupancy units |
-| vertical_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or encloses vertical circulation areas |
-| horizontal_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or structures horizontal circulation areas |
+| unit_boundary | ifcowl:IfcWall | Wall separator that defines boundaries between occupancy units. |
+| vertical_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or encloses vertical circulation areas. |
+| horizontal_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or structures horizontal circulation areas. |
 
 
 
@@ -34,7 +34,7 @@ URI: [pbs:SeparatorWallType](https://schema.pragmaticbim.ch/SeparatorWallType)
 
 | Name | Description |
 | ---  | --- |
-| [separator_wall_type](separator_wall_type.md) | Classification of wall-based separator element |
+| [separator_wall_type](separator_wall_type.md) | Classification of wall-based separator element. |
 
 
 

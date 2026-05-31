@@ -25,7 +25,7 @@ URI: [pbs:classification_version](https://schema.pragmaticbim.ch/classification_
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Classification](Classification.md) | Generic classification entry from any scheme (for example IFC, Uniclass, Omni... |  no  |
+| [Classification](Classification.md) | Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom). |  no  |
 
 
 

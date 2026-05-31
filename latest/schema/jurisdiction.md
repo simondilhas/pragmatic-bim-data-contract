@@ -25,7 +25,7 @@ URI: [pbs:jurisdiction](https://schema.pragmaticbim.ch/jurisdiction)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard) |  no  |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |  no  |
 
 
 

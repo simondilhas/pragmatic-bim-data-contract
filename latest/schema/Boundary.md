@@ -23,203 +23,65 @@ URI: [pbs:Boundary](https://schema.pragmaticbim.ch/Boundary)
 ```mermaid
  classDiagram
     class Boundary
-    click Boundary href "../Boundary/"
+    click Boundary href "./Boundary.html"
       PhysicalElement <|-- Boundary
-        click PhysicalElement href "../PhysicalElement/"
-      
+        click PhysicalElement href "./PhysicalElement.html"
       Boundary : boundary_type
-        
-          
-    
-        
-        
         Boundary --> "1" BoundaryType : boundary_type
-        click BoundaryType href "../BoundaryType/"
-    
-
-        
+        click BoundaryType href "./BoundaryType.html"
       Boundary : bounded_space
-        
-          
-    
-        
-        
         Boundary --> "0..1" Space : bounded_space
-        click Space href "../Space/"
-    
-
-        
+        click Space href "./Space.html"
       Boundary : classifications
-        
-          
-    
-        
-        
         Boundary --> "*" Classification : classifications
-        click Classification href "../Classification/"
-    
-
-        
+        click Classification href "./Classification.html"
       Boundary : created_at
-        
       Boundary : decisions
-        
-          
-    
-        
-        
         Boundary --> "*" Decision : decisions
-        click Decision href "../Decision/"
-    
-
-        
+        click Decision href "./Decision.html"
       Boundary : description
-        
       Boundary : documents
-        
-          
-    
-        
-        
         Boundary --> "*" Document : documents
-        click Document href "../Document/"
-    
-
-        
+        click Document href "./Document.html"
       Boundary : geometry_representations
-        
-          
-    
-        
-        
         Boundary --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "../GeometryRepresentation/"
-    
-
-        
+        click GeometryRepresentation href "./GeometryRepresentation.html"
       Boundary : id
-        
       Boundary : ifc_global_id
-        
       Boundary : localized_descriptions
-        
-          
-    
-        
-        
         Boundary --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       Boundary : localized_names
-        
-          
-    
-        
-        
         Boundary --> "*" LocalizedText : localized_names
-        click LocalizedText href "../LocalizedText/"
-    
-
-        
+        click LocalizedText href "./LocalizedText.html"
       Boundary : meaning_uri
-        
       Boundary : messages
-        
-          
-    
-        
-        
         Boundary --> "*" Message : messages
-        click Message href "../Message/"
-    
-
-        
+        click Message href "./Message.html"
       Boundary : metadata
-        
-          
-    
-        
-        
         Boundary --> "*" MetadataEntry : metadata
-        click MetadataEntry href "../MetadataEntry/"
-    
-
-        
+        click MetadataEntry href "./MetadataEntry.html"
       Boundary : modified_at
-        
       Boundary : name
-        
       Boundary : parent_building
-        
-          
-    
-        
-        
         Boundary --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "../BuiltAssetContext/"
-    
-
-        
+        click BuiltAssetContext href "./BuiltAssetContext.html"
       Boundary : parent_level
-        
-          
-    
-        
-        
         Boundary --> "0..1" LevelContext : parent_level
-        click LevelContext href "../LevelContext/"
-    
-
-        
+        click LevelContext href "./LevelContext.html"
       Boundary : performance_properties
-        
-          
-    
-        
-        
         Boundary --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "../PerformanceProperty/"
-    
-
-        
+        click PerformanceProperty href "./PerformanceProperty.html"
       Boundary : quantity_values
-        
-          
-    
-        
-        
         Boundary --> "*" QuantityValue : quantity_values
-        click QuantityValue href "../QuantityValue/"
-    
-
-        
+        click QuantityValue href "./QuantityValue.html"
       Boundary : revision
-        
       Boundary : status
-        
-          
-    
-        
-        
         Boundary --> "0..1" StatusType : status
-        click StatusType href "../StatusType/"
-    
-
-        
+        click StatusType href "./StatusType.html"
       Boundary : tasks
-        
-          
-    
-        
-        
         Boundary --> "*" Task : tasks
-        click Task href "../Task/"
-    
-
-        
-      
+        click Task href "./Task.html"
 ```
 
 
@@ -243,30 +105,30 @@ URI: [pbs:Boundary](https://schema.pragmaticbim.ch/Boundary)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [boundary_type](boundary_type.md) | 1 <br/> [BoundaryType](BoundaryType.md) | Classification of boundary element (e | direct |
-| [bounded_space](bounded_space.md) | 0..1 <br/> [Space](Space.md) | Space bounded by this boundary element | direct |
-| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference | [PhysicalElement](PhysicalElement.md) |
-| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference | [PhysicalElement](PhysicalElement.md) |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
-| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
-| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
-| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
-| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
-| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
-| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
-| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
-| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
-| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
-| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
-| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
+| [boundary_type](boundary_type.md) | 1 <br/> [BoundaryType](BoundaryType.md) | Classification of boundary element (e.g., covering). | direct |
+| [bounded_space](bounded_space.md) | 0..1 <br/> [Space](Space.md) | Space bounded by this boundary element. | direct |
+| [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [PhysicalElement](PhysicalElement.md) |
+| [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | [PhysicalElement](PhysicalElement.md) |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
+| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | [Entity](Entity.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Entity](Entity.md) |
+| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology concept. | [Entity](Entity.md) |
+| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description. | [Entity](Entity.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Entity](Entity.md) |
+| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | [Entity](Entity.md) |
+| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | [Entity](Entity.md) |
+| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | [Entity](Entity.md) |
+| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | [Entity](Entity.md) |
+| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | [Entity](Entity.md) |
+| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | [Entity](Entity.md) |
+| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | [Entity](Entity.md) |
+| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | [Entity](Entity.md) |
+| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | [Entity](Entity.md) |
+| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | [Entity](Entity.md) |
+| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | [Entity](Entity.md) |
+| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | [Entity](Entity.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Entity](Entity.md) |
 
 
 

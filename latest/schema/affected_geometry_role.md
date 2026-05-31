@@ -6,7 +6,7 @@ search:
 # Slot: affected_geometry_role 
 
 
-_Geometry role affected when change_type is geometry_change._
+_Geometry role affected for GeometryChange records._
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:affected_geometry_role](https://schema.pragmaticbim.ch/affected_geomet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject |  no  |
+| [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |  no  |
 
 
 
@@ -84,7 +84,7 @@ URI: [pbs:affected_geometry_role](https://schema.pragmaticbim.ch/affected_geomet
 <details>
 ```yaml
 name: affected_geometry_role
-description: Geometry role affected when change_type is geometry_change.
+description: Geometry role affected for GeometryChange records.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:

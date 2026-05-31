@@ -26,7 +26,7 @@ URI: [pbs:SeparatorSlabType](https://schema.pragmaticbim.ch/SeparatorSlabType)
 | floor | ifcowl:IfcSlabTypeEnum.FLOOR |  |
 | roof | ifcowl:IfcSlabTypeEnum.ROOF |  |
 | baseslab | ifcowl:IfcSlabTypeEnum.BASESLAB |  |
-| balcony | ifcowl:IfcSlabTypeEnum.FLOOR | Balcony slab; mapped to FLOOR as the closest IFC slab type |
+| balcony | ifcowl:IfcSlabTypeEnum.FLOOR | Balcony slab; mapped to FLOOR as the closest IFC slab type. |
 
 
 
@@ -35,7 +35,7 @@ URI: [pbs:SeparatorSlabType](https://schema.pragmaticbim.ch/SeparatorSlabType)
 
 | Name | Description |
 | ---  | --- |
-| [separator_slab_type](separator_slab_type.md) | Classification of slab-based separator element (for example floor/roof/base s... |
+| [separator_slab_type](separator_slab_type.md) | Classification of slab-based separator element (for example floor/roof/base slab). |
 
 
 

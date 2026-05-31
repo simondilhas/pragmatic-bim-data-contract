@@ -23,94 +23,37 @@ URI: [pbs:RequirementChange](https://schema.pragmaticbim.ch/RequirementChange)
 ```mermaid
  classDiagram
     class RequirementChange
-    click RequirementChange href "../RequirementChange/"
+    click RequirementChange href "./RequirementChange.html"
       Change <|-- RequirementChange
-        click Change href "../Change/"
-      
+        click Change href "./Change.html"
       RequirementChange : affected_requirement_id
-        
       RequirementChange : affected_subject_id
-        
       RequirementChange : affected_subject_path
-        
       RequirementChange : affected_subject_type
-        
       RequirementChange : change_severity
-        
-          
-    
-        
-        
         RequirementChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "../ChangeSeverity/"
-    
-
-        
+        click ChangeSeverity href "./ChangeSeverity.html"
       RequirementChange : change_source
-        
       RequirementChange : change_type
-        
+        RequirementChange --> "1" ChangeType : change_type
+        click ChangeType href "./ChangeType.html"
       RequirementChange : detected_at
-        
       RequirementChange : document_storage_link
-        
       RequirementChange : from_revision
-        
-      RequirementChange : from_state_ref
-        
-          
-    
-        
-        
-        RequirementChange --> "0..1" StateRef : from_state_ref
-        click StateRef href "../StateRef/"
-    
-
-        
+      RequirementChange : from_value
       RequirementChange : id
-        
       RequirementChange : ifc_global_id
-        
       RequirementChange : intent_verdict
-        
-          
-    
-        
-        
         RequirementChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "../ChangeIntentVerdict/"
-    
-
-        
-      RequirementChange : property_delta
-        
-          
-    
-        
-        
-        RequirementChange --> "*" PropertyDelta : property_delta
-        click PropertyDelta href "../PropertyDelta/"
-    
-
-        
+        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
+      RequirementChange : property_path
+      RequirementChange : property_path_kind
+        RequirementChange --> "1" PropertyPathKind : property_path_kind
+        click PropertyPathKind href "./PropertyPathKind.html"
       RequirementChange : to_revision
-        
-      RequirementChange : to_state_ref
-        
-          
-    
-        
-        
-        RequirementChange --> "0..1" StateRef : to_state_ref
-        click StateRef href "../StateRef/"
-    
-
-        
+      RequirementChange : to_value
       RequirementChange : triggered_process
-        
       RequirementChange : triggered_task
-        
-      
 ```
 
 
@@ -133,25 +76,26 @@ URI: [pbs:RequirementChange](https://schema.pragmaticbim.ch/RequirementChange)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [affected_requirement_id](affected_requirement_id.md) | 0..1 <br/> [String](String.md) | Identifier of the requirement record affected by this change | direct |
-| [property_delta](property_delta.md) | * <br/> [PropertyDelta](PropertyDelta.md) | Field-level differences detected between the two revision states | direct |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Change](Change.md) |
-| [change_type](change_type.md) | 1 <br/> [String](String.md) | Category of change detected between two revisions | [Change](Change.md) |
-| [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type | [Change](Change.md) |
-| [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... | [Change](Change.md) |
-| [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key) | [Change](Change.md) |
-| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, D... | [Change](Change.md) |
-| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2]... | [Change](Change.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Change](Change.md) |
-| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document | [Change](Change.md) |
-| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change | [Change](Change.md) |
-| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | [Change](Change.md) |
-| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision | [Change](Change.md) |
-| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision | [Change](Change.md) |
-| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger | [Change](Change.md) |
-| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance) | [Change](Change.md) |
-| [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected | [Change](Change.md) |
-| [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record | [Change](Change.md) |
+| [affected_requirement_id](affected_requirement_id.md) | 0..1 <br/> [String](String.md) | Identifier of the requirement record affected by this change. | direct |
+| [property_path](property_path.md) | 1 <br/> [String](String.md) | Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389. | direct |
+| [property_path_kind](property_path_kind.md) | 1 <br/> [PropertyPathKind](PropertyPathKind.md) | Classification of the property path for downstream diff interpretation. | direct |
+| [from_value](from_value.md) | 0..1 <br/> [String](String.md) | Prior value serialized as text. Absent or null for new subjects or fields. | direct |
+| [to_value](to_value.md) | 0..1 <br/> [String](String.md) | New value serialized as text. Absent or null for deleted subjects or fields. | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Change](Change.md) |
+| [change_type](change_type.md) | 1 <br/> [ChangeType](ChangeType.md) | Category of change detected between two revisions. | [Change](Change.md) |
+| [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type. | [Change](Change.md) |
+| [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). | [Change](Change.md) |
+| [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key). | [Change](Change.md) |
+| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, Document). | [Change](Change.md) |
+| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2], localized_descriptions[de], section.4.2.paragraph_1). | [Change](Change.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Change](Change.md) |
+| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document. | [Change](Change.md) |
+| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | [Change](Change.md) |
+| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | [Change](Change.md) |
+| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger. | [Change](Change.md) |
+| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | [Change](Change.md) |
+| [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | [Change](Change.md) |
+| [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record. | [Change](Change.md) |
 
 
 
@@ -210,12 +154,10 @@ exact_mappings:
 is_a: Change
 slots:
 - affected_requirement_id
-- property_delta
-slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: requirement_change
+- property_path
+- property_path_kind
+- from_value
+- to_value
 class_uri: pbs:RequirementChange
 
 ```
@@ -231,11 +173,6 @@ from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Activity
 is_a: Change
-slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: requirement_change
 attributes:
   affected_requirement_id:
     name: affected_requirement_id
@@ -246,18 +183,53 @@ attributes:
     domain_of:
     - RequirementChange
     range: string
-  property_delta:
-    name: property_delta
-    description: Field-level differences detected between the two revision states.
+  property_path:
+    name: property_path
+    description: 'Canonical path to the changed field. Examples: Pset_WallCommon.FireRating,
+      IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389.
+
+      '
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: RequirementChange
     domain_of:
     - PropertyChange
     - RequirementChange
-    range: PropertyDelta
-    multivalued: true
-    inlined: true
+    range: string
+    required: true
+  property_path_kind:
+    name: property_path_kind
+    description: Classification of the property path for downstream diff interpretation.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RequirementChange
+    domain_of:
+    - PropertyChange
+    - RequirementChange
+    range: PropertyPathKind
+    required: true
+  from_value:
+    name: from_value
+    description: Prior value serialized as text. Absent or null for new subjects or
+      fields.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RequirementChange
+    domain_of:
+    - PropertyChange
+    - RequirementChange
+    range: string
+  to_value:
+    name: to_value
+    description: New value serialized as text. Absent or null for deleted subjects
+      or fields.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RequirementChange
+    domain_of:
+    - PropertyChange
+    - RequirementChange
+    range: string
   id:
     name: id
     description: Unique local identifier.
@@ -282,9 +254,8 @@ attributes:
     owner: RequirementChange
     domain_of:
     - Change
-    range: string
+    range: ChangeType
     required: true
-    equals_string: requirement_change
   change_severity:
     name: change_severity
     description: Optional severity independent of change type.
@@ -384,26 +355,6 @@ attributes:
     range: integer
     required: true
     minimum_value: 0
-  from_state_ref:
-    name: from_state_ref
-    description: Content state pointer at the source revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: RequirementChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
-  to_state_ref:
-    name: to_state_ref
-    description: Content state pointer at the target revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: RequirementChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
   triggered_task:
     name: triggered_task
     description: Id of a Task record that this change triggered or should trigger.

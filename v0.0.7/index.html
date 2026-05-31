@@ -24,38 +24,20 @@ ul { padding-left: 1.2rem; }
     <p>Latest stable release artifacts are available here.</p>
     <h2>Schema modules</h2>
     <ul>
-      <li><a href="./changes">Pragmatic BIM Data Contract - Changes</a> (<code>https://schema.pragmaticbim.ch/changes</code>)</li>
-      <li><a href="./core">Pragmatic BIM Data Contract - Core</a> (<code>https://schema.pragmaticbim.ch/core</code>)</li>
-      <li><a href="./elements-physical">Pragmatic BIM Data Contract - Elements Physical</a> (<code>https://schema.pragmaticbim.ch/elements-physical</code>)</li>
-      <li><a href="./elements-virtual">Pragmatic BIM Data Contract - Elements Virtual</a> (<code>https://schema.pragmaticbim.ch/elements-virtual</code>)</li>
-      <li><a href="./enums">Pragmatic BIM Data Contract - Enums</a> (<code>https://schema.pragmaticbim.ch/enums</code>)</li>
-      <li><a href="./performance-enums">Pragmatic BIM Data Contract - Performance Enums</a> (<code>https://schema.pragmaticbim.ch/performance-enums</code>)</li>
-      <li><a href="./performance">Pragmatic BIM Data Contract - Performance</a> (<code>https://schema.pragmaticbim.ch/performance</code>)</li>
-      <li><a href="./requirements-enums">Pragmatic BIM Data Contract - Requirements Enums</a> (<code>https://schema.pragmaticbim.ch/requirements-enums</code>)</li>
-      <li><a href="./requirements">Pragmatic BIM Data Contract - Requirements</a> (<code>https://schema.pragmaticbim.ch/requirements</code>)</li>
+      <li><a href="./changes/">Pragmatic BIM Data Contract - Changes</a> (<code>https://schema.pragmaticbim.ch/changes</code>)</li>
+      <li><a href="./entity/core/">Pragmatic BIM Data Contract - Entity Core</a> (<code>https://schema.pragmaticbim.ch/entity/core</code>)</li>
+      <li><a href="./entity/performance/">Pragmatic BIM Data Contract - Entity Performance</a> (<code>https://schema.pragmaticbim.ch/entity/performance</code>)</li>
+      <li><a href="./entity/physical/">Pragmatic BIM Data Contract - Entity Physical</a> (<code>https://schema.pragmaticbim.ch/entity/physical</code>)</li>
+      <li><a href="./entity/virtual/">Pragmatic BIM Data Contract - Entity Virtual</a> (<code>https://schema.pragmaticbim.ch/entity/virtual</code>)</li>
+      <li><a href="./requirements/">Pragmatic BIM Data Contract - Requirements</a> (<code>https://schema.pragmaticbim.ch/requirements</code>)</li>
     </ul>
 
-    <h2>Module map</h2>
+    <h2>Three pillars</h2>
     <div class="mermaid">flowchart TB
   Root["Pragmatic BIM Data Contract"]
-  Root --> core["Core"]
-  click core href "./core.html" _blank
-  Root --> performance_enums["Performance Enums"]
-  click performance_enums href "./performance-enums.html" _blank
-  Root --> requirements_enums["Requirements Enums"]
-  click requirements_enums href "./requirements-enums.html" _blank
-  Root --> performance["Performance"]
-  click performance href "./performance.html" _blank
-  Root --> requirements["Requirements"]
-  click requirements href "./requirements.html" _blank
-  Root --> elements_physical["Elements Physical"]
-  click elements_physical href "./elements-physical.html" _blank
-  Root --> elements_virtual["Elements Virtual"]
-  click elements_virtual href "./elements-virtual.html" _blank
-  Root --> enums["Enums"]
-  click enums href "./enums.html" _blank
-  Root --> changes["Changes"]
-  click changes href "./changes.html" _blank</div>
+  Root --> Entity["Entities"]
+  Root --> Requirement["Requirements"]
+  Root --> Change["Changes"]</div>
 
     <h2>Artifacts</h2>
     <ul>
@@ -66,12 +48,7 @@ ul { padding-left: 1.2rem; }
       <li><a href="./schema/pragmatic-bim.docs.md">Docs (Markdown)</a></li>
       <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
     </ul>
-
-<script type="module">
-  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-  mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
-  await mermaid.run({ querySelector: ".mermaid" });
-</script>
+<script type="module" src="./schema/assets/mermaid-init.js"></script>
 
   </body>
 </html>

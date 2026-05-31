@@ -23,40 +23,18 @@ URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 ```mermaid
  classDiagram
     class Task
-    click Task href "../Task/"
+    click Task href "./Task.html"
       Task : assignee
-        
-          
-    
-        
-        
         Task --> "0..1" Agent : assignee
-        click Agent href "../Agent/"
-    
-
-        
+        click Agent href "./Agent.html"
       Task : due_at
-        
       Task : id
-        
       Task : related_decision
-        
-          
-    
-        
-        
         Task --> "0..1" Decision : related_decision
-        click Decision href "../Decision/"
-    
-
-        
+        click Decision href "./Decision.html"
       Task : task_notes
-        
       Task : task_status
-        
       Task : task_type
-        
-      
 ```
 
 
@@ -75,13 +53,13 @@ URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [id](id.md) | 0..1 <br/> [String](String.md) | Optional stable identifier when referenced externally (for example from Chang... | direct |
-| [task_type](task_type.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Task type expressed as a URI/CURIE from a controlled vocabulary | direct |
-| [task_status](task_status.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Task status URI/CURIE aligned with action status vocabularies | direct |
-| [assignee](assignee.md) | 0..1 <br/> [Agent](Agent.md) | Responsible agent | direct |
-| [due_at](due_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Due timestamp for task completion | direct |
-| [related_decision](related_decision.md) | 0..1 <br/> [Decision](Decision.md) | Optional reference to a decision that informs or drives this task | direct |
-| [task_notes](task_notes.md) | 0..1 <br/> [String](String.md) | Additional notes or implementation details for the task | direct |
+| [id](id.md) | 0..1 <br/> [String](String.md) | Optional stable identifier when referenced externally (for example from Change.triggered_task). | direct |
+| [task_type](task_type.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Task type expressed as a URI/CURIE from a controlled vocabulary. | direct |
+| [task_status](task_status.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Task status URI/CURIE aligned with action status vocabularies. | direct |
+| [assignee](assignee.md) | 0..1 <br/> [Agent](Agent.md) | Responsible agent. | direct |
+| [due_at](due_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Due timestamp for task completion. | direct |
+| [related_decision](related_decision.md) | 0..1 <br/> [Decision](Decision.md) | Optional reference to a decision that informs or drives this task. | direct |
+| [task_notes](task_notes.md) | 0..1 <br/> [String](String.md) | Additional notes or implementation details for the task. | direct |
 
 
 
@@ -116,13 +94,8 @@ URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 | [Space](Space.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [System](System.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [ScheduleItem](ScheduleItem.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [Milestone](Milestone.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [ScheduleDependency](ScheduleDependency.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [CostItem](CostItem.md) | [tasks](tasks.md) | range | [Task](Task.md) |
-| [CostAssembly](CostAssembly.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [TimeRecord](TimeRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [CostRecord](CostRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [Material](Material.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 
 
@@ -229,6 +202,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string

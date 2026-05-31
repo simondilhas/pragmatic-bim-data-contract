@@ -25,8 +25,8 @@ URI: [pbs:contained_entities](https://schema.pragmaticbim.ch/contained_entities)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
-| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
+| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis. |  no  |
+| [System](System.md) | Building service system grouping that serves spaces or zones. |  no  |
 
 
 

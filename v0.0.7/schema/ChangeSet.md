@@ -25,60 +25,19 @@ URI: [pbs:ChangeSet](https://schema.pragmaticbim.ch/ChangeSet)
 ```mermaid
  classDiagram
     class ChangeSet
-    click ChangeSet href "../ChangeSet/"
+    click ChangeSet href "./ChangeSet.html"
       ChangeSet : changes
-        
-          
-    
-        
-        
         ChangeSet --> "*" Change : changes
-        click Change href "../Change/"
-    
-
-        
-      ChangeSet : document_state_refs
-        
-          
-    
-        
-        
-        ChangeSet --> "*" StateRef : document_state_refs
-        click StateRef href "../StateRef/"
-    
-
-        
+        click Change href "./Change.html"
+      ChangeSet : document_state_uris
       ChangeSet : from_revision
-        
       ChangeSet : id
-        
-      ChangeSet : ifc_state_ref
-        
-          
-    
-        
-        
-        ChangeSet --> "0..1" StateRef : ifc_state_ref
-        click StateRef href "../StateRef/"
-    
-
-        
+      ChangeSet : ifc_state_uri
       ChangeSet : produced_at
-        
       ChangeSet : produced_by
-        
-          
-    
-        
-        
         ChangeSet --> "0..1" Agent : produced_by
-        click Agent href "../Agent/"
-    
-
-        
+        click Agent href "./Agent.html"
       ChangeSet : to_revision
-        
-      
 ```
 
 
@@ -97,14 +56,14 @@ URI: [pbs:ChangeSet](https://schema.pragmaticbim.ch/ChangeSet)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | direct |
-| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change | direct |
-| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | direct |
-| [changes](changes.md) | * <br/> [Change](Change.md) | Change records included in this batch | direct |
-| [ifc_state_ref](ifc_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Optional baseline IFC model state for the comparison that produced this chang... | direct |
-| [document_state_refs](document_state_refs.md) | * <br/> [StateRef](StateRef.md) | Optional baseline document states for the comparison that produced this chang... | direct |
-| [produced_at](produced_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this changeset was produced | direct |
-| [produced_by](produced_by.md) | 0..1 <br/> [Agent](Agent.md) | Agent or system that produced this changeset | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | direct |
+| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | direct |
+| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | direct |
+| [changes](changes.md) | * <br/> [Change](Change.md) | Change records included in this batch. | direct |
+| [ifc_state_uri](ifc_state_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI, path, or content hash for the baseline IFC model state used in this comparison. | direct |
+| [document_state_uris](document_state_uris.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Optional URIs or content hashes for baseline document states used in this comparison. | direct |
+| [produced_at](produced_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this changeset was produced. | direct |
+| [produced_by](produced_by.md) | 0..1 <br/> [Agent](Agent.md) | Agent or system that produced this changeset. | direct |
 
 
 
@@ -168,10 +127,15 @@ slots:
 - from_revision
 - to_revision
 - changes
-- ifc_state_ref
-- document_state_refs
+- ifc_state_uri
+- document_state_uris
 - produced_at
 - produced_by
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
 class_uri: pbs:ChangeSet
 
 ```
@@ -189,6 +153,11 @@ description: 'Batch of Change records produced by comparing two model or documen
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Entity
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
 attributes:
   id:
     name: id
@@ -201,6 +170,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -240,29 +210,27 @@ attributes:
     range: Change
     multivalued: true
     inlined: true
-  ifc_state_ref:
-    name: ifc_state_ref
-    description: Optional baseline IFC model state for the comparison that produced
-      this changeset.
+  ifc_state_uri:
+    name: ifc_state_uri
+    description: Optional URI, path, or content hash for the baseline IFC model state
+      used in this comparison.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ChangeSet
     domain_of:
     - ChangeSet
-    range: StateRef
-    inlined: true
-  document_state_refs:
-    name: document_state_refs
-    description: Optional baseline document states for the comparison that produced
-      this changeset.
+    range: uriorcurie
+  document_state_uris:
+    name: document_state_uris
+    description: Optional URIs or content hashes for baseline document states used
+      in this comparison.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ChangeSet
     domain_of:
     - ChangeSet
-    range: StateRef
+    range: uriorcurie
     multivalued: true
-    inlined: true
   produced_at:
     name: produced_at
     description: Timestamp when this changeset was produced.

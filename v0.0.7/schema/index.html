@@ -48,7 +48,31 @@ a:hover { text-decoration: underline; }
 <tbody>
 <tr>
 <td><a href="Change.html">Change</a></td>
-<td>Detected difference for one subject between two revisions</td>
+<td>Detected difference for one subject between two revisions (content_kind chang...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AdditionChange.html">AdditionChange</a></td>
+<td>New entity or requirement introduced in to_revision</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DeletionChange.html">DeletionChange</a></td>
+<td>Entity or requirement removed in to_revision</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="GeometryChange.html">GeometryChange</a></td>
+<td>Geometry or representation change for a subject</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MatchChange.html">MatchChange</a></td>
+<td>Entity match status against a requirement changed (previously met / no longer...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PropertyChange.html">PropertyChange</a></td>
+<td>Attribute, PropertySet, schema slot, or document field change</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RequirementChange.html">RequirementChange</a></td>
+<td>Change to a requirement record or its fields</td>
 </tr>
 <tr>
 <td><a href="ChangeSet.html">ChangeSet</a></td>
@@ -119,22 +143,6 @@ a:hover { text-decoration: underline; }
 <td>Wall-based separating element</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ScheduleDependency.html">ScheduleDependency</a></td>
-<td>Precedence relationship between two schedule items, optionally with lag</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ScheduleItem.html">ScheduleItem</a></td>
-<td>Planned work item with baseline and actual dates, linked to a schedule templa...</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Milestone.html">Milestone</a></td>
-<td>Zero-duration checkpoint or delivery target within a schedule</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ScheduleTemplate.html">ScheduleTemplate</a></td>
-<td>Reusable schedule container defining items, milestones, and dependencies for ...</td>
-</tr>
-<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="VirtualEntity.html">VirtualEntity</a></td>
 <td>Abstract base class for non-physical, conceptual, or informational entities</td>
 </tr>
@@ -149,6 +157,22 @@ a:hover { text-decoration: underline; }
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostItem.html">CostItem</a></td>
 <td>Cost record used for estimation and calculation, optionally linked to quantit...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AbstractTimeRecord.html">AbstractTimeRecord</a></td>
+<td>Abstract base for reusable time/schedule record fields shared by atomic and g...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TimeItem.html">TimeItem</a></td>
+<td>Planned work item with baseline and actual dates, optionally linked to model ...</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Milestone.html">Milestone</a></td>
+<td>Zero-duration checkpoint or delivery target within a time plan</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TimePlan.html">TimePlan</a></td>
+<td>Grouped schedule container defining component items, milestones, and dependen...</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
@@ -203,6 +227,10 @@ a:hover { text-decoration: underline; }
 <td>Building service system grouping that serves spaces or zones</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TimeDependency.html">TimeDependency</a></td>
+<td>Precedence relationship between two time items within a plan, optionally with...</td>
+</tr>
+<tr>
 <td><a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
 <td>Minimal geometry reference for an entity, separating representation from enco...</td>
 </tr>
@@ -255,6 +283,26 @@ a:hover { text-decoration: underline; }
 <td>Minimal quantity record for costing and analysis</td>
 </tr>
 <tr>
+<td><a href="Requirement.html">Requirement</a></td>
+<td>Prescriptive requirement record (content_kind requirement)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="BriefRequirement.html">BriefRequirement</a></td>
+<td>Client or programme requirement, including free-standing brief items</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
+<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RegulatoryRequirement.html">RegulatoryRequirement</a></td>
+<td>Regulatory reference requirement (building code, norm, standard)</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SpatialRequirement.html">SpatialRequirement</a></td>
+<td>Spatial constraint requirement (min area, min height, adjacency, etc</td>
+</tr>
+<tr>
 <td><a href="StateRef.html">StateRef</a></td>
 <td>Pointer to a content state at a specific revision</td>
 </tr>
@@ -275,11 +323,11 @@ a:hover { text-decoration: underline; }
 <tbody>
 <tr>
 <td><a href="actual_finish_at.html">actual_finish_at</a></td>
-<td>Actual finish timestamp for the schedule item where known</td>
+<td>Actual finish timestamp for the time item where known</td>
 </tr>
 <tr>
 <td><a href="actual_start_at.html">actual_start_at</a></td>
-<td>Actual start timestamp for the schedule item where known</td>
+<td>Actual start timestamp for the time item where known</td>
 </tr>
 <tr>
 <td><a href="address_country.html">address_country</a></td>
@@ -298,6 +346,18 @@ a:hover { text-decoration: underline; }
 <td>Region, state, canton, or province</td>
 </tr>
 <tr>
+<td><a href="adjacency_kind.html">adjacency_kind</a></td>
+<td>Adjacency semantics when this spatial requirement involves another subject</td>
+</tr>
+<tr>
+<td><a href="affected_geometry_role.html">affected_geometry_role</a></td>
+<td>Geometry role affected when change_type is geometry_change</td>
+</tr>
+<tr>
+<td><a href="affected_requirement_id.html">affected_requirement_id</a></td>
+<td>Identifier of the requirement record affected by this change</td>
+</tr>
+<tr>
 <td><a href="affected_subject_id.html">affected_subject_id</a></td>
 <td>Identifier of the changed subject (entity id, document id, or external key)</td>
 </tr>
@@ -311,7 +371,7 @@ a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><a href="applies_to_entities.html">applies_to_entities</a></td>
-<td>Entities this cost item applies to</td>
+<td>Model entities this record applies to (requirements, cost items, schedule ite...</td>
 </tr>
 <tr>
 <td><a href="assignee.html">assignee</a></td>
@@ -338,12 +398,16 @@ a:hover { text-decoration: underline; }
 <td>Space bounded by this boundary element</td>
 </tr>
 <tr>
-<td><a href="change_kind.html">change_kind</a></td>
-<td>Severity or category of change detected between two revisions</td>
+<td><a href="change_severity.html">change_severity</a></td>
+<td>Optional severity independent of change type</td>
 </tr>
 <tr>
 <td><a href="change_source.html">change_source</a></td>
 <td>URI identifying the tool or pipeline that produced this change record</td>
+</tr>
+<tr>
+<td><a href="change_type.html">change_type</a></td>
+<td>Category of change detected between two revisions</td>
 </tr>
 <tr>
 <td><a href="changes.html">changes</a></td>
@@ -378,8 +442,16 @@ a:hover { text-decoration: underline; }
 <td>Classification entries from IFC and other schemes</td>
 </tr>
 <tr>
+<td><a href="clause_ref.html">clause_ref</a></td>
+<td>Clause, article, or section reference within the norm</td>
+</tr>
+<tr>
 <td><a href="component_cost_items.html">component_cost_items</a></td>
 <td>Atomic cost items that are aggregated into this cost assembly</td>
+</tr>
+<tr>
+<td><a href="component_time_items.html">component_time_items</a></td>
+<td>Time items contained in this plan; milestone instances may also appear throug...</td>
 </tr>
 <tr>
 <td><a href="connection_physical_requirement_drivers.html">connection_physical_requirement_drivers</a></td>
@@ -570,6 +642,10 @@ a:hover { text-decoration: underline; }
 <td>Indicates whether this is the preferred contact point</td>
 </tr>
 <tr>
+<td><a href="jurisdiction.html">jurisdiction</a></td>
+<td>Jurisdiction or authority scope for the regulatory requirement</td>
+</tr>
+<tr>
 <td><a href="lag_days.html">lag_days</a></td>
 <td>Optional lag or lead offset in days applied to the dependency relation</td>
 </tr>
@@ -588,6 +664,10 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="mapping_version.html">mapping_version</a></td>
 <td>Mapping specification version used to derive the normalized property</td>
+</tr>
+<tr>
+<td><a href="match_status.html">match_status</a></td>
+<td>Whether the subject met the requirement at the target revision</td>
 </tr>
 <tr>
 <td><a href="material_category.html">material_category</a></td>
@@ -638,12 +718,28 @@ a:hover { text-decoration: underline; }
 <td>Target timestamp for the milestone checkpoint</td>
 </tr>
 <tr>
+<td><a href="min_area.html">min_area</a></td>
+<td>Minimum required area in square metres</td>
+</tr>
+<tr>
+<td><a href="min_clear_distance.html">min_clear_distance</a></td>
+<td>Minimum clear distance in metres when adjacency_kind is min_clear_distance</td>
+</tr>
+<tr>
+<td><a href="min_height.html">min_height</a></td>
+<td>Minimum required height or clear height in metres</td>
+</tr>
+<tr>
 <td><a href="modified_at.html">modified_at</a></td>
 <td>Last modification timestamp for this entity record</td>
 </tr>
 <tr>
 <td><a href="name.html">name</a></td>
 <td>Default display name</td>
+</tr>
+<tr>
+<td><a href="norm_uri.html">norm_uri</a></td>
+<td>URI identifying the norm, standard, or building code</td>
 </tr>
 <tr>
 <td><a href="parent_building.html">parent_building</a></td>
@@ -683,11 +779,11 @@ a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><a href="planned_finish_at.html">planned_finish_at</a></td>
-<td>Planned finish timestamp for the schedule item</td>
+<td>Planned finish timestamp for the time item</td>
 </tr>
 <tr>
 <td><a href="planned_start_at.html">planned_start_at</a></td>
-<td>Planned start timestamp for the schedule item</td>
+<td>Planned start timestamp for the time item</td>
 </tr>
 <tr>
 <td><a href="post_office_box_number.html">post_office_box_number</a></td>
@@ -703,7 +799,7 @@ a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><a href="predecessor_item.html">predecessor_item</a></td>
-<td>Schedule item that must occur before the successor item</td>
+<td>Time item that must occur before the successor item</td>
 </tr>
 <tr>
 <td><a href="produced_at.html">produced_at</a></td>
@@ -712,6 +808,10 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="produced_by.html">produced_by</a></td>
 <td>Agent or system that produced this changeset</td>
+</tr>
+<tr>
+<td><a href="programme_ref.html">programme_ref</a></td>
+<td>URI or identifier for a programme or brief document</td>
 </tr>
 <tr>
 <td><a href="property_delta.html">property_delta</a></td>
@@ -786,24 +886,24 @@ a:hover { text-decoration: underline; }
 <td>Optional reference to a decision that informs or drives this task</td>
 </tr>
 <tr>
+<td><a href="related_entity.html">related_entity</a></td>
+<td>Entity or space subject for adjacency or distance constraints</td>
+</tr>
+<tr>
+<td><a href="related_requirement_id.html">related_requirement_id</a></td>
+<td>Requirement identifier for match_change records</td>
+</tr>
+<tr>
+<td><a href="requirement_domain.html">requirement_domain</a></td>
+<td>Domain of this requirement record (performance, spatial, regulatory, brief)</td>
+</tr>
+<tr>
+<td><a href="requirement_property_key.html">requirement_property_key</a></td>
+<td>Canonical performance key for the target (for example u_value, resistance_rat...</td>
+</tr>
+<tr>
 <td><a href="revision.html">revision</a></td>
 <td>Integer revision counter for change tracking</td>
-</tr>
-<tr>
-<td><a href="schedule_dependencies.html">schedule_dependencies</a></td>
-<td>Dependency relationships used within this schedule template</td>
-</tr>
-<tr>
-<td><a href="schedule_items.html">schedule_items</a></td>
-<td>Schedule items contained in this template; milestone instances may also appea...</td>
-</tr>
-<tr>
-<td><a href="schedule_template.html">schedule_template</a></td>
-<td>Parent schedule template this item or dependency belongs to</td>
-</tr>
-<tr>
-<td><a href="scheduled_entities.html">scheduled_entities</a></td>
-<td>Model entities that this schedule template or schedule item applies to</td>
 </tr>
 <tr>
 <td><a href="sender.html">sender</a></td>
@@ -842,6 +942,10 @@ a:hover { text-decoration: underline; }
 <td>Zone context nodes served by this system</td>
 </tr>
 <tr>
+<td><a href="source_document.html">source_document</a></td>
+<td>Optional URI to norm, brief, or source document backing this requirement</td>
+</tr>
+<tr>
 <td><a href="source_property.html">source_property</a></td>
 <td>Original property name inside the source PropertySet (for example FireRating)</td>
 </tr>
@@ -874,6 +978,10 @@ a:hover { text-decoration: underline; }
 <td>Optional human-readable label (for example LOD300 export, Spec v3 draft)</td>
 </tr>
 <tr>
+<td><a href="statement.html">statement</a></td>
+<td>Free-text requirement statement from client or programme</td>
+</tr>
+<tr>
 <td><a href="status.html">status</a></td>
 <td>Lifecycle or QA status</td>
 </tr>
@@ -887,7 +995,7 @@ a:hover { text-decoration: underline; }
 </tr>
 <tr>
 <td><a href="successor_item.html">successor_item</a></td>
-<td>Schedule item whose timing is constrained by the predecessor item</td>
+<td>Time item whose timing is constrained by the predecessor item</td>
 </tr>
 <tr>
 <td><a href="system_discipline.html">system_discipline</a></td>
@@ -900,6 +1008,30 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="tags.html">tags</a></td>
 <td>Optional free-form labels for filtering/grouping</td>
+</tr>
+<tr>
+<td><a href="target_operator.html">target_operator</a></td>
+<td>Comparison operator for the requirement target</td>
+</tr>
+<tr>
+<td><a href="target_unit.html">target_unit</a></td>
+<td>Unit for numeric targets (for example W/m2K, min, dB)</td>
+</tr>
+<tr>
+<td><a href="target_unit_uri.html">target_unit_uri</a></td>
+<td>Optional URI identifying the target unit (for example QUDT)</td>
+</tr>
+<tr>
+<td><a href="target_value_boolean.html">target_value_boolean</a></td>
+<td>Boolean target value when applicable</td>
+</tr>
+<tr>
+<td><a href="target_value_number.html">target_value_number</a></td>
+<td>Numeric target value when applicable</td>
+</tr>
+<tr>
+<td><a href="target_value_string.html">target_value_string</a></td>
+<td>Textual target value when applicable</td>
 </tr>
 <tr>
 <td><a href="task_notes.html">task_notes</a></td>
@@ -920,6 +1052,22 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="text_value.html">text_value</a></td>
 <td>Localized text value</td>
+</tr>
+<tr>
+<td><a href="time_dependencies.html">time_dependencies</a></td>
+<td>Dependency relationships used within this time plan</td>
+</tr>
+<tr>
+<td><a href="time_items.html">time_items</a></td>
+<td>Time items associated with this entity</td>
+</tr>
+<tr>
+<td><a href="time_plan.html">time_plan</a></td>
+<td>Parent time plan this item or dependency belongs to</td>
+</tr>
+<tr>
+<td><a href="time_plans.html">time_plans</a></td>
+<td>Grouped time plans associated with this entity</td>
 </tr>
 <tr>
 <td><a href="to_revision.html">to_revision</a></td>
@@ -981,8 +1129,12 @@ a:hover { text-decoration: underline; }
 <td>Intent stability verdict from an automated judge (for example iterthink STABL...</td>
 </tr>
 <tr>
-<td><a href="ChangeKind.html">ChangeKind</a></td>
-<td>Severity or category of change detected between two revisions</td>
+<td><a href="ChangeSeverity.html">ChangeSeverity</a></td>
+<td>Optional severity of a change independent of change type</td>
+</tr>
+<tr>
+<td><a href="ChangeType.html">ChangeType</a></td>
+<td>Category of change detected between two revisions</td>
 </tr>
 <tr>
 <td><a href="ConnectionPhysicalType.html">ConnectionPhysicalType</a></td>
@@ -995,6 +1147,10 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="ConnectionVirtualType.html">ConnectionVirtualType</a></td>
 <td>Classification of virtual connection semantics using schema-internal meanings...</td>
+</tr>
+<tr>
+<td><a href="ContentKind.html">ContentKind</a></td>
+<td>Top-level content category for adapter projection and schema routing</td>
 </tr>
 <tr>
 <td><a href="ContextType.html">ContextType</a></td>
@@ -1013,6 +1169,10 @@ a:hover { text-decoration: underline; }
 <td>Classification of geometric representation dimension/style</td>
 </tr>
 <tr>
+<td><a href="MatchStatus.html">MatchStatus</a></td>
+<td>Whether an entity satisfies a related requirement at the target revision</td>
+</tr>
+<tr>
 <td><a href="MaterialPropertyKey.html">MaterialPropertyKey</a></td>
 <td>Canonical material-related keys derived from IFC PropertySets and material me...</td>
 </tr>
@@ -1029,8 +1189,12 @@ a:hover { text-decoration: underline; }
 <td></td>
 </tr>
 <tr>
-<td><a href="ScheduleDependencyType.html">ScheduleDependencyType</a></td>
-<td>Precedence logic between two schedule items</td>
+<td><a href="RequirementDomain.html">RequirementDomain</a></td>
+<td>Domain of a prescriptive requirement record</td>
+</tr>
+<tr>
+<td><a href="RequirementTargetOperator.html">RequirementTargetOperator</a></td>
+<td>Comparison operator for numeric or textual requirement targets</td>
 </tr>
 <tr>
 <td><a href="SecurityPropertyKey.html">SecurityPropertyKey</a></td>
@@ -1051,6 +1215,10 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="SpaceType.html">SpaceType</a></td>
 <td>Classification of space semantics used by modeling and downstream conversion</td>
+</tr>
+<tr>
+<td><a href="SpatialAdjacencyKind.html">SpatialAdjacencyKind</a></td>
+<td>Spatial adjacency semantics for spatial requirements</td>
 </tr>
 <tr>
 <td><a href="StateRefKind.html">StateRefKind</a></td>
@@ -1075,6 +1243,10 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="ThermalPropertyKey.html">ThermalPropertyKey</a></td>
 <td>Canonical thermal-related keys derived from IFC PropertySets</td>
+</tr>
+<tr>
+<td><a href="TimeDependencyType.html">TimeDependencyType</a></td>
+<td>Precedence logic between two time items</td>
 </tr>
 <tr>
 <td><a href="TransportMedium.html">TransportMedium</a></td>

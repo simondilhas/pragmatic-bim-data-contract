@@ -25,7 +25,7 @@ URI: [pbs:connects_physical_elements](https://schema.pragmaticbim.ch/connects_ph
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
+| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements. |  no  |
 
 
 

@@ -25,94 +25,34 @@ URI: [pbs:MatchChange](https://schema.pragmaticbim.ch/MatchChange)
 ```mermaid
  classDiagram
     class MatchChange
-    click MatchChange href "../MatchChange/"
+    click MatchChange href "./MatchChange.html"
       Change <|-- MatchChange
-        click Change href "../Change/"
-      
+        click Change href "./Change.html"
       MatchChange : affected_subject_id
-        
       MatchChange : affected_subject_path
-        
       MatchChange : affected_subject_type
-        
       MatchChange : change_severity
-        
-          
-    
-        
-        
         MatchChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "../ChangeSeverity/"
-    
-
-        
+        click ChangeSeverity href "./ChangeSeverity.html"
       MatchChange : change_source
-        
       MatchChange : change_type
-        
+        MatchChange --> "1" ChangeType : change_type
+        click ChangeType href "./ChangeType.html"
       MatchChange : detected_at
-        
       MatchChange : document_storage_link
-        
       MatchChange : from_revision
-        
-      MatchChange : from_state_ref
-        
-          
-    
-        
-        
-        MatchChange --> "0..1" StateRef : from_state_ref
-        click StateRef href "../StateRef/"
-    
-
-        
       MatchChange : id
-        
       MatchChange : ifc_global_id
-        
       MatchChange : intent_verdict
-        
-          
-    
-        
-        
         MatchChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "../ChangeIntentVerdict/"
-    
-
-        
+        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
       MatchChange : match_status
-        
-          
-    
-        
-        
         MatchChange --> "1" MatchStatus : match_status
-        click MatchStatus href "../MatchStatus/"
-    
-
-        
+        click MatchStatus href "./MatchStatus.html"
       MatchChange : related_requirement_id
-        
       MatchChange : to_revision
-        
-      MatchChange : to_state_ref
-        
-          
-    
-        
-        
-        MatchChange --> "0..1" StateRef : to_state_ref
-        click StateRef href "../StateRef/"
-    
-
-        
       MatchChange : triggered_process
-        
       MatchChange : triggered_task
-        
-      
 ```
 
 
@@ -135,25 +75,23 @@ URI: [pbs:MatchChange](https://schema.pragmaticbim.ch/MatchChange)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [related_requirement_id](related_requirement_id.md) | 1 <br/> [String](String.md) | Requirement identifier for match_change records | direct |
-| [match_status](match_status.md) | 1 <br/> [MatchStatus](MatchStatus.md) | Whether the subject met the requirement at the target revision | direct |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Change](Change.md) |
-| [change_type](change_type.md) | 1 <br/> [String](String.md) | Category of change detected between two revisions | [Change](Change.md) |
-| [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type | [Change](Change.md) |
-| [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... | [Change](Change.md) |
-| [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key) | [Change](Change.md) |
-| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, D... | [Change](Change.md) |
-| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2]... | [Change](Change.md) |
-| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Change](Change.md) |
-| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document | [Change](Change.md) |
-| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change | [Change](Change.md) |
-| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | [Change](Change.md) |
-| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision | [Change](Change.md) |
-| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision | [Change](Change.md) |
-| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger | [Change](Change.md) |
-| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance) | [Change](Change.md) |
-| [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected | [Change](Change.md) |
-| [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record | [Change](Change.md) |
+| [related_requirement_id](related_requirement_id.md) | 1 <br/> [String](String.md) | Requirement identifier for match_change records. | direct |
+| [match_status](match_status.md) | 1 <br/> [MatchStatus](MatchStatus.md) | Whether the subject met the requirement at the target revision. | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Change](Change.md) |
+| [change_type](change_type.md) | 1 <br/> [ChangeType](ChangeType.md) | Category of change detected between two revisions. | [Change](Change.md) |
+| [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type. | [Change](Change.md) |
+| [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). | [Change](Change.md) |
+| [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key). | [Change](Change.md) |
+| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, Document). | [Change](Change.md) |
+| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2], localized_descriptions[de], section.4.2.paragraph_1). | [Change](Change.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Change](Change.md) |
+| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document. | [Change](Change.md) |
+| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | [Change](Change.md) |
+| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | [Change](Change.md) |
+| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger. | [Change](Change.md) |
+| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | [Change](Change.md) |
+| [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | [Change](Change.md) |
+| [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record. | [Change](Change.md) |
 
 
 
@@ -216,11 +154,6 @@ is_a: Change
 slots:
 - related_requirement_id
 - match_status
-slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: match_change
 class_uri: pbs:MatchChange
 
 ```
@@ -239,11 +172,6 @@ from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Activity
 is_a: Change
-slot_usage:
-  change_type:
-    name: change_type
-    range: string
-    equals_string: match_change
 attributes:
   related_requirement_id:
     name: related_requirement_id
@@ -289,9 +217,8 @@ attributes:
     owner: MatchChange
     domain_of:
     - Change
-    range: string
+    range: ChangeType
     required: true
-    equals_string: match_change
   change_severity:
     name: change_severity
     description: Optional severity independent of change type.
@@ -391,26 +318,6 @@ attributes:
     range: integer
     required: true
     minimum_value: 0
-  from_state_ref:
-    name: from_state_ref
-    description: Content state pointer at the source revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: MatchChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
-  to_state_ref:
-    name: to_state_ref
-    description: Content state pointer at the target revision.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: MatchChange
-    domain_of:
-    - Change
-    range: StateRef
-    inlined: true
   triggered_task:
     name: triggered_task
     description: Id of a Task record that this change triggered or should trigger.

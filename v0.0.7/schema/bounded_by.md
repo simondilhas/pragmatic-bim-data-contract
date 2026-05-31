@@ -25,7 +25,7 @@ URI: [pbs:bounded_by](https://schema.pragmaticbim.ch/bounded_by)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
+| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis. |  no  |
 
 
 

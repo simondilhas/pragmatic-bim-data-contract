@@ -25,7 +25,7 @@ URI: [pbs:availability_notes](https://schema.pragmaticbim.ch/availability_notes)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent |  no  |
+| [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent. |  no  |
 
 
 

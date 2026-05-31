@@ -23,14 +23,14 @@ URI: [pbs:ConnectionPhysicalType](https://schema.pragmaticbim.ch/ConnectionPhysi
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| door | ifcowl:IfcDoor | Human access connector via a door element |
-| window | ifcowl:IfcWindow | Visual/daylight connector via a window element |
-| duct | ifcowl:IfcDuctSegment | Air distribution connector segment |
-| pipe | ifcowl:IfcPipeSegment | Fluid/gas distribution connector segment |
-| cable | ifcowl:IfcCableSegment | Electrical/data cable connector segment |
-| conduit | ifcowl:IfcConduitSegment | Electrical/data conduit connector segment |
-| opening_other | ifcowl:IfcOpeningElement | Other opening-style connector not covered by door/window |
-| network_other | ifcowl:IfcFlowSegment | Other network connector segment not covered by controlled values |
+| door | ifcowl:IfcDoor | Human access connector via a door element. |
+| window | ifcowl:IfcWindow | Visual/daylight connector via a window element. |
+| duct | ifcowl:IfcDuctSegment | Air distribution connector segment. |
+| pipe | ifcowl:IfcPipeSegment | Fluid/gas distribution connector segment. |
+| cable | ifcowl:IfcCableSegment | Electrical/data cable connector segment. |
+| conduit | ifcowl:IfcConduitSegment | Electrical/data conduit connector segment. |
+| opening_other | ifcowl:IfcOpeningElement | Other opening-style connector not covered by door/window. |
+| network_other | ifcowl:IfcFlowSegment | Other network connector segment not covered by controlled values. |
 
 
 
@@ -39,7 +39,7 @@ URI: [pbs:ConnectionPhysicalType](https://schema.pragmaticbim.ch/ConnectionPhysi
 
 | Name | Description |
 | ---  | --- |
-| [connection_physical_type](connection_physical_type.md) | Classification of physical connector type (for example door, window, duct, pi... |
+| [connection_physical_type](connection_physical_type.md) | Classification of physical connector type (for example door, window, duct, pipe, cable). |
 
 
 

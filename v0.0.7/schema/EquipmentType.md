@@ -18,13 +18,13 @@ URI: [pbs:EquipmentType](https://schema.pragmaticbim.ch/EquipmentType)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| hvac | ifcowl:IfcDistributionElement | HVAC endpoint/device such as terminal units or packaged devices |
-| electrical | ifcowl:IfcElectricalElement | Electrical endpoint/device such as appliances, outlets, or fixtures |
-| plumbing | ifcowl:IfcFlowTerminal | Plumbing endpoint/device such as sanitary terminals and fixtures |
-| fire_safety | ifcowl:IfcFireSuppressionTerminal | Fire safety endpoint/device such as suppression terminals and alarms |
-| controls | ifcowl:IfcDistributionControlElement | Monitoring/control device such as sensors, actuators, and controllers |
-| furniture | ifcowl:IfcFurniture | Furniture/device objects treated as endpoint assets |
-| other | ifcowl:IfcElement | Other endpoint/device element not covered by controlled values |
+| hvac | ifcowl:IfcDistributionElement | HVAC endpoint/device such as terminal units or packaged devices. |
+| electrical | ifcowl:IfcElectricalElement | Electrical endpoint/device such as appliances, outlets, or fixtures. |
+| plumbing | ifcowl:IfcFlowTerminal | Plumbing endpoint/device such as sanitary terminals and fixtures. |
+| fire_safety | ifcowl:IfcFireSuppressionTerminal | Fire safety endpoint/device such as suppression terminals and alarms. |
+| controls | ifcowl:IfcDistributionControlElement | Monitoring/control device such as sensors, actuators, and controllers. |
+| furniture | ifcowl:IfcFurniture | Furniture/device objects treated as endpoint assets. |
+| other | ifcowl:IfcElement | Other endpoint/device element not covered by controlled values. |
 
 
 
@@ -33,7 +33,7 @@ URI: [pbs:EquipmentType](https://schema.pragmaticbim.ch/EquipmentType)
 
 | Name | Description |
 | ---  | --- |
-| [equipment_type](equipment_type.md) | Classification of equipment (for example HVAC, electrical, plumbing) |
+| [equipment_type](equipment_type.md) | Classification of equipment (for example HVAC, electrical, plumbing). |
 
 
 

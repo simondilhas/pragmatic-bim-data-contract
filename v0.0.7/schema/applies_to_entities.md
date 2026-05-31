@@ -6,7 +6,7 @@ search:
 # Slot: applies_to_entities 
 
 
-_Entities this cost item applies to._
+_Model entities this record applies to (requirements, cost items, schedule items, etc.)._
 
 
 
@@ -25,9 +25,13 @@ URI: [pbs:applies_to_entities](https://schema.pragmaticbim.ch/applies_to_entitie
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
+| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |  no  |
+| [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
+| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |  no  |
+| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |  no  |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |  no  |
+| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items. |  no  |
 
 
 
@@ -41,7 +45,7 @@ URI: [pbs:applies_to_entities](https://schema.pragmaticbim.ch/applies_to_entitie
 | Property | Value |
 | --- | --- |
 | Range | [Entity](Entity.md) |
-| Domain Of | [AbstractCostRecord](AbstractCostRecord.md) |
+| Domain Of | [Requirement](Requirement.md), [TimeRecord](TimeRecord.md), [CostRecord](CostRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -87,13 +91,17 @@ URI: [pbs:applies_to_entities](https://schema.pragmaticbim.ch/applies_to_entitie
 <details>
 ```yaml
 name: applies_to_entities
-description: Entities this cost item applies to.
+description: Model entities this record applies to (requirements, cost items, schedule
+  items, etc.).
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- AbstractCostRecord
+- Requirement
+- TimeRecord
+- CostRecord
 range: Entity
 multivalued: true
+inlined: false
 
 ```
 </details></div>

@@ -25,7 +25,7 @@ URI: [pbs:storage_link](https://schema.pragmaticbim.ch/storage_link)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Document](Document.md) | Reference to an external document stored in a file system, DMS, object storag... |  no  |
+| [Document](Document.md) | Reference to an external document stored in a file system, DMS, object storage, or URL. |  no  |
 
 
 

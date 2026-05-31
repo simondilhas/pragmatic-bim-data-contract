@@ -23,51 +23,24 @@ URI: [pbs:StructuralProperty](https://schema.pragmaticbim.ch/StructuralProperty)
 ```mermaid
  classDiagram
     class StructuralProperty
-    click StructuralProperty href "../StructuralProperty/"
+    click StructuralProperty href "./StructuralProperty.html"
       PerformanceProperty <|-- StructuralProperty
-        click PerformanceProperty href "../PerformanceProperty/"
-      
+        click PerformanceProperty href "./PerformanceProperty.html"
       StructuralProperty : mapping_version
-        
       StructuralProperty : property_key
-        
-          
-    
-        
-        
         StructuralProperty --> "1" StructuralPropertyKey : property_key
-        click StructuralPropertyKey href "../StructuralPropertyKey/"
-    
-
-        
+        click StructuralPropertyKey href "./StructuralPropertyKey.html"
       StructuralProperty : property_unit
-        
       StructuralProperty : property_unit_uri
-        
       StructuralProperty : property_value_boolean
-        
       StructuralProperty : property_value_number
-        
       StructuralProperty : property_value_string
-        
       StructuralProperty : property_value_type
-        
-          
-    
-        
-        
         StructuralProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "../PerformancePropertyValueType/"
-    
-
-        
+        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
       StructuralProperty : source_property
-        
       StructuralProperty : source_pset
-        
       StructuralProperty : source_value_raw
-        
-      
 ```
 
 
@@ -90,17 +63,17 @@ URI: [pbs:StructuralProperty](https://schema.pragmaticbim.ch/StructuralProperty)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [property_key](property_key.md) | 1 <br/> [StructuralPropertyKey](StructuralPropertyKey.md) | Canonical key inside the domain; constrained via subclass slot_usage to a dom... | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_type](property_value_type.md) | 1 <br/> [PerformancePropertyValueType](PerformancePropertyValueType.md) | Value type discriminator for normalized storage (for example string, number, ... | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_string](property_value_string.md) | 0..1 <br/> [String](String.md) | String value when property_value_type is string | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_number](property_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric value when property_value_type is number | [PerformanceProperty](PerformanceProperty.md) |
-| [property_value_boolean](property_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean value when property_value_type is boolean | [PerformanceProperty](PerformanceProperty.md) |
-| [property_unit](property_unit.md) | 0..1 <br/> [String](String.md) | Normalized unit where applicable (for example min, dB, W/m2K) | [PerformanceProperty](PerformanceProperty.md) |
-| [property_unit_uri](property_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the normalized property unit in an external voca... | [PerformanceProperty](PerformanceProperty.md) |
-| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon) | [PerformanceProperty](PerformanceProperty.md) |
-| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating) | [PerformanceProperty](PerformanceProperty.md) |
-| [source_value_raw](source_value_raw.md) | 0..1 <br/> [String](String.md) | Raw source value before normalization | [PerformanceProperty](PerformanceProperty.md) |
-| [mapping_version](mapping_version.md) | 0..1 <br/> [String](String.md) | Mapping specification version used to derive the normalized property | [PerformanceProperty](PerformanceProperty.md) |
+| [property_key](property_key.md) | 1 <br/> [StructuralPropertyKey](StructuralPropertyKey.md) | Canonical key inside the domain; constrained via subclass slot_usage to a domain-specific enum. | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_type](property_value_type.md) | 1 <br/> [PerformancePropertyValueType](PerformancePropertyValueType.md) | Value type discriminator for normalized storage (for example string, number, boolean). | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_string](property_value_string.md) | 0..1 <br/> [String](String.md) | String value when property_value_type is string. | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_number](property_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric value when property_value_type is number. | [PerformanceProperty](PerformanceProperty.md) |
+| [property_value_boolean](property_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean value when property_value_type is boolean. | [PerformanceProperty](PerformanceProperty.md) |
+| [property_unit](property_unit.md) | 0..1 <br/> [String](String.md) | Normalized unit where applicable (for example min, dB, W/m2K). | [PerformanceProperty](PerformanceProperty.md) |
+| [property_unit_uri](property_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT. | [PerformanceProperty](PerformanceProperty.md) |
+| [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon). | [PerformanceProperty](PerformanceProperty.md) |
+| [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating). | [PerformanceProperty](PerformanceProperty.md) |
+| [source_value_raw](source_value_raw.md) | 0..1 <br/> [String](String.md) | Raw source value before normalization. | [PerformanceProperty](PerformanceProperty.md) |
+| [mapping_version](mapping_version.md) | 0..1 <br/> [String](String.md) | Mapping specification version used to derive the normalized property. | [PerformanceProperty](PerformanceProperty.md) |
 
 
 
@@ -252,7 +225,7 @@ attributes:
     owner: StructuralProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_property:
     name: source_property
@@ -263,7 +236,7 @@ attributes:
     owner: StructuralProperty
     domain_of:
     - PerformanceProperty
-    - PropertyDelta
+    - PropertyChange
     range: string
   source_value_raw:
     name: source_value_raw

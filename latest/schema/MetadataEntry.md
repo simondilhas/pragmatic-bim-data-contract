@@ -23,12 +23,9 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 ```mermaid
  classDiagram
     class MetadataEntry
-    click MetadataEntry href "../MetadataEntry/"
+    click MetadataEntry href "./MetadataEntry.html"
       MetadataEntry : metadata_key
-        
       MetadataEntry : metadata_value
-        
-      
 ```
 
 
@@ -47,8 +44,8 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [metadata_key](metadata_key.md) | 1 <br/> [String](String.md) | Metadata key, for example IfcWall | direct |
-| [metadata_value](metadata_value.md) | 0..1 <br/> [String](String.md) | Metadata value serialized as text | direct |
+| [metadata_key](metadata_key.md) | 1 <br/> [String](String.md) | Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference. | direct |
+| [metadata_value](metadata_value.md) | 0..1 <br/> [String](String.md) | Metadata value serialized as text. | direct |
 
 
 
@@ -83,14 +80,8 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 | [Space](Space.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [System](System.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [TimeItem](TimeItem.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [Milestone](Milestone.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [TimePlan](TimePlan.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [TimeDependency](TimeDependency.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [CostItem](CostItem.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [CostAssembly](CostAssembly.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [TimeRecord](TimeRecord.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [CostRecord](CostRecord.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Material](Material.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 
 

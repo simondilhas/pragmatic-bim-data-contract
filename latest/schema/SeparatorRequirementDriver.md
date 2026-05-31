@@ -37,7 +37,7 @@ URI: [pbs:SeparatorRequirementDriver](https://schema.pragmaticbim.ch/SeparatorRe
 
 | Name | Description |
 | ---  | --- |
-| [separator_requirement_drivers](separator_requirement_drivers.md) | Performance requirement drivers for this separator |
+| [separator_requirement_drivers](separator_requirement_drivers.md) | Performance requirement drivers for this separator. Multiple values are allowed because one separator may need to satisfy several requirements. |
 
 
 

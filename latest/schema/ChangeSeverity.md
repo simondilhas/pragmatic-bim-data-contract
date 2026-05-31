@@ -23,10 +23,10 @@ URI: [pbs:ChangeSeverity](https://schema.pragmaticbim.ch/ChangeSeverity)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| unchanged | pbs:change_severity_unchanged | No material difference (typically omitted from persisted Change records) |
-| minor | pbs:change_severity_minor | Small attribute, metadata, or wording adjustment |
-| major | pbs:change_severity_major | Significant attribute, geometry, relationship, or structural content change |
-| rewritten | pbs:change_severity_rewritten | Subject substantially replaced while retaining the same identity |
+| unchanged | pbs:change_severity_unchanged | No material difference (typically omitted from persisted Change records). |
+| minor | pbs:change_severity_minor | Small attribute, metadata, or wording adjustment. |
+| major | pbs:change_severity_major | Significant attribute, geometry, relationship, or structural content change. |
+| rewritten | pbs:change_severity_rewritten | Subject substantially replaced while retaining the same identity. |
 
 
 
@@ -35,7 +35,7 @@ URI: [pbs:ChangeSeverity](https://schema.pragmaticbim.ch/ChangeSeverity)
 
 | Name | Description |
 | ---  | --- |
-| [change_severity](change_severity.md) | Optional severity independent of change type |
+| [change_severity](change_severity.md) | Optional severity independent of change type. |
 
 
 

@@ -23,47 +23,21 @@ URI: [pbs:BriefRequirement](https://schema.pragmaticbim.ch/BriefRequirement)
 ```mermaid
  classDiagram
     class BriefRequirement
-    click BriefRequirement href "../BriefRequirement/"
+    click BriefRequirement href "./BriefRequirement.html"
       Requirement <|-- BriefRequirement
-        click Requirement href "../Requirement/"
-      
+        click Requirement href "./Requirement.html"
       BriefRequirement : applies_to_entities
-        
-          
-    
-        
-        
         BriefRequirement --> "*" Entity : applies_to_entities
-        click Entity href "../Entity/"
-    
-
-        
+        click Entity href "./Entity.html"
       BriefRequirement : description
-        
       BriefRequirement : id
-        
       BriefRequirement : name
-        
       BriefRequirement : programme_ref
-        
-      BriefRequirement : requirement_domain
-        
       BriefRequirement : source_document
-        
       BriefRequirement : statement
-        
       BriefRequirement : status
-        
-          
-    
-        
-        
         BriefRequirement --> "0..1" StatusType : status
-        click StatusType href "../StatusType/"
-    
-
-        
-      
+        click StatusType href "./StatusType.html"
 ```
 
 
@@ -86,15 +60,14 @@ URI: [pbs:BriefRequirement](https://schema.pragmaticbim.ch/BriefRequirement)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [programme_ref](programme_ref.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI or identifier for a programme or brief document | direct |
-| [statement](statement.md) | 0..1 <br/> [String](String.md) | Free-text requirement statement from client or programme | direct |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Requirement](Requirement.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Requirement](Requirement.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Requirement](Requirement.md) |
-| [requirement_domain](requirement_domain.md) | 1 <br/> [String](String.md) | Domain of this requirement record (performance, spatial, regulatory, brief) | [Requirement](Requirement.md) |
-| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule ite... | [Requirement](Requirement.md) |
-| [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement | [Requirement](Requirement.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Requirement](Requirement.md) |
+| [programme_ref](programme_ref.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI or identifier for a programme or brief document. | direct |
+| [statement](statement.md) | 0..1 <br/> [String](String.md) | Free-text requirement statement from client or programme. | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Requirement](Requirement.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Requirement](Requirement.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Requirement](Requirement.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | [Requirement](Requirement.md) |
+| [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement. | [Requirement](Requirement.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Requirement](Requirement.md) |
 
 
 
@@ -151,11 +124,6 @@ is_a: Requirement
 slots:
 - programme_ref
 - statement
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: brief
 class_uri: pbs:BriefRequirement
 
 ```
@@ -169,11 +137,6 @@ name: BriefRequirement
 description: Client or programme requirement, including free-standing brief items.
 from_schema: https://schema.pragmaticbim.ch
 is_a: Requirement
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: brief
 attributes:
   programme_ref:
     name: programme_ref
@@ -230,18 +193,6 @@ attributes:
     - Entity
     - Requirement
     range: string
-  requirement_domain:
-    name: requirement_domain
-    description: Domain of this requirement record (performance, spatial, regulatory,
-      brief).
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: BriefRequirement
-    domain_of:
-    - Requirement
-    range: string
-    required: true
-    equals_string: brief
   applies_to_entities:
     name: applies_to_entities
     description: Model entities this record applies to (requirements, cost items,
@@ -251,8 +202,8 @@ attributes:
     owner: BriefRequirement
     domain_of:
     - Requirement
-    - AbstractTimeRecord
-    - AbstractCostRecord
+    - TimeRecord
+    - CostRecord
     range: Entity
     multivalued: true
     inlined: false

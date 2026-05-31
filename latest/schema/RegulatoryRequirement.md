@@ -23,49 +23,22 @@ URI: [pbs:RegulatoryRequirement](https://schema.pragmaticbim.ch/RegulatoryRequir
 ```mermaid
  classDiagram
     class RegulatoryRequirement
-    click RegulatoryRequirement href "../RegulatoryRequirement/"
+    click RegulatoryRequirement href "./RegulatoryRequirement.html"
       Requirement <|-- RegulatoryRequirement
-        click Requirement href "../Requirement/"
-      
+        click Requirement href "./Requirement.html"
       RegulatoryRequirement : applies_to_entities
-        
-          
-    
-        
-        
         RegulatoryRequirement --> "*" Entity : applies_to_entities
-        click Entity href "../Entity/"
-    
-
-        
+        click Entity href "./Entity.html"
       RegulatoryRequirement : clause_ref
-        
       RegulatoryRequirement : description
-        
       RegulatoryRequirement : id
-        
       RegulatoryRequirement : jurisdiction
-        
       RegulatoryRequirement : name
-        
       RegulatoryRequirement : norm_uri
-        
-      RegulatoryRequirement : requirement_domain
-        
       RegulatoryRequirement : source_document
-        
       RegulatoryRequirement : status
-        
-          
-    
-        
-        
         RegulatoryRequirement --> "0..1" StatusType : status
-        click StatusType href "../StatusType/"
-    
-
-        
-      
+        click StatusType href "./StatusType.html"
 ```
 
 
@@ -88,16 +61,15 @@ URI: [pbs:RegulatoryRequirement](https://schema.pragmaticbim.ch/RegulatoryRequir
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [norm_uri](norm_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the norm, standard, or building code | direct |
-| [clause_ref](clause_ref.md) | 0..1 <br/> [String](String.md) | Clause, article, or section reference within the norm | direct |
-| [jurisdiction](jurisdiction.md) | 0..1 <br/> [String](String.md) | Jurisdiction or authority scope for the regulatory requirement | direct |
-| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Requirement](Requirement.md) |
-| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Requirement](Requirement.md) |
-| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Requirement](Requirement.md) |
-| [requirement_domain](requirement_domain.md) | 1 <br/> [String](String.md) | Domain of this requirement record (performance, spatial, regulatory, brief) | [Requirement](Requirement.md) |
-| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule ite... | [Requirement](Requirement.md) |
-| [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement | [Requirement](Requirement.md) |
-| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Requirement](Requirement.md) |
+| [norm_uri](norm_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the norm, standard, or building code. | direct |
+| [clause_ref](clause_ref.md) | 0..1 <br/> [String](String.md) | Clause, article, or section reference within the norm. | direct |
+| [jurisdiction](jurisdiction.md) | 0..1 <br/> [String](String.md) | Jurisdiction or authority scope for the regulatory requirement. | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Requirement](Requirement.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Requirement](Requirement.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Requirement](Requirement.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | [Requirement](Requirement.md) |
+| [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement. | [Requirement](Requirement.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status. | [Requirement](Requirement.md) |
 
 
 
@@ -155,11 +127,6 @@ slots:
 - norm_uri
 - clause_ref
 - jurisdiction
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: regulatory
 class_uri: pbs:RegulatoryRequirement
 
 ```
@@ -173,11 +140,6 @@ name: RegulatoryRequirement
 description: Regulatory reference requirement (building code, norm, standard).
 from_schema: https://schema.pragmaticbim.ch
 is_a: Requirement
-slot_usage:
-  requirement_domain:
-    name: requirement_domain
-    range: string
-    equals_string: regulatory
 attributes:
   norm_uri:
     name: norm_uri
@@ -243,18 +205,6 @@ attributes:
     - Entity
     - Requirement
     range: string
-  requirement_domain:
-    name: requirement_domain
-    description: Domain of this requirement record (performance, spatial, regulatory,
-      brief).
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: RegulatoryRequirement
-    domain_of:
-    - Requirement
-    range: string
-    required: true
-    equals_string: regulatory
   applies_to_entities:
     name: applies_to_entities
     description: Model entities this record applies to (requirements, cost items,
@@ -264,8 +214,8 @@ attributes:
     owner: RegulatoryRequirement
     domain_of:
     - Requirement
-    - AbstractTimeRecord
-    - AbstractCostRecord
+    - TimeRecord
+    - CostRecord
     range: Entity
     multivalued: true
     inlined: false

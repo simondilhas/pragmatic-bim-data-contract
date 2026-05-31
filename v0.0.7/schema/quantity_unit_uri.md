@@ -25,7 +25,7 @@ URI: [pbs:quantity_unit_uri](https://schema.pragmaticbim.ch/quantity_unit_uri)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [QuantityValue](QuantityValue.md) | Minimal quantity record for costing and analysis |  no  |
+| [QuantityValue](QuantityValue.md) | Minimal quantity record for costing and analysis. |  no  |
 
 
 

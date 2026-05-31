@@ -25,7 +25,7 @@ URI: [pbs:system_discipline](https://schema.pragmaticbim.ch/system_discipline)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
+| [System](System.md) | Building service system grouping that serves spaces or zones. |  no  |
 
 
 

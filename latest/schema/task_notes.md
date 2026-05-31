@@ -25,7 +25,7 @@ URI: [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workf... |  no  |
+| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  no  |
 
 
 

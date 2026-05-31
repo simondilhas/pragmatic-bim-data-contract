@@ -25,7 +25,7 @@ URI: [pbs:material_category](https://schema.pragmaticbim.ch/material_category)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
+| [Material](Material.md) | Material definition that can be associated with one or more entities. |  no  |
 
 
 

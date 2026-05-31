@@ -25,7 +25,7 @@ URI: [dcterms:created](http://purl.org/dc/terms/created)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Decision](Decision.md) | Decision record linked to an entity for workflow traceability and governance |  no  |
+| [Decision](Decision.md) | Decision record linked to an entity for workflow traceability and governance. |  no  |
 
 
 

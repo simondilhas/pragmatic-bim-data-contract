@@ -34,7 +34,7 @@ URI: [pbs:PerformancePropertyValueType](https://schema.pragmaticbim.ch/Performan
 
 | Name | Description |
 | ---  | --- |
-| [property_value_type](property_value_type.md) | Value type discriminator for normalized storage (for example string, number, ... |
+| [property_value_type](property_value_type.md) | Value type discriminator for normalized storage (for example string, number, boolean). |
 
 
 

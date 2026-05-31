@@ -27,7 +27,7 @@ URI: [pbs:connection_physical_requirement_drivers](https://schema.pragmaticbim.c
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ConnectionPhysical](ConnectionPhysical.md) | Physical connector providing functional connection between spaces (for exampl... |  no  |
+| [ConnectionPhysical](ConnectionPhysical.md) | Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable). |  no  |
 
 
 

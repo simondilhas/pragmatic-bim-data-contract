@@ -25,7 +25,7 @@ URI: [pbs:clause_ref](https://schema.pragmaticbim.ch/clause_ref)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard) |  no  |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |  no  |
 
 
 

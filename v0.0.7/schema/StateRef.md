@@ -77,6 +77,18 @@ URI: [pbs:StateRef](https://schema.pragmaticbim.ch/StateRef)
 | ---  | --- | --- | --- |
 | [Change](Change.md) | [from_state_ref](from_state_ref.md) | range | [StateRef](StateRef.md) |
 | [Change](Change.md) | [to_state_ref](to_state_ref.md) | range | [StateRef](StateRef.md) |
+| [PropertyChange](PropertyChange.md) | [from_state_ref](from_state_ref.md) | range | [StateRef](StateRef.md) |
+| [PropertyChange](PropertyChange.md) | [to_state_ref](to_state_ref.md) | range | [StateRef](StateRef.md) |
+| [GeometryChange](GeometryChange.md) | [from_state_ref](from_state_ref.md) | range | [StateRef](StateRef.md) |
+| [GeometryChange](GeometryChange.md) | [to_state_ref](to_state_ref.md) | range | [StateRef](StateRef.md) |
+| [RequirementChange](RequirementChange.md) | [from_state_ref](from_state_ref.md) | range | [StateRef](StateRef.md) |
+| [RequirementChange](RequirementChange.md) | [to_state_ref](to_state_ref.md) | range | [StateRef](StateRef.md) |
+| [MatchChange](MatchChange.md) | [from_state_ref](from_state_ref.md) | range | [StateRef](StateRef.md) |
+| [MatchChange](MatchChange.md) | [to_state_ref](to_state_ref.md) | range | [StateRef](StateRef.md) |
+| [AdditionChange](AdditionChange.md) | [from_state_ref](from_state_ref.md) | range | [StateRef](StateRef.md) |
+| [AdditionChange](AdditionChange.md) | [to_state_ref](to_state_ref.md) | range | [StateRef](StateRef.md) |
+| [DeletionChange](DeletionChange.md) | [from_state_ref](from_state_ref.md) | range | [StateRef](StateRef.md) |
+| [DeletionChange](DeletionChange.md) | [to_state_ref](to_state_ref.md) | range | [StateRef](StateRef.md) |
 | [ChangeSet](ChangeSet.md) | [ifc_state_ref](ifc_state_ref.md) | range | [StateRef](StateRef.md) |
 | [ChangeSet](ChangeSet.md) | [document_state_refs](document_state_refs.md) | range | [StateRef](StateRef.md) |
 

@@ -23,25 +23,13 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 ```mermaid
  classDiagram
     class QuantityValue
-    click QuantityValue href "../QuantityValue/"
+    click QuantityValue href "./QuantityValue.html"
       QuantityValue : quantity_type
-        
-          
-    
-        
-        
         QuantityValue --> "1" QuantityType : quantity_type
-        click QuantityType href "../QuantityType/"
-    
-
-        
+        click QuantityType href "./QuantityType.html"
       QuantityValue : quantity_unit
-        
       QuantityValue : quantity_unit_uri
-        
       QuantityValue : quantity_value
-        
-      
 ```
 
 
@@ -60,10 +48,10 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [quantity_type](quantity_type.md) | 1 <br/> [QuantityType](QuantityType.md) | Controlled quantity type | direct |
-| [quantity_value](quantity_value.md) | 1 <br/> [Double](Double.md) | Numeric quantity value | direct |
-| [quantity_unit](quantity_unit.md) | 1 <br/> [String](String.md) | Unit of the quantity value | direct |
-| [quantity_unit_uri](quantity_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the quantity unit in an external vocabulary such... | direct |
+| [quantity_type](quantity_type.md) | 1 <br/> [QuantityType](QuantityType.md) | Controlled quantity type. | direct |
+| [quantity_value](quantity_value.md) | 1 <br/> [Double](Double.md) | Numeric quantity value. | direct |
+| [quantity_unit](quantity_unit.md) | 1 <br/> [String](String.md) | Unit of the quantity value. | direct |
+| [quantity_unit_uri](quantity_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the quantity unit in an external vocabulary such as QUDT. | direct |
 
 
 
@@ -98,13 +86,8 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 | [Space](Space.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [System](System.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ScheduleItem](ScheduleItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [Milestone](Milestone.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ScheduleDependency](ScheduleDependency.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [CostItem](CostItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [CostAssembly](CostAssembly.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [TimeRecord](TimeRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [CostRecord](CostRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Material](Material.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 
 

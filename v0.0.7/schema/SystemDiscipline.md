@@ -23,10 +23,10 @@ URI: [pbs:SystemDiscipline](https://schema.pragmaticbim.ch/SystemDiscipline)
 ## Permissible Values
 | Value | Meaning | Description |
 | --- | --- | --- |
-| electrical | ifcowl:IfcDistributionSystemEnum.ELECTRICAL | Electrical power, lighting, and related electrical services |
-| sanitary | ifcowl:IfcDistributionSystemEnum.PLUMBING | Water supply, drainage, and sanitary plumbing services |
-| ventilation | ifcowl:IfcDistributionSystemEnum.VENTILATION | Air movement and ventilation services |
-| heating | ifcowl:IfcDistributionSystemEnum.HEATING | Heat generation and heat distribution services |
+| electrical | ifcowl:IfcDistributionSystemEnum.ELECTRICAL | Electrical power, lighting, and related electrical services. |
+| sanitary | ifcowl:IfcDistributionSystemEnum.PLUMBING | Water supply, drainage, and sanitary plumbing services. |
+| ventilation | ifcowl:IfcDistributionSystemEnum.VENTILATION | Air movement and ventilation services. |
+| heating | ifcowl:IfcDistributionSystemEnum.HEATING | Heat generation and heat distribution services. |
 
 
 
@@ -35,7 +35,7 @@ URI: [pbs:SystemDiscipline](https://schema.pragmaticbim.ch/SystemDiscipline)
 
 | Name | Description |
 | ---  | --- |
-| [system_discipline](system_discipline.md) | Classification of system discipline (electrical, sanitary, ventilation, heati... |
+| [system_discipline](system_discipline.md) | Classification of system discipline (electrical, sanitary, ventilation, heating). |
 
 
 

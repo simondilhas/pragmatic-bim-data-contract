@@ -35,7 +35,7 @@ URI: [pbs:RequirementTargetOperator](https://schema.pragmaticbim.ch/RequirementT
 
 | Name | Description |
 | ---  | --- |
-| [target_operator](target_operator.md) | Comparison operator for the requirement target |
+| [target_operator](target_operator.md) | Comparison operator for the requirement target. |
 
 
 
