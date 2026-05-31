@@ -1,0 +1,75 @@
+# IFC relationship → content_relations.relation_type.
+relationships:
+  IfcRelContainedInSpatialStructure:
+    description: Element contained in spatial structure (storey, space, building).
+    resolutions:
+      - when_relating_class: IfcBuildingStorey
+        relation_type: parent_level
+      - when_relating_class: IfcSpace
+        relation_type: parent_space
+      - when_relating_class: IfcBuilding
+        relation_type: parent_building
+
+  IfcRelAggregates:
+    description: Spatial hierarchy aggregation (site → building → storey).
+    resolutions:
+      - when_related_class: IfcProject
+        relation_type: parent_project
+      - when_related_class: IfcSite
+        relation_type: parent_perimeter
+      - when_related_class: IfcBuilding
+        relation_type: parent_building
+      - when_related_class: IfcBuildingStorey
+        relation_type: parent_level
+      - when_related_class: IfcZone
+        relation_type: parent_zone
+
+  IfcRelAssignsToGroup:
+    description: Element assigned to zone or group.
+    relation_type: group_members
+    group_classes: [IfcZone, IfcGroup]
+
+  IfcRelAssignsToSystem:
+    description: Element assigned to distribution system.
+    resolutions:
+      - when_related_is: element
+        relation_type: parent_system
+      - when_related_is: system
+        relation_type: contained_entities
+
+  IfcRelSpaceBoundary:
+    description: Space boundary topology.
+    resolutions:
+      - when_element_class: [IfcWall, IfcWallStandardCase, IfcSlab, IfcCurtainWall]
+        relation_type: separates_spaces
+      - when_element_class: IfcCovering
+        relation_type: bounded_by
+
+  IfcRelConnectsElements:
+    description: Physical connectivity between elements.
+    relation_type: connects_physical_elements
+
+  IfcRelConnectsPathElements:
+    description: MEP path connectivity (duct/pipe runs).
+    relation_type: connects_physical_elements
+
+  IfcRelFillsElement:
+    description: Door/window filling an opening in host element.
+    relation_type: connects_physical_elements
+
+  IfcRelCoversBldgElements:
+    description: Covering applied to a building element (IfcCovering → host).
+    relation_type: bounded_by
+
+  IfcRelServicesBuildings:
+    description: System serves building or spaces.
+    resolutions:
+      - when_related_class: IfcSpace
+        relation_type: serves_spaces
+      - when_related_class: IfcZone
+        relation_type: serves_zones
+
+  IfcRelAssociatesClassification:
+    description: Classification reference attached to element (populates classifications slot).
+    relation_type: classifications
+    target_slot: classifications

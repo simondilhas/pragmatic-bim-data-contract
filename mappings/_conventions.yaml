@@ -1,0 +1,97 @@
+# Global conventions and reusable field anchors.
+conventions:
+  fallback_policy: first_match_wins
+  # IFC GlobalId is the stable link between IFC source records and PBS contract rows.
+  ifc_contract_link:
+    description: >
+      IFC GlobalId (22-char GUID) is the primary crosswalk identifier. The adapter uses
+      the same value for content.source_id, attributes.ifc_global_id (Entity.ifc_global_id),
+      and content_relations source/target keys. Re-imports and diffs match on GlobalId.
+    ifc_attribute: GlobalId
+    contract_slots:
+      - content.source_id
+      - attributes.ifc_global_id
+    relations_columns:
+      - content_relations.source_content_id
+      - content_relations.target_content_id
+  source_id:
+    source: ifc_attribute
+    attribute: GlobalId
+  source_system:
+    default: ifc
+  name_fallback_chain: &name_fallback_chain
+    source: ifc_attribute_fallback
+    fallbacks:
+      - attribute: Name
+      - attribute: LongName
+      - attribute: ObjectType
+  classifications_mapping: &classifications_mapping
+    source: ifc_classification
+    via_relation: IfcRelAssociatesClassification
+    map:
+      classification_scheme:
+        source: ifc_attribute_fallback
+        fallbacks:
+          - attribute: ReferencedSource.Name
+          - constant: ifc
+      classification_code:
+        source: ifc_attribute_fallback
+        fallbacks:
+          - attribute: Identification
+          - attribute: ItemReference
+      classification_label:
+        source: ifc_attribute
+        attribute: Name
+      classification_uri:
+        source: ifc_attribute
+        attribute: Location
+      classification_source:
+        source: ifc_attribute
+        attribute: ReferencedSource.SourceRoles
+  storey_from_containment: &storey_from_containment
+    source: ifc_relation
+    relation: IfcRelContainedInSpatialStructure
+    direction: related
+    resolve:
+      walk_up_to_class: IfcBuildingStorey
+      output: GlobalId
+  metadata_unmapped_ifc_attributes: &metadata_unmapped_ifc_attributes
+    source: ifc_attribute_all
+    description: >
+      All IFC entity attributes not promoted to fields or typed attribute slots are
+      preserved in metadata for traceability and downstream use.
+    exclude_attributes:
+      - GlobalId
+      - Name
+      - LongName
+      - ObjectType
+      - Description
+    exclude_when_promoted_to:
+      - fields.name
+      - fields.code_or_number
+      - fields.storey
+      - attributes.description
+      - attributes.ifc_global_id
+    exclude_when_mapped_to_typed_slot: true
+    map_to: metadata
+    entry_format:
+      metadata_key: "{ifc_class}.{attribute}"
+      metadata_value: "{value_serialized}"
+
+  metadata_unmapped_psets: &metadata_unmapped_psets
+    source: ifc_pset_all
+    exclude_used_in: [code_or_number, attributes]
+    map_to: metadata
+    entry_format:
+      metadata_key: "{pset}.{property}"
+      metadata_value: "{value_serialized}"
+
+  metadata_captured: &metadata_captured
+    source: metadata_merge
+    description: >
+      Combined metadata from IFC entity attributes and PropertySets. Both are stored
+      in the PBS metadata[] slot (MetadataEntry) on the contract entity.
+    parts:
+      - *metadata_unmapped_ifc_attributes
+      - *metadata_unmapped_psets
+

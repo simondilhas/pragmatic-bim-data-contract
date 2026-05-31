@@ -1,0 +1,339 @@
+# HVAC IFC entity mappings (indent under entities: when merged).
+  # --- HVAC: distribution segments ---
+
+  IfcDuctSegment:
+    content_kind: physical
+    canonical_type: ConnectionPhysical.duct
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_duct
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: duct
+      transport_medium:
+        source: constant
+        value: air
+    geometry: *geometry_axis_body
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsPathElements
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcDuctFitting:
+    content_kind: physical
+    canonical_type: ConnectionPhysical.network_other
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_duct
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: network_other
+      transport_medium:
+        source: constant
+        value: air
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsPathElements
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcDuctSilencer:
+    content_kind: physical
+    canonical_type: Equipment
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      equipment_type:
+        source: constant
+        value: hvac
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcAirTerminal:
+    content_kind: physical
+    canonical_type: Equipment
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      equipment_type:
+        source: constant
+        value: hvac
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelServicesBuildings
+      - IfcRelAssociatesClassification
+
+  IfcAirTerminalBox:
+    content_kind: physical
+    canonical_type: Equipment
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      equipment_type:
+        source: constant
+        value: hvac
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcPipeSegment:
+    content_kind: physical
+    canonical_type: ConnectionPhysical.pipe
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_pipe
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: pipe
+      transport_medium:
+        source: ifc_relation_heuristic
+        default: liquid
+        rules:
+          - when_assigned_to_system_predefined_type: [GAS, FUEL]
+            value: gas
+          - when_assigned_to_system_predefined_type: [CHILLEDWATER, CONDENSERWATER, DOMESTICHOTWATER]
+            value: liquid
+        notes: >
+          IfcPipeSegmentTypeEnum is segment form (RIGIDSEGMENT, FLEXIBLESEGMENT, …),
+          not fluid type. Infer transport medium from IfcDistributionSystem PredefinedType.
+    geometry: *geometry_axis_body
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsPathElements
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcPipeFitting:
+    content_kind: physical
+    canonical_type: ConnectionPhysical.network_other
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_pipe
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: network_other
+      transport_medium:
+        source: ifc_relation_heuristic
+        default: liquid
+        inherit_from_connected: IfcPipeSegment
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsPathElements
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcPump:
+    content_kind: physical
+    canonical_type: Equipment
+    inherits: IfcHvacEquipmentBase
+
+  IfcFan:
+    content_kind: physical
+    canonical_type: Equipment
+    inherits: IfcHvacEquipmentBase
+
+  IfcCompressor:
+    content_kind: physical
+    canonical_type: Equipment
+    inherits: IfcHvacEquipmentBase
+
+  IfcBoiler:
+    content_kind: physical
+    canonical_type: Equipment
+    inherits: IfcHvacEquipmentBase
+
+  IfcChiller:
+    content_kind: physical
+    canonical_type: Equipment
+    inherits: IfcHvacEquipmentBase
+
+  IfcCoolingTower:
+    content_kind: physical
+    canonical_type: Equipment
+    inherits: IfcHvacEquipmentBase
+
+  IfcHeatExchanger:
+    content_kind: physical
+    canonical_type: Equipment
+    inherits: IfcHvacEquipmentBase
+
+  # IfcPump … IfcHeatExchanger inherit fields/attributes/geometry/relations from templates.IfcHvacEquipmentBase
+
+  IfcValve:
+    content_kind: physical
+    canonical_type: Equipment
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      equipment_type:
+        source: ifc_relation_heuristic
+        default: hvac
+        rules:
+          - when_assigned_to_system_discipline: sanitary
+            value: plumbing
+          - when_assigned_to_system_discipline: heating
+            value: hvac
+          - when_assigned_to_system_discipline: ventilation
+            value: hvac
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelConnectsPathElements
+      - IfcRelAssociatesClassification
+
+  IfcDamper:
+    content_kind: physical
+    canonical_type: Equipment
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      equipment_type:
+        source: constant
+        value: hvac
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelConnectsPathElements
+      - IfcRelAssociatesClassification
+
+  IfcUnitaryEquipment:
+    content_kind: physical
+    canonical_type: Equipment
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      equipment_type:
+        source: constant
+        value: hvac
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelServicesBuildings
+      - IfcRelAssociatesClassification
+    notes: Typically AHU; maps to SystemType.unit at system level when grouped in IfcSystem.
+
+  IfcSystem:
+    content_kind: virtual
+    canonical_type: System
+    notes: >
+      Applies to IfcSystem and subtypes (e.g. IfcDistributionSystem). PredefinedType
+      uses IfcDistributionSystemEnum (IFC 4.3).
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_attribute_fallback
+        fallbacks:
+          - attribute: Name
+          - attribute: ObjectType
+      storey: null
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      system_type:
+        source: ifc_attribute_heuristic
+        attribute: PredefinedType
+        default: network
+        map:
+          - match: [VENTILATION, AIRCONDITIONING, EXHAUST]
+            value: network
+          - match: [DOMESTICHOTWATER, DOMESTICCOLDWATER, CHILLEDWATER, CONDENSERWATER, HEATING, WATERSUPPLY, DRAINAGE, SEWAGE, WASTEWATER]
+            value: network
+          - match: [USERDEFINED, NOTDEFINED]
+            value: network
+      system_discipline:
+        source: ifc_attribute_heuristic
+        attribute: PredefinedType
+        default: ventilation
+        map:
+          - match: [VENTILATION, AIRCONDITIONING, EXHAUST]
+            value: ventilation
+          - match: [HEATING, CHILLEDWATER]
+            value: heating
+          - match: [DOMESTICHOTWATER, DOMESTICCOLDWATER, WATERSUPPLY, DRAINAGE, SEWAGE, WASTEWATER]
+            value: sanitary
+          - match: [ELECTRICAL, LIGHTING, EARTHING]
+            value: electrical
+    geometry: null
+    relations:
+      - IfcRelAssignsToSystem
+      - IfcRelServicesBuildings
+      - IfcRelAggregates
+      - IfcRelAssociatesClassification
+
+  IfcDistributionSystem:
+    content_kind: virtual
+    canonical_type: System
+    inherits: IfcSystem

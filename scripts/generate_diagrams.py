@@ -23,6 +23,8 @@ README_MARKERS = {
     "entity-overview": "entity-overview",
 }
 PREAMBLE_MARKER = "<!-- schema-diagrams-preamble -->"
+ENTITY_ROOT = "Entity"
+PERFORMANCE_ROOT = "PerformanceProperty"
 
 
 def load_root_imports(schema_dir: Path) -> list[str]:
@@ -96,11 +98,62 @@ def render_module_map(modules_in_root: list[dict], *, interactive: bool = False)
     return "\n".join(lines) + "\n"
 
 
+def order_edges_depth_first(edges: set[tuple[str, str]]) -> list[tuple[str, str]]:
+    """Order (child, parent) edges depth-first from roots for clearer Mermaid layout."""
+    if not edges:
+        return []
+
+    children: dict[str, list[str]] = {}
+    child_nodes: set[str] = set()
+    parent_nodes: set[str] = set()
+    for child, parent in edges:
+        children.setdefault(parent, []).append(child)
+        child_nodes.add(child)
+        parent_nodes.add(parent)
+
+    for parent in children:
+        children[parent].sort()
+
+    roots = sorted(parent_nodes - child_nodes)
+    if not roots:
+        roots = sorted(parent_nodes)
+
+    ordered: list[tuple[str, str]] = []
+
+    def visit(parent: str) -> None:
+        for child in children.get(parent, []):
+            ordered.append((child, parent))
+            visit(child)
+
+    for root in roots:
+        visit(root)
+
+    seen = set(ordered)
+    for edge in sorted(edges):
+        if edge not in seen:
+            ordered.append(edge)
+    return ordered
+
+
 def render_class_diagram(edges: set[tuple[str, str]]) -> str:
-    lines = ["classDiagram"]
-    for child, parent in sorted(edges):
+    lines = ["classDiagram", "  direction TB"]
+    for child, parent in order_edges_depth_first(edges):
         lines.append(f"  {parent} <|-- {child}")
     return "\n".join(lines) + "\n"
+
+
+def subtree_edges(parents: dict[str, str], root: str) -> set[tuple[str, str]]:
+    """Collect all (child, parent) edges in the inheritance subtree under root."""
+    edges: set[tuple[str, str]] = set()
+
+    def visit(parent_name: str) -> None:
+        for child, parent in parents.items():
+            if parent == parent_name:
+                edges.add((child, parent))
+                visit(child)
+
+    visit(root)
+    return edges
 
 
 def all_is_a_edges(parents: dict[str, str]) -> set[tuple[str, str]]:
@@ -182,7 +235,12 @@ def import_name_for_slug(schema_dir: Path, slug: str) -> str | None:
     return None
 
 
-def render_docs_preamble(module_map: str, entity_overview: str) -> str:
+def render_docs_preamble(
+    module_map: str,
+    entity_shallow: str,
+    entity_branch: str,
+    performance_branch: str,
+) -> str:
     return (
         f"{PREAMBLE_MARKER}\n\n"
         "## Schema diagrams\n\n"
@@ -191,8 +249,12 @@ def render_docs_preamble(module_map: str, entity_overview: str) -> str:
         "for interactive class pages.\n\n"
         "### Module map\n\n"
         f"```mermaid\n{module_map.strip()}\n```\n\n"
-        "### Entity hierarchy\n\n"
-        f"```mermaid\n{entity_overview.strip()}\n```\n\n"
+        "### Entity hierarchy (overview)\n\n"
+        f"```mermaid\n{entity_shallow.strip()}\n```\n\n"
+        "### Entity model\n\n"
+        f"```mermaid\n{entity_branch.strip()}\n```\n\n"
+        "### Performance properties\n\n"
+        f"```mermaid\n{performance_branch.strip()}\n```\n\n"
     )
 
 
@@ -241,13 +303,22 @@ def collect_outputs(schema_dir: Path) -> dict[str, str]:
     module_map_interactive = render_module_map(modules_in_root, interactive=True)
     entity_full = render_class_diagram(all_is_a_edges(parents))
     entity_readme = render_class_diagram(shallow_is_a_edges(parents, max_depth=2))
+    entity_branch = render_class_diagram(subtree_edges(parents, ENTITY_ROOT))
+    performance_branch = render_class_diagram(subtree_edges(parents, PERFORMANCE_ROOT))
 
     outputs: dict[str, str] = {
         "module-map.mmd": module_map,
         "module-map-interactive.mmd": module_map_interactive,
         "entity-overview-full.mmd": entity_full,
         "entity-overview-readme.mmd": entity_readme,
-        "docs-preamble.md": render_docs_preamble(module_map, entity_full),
+        "entity-overview-entity.mmd": entity_branch,
+        "entity-overview-performance.mmd": performance_branch,
+        "docs-preamble.md": render_docs_preamble(
+            module_map,
+            entity_readme,
+            entity_branch,
+            performance_branch,
+        ),
     }
 
     for module in modules:

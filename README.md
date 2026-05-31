@@ -121,6 +121,7 @@ Without having to:
 - `schema/changes_schema.yaml`: change detection and revision diff records (`Change`, `ChangeSet`, `PropertyDelta`, `StateRef`).
 - `schema/enums_schema.yaml`: controlled vocabularies.
 - `schema/enum_localizations.yaml`: enum label/localization metadata.
+- `mappings/`: declarative IFC → schema mapping for external ingestion adapters (see `mappings/README.md`; run `python scripts/merge_ifc_mapping.py` after edits).
 - `converter/`: converter module for transforming data to and from the schema (see `converter/README.md`).
 
 <!-- diagram:module-map begin -->
@@ -144,32 +145,33 @@ flowchart TB
 <!-- diagram:entity-overview begin -->
 ```mermaid
 classDiagram
-  VirtualEntity <|-- AbstractCostRecord
-  PerformanceProperty <|-- AcousticProperty
+  direction TB
   Entity <|-- Agent
-  PhysicalElement <|-- Boundary
   Agent <|-- Company
-  PhysicalElement <|-- ConnectionPhysical
-  VirtualEntity <|-- ConnectionVirtual
-  PhysicalElement <|-- Equipment
-  PerformanceProperty <|-- FireProperty
-  VirtualEntity <|-- Material
-  PerformanceProperty <|-- MaterialProperty
-  Entity <|-- Message
-  ScheduleItem <|-- Milestone
   Agent <|-- Person
+  Entity <|-- Message
   Entity <|-- PhysicalElement
+  PhysicalElement <|-- Boundary
+  PhysicalElement <|-- ConnectionPhysical
+  PhysicalElement <|-- Equipment
+  PhysicalElement <|-- Separator
   Entity <|-- ScheduleDependency
   Entity <|-- ScheduleItem
+  ScheduleItem <|-- Milestone
   Entity <|-- ScheduleTemplate
-  PerformanceProperty <|-- SecurityProperty
-  PhysicalElement <|-- Separator
+  Entity <|-- VirtualEntity
+  VirtualEntity <|-- AbstractCostRecord
+  VirtualEntity <|-- ConnectionVirtual
+  VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
-  PerformanceProperty <|-- StructuralProperty
   VirtualEntity <|-- System
+  PerformanceProperty <|-- AcousticProperty
+  PerformanceProperty <|-- FireProperty
+  PerformanceProperty <|-- MaterialProperty
+  PerformanceProperty <|-- SecurityProperty
+  PerformanceProperty <|-- StructuralProperty
   PerformanceProperty <|-- ThermalProperty
-  Entity <|-- VirtualEntity
 ```
 <!-- diagram:entity-overview end -->
 

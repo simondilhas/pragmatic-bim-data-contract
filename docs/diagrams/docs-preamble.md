@@ -20,47 +20,88 @@ flowchart TB
   Root --> changes["Changes"]
 ```
 
-### Entity hierarchy
+### Entity hierarchy (overview)
 
 ```mermaid
 classDiagram
-  VirtualEntity <|-- AbstractCostRecord
-  PerformanceProperty <|-- AcousticProperty
+  direction TB
   Entity <|-- Agent
-  PhysicalElement <|-- Boundary
-  BuiltAssetContext <|-- BuildingContext
-  SpatialContext <|-- BuiltAssetContext
-  BuiltAssetContext <|-- CivilStructureContext
   Agent <|-- Company
-  PhysicalElement <|-- ConnectionPhysical
-  VirtualEntity <|-- ConnectionVirtual
-  AbstractCostRecord <|-- CostAssembly
-  AbstractCostRecord <|-- CostItem
-  PhysicalElement <|-- Equipment
-  PerformanceProperty <|-- FireProperty
-  SpatialContext <|-- LegalSiteContext
-  SpatialContext <|-- LevelContext
-  VirtualEntity <|-- Material
-  PerformanceProperty <|-- MaterialProperty
-  Entity <|-- Message
-  ScheduleItem <|-- Milestone
-  SpatialContext <|-- PerimeterContext
   Agent <|-- Person
+  Entity <|-- Message
   Entity <|-- PhysicalElement
-  SpatialContext <|-- ProjectContext
+  PhysicalElement <|-- Boundary
+  PhysicalElement <|-- ConnectionPhysical
+  PhysicalElement <|-- Equipment
+  PhysicalElement <|-- Separator
   Entity <|-- ScheduleDependency
   Entity <|-- ScheduleItem
+  ScheduleItem <|-- Milestone
   Entity <|-- ScheduleTemplate
+  Entity <|-- VirtualEntity
+  VirtualEntity <|-- AbstractCostRecord
+  VirtualEntity <|-- ConnectionVirtual
+  VirtualEntity <|-- Material
+  VirtualEntity <|-- Space
+  VirtualEntity <|-- SpatialContext
+  VirtualEntity <|-- System
+  PerformanceProperty <|-- AcousticProperty
+  PerformanceProperty <|-- FireProperty
+  PerformanceProperty <|-- MaterialProperty
   PerformanceProperty <|-- SecurityProperty
+  PerformanceProperty <|-- StructuralProperty
+  PerformanceProperty <|-- ThermalProperty
+```
+
+### Entity model
+
+```mermaid
+classDiagram
+  direction TB
+  Entity <|-- Agent
+  Agent <|-- Company
+  Agent <|-- Person
+  Entity <|-- Message
+  Entity <|-- PhysicalElement
+  PhysicalElement <|-- Boundary
+  PhysicalElement <|-- ConnectionPhysical
+  PhysicalElement <|-- Equipment
   PhysicalElement <|-- Separator
   Separator <|-- SeparatorSlab
   Separator <|-- SeparatorWall
+  Entity <|-- ScheduleDependency
+  Entity <|-- ScheduleItem
+  ScheduleItem <|-- Milestone
+  Entity <|-- ScheduleTemplate
+  Entity <|-- VirtualEntity
+  VirtualEntity <|-- AbstractCostRecord
+  AbstractCostRecord <|-- CostAssembly
+  AbstractCostRecord <|-- CostItem
+  VirtualEntity <|-- ConnectionVirtual
+  VirtualEntity <|-- Material
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
-  PerformanceProperty <|-- StructuralProperty
-  VirtualEntity <|-- System
-  PerformanceProperty <|-- ThermalProperty
-  Entity <|-- VirtualEntity
+  SpatialContext <|-- BuiltAssetContext
+  BuiltAssetContext <|-- BuildingContext
+  BuiltAssetContext <|-- CivilStructureContext
+  SpatialContext <|-- LegalSiteContext
+  SpatialContext <|-- LevelContext
+  SpatialContext <|-- PerimeterContext
+  SpatialContext <|-- ProjectContext
   SpatialContext <|-- ZoneContext
+  VirtualEntity <|-- System
+```
+
+### Performance properties
+
+```mermaid
+classDiagram
+  direction TB
+  PerformanceProperty <|-- AcousticProperty
+  PerformanceProperty <|-- FireProperty
+  PerformanceProperty <|-- MaterialProperty
+  PerformanceProperty <|-- SecurityProperty
+  PerformanceProperty <|-- StructuralProperty
+  PerformanceProperty <|-- ThermalProperty
 ```
 

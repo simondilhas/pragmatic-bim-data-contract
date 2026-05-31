@@ -1,0 +1,170 @@
+# PropertySet fallback lists (default + Revit / ArchiCAD / Vectorworks).
+pset_fallbacks:
+  code_or_number_default_items: &code_default_items
+    - pset: Pset_BuildingElementCommon
+      property: Reference
+    - pset: Pset_ManufacturerTypeInformation
+      property: ModelReference
+    - pset: Pset_ElementCommon
+      property: Tag
+
+  code_or_number_revit: &code_revit
+    - pset: Pset_Revit_IdentityData
+      property: Mark
+    - pset: Pset_Revit_TypeIdentity
+      property: Type Mark
+    - pset: Pset_Revit_IdentityData
+      property: Type Name
+
+  code_or_number_archicad: &code_archicad
+    - pset: ARCHICAD_General
+      property: ID
+    - pset: ARCHICAD_General
+      property: Element ID
+    - pset: Pset_ManufacturerTypeInformation
+      property: ModelReference
+
+  code_or_number_vectorworks: &code_vectorworks
+    - pset: Vectorworks_General
+      property: Tag
+    - pset: Vectorworks_Data
+      property: RecordName
+    - pset: Pset_ManufacturerTypeInformation
+      property: ModelReference
+
+  code_or_number_wall: &code_wall
+    fallbacks:
+      - pset: Pset_WallCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_slab: &code_slab
+    fallbacks:
+      - pset: Pset_SlabCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_door: &code_door
+    fallbacks:
+      - pset: Pset_DoorCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_window: &code_window
+    fallbacks:
+      - pset: Pset_WindowCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_space: &code_space
+    fallbacks:
+      - pset: Pset_SpaceCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_duct: &code_duct
+    fallbacks:
+      - pset: Pset_DuctSegmentCommon
+        property: Reference
+      - pset: Pset_DuctFittingCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_pipe: &code_pipe
+    fallbacks:
+      - pset: Pset_PipeSegmentCommon
+        property: Reference
+      - pset: Pset_PipeFittingCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_equipment: &code_equipment
+    fallbacks:
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks
+
+  code_or_number_covering: &code_covering
+    fallbacks:
+      - pset: Pset_CoveringCommon
+        property: Reference
+      - pset: Pset_BuildingElementCommon
+        property: Reference
+      - pset: Pset_ManufacturerTypeInformation
+        property: ModelReference
+      - pset: Pset_ElementCommon
+        property: Tag
+    source_system_overrides:
+      revit: *code_revit
+      archicad: *code_archicad
+      vectorworks: *code_vectorworks

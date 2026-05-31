@@ -1,0 +1,44 @@
+# Shared field, geometry, and attribute fragments.
+fragments:
+  physical_containment_relations: &physical_containment_relations
+    - IfcRelContainedInSpatialStructure
+    - IfcRelSpaceBoundary
+
+  context_aggregation_relations: &context_aggregation_relations
+    - IfcRelAggregates
+
+  geometry_body_footprint: &geometry_body_footprint
+    primary: body_3d
+    secondary: footprint_2d
+
+  geometry_axis_body: &geometry_axis_body
+    primary: axis
+    secondary: body_3d
+
+  geometry_footprint_body: &geometry_footprint_body
+    primary: footprint_2d
+    secondary: body_3d
+
+  geometry_axis_only: &geometry_axis_only
+    primary: axis
+
+  fields_physical_base: &fields_physical_base
+    name: *name_fallback_chain
+    code_or_number:
+      source: ifc_pset_fallback
+      fallbacks: *code_default_items
+      source_system_overrides:
+        revit: *code_revit
+        archicad: *code_archicad
+        vectorworks: *code_vectorworks
+    storey: *storey_from_containment
+    classifications: *classifications_mapping
+
+  attributes_entity_base: &attributes_entity_base
+    ifc_global_id:
+      source: ifc_attribute
+      attribute: GlobalId
+    description:
+      source: ifc_attribute
+      attribute: Description
+    metadata: *metadata_captured

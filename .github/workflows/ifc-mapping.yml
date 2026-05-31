@@ -1,0 +1,33 @@
+name: IFC Mapping
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "mappings/**"
+      - "scripts/merge_ifc_mapping.py"
+      - ".github/workflows/ifc-mapping.yml"
+  pull_request:
+    paths:
+      - "mappings/**"
+      - "scripts/merge_ifc_mapping.py"
+      - ".github/workflows/ifc-mapping.yml"
+  workflow_dispatch:
+
+jobs:
+  merge-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Verify merged IFC mapping is up to date
+        run: |
+          pip install pyyaml
+          python scripts/merge_ifc_mapping.py --check

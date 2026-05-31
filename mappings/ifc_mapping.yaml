@@ -1,0 +1,22 @@
+# IFC → Pragmatic BIM Data Contract mapping specification (entrypoint).
+# Consumed by an external ingestion adapter (declarative only — no embedded logic).
+# Schema reference: https://schema.pragmaticbim.ch/
+#
+# Source files are split for maintainability. Adapters may either:
+#   1. Implement `imports` merge (same order as below), or
+#   2. Load the pre-merged artifact: ifc_mapping.merged.yaml
+#
+# Regenerate merged output: python scripts/merge_ifc_mapping.py
+
+mapping_version: "1.2.1"
+schema_uri: https://schema.pragmaticbim.ch/
+canonical_type_version: "v0.0.7"
+
+imports:
+  - _conventions.yaml
+  - _pset_fallbacks.yaml
+  - _relationships.yaml
+  - _fragments.yaml
+  - entities/architectural.yaml
+  - entities/hvac.yaml
+  - _templates.yaml

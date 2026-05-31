@@ -1,0 +1,482 @@
+# Architectural IFC entity mappings (indent under entities: when merged).
+  # --- Architectural: separators ---
+
+  IfcWall:
+    content_kind: physical
+    canonical_type: SeparatorWall
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_wall
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      separator_wall_type:
+        source: constant
+        value: unit_boundary
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelSpaceBoundary
+      - IfcRelConnectsElements
+      - IfcRelAssociatesClassification
+
+  IfcWallStandardCase:
+    content_kind: physical
+    canonical_type: SeparatorWall
+    inherits: IfcWall
+
+  IfcSlab:
+    content_kind: physical
+    canonical_type_from: predefined_type_map
+    # IfcSlabTypeEnum (IFC 4.3): FLOOR, ROOF, BASESLAB, LANDING, APPROACH_SLAB,
+    # PAVING, SIDEWALK, TRACKSLAB, WEARING, USERDEFINED, NOTDEFINED.
+    # CEILING is IfcCoveringTypeEnum.CEILING on IfcCovering — not a slab type.
+    predefined_type_map:
+      FLOOR:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      ROOF:
+        canonical_type: SeparatorSlab.roof
+        separator_slab_type: roof
+      BASESLAB:
+        canonical_type: SeparatorSlab.baseslab
+        separator_slab_type: baseslab
+      LANDING:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      APPROACH_SLAB:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      PAVING:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      SIDEWALK:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      TRACKSLAB:
+        canonical_type: SeparatorSlab.baseslab
+        separator_slab_type: baseslab
+      WEARING:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      USERDEFINED:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      NOTDEFINED:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+      default:
+        canonical_type: SeparatorSlab.floor
+        separator_slab_type: floor
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_slab
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      separator_slab_type:
+        source: predefined_type_map
+        attribute: separator_slab_type
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelSpaceBoundary
+      - IfcRelAssociatesClassification
+
+  IfcRoof:
+    content_kind: physical
+    canonical_type: PhysicalElement
+    notes: >
+      IfcRoof is a roof assembly container (aggregates IfcSlab ROOF, IfcBeam, etc.
+      via IfcRelAggregates). It is not a slab separator; use IfcSlab PredefinedType
+      ROOF for slab-based roof faces.
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_slab
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAggregates
+      - IfcRelAssociatesClassification
+
+  IfcCovering:
+    content_kind: physical
+    canonical_type_from: predefined_type_map
+    # IfcCoveringTypeEnum (IFC 4.3): CEILING, FLOORING, CLADDING, ROOFING, …
+    predefined_type_map:
+      CEILING:
+        canonical_type: Boundary.ceiling
+        boundary_type: ceiling
+      FLOORING:
+        canonical_type: Boundary.flooring
+        boundary_type: flooring
+      CLADDING:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      ROOFING:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      INSULATION:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      MEMBRANE:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      MOLDING:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      COPING:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      SKIRTINGBOARD:
+        canonical_type: Boundary.flooring
+        boundary_type: flooring
+      TOPPING:
+        canonical_type: Boundary.flooring
+        boundary_type: flooring
+      SLEEVING:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      WRAPPING:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      USERDEFINED:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      NOTDEFINED:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+      default:
+        canonical_type: Boundary.cladding
+        boundary_type: cladding
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_covering
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      boundary_type:
+        source: predefined_type_map
+        attribute: boundary_type
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelCoversBldgElements
+      - IfcRelSpaceBoundary
+      - IfcRelAssociatesClassification
+
+  IfcCurtainWall:
+    content_kind: physical
+    canonical_type: SeparatorWall
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_wall
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      separator_wall_type:
+        source: constant
+        value: unit_boundary
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelSpaceBoundary
+      - IfcRelAssociatesClassification
+
+  # --- Architectural: openings ---
+
+  IfcDoor:
+    content_kind: physical
+    canonical_type: ConnectionPhysical
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_door
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: door
+      transport_medium:
+        source: constant
+        value: human_access
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelFillsElement
+      - IfcRelConnectsElements
+      - IfcRelAssociatesClassification
+
+  IfcWindow:
+    content_kind: physical
+    canonical_type: ConnectionPhysical
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_window
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: window
+      transport_medium:
+        source: constant
+        value: daylight_view
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelFillsElement
+      - IfcRelConnectsElements
+      - IfcRelAssociatesClassification
+
+  # --- Architectural: structural (virtual joints) ---
+
+  IfcColumn:
+    content_kind: virtual
+    canonical_type: ConnectionVirtual
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_virtual_type:
+        source: constant
+        value: structural_joint
+    geometry: *geometry_axis_only
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsElements
+      - IfcRelAssociatesClassification
+
+  IfcBeam:
+    content_kind: virtual
+    canonical_type: ConnectionVirtual
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_virtual_type:
+        source: constant
+        value: structural_joint
+    geometry: *geometry_axis_only
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsElements
+      - IfcRelAssociatesClassification
+
+  # --- Architectural: circulation (generic physical) ---
+
+  IfcStair:
+    content_kind: physical
+    canonical_type: PhysicalElement
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssociatesClassification
+
+  IfcRamp:
+    content_kind: physical
+    canonical_type: PhysicalElement
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssociatesClassification
+
+  # --- Architectural: spatial ---
+
+  IfcSpace:
+    content_kind: virtual
+    canonical_type: Space
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_space
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      space_type:
+        source: ifc_attribute_heuristic
+        attribute: LongName
+        default: usable
+        map:
+          - match: [circulation, corridor, stair, lobby, hall]
+            value: circulation
+          - match: [service, shaft, plant, mechanical, electrical]
+            value: service
+          - match: [void, plenum, airspace]
+            value: void
+          - match: [gfa, gross floor]
+            value: modeled_gross_floor_area
+          - match: [volume, gross volume]
+            value: modeled_gross_volume
+    geometry: *geometry_footprint_body
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelSpaceBoundary
+      - IfcRelAssignsToGroup
+      - IfcRelAssociatesClassification
+
+  IfcZone:
+    content_kind: context
+    canonical_type: ZoneContext
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        fallbacks: *code_default_items
+        source_system_overrides:
+          revit: *code_revit
+          archicad: *code_archicad
+          vectorworks: *code_vectorworks
+      storey: null
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      context_type:
+        source: constant
+        value: zone
+      zone_type:
+        source: ifc_relation_heuristic
+        default: functional
+        rules:
+          - when_assigned_to_system_discipline: ventilation
+            value: functional
+          - when_assigned_to_system_discipline: heating
+            value: functional
+          - when_name_match: [fire, compartment]
+            value: fire
+          - when_name_match: [tenant, lease]
+            value: tenant
+          - when_name_match: [cost, estimate]
+            value: cost
+    geometry: *geometry_footprint_body
+    relations:
+      - IfcRelAggregates
+      - IfcRelAssignsToGroup
+      - IfcRelAssignsToSystem
+      - IfcRelServicesBuildings
+      - IfcRelAssociatesClassification
+
+  IfcBuildingStorey:
+    content_kind: context
+    canonical_type: LevelContext
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_attribute_fallback
+        fallbacks:
+          - attribute: Name
+          - attribute: LongName
+      storey: null
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      context_type:
+        source: constant
+        value: level
+    geometry:
+      primary: footprint_2d
+      secondary: point
+    relations:
+      - IfcRelAggregates
+      - IfcRelAssociatesClassification
+
+  IfcBuilding:
+    content_kind: context
+    canonical_type: BuildingContext
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_attribute_fallback
+        fallbacks:
+          - attribute: Name
+          - attribute: LongName
+      storey: null
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      context_type:
+        source: constant
+        value: building
+    geometry: *geometry_footprint_body
+    relations:
+      - IfcRelAggregates
+      - IfcRelServicesBuildings
+      - IfcRelAssociatesClassification
+
+  IfcSite:
+    content_kind: context
+    canonical_type: PerimeterContext
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_attribute_fallback
+        fallbacks:
+          - attribute: Name
+          - attribute: LongName
+      storey: null
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      context_type:
+        source: constant
+        value: perimeter
+    geometry:
+      primary: footprint_2d
+      secondary: point
+    relations:
+      - IfcRelAggregates
+      - IfcRelAssociatesClassification

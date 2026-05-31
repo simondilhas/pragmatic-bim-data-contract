@@ -1,0 +1,20 @@
+# Shared entity templates (referenced via inherits).
+templates:
+  IfcHvacEquipmentBase:
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      equipment_type:
+        source: constant
+        value: hvac
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
