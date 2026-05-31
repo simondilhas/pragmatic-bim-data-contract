@@ -28,12 +28,17 @@ URI: [pbs:id](https://schema.pragmaticbim.ch/id)
 | [Entity](Entity.md) | Common base class for all schema entities |  no  |
 | [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workf... |  yes  |
 | [Document](Document.md) | Reference to an external document stored in a file system, DMS, object storag... |  yes  |
-| [Change](Change.md) | Detected difference for one subject between two revisions |  no  |
-| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions |  no  |
+| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement) |  yes  |
+| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind chang... |  yes  |
+| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions |  yes  |
 | [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
 | [Message](Message.md) | Message or communication record linked to an entity for coordination and trac... |  no  |
+| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc |  no  |
+| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc |  no  |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard) |  no  |
+| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items |  no  |
 | [PhysicalElement](PhysicalElement.md) | Base class for physical elements that can be placed in built asset/level cont... |  no  |
 | [Separator](Separator.md) | Abstract base class for elements that separate spaces or zones |  no  |
 | [SeparatorWall](SeparatorWall.md) | Wall-based separating element |  no  |
@@ -54,14 +59,21 @@ URI: [pbs:id](https://schema.pragmaticbim.ch/id)
 | [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
 | [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
 | [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
-| [ScheduleTemplate](ScheduleTemplate.md) | Reusable schedule container defining items, milestones, and dependencies for ... |  no  |
-| [ScheduleItem](ScheduleItem.md) | Planned work item with baseline and actual dates, linked to a schedule templa... |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a schedule |  no  |
-| [ScheduleDependency](ScheduleDependency.md) | Precedence relationship between two schedule items, optionally with lag |  no  |
+| [AbstractTimeRecord](AbstractTimeRecord.md) | Abstract base for reusable time/schedule record fields shared by atomic and g... |  no  |
+| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model ... |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
+| [TimePlan](TimePlan.md) | Grouped schedule container defining component items, milestones, and dependen... |  no  |
+| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
 | [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 | [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change |  no  |
+| [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields |  no  |
+| [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer... |  no  |
+| [AdditionChange](AdditionChange.md) | New entity or requirement introduced in to_revision |  no  |
+| [DeletionChange](DeletionChange.md) | Entity or requirement removed in to_revision |  no  |
 
 
 
@@ -75,7 +87,7 @@ URI: [pbs:id](https://schema.pragmaticbim.ch/id)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [Entity](Entity.md), [Task](Task.md), [Document](Document.md), [Change](Change.md), [ChangeSet](ChangeSet.md) |
+| Domain Of | [Entity](Entity.md), [Task](Task.md), [Document](Document.md), [Requirement](Requirement.md), [Change](Change.md), [ChangeSet](ChangeSet.md) |
 
 ### Cardinality and Requirements
 
@@ -136,6 +148,7 @@ domain_of:
 - Entity
 - Task
 - Document
+- Requirement
 - Change
 - ChangeSet
 range: string

@@ -6,7 +6,7 @@ search:
 # Class: Milestone 
 
 
-_Zero-duration checkpoint or delivery target within a schedule._
+_Zero-duration checkpoint or delivery target within a time plan._
 
 
 
@@ -24,12 +24,23 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
  classDiagram
     class Milestone
     click Milestone href "../Milestone/"
-      ScheduleItem <|-- Milestone
-        click ScheduleItem href "../ScheduleItem/"
+      TimeItem <|-- Milestone
+        click TimeItem href "../TimeItem/"
       
       Milestone : actual_finish_at
         
       Milestone : actual_start_at
+        
+      Milestone : applies_to_entities
+        
+          
+    
+        
+        
+        Milestone --> "*" Entity : applies_to_entities
+        click Entity href "../Entity/"
+    
+
         
       Milestone : classifications
         
@@ -39,6 +50,28 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
         
         Milestone --> "*" Classification : classifications
         click Classification href "../Classification/"
+    
+
+        
+      Milestone : cost_assemblies
+        
+          
+    
+        
+        
+        Milestone --> "*" CostAssembly : cost_assemblies
+        click CostAssembly href "../CostAssembly/"
+    
+
+        
+      Milestone : cost_items
+        
+          
+    
+        
+        
+        Milestone --> "*" CostItem : cost_items
+        click CostItem href "../CostItem/"
     
 
         
@@ -105,6 +138,17 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
     
 
         
+      Milestone : materials
+        
+          
+    
+        
+        
+        Milestone --> "*" Material : materials
+        click Material href "../Material/"
+    
+
+        
       Milestone : meaning_uri
         
       Milestone : messages
@@ -163,28 +207,6 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
         
       Milestone : revision
         
-      Milestone : schedule_template
-        
-          
-    
-        
-        
-        Milestone --> "0..1" ScheduleTemplate : schedule_template
-        click ScheduleTemplate href "../ScheduleTemplate/"
-    
-
-        
-      Milestone : scheduled_entities
-        
-          
-    
-        
-        
-        Milestone --> "*" Entity : scheduled_entities
-        click Entity href "../Entity/"
-    
-
-        
       Milestone : status
         
           
@@ -207,6 +229,39 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
     
 
         
+      Milestone : time_items
+        
+          
+    
+        
+        
+        Milestone --> "*" TimeItem : time_items
+        click TimeItem href "../TimeItem/"
+    
+
+        
+      Milestone : time_plan
+        
+          
+    
+        
+        
+        Milestone --> "0..1" TimePlan : time_plan
+        click TimePlan href "../TimePlan/"
+    
+
+        
+      Milestone : time_plans
+        
+          
+    
+        
+        
+        Milestone --> "*" TimePlan : time_plans
+        click TimePlan href "../TimePlan/"
+    
+
+        
       
 ```
 
@@ -216,8 +271,10 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
 
 ## Inheritance
 * [Entity](Entity.md)
-    * [ScheduleItem](ScheduleItem.md)
-        * **Milestone**
+    * [VirtualEntity](VirtualEntity.md)
+        * [AbstractTimeRecord](AbstractTimeRecord.md)
+            * [TimeItem](TimeItem.md)
+                * **Milestone**
 
 
 ## Class Properties
@@ -232,12 +289,17 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [milestone_at](milestone_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Target timestamp for the milestone checkpoint | direct |
-| [schedule_template](schedule_template.md) | 0..1 <br/> [ScheduleTemplate](ScheduleTemplate.md) | Parent schedule template this item or dependency belongs to | [ScheduleItem](ScheduleItem.md) |
-| [scheduled_entities](scheduled_entities.md) | * <br/> [Entity](Entity.md) | Model entities that this schedule template or schedule item applies to | [ScheduleItem](ScheduleItem.md) |
-| [planned_start_at](planned_start_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Planned start timestamp for the schedule item | [ScheduleItem](ScheduleItem.md) |
-| [planned_finish_at](planned_finish_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Planned finish timestamp for the schedule item | [ScheduleItem](ScheduleItem.md) |
-| [actual_start_at](actual_start_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Actual start timestamp for the schedule item where known | [ScheduleItem](ScheduleItem.md) |
-| [actual_finish_at](actual_finish_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Actual finish timestamp for the schedule item where known | [ScheduleItem](ScheduleItem.md) |
+| [time_plan](time_plan.md) | 0..1 <br/> [TimePlan](TimePlan.md) | Parent time plan this item or dependency belongs to | [TimeItem](TimeItem.md) |
+| [planned_start_at](planned_start_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Planned start timestamp for the time item | [TimeItem](TimeItem.md) |
+| [planned_finish_at](planned_finish_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Planned finish timestamp for the time item | [TimeItem](TimeItem.md) |
+| [actual_start_at](actual_start_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Actual start timestamp for the time item where known | [TimeItem](TimeItem.md) |
+| [actual_finish_at](actual_finish_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Actual finish timestamp for the time item where known | [TimeItem](TimeItem.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule ite... | [AbstractTimeRecord](AbstractTimeRecord.md) |
+| [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
 | [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
@@ -308,9 +370,9 @@ URI: [pbs:Milestone](https://schema.pragmaticbim.ch/Milestone)
 <details>
 ```yaml
 name: Milestone
-description: Zero-duration checkpoint or delivery target within a schedule.
+description: Zero-duration checkpoint or delivery target within a time plan.
 from_schema: https://schema.pragmaticbim.ch
-is_a: ScheduleItem
+is_a: TimeItem
 slots:
 - milestone_at
 class_uri: pbs:Milestone
@@ -323,9 +385,9 @@ class_uri: pbs:Milestone
 <details>
 ```yaml
 name: Milestone
-description: Zero-duration checkpoint or delivery target within a schedule.
+description: Zero-duration checkpoint or delivery target within a time plan.
 from_schema: https://schema.pragmaticbim.ch
-is_a: ScheduleItem
+is_a: TimeItem
 attributes:
   milestone_at:
     name: milestone_at
@@ -336,66 +398,122 @@ attributes:
     domain_of:
     - Milestone
     range: datetime
-  schedule_template:
-    name: schedule_template
-    description: Parent schedule template this item or dependency belongs to.
+  time_plan:
+    name: time_plan
+    description: Parent time plan this item or dependency belongs to.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
-    - ScheduleDependency
-    range: ScheduleTemplate
-    inlined: false
-  scheduled_entities:
-    name: scheduled_entities
-    description: Model entities that this schedule template or schedule item applies
-      to.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Milestone
-    domain_of:
-    - ScheduleTemplate
-    - ScheduleItem
-    range: Entity
-    multivalued: true
+    - TimeItem
+    - TimeDependency
+    range: TimePlan
     inlined: false
   planned_start_at:
     name: planned_start_at
-    description: Planned start timestamp for the schedule item.
+    description: Planned start timestamp for the time item.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
   planned_finish_at:
     name: planned_finish_at
-    description: Planned finish timestamp for the schedule item.
+    description: Planned finish timestamp for the time item.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
   actual_start_at:
     name: actual_start_at
-    description: Actual start timestamp for the schedule item where known.
+    description: Actual start timestamp for the time item where known.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
   actual_finish_at:
     name: actual_finish_at
-    description: Actual finish timestamp for the schedule item where known.
+    description: Actual finish timestamp for the time item where known.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Milestone
     domain_of:
-    - ScheduleItem
+    - TimeItem
     range: datetime
+  applies_to_entities:
+    name: applies_to_entities
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - Requirement
+    - AbstractTimeRecord
+    - AbstractCostRecord
+    range: Entity
+    multivalued: true
+    inlined: false
+  cost_items:
+    name: cost_items
+    description: Cost items associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: CostItem
+    multivalued: true
+    inlined: false
+  cost_assemblies:
+    name: cost_assemblies
+    description: Aggregated unit prices associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: CostAssembly
+    multivalued: true
+    inlined: false
+  time_items:
+    name: time_items
+    description: Time items associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: TimeItem
+    multivalued: true
+    inlined: false
+  time_plans:
+    name: time_plans
+    description: Grouped time plans associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: TimePlan
+    multivalued: true
+    inlined: false
+  materials:
+    name: materials
+    description: Material definitions associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Milestone
+    domain_of:
+    - VirtualEntity
+    range: Material
+    multivalued: true
+    inlined: false
   id:
     name: id
     description: Unique local identifier.
@@ -407,6 +525,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -419,6 +538,7 @@ attributes:
     owner: Milestone
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -440,6 +560,7 @@ attributes:
     owner: Milestone
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -617,6 +738,7 @@ attributes:
     owner: Milestone
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:Milestone
 

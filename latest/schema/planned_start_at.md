@@ -6,7 +6,7 @@ search:
 # Slot: planned_start_at 
 
 
-_Planned start timestamp for the schedule item._
+_Planned start timestamp for the time item._
 
 
 
@@ -25,8 +25,8 @@ URI: [pbs:planned_start_at](https://schema.pragmaticbim.ch/planned_start_at)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ScheduleItem](ScheduleItem.md) | Planned work item with baseline and actual dates, linked to a schedule templa... |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a schedule |  no  |
+| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model ... |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [pbs:planned_start_at](https://schema.pragmaticbim.ch/planned_start_at)
 | Property | Value |
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
-| Domain Of | [ScheduleItem](ScheduleItem.md) |
+| Domain Of | [TimeItem](TimeItem.md) |
 
 ### Cardinality and Requirements
 
@@ -85,11 +85,11 @@ URI: [pbs:planned_start_at](https://schema.pragmaticbim.ch/planned_start_at)
 <details>
 ```yaml
 name: planned_start_at
-description: Planned start timestamp for the schedule item.
+description: Planned start timestamp for the time item.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- ScheduleItem
+- TimeItem
 range: datetime
 
 ```

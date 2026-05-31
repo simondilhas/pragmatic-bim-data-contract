@@ -288,10 +288,11 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
 | [Space](Space.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [System](System.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [ScheduleItem](ScheduleItem.md) | [messages](messages.md) | range | [Message](Message.md) |
+| [AbstractTimeRecord](AbstractTimeRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
+| [TimeItem](TimeItem.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [Milestone](Milestone.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [ScheduleDependency](ScheduleDependency.md) | [messages](messages.md) | range | [Message](Message.md) |
+| [TimePlan](TimePlan.md) | [messages](messages.md) | range | [Message](Message.md) |
+| [TimeDependency](TimeDependency.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [CostItem](CostItem.md) | [messages](messages.md) | range | [Message](Message.md) |
 | [CostAssembly](CostAssembly.md) | [messages](messages.md) | range | [Message](Message.md) |
@@ -450,6 +451,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -462,6 +464,7 @@ attributes:
     owner: Message
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -483,6 +486,7 @@ attributes:
     owner: Message
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -660,6 +664,7 @@ attributes:
     owner: Message
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:Message
 

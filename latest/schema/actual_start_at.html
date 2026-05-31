@@ -38,7 +38,7 @@ a:hover { text-decoration: underline; }
   boost: 5.0</p>
 <hr>
 <h1 id="slot-actual_start_at">Slot: actual_start_at</h1>
-<p><em>Actual start timestamp for the schedule item where known.</em></p>
+<p><em>Actual start timestamp for the time item where known.</em></p>
 <div data-search-exclude markdown="1">
 
 
@@ -54,8 +54,8 @@ URI: [pbs:actual_start_at](https://schema.pragmaticbim.ch/actual_start_at)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ScheduleItem](ScheduleItem.md) | Planned work item with baseline and actual dates, linked to a schedule templa... |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a schedule |  no  |
+| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model ... |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
 
 
 
@@ -69,7 +69,7 @@ URI: [pbs:actual_start_at](https://schema.pragmaticbim.ch/actual_start_at)
 | Property | Value |
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
-| Domain Of | [ScheduleItem](ScheduleItem.md) |
+| Domain Of | [TimeItem](TimeItem.md) |
 
 ### Cardinality and Requirements
 
@@ -114,11 +114,11 @@ URI: [pbs:actual_start_at](https://schema.pragmaticbim.ch/actual_start_at)
 <details>
 
 <pre><code class="language-yaml">name: actual_start_at
-description: Actual start timestamp for the schedule item where known.
+description: Actual start timestamp for the time item where known.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- ScheduleItem
+- TimeItem
 range: datetime
 
 </code></pre>

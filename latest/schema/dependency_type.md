@@ -25,7 +25,7 @@ URI: [pbs:dependency_type](https://schema.pragmaticbim.ch/dependency_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ScheduleDependency](ScheduleDependency.md) | Precedence relationship between two schedule items, optionally with lag |  no  |
+| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
 
 
 
@@ -38,8 +38,8 @@ URI: [pbs:dependency_type](https://schema.pragmaticbim.ch/dependency_type)
 
 | Property | Value |
 | --- | --- |
-| Range | [ScheduleDependencyType](ScheduleDependencyType.md) |
-| Domain Of | [ScheduleDependency](ScheduleDependency.md) |
+| Range | [TimeDependencyType](TimeDependencyType.md) |
+| Domain Of | [TimeDependency](TimeDependency.md) |
 
 ### Cardinality and Requirements
 
@@ -89,8 +89,8 @@ description: Precedence logic used between the predecessor and successor items.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- ScheduleDependency
-range: ScheduleDependencyType
+- TimeDependency
+range: TimeDependencyType
 required: true
 
 ```

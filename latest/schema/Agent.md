@@ -377,6 +377,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -389,6 +390,7 @@ attributes:
     owner: Agent
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -410,6 +412,7 @@ attributes:
     owner: Agent
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -587,6 +590,7 @@ attributes:
     owner: Agent
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:Agent
 

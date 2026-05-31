@@ -6,7 +6,7 @@ search:
 # Class: Change 
 
 
-_Detected difference for one subject between two revisions. Supports IFC model diffs, document/text diffs, and schema-entity field changes._
+_Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes._
 
 __
 
@@ -14,6 +14,8 @@ __
 
 <div data-search-exclude markdown="1">
 
+
+* __NOTE__: this is an abstract class and should not be instantiated directly
 
 
 URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
@@ -26,24 +28,48 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
  classDiagram
     class Change
     click Change href "../Change/"
+      Change <|-- PropertyChange
+        click PropertyChange href "../PropertyChange/"
+      Change <|-- GeometryChange
+        click GeometryChange href "../GeometryChange/"
+      Change <|-- RequirementChange
+        click RequirementChange href "../RequirementChange/"
+      Change <|-- MatchChange
+        click MatchChange href "../MatchChange/"
+      Change <|-- AdditionChange
+        click AdditionChange href "../AdditionChange/"
+      Change <|-- DeletionChange
+        click DeletionChange href "../DeletionChange/"
+      
       Change : affected_subject_id
         
       Change : affected_subject_path
         
       Change : affected_subject_type
         
-      Change : change_kind
+      Change : change_severity
         
           
     
         
         
-        Change --> "1" ChangeKind : change_kind
-        click ChangeKind href "../ChangeKind/"
+        Change --> "0..1" ChangeSeverity : change_severity
+        click ChangeSeverity href "../ChangeSeverity/"
     
 
         
       Change : change_source
+        
+      Change : change_type
+        
+          
+    
+        
+        
+        Change --> "1" ChangeType : change_type
+        click ChangeType href "../ChangeType/"
+    
+
         
       Change : detected_at
         
@@ -77,17 +103,6 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
     
 
         
-      Change : property_delta
-        
-          
-    
-        
-        
-        Change --> "*" PropertyDelta : property_delta
-        click PropertyDelta href "../PropertyDelta/"
-    
-
-        
       Change : to_revision
         
       Change : to_state_ref
@@ -111,7 +126,16 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 
 
 
-<!-- no inheritance hierarchy -->
+
+## Inheritance
+* **Change**
+    * [PropertyChange](PropertyChange.md)
+    * [GeometryChange](GeometryChange.md)
+    * [RequirementChange](RequirementChange.md)
+    * [MatchChange](MatchChange.md)
+    * [AdditionChange](AdditionChange.md)
+    * [DeletionChange](DeletionChange.md)
+
 
 ## Class Properties
 
@@ -125,7 +149,8 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | direct |
-| [change_kind](change_kind.md) | 1 <br/> [ChangeKind](ChangeKind.md) | Severity or category of change detected between two revisions | direct |
+| [change_type](change_type.md) | 1 <br/> [ChangeType](ChangeType.md) | Category of change detected between two revisions | direct |
+| [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type | direct |
 | [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... | direct |
 | [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key) | direct |
 | [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, D... | direct |
@@ -136,7 +161,6 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | direct |
 | [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision | direct |
 | [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision | direct |
-| [property_delta](property_delta.md) | * <br/> [PropertyDelta](PropertyDelta.md) | Field-level differences detected between the two revision states | direct |
 | [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger | direct |
 | [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance) | direct |
 | [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected | direct |
@@ -183,7 +207,6 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 | ---  | ---  |
 | self | pbs:Change |
 | native | pbs:Change |
-| exact | prov:Activity |
 
 
 
@@ -199,16 +222,17 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 <details>
 ```yaml
 name: Change
-description: 'Detected difference for one subject between two revisions. Supports
-  IFC model diffs, document/text diffs, and schema-entity field changes.
+description: 'Detected difference for one subject between two revisions (content_kind
+  change). Supports IFC model diffs, document/text diffs, and schema-entity field
+  changes.
 
   '
 from_schema: https://schema.pragmaticbim.ch
-exact_mappings:
-- prov:Activity
+abstract: true
 slots:
 - id
-- change_kind
+- change_type
+- change_severity
 - intent_verdict
 - affected_subject_id
 - affected_subject_type
@@ -219,11 +243,18 @@ slots:
 - to_revision
 - from_state_ref
 - to_state_ref
-- property_delta
 - triggered_task
 - triggered_process
 - detected_at
 - change_source
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
+  change_type:
+    name: change_type
+    required: true
 class_uri: pbs:Change
 
 ```
@@ -234,13 +265,21 @@ class_uri: pbs:Change
 <details>
 ```yaml
 name: Change
-description: 'Detected difference for one subject between two revisions. Supports
-  IFC model diffs, document/text diffs, and schema-entity field changes.
+description: 'Detected difference for one subject between two revisions (content_kind
+  change). Supports IFC model diffs, document/text diffs, and schema-entity field
+  changes.
 
   '
 from_schema: https://schema.pragmaticbim.ch
-exact_mappings:
-- prov:Activity
+abstract: true
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
+  change_type:
+    name: change_type
+    required: true
 attributes:
   id:
     name: id
@@ -253,20 +292,30 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
     required: true
-  change_kind:
-    name: change_kind
-    description: Severity or category of change detected between two revisions.
+  change_type:
+    name: change_type
+    description: Category of change detected between two revisions.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Change
     domain_of:
     - Change
-    range: ChangeKind
+    range: ChangeType
     required: true
+  change_severity:
+    name: change_severity
+    description: Optional severity independent of change type.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: ChangeSeverity
   intent_verdict:
     name: intent_verdict
     description: Intent stability verdict from an automated judge (for example iterthink
@@ -376,17 +425,6 @@ attributes:
     domain_of:
     - Change
     range: StateRef
-    inlined: true
-  property_delta:
-    name: property_delta
-    description: Field-level differences detected between the two revision states.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Change
-    domain_of:
-    - Change
-    range: PropertyDelta
-    multivalued: true
     inlined: true
   triggered_task:
     name: triggered_task

@@ -172,6 +172,11 @@ slots:
 - document_state_refs
 - produced_at
 - produced_by
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
 class_uri: pbs:ChangeSet
 
 ```
@@ -189,6 +194,11 @@ description: 'Batch of Change records produced by comparing two model or documen
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Entity
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
 attributes:
   id:
     name: id
@@ -201,6 +211,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string

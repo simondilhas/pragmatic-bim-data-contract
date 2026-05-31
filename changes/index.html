@@ -26,6 +26,21 @@ ul { padding-left: 1.2rem; }
     <p><strong>Module URI:</strong> <code>https://schema.pragmaticbim.ch/changes</code></p>
     <p>Change detection and revision diff records for IFC models, documents, and schema entity fields.</p>
 
+    <h2>Class hierarchy</h2>
+    <div class="mermaid">classDiagram
+  direction TB
+  Change <|-- AdditionChange
+  Change <|-- DeletionChange
+  Change <|-- GeometryChange
+  Change <|-- MatchChange
+  Change <|-- PropertyChange
+  Change <|-- RequirementChange
+  ChangeSet *-- Change
+  PropertyChange *-- PropertyDelta
+  RequirementChange *-- PropertyDelta
+  Change *-- StateRef
+  ChangeSet *-- StateRef</div>
+
 
       <h2>Primary entry</h2>
       <ul>
@@ -45,6 +60,12 @@ ul { padding-left: 1.2rem; }
         <li><a href="https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py">Pydantic</a></li>
         <li><a href="https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md">Docs (Markdown)</a></li>
     </ul>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+  await mermaid.run({ querySelector: ".mermaid" });
+</script>
 
   </body>
 </html>

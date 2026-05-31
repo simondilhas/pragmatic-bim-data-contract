@@ -6,7 +6,7 @@ search:
 # Slot: actual_finish_at 
 
 
-_Actual finish timestamp for the schedule item where known._
+_Actual finish timestamp for the time item where known._
 
 
 
@@ -25,8 +25,8 @@ URI: [pbs:actual_finish_at](https://schema.pragmaticbim.ch/actual_finish_at)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ScheduleItem](ScheduleItem.md) | Planned work item with baseline and actual dates, linked to a schedule templa... |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a schedule |  no  |
+| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model ... |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [pbs:actual_finish_at](https://schema.pragmaticbim.ch/actual_finish_at)
 | Property | Value |
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
-| Domain Of | [ScheduleItem](ScheduleItem.md) |
+| Domain Of | [TimeItem](TimeItem.md) |
 
 ### Cardinality and Requirements
 
@@ -85,11 +85,11 @@ URI: [pbs:actual_finish_at](https://schema.pragmaticbim.ch/actual_finish_at)
 <details>
 ```yaml
 name: actual_finish_at
-description: Actual finish timestamp for the schedule item where known.
+description: Actual finish timestamp for the time item where known.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- ScheduleItem
+- TimeItem
 range: datetime
 
 ```

@@ -38,6 +38,11 @@ URI: [pbs:cost_items](https://schema.pragmaticbim.ch/cost_items)
 | [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
 | [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
 | [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
+| [AbstractTimeRecord](AbstractTimeRecord.md) | Abstract base for reusable time/schedule record fields shared by atomic and g... |  no  |
+| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model ... |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
+| [TimePlan](TimePlan.md) | Grouped schedule container defining component items, milestones, and dependen... |  no  |
+| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
 | [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |

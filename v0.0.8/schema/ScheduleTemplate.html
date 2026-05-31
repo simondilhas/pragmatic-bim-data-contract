@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ScheduleTemplate - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <hr>
+<p>search:
+  boost: 10.0</p>
+<hr>
+<h1 id="class-scheduletemplate">Class: ScheduleTemplate</h1>
+<p><em>Reusable schedule container defining items, milestones, and dependencies for a scoped plan.</em></p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:ScheduleTemplate](https://schema.pragmaticbim.ch/ScheduleTemplate)
+
+
+
+
+
+
+<div class="mermaid">
+ classDiagram
+    class ScheduleTemplate
+    click ScheduleTemplate href "./ScheduleTemplate.html"
+      Entity <|-- ScheduleTemplate
+        click Entity href "./Entity.html"
+      ScheduleTemplate : classifications
+        ScheduleTemplate --> "*" Classification : classifications
+        click Classification href "./Classification.html"
+      ScheduleTemplate : created_at
+      ScheduleTemplate : decisions
+        ScheduleTemplate --> "*" Decision : decisions
+        click Decision href "./Decision.html"
+      ScheduleTemplate : description
+      ScheduleTemplate : documents
+        ScheduleTemplate --> "*" Document : documents
+        click Document href "./Document.html"
+      ScheduleTemplate : geometry_representations
+        ScheduleTemplate --> "*" GeometryRepresentation : geometry_representations
+        click GeometryRepresentation href "./GeometryRepresentation.html"
+      ScheduleTemplate : id
+      ScheduleTemplate : ifc_global_id
+      ScheduleTemplate : localized_descriptions
+        ScheduleTemplate --> "*" LocalizedText : localized_descriptions
+        click LocalizedText href "./LocalizedText.html"
+      ScheduleTemplate : localized_names
+        ScheduleTemplate --> "*" LocalizedText : localized_names
+        click LocalizedText href "./LocalizedText.html"
+      ScheduleTemplate : meaning_uri
+      ScheduleTemplate : messages
+        ScheduleTemplate --> "*" Message : messages
+        click Message href "./Message.html"
+      ScheduleTemplate : metadata
+        ScheduleTemplate --> "*" MetadataEntry : metadata
+        click MetadataEntry href "./MetadataEntry.html"
+      ScheduleTemplate : modified_at
+      ScheduleTemplate : name
+      ScheduleTemplate : performance_properties
+        ScheduleTemplate --> "*" PerformanceProperty : performance_properties
+        click PerformanceProperty href "./PerformanceProperty.html"
+      ScheduleTemplate : quantity_values
+        ScheduleTemplate --> "*" QuantityValue : quantity_values
+        click QuantityValue href "./QuantityValue.html"
+      ScheduleTemplate : revision
+      ScheduleTemplate : schedule_dependencies
+        ScheduleTemplate --> "*" ScheduleDependency : schedule_dependencies
+        click ScheduleDependency href "./ScheduleDependency.html"
+      ScheduleTemplate : schedule_items
+        ScheduleTemplate --> "*" ScheduleItem : schedule_items
+        click ScheduleItem href "./ScheduleItem.html"
+      ScheduleTemplate : scheduled_entities
+        ScheduleTemplate --> "*" Entity : scheduled_entities
+        click Entity href "./Entity.html"
+      ScheduleTemplate : status
+        ScheduleTemplate --> "0..1" StatusType : status
+        click StatusType href "./StatusType.html"
+      ScheduleTemplate : tasks
+        ScheduleTemplate --> "*" Task : tasks
+        click Task href "./Task.html"
+
+</div>
+
+
+
+
+
+
+## Inheritance
+* [Entity](Entity.md)
+    * **ScheduleTemplate**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [pbs:ScheduleTemplate](https://schema.pragmaticbim.ch/ScheduleTemplate) |
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [scheduled_entities](scheduled_entities.md) | * <br/> [Entity](Entity.md) | Model entities that this schedule template or schedule item applies to | direct |
+| [schedule_items](schedule_items.md) | * <br/> [ScheduleItem](ScheduleItem.md) | Schedule items contained in this template; milestone instances may also appea... | direct |
+| [schedule_dependencies](schedule_dependencies.md) | * <br/> [ScheduleDependency](ScheduleDependency.md) | Dependency relationships used within this schedule template | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
+| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
+| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
+| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
+| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
+| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
+| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
+| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
+| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
+| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
+| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
+| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
+| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
+| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
+| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
+| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [ScheduleItem](ScheduleItem.md) | [schedule_template](schedule_template.md) | range | [ScheduleTemplate](ScheduleTemplate.md) |
+| [Milestone](Milestone.md) | [schedule_template](schedule_template.md) | range | [ScheduleTemplate](ScheduleTemplate.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [schedule_template](schedule_template.md) | range | [ScheduleTemplate](ScheduleTemplate.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:ScheduleTemplate |
+| native | pbs:ScheduleTemplate |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+
+<pre><code class="language-yaml">name: ScheduleTemplate
+description: Reusable schedule container defining items, milestones, and dependencies
+  for a scoped plan.
+from_schema: https://schema.pragmaticbim.ch
+is_a: Entity
+slots:
+- scheduled_entities
+- schedule_items
+- schedule_dependencies
+class_uri: pbs:ScheduleTemplate
+
+</code></pre>
+
+</details>
+
+### Induced
+
+<details>
+
+<pre><code class="language-yaml">name: ScheduleTemplate
+description: Reusable schedule container defining items, milestones, and dependencies
+  for a scoped plan.
+from_schema: https://schema.pragmaticbim.ch
+is_a: Entity
+attributes:
+  scheduled_entities:
+    name: scheduled_entities
+    description: Model entities that this schedule template or schedule item applies
+      to.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - ScheduleTemplate
+    - ScheduleItem
+    range: Entity
+    multivalued: true
+    inlined: false
+  schedule_items:
+    name: schedule_items
+    description: Schedule items contained in this template; milestone instances may
+      also appear through the ScheduleItem subtype.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - ScheduleTemplate
+    range: ScheduleItem
+    multivalued: true
+    inlined: false
+  schedule_dependencies:
+    name: schedule_dependencies
+    description: Dependency relationships used within this schedule template.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - ScheduleTemplate
+    range: ScheduleDependency
+    multivalued: true
+    inlined: false
+  id:
+    name: id
+    description: Unique local identifier.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    identifier: true
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
+    range: string
+    required: true
+  name:
+    name: name
+    description: Default display name.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: string
+    required: true
+  localized_names:
+    name: localized_names
+    description: Localized variants of name.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  description:
+    name: description
+    description: Default description text.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: string
+  meaning_uri:
+    name: meaning_uri
+    description: Optional semantic URI for linking the entity instance to an external
+      ontology concept.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: uriorcurie
+  localized_descriptions:
+    name: localized_descriptions
+    description: Localized variants of description.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  ifc_global_id:
+    name: ifc_global_id
+    description: IFC GlobalId of the mapped entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    - Change
+    range: string
+    pattern: ^[0-3][0-9A-Za-z_$]{21}$
+  classifications:
+    name: classifications
+    description: Classification entries from IFC and other schemes.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    - Document
+    range: Classification
+    multivalued: true
+    inlined: true
+  geometry_representations:
+    name: geometry_representations
+    description: 'Geometry references associated with the entity. A single element
+      may link to multiple geometry representations to serve different intents (authoring,
+      coordination, analysis, visualization) without duplicating the element itself.
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: GeometryRepresentation
+    multivalued: true
+    inlined: true
+  quantity_values:
+    name: quantity_values
+    description: Quantities associated with the entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: QuantityValue
+    multivalued: true
+    inlined: true
+  documents:
+    name: documents
+    description: Linked documents associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: Document
+    multivalued: true
+    inlined: true
+  metadata:
+    name: metadata
+    description: Generic metadata container for IFC attributes/properties and project-specific
+      extensions.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: MetadataEntry
+    multivalued: true
+    inlined: true
+  performance_properties:
+    name: performance_properties
+    description: 'Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/
+      security/material) extracted from raw IFC PropertySet values.
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: PerformanceProperty
+    multivalued: true
+    inlined: true
+  decisions:
+    name: decisions
+    description: Decision records associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: Decision
+    multivalued: true
+    inlined: true
+  tasks:
+    name: tasks
+    description: Tasks associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: Task
+    multivalued: true
+    inlined: true
+  messages:
+    name: messages
+    description: Messages associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: Message
+    multivalued: true
+    inlined: true
+  created_at:
+    name: created_at
+    description: Creation timestamp for this entity record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: datetime
+  modified_at:
+    name: modified_at
+    description: Last modification timestamp for this entity record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: datetime
+  revision:
+    name: revision
+    description: Integer revision counter for change tracking.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: integer
+    minimum_value: 0
+  status:
+    name: status
+    description: Lifecycle or QA status.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleTemplate
+    domain_of:
+    - Entity
+    range: StatusType
+class_uri: pbs:ScheduleTemplate
+
+</code></pre>
+
+</details></div>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

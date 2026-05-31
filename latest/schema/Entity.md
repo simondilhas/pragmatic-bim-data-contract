@@ -34,12 +34,6 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
         click PhysicalElement href "../PhysicalElement/"
       Entity <|-- VirtualEntity
         click VirtualEntity href "../VirtualEntity/"
-      Entity <|-- ScheduleTemplate
-        click ScheduleTemplate href "../ScheduleTemplate/"
-      Entity <|-- ScheduleItem
-        click ScheduleItem href "../ScheduleItem/"
-      Entity <|-- ScheduleDependency
-        click ScheduleDependency href "../ScheduleDependency/"
       
       Entity : classifications
         
@@ -202,9 +196,6 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
     * [Message](Message.md)
     * [PhysicalElement](PhysicalElement.md)
     * [VirtualEntity](VirtualEntity.md)
-    * [ScheduleTemplate](ScheduleTemplate.md)
-    * [ScheduleItem](ScheduleItem.md)
-    * [ScheduleDependency](ScheduleDependency.md)
 
 
 ## Class Properties
@@ -247,6 +238,12 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Requirement](Requirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [PerformanceRequirement](PerformanceRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [SpatialRequirement](SpatialRequirement.md) | [related_entity](related_entity.md) | range | [Entity](Entity.md) |
+| [SpatialRequirement](SpatialRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [BriefRequirement](BriefRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [SpatialContext](SpatialContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
 | [ProjectContext](ProjectContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
 | [PerimeterContext](PerimeterContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
@@ -258,9 +255,10 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 | [ZoneContext](ZoneContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
 | [Space](Space.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
 | [System](System.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [scheduled_entities](scheduled_entities.md) | range | [Entity](Entity.md) |
-| [ScheduleItem](ScheduleItem.md) | [scheduled_entities](scheduled_entities.md) | range | [Entity](Entity.md) |
-| [Milestone](Milestone.md) | [scheduled_entities](scheduled_entities.md) | range | [Entity](Entity.md) |
+| [AbstractTimeRecord](AbstractTimeRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [TimeItem](TimeItem.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Milestone](Milestone.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [TimePlan](TimePlan.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [CostItem](CostItem.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [CostAssembly](CostAssembly.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
@@ -360,6 +358,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -372,6 +371,7 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -393,6 +393,7 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -570,6 +571,7 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:Entity
 

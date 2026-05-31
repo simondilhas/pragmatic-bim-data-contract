@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RegulatoryRequirement - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <hr>
+<p>search:
+  boost: 10.0</p>
+<hr>
+<h1 id="class-regulatoryrequirement">Class: RegulatoryRequirement</h1>
+<p><em>Regulatory reference requirement (building code, norm, standard).</em></p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:RegulatoryRequirement](https://schema.pragmaticbim.ch/RegulatoryRequirement)
+
+
+
+
+
+
+<div class="mermaid">
+ classDiagram
+    class RegulatoryRequirement
+    click RegulatoryRequirement href "./RegulatoryRequirement.html"
+      Requirement <|-- RegulatoryRequirement
+        click Requirement href "./Requirement.html"
+      RegulatoryRequirement : applies_to_entities
+        RegulatoryRequirement --> "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
+      RegulatoryRequirement : clause_ref
+      RegulatoryRequirement : description
+      RegulatoryRequirement : id
+      RegulatoryRequirement : jurisdiction
+      RegulatoryRequirement : name
+      RegulatoryRequirement : norm_uri
+      RegulatoryRequirement : requirement_domain
+      RegulatoryRequirement : source_document
+      RegulatoryRequirement : status
+        RegulatoryRequirement --> "0..1" StatusType : status
+        click StatusType href "./StatusType.html"
+
+</div>
+
+
+
+
+
+
+## Inheritance
+* [Requirement](Requirement.md)
+    * **RegulatoryRequirement**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [pbs:RegulatoryRequirement](https://schema.pragmaticbim.ch/RegulatoryRequirement) |
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [norm_uri](norm_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the norm, standard, or building code | direct |
+| [clause_ref](clause_ref.md) | 0..1 <br/> [String](String.md) | Clause, article, or section reference within the norm | direct |
+| [jurisdiction](jurisdiction.md) | 0..1 <br/> [String](String.md) | Jurisdiction or authority scope for the regulatory requirement | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Requirement](Requirement.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Requirement](Requirement.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Requirement](Requirement.md) |
+| [requirement_domain](requirement_domain.md) | 1 <br/> [String](String.md) | Domain of this requirement record (performance, spatial, regulatory, brief) | [Requirement](Requirement.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule ite... | [Requirement](Requirement.md) |
+| [source_document](source_document.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI to norm, brief, or source document backing this requirement | [Requirement](Requirement.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Requirement](Requirement.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:RegulatoryRequirement |
+| native | pbs:RegulatoryRequirement |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+
+<pre><code class="language-yaml">name: RegulatoryRequirement
+description: Regulatory reference requirement (building code, norm, standard).
+from_schema: https://schema.pragmaticbim.ch
+is_a: Requirement
+slots:
+- norm_uri
+- clause_ref
+- jurisdiction
+slot_usage:
+  requirement_domain:
+    name: requirement_domain
+    range: string
+    equals_string: regulatory
+class_uri: pbs:RegulatoryRequirement
+
+</code></pre>
+
+</details>
+
+### Induced
+
+<details>
+
+<pre><code class="language-yaml">name: RegulatoryRequirement
+description: Regulatory reference requirement (building code, norm, standard).
+from_schema: https://schema.pragmaticbim.ch
+is_a: Requirement
+slot_usage:
+  requirement_domain:
+    name: requirement_domain
+    range: string
+    equals_string: regulatory
+attributes:
+  norm_uri:
+    name: norm_uri
+    description: URI identifying the norm, standard, or building code.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - RegulatoryRequirement
+    range: uriorcurie
+  clause_ref:
+    name: clause_ref
+    description: Clause, article, or section reference within the norm.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - RegulatoryRequirement
+    range: string
+  jurisdiction:
+    name: jurisdiction
+    description: Jurisdiction or authority scope for the regulatory requirement.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - RegulatoryRequirement
+    range: string
+  id:
+    name: id
+    description: Unique local identifier.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    identifier: true
+    owner: RegulatoryRequirement
+    domain_of:
+    - Entity
+    - Task
+    - Document
+    - Requirement
+    - Change
+    - ChangeSet
+    range: string
+    required: true
+  name:
+    name: name
+    description: Default display name.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - Entity
+    - Requirement
+    range: string
+    required: true
+  description:
+    name: description
+    description: Default description text.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - Entity
+    - Requirement
+    range: string
+  requirement_domain:
+    name: requirement_domain
+    description: Domain of this requirement record (performance, spatial, regulatory,
+      brief).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - Requirement
+    range: string
+    required: true
+    equals_string: regulatory
+  applies_to_entities:
+    name: applies_to_entities
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - Requirement
+    - AbstractTimeRecord
+    - AbstractCostRecord
+    range: Entity
+    multivalued: true
+    inlined: false
+  source_document:
+    name: source_document
+    description: Optional URI to norm, brief, or source document backing this requirement.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - Requirement
+    range: uriorcurie
+  status:
+    name: status
+    description: Lifecycle or QA status.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: RegulatoryRequirement
+    domain_of:
+    - Entity
+    - Requirement
+    range: StatusType
+class_uri: pbs:RegulatoryRequirement
+
+</code></pre>
+
+</details></div>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

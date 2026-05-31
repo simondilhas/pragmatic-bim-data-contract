@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pragmatic BIM Data Contract - Performance - Pragmatic BIM Schema</title>
+    <title>Pragmatic BIM Data Contract - Entity Performance Properties - Pragmatic BIM Schema</title>
     <link rel="describedby" href="./performance/descriptor.json">
     <link rel="alternate" type="application/json" href="https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json">
     <style>
@@ -22,12 +22,13 @@ ul { padding-left: 1.2rem; }
       <a href="./index.html">Home</a>
       <a href="https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html">Schema Index</a>
     </nav>
-    <h1>Pragmatic BIM Data Contract - Performance</h1>
+    <h1>Pragmatic BIM Data Contract - Entity Performance Properties</h1>
     <p><strong>Module URI:</strong> <code>https://schema.pragmaticbim.ch/performance</code></p>
-    <p>Domain-specific normalized performance property classes.</p>
+    <p>Domain-specific normalized performance property classes extracted from IFC and stored on Entity.</p>
 
     <h2>Class hierarchy</h2>
     <div class="mermaid">classDiagram
+  direction TB
   PerformanceProperty <|-- AcousticProperty
   PerformanceProperty <|-- FireProperty
   PerformanceProperty <|-- MaterialProperty

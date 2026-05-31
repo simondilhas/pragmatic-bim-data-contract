@@ -296,6 +296,28 @@ URI: [pbs:LevelContext](https://schema.pragmaticbim.ch/LevelContext)
     
 
         
+      LevelContext : time_items
+        
+          
+    
+        
+        
+        LevelContext --> "*" TimeItem : time_items
+        click TimeItem href "../TimeItem/"
+    
+
+        
+      LevelContext : time_plans
+        
+          
+    
+        
+        
+        LevelContext --> "*" TimePlan : time_plans
+        click TimePlan href "../TimePlan/"
+    
+
+        
       LevelContext : zone_type
         
           
@@ -343,6 +365,8 @@ URI: [pbs:LevelContext](https://schema.pragmaticbim.ch/LevelContext)
 | [group_members](group_members.md) | * <br/> [Entity](Entity.md) | Zone members; may include spaces, separations, systems, etc | [SpatialContext](SpatialContext.md) |
 | [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity | [VirtualEntity](VirtualEntity.md) |
 | [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity | [VirtualEntity](VirtualEntity.md) |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
@@ -569,6 +593,28 @@ attributes:
     range: CostAssembly
     multivalued: true
     inlined: false
+  time_items:
+    name: time_items
+    description: Time items associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: LevelContext
+    domain_of:
+    - VirtualEntity
+    range: TimeItem
+    multivalued: true
+    inlined: false
+  time_plans:
+    name: time_plans
+    description: Grouped time plans associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: LevelContext
+    domain_of:
+    - VirtualEntity
+    range: TimePlan
+    multivalued: true
+    inlined: false
   materials:
     name: materials
     description: Material definitions associated with this entity.
@@ -591,6 +637,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -603,6 +650,7 @@ attributes:
     owner: LevelContext
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -624,6 +672,7 @@ attributes:
     owner: LevelContext
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -801,6 +850,7 @@ attributes:
     owner: LevelContext
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:LevelContext
 

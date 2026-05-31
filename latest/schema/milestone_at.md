@@ -25,7 +25,7 @@ URI: [pbs:milestone_at](https://schema.pragmaticbim.ch/milestone_at)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a schedule |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
 
 
 

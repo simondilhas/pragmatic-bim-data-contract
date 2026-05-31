@@ -38,6 +38,10 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
         click System href "../System/"
       VirtualEntity <|-- ConnectionVirtual
         click ConnectionVirtual href "../ConnectionVirtual/"
+      VirtualEntity <|-- AbstractTimeRecord
+        click AbstractTimeRecord href "../AbstractTimeRecord/"
+      VirtualEntity <|-- TimeDependency
+        click TimeDependency href "../TimeDependency/"
       VirtualEntity <|-- AbstractCostRecord
         click AbstractCostRecord href "../AbstractCostRecord/"
       VirtualEntity <|-- Material
@@ -225,6 +229,28 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
     
 
         
+      VirtualEntity : time_items
+        
+          
+    
+        
+        
+        VirtualEntity --> "*" TimeItem : time_items
+        click TimeItem href "../TimeItem/"
+    
+
+        
+      VirtualEntity : time_plans
+        
+          
+    
+        
+        
+        VirtualEntity --> "*" TimePlan : time_plans
+        click TimePlan href "../TimePlan/"
+    
+
+        
       
 ```
 
@@ -239,6 +265,8 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
         * [Space](Space.md)
         * [System](System.md)
         * [ConnectionVirtual](ConnectionVirtual.md)
+        * [AbstractTimeRecord](AbstractTimeRecord.md)
+        * [TimeDependency](TimeDependency.md)
         * [AbstractCostRecord](AbstractCostRecord.md)
         * [Material](Material.md)
 
@@ -256,6 +284,8 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
 | ---  | --- | --- | --- |
 | [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity | direct |
 | [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity | direct |
+| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity | direct |
+| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity | direct |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
@@ -334,6 +364,8 @@ abstract: true
 slots:
 - cost_items
 - cost_assemblies
+- time_items
+- time_plans
 - materials
 class_uri: pbs:VirtualEntity
 
@@ -372,6 +404,28 @@ attributes:
     range: CostAssembly
     multivalued: true
     inlined: false
+  time_items:
+    name: time_items
+    description: Time items associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: VirtualEntity
+    domain_of:
+    - VirtualEntity
+    range: TimeItem
+    multivalued: true
+    inlined: false
+  time_plans:
+    name: time_plans
+    description: Grouped time plans associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: VirtualEntity
+    domain_of:
+    - VirtualEntity
+    range: TimePlan
+    multivalued: true
+    inlined: false
   materials:
     name: materials
     description: Material definitions associated with this entity.
@@ -394,6 +448,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -406,6 +461,7 @@ attributes:
     owner: VirtualEntity
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -427,6 +483,7 @@ attributes:
     owner: VirtualEntity
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -604,6 +661,7 @@ attributes:
     owner: VirtualEntity
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:VirtualEntity
 

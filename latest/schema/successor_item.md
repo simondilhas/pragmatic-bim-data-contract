@@ -6,7 +6,7 @@ search:
 # Slot: successor_item 
 
 
-_Schedule item whose timing is constrained by the predecessor item._
+_Time item whose timing is constrained by the predecessor item._
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:successor_item](https://schema.pragmaticbim.ch/successor_item)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ScheduleDependency](ScheduleDependency.md) | Precedence relationship between two schedule items, optionally with lag |  no  |
+| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
 
 
 
@@ -38,8 +38,8 @@ URI: [pbs:successor_item](https://schema.pragmaticbim.ch/successor_item)
 
 | Property | Value |
 | --- | --- |
-| Range | [ScheduleItem](ScheduleItem.md) |
-| Domain Of | [ScheduleDependency](ScheduleDependency.md) |
+| Range | [TimeItem](TimeItem.md) |
+| Domain Of | [TimeDependency](TimeDependency.md) |
 
 ### Cardinality and Requirements
 
@@ -84,12 +84,12 @@ URI: [pbs:successor_item](https://schema.pragmaticbim.ch/successor_item)
 <details>
 ```yaml
 name: successor_item
-description: Schedule item whose timing is constrained by the predecessor item.
+description: Time item whose timing is constrained by the predecessor item.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- ScheduleDependency
-range: ScheduleItem
+- TimeDependency
+range: TimeItem
 inlined: false
 
 ```

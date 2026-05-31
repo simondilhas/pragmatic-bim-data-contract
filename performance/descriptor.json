@@ -1,7 +1,7 @@
 {
   "id": "https://schema.pragmaticbim.ch/performance",
-  "title": "Pragmatic BIM Data Contract - Performance",
-  "description": "Domain-specific normalized performance property classes.",
+  "title": "Pragmatic BIM Data Contract - Entity Performance Properties",
+  "description": "Domain-specific normalized performance property classes extracted from IFC and stored on Entity.",
   "source_file": "performance_schema.yaml",
   "docs_index": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html",
   "json_schema": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json",

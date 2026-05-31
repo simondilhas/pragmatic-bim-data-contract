@@ -26,7 +26,7 @@ URI: [pbs:ifc_global_id](https://schema.pragmaticbim.ch/ifc_global_id)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Entity](Entity.md) | Common base class for all schema entities |  no  |
-| [Change](Change.md) | Detected difference for one subject between two revisions |  no  |
+| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind chang... |  no  |
 | [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
@@ -51,14 +51,21 @@ URI: [pbs:ifc_global_id](https://schema.pragmaticbim.ch/ifc_global_id)
 | [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
 | [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
 | [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
-| [ScheduleTemplate](ScheduleTemplate.md) | Reusable schedule container defining items, milestones, and dependencies for ... |  no  |
-| [ScheduleItem](ScheduleItem.md) | Planned work item with baseline and actual dates, linked to a schedule templa... |  no  |
-| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a schedule |  no  |
-| [ScheduleDependency](ScheduleDependency.md) | Precedence relationship between two schedule items, optionally with lag |  no  |
+| [AbstractTimeRecord](AbstractTimeRecord.md) | Abstract base for reusable time/schedule record fields shared by atomic and g... |  no  |
+| [TimeItem](TimeItem.md) | Planned work item with baseline and actual dates, optionally linked to model ... |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a time plan |  no  |
+| [TimePlan](TimePlan.md) | Grouped schedule container defining component items, milestones, and dependen... |  no  |
+| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
 | [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 | [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change |  no  |
+| [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields |  no  |
+| [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer... |  no  |
+| [AdditionChange](AdditionChange.md) | New entity or requirement introduced in to_revision |  no  |
+| [DeletionChange](DeletionChange.md) | Entity or requirement removed in to_revision |  no  |
 
 
 

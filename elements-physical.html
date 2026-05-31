@@ -28,10 +28,11 @@ ul { padding-left: 1.2rem; }
 
     <h2>Class hierarchy</h2>
     <div class="mermaid">classDiagram
+  direction TB
+  Entity <|-- PhysicalElement
   PhysicalElement <|-- Boundary
   PhysicalElement <|-- ConnectionPhysical
   PhysicalElement <|-- Equipment
-  Entity <|-- PhysicalElement
   PhysicalElement <|-- Separator
   Separator <|-- SeparatorSlab
   Separator <|-- SeparatorWall</div>

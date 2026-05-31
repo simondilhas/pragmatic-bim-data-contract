@@ -238,6 +238,28 @@ URI: [pbs:CostItem](https://schema.pragmaticbim.ch/CostItem)
     
 
         
+      CostItem : time_items
+        
+          
+    
+        
+        
+        CostItem --> "*" TimeItem : time_items
+        click TimeItem href "../TimeItem/"
+    
+
+        
+      CostItem : time_plans
+        
+          
+    
+        
+        
+        CostItem --> "*" TimePlan : time_plans
+        click TimePlan href "../TimePlan/"
+    
+
+        
       CostItem : unit_cost
         
       
@@ -271,9 +293,11 @@ URI: [pbs:CostItem](https://schema.pragmaticbim.ch/CostItem)
 | [cost_quantity_type](cost_quantity_type.md) | 0..1 <br/> [QuantityType](QuantityType.md) | Quantity type used as basis for this cost calculation | [AbstractCostRecord](AbstractCostRecord.md) |
 | [cost_quantity_value](cost_quantity_value.md) | 0..1 <br/> [Double](Double.md) | Quantity magnitude used as basis for this cost calculation | [AbstractCostRecord](AbstractCostRecord.md) |
 | [cost_quantity_unit](cost_quantity_unit.md) | 0..1 <br/> [String](String.md) | Unit of the cost quantity value | [AbstractCostRecord](AbstractCostRecord.md) |
-| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Entities this cost item applies to | [AbstractCostRecord](AbstractCostRecord.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule ite... | [AbstractCostRecord](AbstractCostRecord.md) |
 | [cost_items](cost_items.md) | * <br/> [CostItem](CostItem.md) | Cost items associated with this entity | [VirtualEntity](VirtualEntity.md) |
 | [cost_assemblies](cost_assemblies.md) | * <br/> [CostAssembly](CostAssembly.md) | Aggregated unit prices associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [time_items](time_items.md) | * <br/> [TimeItem](TimeItem.md) | Time items associated with this entity | [VirtualEntity](VirtualEntity.md) |
+| [time_plans](time_plans.md) | * <br/> [TimePlan](TimePlan.md) | Grouped time plans associated with this entity | [VirtualEntity](VirtualEntity.md) |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
@@ -317,6 +341,11 @@ URI: [pbs:CostItem](https://schema.pragmaticbim.ch/CostItem)
 | [Space](Space.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
 | [System](System.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
+| [AbstractTimeRecord](AbstractTimeRecord.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
+| [TimeItem](TimeItem.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
+| [Milestone](Milestone.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
+| [TimePlan](TimePlan.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
+| [TimeDependency](TimeDependency.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
 | [CostItem](CostItem.md) | [cost_items](cost_items.md) | range | [CostItem](CostItem.md) |
 | [CostAssembly](CostAssembly.md) | [component_cost_items](component_cost_items.md) | range | [CostItem](CostItem.md) |
@@ -450,14 +479,18 @@ attributes:
     range: string
   applies_to_entities:
     name: applies_to_entities
-    description: Entities this cost item applies to.
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: CostItem
     domain_of:
+    - Requirement
+    - AbstractTimeRecord
     - AbstractCostRecord
     range: Entity
     multivalued: true
+    inlined: false
   cost_items:
     name: cost_items
     description: Cost items associated with this entity.
@@ -478,6 +511,28 @@ attributes:
     domain_of:
     - VirtualEntity
     range: CostAssembly
+    multivalued: true
+    inlined: false
+  time_items:
+    name: time_items
+    description: Time items associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: CostItem
+    domain_of:
+    - VirtualEntity
+    range: TimeItem
+    multivalued: true
+    inlined: false
+  time_plans:
+    name: time_plans
+    description: Grouped time plans associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: CostItem
+    domain_of:
+    - VirtualEntity
+    range: TimePlan
     multivalued: true
     inlined: false
   materials:
@@ -502,6 +557,7 @@ attributes:
     - Entity
     - Task
     - Document
+    - Requirement
     - Change
     - ChangeSet
     range: string
@@ -514,6 +570,7 @@ attributes:
     owner: CostItem
     domain_of:
     - Entity
+    - Requirement
     range: string
     required: true
   localized_names:
@@ -535,6 +592,7 @@ attributes:
     owner: CostItem
     domain_of:
     - Entity
+    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -712,6 +770,7 @@ attributes:
     owner: CostItem
     domain_of:
     - Entity
+    - Requirement
     range: StatusType
 class_uri: pbs:CostItem
 

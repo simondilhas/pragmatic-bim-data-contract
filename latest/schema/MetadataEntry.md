@@ -83,10 +83,11 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 | [Space](Space.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [System](System.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [ScheduleTemplate](ScheduleTemplate.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [ScheduleItem](ScheduleItem.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [AbstractTimeRecord](AbstractTimeRecord.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [TimeItem](TimeItem.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Milestone](Milestone.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [ScheduleDependency](ScheduleDependency.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [TimePlan](TimePlan.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [TimeDependency](TimeDependency.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [CostItem](CostItem.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [CostAssembly](CostAssembly.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |

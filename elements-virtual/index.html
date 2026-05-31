@@ -24,31 +24,33 @@ ul { padding-left: 1.2rem; }
     </nav>
     <h1>Pragmatic BIM Data Contract - Elements Virtual</h1>
     <p><strong>Module URI:</strong> <code>https://schema.pragmaticbim.ch/elements-virtual</code></p>
-    <p>Virtual entities such as context, space, system, schedule, and cost/material information.</p>
+    <p>Virtual entities such as context, space, system, time, cost, and material information.</p>
 
     <h2>Class hierarchy</h2>
     <div class="mermaid">classDiagram
+  direction TB
+  Entity <|-- VirtualEntity
   VirtualEntity <|-- AbstractCostRecord
-  BuiltAssetContext <|-- BuildingContext
-  SpatialContext <|-- BuiltAssetContext
-  BuiltAssetContext <|-- CivilStructureContext
-  VirtualEntity <|-- ConnectionVirtual
   AbstractCostRecord <|-- CostAssembly
   AbstractCostRecord <|-- CostItem
-  SpatialContext <|-- LegalSiteContext
-  SpatialContext <|-- LevelContext
+  VirtualEntity <|-- AbstractTimeRecord
+  AbstractTimeRecord <|-- TimeItem
+  TimeItem <|-- Milestone
+  AbstractTimeRecord <|-- TimePlan
+  VirtualEntity <|-- ConnectionVirtual
   VirtualEntity <|-- Material
-  ScheduleItem <|-- Milestone
-  SpatialContext <|-- PerimeterContext
-  SpatialContext <|-- ProjectContext
-  Entity <|-- ScheduleDependency
-  Entity <|-- ScheduleItem
-  Entity <|-- ScheduleTemplate
   VirtualEntity <|-- Space
   VirtualEntity <|-- SpatialContext
+  SpatialContext <|-- BuiltAssetContext
+  BuiltAssetContext <|-- BuildingContext
+  BuiltAssetContext <|-- CivilStructureContext
+  SpatialContext <|-- LegalSiteContext
+  SpatialContext <|-- LevelContext
+  SpatialContext <|-- PerimeterContext
+  SpatialContext <|-- ProjectContext
+  SpatialContext <|-- ZoneContext
   VirtualEntity <|-- System
-  Entity <|-- VirtualEntity
-  SpatialContext <|-- ZoneContext</div>
+  VirtualEntity <|-- TimeDependency</div>
 
 
       <h2>Primary entry</h2>

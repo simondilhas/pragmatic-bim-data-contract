@@ -25,7 +25,7 @@ URI: [pbs:lag_days](https://schema.pragmaticbim.ch/lag_days)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ScheduleDependency](ScheduleDependency.md) | Precedence relationship between two schedule items, optionally with lag |  no  |
+| [TimeDependency](TimeDependency.md) | Precedence relationship between two time items within a plan, optionally with... |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [pbs:lag_days](https://schema.pragmaticbim.ch/lag_days)
 | Property | Value |
 | --- | --- |
 | Range | [Double](Double.md) |
-| Domain Of | [ScheduleDependency](ScheduleDependency.md) |
+| Domain Of | [TimeDependency](TimeDependency.md) |
 
 ### Cardinality and Requirements
 
@@ -88,7 +88,7 @@ description: Optional lag or lead offset in days applied to the dependency relat
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- ScheduleDependency
+- TimeDependency
 range: double
 
 ```

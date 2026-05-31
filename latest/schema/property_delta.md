@@ -25,7 +25,8 @@ URI: [pbs:property_delta](https://schema.pragmaticbim.ch/property_delta)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Change](Change.md) | Detected difference for one subject between two revisions |  no  |
+| [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields |  no  |
 
 
 
@@ -39,7 +40,7 @@ URI: [pbs:property_delta](https://schema.pragmaticbim.ch/property_delta)
 | Property | Value |
 | --- | --- |
 | Range | [PropertyDelta](PropertyDelta.md) |
-| Domain Of | [Change](Change.md) |
+| Domain Of | [PropertyChange](PropertyChange.md), [RequirementChange](RequirementChange.md) |
 
 ### Cardinality and Requirements
 
@@ -89,7 +90,8 @@ description: Field-level differences detected between the two revision states.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- Change
+- PropertyChange
+- RequirementChange
 range: PropertyDelta
 multivalued: true
 inlined: true
