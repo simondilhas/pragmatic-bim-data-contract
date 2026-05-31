@@ -279,3 +279,68 @@ enum_localizations:
     start_to_finish:
       en: Start to Finish
       de: Start zu Ende
+
+  ChangeKind:
+    unchanged:
+      en: Unchanged
+      de: Unveraendert
+    minor:
+      en: Minor
+      de: Geringfuegig
+    major:
+      en: Major
+      de: Erheblich
+    rewritten:
+      en: Rewritten
+      de: Neu geschrieben
+    new:
+      en: New
+      de: Neu
+    deleted:
+      en: Deleted
+      de: Geloescht
+
+  ChangeIntentVerdict:
+    stable:
+      en: Stable
+      de: Stabil
+    new_intent:
+      en: New Intent
+      de: Neue Absicht
+
+  StateRefKind:
+    ifc_model:
+      en: IFC Model
+      de: IFC Modell
+    geometry:
+      en: Geometry
+      de: Geometrie
+    document:
+      en: Document
+      de: Dokument
+    text_extract:
+      en: Text Extract
+      de: Textextrakt
+    entity_record:
+      en: Entity Record
+      de: Entitaetsdatensatz
+    other:
+      en: Other
+      de: Sonstiges
+
+  PropertyPathKind:
+    ifc_attribute:
+      en: IFC Attribute
+      de: IFC Attribut
+    ifc_pset:
+      en: IFC PropertySet
+      de: IFC PropertySet
+    schema_slot:
+      en: Schema Slot
+      de: Schema Feld
+    document_field:
+      en: Document Field
+      de: Dokumentfeld
+    text_span:
+      en: Text Span
+      de: Textabschnitt

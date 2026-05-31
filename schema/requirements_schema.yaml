@@ -1,13 +1,17 @@
-id: https://example.org/pragmatic-bim-data-contract/requirements
+id: https://schema.pragmaticbim.ch/requirements
 name: pragmatic_bim_requirements_schema
 title: Pragmatic BIM Data Contract - Requirements
 description: >
   Requirement-driver slots.
 license: MIT
 
+see_also:
+  - https://schema.pragmaticbim.ch/requirements
+  - https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
+
 prefixes:
   linkml: https://w3id.org/linkml/
-  pbs: https://example.org/pragmatic-bim-data-contract/
+  pbs: https://schema.pragmaticbim.ch/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#

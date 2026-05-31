@@ -1,13 +1,17 @@
-id: https://example.org/pragmatic-bim-data-contract/performance
+id: https://schema.pragmaticbim.ch/performance
 name: pragmatic_bim_performance_schema
 title: Pragmatic BIM Data Contract - Performance
 description: >
   Domain-specific normalized performance property classes.
 license: MIT
 
+see_also:
+  - https://schema.pragmaticbim.ch/performance
+  - https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
+
 prefixes:
   linkml: https://w3id.org/linkml/
-  pbs: https://example.org/pragmatic-bim-data-contract/
+  pbs: https://schema.pragmaticbim.ch/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#

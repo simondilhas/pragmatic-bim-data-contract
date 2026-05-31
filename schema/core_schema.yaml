@@ -1,13 +1,17 @@
-id: https://example.org/pragmatic-bim-data-contract/core
+id: https://schema.pragmaticbim.ch/core
 name: pragmatic_bim_core_schema
 title: Pragmatic BIM Data Contract - Core
 description: >
   Core entities and reusable base slots.
 license: MIT
 
+see_also:
+  - https://schema.pragmaticbim.ch/core
+  - https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html
+
 prefixes:
   linkml: https://w3id.org/linkml/
-  pbs: https://example.org/pragmatic-bim-data-contract/
+  pbs: https://schema.pragmaticbim.ch/
   ifc: https://standards.buildingsmart.org/IFC/DEV/IFC4_3/FINAL/HTML/
   ifcowl: https://w3id.org/ifc/IFC4_ADD2#
   bot: https://w3id.org/bot#
@@ -152,12 +156,18 @@ classes:
       - prov:Activity
     description: Action/task record linked to an entity for implementation and follow-up workflows.
     slots:
+      - id
       - task_type
       - task_status
       - assignee
       - due_at
       - related_decision
       - task_notes
+    slot_usage:
+      id:
+        required: false
+        identifier: false
+        description: Optional stable identifier when referenced externally (for example from Change.triggered_task).
 
   Message:
     is_a: Entity
@@ -178,8 +188,14 @@ classes:
     class_uri: pbs:Document
     description: Reference to an external document stored in a file system, DMS, object storage, or URL.
     slots:
+      - id
       - classifications
       - storage_link
+    slot_usage:
+      id:
+        required: false
+        identifier: false
+        description: Optional stable identifier when referenced externally (for example from Change records).
 
   PostalAddress:
     class_uri: pbs:PostalAddress

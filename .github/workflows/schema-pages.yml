@@ -439,30 +439,13 @@ jobs:
             md_file.with_suffix(".html").write_text(html, encoding="utf-8")
           PY
 
-      - name: Write landing page
+      - name: Generate module resolver pages
         run: |
-          cat > site/index.html <<'HTML'
-          <!doctype html>
-          <html lang="en">
-            <head>
-              <meta charset="utf-8">
-              <title>Pragmatic BIM Schema (Stable)</title>
-            </head>
-            <body>
-              <h1>Pragmatic BIM Schema (Stable)</h1>
-              <p>Latest stable release artifacts are available here.</p>
-              <ul>
-                <li><a href="./schema/pragmatic-bim.schema.json">JSON Schema</a></li>
-                <li><a href="./schema/pragmatic-bim.shacl.ttl">SHACL</a></li>
-                <li><a href="./schema/pragmatic-bim.csv">CSV</a></li>
-                <li><a href="./schema/pragmatic-bim.pydantic.py">Pydantic</a></li>
-                <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
-                <li><a href="./schema/pragmatic-bim.docs.md">Docs (Markdown, raw)</a></li>
-                <li><a href="./latest/index.html">Latest stable alias</a></li>
-              </ul>
-            </body>
-          </html>
-          HTML
+          python scripts/generate_module_pages.py \
+            --site-dir site \
+            --schema-dir schema \
+            --base-url https://schema.pragmaticbim.ch \
+            --write-root-index
 
       - name: Publish latest and versioned snapshots
         run: |
@@ -471,28 +454,30 @@ jobs:
           cp -R site/schema "site/latest/"
           cp -R site/schema "site/$RELEASE_VERSION/"
           cp site/index.html "site/latest/index.html"
+          cp site/modules.json "site/latest/modules.json"
 
-          cat > "site/$RELEASE_VERSION/index.html" <<HTML
-          <!doctype html>
-          <html lang="en">
-            <head>
-              <meta charset="utf-8">
-              <title>Pragmatic BIM Schema ($RELEASE_VERSION)</title>
-            </head>
-            <body>
-              <h1>Pragmatic BIM Schema ($RELEASE_VERSION)</h1>
-              <p>Version-pinned release artifacts.</p>
-              <ul>
-                <li><a href="./schema/pragmatic-bim.schema.json">JSON Schema</a></li>
-                <li><a href="./schema/pragmatic-bim.shacl.ttl">SHACL</a></li>
-                <li><a href="./schema/pragmatic-bim.csv">CSV</a></li>
-                <li><a href="./schema/pragmatic-bim.pydantic.py">Pydantic</a></li>
-                <li><a href="./schema/pragmatic-bim.docs.html">Docs (HTML)</a></li>
-                <li><a href="./schema/pragmatic-bim.docs.md">Docs (Markdown, raw)</a></li>
-              </ul>
-            </body>
-          </html>
-          HTML
+          for slug in $(python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("site/modules.json").read_text(encoding="utf-8"))
+          for module in data.get("modules", []):
+              slug = module.get("slug")
+              if isinstance(slug, str) and slug:
+                  print(slug)
+          PY
+          ); do
+            cp -R "site/$slug" "site/latest/$slug"
+            cp -R "site/$slug" "site/$RELEASE_VERSION/$slug"
+            cp "site/$slug.html" "site/latest/$slug.html"
+            cp "site/$slug.html" "site/$RELEASE_VERSION/$slug.html"
+          done
+
+          python scripts/generate_module_pages.py \
+            --site-dir "site/$RELEASE_VERSION" \
+            --schema-dir schema \
+            --base-url "https://schema.pragmaticbim.ch/$RELEASE_VERSION" \
+            --release-label "$RELEASE_VERSION" \
+            --write-root-index
 
           python - <<'PY'
           from __future__ import annotations
