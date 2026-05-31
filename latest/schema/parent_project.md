@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: parent_project 
 
@@ -7,11 +10,11 @@ _Parent project context reference._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:parent_project](https://example.org/pragmatic-bim-data-contract/parent_project)
-Alias: parent_project
 
+URI: [pbs:parent_project](https://schema.pragmaticbim.ch/parent_project)
 <!-- no inheritance hierarchy -->
 
 
@@ -23,15 +26,15 @@ Alias: parent_project
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  yes  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
-| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
-| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
 | [System](System.md) | Building service system grouping that serves spaces or zones |  yes  |
+| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
+| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
+| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
+| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
+| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
+| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
 | [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
+| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
 
 
 
@@ -70,7 +73,7 @@ Alias: parent_project
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -91,13 +94,12 @@ Alias: parent_project
 ```yaml
 name: parent_project
 description: Parent project context reference.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: parent_project
 domain_of:
 - SpatialContext
 - System
 range: ProjectContext
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: connects_spaces 
 
@@ -7,11 +10,11 @@ _Spaces connected by this virtual connection._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:connects_spaces](https://example.org/pragmatic-bim-data-contract/connects_spaces)
-Alias: connects_spaces
 
+URI: [pbs:connects_spaces](https://schema.pragmaticbim.ch/connects_spaces)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: connects_spaces
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: connects_spaces
 ```yaml
 name: connects_spaces
 description: Spaces connected by this virtual connection.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: connects_spaces
 domain_of:
 - ConnectionVirtual
 range: Space
 multivalued: true
 
 ```
-</details>
+</details></div>

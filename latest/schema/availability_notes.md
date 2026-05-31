@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: availability_notes 
 
@@ -7,11 +10,11 @@ _Optional notes about availability, office hours, or response expectations._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:availability_notes](https://example.org/pragmatic-bim-data-contract/availability_notes)
-Alias: availability_notes
 
+URI: [pbs:availability_notes](https://schema.pragmaticbim.ch/availability_notes)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: availability_notes
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: availability_notes
 ```yaml
 name: availability_notes
 description: Optional notes about availability, office hours, or response expectations.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: availability_notes
 domain_of:
 - ContactPoint
 range: string
 
 ```
-</details>
+</details></div>

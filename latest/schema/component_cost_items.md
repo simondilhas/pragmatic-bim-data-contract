@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: component_cost_items 
 
@@ -7,11 +10,11 @@ _Atomic cost items that are aggregated into this cost assembly._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:component_cost_items](https://example.org/pragmatic-bim-data-contract/component_cost_items)
-Alias: component_cost_items
 
+URI: [pbs:component_cost_items](https://schema.pragmaticbim.ch/component_cost_items)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: component_cost_items
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,9 +86,8 @@ Alias: component_cost_items
 ```yaml
 name: component_cost_items
 description: Atomic cost items that are aggregated into this cost assembly.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: component_cost_items
 domain_of:
 - CostAssembly
 range: CostItem
@@ -93,4 +95,4 @@ multivalued: true
 inlined: false
 
 ```
-</details>
+</details></div>

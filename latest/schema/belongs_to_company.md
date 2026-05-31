@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: belongs_to_company 
 
@@ -7,11 +10,11 @@ _Optional company that the person belongs to._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:belongs_to_company](https://example.org/pragmatic-bim-data-contract/belongs_to_company)
-Alias: belongs_to_company
 
+URI: [pbs:belongs_to_company](https://schema.pragmaticbim.ch/belongs_to_company)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: belongs_to_company
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,13 +85,12 @@ Alias: belongs_to_company
 ```yaml
 name: belongs_to_company
 description: Optional company that the person belongs to.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: belongs_to_company
 domain_of:
 - Person
 range: Company
 inlined: false
 
 ```
-</details>
+</details></div>

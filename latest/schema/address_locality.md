@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: address_locality 
 
@@ -7,11 +10,11 @@ _Locality, city, or town._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:addressLocality](https://schema.org/addressLocality)
-Alias: address_locality
 
+URI: [schema:addressLocality](http://schema.org/addressLocality)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: address_locality
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:addressLocality](https://schema.org/addressLocality) |
+| Slot URI | [schema:addressLocality](http://schema.org/addressLocality) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: address_locality
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: address_locality
 ```yaml
 name: address_locality
 description: Locality, city, or town.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:addressLocality
-alias: address_locality
 domain_of:
 - PostalAddress
 range: string
 
 ```
-</details>
+</details></div>

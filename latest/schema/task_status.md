@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: task_status 
 
@@ -7,11 +10,11 @@ _Task status URI/CURIE aligned with action status vocabularies._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:actionStatus](https://schema.org/actionStatus)
-Alias: task_status
 
+URI: [schema:actionStatus](http://schema.org/actionStatus)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: task_status
 | --- | --- |
 | Range | [Uriorcurie](Uriorcurie.md) |
 | Domain Of | [Task](Task.md) |
-| Slot URI | [schema:actionStatus](https://schema.org/actionStatus) |
+| Slot URI | [schema:actionStatus](http://schema.org/actionStatus) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: task_status
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: task_status
 ```yaml
 name: task_status
 description: Task status URI/CURIE aligned with action status vocabularies.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:actionStatus
-alias: task_status
 domain_of:
 - Task
 range: uriorcurie
 
 ```
-</details>
+</details></div>

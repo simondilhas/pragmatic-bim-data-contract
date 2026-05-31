@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: classification_uri 
 
@@ -7,11 +10,11 @@ _Optional URI/CURIE that identifies the classification concept in an external re
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:classification_uri](https://example.org/pragmatic-bim-data-contract/classification_uri)
-Alias: classification_uri
 
+URI: [pbs:classification_uri](https://schema.pragmaticbim.ch/classification_uri)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: classification_uri
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,12 +86,11 @@ Alias: classification_uri
 name: classification_uri
 description: Optional URI/CURIE that identifies the classification concept in an external
   registry.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: classification_uri
 domain_of:
 - Classification
 range: uriorcurie
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: MetadataEntry 
 
@@ -7,9 +10,11 @@ _Generic metadata entry for storing IFC attributes, PropertySet fields, or proje
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:MetadataEntry](https://example.org/pragmatic-bim-data-contract/MetadataEntry)
+
+URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 
 
 
@@ -35,7 +40,7 @@ URI: [pbs:MetadataEntry](https://example.org/pragmatic-bim-data-contract/Metadat
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:MetadataEntry](https://example.org/pragmatic-bim-data-contract/MetadataEntry) |
+| Class URI | [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry) |
 
 
 ## Slots
@@ -78,6 +83,10 @@ URI: [pbs:MetadataEntry](https://example.org/pragmatic-bim-data-contract/Metadat
 | [Space](Space.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [System](System.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [ScheduleItem](ScheduleItem.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Milestone](Milestone.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [CostItem](CostItem.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [CostAssembly](CostAssembly.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
@@ -103,7 +112,7 @@ URI: [pbs:MetadataEntry](https://example.org/pragmatic-bim-data-contract/Metadat
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -131,7 +140,7 @@ URI: [pbs:MetadataEntry](https://example.org/pragmatic-bim-data-contract/Metadat
 name: MetadataEntry
 description: Generic metadata entry for storing IFC attributes, PropertySet fields,
   or project-specific key-value data.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 slots:
 - metadata_key
 - metadata_value
@@ -147,14 +156,13 @@ class_uri: pbs:MetadataEntry
 name: MetadataEntry
 description: Generic metadata entry for storing IFC attributes, PropertySet fields,
   or project-specific key-value data.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 attributes:
   metadata_key:
     name: metadata_key
     description: Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata_key
     owner: MetadataEntry
     domain_of:
     - MetadataEntry
@@ -163,9 +171,8 @@ attributes:
   metadata_value:
     name: metadata_value
     description: Metadata value serialized as text.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata_value
     owner: MetadataEntry
     domain_of:
     - MetadataEntry
@@ -173,4 +180,4 @@ attributes:
 class_uri: pbs:MetadataEntry
 
 ```
-</details>
+</details></div>

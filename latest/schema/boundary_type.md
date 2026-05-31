@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: boundary_type 
 
@@ -7,11 +10,11 @@ _Classification of boundary element (e.g., covering)._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:boundary_type](https://example.org/pragmatic-bim-data-contract/boundary_type)
-Alias: boundary_type
 
+URI: [pbs:boundary_type](https://schema.pragmaticbim.ch/boundary_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: boundary_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: boundary_type
 ```yaml
 name: boundary_type
 description: Classification of boundary element (e.g., covering).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: boundary_type
 domain_of:
 - Boundary
 range: BoundaryType
 required: true
 
 ```
-</details>
+</details></div>

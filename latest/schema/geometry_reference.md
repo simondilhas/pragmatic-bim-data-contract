@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: geometry_reference 
 
@@ -7,11 +10,11 @@ _URI/path/hash/pointer to geometry payload._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:geometry_reference](https://example.org/pragmatic-bim-data-contract/geometry_reference)
-Alias: geometry_reference
 
+URI: [pbs:geometry_reference](https://schema.pragmaticbim.ch/geometry_reference)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: geometry_reference
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: geometry_reference
 ```yaml
 name: geometry_reference
 description: URI/path/hash/pointer to geometry payload.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: geometry_reference
 domain_of:
 - GeometryRepresentation
 range: string
 required: true
 
 ```
-</details>
+</details></div>

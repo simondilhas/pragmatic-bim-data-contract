@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: classification_source 
 
@@ -7,11 +10,11 @@ _Source authority or dataset for this classification._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:classification_source](https://example.org/pragmatic-bim-data-contract/classification_source)
-Alias: classification_source
 
+URI: [pbs:classification_source](https://schema.pragmaticbim.ch/classification_source)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: classification_source
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: classification_source
 ```yaml
 name: classification_source
 description: Source authority or dataset for this classification.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: classification_source
 domain_of:
 - Classification
 range: string
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: tags 
 
@@ -7,11 +10,11 @@ _Optional free-form labels for filtering/grouping._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:tags](https://example.org/pragmatic-bim-data-contract/tags)
-Alias: tags
 
+URI: [pbs:tags](https://schema.pragmaticbim.ch/tags)
 <!-- no inheritance hierarchy -->
 
 
@@ -52,7 +55,7 @@ Alias: tags
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -73,11 +76,10 @@ Alias: tags
 ```yaml
 name: tags
 description: Optional free-form labels for filtering/grouping.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: tags
 range: string
 multivalued: true
 
 ```
-</details>
+</details></div>

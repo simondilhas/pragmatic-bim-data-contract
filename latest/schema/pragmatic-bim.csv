@@ -5,6 +5,8 @@ Agent,,Abstract base class for people or organizations acting in workflow and co
 Boundary,,Physical element acting as a boundary treatment (for example covering).
 BuildingContext,,Spatial context node constrained to building semantics.
 BuiltAssetContext,,Abstract spatial context for built assets such as buildings and civil structures.
+Change,,"Detected difference for one subject between two revisions. Supports IFC model diffs, document/text diffs, and schema-entity field changes."
+ChangeSet,,Batch of Change records produced by comparing two model or document revisions.
 CivilStructureContext,,Spatial context node constrained to civil structure semantics.
 Classification,,"Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom)."
 Company,,"Organization, company, or legal entity participating in the project or asset lifecycle."
@@ -26,19 +28,25 @@ Material,,Material definition that can be associated with one or more entities.
 MaterialProperty,,Normalized material-related property.
 Message,,Message or communication record linked to an entity for coordination and traceability.
 MetadataEntry,,"Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data."
+Milestone,,Zero-duration checkpoint or delivery target within a schedule.
 PerformanceProperty,,Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses.
 PerimeterContext,,Spatial context node constrained to perimeter semantics.
 Person,,"Individual stakeholder, contributor, assignee, or responsible party represented in the schema."
 PhysicalElement,,Base class for physical elements that can be placed in built asset/level context.
 PostalAddress,,Structured postal or physical address for an agent.
 ProjectContext,,Spatial context node constrained to project semantics.
+PropertyDelta,,"Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans."
 QuantityValue,,Minimal quantity record for costing and analysis.
+ScheduleDependency,,"Precedence relationship between two schedule items, optionally with lag."
+ScheduleItem,,"Planned work item with baseline and actual dates, linked to a schedule template and optional model entities."
+ScheduleTemplate,,"Reusable schedule container defining items, milestones, and dependencies for a scoped plan."
 SecurityProperty,,Normalized security-related property.
 Separator,,Abstract base class for elements that separate spaces or zones.
 SeparatorSlab,,Slab-based separating element (for example floor/roof/base slab separators).
 SeparatorWall,,Wall-based separating element.
 Space,,"Spatial container used for occupancy, circulation, service, or analysis."
 SpatialContext,,"Context node used to represent project, perimeter, legal site, built asset, level, or zone."
+StateRef,,"Pointer to a content state at a specific revision. Covers IFC models, geometry payloads, documents, and extracted text."
 StructuralProperty,,Normalized structural-related property.
 System,,Building service system grouping that serves spaces or zones.
 Task,,Action/task record linked to an entity for implementation and follow-up workflows.

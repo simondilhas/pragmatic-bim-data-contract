@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: decided_by 
 
@@ -7,11 +10,11 @@ _Agent responsible for the decision._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [prov:wasAttributedTo](http://www.w3.org/ns/prov#wasAttributedTo)
-Alias: decided_by
-
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: decided_by
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,14 +86,13 @@ Alias: decided_by
 ```yaml
 name: decided_by
 description: Agent responsible for the decision.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: prov:wasAttributedTo
-alias: decided_by
 domain_of:
 - Decision
 range: Agent
 inlined: false
 
 ```
-</details>
+</details></div>

@@ -33,68 +33,68 @@ a:hover { text-decoration: underline; }
       <a href="../index.html">Home</a>
       <a href="./pragmatic-bim.docs.html">Schema Index</a>
     </nav>
-    <h1 id="enum-separatorslabtype">Enum: SeparatorSlabType</h1>
+    <hr>
+<p>search:
+  boost: 2.0</p>
+<hr>
+<h1 id="enum-separatorslabtype">Enum: SeparatorSlabType</h1>
 <p><em>Classification of slab-based separator elements.</em></p>
-<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/SeparatorSlabType">pbs:SeparatorSlabType</a></p>
-<p><strong>Enum URI:</strong> <a href="https://example.org/pragmatic-bim-data-contract/SeparatorSlabType">pbs:SeparatorSlabType</a></p>
-<h2 id="permissible-values">Permissible Values</h2>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Meaning</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>floor</td>
-<td>ifcowl:IfcSlabTypeEnum.FLOOR</td>
-<td></td>
-</tr>
-<tr>
-<td>roof</td>
-<td>ifcowl:IfcSlabTypeEnum.ROOF</td>
-<td></td>
-</tr>
-<tr>
-<td>baseslab</td>
-<td>ifcowl:IfcSlabTypeEnum.BASESLAB</td>
-<td></td>
-</tr>
-<tr>
-<td>balcony</td>
-<td>ifcowl:IfcSlabTypeEnum.FLOOR</td>
-<td>Balcony slab; mapped to FLOOR as the closest IFC slab type</td>
-</tr>
-</tbody>
-</table>
-<h2 id="slots">Slots</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="separator_slab_type.html">separator_slab_type</a></td>
-<td>Classification of slab-based separator element (for example floor/roof/base s...</td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
-</ul>
-<h2 id="linkml-source">LinkML Source</h2>
+<div data-search-exclude markdown="1">
+
+URI: [pbs:SeparatorSlabType](https://schema.pragmaticbim.ch/SeparatorSlabType)
+
+**Enum URI:** [pbs:SeparatorSlabType](https://schema.pragmaticbim.ch/SeparatorSlabType)
+
+
+## Permissible Values
+| Value | Meaning | Description |
+| --- | --- | --- |
+| floor | ifcowl:IfcSlabTypeEnum.FLOOR |  |
+| roof | ifcowl:IfcSlabTypeEnum.ROOF |  |
+| baseslab | ifcowl:IfcSlabTypeEnum.BASESLAB |  |
+| balcony | ifcowl:IfcSlabTypeEnum.FLOOR | Balcony slab; mapped to FLOOR as the closest IFC slab type |
+
+
+
+
+## Slots
+
+| Name | Description |
+| ---  | --- |
+| [separator_slab_type](separator_slab_type.md) | Classification of slab-based separator element (for example floor/roof/base s... |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+
+
+## LinkML Source
+
 <details>
 
 <pre><code class="language-yaml">name: SeparatorSlabType
 description: Classification of slab-based separator elements.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:SeparatorSlabType
 permissible_values:
@@ -115,6 +115,8 @@ permissible_values:
 </code></pre>
 
 </details>
+
+</div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

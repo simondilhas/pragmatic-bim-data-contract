@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: classification_code 
 
@@ -7,11 +10,11 @@ _Classification code inside the scheme._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:classification_code](https://example.org/pragmatic-bim-data-contract/classification_code)
-Alias: classification_code
 
+URI: [pbs:classification_code](https://schema.pragmaticbim.ch/classification_code)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: classification_code
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: classification_code
 ```yaml
 name: classification_code
 description: Classification code inside the scheme.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: classification_code
 domain_of:
 - Classification
 range: string
 required: true
 
 ```
-</details>
+</details></div>

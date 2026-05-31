@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: connects_physical_elements 
 
@@ -7,11 +10,11 @@ _Physical elements connected by this virtual connection (for example wall-wall, 
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:connects_physical_elements](https://example.org/pragmatic-bim-data-contract/connects_physical_elements)
-Alias: connects_physical_elements
 
+URI: [pbs:connects_physical_elements](https://schema.pragmaticbim.ch/connects_physical_elements)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: connects_physical_elements
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: connects_physical_elements
 name: connects_physical_elements
 description: Physical elements connected by this virtual connection (for example wall-wall,
   wall-slab).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: connects_physical_elements
 domain_of:
 - ConnectionVirtual
 range: PhysicalElement
 multivalued: true
 
 ```
-</details>
+</details></div>

@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: AcousticPropertyKey 
 
 
@@ -7,9 +13,11 @@ _Canonical acoustic-related keys derived from IFC PropertySets._
 
 
 
-URI: [pbs:AcousticPropertyKey](https://example.org/pragmatic-bim-data-contract/AcousticPropertyKey)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:AcousticPropertyKey](https://example.org/pragmatic-bim-data-contract/AcousticPropertyKey)
+URI: [pbs:AcousticPropertyKey](https://schema.pragmaticbim.ch/AcousticPropertyKey)
+
+**Enum URI:** [pbs:AcousticPropertyKey](https://schema.pragmaticbim.ch/AcousticPropertyKey)
 
 
 ## Permissible Values
@@ -46,7 +54,7 @@ URI: [pbs:AcousticPropertyKey](https://example.org/pragmatic-bim-data-contract/A
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -59,7 +67,7 @@ URI: [pbs:AcousticPropertyKey](https://example.org/pragmatic-bim-data-contract/A
 ```yaml
 name: AcousticPropertyKey
 description: Canonical acoustic-related keys derived from IFC PropertySets.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:AcousticPropertyKey
 permissible_values:
@@ -75,3 +83,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

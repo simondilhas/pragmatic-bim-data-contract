@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: text_value 
 
@@ -7,11 +10,11 @@ _Localized text value._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:text_value](https://example.org/pragmatic-bim-data-contract/text_value)
-Alias: text_value
 
+URI: [pbs:text_value](https://schema.pragmaticbim.ch/text_value)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: text_value
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: text_value
 ```yaml
 name: text_value
 description: Localized text value.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: text_value
 domain_of:
 - LocalizedText
 range: string
 required: true
 
 ```
-</details>
+</details></div>

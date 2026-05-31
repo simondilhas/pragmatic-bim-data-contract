@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: LocalizedText 
 
@@ -7,9 +10,11 @@ _Localized text value for a specific language tag._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:LocalizedText](https://example.org/pragmatic-bim-data-contract/LocalizedText)
+
+URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 
 
 
@@ -35,7 +40,7 @@ URI: [pbs:LocalizedText](https://example.org/pragmatic-bim-data-contract/Localiz
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:LocalizedText](https://example.org/pragmatic-bim-data-contract/LocalizedText) |
+| Class URI | [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText) |
 
 
 ## Slots
@@ -103,6 +108,14 @@ URI: [pbs:LocalizedText](https://example.org/pragmatic-bim-data-contract/Localiz
 | [System](System.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleItem](ScheduleItem.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleItem](ScheduleItem.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Milestone](Milestone.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Milestone](Milestone.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [CostItem](CostItem.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
@@ -132,7 +145,7 @@ URI: [pbs:LocalizedText](https://example.org/pragmatic-bim-data-contract/Localiz
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -159,7 +172,7 @@ URI: [pbs:LocalizedText](https://example.org/pragmatic-bim-data-contract/Localiz
 ```yaml
 name: LocalizedText
 description: Localized text value for a specific language tag.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 slots:
 - language_tag
 - text_value
@@ -174,14 +187,13 @@ class_uri: pbs:LocalizedText
 ```yaml
 name: LocalizedText
 description: Localized text value for a specific language tag.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 attributes:
   language_tag:
     name: language_tag
     description: IETF BCP 47 language tag (for example en, de, pt-BR).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: language_tag
     owner: LocalizedText
     domain_of:
     - LocalizedText
@@ -190,9 +202,8 @@ attributes:
   text_value:
     name: text_value
     description: Localized text value.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: text_value
     owner: LocalizedText
     domain_of:
     - LocalizedText
@@ -201,4 +212,4 @@ attributes:
 class_uri: pbs:LocalizedText
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: message_subject 
 
@@ -7,11 +10,11 @@ _Optional subject or headline for the message._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:headline](https://schema.org/headline)
-Alias: message_subject
 
+URI: [schema:headline](http://schema.org/headline)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: message_subject
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:headline](https://schema.org/headline) |
+| Slot URI | [schema:headline](http://schema.org/headline) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: message_subject
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: message_subject
 ```yaml
 name: message_subject
 description: Optional subject or headline for the message.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:headline
-alias: message_subject
 domain_of:
 - Message
 range: string
 
 ```
-</details>
+</details></div>

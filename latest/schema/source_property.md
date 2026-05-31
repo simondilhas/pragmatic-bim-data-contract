@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: source_property 
 
@@ -7,11 +10,11 @@ _Original property name inside the source PropertySet (for example FireRating)._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:source_property](https://example.org/pragmatic-bim-data-contract/source_property)
-Alias: source_property
 
+URI: [pbs:source_property](https://schema.pragmaticbim.ch/source_property)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,13 +25,14 @@ Alias: source_property
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
-| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
+| [PropertyDelta](PropertyDelta.md) | Field-level difference between two revision states |  no  |
 | [FireProperty](FireProperty.md) | Normalized fire-related property |  no  |
-| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
+| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
 | [StructuralProperty](StructuralProperty.md) | Normalized structural-related property |  no  |
 | [SecurityProperty](SecurityProperty.md) | Normalized security-related property |  no  |
-| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
+| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
 
 
 
@@ -42,7 +46,7 @@ Alias: source_property
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [PerformanceProperty](PerformanceProperty.md) |
+| Domain Of | [PerformanceProperty](PerformanceProperty.md), [PropertyDelta](PropertyDelta.md) |
 
 ### Cardinality and Requirements
 
@@ -67,7 +71,7 @@ Alias: source_property
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -88,12 +92,12 @@ Alias: source_property
 ```yaml
 name: source_property
 description: Original property name inside the source PropertySet (for example FireRating).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: source_property
 domain_of:
 - PerformanceProperty
+- PropertyDelta
 range: string
 
 ```
-</details>
+</details></div>

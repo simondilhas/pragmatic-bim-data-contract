@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: task_type 
 
@@ -7,11 +10,11 @@ _Task type expressed as a URI/CURIE from a controlled vocabulary._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [dcterms:type](http://purl.org/dc/terms/type)
-Alias: task_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: task_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: task_type
 ```yaml
 name: task_type
 description: Task type expressed as a URI/CURIE from a controlled vocabulary.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: dcterms:type
-alias: task_type
 domain_of:
 - Task
 range: uriorcurie
 
 ```
-</details>
+</details></div>

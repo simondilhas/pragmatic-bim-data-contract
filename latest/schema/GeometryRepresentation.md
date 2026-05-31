@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: GeometryRepresentation 
 
@@ -7,9 +10,11 @@ _Minimal geometry reference for an entity, separating representation from encodi
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:GeometryRepresentation](https://example.org/pragmatic-bim-data-contract/GeometryRepresentation)
+
+URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryRepresentation)
 
 
 
@@ -46,7 +51,7 @@ URI: [pbs:GeometryRepresentation](https://example.org/pragmatic-bim-data-contrac
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:GeometryRepresentation](https://example.org/pragmatic-bim-data-contract/GeometryRepresentation) |
+| Class URI | [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryRepresentation) |
 
 
 ## Slots
@@ -90,6 +95,10 @@ URI: [pbs:GeometryRepresentation](https://example.org/pragmatic-bim-data-contrac
 | [Space](Space.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [System](System.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [ScheduleItem](ScheduleItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [Milestone](Milestone.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [CostItem](CostItem.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
 | [CostAssembly](CostAssembly.md) | [geometry_representations](geometry_representations.md) | range | [GeometryRepresentation](GeometryRepresentation.md) |
@@ -115,7 +124,7 @@ URI: [pbs:GeometryRepresentation](https://example.org/pragmatic-bim-data-contrac
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -143,7 +152,7 @@ URI: [pbs:GeometryRepresentation](https://example.org/pragmatic-bim-data-contrac
 name: GeometryRepresentation
 description: Minimal geometry reference for an entity, separating representation from
   encoding format.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 slots:
 - geometry_reference
 - geometry_representation
@@ -160,14 +169,13 @@ class_uri: pbs:GeometryRepresentation
 name: GeometryRepresentation
 description: Minimal geometry reference for an entity, separating representation from
   encoding format.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 attributes:
   geometry_reference:
     name: geometry_reference
     description: URI/path/hash/pointer to geometry payload.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_reference
     owner: GeometryRepresentation
     domain_of:
     - GeometryRepresentation
@@ -177,9 +185,8 @@ attributes:
     name: geometry_representation
     description: Representation kind/dimension (for example body_3d, footprint_2d,
       point), independent of file format.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_representation
     owner: GeometryRepresentation
     domain_of:
     - GeometryRepresentation
@@ -189,9 +196,8 @@ attributes:
     name: geometry_format
     description: Optional serialization/encoding format (for example ifc, gltf, wkt,
       geojson), independent of representation kind.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_format
     owner: GeometryRepresentation
     domain_of:
     - GeometryRepresentation
@@ -199,4 +205,4 @@ attributes:
 class_uri: pbs:GeometryRepresentation
 
 ```
-</details>
+</details></div>

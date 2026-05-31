@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: PerformanceProperty 
 
@@ -9,11 +12,13 @@ __
 
 
 
+<div data-search-exclude markdown="1">
+
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
 
 
-URI: [pbs:PerformanceProperty](https://example.org/pragmatic-bim-data-contract/PerformanceProperty)
+URI: [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformanceProperty)
 
 
 
@@ -41,6 +46,8 @@ URI: [pbs:PerformanceProperty](https://example.org/pragmatic-bim-data-contract/P
       PerformanceProperty : property_key
         
       PerformanceProperty : property_unit
+        
+      PerformanceProperty : property_unit_uri
         
       PerformanceProperty : property_value_boolean
         
@@ -86,7 +93,7 @@ URI: [pbs:PerformanceProperty](https://example.org/pragmatic-bim-data-contract/P
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:PerformanceProperty](https://example.org/pragmatic-bim-data-contract/PerformanceProperty) |
+| Class URI | [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformanceProperty) |
 
 
 ## Slots
@@ -99,6 +106,7 @@ URI: [pbs:PerformanceProperty](https://example.org/pragmatic-bim-data-contract/P
 | [property_value_number](property_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric value when property_value_type is number | direct |
 | [property_value_boolean](property_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean value when property_value_type is boolean | direct |
 | [property_unit](property_unit.md) | 0..1 <br/> [String](String.md) | Normalized unit where applicable (for example min, dB, W/m2K) | direct |
+| [property_unit_uri](property_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the normalized property unit in an external voca... | direct |
 | [source_pset](source_pset.md) | 0..1 <br/> [String](String.md) | Original IFC PropertySet name (for example Pset_WallCommon) | direct |
 | [source_property](source_property.md) | 0..1 <br/> [String](String.md) | Original property name inside the source PropertySet (for example FireRating) | direct |
 | [source_value_raw](source_value_raw.md) | 0..1 <br/> [String](String.md) | Raw source value before normalization | direct |
@@ -137,6 +145,10 @@ URI: [pbs:PerformanceProperty](https://example.org/pragmatic-bim-data-contract/P
 | [Space](Space.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [System](System.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [ScheduleItem](ScheduleItem.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [Milestone](Milestone.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [CostItem](CostItem.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [CostAssembly](CostAssembly.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
@@ -162,7 +174,7 @@ URI: [pbs:PerformanceProperty](https://example.org/pragmatic-bim-data-contract/P
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -192,7 +204,7 @@ description: 'Normalized performance/property record derived from raw IFC Proper
   values with source traceability and strong typing through domain-specific subclasses.
 
   '
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 abstract: true
 slots:
 - property_key
@@ -201,6 +213,7 @@ slots:
 - property_value_number
 - property_value_boolean
 - property_unit
+- property_unit_uri
 - source_pset
 - source_property
 - source_value_raw
@@ -219,16 +232,15 @@ description: 'Normalized performance/property record derived from raw IFC Proper
   values with source traceability and strong typing through domain-specific subclasses.
 
   '
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 abstract: true
 attributes:
   property_key:
     name: property_key
     description: Canonical key inside the domain; constrained via subclass slot_usage
       to a domain-specific enum.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: property_key
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
@@ -238,9 +250,8 @@ attributes:
     name: property_value_type
     description: Value type discriminator for normalized storage (for example string,
       number, boolean).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: property_value_type
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
@@ -249,9 +260,8 @@ attributes:
   property_value_string:
     name: property_value_string
     description: String value when property_value_type is string.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: property_value_string
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
@@ -259,9 +269,8 @@ attributes:
   property_value_number:
     name: property_value_number
     description: Numeric value when property_value_type is number.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: property_value_number
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
@@ -269,9 +278,8 @@ attributes:
   property_value_boolean:
     name: property_value_boolean
     description: Boolean value when property_value_type is boolean.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: property_value_boolean
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
@@ -279,40 +287,48 @@ attributes:
   property_unit:
     name: property_unit
     description: Normalized unit where applicable (for example min, dB, W/m2K).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: property_unit
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
     range: string
-  source_pset:
-    name: source_pset
-    description: Original IFC PropertySet name (for example Pset_WallCommon).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+  property_unit_uri:
+    name: property_unit_uri
+    description: Optional URI that identifies the normalized property unit in an external
+      vocabulary such as QUDT.
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: source_pset
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
+    range: uriorcurie
+  source_pset:
+    name: source_pset
+    description: Original IFC PropertySet name (for example Pset_WallCommon).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: PerformanceProperty
+    domain_of:
+    - PerformanceProperty
+    - PropertyDelta
     range: string
   source_property:
     name: source_property
     description: Original property name inside the source PropertySet (for example
       FireRating).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: source_property
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
+    - PropertyDelta
     range: string
   source_value_raw:
     name: source_value_raw
     description: Raw source value before normalization.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: source_value_raw
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
@@ -320,9 +336,8 @@ attributes:
   mapping_version:
     name: mapping_version
     description: Mapping specification version used to derive the normalized property.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: mapping_version
     owner: PerformanceProperty
     domain_of:
     - PerformanceProperty
@@ -330,4 +345,4 @@ attributes:
 class_uri: pbs:PerformanceProperty
 
 ```
-</details>
+</details></div>

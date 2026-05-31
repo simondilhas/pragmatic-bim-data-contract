@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: bounded_space 
 
@@ -7,11 +10,11 @@ _Space bounded by this boundary element._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:bounded_space](https://example.org/pragmatic-bim-data-contract/bounded_space)
-Alias: bounded_space
 
+URI: [pbs:bounded_space](https://schema.pragmaticbim.ch/bounded_space)
 <!-- no inheritance hierarchy -->
 
 
@@ -70,7 +73,7 @@ Alias: bounded_space
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -91,13 +94,12 @@ Alias: bounded_space
 ```yaml
 name: bounded_space
 description: Space bounded by this boundary element.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: bounded_space
 domain_of:
 - Boundary
 inverse: bounded_by
 range: Space
 
 ```
-</details>
+</details></div>

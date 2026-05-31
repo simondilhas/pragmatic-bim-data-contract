@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: contact_channel_type 
 
@@ -7,11 +10,11 @@ _Communication channel type such as email, phone, website, linkedin, whatsapp, s
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:contact_channel_type](https://example.org/pragmatic-bim-data-contract/contact_channel_type)
-Alias: contact_channel_type
 
+URI: [pbs:contact_channel_type](https://schema.pragmaticbim.ch/contact_channel_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: contact_channel_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,12 +86,11 @@ Alias: contact_channel_type
 name: contact_channel_type
 description: Communication channel type such as email, phone, website, linkedin, whatsapp,
   signal, slack, teams, or telegram.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: contact_channel_type
 domain_of:
 - ContactPoint
 range: string
 
 ```
-</details>
+</details></div>

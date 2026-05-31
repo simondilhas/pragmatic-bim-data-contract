@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Equipment 
 
@@ -7,9 +10,11 @@ _Endpoint or device element (for example terminal, unit, control device, sensor)
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:Equipment](https://example.org/pragmatic-bim-data-contract/Equipment)
+
+URI: [pbs:Equipment](https://schema.pragmaticbim.ch/Equipment)
 
 
 
@@ -242,7 +247,7 @@ URI: [pbs:Equipment](https://example.org/pragmatic-bim-data-contract/Equipment)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:Equipment](https://example.org/pragmatic-bim-data-contract/Equipment) |
+| Class URI | [pbs:Equipment](https://schema.pragmaticbim.ch/Equipment) |
 
 
 ## Slots
@@ -298,7 +303,7 @@ URI: [pbs:Equipment](https://example.org/pragmatic-bim-data-contract/Equipment)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -327,7 +332,7 @@ URI: [pbs:Equipment](https://example.org/pragmatic-bim-data-contract/Equipment)
 name: Equipment
 description: Endpoint or device element (for example terminal, unit, control device,
   sensor) located in a space and assigned to a system.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - bot:Element
 - ifcowl:IfcDistributionElement
@@ -348,7 +353,7 @@ class_uri: pbs:Equipment
 name: Equipment
 description: Endpoint or device element (for example terminal, unit, control device,
   sensor) located in a space and assigned to a system.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - bot:Element
 - ifcowl:IfcDistributionElement
@@ -357,9 +362,8 @@ attributes:
   equipment_type:
     name: equipment_type
     description: Classification of equipment (for example HVAC, electrical, plumbing).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: equipment_type
     owner: Equipment
     domain_of:
     - Equipment
@@ -368,9 +372,8 @@ attributes:
   parent_space:
     name: parent_space
     description: Parent space where the equipment is located.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_space
     owner: Equipment
     domain_of:
     - Equipment
@@ -379,9 +382,8 @@ attributes:
   parent_system:
     name: parent_system
     description: Parent systems that the equipment belongs to.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_system
     owner: Equipment
     domain_of:
     - Equipment
@@ -390,9 +392,8 @@ attributes:
   parent_building:
     name: parent_building
     description: Parent building context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_building
     owner: Equipment
     domain_of:
     - PhysicalElement
@@ -403,9 +404,8 @@ attributes:
   parent_level:
     name: parent_level
     description: Parent level/storey context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_level
     owner: Equipment
     domain_of:
     - PhysicalElement
@@ -415,21 +415,23 @@ attributes:
   id:
     name: id
     description: Unique local identifier.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     identifier: true
-    alias: id
     owner: Equipment
     domain_of:
     - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
     range: string
     required: true
   name:
     name: name
     description: Default display name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: name
     owner: Equipment
     domain_of:
     - Entity
@@ -438,9 +440,8 @@ attributes:
   localized_names:
     name: localized_names
     description: Localized variants of name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_names
     owner: Equipment
     domain_of:
     - Entity
@@ -450,9 +451,8 @@ attributes:
   description:
     name: description
     description: Default description text.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: description
     owner: Equipment
     domain_of:
     - Entity
@@ -461,9 +461,8 @@ attributes:
     name: meaning_uri
     description: Optional semantic URI for linking the entity instance to an external
       ontology concept.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: meaning_uri
     owner: Equipment
     domain_of:
     - Entity
@@ -471,9 +470,8 @@ attributes:
   localized_descriptions:
     name: localized_descriptions
     description: Localized variants of description.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_descriptions
     owner: Equipment
     domain_of:
     - Entity
@@ -483,20 +481,19 @@ attributes:
   ifc_global_id:
     name: ifc_global_id
     description: IFC GlobalId of the mapped entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: ifc_global_id
     owner: Equipment
     domain_of:
     - Entity
+    - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
   classifications:
     name: classifications
     description: Classification entries from IFC and other schemes.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classifications
     owner: Equipment
     domain_of:
     - Entity
@@ -511,9 +508,8 @@ attributes:
       coordination, analysis, visualization) without duplicating the element itself.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_representations
     owner: Equipment
     domain_of:
     - Entity
@@ -523,9 +519,8 @@ attributes:
   quantity_values:
     name: quantity_values
     description: Quantities associated with the entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_values
     owner: Equipment
     domain_of:
     - Entity
@@ -535,9 +530,8 @@ attributes:
   documents:
     name: documents
     description: Linked documents associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: documents
     owner: Equipment
     domain_of:
     - Entity
@@ -548,9 +542,8 @@ attributes:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
       extensions.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata
     owner: Equipment
     domain_of:
     - Entity
@@ -563,9 +556,8 @@ attributes:
       security/material) extracted from raw IFC PropertySet values.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: performance_properties
     owner: Equipment
     domain_of:
     - Entity
@@ -575,9 +567,8 @@ attributes:
   decisions:
     name: decisions
     description: Decision records associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: decisions
     owner: Equipment
     domain_of:
     - Entity
@@ -587,9 +578,8 @@ attributes:
   tasks:
     name: tasks
     description: Tasks associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: tasks
     owner: Equipment
     domain_of:
     - Entity
@@ -599,9 +589,8 @@ attributes:
   messages:
     name: messages
     description: Messages associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: messages
     owner: Equipment
     domain_of:
     - Entity
@@ -611,9 +600,8 @@ attributes:
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: created_at
     owner: Equipment
     domain_of:
     - Entity
@@ -621,9 +609,8 @@ attributes:
   modified_at:
     name: modified_at
     description: Last modification timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: modified_at
     owner: Equipment
     domain_of:
     - Entity
@@ -631,9 +618,8 @@ attributes:
   revision:
     name: revision
     description: Integer revision counter for change tracking.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: revision
     owner: Equipment
     domain_of:
     - Entity
@@ -642,9 +628,8 @@ attributes:
   status:
     name: status
     description: Lifecycle or QA status.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: status
     owner: Equipment
     domain_of:
     - Entity
@@ -652,4 +637,4 @@ attributes:
 class_uri: pbs:Equipment
 
 ```
-</details>
+</details></div>

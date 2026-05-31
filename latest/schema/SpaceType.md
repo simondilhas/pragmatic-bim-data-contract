@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: SpaceType 
 
 
@@ -7,9 +13,11 @@ _Classification of space semantics used by modeling and downstream conversion._
 
 
 
-URI: [pbs:SpaceType](https://example.org/pragmatic-bim-data-contract/SpaceType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:SpaceType](https://example.org/pragmatic-bim-data-contract/SpaceType)
+URI: [pbs:SpaceType](https://schema.pragmaticbim.ch/SpaceType)
+
+**Enum URI:** [pbs:SpaceType](https://schema.pragmaticbim.ch/SpaceType)
 
 
 ## Permissible Values
@@ -49,7 +57,7 @@ URI: [pbs:SpaceType](https://example.org/pragmatic-bim-data-contract/SpaceType)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -62,7 +70,7 @@ URI: [pbs:SpaceType](https://example.org/pragmatic-bim-data-contract/SpaceType)
 ```yaml
 name: SpaceType
 description: Classification of space semantics used by modeling and downstream conversion.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:SpaceType
 permissible_values:
@@ -95,3 +103,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: contact_uri 
 
@@ -7,11 +10,11 @@ _URI for the contact endpoint or profile where applicable._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:contact_uri](https://example.org/pragmatic-bim-data-contract/contact_uri)
-Alias: contact_uri
 
+URI: [pbs:contact_uri](https://schema.pragmaticbim.ch/contact_uri)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: contact_uri
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: contact_uri
 ```yaml
 name: contact_uri
 description: URI for the contact endpoint or profile where applicable.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: contact_uri
 domain_of:
 - ContactPoint
 range: uriorcurie
 
 ```
-</details>
+</details></div>

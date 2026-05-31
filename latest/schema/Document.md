@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Document 
 
@@ -7,9 +10,11 @@ _Reference to an external document stored in a file system, DMS, object storage,
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:Document](https://example.org/pragmatic-bim-data-contract/Document)
+
+URI: [pbs:Document](https://schema.pragmaticbim.ch/Document)
 
 
 
@@ -30,6 +35,8 @@ URI: [pbs:Document](https://example.org/pragmatic-bim-data-contract/Document)
     
 
         
+      Document : id
+        
       Document : storage_link
         
       
@@ -44,13 +51,14 @@ URI: [pbs:Document](https://example.org/pragmatic-bim-data-contract/Document)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:Document](https://example.org/pragmatic-bim-data-contract/Document) |
+| Class URI | [pbs:Document](https://schema.pragmaticbim.ch/Document) |
 
 
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [id](id.md) | 0..1 <br/> [String](String.md) | Optional stable identifier when referenced externally (for example from Chang... | direct |
 | [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | direct |
 | [storage_link](storage_link.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI/URL/path to the stored document location | direct |
 
@@ -87,6 +95,10 @@ URI: [pbs:Document](https://example.org/pragmatic-bim-data-contract/Document)
 | [Space](Space.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [System](System.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [ScheduleItem](ScheduleItem.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [Milestone](Milestone.md) | [documents](documents.md) | range | [Document](Document.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [CostItem](CostItem.md) | [documents](documents.md) | range | [Document](Document.md) |
 | [CostAssembly](CostAssembly.md) | [documents](documents.md) | range | [Document](Document.md) |
@@ -112,7 +124,7 @@ URI: [pbs:Document](https://example.org/pragmatic-bim-data-contract/Document)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -140,10 +152,18 @@ URI: [pbs:Document](https://example.org/pragmatic-bim-data-contract/Document)
 name: Document
 description: Reference to an external document stored in a file system, DMS, object
   storage, or URL.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 slots:
+- id
 - classifications
 - storage_link
+slot_usage:
+  id:
+    name: id
+    description: Optional stable identifier when referenced externally (for example
+      from Change records).
+    identifier: false
+    required: false
 class_uri: pbs:Document
 
 ```
@@ -156,14 +176,36 @@ class_uri: pbs:Document
 name: Document
 description: Reference to an external document stored in a file system, DMS, object
   storage, or URL.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
+slot_usage:
+  id:
+    name: id
+    description: Optional stable identifier when referenced externally (for example
+      from Change records).
+    identifier: false
+    required: false
 attributes:
+  id:
+    name: id
+    description: Optional stable identifier when referenced externally (for example
+      from Change records).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    identifier: false
+    owner: Document
+    domain_of:
+    - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
+    range: string
+    required: false
   classifications:
     name: classifications
     description: Classification entries from IFC and other schemes.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classifications
     owner: Document
     domain_of:
     - Entity
@@ -174,9 +216,8 @@ attributes:
   storage_link:
     name: storage_link
     description: URI/URL/path to the stored document location.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: storage_link
     owner: Document
     domain_of:
     - Document
@@ -185,4 +226,4 @@ attributes:
 class_uri: pbs:Document
 
 ```
-</details>
+</details></div>

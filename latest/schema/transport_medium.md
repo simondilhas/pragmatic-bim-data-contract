@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: transport_medium 
 
@@ -7,11 +10,11 @@ _Primary transport medium carried or enabled by the connector (for example human
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:transport_medium](https://example.org/pragmatic-bim-data-contract/transport_medium)
-Alias: transport_medium
 
+URI: [pbs:transport_medium](https://schema.pragmaticbim.ch/transport_medium)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: transport_medium
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: transport_medium
 name: transport_medium
 description: Primary transport medium carried or enabled by the connector (for example
   human_access, air, liquid, electricity).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: transport_medium
 domain_of:
 - ConnectionPhysical
 range: TransportMedium
 required: true
 
 ```
-</details>
+</details></div>

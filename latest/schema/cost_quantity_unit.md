@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cost_quantity_unit 
 
@@ -7,11 +10,11 @@ _Unit of the cost quantity value._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:cost_quantity_unit](https://example.org/pragmatic-bim-data-contract/cost_quantity_unit)
-Alias: cost_quantity_unit
 
+URI: [pbs:cost_quantity_unit](https://schema.pragmaticbim.ch/cost_quantity_unit)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: cost_quantity_unit
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
+| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 
 
@@ -63,7 +66,7 @@ Alias: cost_quantity_unit
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,12 +87,11 @@ Alias: cost_quantity_unit
 ```yaml
 name: cost_quantity_unit
 description: Unit of the cost quantity value.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: cost_quantity_unit
 domain_of:
 - AbstractCostRecord
 range: string
 
 ```
-</details>
+</details></div>

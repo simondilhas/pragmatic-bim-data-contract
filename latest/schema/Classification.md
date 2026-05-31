@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Classification 
 
@@ -7,9 +10,11 @@ _Generic classification entry from any scheme (for example IFC, Uniclass, OmniCl
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:Classification](https://example.org/pragmatic-bim-data-contract/Classification)
+
+URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 
 
 
@@ -43,7 +48,7 @@ URI: [pbs:Classification](https://example.org/pragmatic-bim-data-contract/Classi
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:Classification](https://example.org/pragmatic-bim-data-contract/Classification) |
+| Class URI | [pbs:Classification](https://schema.pragmaticbim.ch/Classification) |
 
 
 ## Slots
@@ -91,6 +96,10 @@ URI: [pbs:Classification](https://example.org/pragmatic-bim-data-contract/Classi
 | [Space](Space.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [System](System.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [ScheduleItem](ScheduleItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Milestone](Milestone.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [CostItem](CostItem.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [CostAssembly](CostAssembly.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
@@ -116,7 +125,7 @@ URI: [pbs:Classification](https://example.org/pragmatic-bim-data-contract/Classi
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -144,7 +153,7 @@ URI: [pbs:Classification](https://example.org/pragmatic-bim-data-contract/Classi
 name: Classification
 description: Generic classification entry from any scheme (for example IFC, Uniclass,
   OmniClass, custom).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 slots:
 - classification_scheme
 - classification_code
@@ -164,15 +173,14 @@ class_uri: pbs:Classification
 name: Classification
 description: Generic classification entry from any scheme (for example IFC, Uniclass,
   OmniClass, custom).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 attributes:
   classification_scheme:
     name: classification_scheme
     description: Name of the classification scheme (for example ifc, uniclass, omniclass,
       custom).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classification_scheme
     owner: Classification
     domain_of:
     - Classification
@@ -181,9 +189,8 @@ attributes:
   classification_code:
     name: classification_code
     description: Classification code inside the scheme.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classification_code
     owner: Classification
     domain_of:
     - Classification
@@ -192,9 +199,8 @@ attributes:
   classification_label:
     name: classification_label
     description: Optional human-readable classification label.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classification_label
     owner: Classification
     domain_of:
     - Classification
@@ -203,9 +209,8 @@ attributes:
     name: classification_uri
     description: Optional URI/CURIE that identifies the classification concept in
       an external registry.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classification_uri
     owner: Classification
     domain_of:
     - Classification
@@ -213,9 +218,8 @@ attributes:
   classification_version:
     name: classification_version
     description: Optional scheme/version identifier.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classification_version
     owner: Classification
     domain_of:
     - Classification
@@ -223,9 +227,8 @@ attributes:
   classification_source:
     name: classification_source
     description: Source authority or dataset for this classification.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classification_source
     owner: Classification
     domain_of:
     - Classification
@@ -233,4 +236,4 @@ attributes:
 class_uri: pbs:Classification
 
 ```
-</details>
+</details></div>

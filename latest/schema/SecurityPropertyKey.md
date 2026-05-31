@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: SecurityPropertyKey 
 
 
@@ -7,9 +13,11 @@ _Canonical security-related keys derived from IFC PropertySets._
 
 
 
-URI: [pbs:SecurityPropertyKey](https://example.org/pragmatic-bim-data-contract/SecurityPropertyKey)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:SecurityPropertyKey](https://example.org/pragmatic-bim-data-contract/SecurityPropertyKey)
+URI: [pbs:SecurityPropertyKey](https://schema.pragmaticbim.ch/SecurityPropertyKey)
+
+**Enum URI:** [pbs:SecurityPropertyKey](https://schema.pragmaticbim.ch/SecurityPropertyKey)
 
 
 ## Permissible Values
@@ -46,7 +54,7 @@ URI: [pbs:SecurityPropertyKey](https://example.org/pragmatic-bim-data-contract/S
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -59,7 +67,7 @@ URI: [pbs:SecurityPropertyKey](https://example.org/pragmatic-bim-data-contract/S
 ```yaml
 name: SecurityPropertyKey
 description: Canonical security-related keys derived from IFC PropertySets.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:SecurityPropertyKey
 permissible_values:
@@ -75,3 +83,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

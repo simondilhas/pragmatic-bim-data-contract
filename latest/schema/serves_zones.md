@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: serves_zones 
 
@@ -7,11 +10,11 @@ _Zone context nodes served by this system._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:serves_zones](https://example.org/pragmatic-bim-data-contract/serves_zones)
-Alias: serves_zones
 
+URI: [pbs:serves_zones](https://schema.pragmaticbim.ch/serves_zones)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: serves_zones
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: serves_zones
 ```yaml
 name: serves_zones
 description: Zone context nodes served by this system.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: serves_zones
 domain_of:
 - System
 range: ZoneContext
 multivalued: true
 
 ```
-</details>
+</details></div>

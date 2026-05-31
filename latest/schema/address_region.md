@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: address_region 
 
@@ -7,11 +10,11 @@ _Region, state, canton, or province._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:addressRegion](https://schema.org/addressRegion)
-Alias: address_region
 
+URI: [schema:addressRegion](http://schema.org/addressRegion)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: address_region
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:addressRegion](https://schema.org/addressRegion) |
+| Slot URI | [schema:addressRegion](http://schema.org/addressRegion) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: address_region
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: address_region
 ```yaml
 name: address_region
 description: Region, state, canton, or province.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:addressRegion
-alias: address_region
 domain_of:
 - PostalAddress
 range: string
 
 ```
-</details>
+</details></div>

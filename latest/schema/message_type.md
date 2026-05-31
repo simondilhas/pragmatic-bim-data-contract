@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: message_type 
 
@@ -7,11 +10,11 @@ _Message type expressed as a URI/CURIE from a controlled vocabulary._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [dcterms:type](http://purl.org/dc/terms/type)
-Alias: message_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: message_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: message_type
 ```yaml
 name: message_type
 description: Message type expressed as a URI/CURIE from a controlled vocabulary.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: dcterms:type
-alias: message_type
 domain_of:
 - Message
 range: uriorcurie
 
 ```
-</details>
+</details></div>

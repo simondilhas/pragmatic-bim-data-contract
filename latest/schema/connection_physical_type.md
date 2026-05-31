@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: connection_physical_type 
 
@@ -7,11 +10,11 @@ _Classification of physical connector type (for example door, window, duct, pipe
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:connection_physical_type](https://example.org/pragmatic-bim-data-contract/connection_physical_type)
-Alias: connection_physical_type
 
+URI: [pbs:connection_physical_type](https://schema.pragmaticbim.ch/connection_physical_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: connection_physical_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: connection_physical_type
 name: connection_physical_type
 description: Classification of physical connector type (for example door, window,
   duct, pipe, cable).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: connection_physical_type
 domain_of:
 - ConnectionPhysical
 range: ConnectionPhysicalType
 required: true
 
 ```
-</details>
+</details></div>

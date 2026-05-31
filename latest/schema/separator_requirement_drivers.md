@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: separator_requirement_drivers 
 
@@ -9,11 +12,11 @@ __
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:separator_requirement_drivers](https://example.org/pragmatic-bim-data-contract/separator_requirement_drivers)
-Alias: separator_requirement_drivers
 
+URI: [pbs:separator_requirement_drivers](https://schema.pragmaticbim.ch/separator_requirement_drivers)
 <!-- no inheritance hierarchy -->
 
 
@@ -66,7 +69,7 @@ Alias: separator_requirement_drivers
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -90,13 +93,12 @@ description: 'Performance requirement drivers for this separator. Multiple value
   are allowed because one separator may need to satisfy several requirements.
 
   '
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: separator_requirement_drivers
 domain_of:
 - Separator
 range: SeparatorRequirementDriver
 multivalued: true
 
 ```
-</details>
+</details></div>

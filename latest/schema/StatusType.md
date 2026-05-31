@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: StatusType 
 
 
@@ -7,9 +13,11 @@ _Lifecycle or QA gate status used for model progression and approvals._
 
 
 
-URI: [pbs:StatusType](https://example.org/pragmatic-bim-data-contract/StatusType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:StatusType](https://example.org/pragmatic-bim-data-contract/StatusType)
+URI: [pbs:StatusType](https://schema.pragmaticbim.ch/StatusType)
+
+**Enum URI:** [pbs:StatusType](https://schema.pragmaticbim.ch/StatusType)
 
 
 ## Permissible Values
@@ -49,7 +57,7 @@ URI: [pbs:StatusType](https://example.org/pragmatic-bim-data-contract/StatusType
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -62,7 +70,7 @@ URI: [pbs:StatusType](https://example.org/pragmatic-bim-data-contract/StatusType
 ```yaml
 name: StatusType
 description: Lifecycle or QA gate status used for model progression and approvals.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:StatusType
 permissible_values:
@@ -93,3 +101,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

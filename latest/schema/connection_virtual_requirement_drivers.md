@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: connection_virtual_requirement_drivers 
 
@@ -7,11 +10,11 @@ _Main requirement drivers for this virtual connection._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:connection_virtual_requirement_drivers](https://example.org/pragmatic-bim-data-contract/connection_virtual_requirement_drivers)
-Alias: connection_virtual_requirement_drivers
 
+URI: [pbs:connection_virtual_requirement_drivers](https://schema.pragmaticbim.ch/connection_virtual_requirement_drivers)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: connection_virtual_requirement_drivers
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: connection_virtual_requirement_drivers
 ```yaml
 name: connection_virtual_requirement_drivers
 description: Main requirement drivers for this virtual connection.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: connection_virtual_requirement_drivers
 domain_of:
 - ConnectionVirtual
 range: ConnectionRequirementDriver
 multivalued: true
 
 ```
-</details>
+</details></div>

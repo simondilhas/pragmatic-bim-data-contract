@@ -1,4 +1,7 @@
-# Type: Nodeidentifier 
+---
+search:
+  boost: 1.0
+---# Type: Nodeidentifier 
 
 
 
@@ -6,6 +9,8 @@
 _A URI, CURIE or BNODE that represents a node in a model._
 
 
+
+<div data-search-exclude markdown="1">
 
 URI: [shex:nonLiteral](http://www.w3.org/ns/shex#nonLiteral)
 
@@ -37,7 +42,7 @@ URI: [shex:nonLiteral](http://www.w3.org/ns/shex#nonLiteral)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -50,3 +55,6 @@ URI: [shex:nonLiteral](http://www.w3.org/ns/shex#nonLiteral)
 | native | pbs:nodeidentifier |
 
 
+
+
+</div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: recipients 
 
@@ -7,11 +10,11 @@ _Agents that received the message._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:recipient](https://schema.org/recipient)
-Alias: recipients
 
+URI: [schema:recipient](http://schema.org/recipient)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: recipients
 | --- | --- |
 | Range | [Agent](Agent.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:recipient](https://schema.org/recipient) |
+| Slot URI | [schema:recipient](http://schema.org/recipient) |
 
 ### Cardinality and Requirements
 
@@ -63,7 +66,7 @@ Alias: recipients
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,10 +87,9 @@ Alias: recipients
 ```yaml
 name: recipients
 description: Agents that received the message.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:recipient
-alias: recipients
 domain_of:
 - Message
 range: Agent
@@ -95,4 +97,4 @@ multivalued: true
 inlined: false
 
 ```
-</details>
+</details></div>

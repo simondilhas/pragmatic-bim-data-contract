@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: contact_points 
 
@@ -7,11 +10,11 @@ _Structured communication channels and profiles associated with this agent._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:contact_points](https://example.org/pragmatic-bim-data-contract/contact_points)
-Alias: contact_points
 
+URI: [pbs:contact_points](https://schema.pragmaticbim.ch/contact_points)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +25,9 @@ Alias: contact_points
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
-| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
 
 
 
@@ -64,7 +67,7 @@ Alias: contact_points
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -85,9 +88,8 @@ Alias: contact_points
 ```yaml
 name: contact_points
 description: Structured communication channels and profiles associated with this agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: contact_points
 domain_of:
 - Agent
 range: ContactPoint
@@ -95,4 +97,4 @@ multivalued: true
 inlined: true
 
 ```
-</details>
+</details></div>

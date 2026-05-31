@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: rationale 
 
@@ -7,11 +10,11 @@ _Human-readable rationale that explains why the decision was made._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [dcterms:description](http://purl.org/dc/terms/description)
-Alias: rationale
-
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: rationale
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: rationale
 ```yaml
 name: rationale
 description: Human-readable rationale that explains why the decision was made.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: dcterms:description
-alias: rationale
 domain_of:
 - Decision
 range: string
 
 ```
-</details>
+</details></div>

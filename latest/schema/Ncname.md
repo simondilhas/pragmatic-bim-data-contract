@@ -1,4 +1,7 @@
-# Type: Ncname 
+---
+search:
+  boost: 1.0
+---# Type: Ncname 
 
 
 
@@ -6,6 +9,8 @@
 _Prefix part of CURIE_
 
 
+
+<div data-search-exclude markdown="1">
 
 URI: [xsd:string](http://www.w3.org/2001/XMLSchema#string)
 
@@ -37,7 +42,7 @@ URI: [xsd:string](http://www.w3.org/2001/XMLSchema#string)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -50,3 +55,6 @@ URI: [xsd:string](http://www.w3.org/2001/XMLSchema#string)
 | native | pbs:ncname |
 
 
+
+
+</div>

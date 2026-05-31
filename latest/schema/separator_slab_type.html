@@ -33,97 +33,91 @@ a:hover { text-decoration: underline; }
       <a href="../index.html">Home</a>
       <a href="./pragmatic-bim.docs.html">Schema Index</a>
     </nav>
-    <h1 id="slot-separator_slab_type">Slot: separator_slab_type</h1>
+    <hr>
+<p>search:
+  boost: 5.0</p>
+<hr>
+<h1 id="slot-separator_slab_type">Slot: separator_slab_type</h1>
 <p><em>Classification of slab-based separator element (for example floor/roof/base slab).</em></p>
-<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/separator_slab_type">pbs:separator_slab_type</a>
-Alias: separator_slab_type</p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:separator_slab_type](https://schema.pragmaticbim.ch/separator_slab_type)
 <!-- no inheritance hierarchy -->
 
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
-<td>Slab-based separating element (for example floor/roof/base slab separators)</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<h3 id="type-and-range">Type and Range</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Range</td>
-<td><a href="SeparatorSlabType.html">SeparatorSlabType</a></td>
-</tr>
-<tr>
-<td>Domain Of</td>
-<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Required</td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>pbs:separator_slab_type</td>
-</tr>
-<tr>
-<td>native</td>
-<td>pbs:separator_slab_type</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators) |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [SeparatorSlabType](SeparatorSlabType.md) |
+| Domain Of | [SeparatorSlab](SeparatorSlab.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Required | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:separator_slab_type |
+| native | pbs:separator_slab_type |
+
+
+
+
+## LinkML Source
+
 <details>
 
 <pre><code class="language-yaml">name: separator_slab_type
 description: Classification of slab-based separator element (for example floor/roof/base
   slab).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: separator_slab_type
 domain_of:
 - SeparatorSlab
 range: SeparatorSlabType
@@ -131,7 +125,7 @@ required: true
 
 </code></pre>
 
-</details>
+</details></div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: message_body 
 
@@ -7,11 +10,11 @@ _Human-readable message content._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:text](https://schema.org/text)
-Alias: message_body
 
+URI: [schema:text](http://schema.org/text)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: message_body
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:text](https://schema.org/text) |
+| Slot URI | [schema:text](http://schema.org/text) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: message_body
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: message_body
 ```yaml
 name: message_body
 description: Human-readable message content.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:text
-alias: message_body
 domain_of:
 - Message
 range: string
 
 ```
-</details>
+</details></div>

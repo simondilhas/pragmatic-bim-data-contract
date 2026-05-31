@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: geometry_representations 
 
@@ -9,11 +12,11 @@ __
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:geometry_representations](https://example.org/pragmatic-bim-data-contract/geometry_representations)
-Alias: geometry_representations
 
+URI: [pbs:geometry_representations](https://schema.pragmaticbim.ch/geometry_representations)
 <!-- no inheritance hierarchy -->
 
 
@@ -24,35 +27,39 @@ Alias: geometry_representations
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
-| [VirtualEntity](VirtualEntity.md) | Abstract base class for non-physical, conceptual, or informational entities |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 | [Entity](Entity.md) | Common base class for all schema entities |  no  |
-| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering) |  no  |
-| [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
-| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators) |  no  |
-| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
-| [SeparatorWall](SeparatorWall.md) | Wall-based separating element |  no  |
-| [PhysicalElement](PhysicalElement.md) | Base class for physical elements that can be placed in built asset/level cont... |  no  |
-| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
-| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
-| [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
 | [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
-| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
-| [ConnectionPhysical](ConnectionPhysical.md) | Physical connector providing functional connection between spaces (for exampl... |  no  |
-| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
+| [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
 | [Message](Message.md) | Message or communication record linked to an entity for coordination and trac... |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [Equipment](Equipment.md) | Endpoint or device element (for example terminal, unit, control device, senso... |  no  |
+| [PhysicalElement](PhysicalElement.md) | Base class for physical elements that can be placed in built asset/level cont... |  no  |
 | [Separator](Separator.md) | Abstract base class for elements that separate spaces or zones |  no  |
+| [SeparatorWall](SeparatorWall.md) | Wall-based separating element |  no  |
+| [SeparatorSlab](SeparatorSlab.md) | Slab-based separating element (for example floor/roof/base slab separators) |  no  |
+| [ConnectionPhysical](ConnectionPhysical.md) | Physical connector providing functional connection between spaces (for exampl... |  no  |
+| [Boundary](Boundary.md) | Physical element acting as a boundary treatment (for example covering) |  no  |
+| [Equipment](Equipment.md) | Endpoint or device element (for example terminal, unit, control device, senso... |  no  |
+| [VirtualEntity](VirtualEntity.md) | Abstract base class for non-physical, conceptual, or informational entities |  no  |
+| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  no  |
+| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
+| [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
+| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
+| [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
+| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
+| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
 | [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
+| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
+| [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
+| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
+| [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements |  no  |
+| [ScheduleTemplate](ScheduleTemplate.md) | Reusable schedule container defining items, milestones, and dependencies for ... |  no  |
+| [ScheduleItem](ScheduleItem.md) | Planned work item with baseline and actual dates, linked to a schedule templa... |  no  |
+| [Milestone](Milestone.md) | Zero-duration checkpoint or delivery target within a schedule |  no  |
+| [ScheduleDependency](ScheduleDependency.md) | Precedence relationship between two schedule items, optionally with lag |  no  |
+| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
+| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
+| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
+| [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
 
 
 
@@ -92,7 +99,7 @@ Alias: geometry_representations
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -117,9 +124,8 @@ description: 'Geometry references associated with the entity. A single element m
   coordination, analysis, visualization) without duplicating the element itself.
 
   '
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: geometry_representations
 domain_of:
 - Entity
 range: GeometryRepresentation
@@ -127,4 +133,4 @@ multivalued: true
 inlined: true
 
 ```
-</details>
+</details></div>

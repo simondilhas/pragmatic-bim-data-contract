@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: bounded_by 
 
@@ -7,11 +10,11 @@ _Physical elements that bound a space._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:bounded_by](https://example.org/pragmatic-bim-data-contract/bounded_by)
-Alias: bounded_by
 
+URI: [pbs:bounded_by](https://schema.pragmaticbim.ch/bounded_by)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,7 +74,7 @@ Alias: bounded_by
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -92,9 +95,8 @@ Alias: bounded_by
 ```yaml
 name: bounded_by
 description: Physical elements that bound a space.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: bounded_by
 domain_of:
 - Space
 inverse: bounded_space
@@ -102,4 +104,4 @@ range: PhysicalElement
 multivalued: true
 
 ```
-</details>
+</details></div>

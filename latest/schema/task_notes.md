@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: task_notes 
 
@@ -7,11 +10,11 @@ _Additional notes or implementation details for the task._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)
-Alias: task_notes
-
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: task_notes
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: task_notes
 ```yaml
 name: task_notes
 description: Additional notes or implementation details for the task.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: rdfs:comment
-alias: task_notes
 domain_of:
 - Task
 range: string
 
 ```
-</details>
+</details></div>

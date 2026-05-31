@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: sent_at 
 
@@ -7,11 +10,11 @@ _Timestamp when the message was sent._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:dateSent](https://schema.org/dateSent)
-Alias: sent_at
 
+URI: [schema:dateSent](http://schema.org/dateSent)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: sent_at
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:dateSent](https://schema.org/dateSent) |
+| Slot URI | [schema:dateSent](http://schema.org/dateSent) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: sent_at
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: sent_at
 ```yaml
 name: sent_at
 description: Timestamp when the message was sent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:dateSent
-alias: sent_at
 domain_of:
 - Message
 range: datetime
 
 ```
-</details>
+</details></div>

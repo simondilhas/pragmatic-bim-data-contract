@@ -33,103 +33,96 @@ a:hover { text-decoration: underline; }
       <a href="../index.html">Home</a>
       <a href="./pragmatic-bim.docs.html">Schema Index</a>
     </nav>
-    <h1 id="slot-availability_notes">Slot: availability_notes</h1>
+    <hr>
+<p>search:
+  boost: 5.0</p>
+<hr>
+<h1 id="slot-availability_notes">Slot: availability_notes</h1>
 <p><em>Optional notes about availability, office hours, or response expectations.</em></p>
-<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/availability_notes">pbs:availability_notes</a>
-Alias: availability_notes</p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:availability_notes](https://schema.pragmaticbim.ch/availability_notes)
 <!-- no inheritance hierarchy -->
 
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="ContactPoint.html">ContactPoint</a></td>
-<td>Structured communication endpoint or profile for an agent</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<h3 id="type-and-range">Type and Range</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Range</td>
-<td><a href="String.html">String</a></td>
-</tr>
-<tr>
-<td>Domain Of</td>
-<td><a href="ContactPoint.html">ContactPoint</a></td>
-</tr>
-</tbody>
-</table>
-<h3 id="cardinality-and-requirements">Cardinality and Requirements</h3>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>pbs:availability_notes</td>
-</tr>
-<tr>
-<td>native</td>
-<td>pbs:availability_notes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [ContactPoint](ContactPoint.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:availability_notes |
+| native | pbs:availability_notes |
+
+
+
+
+## LinkML Source
+
 <details>
 
 <pre><code class="language-yaml">name: availability_notes
 description: Optional notes about availability, office hours, or response expectations.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: availability_notes
 domain_of:
 - ContactPoint
 range: string
 
 </code></pre>
 
-</details>
+</details></div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

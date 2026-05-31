@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: cost_quantity_value 
 
@@ -7,11 +10,11 @@ _Quantity magnitude used as basis for this cost calculation._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:cost_quantity_value](https://example.org/pragmatic-bim-data-contract/cost_quantity_value)
-Alias: cost_quantity_value
 
+URI: [pbs:cost_quantity_value](https://schema.pragmaticbim.ch/cost_quantity_value)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: cost_quantity_value
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
+| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 
 
@@ -70,7 +73,7 @@ Alias: cost_quantity_value
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -91,13 +94,12 @@ Alias: cost_quantity_value
 ```yaml
 name: cost_quantity_value
 description: Quantity magnitude used as basis for this cost calculation.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: cost_quantity_value
 domain_of:
 - AbstractCostRecord
 range: double
 minimum_value: 0
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: sender 
 
@@ -7,11 +10,11 @@ _Agent that sent the message._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:sender](https://schema.org/sender)
-Alias: sender
 
+URI: [schema:sender](http://schema.org/sender)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: sender
 | --- | --- |
 | Range | [Agent](Agent.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:sender](https://schema.org/sender) |
+| Slot URI | [schema:sender](http://schema.org/sender) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: sender
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,14 +86,13 @@ Alias: sender
 ```yaml
 name: sender
 description: Agent that sent the message.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:sender
-alias: sender
 domain_of:
 - Message
 range: Agent
 inlined: false
 
 ```
-</details>
+</details></div>

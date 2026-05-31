@@ -1,10 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: BoundaryType 
 
 
 
-URI: [pbs:BoundaryType](https://example.org/pragmatic-bim-data-contract/BoundaryType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:BoundaryType](https://example.org/pragmatic-bim-data-contract/BoundaryType)
+URI: [pbs:BoundaryType](https://schema.pragmaticbim.ch/BoundaryType)
+
+**Enum URI:** [pbs:BoundaryType](https://schema.pragmaticbim.ch/BoundaryType)
 
 
 ## Permissible Values
@@ -41,7 +49,7 @@ URI: [pbs:BoundaryType](https://example.org/pragmatic-bim-data-contract/Boundary
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -53,7 +61,7 @@ URI: [pbs:BoundaryType](https://example.org/pragmatic-bim-data-contract/Boundary
 <details>
 ```yaml
 name: BoundaryType
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:BoundaryType
 permissible_values:
@@ -69,3 +77,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

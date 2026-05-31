@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: applies_to_entities 
 
@@ -7,11 +10,11 @@ _Entities this cost item applies to._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:applies_to_entities](https://example.org/pragmatic-bim-data-contract/applies_to_entities)
-Alias: applies_to_entities
 
+URI: [pbs:applies_to_entities](https://schema.pragmaticbim.ch/applies_to_entities)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: applies_to_entities
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
+| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 
 
@@ -64,7 +67,7 @@ Alias: applies_to_entities
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -85,13 +88,12 @@ Alias: applies_to_entities
 ```yaml
 name: applies_to_entities
 description: Entities this cost item applies to.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: applies_to_entities
 domain_of:
 - AbstractCostRecord
 range: Entity
 multivalued: true
 
 ```
-</details>
+</details></div>

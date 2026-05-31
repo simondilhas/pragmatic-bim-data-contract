@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: assignee 
 
@@ -7,11 +10,11 @@ _Responsible agent._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:agent](https://schema.org/agent)
-Alias: assignee
 
+URI: [schema:agent](http://schema.org/agent)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: assignee
 | --- | --- |
 | Range | [Agent](Agent.md) |
 | Domain Of | [Task](Task.md) |
-| Slot URI | [schema:agent](https://schema.org/agent) |
+| Slot URI | [schema:agent](http://schema.org/agent) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: assignee
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,14 +86,13 @@ Alias: assignee
 ```yaml
 name: assignee
 description: Responsible agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:agent
-alias: assignee
 domain_of:
 - Task
 range: Agent
 inlined: false
 
 ```
-</details>
+</details></div>

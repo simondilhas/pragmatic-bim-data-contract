@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: geometry_format 
 
@@ -7,11 +10,11 @@ _Optional serialization/encoding format (for example ifc, gltf, wkt, geojson), i
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:geometry_format](https://example.org/pragmatic-bim-data-contract/geometry_format)
-Alias: geometry_format
 
+URI: [pbs:geometry_format](https://schema.pragmaticbim.ch/geometry_format)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: geometry_format
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,12 +86,11 @@ Alias: geometry_format
 name: geometry_format
 description: Optional serialization/encoding format (for example ifc, gltf, wkt, geojson),
   independent of representation kind.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: geometry_format
 domain_of:
 - GeometryRepresentation
 range: string
 
 ```
-</details>
+</details></div>

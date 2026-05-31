@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: PostalAddress 
 
@@ -7,9 +10,11 @@ _Structured postal or physical address for an agent._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:PostalAddress](https://example.org/pragmatic-bim-data-contract/PostalAddress)
+
+URI: [pbs:PostalAddress](https://schema.pragmaticbim.ch/PostalAddress)
 
 
 
@@ -45,7 +50,7 @@ URI: [pbs:PostalAddress](https://example.org/pragmatic-bim-data-contract/PostalA
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:PostalAddress](https://example.org/pragmatic-bim-data-contract/PostalAddress) |
+| Class URI | [pbs:PostalAddress](https://schema.pragmaticbim.ch/PostalAddress) |
 
 
 ## Slots
@@ -92,7 +97,7 @@ URI: [pbs:PostalAddress](https://example.org/pragmatic-bim-data-contract/PostalA
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -120,7 +125,7 @@ URI: [pbs:PostalAddress](https://example.org/pragmatic-bim-data-contract/PostalA
 ```yaml
 name: PostalAddress
 description: Structured postal or physical address for an agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:PostalAddress
 slots:
@@ -142,17 +147,16 @@ class_uri: pbs:PostalAddress
 ```yaml
 name: PostalAddress
 description: Structured postal or physical address for an agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:PostalAddress
 attributes:
   street_address:
     name: street_address
     description: Street name and house number or equivalent address line.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:streetAddress
-    alias: street_address
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -160,10 +164,9 @@ attributes:
   post_office_box_number:
     name: post_office_box_number
     description: Post office box number where applicable.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:postOfficeBoxNumber
-    alias: post_office_box_number
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -171,10 +174,9 @@ attributes:
   postal_code:
     name: postal_code
     description: Postal or ZIP code.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:postalCode
-    alias: postal_code
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -182,10 +184,9 @@ attributes:
   address_locality:
     name: address_locality
     description: Locality, city, or town.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:addressLocality
-    alias: address_locality
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -193,10 +194,9 @@ attributes:
   address_region:
     name: address_region
     description: Region, state, canton, or province.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:addressRegion
-    alias: address_region
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -204,10 +204,9 @@ attributes:
   address_country:
     name: address_country
     description: Country name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:addressCountry
-    alias: address_country
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -215,9 +214,8 @@ attributes:
   address_country_code:
     name: address_country_code
     description: Optional ISO 3166-1 alpha-2 or alpha-3 country code.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: address_country_code
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -225,4 +223,4 @@ attributes:
 class_uri: pbs:PostalAddress
 
 ```
-</details>
+</details></div>

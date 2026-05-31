@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: SystemDiscipline 
 
 
@@ -7,9 +13,11 @@ _Discipline of a building service system._
 
 
 
-URI: [pbs:SystemDiscipline](https://example.org/pragmatic-bim-data-contract/SystemDiscipline)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:SystemDiscipline](https://example.org/pragmatic-bim-data-contract/SystemDiscipline)
+URI: [pbs:SystemDiscipline](https://schema.pragmaticbim.ch/SystemDiscipline)
+
+**Enum URI:** [pbs:SystemDiscipline](https://schema.pragmaticbim.ch/SystemDiscipline)
 
 
 ## Permissible Values
@@ -47,7 +55,7 @@ URI: [pbs:SystemDiscipline](https://example.org/pragmatic-bim-data-contract/Syst
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -60,7 +68,7 @@ URI: [pbs:SystemDiscipline](https://example.org/pragmatic-bim-data-contract/Syst
 ```yaml
 name: SystemDiscipline
 description: Discipline of a building service system.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:SystemDiscipline
 permissible_values:
@@ -83,3 +91,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

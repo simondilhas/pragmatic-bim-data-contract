@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: post_office_box_number 
 
@@ -7,11 +10,11 @@ _Post office box number where applicable._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)
-Alias: post_office_box_number
 
+URI: [schema:postOfficeBoxNumber](http://schema.org/postOfficeBoxNumber)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: post_office_box_number
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber) |
+| Slot URI | [schema:postOfficeBoxNumber](http://schema.org/postOfficeBoxNumber) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: post_office_box_number
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: post_office_box_number
 ```yaml
 name: post_office_box_number
 description: Post office box number where applicable.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:postOfficeBoxNumber
-alias: post_office_box_number
 domain_of:
 - PostalAddress
 range: string
 
 ```
-</details>
+</details></div>

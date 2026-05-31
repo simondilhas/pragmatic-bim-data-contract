@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: postal_addresses 
 
@@ -7,11 +10,11 @@ _Structured postal or physical addresses associated with this agent._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:postal_addresses](https://example.org/pragmatic-bim-data-contract/postal_addresses)
-Alias: postal_addresses
 
+URI: [pbs:postal_addresses](https://schema.pragmaticbim.ch/postal_addresses)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +25,9 @@ Alias: postal_addresses
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represent... |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset ... |  no  |
-| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and commun... |  no  |
 
 
 
@@ -64,7 +67,7 @@ Alias: postal_addresses
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -85,9 +88,8 @@ Alias: postal_addresses
 ```yaml
 name: postal_addresses
 description: Structured postal or physical addresses associated with this agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: postal_addresses
 domain_of:
 - Agent
 range: PostalAddress
@@ -95,4 +97,4 @@ multivalued: true
 inlined: true
 
 ```
-</details>
+</details></div>

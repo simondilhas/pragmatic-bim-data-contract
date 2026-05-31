@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: unit_cost 
 
@@ -7,11 +10,11 @@ _Unit cost for this cost item._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:unit_cost](https://example.org/pragmatic-bim-data-contract/unit_cost)
-Alias: unit_cost
 
+URI: [pbs:unit_cost](https://schema.pragmaticbim.ch/unit_cost)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: unit_cost
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
+| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 
 
@@ -71,7 +74,7 @@ Alias: unit_cost
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -92,9 +95,8 @@ Alias: unit_cost
 ```yaml
 name: unit_cost
 description: Unit cost for this cost item.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: unit_cost
 domain_of:
 - AbstractCostRecord
 range: double
@@ -102,4 +104,4 @@ required: true
 minimum_value: 0
 
 ```
-</details>
+</details></div>

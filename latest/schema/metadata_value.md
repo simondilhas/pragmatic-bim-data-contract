@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: metadata_value 
 
@@ -7,11 +10,11 @@ _Metadata value serialized as text._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:metadata_value](https://example.org/pragmatic-bim-data-contract/metadata_value)
-Alias: metadata_value
 
+URI: [pbs:metadata_value](https://schema.pragmaticbim.ch/metadata_value)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: metadata_value
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: metadata_value
 ```yaml
 name: metadata_value
 description: Metadata value serialized as text.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: metadata_value
 domain_of:
 - MetadataEntry
 range: string
 
 ```
-</details>
+</details></div>

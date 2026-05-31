@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Change - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <hr>
+<p>search:
+  boost: 10.0</p>
+<hr>
+<h1 id="class-change">Class: Change</h1>
+<p><em>Detected difference for one subject between two revisions. Supports IFC model diffs, document/text diffs, and schema-entity field changes.</em></p>
+<p>__</p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
+
+
+
+
+
+
+<div class="mermaid">
+ classDiagram
+    class Change
+    click Change href "./Change.html"
+      Change : affected_subject_id
+      Change : affected_subject_path
+      Change : affected_subject_type
+      Change : change_kind
+        Change --> "1" ChangeKind : change_kind
+        click ChangeKind href "./ChangeKind.html"
+      Change : change_source
+      Change : detected_at
+      Change : document_storage_link
+      Change : from_revision
+      Change : from_state_ref
+        Change --> "0..1" StateRef : from_state_ref
+        click StateRef href "./StateRef.html"
+      Change : id
+      Change : ifc_global_id
+      Change : intent_verdict
+        Change --> "0..1" ChangeIntentVerdict : intent_verdict
+        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
+      Change : property_delta
+        Change --> "*" PropertyDelta : property_delta
+        click PropertyDelta href "./PropertyDelta.html"
+      Change : to_revision
+      Change : to_state_ref
+        Change --> "0..1" StateRef : to_state_ref
+        click StateRef href "./StateRef.html"
+      Change : triggered_process
+      Change : triggered_task
+
+</div>
+
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [pbs:Change](https://schema.pragmaticbim.ch/Change) |
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | direct |
+| [change_kind](change_kind.md) | 1 <br/> [ChangeKind](ChangeKind.md) | Severity or category of change detected between two revisions | direct |
+| [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABL... | direct |
+| [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key) | direct |
+| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, D... | direct |
+| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2]... | direct |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | direct |
+| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document | direct |
+| [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change | direct |
+| [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change | direct |
+| [from_state_ref](from_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the source revision | direct |
+| [to_state_ref](to_state_ref.md) | 0..1 <br/> [StateRef](StateRef.md) | Content state pointer at the target revision | direct |
+| [property_delta](property_delta.md) | * <br/> [PropertyDelta](PropertyDelta.md) | Field-level differences detected between the two revision states | direct |
+| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger | direct |
+| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance) | direct |
+| [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected | direct |
+| [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record | direct |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [ChangeSet](ChangeSet.md) | [changes](changes.md) | range | [Change](Change.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:Change |
+| native | pbs:Change |
+| exact | prov:Activity |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+
+<pre><code class="language-yaml">name: Change
+description: 'Detected difference for one subject between two revisions. Supports
+  IFC model diffs, document/text diffs, and schema-entity field changes.
+
+  '
+from_schema: https://schema.pragmaticbim.ch
+exact_mappings:
+- prov:Activity
+slots:
+- id
+- change_kind
+- intent_verdict
+- affected_subject_id
+- affected_subject_type
+- affected_subject_path
+- ifc_global_id
+- document_storage_link
+- from_revision
+- to_revision
+- from_state_ref
+- to_state_ref
+- property_delta
+- triggered_task
+- triggered_process
+- detected_at
+- change_source
+class_uri: pbs:Change
+
+</code></pre>
+
+</details>
+
+### Induced
+
+<details>
+
+<pre><code class="language-yaml">name: Change
+description: 'Detected difference for one subject between two revisions. Supports
+  IFC model diffs, document/text diffs, and schema-entity field changes.
+
+  '
+from_schema: https://schema.pragmaticbim.ch
+exact_mappings:
+- prov:Activity
+attributes:
+  id:
+    name: id
+    description: Unique local identifier.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    identifier: true
+    owner: Change
+    domain_of:
+    - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
+    range: string
+    required: true
+  change_kind:
+    name: change_kind
+    description: Severity or category of change detected between two revisions.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: ChangeKind
+    required: true
+  intent_verdict:
+    name: intent_verdict
+    description: Intent stability verdict from an automated judge (for example iterthink
+      STABLE/NEW).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: ChangeIntentVerdict
+  affected_subject_id:
+    name: affected_subject_id
+    description: Identifier of the changed subject (entity id, document id, or external
+      key).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: string
+    required: true
+  affected_subject_type:
+    name: affected_subject_type
+    description: 'LinkML class name of the changed subject (for example Space, SeparatorWall,
+      Document).
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: string
+    required: true
+  affected_subject_path:
+    name: affected_subject_path
+    description: 'Optional JSON-pointer-style path for nested targets (for example
+      documents[2], localized_descriptions[de], section.4.2.paragraph_1).
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: string
+  ifc_global_id:
+    name: ifc_global_id
+    description: IFC GlobalId of the mapped entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Entity
+    - Change
+    range: string
+    pattern: ^[0-3][0-9A-Za-z_$]{21}$
+  document_storage_link:
+    name: document_storage_link
+    description: Document location when the subject is or embeds a Document.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: uriorcurie
+  from_revision:
+    name: from_revision
+    description: Source revision number for this change.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    - ChangeSet
+    range: integer
+    required: true
+    minimum_value: 0
+  to_revision:
+    name: to_revision
+    description: Target revision number for this change.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    - ChangeSet
+    range: integer
+    required: true
+    minimum_value: 0
+  from_state_ref:
+    name: from_state_ref
+    description: Content state pointer at the source revision.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: StateRef
+    inlined: true
+  to_state_ref:
+    name: to_state_ref
+    description: Content state pointer at the target revision.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: StateRef
+    inlined: true
+  property_delta:
+    name: property_delta
+    description: Field-level differences detected between the two revision states.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: PropertyDelta
+    multivalued: true
+    inlined: true
+  triggered_task:
+    name: triggered_task
+    description: Id of a Task record that this change triggered or should trigger.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: string
+  triggered_process:
+    name: triggered_process
+    description: External workflow process URI (for example yourcompanyos process
+      instance).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: uriorcurie
+  detected_at:
+    name: detected_at
+    description: Timestamp when this change was detected.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    slot_uri: dcterms:created
+    owner: Change
+    domain_of:
+    - Change
+    range: datetime
+  change_source:
+    name: change_source
+    description: URI identifying the tool or pipeline that produced this change record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: uriorcurie
+class_uri: pbs:Change
+
+</code></pre>
+
+</details></div>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: serves_spaces 
 
@@ -7,11 +10,11 @@ _Spaces served by this system._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:serves_spaces](https://example.org/pragmatic-bim-data-contract/serves_spaces)
-Alias: serves_spaces
 
+URI: [pbs:serves_spaces](https://schema.pragmaticbim.ch/serves_spaces)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: serves_spaces
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: serves_spaces
 ```yaml
 name: serves_spaces
 description: Spaces served by this system.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: serves_spaces
 domain_of:
 - System
 range: Space
 multivalued: true
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: separator_wall_type 
 
@@ -7,11 +10,11 @@ _Classification of wall-based separator element._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:separator_wall_type](https://example.org/pragmatic-bim-data-contract/separator_wall_type)
-Alias: separator_wall_type
 
+URI: [pbs:separator_wall_type](https://schema.pragmaticbim.ch/separator_wall_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: separator_wall_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: separator_wall_type
 ```yaml
 name: separator_wall_type
 description: Classification of wall-based separator element.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: separator_wall_type
 domain_of:
 - SeparatorWall
 range: SeparatorWallType
 required: true
 
 ```
-</details>
+</details></div>

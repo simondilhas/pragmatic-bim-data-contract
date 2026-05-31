@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: quantity_unit 
 
@@ -7,11 +10,11 @@ _Unit of the quantity value._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:quantity_unit](https://example.org/pragmatic-bim-data-contract/quantity_unit)
-Alias: quantity_unit
 
+URI: [pbs:quantity_unit](https://schema.pragmaticbim.ch/quantity_unit)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: quantity_unit
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: quantity_unit
 ```yaml
 name: quantity_unit
 description: Unit of the quantity value.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: quantity_unit
 domain_of:
 - QuantityValue
 range: string
 required: true
 
 ```
-</details>
+</details></div>

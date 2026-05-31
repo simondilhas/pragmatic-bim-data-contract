@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: FirePropertyKey 
 
 
@@ -7,9 +13,11 @@ _Canonical fire-related keys derived from IFC PropertySets._
 
 
 
-URI: [pbs:FirePropertyKey](https://example.org/pragmatic-bim-data-contract/FirePropertyKey)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:FirePropertyKey](https://example.org/pragmatic-bim-data-contract/FirePropertyKey)
+URI: [pbs:FirePropertyKey](https://schema.pragmaticbim.ch/FirePropertyKey)
+
+**Enum URI:** [pbs:FirePropertyKey](https://schema.pragmaticbim.ch/FirePropertyKey)
 
 
 ## Permissible Values
@@ -46,7 +54,7 @@ URI: [pbs:FirePropertyKey](https://example.org/pragmatic-bim-data-contract/FireP
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -59,7 +67,7 @@ URI: [pbs:FirePropertyKey](https://example.org/pragmatic-bim-data-contract/FireP
 ```yaml
 name: FirePropertyKey
 description: Canonical fire-related keys derived from IFC PropertySets.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:FirePropertyKey
 permissible_values:
@@ -75,3 +83,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

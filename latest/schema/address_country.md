@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: address_country 
 
@@ -7,11 +10,11 @@ _Country name._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:addressCountry](https://schema.org/addressCountry)
-Alias: address_country
 
+URI: [schema:addressCountry](http://schema.org/addressCountry)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: address_country
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:addressCountry](https://schema.org/addressCountry) |
+| Slot URI | [schema:addressCountry](http://schema.org/addressCountry) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: address_country
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: address_country
 ```yaml
 name: address_country
 description: Country name.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:addressCountry
-alias: address_country
 domain_of:
 - PostalAddress
 range: string
 
 ```
-</details>
+</details></div>

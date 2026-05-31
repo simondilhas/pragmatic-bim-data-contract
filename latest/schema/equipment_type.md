@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: equipment_type 
 
@@ -7,11 +10,11 @@ _Classification of equipment (for example HVAC, electrical, plumbing)._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:equipment_type](https://example.org/pragmatic-bim-data-contract/equipment_type)
-Alias: equipment_type
 
+URI: [pbs:equipment_type](https://schema.pragmaticbim.ch/equipment_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: equipment_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: equipment_type
 ```yaml
 name: equipment_type
 description: Classification of equipment (for example HVAC, electrical, plumbing).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: equipment_type
 domain_of:
 - Equipment
 range: EquipmentType
 required: true
 
 ```
-</details>
+</details></div>

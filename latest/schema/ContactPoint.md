@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: ContactPoint 
 
@@ -7,9 +10,11 @@ _Structured communication endpoint or profile for an agent._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:ContactPoint](https://example.org/pragmatic-bim-data-contract/ContactPoint)
+
+URI: [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint)
 
 
 
@@ -43,7 +48,7 @@ URI: [pbs:ContactPoint](https://example.org/pragmatic-bim-data-contract/ContactP
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:ContactPoint](https://example.org/pragmatic-bim-data-contract/ContactPoint) |
+| Class URI | [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint) |
 
 
 ## Slots
@@ -89,7 +94,7 @@ URI: [pbs:ContactPoint](https://example.org/pragmatic-bim-data-contract/ContactP
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -117,7 +122,7 @@ URI: [pbs:ContactPoint](https://example.org/pragmatic-bim-data-contract/ContactP
 ```yaml
 name: ContactPoint
 description: Structured communication endpoint or profile for an agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:ContactPoint
 slots:
@@ -138,7 +143,7 @@ class_uri: pbs:ContactPoint
 ```yaml
 name: ContactPoint
 description: Structured communication endpoint or profile for an agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:ContactPoint
 attributes:
@@ -146,9 +151,8 @@ attributes:
     name: contact_channel_type
     description: Communication channel type such as email, phone, website, linkedin,
       whatsapp, signal, slack, teams, or telegram.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: contact_channel_type
     owner: ContactPoint
     domain_of:
     - ContactPoint
@@ -157,9 +161,8 @@ attributes:
     name: contact_value
     description: Human-readable contact value such as an email address, phone number,
       handle, or username.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: contact_value
     owner: ContactPoint
     domain_of:
     - ContactPoint
@@ -167,9 +170,8 @@ attributes:
   contact_uri:
     name: contact_uri
     description: URI for the contact endpoint or profile where applicable.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: contact_uri
     owner: ContactPoint
     domain_of:
     - ContactPoint
@@ -178,9 +180,8 @@ attributes:
     name: usage_context
     description: Optional usage context such as work, personal, support, billing,
       or emergency.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: usage_context
     owner: ContactPoint
     domain_of:
     - ContactPoint
@@ -188,9 +189,8 @@ attributes:
   is_preferred:
     name: is_preferred
     description: Indicates whether this is the preferred contact point.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: is_preferred
     owner: ContactPoint
     domain_of:
     - ContactPoint
@@ -198,9 +198,8 @@ attributes:
   availability_notes:
     name: availability_notes
     description: Optional notes about availability, office hours, or response expectations.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: availability_notes
     owner: ContactPoint
     domain_of:
     - ContactPoint
@@ -208,4 +207,4 @@ attributes:
 class_uri: pbs:ContactPoint
 
 ```
-</details>
+</details></div>

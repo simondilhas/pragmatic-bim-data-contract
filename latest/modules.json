@@ -1,0 +1,59 @@
+{
+  "base_url": "https://schema.pragmaticbim.ch",
+  "modules": [
+    {
+      "slug": "changes",
+      "id": "https://schema.pragmaticbim.ch/changes",
+      "title": "Pragmatic BIM Data Contract - Changes",
+      "landing_page": "https://schema.pragmaticbim.ch/changes"
+    },
+    {
+      "slug": "core",
+      "id": "https://schema.pragmaticbim.ch/core",
+      "title": "Pragmatic BIM Data Contract - Core",
+      "landing_page": "https://schema.pragmaticbim.ch/core"
+    },
+    {
+      "slug": "elements-physical",
+      "id": "https://schema.pragmaticbim.ch/elements-physical",
+      "title": "Pragmatic BIM Data Contract - Elements Physical",
+      "landing_page": "https://schema.pragmaticbim.ch/elements-physical"
+    },
+    {
+      "slug": "elements-virtual",
+      "id": "https://schema.pragmaticbim.ch/elements-virtual",
+      "title": "Pragmatic BIM Data Contract - Elements Virtual",
+      "landing_page": "https://schema.pragmaticbim.ch/elements-virtual"
+    },
+    {
+      "slug": "enums",
+      "id": "https://schema.pragmaticbim.ch/enums",
+      "title": "Pragmatic BIM Data Contract - Enums",
+      "landing_page": "https://schema.pragmaticbim.ch/enums"
+    },
+    {
+      "slug": "performance-enums",
+      "id": "https://schema.pragmaticbim.ch/performance-enums",
+      "title": "Pragmatic BIM Data Contract - Performance Enums",
+      "landing_page": "https://schema.pragmaticbim.ch/performance-enums"
+    },
+    {
+      "slug": "performance",
+      "id": "https://schema.pragmaticbim.ch/performance",
+      "title": "Pragmatic BIM Data Contract - Performance",
+      "landing_page": "https://schema.pragmaticbim.ch/performance"
+    },
+    {
+      "slug": "requirements-enums",
+      "id": "https://schema.pragmaticbim.ch/requirements-enums",
+      "title": "Pragmatic BIM Data Contract - Requirements Enums",
+      "landing_page": "https://schema.pragmaticbim.ch/requirements-enums"
+    },
+    {
+      "slug": "requirements",
+      "id": "https://schema.pragmaticbim.ch/requirements",
+      "title": "Pragmatic BIM Data Contract - Requirements",
+      "landing_page": "https://schema.pragmaticbim.ch/requirements"
+    }
+  ]
+}

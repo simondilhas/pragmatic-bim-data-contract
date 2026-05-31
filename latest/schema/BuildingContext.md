@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: BuildingContext 
 
@@ -7,9 +10,11 @@ _Spatial context node constrained to building semantics._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:BuildingContext](https://example.org/pragmatic-bim-data-contract/BuildingContext)
+
+URI: [pbs:BuildingContext](https://schema.pragmaticbim.ch/BuildingContext)
 
 
 
@@ -321,7 +326,7 @@ URI: [pbs:BuildingContext](https://example.org/pragmatic-bim-data-contract/Build
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:BuildingContext](https://example.org/pragmatic-bim-data-contract/BuildingContext) |
+| Class URI | [pbs:BuildingContext](https://schema.pragmaticbim.ch/BuildingContext) |
 
 
 ## Slots
@@ -384,7 +389,7 @@ URI: [pbs:BuildingContext](https://example.org/pragmatic-bim-data-contract/Build
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -411,7 +416,7 @@ URI: [pbs:BuildingContext](https://example.org/pragmatic-bim-data-contract/Build
 ```yaml
 name: BuildingContext
 description: Spatial context node constrained to building semantics.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 is_a: BuiltAssetContext
 class_uri: pbs:BuildingContext
 
@@ -424,16 +429,15 @@ class_uri: pbs:BuildingContext
 ```yaml
 name: BuildingContext
 description: Spatial context node constrained to building semantics.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 is_a: BuiltAssetContext
 attributes:
   context_type:
     name: context_type
     description: Classification of context entity (project, perimeter, legal_site,
       building, civil_structure, level, zone).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: context_type
     owner: BuildingContext
     domain_of:
     - SpatialContext
@@ -443,9 +447,8 @@ attributes:
     name: zone_type
     description: Optional zone classification; intended for SpatialContext nodes where
       context_type is zone.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: zone_type
     owner: BuildingContext
     domain_of:
     - SpatialContext
@@ -453,9 +456,8 @@ attributes:
   parent_project:
     name: parent_project
     description: Parent project context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_project
     owner: BuildingContext
     domain_of:
     - SpatialContext
@@ -464,9 +466,8 @@ attributes:
   parent_perimeter:
     name: parent_perimeter
     description: Parent perimeter context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_perimeter
     owner: BuildingContext
     domain_of:
     - SpatialContext
@@ -474,9 +475,8 @@ attributes:
   parent_legal_site:
     name: parent_legal_site
     description: Parent legal site context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_legal_site
     owner: BuildingContext
     domain_of:
     - SpatialContext
@@ -484,9 +484,8 @@ attributes:
   parent_building:
     name: parent_building
     description: Parent building context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_building
     owner: BuildingContext
     domain_of:
     - PhysicalElement
@@ -497,9 +496,8 @@ attributes:
   parent_level:
     name: parent_level
     description: Parent level/storey context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_level
     owner: BuildingContext
     domain_of:
     - PhysicalElement
@@ -509,9 +507,8 @@ attributes:
   parent_zone:
     name: parent_zone
     description: Parent zone context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_zone
     owner: BuildingContext
     domain_of:
     - SpatialContext
@@ -520,9 +517,8 @@ attributes:
   group_members:
     name: group_members
     description: Zone members; may include spaces, separations, systems, etc.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: group_members
     owner: BuildingContext
     domain_of:
     - SpatialContext
@@ -531,9 +527,8 @@ attributes:
   cost_items:
     name: cost_items
     description: Cost items associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: cost_items
     owner: BuildingContext
     domain_of:
     - VirtualEntity
@@ -543,9 +538,8 @@ attributes:
   cost_assemblies:
     name: cost_assemblies
     description: Aggregated unit prices associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: cost_assemblies
     owner: BuildingContext
     domain_of:
     - VirtualEntity
@@ -555,9 +549,8 @@ attributes:
   materials:
     name: materials
     description: Material definitions associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: materials
     owner: BuildingContext
     domain_of:
     - VirtualEntity
@@ -567,21 +560,23 @@ attributes:
   id:
     name: id
     description: Unique local identifier.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     identifier: true
-    alias: id
     owner: BuildingContext
     domain_of:
     - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
     range: string
     required: true
   name:
     name: name
     description: Default display name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: name
     owner: BuildingContext
     domain_of:
     - Entity
@@ -590,9 +585,8 @@ attributes:
   localized_names:
     name: localized_names
     description: Localized variants of name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_names
     owner: BuildingContext
     domain_of:
     - Entity
@@ -602,9 +596,8 @@ attributes:
   description:
     name: description
     description: Default description text.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: description
     owner: BuildingContext
     domain_of:
     - Entity
@@ -613,9 +606,8 @@ attributes:
     name: meaning_uri
     description: Optional semantic URI for linking the entity instance to an external
       ontology concept.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: meaning_uri
     owner: BuildingContext
     domain_of:
     - Entity
@@ -623,9 +615,8 @@ attributes:
   localized_descriptions:
     name: localized_descriptions
     description: Localized variants of description.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_descriptions
     owner: BuildingContext
     domain_of:
     - Entity
@@ -635,20 +626,19 @@ attributes:
   ifc_global_id:
     name: ifc_global_id
     description: IFC GlobalId of the mapped entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: ifc_global_id
     owner: BuildingContext
     domain_of:
     - Entity
+    - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
   classifications:
     name: classifications
     description: Classification entries from IFC and other schemes.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classifications
     owner: BuildingContext
     domain_of:
     - Entity
@@ -663,9 +653,8 @@ attributes:
       coordination, analysis, visualization) without duplicating the element itself.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_representations
     owner: BuildingContext
     domain_of:
     - Entity
@@ -675,9 +664,8 @@ attributes:
   quantity_values:
     name: quantity_values
     description: Quantities associated with the entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_values
     owner: BuildingContext
     domain_of:
     - Entity
@@ -687,9 +675,8 @@ attributes:
   documents:
     name: documents
     description: Linked documents associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: documents
     owner: BuildingContext
     domain_of:
     - Entity
@@ -700,9 +687,8 @@ attributes:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
       extensions.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata
     owner: BuildingContext
     domain_of:
     - Entity
@@ -715,9 +701,8 @@ attributes:
       security/material) extracted from raw IFC PropertySet values.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: performance_properties
     owner: BuildingContext
     domain_of:
     - Entity
@@ -727,9 +712,8 @@ attributes:
   decisions:
     name: decisions
     description: Decision records associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: decisions
     owner: BuildingContext
     domain_of:
     - Entity
@@ -739,9 +723,8 @@ attributes:
   tasks:
     name: tasks
     description: Tasks associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: tasks
     owner: BuildingContext
     domain_of:
     - Entity
@@ -751,9 +734,8 @@ attributes:
   messages:
     name: messages
     description: Messages associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: messages
     owner: BuildingContext
     domain_of:
     - Entity
@@ -763,9 +745,8 @@ attributes:
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: created_at
     owner: BuildingContext
     domain_of:
     - Entity
@@ -773,9 +754,8 @@ attributes:
   modified_at:
     name: modified_at
     description: Last modification timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: modified_at
     owner: BuildingContext
     domain_of:
     - Entity
@@ -783,9 +763,8 @@ attributes:
   revision:
     name: revision
     description: Integer revision counter for change tracking.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: revision
     owner: BuildingContext
     domain_of:
     - Entity
@@ -794,9 +773,8 @@ attributes:
   status:
     name: status
     description: Lifecycle or QA status.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: status
     owner: BuildingContext
     domain_of:
     - Entity
@@ -804,4 +782,4 @@ attributes:
 class_uri: pbs:BuildingContext
 
 ```
-</details>
+</details></div>

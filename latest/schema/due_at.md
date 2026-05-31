@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: due_at 
 
@@ -7,11 +10,11 @@ _Due timestamp for task completion._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:deadline](https://schema.org/deadline)
-Alias: due_at
 
+URI: [schema:deadline](http://schema.org/deadline)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: due_at
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
 | Domain Of | [Task](Task.md) |
-| Slot URI | [schema:deadline](https://schema.org/deadline) |
+| Slot URI | [schema:deadline](http://schema.org/deadline) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: due_at
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: due_at
 ```yaml
 name: due_at
 description: Due timestamp for task completion.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:deadline
-alias: due_at
 domain_of:
 - Task
 range: datetime
 
 ```
-</details>
+</details></div>

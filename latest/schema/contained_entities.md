@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: contained_entities 
 
@@ -7,11 +10,11 @@ _Generic containment for associated entities._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:contained_entities](https://example.org/pragmatic-bim-data-contract/contained_entities)
-Alias: contained_entities
 
+URI: [pbs:contained_entities](https://schema.pragmaticbim.ch/contained_entities)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: contained_entities
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
 | [Space](Space.md) | Spatial container used for occupancy, circulation, service, or analysis |  no  |
+| [System](System.md) | Building service system grouping that serves spaces or zones |  no  |
 
 
 
@@ -63,7 +66,7 @@ Alias: contained_entities
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,9 +87,8 @@ Alias: contained_entities
 ```yaml
 name: contained_entities
 description: Generic containment for associated entities.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: contained_entities
 domain_of:
 - Space
 - System
@@ -94,4 +96,4 @@ range: Entity
 multivalued: true
 
 ```
-</details>
+</details></div>

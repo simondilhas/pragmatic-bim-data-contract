@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: parent_system 
 
@@ -7,11 +10,11 @@ _Parent systems that the equipment belongs to._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:parent_system](https://example.org/pragmatic-bim-data-contract/parent_system)
-Alias: parent_system
 
+URI: [pbs:parent_system](https://schema.pragmaticbim.ch/parent_system)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: parent_system
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: parent_system
 ```yaml
 name: parent_system
 description: Parent systems that the equipment belongs to.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: parent_system
 domain_of:
 - Equipment
 range: System
 multivalued: true
 
 ```
-</details>
+</details></div>

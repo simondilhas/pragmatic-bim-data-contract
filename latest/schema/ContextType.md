@@ -1,10 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: ContextType 
 
 
 
-URI: [pbs:ContextType](https://example.org/pragmatic-bim-data-contract/ContextType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:ContextType](https://example.org/pragmatic-bim-data-contract/ContextType)
+URI: [pbs:ContextType](https://schema.pragmaticbim.ch/ContextType)
+
+**Enum URI:** [pbs:ContextType](https://schema.pragmaticbim.ch/ContextType)
 
 
 ## Permissible Values
@@ -45,7 +53,7 @@ URI: [pbs:ContextType](https://example.org/pragmatic-bim-data-contract/ContextTy
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -57,7 +65,7 @@ URI: [pbs:ContextType](https://example.org/pragmatic-bim-data-contract/ContextTy
 <details>
 ```yaml
 name: ContextType
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:ContextType
 permissible_values:
@@ -87,3 +95,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

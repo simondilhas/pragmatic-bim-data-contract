@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: storage_link 
 
@@ -7,11 +10,11 @@ _URI/URL/path to the stored document location._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:storage_link](https://example.org/pragmatic-bim-data-contract/storage_link)
-Alias: storage_link
 
+URI: [pbs:storage_link](https://schema.pragmaticbim.ch/storage_link)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: storage_link
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: storage_link
 ```yaml
 name: storage_link
 description: URI/URL/path to the stored document location.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: storage_link
 domain_of:
 - Document
 range: uriorcurie
 required: true
 
 ```
-</details>
+</details></div>

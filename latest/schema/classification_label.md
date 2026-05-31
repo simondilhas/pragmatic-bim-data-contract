@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: classification_label 
 
@@ -7,11 +10,11 @@ _Optional human-readable classification label._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:classification_label](https://example.org/pragmatic-bim-data-contract/classification_label)
-Alias: classification_label
 
+URI: [pbs:classification_label](https://schema.pragmaticbim.ch/classification_label)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: classification_label
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: classification_label
 ```yaml
 name: classification_label
 description: Optional human-readable classification label.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: classification_label
 domain_of:
 - Classification
 range: string
 
 ```
-</details>
+</details></div>

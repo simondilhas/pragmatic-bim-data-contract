@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ScheduleDependency - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <hr>
+<p>search:
+  boost: 10.0</p>
+<hr>
+<h1 id="class-scheduledependency">Class: ScheduleDependency</h1>
+<p><em>Precedence relationship between two schedule items, optionally with lag.</em></p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:ScheduleDependency](https://schema.pragmaticbim.ch/ScheduleDependency)
+
+
+
+
+
+
+<div class="mermaid">
+ classDiagram
+    class ScheduleDependency
+    click ScheduleDependency href "./ScheduleDependency.html"
+      Entity <|-- ScheduleDependency
+        click Entity href "./Entity.html"
+      ScheduleDependency : classifications
+        ScheduleDependency --> "*" Classification : classifications
+        click Classification href "./Classification.html"
+      ScheduleDependency : created_at
+      ScheduleDependency : decisions
+        ScheduleDependency --> "*" Decision : decisions
+        click Decision href "./Decision.html"
+      ScheduleDependency : dependency_type
+        ScheduleDependency --> "1" ScheduleDependencyType : dependency_type
+        click ScheduleDependencyType href "./ScheduleDependencyType.html"
+      ScheduleDependency : description
+      ScheduleDependency : documents
+        ScheduleDependency --> "*" Document : documents
+        click Document href "./Document.html"
+      ScheduleDependency : geometry_representations
+        ScheduleDependency --> "*" GeometryRepresentation : geometry_representations
+        click GeometryRepresentation href "./GeometryRepresentation.html"
+      ScheduleDependency : id
+      ScheduleDependency : ifc_global_id
+      ScheduleDependency : lag_days
+      ScheduleDependency : localized_descriptions
+        ScheduleDependency --> "*" LocalizedText : localized_descriptions
+        click LocalizedText href "./LocalizedText.html"
+      ScheduleDependency : localized_names
+        ScheduleDependency --> "*" LocalizedText : localized_names
+        click LocalizedText href "./LocalizedText.html"
+      ScheduleDependency : meaning_uri
+      ScheduleDependency : messages
+        ScheduleDependency --> "*" Message : messages
+        click Message href "./Message.html"
+      ScheduleDependency : metadata
+        ScheduleDependency --> "*" MetadataEntry : metadata
+        click MetadataEntry href "./MetadataEntry.html"
+      ScheduleDependency : modified_at
+      ScheduleDependency : name
+      ScheduleDependency : performance_properties
+        ScheduleDependency --> "*" PerformanceProperty : performance_properties
+        click PerformanceProperty href "./PerformanceProperty.html"
+      ScheduleDependency : predecessor_item
+        ScheduleDependency --> "0..1" ScheduleItem : predecessor_item
+        click ScheduleItem href "./ScheduleItem.html"
+      ScheduleDependency : quantity_values
+        ScheduleDependency --> "*" QuantityValue : quantity_values
+        click QuantityValue href "./QuantityValue.html"
+      ScheduleDependency : revision
+      ScheduleDependency : schedule_template
+        ScheduleDependency --> "0..1" ScheduleTemplate : schedule_template
+        click ScheduleTemplate href "./ScheduleTemplate.html"
+      ScheduleDependency : status
+        ScheduleDependency --> "0..1" StatusType : status
+        click StatusType href "./StatusType.html"
+      ScheduleDependency : successor_item
+        ScheduleDependency --> "0..1" ScheduleItem : successor_item
+        click ScheduleItem href "./ScheduleItem.html"
+      ScheduleDependency : tasks
+        ScheduleDependency --> "*" Task : tasks
+        click Task href "./Task.html"
+
+</div>
+
+
+
+
+
+
+## Inheritance
+* [Entity](Entity.md)
+    * **ScheduleDependency**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [pbs:ScheduleDependency](https://schema.pragmaticbim.ch/ScheduleDependency) |
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [schedule_template](schedule_template.md) | 0..1 <br/> [ScheduleTemplate](ScheduleTemplate.md) | Parent schedule template this item or dependency belongs to | direct |
+| [predecessor_item](predecessor_item.md) | 0..1 <br/> [ScheduleItem](ScheduleItem.md) | Schedule item that must occur before the successor item | direct |
+| [successor_item](successor_item.md) | 0..1 <br/> [ScheduleItem](ScheduleItem.md) | Schedule item whose timing is constrained by the predecessor item | direct |
+| [dependency_type](dependency_type.md) | 1 <br/> [ScheduleDependencyType](ScheduleDependencyType.md) | Precedence logic used between the predecessor and successor items | direct |
+| [lag_days](lag_days.md) | 0..1 <br/> [Double](Double.md) | Optional lag or lead offset in days applied to the dependency relation | direct |
+| [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier | [Entity](Entity.md) |
+| [name](name.md) | 1 <br/> [String](String.md) | Default display name | [Entity](Entity.md) |
+| [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name | [Entity](Entity.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | Default description text | [Entity](Entity.md) |
+| [meaning_uri](meaning_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional semantic URI for linking the entity instance to an external ontology... | [Entity](Entity.md) |
+| [localized_descriptions](localized_descriptions.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of description | [Entity](Entity.md) |
+| [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity | [Entity](Entity.md) |
+| [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes | [Entity](Entity.md) |
+| [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity | [Entity](Entity.md) |
+| [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity | [Entity](Entity.md) |
+| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity | [Entity](Entity.md) |
+| [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific... | [Entity](Entity.md) |
+| [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structura... | [Entity](Entity.md) |
+| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity | [Entity](Entity.md) |
+| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity | [Entity](Entity.md) |
+| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity | [Entity](Entity.md) |
+| [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record | [Entity](Entity.md) |
+| [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record | [Entity](Entity.md) |
+| [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking | [Entity](Entity.md) |
+| [status](status.md) | 0..1 <br/> [StatusType](StatusType.md) | Lifecycle or QA status | [Entity](Entity.md) |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [ScheduleTemplate](ScheduleTemplate.md) | [schedule_dependencies](schedule_dependencies.md) | range | [ScheduleDependency](ScheduleDependency.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:ScheduleDependency |
+| native | pbs:ScheduleDependency |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+
+<pre><code class="language-yaml">name: ScheduleDependency
+description: Precedence relationship between two schedule items, optionally with lag.
+from_schema: https://schema.pragmaticbim.ch
+is_a: Entity
+slots:
+- schedule_template
+- predecessor_item
+- successor_item
+- dependency_type
+- lag_days
+class_uri: pbs:ScheduleDependency
+
+</code></pre>
+
+</details>
+
+### Induced
+
+<details>
+
+<pre><code class="language-yaml">name: ScheduleDependency
+description: Precedence relationship between two schedule items, optionally with lag.
+from_schema: https://schema.pragmaticbim.ch
+is_a: Entity
+attributes:
+  schedule_template:
+    name: schedule_template
+    description: Parent schedule template this item or dependency belongs to.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - ScheduleItem
+    - ScheduleDependency
+    range: ScheduleTemplate
+    inlined: false
+  predecessor_item:
+    name: predecessor_item
+    description: Schedule item that must occur before the successor item.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - ScheduleDependency
+    range: ScheduleItem
+    inlined: false
+  successor_item:
+    name: successor_item
+    description: Schedule item whose timing is constrained by the predecessor item.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - ScheduleDependency
+    range: ScheduleItem
+    inlined: false
+  dependency_type:
+    name: dependency_type
+    description: Precedence logic used between the predecessor and successor items.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - ScheduleDependency
+    range: ScheduleDependencyType
+    required: true
+  lag_days:
+    name: lag_days
+    description: Optional lag or lead offset in days applied to the dependency relation.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - ScheduleDependency
+    range: double
+  id:
+    name: id
+    description: Unique local identifier.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    identifier: true
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
+    range: string
+    required: true
+  name:
+    name: name
+    description: Default display name.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: string
+    required: true
+  localized_names:
+    name: localized_names
+    description: Localized variants of name.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  description:
+    name: description
+    description: Default description text.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: string
+  meaning_uri:
+    name: meaning_uri
+    description: Optional semantic URI for linking the entity instance to an external
+      ontology concept.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: uriorcurie
+  localized_descriptions:
+    name: localized_descriptions
+    description: Localized variants of description.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  ifc_global_id:
+    name: ifc_global_id
+    description: IFC GlobalId of the mapped entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    - Change
+    range: string
+    pattern: ^[0-3][0-9A-Za-z_$]{21}$
+  classifications:
+    name: classifications
+    description: Classification entries from IFC and other schemes.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    - Document
+    range: Classification
+    multivalued: true
+    inlined: true
+  geometry_representations:
+    name: geometry_representations
+    description: 'Geometry references associated with the entity. A single element
+      may link to multiple geometry representations to serve different intents (authoring,
+      coordination, analysis, visualization) without duplicating the element itself.
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: GeometryRepresentation
+    multivalued: true
+    inlined: true
+  quantity_values:
+    name: quantity_values
+    description: Quantities associated with the entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: QuantityValue
+    multivalued: true
+    inlined: true
+  documents:
+    name: documents
+    description: Linked documents associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: Document
+    multivalued: true
+    inlined: true
+  metadata:
+    name: metadata
+    description: Generic metadata container for IFC attributes/properties and project-specific
+      extensions.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: MetadataEntry
+    multivalued: true
+    inlined: true
+  performance_properties:
+    name: performance_properties
+    description: 'Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/
+      security/material) extracted from raw IFC PropertySet values.
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: PerformanceProperty
+    multivalued: true
+    inlined: true
+  decisions:
+    name: decisions
+    description: Decision records associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: Decision
+    multivalued: true
+    inlined: true
+  tasks:
+    name: tasks
+    description: Tasks associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: Task
+    multivalued: true
+    inlined: true
+  messages:
+    name: messages
+    description: Messages associated with this entity.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: Message
+    multivalued: true
+    inlined: true
+  created_at:
+    name: created_at
+    description: Creation timestamp for this entity record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: datetime
+  modified_at:
+    name: modified_at
+    description: Last modification timestamp for this entity record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: datetime
+  revision:
+    name: revision
+    description: Integer revision counter for change tracking.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: integer
+    minimum_value: 0
+  status:
+    name: status
+    description: Lifecycle or QA status.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ScheduleDependency
+    domain_of:
+    - Entity
+    range: StatusType
+class_uri: pbs:ScheduleDependency
+
+</code></pre>
+
+</details></div>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

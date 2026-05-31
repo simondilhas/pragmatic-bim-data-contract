@@ -35,7 +35,7 @@ a:hover { text-decoration: underline; }
     </nav>
     <h1 id="pragmatic-bim-data-contract">Pragmatic BIM Data Contract</h1>
 <p>To provide a simple, implementation-ready BIM data model for integration, querying, costing, and analysis workflows, this schema defines a pragmatic, graph-first LinkML structure that is IFC-aware and extensible across classification schemes.</p>
-<p>URI: https://example.org/pragmatic-bim-data-contract</p>
+<p>URI: https://schema.pragmaticbim.ch</p>
 <p>Name: pragmatic_bim_data_contract</p>
 <h2 id="classes">Classes</h2>
 <table>
@@ -163,6 +163,22 @@ a:hover { text-decoration: underline; }
 <td>Material definition that can be associated with one or more entities</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ScheduleTemplate.html">ScheduleTemplate</a></td>
+<td>Reusable schedule container defining items, milestones, and dependencies for a scoped plan.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ScheduleItem.html">ScheduleItem</a></td>
+<td>Planned work item with baseline and actual dates, linked to a schedule template and optional model entities.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Milestone.html">Milestone</a></td>
+<td>Zero-duration checkpoint or delivery target within a schedule</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ScheduleDependency.html">ScheduleDependency</a></td>
+<td>Precedence relationship between two schedule items, optionally with lag</td>
+</tr>
+<tr>
 <td><a href="Classification.html">Classification</a></td>
 <td>Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).</td>
 </tr>
@@ -230,6 +246,22 @@ a:hover { text-decoration: underline; }
 <td><a href="LocalizedText.html">LocalizedText</a></td>
 <td>Localized text value for a specific language tag</td>
 </tr>
+<tr>
+<td><a href="StateRef.html">StateRef</a></td>
+<td>Pointer to a content state at a specific revision</td>
+</tr>
+<tr>
+<td><a href="PropertyDelta.html">PropertyDelta</a></td>
+<td>Field-level difference between two revision states</td>
+</tr>
+<tr>
+<td><a href="Change.html">Change</a></td>
+<td>Detected difference for one subject between two revisions</td>
+</tr>
+<tr>
+<td><a href="ChangeSet.html">ChangeSet</a></td>
+<td>Batch of Change records produced by comparing two model or document revisions</td>
+</tr>
 </tbody>
 </table>
 <h2 id="slots">Slots</h2>
@@ -241,6 +273,14 @@ a:hover { text-decoration: underline; }
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="actual_finish_at.html">actual_finish_at</a></td>
+<td>Actual finish timestamp for the schedule item where known</td>
+</tr>
+<tr>
+<td><a href="actual_start_at.html">actual_start_at</a></td>
+<td>Actual start timestamp for the schedule item where known</td>
+</tr>
 <tr>
 <td><a href="address_country.html">address_country</a></td>
 <td>Country name</td>
@@ -256,6 +296,18 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="address_region.html">address_region</a></td>
 <td>Region, state, canton, or province</td>
+</tr>
+<tr>
+<td><a href="affected_subject_id.html">affected_subject_id</a></td>
+<td>Identifier of the changed subject (entity id, document id, or external key)</td>
+</tr>
+<tr>
+<td><a href="affected_subject_path.html">affected_subject_path</a></td>
+<td>Optional JSON-pointer-style path for nested targets (for example documents[2]...</td>
+</tr>
+<tr>
+<td><a href="affected_subject_type.html">affected_subject_type</a></td>
+<td>LinkML class name of the changed subject (for example Space, SeparatorWall, D...</td>
 </tr>
 <tr>
 <td><a href="applies_to_entities.html">applies_to_entities</a></td>
@@ -284,6 +336,18 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="bounded_space.html">bounded_space</a></td>
 <td>Space bounded by this boundary element</td>
+</tr>
+<tr>
+<td><a href="change_kind.html">change_kind</a></td>
+<td>Severity or category of change detected between two revisions</td>
+</tr>
+<tr>
+<td><a href="change_source.html">change_source</a></td>
+<td>URI identifying the tool or pipeline that produced this change record</td>
+</tr>
+<tr>
+<td><a href="changes.html">changes</a></td>
+<td>Change records included in this batch</td>
 </tr>
 <tr>
 <td><a href="classification_code.html">classification_code</a></td>
@@ -418,8 +482,24 @@ a:hover { text-decoration: underline; }
 <td>Decision records associated with this entity</td>
 </tr>
 <tr>
+<td><a href="dependency_type.html">dependency_type</a></td>
+<td>Precedence logic used between the predecessor and successor items</td>
+</tr>
+<tr>
 <td><a href="description.html">description</a></td>
 <td>Default description text</td>
+</tr>
+<tr>
+<td><a href="detected_at.html">detected_at</a></td>
+<td>Timestamp when this change was detected</td>
+</tr>
+<tr>
+<td><a href="document_state_refs.html">document_state_refs</a></td>
+<td>Optional baseline document states for the comparison that produced this chang...</td>
+</tr>
+<tr>
+<td><a href="document_storage_link.html">document_storage_link</a></td>
+<td>Document location when the subject is or embeds a Document</td>
 </tr>
 <tr>
 <td><a href="documents.html">documents</a></td>
@@ -432,6 +512,18 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="equipment_type.html">equipment_type</a></td>
 <td>Classification of equipment (for example HVAC, electrical, plumbing)</td>
+</tr>
+<tr>
+<td><a href="from_revision.html">from_revision</a></td>
+<td>Source revision number for this change</td>
+</tr>
+<tr>
+<td><a href="from_state_ref.html">from_state_ref</a></td>
+<td>Content state pointer at the source revision</td>
+</tr>
+<tr>
+<td><a href="from_value.html">from_value</a></td>
+<td>Prior value serialized as text</td>
 </tr>
 <tr>
 <td><a href="geometry_format.html">geometry_format</a></td>
@@ -458,12 +550,28 @@ a:hover { text-decoration: underline; }
 <td>Unique local identifier</td>
 </tr>
 <tr>
+<td><a href="ifc_attribute_name.html">ifc_attribute_name</a></td>
+<td>IFC attribute name when property_path_kind is ifc_attribute (for example Name...</td>
+</tr>
+<tr>
 <td><a href="ifc_global_id.html">ifc_global_id</a></td>
 <td>IFC GlobalId of the mapped entity</td>
 </tr>
 <tr>
+<td><a href="ifc_state_ref.html">ifc_state_ref</a></td>
+<td>Optional baseline IFC model state for the comparison that produced this chang...</td>
+</tr>
+<tr>
+<td><a href="intent_verdict.html">intent_verdict</a></td>
+<td>Intent stability verdict from an automated judge (for example iterthink STABL...</td>
+</tr>
+<tr>
 <td><a href="is_preferred.html">is_preferred</a></td>
 <td>Indicates whether this is the preferred contact point</td>
+</tr>
+<tr>
+<td><a href="lag_days.html">lag_days</a></td>
+<td>Optional lag or lead offset in days applied to the dependency relation</td>
 </tr>
 <tr>
 <td><a href="language_tag.html">language_tag</a></td>
@@ -526,6 +634,10 @@ a:hover { text-decoration: underline; }
 <td>Metadata value serialized as text</td>
 </tr>
 <tr>
+<td><a href="milestone_at.html">milestone_at</a></td>
+<td>Target timestamp for the milestone checkpoint</td>
+</tr>
+<tr>
 <td><a href="modified_at.html">modified_at</a></td>
 <td>Last modification timestamp for this entity record</td>
 </tr>
@@ -570,6 +682,14 @@ a:hover { text-decoration: underline; }
 <td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structura...</td>
 </tr>
 <tr>
+<td><a href="planned_finish_at.html">planned_finish_at</a></td>
+<td>Planned finish timestamp for the schedule item</td>
+</tr>
+<tr>
+<td><a href="planned_start_at.html">planned_start_at</a></td>
+<td>Planned start timestamp for the schedule item</td>
+</tr>
+<tr>
 <td><a href="post_office_box_number.html">post_office_box_number</a></td>
 <td>Post office box number where applicable</td>
 </tr>
@@ -582,12 +702,40 @@ a:hover { text-decoration: underline; }
 <td>Postal or ZIP code</td>
 </tr>
 <tr>
+<td><a href="predecessor_item.html">predecessor_item</a></td>
+<td>Schedule item that must occur before the successor item</td>
+</tr>
+<tr>
+<td><a href="produced_at.html">produced_at</a></td>
+<td>Timestamp when this changeset was produced</td>
+</tr>
+<tr>
+<td><a href="produced_by.html">produced_by</a></td>
+<td>Agent or system that produced this changeset</td>
+</tr>
+<tr>
+<td><a href="property_delta.html">property_delta</a></td>
+<td>Field-level differences detected between the two revision states</td>
+</tr>
+<tr>
 <td><a href="property_key.html">property_key</a></td>
 <td>Canonical key inside the domain; constrained via subclass slot_usage to a dom...</td>
 </tr>
 <tr>
+<td><a href="property_path.html">property_path</a></td>
+<td>Canonical path to the changed field</td>
+</tr>
+<tr>
+<td><a href="property_path_kind.html">property_path_kind</a></td>
+<td>Classification of the property path for downstream diff interpretation</td>
+</tr>
+<tr>
 <td><a href="property_unit.html">property_unit</a></td>
 <td>Normalized unit where applicable (for example min, dB, W/m2K)</td>
+</tr>
+<tr>
+<td><a href="property_unit_uri.html">property_unit_uri</a></td>
+<td>Optional URI that identifies the normalized property unit in an external voca...</td>
 </tr>
 <tr>
 <td><a href="property_value_boolean.html">property_value_boolean</a></td>
@@ -614,6 +762,10 @@ a:hover { text-decoration: underline; }
 <td>Unit of the quantity value</td>
 </tr>
 <tr>
+<td><a href="quantity_unit_uri.html">quantity_unit_uri</a></td>
+<td>Optional URI that identifies the quantity unit in an external vocabulary such...</td>
+</tr>
+<tr>
 <td><a href="quantity_value.html">quantity_value</a></td>
 <td>Numeric quantity value</td>
 </tr>
@@ -636,6 +788,22 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="revision.html">revision</a></td>
 <td>Integer revision counter for change tracking</td>
+</tr>
+<tr>
+<td><a href="schedule_dependencies.html">schedule_dependencies</a></td>
+<td>Dependency relationships used within this schedule template</td>
+</tr>
+<tr>
+<td><a href="schedule_items.html">schedule_items</a></td>
+<td>Schedule items contained in this template; milestone instances may also appea...</td>
+</tr>
+<tr>
+<td><a href="schedule_template.html">schedule_template</a></td>
+<td>Parent schedule template this item or dependency belongs to</td>
+</tr>
+<tr>
+<td><a href="scheduled_entities.html">scheduled_entities</a></td>
+<td>Model entities that this schedule template or schedule item applies to</td>
 </tr>
 <tr>
 <td><a href="sender.html">sender</a></td>
@@ -690,6 +858,22 @@ a:hover { text-decoration: underline; }
 <td>Classification of space (void, circulation, usable, service)</td>
 </tr>
 <tr>
+<td><a href="state_ref.html">state_ref</a></td>
+<td>URI, path, or content hash identifying the stored content state</td>
+</tr>
+<tr>
+<td><a href="state_ref_format.html">state_ref_format</a></td>
+<td>Optional serialization format (for example ifc, gltf, pdf, docx, markdown, pl...</td>
+</tr>
+<tr>
+<td><a href="state_ref_kind.html">state_ref_kind</a></td>
+<td>Kind of content referenced (for example ifc_model, document, text_extract)</td>
+</tr>
+<tr>
+<td><a href="state_ref_label.html">state_ref_label</a></td>
+<td>Optional human-readable label (for example LOD300 export, Spec v3 draft)</td>
+</tr>
+<tr>
 <td><a href="status.html">status</a></td>
 <td>Lifecycle or QA status</td>
 </tr>
@@ -700,6 +884,10 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="street_address.html">street_address</a></td>
 <td>Street name and house number or equivalent address line</td>
+</tr>
+<tr>
+<td><a href="successor_item.html">successor_item</a></td>
+<td>Schedule item whose timing is constrained by the predecessor item</td>
 </tr>
 <tr>
 <td><a href="system_discipline.html">system_discipline</a></td>
@@ -734,8 +922,28 @@ a:hover { text-decoration: underline; }
 <td>Localized text value</td>
 </tr>
 <tr>
+<td><a href="to_revision.html">to_revision</a></td>
+<td>Target revision number for this change</td>
+</tr>
+<tr>
+<td><a href="to_state_ref.html">to_state_ref</a></td>
+<td>Content state pointer at the target revision</td>
+</tr>
+<tr>
+<td><a href="to_value.html">to_value</a></td>
+<td>New value serialized as text</td>
+</tr>
+<tr>
 <td><a href="transport_medium.html">transport_medium</a></td>
 <td>Primary transport medium carried or enabled by the connector (for example hum...</td>
+</tr>
+<tr>
+<td><a href="triggered_process.html">triggered_process</a></td>
+<td>External workflow process URI (for example yourcompanyos process instance)</td>
+</tr>
+<tr>
+<td><a href="triggered_task.html">triggered_task</a></td>
+<td>Id of a Task record that this change triggered or should trigger</td>
 </tr>
 <tr>
 <td><a href="unit_cost.html">unit_cost</a></td>
@@ -767,6 +975,14 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="BoundaryType.html">BoundaryType</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="ChangeIntentVerdict.html">ChangeIntentVerdict</a></td>
+<td>Intent stability verdict from an automated judge (for example iterthink STABL...</td>
+</tr>
+<tr>
+<td><a href="ChangeKind.html">ChangeKind</a></td>
+<td>Severity or category of change detected between two revisions</td>
 </tr>
 <tr>
 <td><a href="ConnectionPhysicalType.html">ConnectionPhysicalType</a></td>
@@ -805,8 +1021,16 @@ a:hover { text-decoration: underline; }
 <td>Type discriminator for normalized performance property values</td>
 </tr>
 <tr>
+<td><a href="PropertyPathKind.html">PropertyPathKind</a></td>
+<td>Classification of a property path for diff interpretation across IFC and text...</td>
+</tr>
+<tr>
 <td><a href="QuantityType.html">QuantityType</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="ScheduleDependencyType.html">ScheduleDependencyType</a></td>
+<td>Precedence logic between two schedule items</td>
 </tr>
 <tr>
 <td><a href="SecurityPropertyKey.html">SecurityPropertyKey</a></td>
@@ -827,6 +1051,10 @@ a:hover { text-decoration: underline; }
 <tr>
 <td><a href="SpaceType.html">SpaceType</a></td>
 <td>Classification of space semantics used by modeling and downstream conversion</td>
+</tr>
+<tr>
+<td><a href="StateRefKind.html">StateRefKind</a></td>
+<td>Kind of content referenced by a StateRef pointer</td>
 </tr>
 <tr>
 <td><a href="StatusType.html">StatusType</a></td>

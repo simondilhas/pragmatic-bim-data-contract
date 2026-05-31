@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: property_unit 
 
@@ -7,11 +10,11 @@ _Normalized unit where applicable (for example min, dB, W/m2K)._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:property_unit](https://example.org/pragmatic-bim-data-contract/property_unit)
-Alias: property_unit
 
+URI: [pbs:property_unit](https://schema.pragmaticbim.ch/property_unit)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,13 +25,13 @@ Alias: property_unit
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
-| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
 | [FireProperty](FireProperty.md) | Normalized fire-related property |  no  |
-| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
+| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
 | [StructuralProperty](StructuralProperty.md) | Normalized structural-related property |  no  |
 | [SecurityProperty](SecurityProperty.md) | Normalized security-related property |  no  |
-| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
+| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
 
 
 
@@ -67,7 +70,7 @@ Alias: property_unit
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -88,12 +91,11 @@ Alias: property_unit
 ```yaml
 name: property_unit
 description: Normalized unit where applicable (for example min, dB, W/m2K).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: property_unit
 domain_of:
 - PerformanceProperty
 range: string
 
 ```
-</details>
+</details></div>

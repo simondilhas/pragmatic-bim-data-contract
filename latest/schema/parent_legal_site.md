@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: parent_legal_site 
 
@@ -7,11 +10,11 @@ _Parent legal site context reference._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:parent_legal_site](https://example.org/pragmatic-bim-data-contract/parent_legal_site)
-Alias: parent_legal_site
 
+URI: [pbs:parent_legal_site](https://schema.pragmaticbim.ch/parent_legal_site)
 <!-- no inheritance hierarchy -->
 
 
@@ -23,14 +26,14 @@ Alias: parent_legal_site
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  yes  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
 | [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
 | [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
+| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
 | [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
+| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
+| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
 | [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
+| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
 
 
 
@@ -69,7 +72,7 @@ Alias: parent_legal_site
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -90,12 +93,11 @@ Alias: parent_legal_site
 ```yaml
 name: parent_legal_site
 description: Parent legal site context reference.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: parent_legal_site
 domain_of:
 - SpatialContext
 range: LegalSiteContext
 
 ```
-</details>
+</details></div>

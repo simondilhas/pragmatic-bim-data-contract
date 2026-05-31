@@ -33,9 +33,23 @@ a:hover { text-decoration: underline; }
       <a href="../index.html">Home</a>
       <a href="./pragmatic-bim.docs.html">Schema Index</a>
     </nav>
-    <h1 id="class-postaladdress">Class: PostalAddress</h1>
+    <hr>
+<p>search:
+  boost: 10.0</p>
+<hr>
+<h1 id="class-postaladdress">Class: PostalAddress</h1>
 <p><em>Structured postal or physical address for an agent.</em></p>
-<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/PostalAddress">pbs:PostalAddress</a></p>
+<div data-search-exclude markdown="1">
+
+
+
+URI: [pbs:PostalAddress](https://schema.pragmaticbim.ch/PostalAddress)
+
+
+
+
+
+
 <div class="mermaid">
  classDiagram
     class PostalAddress
@@ -49,146 +63,93 @@ a:hover { text-decoration: underline; }
       PostalAddress : street_address
 
 </div>
+
+
+
+
+
 <!-- no inheritance hierarchy -->
 
-<h2 id="class-properties">Class Properties</h2>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Class URI</td>
-<td><a href="https://example.org/pragmatic-bim-data-contract/PostalAddress">pbs:PostalAddress</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="slots">Slots</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Cardinality and Range</th>
-<th>Description</th>
-<th>Inheritance</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="street_address.html">street_address</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Street name and house number or equivalent address line</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="post_office_box_number.html">post_office_box_number</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Post office box number where applicable</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="postal_code.html">postal_code</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Postal or ZIP code</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="address_locality.html">address_locality</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Locality, city, or town</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="address_region.html">address_region</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Region, state, canton, or province</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="address_country.html">address_country</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Country name</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="address_country_code.html">address_country_code</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Optional ISO 3166-1 alpha-2 or alpha-3 country code</td>
-<td>direct</td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Agent.html">Agent</a></td>
-<td><a href="postal_addresses.html">postal_addresses</a></td>
-<td>range</td>
-<td><a href="PostalAddress.html">PostalAddress</a></td>
-</tr>
-<tr>
-<td><a href="Person.html">Person</a></td>
-<td><a href="postal_addresses.html">postal_addresses</a></td>
-<td>range</td>
-<td><a href="PostalAddress.html">PostalAddress</a></td>
-</tr>
-<tr>
-<td><a href="Company.html">Company</a></td>
-<td><a href="postal_addresses.html">postal_addresses</a></td>
-<td>range</td>
-<td><a href="PostalAddress.html">PostalAddress</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>pbs:PostalAddress</td>
-</tr>
-<tr>
-<td>native</td>
-<td>pbs:PostalAddress</td>
-</tr>
-<tr>
-<td>exact</td>
-<td>schema:PostalAddress</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [pbs:PostalAddress](https://schema.pragmaticbim.ch/PostalAddress) |
+
+
+## Slots
+
+| Name | Cardinality and Range | Description | Inheritance |
+| ---  | --- | --- | --- |
+| [street_address](street_address.md) | 0..1 <br/> [String](String.md) | Street name and house number or equivalent address line | direct |
+| [post_office_box_number](post_office_box_number.md) | 0..1 <br/> [String](String.md) | Post office box number where applicable | direct |
+| [postal_code](postal_code.md) | 0..1 <br/> [String](String.md) | Postal or ZIP code | direct |
+| [address_locality](address_locality.md) | 0..1 <br/> [String](String.md) | Locality, city, or town | direct |
+| [address_region](address_region.md) | 0..1 <br/> [String](String.md) | Region, state, canton, or province | direct |
+| [address_country](address_country.md) | 0..1 <br/> [String](String.md) | Country name | direct |
+| [address_country_code](address_country_code.md) | 0..1 <br/> [String](String.md) | Optional ISO 3166-1 alpha-2 or alpha-3 country code | direct |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Agent](Agent.md) | [postal_addresses](postal_addresses.md) | range | [PostalAddress](PostalAddress.md) |
+| [Person](Person.md) | [postal_addresses](postal_addresses.md) | range | [PostalAddress](PostalAddress.md) |
+| [Company](Company.md) | [postal_addresses](postal_addresses.md) | range | [PostalAddress](PostalAddress.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | pbs:PostalAddress |
+| native | pbs:PostalAddress |
+| exact | schema:PostalAddress |
+
+
+
+
+
+
+## LinkML Source
+
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 
-<h3 id="direct">Direct</h3>
+### Direct
+
 <details>
 
 <pre><code class="language-yaml">name: PostalAddress
 description: Structured postal or physical address for an agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:PostalAddress
 slots:
@@ -205,22 +166,22 @@ class_uri: pbs:PostalAddress
 
 </details>
 
-<h3 id="induced">Induced</h3>
+### Induced
+
 <details>
 
 <pre><code class="language-yaml">name: PostalAddress
 description: Structured postal or physical address for an agent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:PostalAddress
 attributes:
   street_address:
     name: street_address
     description: Street name and house number or equivalent address line.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:streetAddress
-    alias: street_address
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -228,10 +189,9 @@ attributes:
   post_office_box_number:
     name: post_office_box_number
     description: Post office box number where applicable.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:postOfficeBoxNumber
-    alias: post_office_box_number
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -239,10 +199,9 @@ attributes:
   postal_code:
     name: postal_code
     description: Postal or ZIP code.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:postalCode
-    alias: postal_code
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -250,10 +209,9 @@ attributes:
   address_locality:
     name: address_locality
     description: Locality, city, or town.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:addressLocality
-    alias: address_locality
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -261,10 +219,9 @@ attributes:
   address_region:
     name: address_region
     description: Region, state, canton, or province.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:addressRegion
-    alias: address_region
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -272,10 +229,9 @@ attributes:
   address_country:
     name: address_country
     description: Country name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:addressCountry
-    alias: address_country
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -283,9 +239,8 @@ attributes:
   address_country_code:
     name: address_country_code
     description: Optional ISO 3166-1 alpha-2 or alpha-3 country code.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: address_country_code
     owner: PostalAddress
     domain_of:
     - PostalAddress
@@ -294,7 +249,7 @@ class_uri: pbs:PostalAddress
 
 </code></pre>
 
-</details>
+</details></div>
     <div id="diagram-modal" hidden>
       <div class="diagram-modal-panel">
         <div class="diagram-modal-header">

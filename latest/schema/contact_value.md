@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: contact_value 
 
@@ -7,11 +10,11 @@ _Human-readable contact value such as an email address, phone number, handle, or
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:contact_value](https://example.org/pragmatic-bim-data-contract/contact_value)
-Alias: contact_value
 
+URI: [pbs:contact_value](https://schema.pragmaticbim.ch/contact_value)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: contact_value
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,12 +86,11 @@ Alias: contact_value
 name: contact_value
 description: Human-readable contact value such as an email address, phone number,
   handle, or username.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: contact_value
 domain_of:
 - ContactPoint
 range: string
 
 ```
-</details>
+</details></div>

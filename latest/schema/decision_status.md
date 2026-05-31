@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: decision_status 
 
@@ -7,11 +10,11 @@ _Decision status expressed as a URI/CURIE (for example proposed, accepted, rejec
 
 
 
+<div data-search-exclude markdown="1">
+
 
 
 URI: [adms:status](http://www.w3.org/ns/adms#status)
-Alias: decision_status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: decision_status
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: decision_status
 name: decision_status
 description: Decision status expressed as a URI/CURIE (for example proposed, accepted,
   rejected, superseded).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: adms:status
-alias: decision_status
 domain_of:
 - Decision
 range: uriorcurie
 
 ```
-</details>
+</details></div>

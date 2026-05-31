@@ -1,4 +1,7 @@
-# Type: Jsonpath 
+---
+search:
+  boost: 1.0
+---# Type: Jsonpath 
 
 
 
@@ -6,6 +9,8 @@
 _A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form._
 
 
+
+<div data-search-exclude markdown="1">
 
 URI: [xsd:string](http://www.w3.org/2001/XMLSchema#string)
 
@@ -37,7 +42,7 @@ URI: [xsd:string](http://www.w3.org/2001/XMLSchema#string)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -50,3 +55,6 @@ URI: [xsd:string](http://www.w3.org/2001/XMLSchema#string)
 | native | pbs:jsonpath |
 
 
+
+
+</div>

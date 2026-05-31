@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Entity 
 
@@ -7,11 +10,13 @@ _Common base class for all schema entities._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
 
 
-URI: [pbs:Entity](https://example.org/pragmatic-bim-data-contract/Entity)
+URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 
 
 
@@ -29,6 +34,12 @@ URI: [pbs:Entity](https://example.org/pragmatic-bim-data-contract/Entity)
         click PhysicalElement href "../PhysicalElement/"
       Entity <|-- VirtualEntity
         click VirtualEntity href "../VirtualEntity/"
+      Entity <|-- ScheduleTemplate
+        click ScheduleTemplate href "../ScheduleTemplate/"
+      Entity <|-- ScheduleItem
+        click ScheduleItem href "../ScheduleItem/"
+      Entity <|-- ScheduleDependency
+        click ScheduleDependency href "../ScheduleDependency/"
       
       Entity : classifications
         
@@ -191,13 +202,16 @@ URI: [pbs:Entity](https://example.org/pragmatic-bim-data-contract/Entity)
     * [Message](Message.md)
     * [PhysicalElement](PhysicalElement.md)
     * [VirtualEntity](VirtualEntity.md)
+    * [ScheduleTemplate](ScheduleTemplate.md)
+    * [ScheduleItem](ScheduleItem.md)
+    * [ScheduleDependency](ScheduleDependency.md)
 
 
 ## Class Properties
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:Entity](https://example.org/pragmatic-bim-data-contract/Entity) |
+| Class URI | [pbs:Entity](https://schema.pragmaticbim.ch/Entity) |
 
 
 ## Slots
@@ -244,6 +258,9 @@ URI: [pbs:Entity](https://example.org/pragmatic-bim-data-contract/Entity)
 | [ZoneContext](ZoneContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
 | [Space](Space.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
 | [System](System.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [scheduled_entities](scheduled_entities.md) | range | [Entity](Entity.md) |
+| [ScheduleItem](ScheduleItem.md) | [scheduled_entities](scheduled_entities.md) | range | [Entity](Entity.md) |
+| [Milestone](Milestone.md) | [scheduled_entities](scheduled_entities.md) | range | [Entity](Entity.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [CostItem](CostItem.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [CostAssembly](CostAssembly.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
@@ -268,7 +285,7 @@ URI: [pbs:Entity](https://example.org/pragmatic-bim-data-contract/Entity)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -295,7 +312,7 @@ URI: [pbs:Entity](https://example.org/pragmatic-bim-data-contract/Entity)
 ```yaml
 name: Entity
 description: Common base class for all schema entities.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 abstract: true
 slots:
 - id
@@ -329,27 +346,29 @@ class_uri: pbs:Entity
 ```yaml
 name: Entity
 description: Common base class for all schema entities.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 abstract: true
 attributes:
   id:
     name: id
     description: Unique local identifier.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     identifier: true
-    alias: id
     owner: Entity
     domain_of:
     - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
     range: string
     required: true
   name:
     name: name
     description: Default display name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: name
     owner: Entity
     domain_of:
     - Entity
@@ -358,9 +377,8 @@ attributes:
   localized_names:
     name: localized_names
     description: Localized variants of name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_names
     owner: Entity
     domain_of:
     - Entity
@@ -370,9 +388,8 @@ attributes:
   description:
     name: description
     description: Default description text.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: description
     owner: Entity
     domain_of:
     - Entity
@@ -381,9 +398,8 @@ attributes:
     name: meaning_uri
     description: Optional semantic URI for linking the entity instance to an external
       ontology concept.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: meaning_uri
     owner: Entity
     domain_of:
     - Entity
@@ -391,9 +407,8 @@ attributes:
   localized_descriptions:
     name: localized_descriptions
     description: Localized variants of description.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_descriptions
     owner: Entity
     domain_of:
     - Entity
@@ -403,20 +418,19 @@ attributes:
   ifc_global_id:
     name: ifc_global_id
     description: IFC GlobalId of the mapped entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: ifc_global_id
     owner: Entity
     domain_of:
     - Entity
+    - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
   classifications:
     name: classifications
     description: Classification entries from IFC and other schemes.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classifications
     owner: Entity
     domain_of:
     - Entity
@@ -431,9 +445,8 @@ attributes:
       coordination, analysis, visualization) without duplicating the element itself.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_representations
     owner: Entity
     domain_of:
     - Entity
@@ -443,9 +456,8 @@ attributes:
   quantity_values:
     name: quantity_values
     description: Quantities associated with the entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_values
     owner: Entity
     domain_of:
     - Entity
@@ -455,9 +467,8 @@ attributes:
   documents:
     name: documents
     description: Linked documents associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: documents
     owner: Entity
     domain_of:
     - Entity
@@ -468,9 +479,8 @@ attributes:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
       extensions.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata
     owner: Entity
     domain_of:
     - Entity
@@ -483,9 +493,8 @@ attributes:
       security/material) extracted from raw IFC PropertySet values.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: performance_properties
     owner: Entity
     domain_of:
     - Entity
@@ -495,9 +504,8 @@ attributes:
   decisions:
     name: decisions
     description: Decision records associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: decisions
     owner: Entity
     domain_of:
     - Entity
@@ -507,9 +515,8 @@ attributes:
   tasks:
     name: tasks
     description: Tasks associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: tasks
     owner: Entity
     domain_of:
     - Entity
@@ -519,9 +526,8 @@ attributes:
   messages:
     name: messages
     description: Messages associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: messages
     owner: Entity
     domain_of:
     - Entity
@@ -531,9 +537,8 @@ attributes:
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: created_at
     owner: Entity
     domain_of:
     - Entity
@@ -541,9 +546,8 @@ attributes:
   modified_at:
     name: modified_at
     description: Last modification timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: modified_at
     owner: Entity
     domain_of:
     - Entity
@@ -551,9 +555,8 @@ attributes:
   revision:
     name: revision
     description: Integer revision counter for change tracking.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: revision
     owner: Entity
     domain_of:
     - Entity
@@ -562,9 +565,8 @@ attributes:
   status:
     name: status
     description: Lifecycle or QA status.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: status
     owner: Entity
     domain_of:
     - Entity
@@ -572,4 +574,4 @@ attributes:
 class_uri: pbs:Entity
 
 ```
-</details>
+</details></div>

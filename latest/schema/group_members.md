@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: group_members 
 
@@ -7,11 +10,11 @@ _Zone members; may include spaces, separations, systems, etc._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:group_members](https://example.org/pragmatic-bim-data-contract/group_members)
-Alias: group_members
 
+URI: [pbs:group_members](https://schema.pragmaticbim.ch/group_members)
 <!-- no inheritance hierarchy -->
 
 
@@ -23,14 +26,14 @@ Alias: group_members
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, l... |  no  |
-| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
-| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
 | [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics |  no  |
-| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
-| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
 | [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics |  no  |
+| [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics |  no  |
 | [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structu... |  no  |
+| [BuildingContext](BuildingContext.md) | Spatial context node constrained to building semantics |  no  |
+| [CivilStructureContext](CivilStructureContext.md) | Spatial context node constrained to civil structure semantics |  no  |
 | [LevelContext](LevelContext.md) | Spatial context node constrained to level/storey semantics |  no  |
+| [ZoneContext](ZoneContext.md) | Spatial context node constrained to zone semantics |  no  |
 
 
 
@@ -70,7 +73,7 @@ Alias: group_members
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -91,13 +94,12 @@ Alias: group_members
 ```yaml
 name: group_members
 description: Zone members; may include spaces, separations, systems, etc.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: group_members
 domain_of:
 - SpatialContext
 range: Entity
 multivalued: true
 
 ```
-</details>
+</details></div>

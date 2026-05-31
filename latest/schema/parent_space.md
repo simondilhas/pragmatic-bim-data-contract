@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: parent_space 
 
@@ -7,11 +10,11 @@ _Parent space where the equipment is located._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:parent_space](https://example.org/pragmatic-bim-data-contract/parent_space)
-Alias: parent_space
 
+URI: [pbs:parent_space](https://schema.pragmaticbim.ch/parent_space)
 <!-- no inheritance hierarchy -->
 
 
@@ -70,7 +73,7 @@ Alias: parent_space
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -91,13 +94,12 @@ Alias: parent_space
 ```yaml
 name: parent_space
 description: Parent space where the equipment is located.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: parent_space
 domain_of:
 - Equipment
 inverse: contained_entities
 range: Space
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: space_type 
 
@@ -7,11 +10,11 @@ _Classification of space (void, circulation, usable, service)._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:space_type](https://example.org/pragmatic-bim-data-contract/space_type)
-Alias: space_type
 
+URI: [pbs:space_type](https://schema.pragmaticbim.ch/space_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: space_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: space_type
 ```yaml
 name: space_type
 description: Classification of space (void, circulation, usable, service).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: space_type
 domain_of:
 - Space
 range: SpaceType
 required: true
 
 ```
-</details>
+</details></div>

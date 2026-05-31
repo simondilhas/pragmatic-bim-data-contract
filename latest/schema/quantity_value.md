@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: quantity_value 
 
@@ -7,11 +10,11 @@ _Numeric quantity value._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:quantity_value](https://example.org/pragmatic-bim-data-contract/quantity_value)
-Alias: quantity_value
 
+URI: [pbs:quantity_value](https://schema.pragmaticbim.ch/quantity_value)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,7 +72,7 @@ Alias: quantity_value
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -90,9 +93,8 @@ Alias: quantity_value
 ```yaml
 name: quantity_value
 description: Numeric quantity value.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: quantity_value
 domain_of:
 - QuantityValue
 range: double
@@ -100,4 +102,4 @@ required: true
 minimum_value: 0
 
 ```
-</details>
+</details></div>

@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: StructuralPropertyKey 
 
 
@@ -7,9 +13,11 @@ _Canonical structural-related keys derived from IFC PropertySets._
 
 
 
-URI: [pbs:StructuralPropertyKey](https://example.org/pragmatic-bim-data-contract/StructuralPropertyKey)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:StructuralPropertyKey](https://example.org/pragmatic-bim-data-contract/StructuralPropertyKey)
+URI: [pbs:StructuralPropertyKey](https://schema.pragmaticbim.ch/StructuralPropertyKey)
+
+**Enum URI:** [pbs:StructuralPropertyKey](https://schema.pragmaticbim.ch/StructuralPropertyKey)
 
 
 ## Permissible Values
@@ -46,7 +54,7 @@ URI: [pbs:StructuralPropertyKey](https://example.org/pragmatic-bim-data-contract
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -59,7 +67,7 @@ URI: [pbs:StructuralPropertyKey](https://example.org/pragmatic-bim-data-contract
 ```yaml
 name: StructuralPropertyKey
 description: Canonical structural-related keys derived from IFC PropertySets.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:StructuralPropertyKey
 permissible_values:
@@ -75,3 +83,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

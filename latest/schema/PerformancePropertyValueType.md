@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: PerformancePropertyValueType 
 
 
@@ -7,9 +13,11 @@ _Type discriminator for normalized performance property values._
 
 
 
-URI: [pbs:PerformancePropertyValueType](https://example.org/pragmatic-bim-data-contract/PerformancePropertyValueType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:PerformancePropertyValueType](https://example.org/pragmatic-bim-data-contract/PerformancePropertyValueType)
+URI: [pbs:PerformancePropertyValueType](https://schema.pragmaticbim.ch/PerformancePropertyValueType)
+
+**Enum URI:** [pbs:PerformancePropertyValueType](https://schema.pragmaticbim.ch/PerformancePropertyValueType)
 
 
 ## Permissible Values
@@ -46,7 +54,7 @@ URI: [pbs:PerformancePropertyValueType](https://example.org/pragmatic-bim-data-c
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -59,7 +67,7 @@ URI: [pbs:PerformancePropertyValueType](https://example.org/pragmatic-bim-data-c
 ```yaml
 name: PerformancePropertyValueType
 description: Type discriminator for normalized performance property values.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:PerformancePropertyValueType
 permissible_values:
@@ -75,3 +83,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

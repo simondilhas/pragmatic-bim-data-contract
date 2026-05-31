@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: property_value_number 
 
@@ -7,11 +10,11 @@ _Numeric value when property_value_type is number._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:property_value_number](https://example.org/pragmatic-bim-data-contract/property_value_number)
-Alias: property_value_number
 
+URI: [pbs:property_value_number](https://schema.pragmaticbim.ch/property_value_number)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,13 +25,13 @@ Alias: property_value_number
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
-| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
 | [FireProperty](FireProperty.md) | Normalized fire-related property |  no  |
-| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
+| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
 | [StructuralProperty](StructuralProperty.md) | Normalized structural-related property |  no  |
 | [SecurityProperty](SecurityProperty.md) | Normalized security-related property |  no  |
-| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
+| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
 
 
 
@@ -67,7 +70,7 @@ Alias: property_value_number
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -88,12 +91,11 @@ Alias: property_value_number
 ```yaml
 name: property_value_number
 description: Numeric value when property_value_type is number.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: property_value_number
 domain_of:
 - PerformanceProperty
 range: double
 
 ```
-</details>
+</details></div>

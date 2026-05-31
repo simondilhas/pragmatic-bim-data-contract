@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: ZoneType 
 
 
@@ -7,9 +13,11 @@ _Classification of zone purpose and organizational intent._
 
 
 
-URI: [pbs:ZoneType](https://example.org/pragmatic-bim-data-contract/ZoneType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:ZoneType](https://example.org/pragmatic-bim-data-contract/ZoneType)
+URI: [pbs:ZoneType](https://schema.pragmaticbim.ch/ZoneType)
+
+**Enum URI:** [pbs:ZoneType](https://schema.pragmaticbim.ch/ZoneType)
 
 
 ## Permissible Values
@@ -49,7 +57,7 @@ URI: [pbs:ZoneType](https://example.org/pragmatic-bim-data-contract/ZoneType)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -62,7 +70,7 @@ URI: [pbs:ZoneType](https://example.org/pragmatic-bim-data-contract/ZoneType)
 ```yaml
 name: ZoneType
 description: Classification of zone purpose and organizational intent.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:ZoneType
 permissible_values:
@@ -94,3 +102,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: usage_context 
 
@@ -7,11 +10,11 @@ _Optional usage context such as work, personal, support, billing, or emergency._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:usage_context](https://example.org/pragmatic-bim-data-contract/usage_context)
-Alias: usage_context
 
+URI: [pbs:usage_context](https://schema.pragmaticbim.ch/usage_context)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: usage_context
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: usage_context
 ```yaml
 name: usage_context
 description: Optional usage context such as work, personal, support, billing, or emergency.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: usage_context
 domain_of:
 - ContactPoint
 range: string
 
 ```
-</details>
+</details></div>

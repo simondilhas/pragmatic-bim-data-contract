@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: property_value_type 
 
@@ -7,11 +10,11 @@ _Value type discriminator for normalized storage (for example string, number, bo
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:property_value_type](https://example.org/pragmatic-bim-data-contract/property_value_type)
-Alias: property_value_type
 
+URI: [pbs:property_value_type](https://schema.pragmaticbim.ch/property_value_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,13 +25,13 @@ Alias: property_value_type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
-| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
 | [FireProperty](FireProperty.md) | Normalized fire-related property |  no  |
-| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
+| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  no  |
+| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  no  |
 | [StructuralProperty](StructuralProperty.md) | Normalized structural-related property |  no  |
 | [SecurityProperty](SecurityProperty.md) | Normalized security-related property |  no  |
-| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
+| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  no  |
 
 
 
@@ -68,7 +71,7 @@ Alias: property_value_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -90,13 +93,12 @@ Alias: property_value_type
 name: property_value_type
 description: Value type discriminator for normalized storage (for example string,
   number, boolean).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: property_value_type
 domain_of:
 - PerformanceProperty
 range: PerformancePropertyValueType
 required: true
 
 ```
-</details>
+</details></div>

@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: TransportMedium 
 
 
@@ -7,9 +13,11 @@ _Primary medium transported through or enabled by a physical connector._
 
 
 
-URI: [pbs:TransportMedium](https://example.org/pragmatic-bim-data-contract/TransportMedium)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:TransportMedium](https://example.org/pragmatic-bim-data-contract/TransportMedium)
+URI: [pbs:TransportMedium](https://schema.pragmaticbim.ch/TransportMedium)
+
+**Enum URI:** [pbs:TransportMedium](https://schema.pragmaticbim.ch/TransportMedium)
 
 
 ## Permissible Values
@@ -50,7 +58,7 @@ URI: [pbs:TransportMedium](https://example.org/pragmatic-bim-data-contract/Trans
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -63,7 +71,7 @@ URI: [pbs:TransportMedium](https://example.org/pragmatic-bim-data-contract/Trans
 ```yaml
 name: TransportMedium
 description: Primary medium transported through or enabled by a physical connector.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:TransportMedium
 permissible_values:
@@ -98,3 +106,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

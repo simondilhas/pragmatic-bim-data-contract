@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: address_country_code 
 
@@ -7,11 +10,11 @@ _Optional ISO 3166-1 alpha-2 or alpha-3 country code._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:address_country_code](https://example.org/pragmatic-bim-data-contract/address_country_code)
-Alias: address_country_code
 
+URI: [pbs:address_country_code](https://schema.pragmaticbim.ch/address_country_code)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: address_country_code
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: address_country_code
 ```yaml
 name: address_country_code
 description: Optional ISO 3166-1 alpha-2 or alpha-3 country code.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: address_country_code
 domain_of:
 - PostalAddress
 range: string
 
 ```
-</details>
+</details></div>

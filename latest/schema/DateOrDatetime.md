@@ -1,4 +1,7 @@
-# Type: DateOrDatetime 
+---
+search:
+  boost: 1.0
+---# Type: DateOrDatetime 
 
 
 
@@ -6,6 +9,8 @@
 _Either a date or a datetime_
 
 
+
+<div data-search-exclude markdown="1">
 
 URI: [linkml:DateOrDatetime](https://w3id.org/linkml/DateOrDatetime)
 
@@ -37,7 +42,7 @@ URI: [linkml:DateOrDatetime](https://w3id.org/linkml/DateOrDatetime)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -50,3 +55,6 @@ URI: [linkml:DateOrDatetime](https://w3id.org/linkml/DateOrDatetime)
 | native | pbs:date_or_datetime |
 
 
+
+
+</div>

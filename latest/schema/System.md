@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: System 
 
@@ -7,9 +10,11 @@ _Building service system grouping that serves spaces or zones._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:System](https://example.org/pragmatic-bim-data-contract/System)
+
+URI: [pbs:System](https://schema.pragmaticbim.ch/System)
 
 
 
@@ -297,7 +302,7 @@ URI: [pbs:System](https://example.org/pragmatic-bim-data-contract/System)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:System](https://example.org/pragmatic-bim-data-contract/System) |
+| Class URI | [pbs:System](https://schema.pragmaticbim.ch/System) |
 
 
 ## Slots
@@ -365,7 +370,7 @@ URI: [pbs:System](https://example.org/pragmatic-bim-data-contract/System)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -393,7 +398,7 @@ URI: [pbs:System](https://example.org/pragmatic-bim-data-contract/System)
 ```yaml
 name: System
 description: Building service system grouping that serves spaces or zones.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - ifcowl:IfcSystem
 is_a: VirtualEntity
@@ -423,7 +428,7 @@ class_uri: pbs:System
 ```yaml
 name: System
 description: Building service system grouping that serves spaces or zones.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - ifcowl:IfcSystem
 is_a: VirtualEntity
@@ -438,9 +443,8 @@ attributes:
   system_type:
     name: system_type
     description: Classification of system role (unit, network, terminal).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: system_type
     owner: System
     domain_of:
     - System
@@ -450,9 +454,8 @@ attributes:
     name: system_discipline
     description: Classification of system discipline (electrical, sanitary, ventilation,
       heating).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: system_discipline
     owner: System
     domain_of:
     - System
@@ -461,9 +464,8 @@ attributes:
   parent_project:
     name: parent_project
     description: Parent project context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_project
     owner: System
     domain_of:
     - SpatialContext
@@ -472,9 +474,8 @@ attributes:
   parent_building:
     name: parent_building
     description: Parent building context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_building
     owner: System
     domain_of:
     - PhysicalElement
@@ -485,9 +486,8 @@ attributes:
   serves_spaces:
     name: serves_spaces
     description: Spaces served by this system.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: serves_spaces
     owner: System
     domain_of:
     - System
@@ -496,9 +496,8 @@ attributes:
   serves_zones:
     name: serves_zones
     description: Zone context nodes served by this system.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: serves_zones
     owner: System
     domain_of:
     - System
@@ -507,9 +506,8 @@ attributes:
   contained_entities:
     name: contained_entities
     description: Generic containment for associated entities.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: contained_entities
     owner: System
     domain_of:
     - Space
@@ -519,9 +517,8 @@ attributes:
   cost_items:
     name: cost_items
     description: Cost items associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: cost_items
     owner: System
     domain_of:
     - VirtualEntity
@@ -531,9 +528,8 @@ attributes:
   cost_assemblies:
     name: cost_assemblies
     description: Aggregated unit prices associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: cost_assemblies
     owner: System
     domain_of:
     - VirtualEntity
@@ -543,9 +539,8 @@ attributes:
   materials:
     name: materials
     description: Material definitions associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: materials
     owner: System
     domain_of:
     - VirtualEntity
@@ -555,21 +550,23 @@ attributes:
   id:
     name: id
     description: Unique local identifier.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     identifier: true
-    alias: id
     owner: System
     domain_of:
     - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
     range: string
     required: true
   name:
     name: name
     description: Default display name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: name
     owner: System
     domain_of:
     - Entity
@@ -578,9 +575,8 @@ attributes:
   localized_names:
     name: localized_names
     description: Localized variants of name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_names
     owner: System
     domain_of:
     - Entity
@@ -590,9 +586,8 @@ attributes:
   description:
     name: description
     description: Default description text.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: description
     owner: System
     domain_of:
     - Entity
@@ -601,9 +596,8 @@ attributes:
     name: meaning_uri
     description: Optional semantic URI for linking the entity instance to an external
       ontology concept.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: meaning_uri
     owner: System
     domain_of:
     - Entity
@@ -611,9 +605,8 @@ attributes:
   localized_descriptions:
     name: localized_descriptions
     description: Localized variants of description.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_descriptions
     owner: System
     domain_of:
     - Entity
@@ -623,20 +616,19 @@ attributes:
   ifc_global_id:
     name: ifc_global_id
     description: IFC GlobalId of the mapped entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: ifc_global_id
     owner: System
     domain_of:
     - Entity
+    - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
   classifications:
     name: classifications
     description: Classification entries from IFC and other schemes.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classifications
     owner: System
     domain_of:
     - Entity
@@ -651,9 +643,8 @@ attributes:
       coordination, analysis, visualization) without duplicating the element itself.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_representations
     owner: System
     domain_of:
     - Entity
@@ -663,9 +654,8 @@ attributes:
   quantity_values:
     name: quantity_values
     description: Quantities associated with the entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_values
     owner: System
     domain_of:
     - Entity
@@ -675,9 +665,8 @@ attributes:
   documents:
     name: documents
     description: Linked documents associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: documents
     owner: System
     domain_of:
     - Entity
@@ -688,9 +677,8 @@ attributes:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
       extensions.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata
     owner: System
     domain_of:
     - Entity
@@ -703,9 +691,8 @@ attributes:
       security/material) extracted from raw IFC PropertySet values.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: performance_properties
     owner: System
     domain_of:
     - Entity
@@ -715,9 +702,8 @@ attributes:
   decisions:
     name: decisions
     description: Decision records associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: decisions
     owner: System
     domain_of:
     - Entity
@@ -727,9 +713,8 @@ attributes:
   tasks:
     name: tasks
     description: Tasks associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: tasks
     owner: System
     domain_of:
     - Entity
@@ -739,9 +724,8 @@ attributes:
   messages:
     name: messages
     description: Messages associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: messages
     owner: System
     domain_of:
     - Entity
@@ -751,9 +735,8 @@ attributes:
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: created_at
     owner: System
     domain_of:
     - Entity
@@ -761,9 +744,8 @@ attributes:
   modified_at:
     name: modified_at
     description: Last modification timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: modified_at
     owner: System
     domain_of:
     - Entity
@@ -771,9 +753,8 @@ attributes:
   revision:
     name: revision
     description: Integer revision counter for change tracking.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: revision
     owner: System
     domain_of:
     - Entity
@@ -782,9 +763,8 @@ attributes:
   status:
     name: status
     description: Lifecycle or QA status.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: status
     owner: System
     domain_of:
     - Entity
@@ -792,4 +772,4 @@ attributes:
 class_uri: pbs:System
 
 ```
-</details>
+</details></div>

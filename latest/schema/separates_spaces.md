@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: separates_spaces 
 
@@ -7,11 +10,11 @@ _Spaces separated by this separator element._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:separates_spaces](https://example.org/pragmatic-bim-data-contract/separates_spaces)
-Alias: separates_spaces
 
+URI: [pbs:separates_spaces](https://schema.pragmaticbim.ch/separates_spaces)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: separates_spaces
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: separates_spaces
 ```yaml
 name: separates_spaces
 description: Spaces separated by this separator element.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: separates_spaces
 domain_of:
 - SeparatorWall
 range: Space
 multivalued: true
 
 ```
-</details>
+</details></div>

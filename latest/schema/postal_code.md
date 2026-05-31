@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: postal_code 
 
@@ -7,11 +10,11 @@ _Postal or ZIP code._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [schema:postalCode](https://schema.org/postalCode)
-Alias: postal_code
 
+URI: [schema:postalCode](http://schema.org/postalCode)
 <!-- no inheritance hierarchy -->
 
 
@@ -37,7 +40,7 @@ Alias: postal_code
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:postalCode](https://schema.org/postalCode) |
+| Slot URI | [schema:postalCode](http://schema.org/postalCode) |
 
 ### Cardinality and Requirements
 
@@ -62,7 +65,7 @@ Alias: postal_code
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: postal_code
 ```yaml
 name: postal_code
 description: Postal or ZIP code.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 slot_uri: schema:postalCode
-alias: postal_code
 domain_of:
 - PostalAddress
 range: string
 
 ```
-</details>
+</details></div>

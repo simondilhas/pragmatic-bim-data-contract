@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: classification_scheme 
 
@@ -7,11 +10,11 @@ _Name of the classification scheme (for example ifc, uniclass, omniclass, custom
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:classification_scheme](https://example.org/pragmatic-bim-data-contract/classification_scheme)
-Alias: classification_scheme
 
+URI: [pbs:classification_scheme](https://schema.pragmaticbim.ch/classification_scheme)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: classification_scheme
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: classification_scheme
 name: classification_scheme
 description: Name of the classification scheme (for example ifc, uniclass, omniclass,
   custom).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: classification_scheme
 domain_of:
 - Classification
 range: string
 required: true
 
 ```
-</details>
+</details></div>

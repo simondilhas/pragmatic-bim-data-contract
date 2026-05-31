@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: geometry_representation 
 
@@ -7,11 +10,11 @@ _Representation kind/dimension (for example body_3d, footprint_2d, point), indep
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:geometry_representation](https://example.org/pragmatic-bim-data-contract/geometry_representation)
-Alias: geometry_representation
 
+URI: [pbs:geometry_representation](https://schema.pragmaticbim.ch/geometry_representation)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: geometry_representation
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: geometry_representation
 name: geometry_representation
 description: Representation kind/dimension (for example body_3d, footprint_2d, point),
   independent of file format.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: geometry_representation
 domain_of:
 - GeometryRepresentation
 range: GeometryRepresentationType
 required: true
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: classification_version 
 
@@ -7,11 +10,11 @@ _Optional scheme/version identifier._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:classification_version](https://example.org/pragmatic-bim-data-contract/classification_version)
-Alias: classification_version
 
+URI: [pbs:classification_version](https://schema.pragmaticbim.ch/classification_version)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: classification_version
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: classification_version
 ```yaml
 name: classification_version
 description: Optional scheme/version identifier.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: classification_version
 domain_of:
 - Classification
 range: string
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: material_specification 
 
@@ -7,11 +10,11 @@ _Material grade, specification, or product description._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:material_specification](https://example.org/pragmatic-bim-data-contract/material_specification)
-Alias: material_specification
 
+URI: [pbs:material_specification](https://schema.pragmaticbim.ch/material_specification)
 <!-- no inheritance hierarchy -->
 
 
@@ -61,7 +64,7 @@ Alias: material_specification
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -82,12 +85,11 @@ Alias: material_specification
 ```yaml
 name: material_specification
 description: Material grade, specification, or product description.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: material_specification
 domain_of:
 - Material
 range: string
 
 ```
-</details>
+</details></div>

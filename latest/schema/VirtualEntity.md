@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: VirtualEntity 
 
@@ -7,11 +10,13 @@ _Abstract base class for non-physical, conceptual, or informational entities._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
 
 
-URI: [pbs:VirtualEntity](https://example.org/pragmatic-bim-data-contract/VirtualEntity)
+URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
 
 
 
@@ -242,7 +247,7 @@ URI: [pbs:VirtualEntity](https://example.org/pragmatic-bim-data-contract/Virtual
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:VirtualEntity](https://example.org/pragmatic-bim-data-contract/VirtualEntity) |
+| Class URI | [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity) |
 
 
 ## Slots
@@ -296,7 +301,7 @@ URI: [pbs:VirtualEntity](https://example.org/pragmatic-bim-data-contract/Virtual
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -323,7 +328,7 @@ URI: [pbs:VirtualEntity](https://example.org/pragmatic-bim-data-contract/Virtual
 ```yaml
 name: VirtualEntity
 description: Abstract base class for non-physical, conceptual, or informational entities.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 is_a: Entity
 abstract: true
 slots:
@@ -341,16 +346,15 @@ class_uri: pbs:VirtualEntity
 ```yaml
 name: VirtualEntity
 description: Abstract base class for non-physical, conceptual, or informational entities.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 is_a: Entity
 abstract: true
 attributes:
   cost_items:
     name: cost_items
     description: Cost items associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: cost_items
     owner: VirtualEntity
     domain_of:
     - VirtualEntity
@@ -360,9 +364,8 @@ attributes:
   cost_assemblies:
     name: cost_assemblies
     description: Aggregated unit prices associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: cost_assemblies
     owner: VirtualEntity
     domain_of:
     - VirtualEntity
@@ -372,9 +375,8 @@ attributes:
   materials:
     name: materials
     description: Material definitions associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: materials
     owner: VirtualEntity
     domain_of:
     - VirtualEntity
@@ -384,21 +386,23 @@ attributes:
   id:
     name: id
     description: Unique local identifier.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     identifier: true
-    alias: id
     owner: VirtualEntity
     domain_of:
     - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
     range: string
     required: true
   name:
     name: name
     description: Default display name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: name
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -407,9 +411,8 @@ attributes:
   localized_names:
     name: localized_names
     description: Localized variants of name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_names
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -419,9 +422,8 @@ attributes:
   description:
     name: description
     description: Default description text.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: description
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -430,9 +432,8 @@ attributes:
     name: meaning_uri
     description: Optional semantic URI for linking the entity instance to an external
       ontology concept.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: meaning_uri
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -440,9 +441,8 @@ attributes:
   localized_descriptions:
     name: localized_descriptions
     description: Localized variants of description.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_descriptions
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -452,20 +452,19 @@ attributes:
   ifc_global_id:
     name: ifc_global_id
     description: IFC GlobalId of the mapped entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: ifc_global_id
     owner: VirtualEntity
     domain_of:
     - Entity
+    - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
   classifications:
     name: classifications
     description: Classification entries from IFC and other schemes.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classifications
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -480,9 +479,8 @@ attributes:
       coordination, analysis, visualization) without duplicating the element itself.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_representations
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -492,9 +490,8 @@ attributes:
   quantity_values:
     name: quantity_values
     description: Quantities associated with the entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_values
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -504,9 +501,8 @@ attributes:
   documents:
     name: documents
     description: Linked documents associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: documents
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -517,9 +513,8 @@ attributes:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
       extensions.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -532,9 +527,8 @@ attributes:
       security/material) extracted from raw IFC PropertySet values.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: performance_properties
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -544,9 +538,8 @@ attributes:
   decisions:
     name: decisions
     description: Decision records associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: decisions
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -556,9 +549,8 @@ attributes:
   tasks:
     name: tasks
     description: Tasks associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: tasks
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -568,9 +560,8 @@ attributes:
   messages:
     name: messages
     description: Messages associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: messages
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -580,9 +571,8 @@ attributes:
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: created_at
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -590,9 +580,8 @@ attributes:
   modified_at:
     name: modified_at
     description: Last modification timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: modified_at
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -600,9 +589,8 @@ attributes:
   revision:
     name: revision
     description: Integer revision counter for change tracking.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: revision
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -611,9 +599,8 @@ attributes:
   status:
     name: status
     description: Lifecycle or QA status.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: status
     owner: VirtualEntity
     domain_of:
     - Entity
@@ -621,4 +608,4 @@ attributes:
 class_uri: pbs:VirtualEntity
 
 ```
-</details>
+</details></div>

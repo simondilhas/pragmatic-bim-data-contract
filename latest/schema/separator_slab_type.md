@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: separator_slab_type 
 
@@ -7,11 +10,11 @@ _Classification of slab-based separator element (for example floor/roof/base sla
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:separator_slab_type](https://example.org/pragmatic-bim-data-contract/separator_slab_type)
-Alias: separator_slab_type
 
+URI: [pbs:separator_slab_type](https://schema.pragmaticbim.ch/separator_slab_type)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: separator_slab_type
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: separator_slab_type
 name: separator_slab_type
 description: Classification of slab-based separator element (for example floor/roof/base
   slab).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: separator_slab_type
 domain_of:
 - SeparatorSlab
 range: SeparatorSlabType
 required: true
 
 ```
-</details>
+</details></div>

@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: QuantityValue 
 
@@ -7,9 +10,11 @@ _Minimal quantity record for costing and analysis._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/QuantityValue)
+
+URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 
 
 
@@ -32,6 +37,8 @@ URI: [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/Quantit
         
       QuantityValue : quantity_unit
         
+      QuantityValue : quantity_unit_uri
+        
       QuantityValue : quantity_value
         
       
@@ -46,7 +53,7 @@ URI: [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/Quantit
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/QuantityValue) |
+| Class URI | [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue) |
 
 
 ## Slots
@@ -56,6 +63,7 @@ URI: [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/Quantit
 | [quantity_type](quantity_type.md) | 1 <br/> [QuantityType](QuantityType.md) | Controlled quantity type | direct |
 | [quantity_value](quantity_value.md) | 1 <br/> [Double](Double.md) | Numeric quantity value | direct |
 | [quantity_unit](quantity_unit.md) | 1 <br/> [String](String.md) | Unit of the quantity value | direct |
+| [quantity_unit_uri](quantity_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the quantity unit in an external vocabulary such... | direct |
 
 
 
@@ -90,6 +98,10 @@ URI: [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/Quantit
 | [Space](Space.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [System](System.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [ScheduleItem](ScheduleItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Milestone](Milestone.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [CostItem](CostItem.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [CostAssembly](CostAssembly.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
@@ -115,7 +127,7 @@ URI: [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/Quantit
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -142,11 +154,12 @@ URI: [pbs:QuantityValue](https://example.org/pragmatic-bim-data-contract/Quantit
 ```yaml
 name: QuantityValue
 description: Minimal quantity record for costing and analysis.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 slots:
 - quantity_type
 - quantity_value
 - quantity_unit
+- quantity_unit_uri
 class_uri: pbs:QuantityValue
 
 ```
@@ -158,14 +171,13 @@ class_uri: pbs:QuantityValue
 ```yaml
 name: QuantityValue
 description: Minimal quantity record for costing and analysis.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 attributes:
   quantity_type:
     name: quantity_type
     description: Controlled quantity type.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_type
     owner: QuantityValue
     domain_of:
     - QuantityValue
@@ -174,9 +186,8 @@ attributes:
   quantity_value:
     name: quantity_value
     description: Numeric quantity value.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_value
     owner: QuantityValue
     domain_of:
     - QuantityValue
@@ -186,15 +197,24 @@ attributes:
   quantity_unit:
     name: quantity_unit
     description: Unit of the quantity value.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_unit
     owner: QuantityValue
     domain_of:
     - QuantityValue
     range: string
     required: true
+  quantity_unit_uri:
+    name: quantity_unit_uri
+    description: Optional URI that identifies the quantity unit in an external vocabulary
+      such as QUDT.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: QuantityValue
+    domain_of:
+    - QuantityValue
+    range: uriorcurie
 class_uri: pbs:QuantityValue
 
 ```
-</details>
+</details></div>

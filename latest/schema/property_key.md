@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: property_key 
 
@@ -7,11 +10,11 @@ _Canonical key inside the domain; constrained via subclass slot_usage to a domai
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:property_key](https://example.org/pragmatic-bim-data-contract/property_key)
-Alias: property_key
 
+URI: [pbs:property_key](https://schema.pragmaticbim.ch/property_key)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,13 +25,13 @@ Alias: property_key
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  yes  |
-| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  yes  |
+| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
 | [FireProperty](FireProperty.md) | Normalized fire-related property |  yes  |
-| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  yes  |
+| [AcousticProperty](AcousticProperty.md) | Normalized acoustic-related property |  yes  |
+| [ThermalProperty](ThermalProperty.md) | Normalized thermal-related property |  yes  |
 | [StructuralProperty](StructuralProperty.md) | Normalized structural-related property |  yes  |
 | [SecurityProperty](SecurityProperty.md) | Normalized security-related property |  yes  |
-| [PerformanceProperty](PerformanceProperty.md) | Normalized performance/property record derived from raw IFC PropertySet value... |  no  |
+| [MaterialProperty](MaterialProperty.md) | Normalized material-related property |  yes  |
 
 
 
@@ -68,7 +71,7 @@ Alias: property_key
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -90,13 +93,12 @@ Alias: property_key
 name: property_key
 description: Canonical key inside the domain; constrained via subclass slot_usage
   to a domain-specific enum.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: property_key
 domain_of:
 - PerformanceProperty
 range: string
 required: true
 
 ```
-</details>
+</details></div>

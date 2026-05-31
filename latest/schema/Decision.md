@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Decision 
 
@@ -7,9 +10,11 @@ _Decision record linked to an entity for workflow traceability and governance._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:Decision](https://example.org/pragmatic-bim-data-contract/Decision)
+
+URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
 
 
 
@@ -50,7 +55,7 @@ URI: [pbs:Decision](https://example.org/pragmatic-bim-data-contract/Decision)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:Decision](https://example.org/pragmatic-bim-data-contract/Decision) |
+| Class URI | [pbs:Decision](https://schema.pragmaticbim.ch/Decision) |
 
 
 ## Slots
@@ -97,6 +102,10 @@ URI: [pbs:Decision](https://example.org/pragmatic-bim-data-contract/Decision)
 | [Space](Space.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [System](System.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [ScheduleItem](ScheduleItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [Milestone](Milestone.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [CostItem](CostItem.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
 | [CostAssembly](CostAssembly.md) | [decisions](decisions.md) | range | [Decision](Decision.md) |
@@ -122,7 +131,7 @@ URI: [pbs:Decision](https://example.org/pragmatic-bim-data-contract/Decision)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -150,7 +159,7 @@ URI: [pbs:Decision](https://example.org/pragmatic-bim-data-contract/Decision)
 ```yaml
 name: Decision
 description: Decision record linked to an entity for workflow traceability and governance.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Entity
 slots:
@@ -170,17 +179,16 @@ class_uri: pbs:Decision
 ```yaml
 name: Decision
 description: Decision record linked to an entity for workflow traceability and governance.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Entity
 attributes:
   decision_type:
     name: decision_type
     description: Decision type expressed as a URI/CURIE from a controlled vocabulary.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: dcterms:type
-    alias: decision_type
     owner: Decision
     domain_of:
     - Decision
@@ -189,10 +197,9 @@ attributes:
     name: decision_status
     description: Decision status expressed as a URI/CURIE (for example proposed, accepted,
       rejected, superseded).
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: adms:status
-    alias: decision_status
     owner: Decision
     domain_of:
     - Decision
@@ -200,10 +207,9 @@ attributes:
   decided_by:
     name: decided_by
     description: Agent responsible for the decision.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: prov:wasAttributedTo
-    alias: decided_by
     owner: Decision
     domain_of:
     - Decision
@@ -212,10 +218,9 @@ attributes:
   decided_at:
     name: decided_at
     description: Timestamp when the decision was made.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: dcterms:created
-    alias: decided_at
     owner: Decision
     domain_of:
     - Decision
@@ -223,10 +228,9 @@ attributes:
   rationale:
     name: rationale
     description: Human-readable rationale that explains why the decision was made.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: dcterms:description
-    alias: rationale
     owner: Decision
     domain_of:
     - Decision
@@ -234,4 +238,4 @@ attributes:
 class_uri: pbs:Decision
 
 ```
-</details>
+</details></div>

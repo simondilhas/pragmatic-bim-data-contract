@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Task 
 
@@ -7,9 +10,11 @@ _Action/task record linked to an entity for implementation and follow-up workflo
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:Task](https://example.org/pragmatic-bim-data-contract/Task)
+
+URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 
 
 
@@ -31,6 +36,8 @@ URI: [pbs:Task](https://example.org/pragmatic-bim-data-contract/Task)
 
         
       Task : due_at
+        
+      Task : id
         
       Task : related_decision
         
@@ -61,13 +68,14 @@ URI: [pbs:Task](https://example.org/pragmatic-bim-data-contract/Task)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:Task](https://example.org/pragmatic-bim-data-contract/Task) |
+| Class URI | [pbs:Task](https://schema.pragmaticbim.ch/Task) |
 
 
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [id](id.md) | 0..1 <br/> [String](String.md) | Optional stable identifier when referenced externally (for example from Chang... | direct |
 | [task_type](task_type.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Task type expressed as a URI/CURIE from a controlled vocabulary | direct |
 | [task_status](task_status.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Task status URI/CURIE aligned with action status vocabularies | direct |
 | [assignee](assignee.md) | 0..1 <br/> [Agent](Agent.md) | Responsible agent | direct |
@@ -108,6 +116,10 @@ URI: [pbs:Task](https://example.org/pragmatic-bim-data-contract/Task)
 | [Space](Space.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [System](System.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [ScheduleTemplate](ScheduleTemplate.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [ScheduleItem](ScheduleItem.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [Milestone](Milestone.md) | [tasks](tasks.md) | range | [Task](Task.md) |
+| [ScheduleDependency](ScheduleDependency.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [AbstractCostRecord](AbstractCostRecord.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [CostItem](CostItem.md) | [tasks](tasks.md) | range | [Task](Task.md) |
 | [CostAssembly](CostAssembly.md) | [tasks](tasks.md) | range | [Task](Task.md) |
@@ -133,7 +145,7 @@ URI: [pbs:Task](https://example.org/pragmatic-bim-data-contract/Task)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -162,17 +174,25 @@ URI: [pbs:Task](https://example.org/pragmatic-bim-data-contract/Task)
 name: Task
 description: Action/task record linked to an entity for implementation and follow-up
   workflows.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:Action
 - prov:Activity
 slots:
+- id
 - task_type
 - task_status
 - assignee
 - due_at
 - related_decision
 - task_notes
+slot_usage:
+  id:
+    name: id
+    description: Optional stable identifier when referenced externally (for example
+      from Change.triggered_task).
+    identifier: false
+    required: false
 class_uri: pbs:Task
 
 ```
@@ -185,18 +205,40 @@ class_uri: pbs:Task
 name: Task
 description: Action/task record linked to an entity for implementation and follow-up
   workflows.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:Action
 - prov:Activity
+slot_usage:
+  id:
+    name: id
+    description: Optional stable identifier when referenced externally (for example
+      from Change.triggered_task).
+    identifier: false
+    required: false
 attributes:
+  id:
+    name: id
+    description: Optional stable identifier when referenced externally (for example
+      from Change.triggered_task).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    identifier: false
+    owner: Task
+    domain_of:
+    - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
+    range: string
+    required: false
   task_type:
     name: task_type
     description: Task type expressed as a URI/CURIE from a controlled vocabulary.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: dcterms:type
-    alias: task_type
     owner: Task
     domain_of:
     - Task
@@ -204,10 +246,9 @@ attributes:
   task_status:
     name: task_status
     description: Task status URI/CURIE aligned with action status vocabularies.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:actionStatus
-    alias: task_status
     owner: Task
     domain_of:
     - Task
@@ -215,10 +256,9 @@ attributes:
   assignee:
     name: assignee
     description: Responsible agent.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:agent
-    alias: assignee
     owner: Task
     domain_of:
     - Task
@@ -227,10 +267,9 @@ attributes:
   due_at:
     name: due_at
     description: Due timestamp for task completion.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: schema:deadline
-    alias: due_at
     owner: Task
     domain_of:
     - Task
@@ -238,10 +277,9 @@ attributes:
   related_decision:
     name: related_decision
     description: Optional reference to a decision that informs or drives this task.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: prov:used
-    alias: related_decision
     owner: Task
     domain_of:
     - Task
@@ -249,10 +287,9 @@ attributes:
   task_notes:
     name: task_notes
     description: Additional notes or implementation details for the task.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     slot_uri: rdfs:comment
-    alias: task_notes
     owner: Task
     domain_of:
     - Task
@@ -260,4 +297,4 @@ attributes:
 class_uri: pbs:Task
 
 ```
-</details>
+</details></div>

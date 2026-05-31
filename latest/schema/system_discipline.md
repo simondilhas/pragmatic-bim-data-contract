@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: system_discipline 
 
@@ -7,11 +10,11 @@ _Classification of system discipline (electrical, sanitary, ventilation, heating
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:system_discipline](https://example.org/pragmatic-bim-data-contract/system_discipline)
-Alias: system_discipline
 
+URI: [pbs:system_discipline](https://schema.pragmaticbim.ch/system_discipline)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: system_discipline
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -84,13 +87,12 @@ Alias: system_discipline
 name: system_discipline
 description: Classification of system discipline (electrical, sanitary, ventilation,
   heating).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: system_discipline
 domain_of:
 - System
 range: SystemDiscipline
 required: true
 
 ```
-</details>
+</details></div>

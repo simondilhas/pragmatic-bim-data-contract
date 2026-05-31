@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: currency 
 
@@ -7,11 +10,11 @@ _ISO 4217 currency code (for example EUR, USD)._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:currency](https://example.org/pragmatic-bim-data-contract/currency)
-Alias: currency
 
+URI: [pbs:currency](https://schema.pragmaticbim.ch/currency)
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +25,8 @@ Alias: currency
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
+| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
 | [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
 
 
@@ -71,7 +74,7 @@ Alias: currency
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -92,9 +95,8 @@ Alias: currency
 ```yaml
 name: currency
 description: ISO 4217 currency code (for example EUR, USD).
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: currency
 domain_of:
 - AbstractCostRecord
 range: string
@@ -102,4 +104,4 @@ required: true
 pattern: ^[A-Z]{3}$
 
 ```
-</details>
+</details></div>

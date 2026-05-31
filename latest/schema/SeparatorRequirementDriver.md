@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: SeparatorRequirementDriver 
 
 
@@ -7,9 +13,11 @@ _Main requirement drivers for separator performance._
 
 
 
-URI: [pbs:SeparatorRequirementDriver](https://example.org/pragmatic-bim-data-contract/SeparatorRequirementDriver)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:SeparatorRequirementDriver](https://example.org/pragmatic-bim-data-contract/SeparatorRequirementDriver)
+URI: [pbs:SeparatorRequirementDriver](https://schema.pragmaticbim.ch/SeparatorRequirementDriver)
+
+**Enum URI:** [pbs:SeparatorRequirementDriver](https://schema.pragmaticbim.ch/SeparatorRequirementDriver)
 
 
 ## Permissible Values
@@ -49,7 +57,7 @@ URI: [pbs:SeparatorRequirementDriver](https://example.org/pragmatic-bim-data-con
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -62,7 +70,7 @@ URI: [pbs:SeparatorRequirementDriver](https://example.org/pragmatic-bim-data-con
 ```yaml
 name: SeparatorRequirementDriver
 description: Main requirement drivers for separator performance.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:SeparatorRequirementDriver
 permissible_values:
@@ -87,3 +95,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

@@ -29,7 +29,7 @@ from pydantic import (
 )
 
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.11.0"
 version = "None"
 
 
@@ -72,7 +72,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'pbs',
                     'integration, querying, costing, and analysis workflows, this '
                     'schema defines a pragmatic, graph-first LinkML structure that '
                     'is IFC-aware and extensible across classification schemes.\n',
-     'id': 'https://example.org/pragmatic-bim-data-contract',
+     'id': 'https://schema.pragmaticbim.ch',
      'imports': ['linkml:types',
                  'core_schema',
                  'performance_enums_schema',
@@ -81,7 +81,8 @@ linkml_meta = LinkMLMeta({'default_prefix': 'pbs',
                  'requirements_schema',
                  'elements_physical_schema',
                  'elements_virtual_schema',
-                 'enums_schema'],
+                 'enums_schema',
+                 'changes_schema'],
      'license': 'MIT',
      'name': 'pragmatic_bim_data_contract',
      'prefixes': {'bot': {'prefix_prefix': 'bot',
@@ -93,7 +94,9 @@ linkml_meta = LinkMLMeta({'default_prefix': 'pbs',
                   'linkml': {'prefix_prefix': 'linkml',
                              'prefix_reference': 'https://w3id.org/linkml/'},
                   'pbs': {'prefix_prefix': 'pbs',
-                          'prefix_reference': 'https://example.org/pragmatic-bim-data-contract/'}},
+                          'prefix_reference': 'https://schema.pragmaticbim.ch/'}},
+     'see_also': ['https://schema.pragmaticbim.ch',
+                  'https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html'],
      'source_file': 'schema/00_pragmatic_bim_data_contract.yaml',
      'title': 'Pragmatic BIM Data Contract'} )
 
@@ -480,6 +483,28 @@ class BoundaryType(str, Enum):
     cladding = "cladding"
 
 
+class ScheduleDependencyType(str, Enum):
+    """
+    Precedence logic between two schedule items.
+    """
+    finish_to_start = "finish_to_start"
+    """
+    Successor starts when the predecessor finishes.
+    """
+    start_to_start = "start_to_start"
+    """
+    Successor starts when the predecessor starts.
+    """
+    finish_to_finish = "finish_to_finish"
+    """
+    Successor finishes when the predecessor finishes.
+    """
+    start_to_finish = "start_to_finish"
+    """
+    Successor finishes when the predecessor starts.
+    """
+
+
 class QuantityType(str, Enum):
     area_net_horizontal = "area_net_horizontal"
     """
@@ -523,6 +548,106 @@ class QuantityType(str, Enum):
     """
 
 
+class ChangeKind(str, Enum):
+    """
+    Severity or category of change detected between two revisions.
+    """
+    unchanged = "unchanged"
+    """
+    No material difference (typically omitted from persisted Change records).
+    """
+    minor = "minor"
+    """
+    Small attribute, metadata, or wording adjustment.
+    """
+    major = "major"
+    """
+    Significant attribute, geometry, relationship, or structural content change.
+    """
+    rewritten = "rewritten"
+    """
+    Subject substantially replaced while retaining the same identity.
+    """
+    new = "new"
+    """
+    Subject introduced in to_revision (absent in from_revision).
+    """
+    deleted = "deleted"
+    """
+    Subject removed in to_revision (present in from_revision).
+    """
+
+
+class ChangeIntentVerdict(str, Enum):
+    """
+    Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).
+    """
+    stable = "stable"
+    """
+    Change preserves design intent; downstream rules may treat as cosmetic.
+    """
+    new_intent = "new_intent"
+    """
+    Change alters design intent; may require re-evaluation or new tasks.
+    """
+
+
+class StateRefKind(str, Enum):
+    """
+    Kind of content referenced by a StateRef pointer.
+    """
+    ifc_model = "ifc_model"
+    """
+    Whole IFC file or subset export.
+    """
+    geometry = "geometry"
+    """
+    Geometry payload or representation blob.
+    """
+    document = "document"
+    """
+    Original file in DMS or object storage.
+    """
+    text_extract = "text_extract"
+    """
+    Normalized or extracted text used for diffing.
+    """
+    entity_record = "entity_record"
+    """
+    Serialized entity record at a specific revision.
+    """
+    other = "other"
+    """
+    Other content kind not covered by controlled values.
+    """
+
+
+class PropertyPathKind(str, Enum):
+    """
+    Classification of a property path for diff interpretation across IFC and text sources.
+    """
+    ifc_attribute = "ifc_attribute"
+    """
+    Direct IFC entity attribute (for example IfcWall.Name).
+    """
+    ifc_pset = "ifc_pset"
+    """
+    IFC PropertySet property (for example Pset_WallCommon.FireRating).
+    """
+    schema_slot = "schema_slot"
+    """
+    Field on a schema entity (for example description, space_type).
+    """
+    document_field = "document_field"
+    """
+    Structured field in an extracted document (for example section.4.2.title).
+    """
+    text_span = "text_span"
+    """
+    Free-text span anchor (for example body:char_offset:1204-1389).
+    """
+
+
 class StatusType(str, Enum):
     """
     Lifecycle or QA gate status used for model progression and approvals.
@@ -560,15 +685,15 @@ class Entity(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:Entity',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -606,17 +731,17 @@ class Agent(Entity):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:Agent',
          'exact_mappings': ['prov:Agent'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     postal_addresses: Optional[list[PostalAddress]] = Field(default=None, description="""Structured postal or physical addresses associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
     contact_points: Optional[list[ContactPoint]] = Field(default=None, description="""Structured communication channels and profiles associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -653,18 +778,18 @@ class Person(Agent):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Person',
          'exact_mappings': ['schema:Person', 'prov:Agent'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     belongs_to_company: Optional[str] = Field(default=None, description="""Optional company that the person belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
     postal_addresses: Optional[list[PostalAddress]] = Field(default=None, description="""Structured postal or physical addresses associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
     contact_points: Optional[list[ContactPoint]] = Field(default=None, description="""Structured communication channels and profiles associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -701,17 +826,17 @@ class Company(Agent):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Company',
          'exact_mappings': ['schema:Organization', 'prov:Agent'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     postal_addresses: Optional[list[PostalAddress]] = Field(default=None, description="""Structured postal or physical addresses associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
     contact_points: Optional[list[ContactPoint]] = Field(default=None, description="""Structured communication channels and profiles associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Agent']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -747,7 +872,7 @@ class Classification(ConfiguredBaseModel):
     Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Classification',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     classification_scheme: str = Field(default=..., description="""Name of the classification scheme (for example ifc, uniclass, omniclass, custom).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Classification']} })
     classification_code: str = Field(default=..., description="""Classification code inside the scheme.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Classification']} })
@@ -762,7 +887,7 @@ class GeometryRepresentation(ConfiguredBaseModel):
     Minimal geometry reference for an entity, separating representation from encoding format.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:GeometryRepresentation',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     geometry_reference: str = Field(default=..., description="""URI/path/hash/pointer to geometry payload.""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeometryRepresentation']} })
     geometry_representation: GeometryRepresentationType = Field(default=..., description="""Representation kind/dimension (for example body_3d, footprint_2d, point), independent of file format.""", json_schema_extra = { "linkml_meta": {'domain_of': ['GeometryRepresentation']} })
@@ -774,11 +899,12 @@ class QuantityValue(ConfiguredBaseModel):
     Minimal quantity record for costing and analysis.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:QuantityValue',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     quantity_type: QuantityType = Field(default=..., description="""Controlled quantity type.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantityValue']} })
     quantity_value: float = Field(default=..., description="""Numeric quantity value.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['QuantityValue']} })
     quantity_unit: str = Field(default=..., description="""Unit of the quantity value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantityValue']} })
+    quantity_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the quantity unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['QuantityValue']} })
 
 
 class MetadataEntry(ConfiguredBaseModel):
@@ -786,7 +912,7 @@ class MetadataEntry(ConfiguredBaseModel):
     Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:MetadataEntry',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     metadata_key: str = Field(default=..., description="""Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetadataEntry']} })
     metadata_value: Optional[str] = Field(default=None, description="""Metadata value serialized as text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetadataEntry']} })
@@ -799,7 +925,7 @@ class PerformanceProperty(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:PerformanceProperty',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     property_key: str = Field(default=..., description="""Canonical key inside the domain; constrained via subclass slot_usage to a domain-specific enum.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_type: PerformancePropertyValueType = Field(default=..., description="""Value type discriminator for normalized storage (for example string, number, boolean).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
@@ -807,8 +933,9 @@ class PerformanceProperty(ConfiguredBaseModel):
     property_value_number: Optional[float] = Field(default=None, description="""Numeric value when property_value_type is number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_boolean: Optional[bool] = Field(default=None, description="""Boolean value when property_value_type is boolean.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_unit: Optional[str] = Field(default=None, description="""Normalized unit where applicable (for example min, dB, W/m2K).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    property_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
     source_value_raw: Optional[str] = Field(default=None, description="""Raw source value before normalization.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     mapping_version: Optional[str] = Field(default=None, description="""Mapping specification version used to derive the normalized property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
 
@@ -819,7 +946,7 @@ class Decision(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Decision',
          'exact_mappings': ['prov:Entity'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     decision_type: Optional[str] = Field(default=None, description="""Decision type expressed as a URI/CURIE from a controlled vocabulary.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision'], 'slot_uri': 'dcterms:type'} })
     decision_status: Optional[str] = Field(default=None, description="""Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Decision'], 'slot_uri': 'adms:status'} })
@@ -834,8 +961,15 @@ class Task(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Task',
          'exact_mappings': ['schema:Action', 'prov:Activity'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core',
+         'slot_usage': {'id': {'description': 'Optional stable identifier when '
+                                              'referenced externally (for example from '
+                                              'Change.triggered_task).',
+                               'identifier': False,
+                               'name': 'id',
+                               'required': False}}})
 
+    id: Optional[str] = Field(default=None, description="""Optional stable identifier when referenced externally (for example from Change.triggered_task).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     task_type: Optional[str] = Field(default=None, description="""Task type expressed as a URI/CURIE from a controlled vocabulary.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task'], 'slot_uri': 'dcterms:type'} })
     task_status: Optional[str] = Field(default=None, description="""Task status URI/CURIE aligned with action status vocabularies.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task'], 'slot_uri': 'schema:actionStatus'} })
     assignee: Optional[str] = Field(default=None, description="""Responsible agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task'], 'slot_uri': 'schema:agent'} })
@@ -850,7 +984,7 @@ class Message(Entity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Message',
          'exact_mappings': ['schema:Message', 'prov:Entity'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     message_type: Optional[str] = Field(default=None, description="""Message type expressed as a URI/CURIE from a controlled vocabulary.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Message'], 'slot_uri': 'dcterms:type'} })
     sender: Optional[str] = Field(default=None, description="""Agent that sent the message.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Message'], 'slot_uri': 'schema:sender'} })
@@ -858,13 +992,13 @@ class Message(Entity):
     sent_at: Optional[datetime ] = Field(default=None, description="""Timestamp when the message was sent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Message'], 'slot_uri': 'schema:dateSent'} })
     message_subject: Optional[str] = Field(default=None, description="""Optional subject or headline for the message.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Message'], 'slot_uri': 'schema:headline'} })
     message_body: Optional[str] = Field(default=None, description="""Human-readable message content.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Message'], 'slot_uri': 'schema:text'} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -900,8 +1034,15 @@ class Document(ConfiguredBaseModel):
     Reference to an external document stored in a file system, DMS, object storage, or URL.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Document',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core',
+         'slot_usage': {'id': {'description': 'Optional stable identifier when '
+                                              'referenced externally (for example from '
+                                              'Change records).',
+                               'identifier': False,
+                               'name': 'id',
+                               'required': False}}})
 
+    id: Optional[str] = Field(default=None, description="""Optional stable identifier when referenced externally (for example from Change records).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     storage_link: str = Field(default=..., description="""URI/URL/path to the stored document location.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Document']} })
 
@@ -912,7 +1053,7 @@ class PostalAddress(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:PostalAddress',
          'exact_mappings': ['schema:PostalAddress'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     street_address: Optional[str] = Field(default=None, description="""Street name and house number or equivalent address line.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PostalAddress'], 'slot_uri': 'schema:streetAddress'} })
     post_office_box_number: Optional[str] = Field(default=None, description="""Post office box number where applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PostalAddress'], 'slot_uri': 'schema:postOfficeBoxNumber'} })
@@ -929,7 +1070,7 @@ class ContactPoint(ConfiguredBaseModel):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ContactPoint',
          'exact_mappings': ['schema:ContactPoint'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     contact_channel_type: Optional[str] = Field(default=None, description="""Communication channel type such as email, phone, website, linkedin, whatsapp, signal, slack, teams, or telegram.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactPoint']} })
     contact_value: Optional[str] = Field(default=None, description="""Human-readable contact value such as an email address, phone number, handle, or username.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ContactPoint']} })
@@ -944,7 +1085,7 @@ class LocalizedText(ConfiguredBaseModel):
     Localized text value for a specific language tag.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:LocalizedText',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/core'})
+         'from_schema': 'https://schema.pragmaticbim.ch/core'})
 
     language_tag: str = Field(default=..., description="""IETF BCP 47 language tag (for example en, de, pt-BR).""", json_schema_extra = { "linkml_meta": {'domain_of': ['LocalizedText']} })
     text_value: str = Field(default=..., description="""Localized text value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LocalizedText']} })
@@ -955,7 +1096,7 @@ class FireProperty(PerformanceProperty):
     Normalized fire-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:FireProperty',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'FirePropertyKey'}}})
 
@@ -965,8 +1106,9 @@ class FireProperty(PerformanceProperty):
     property_value_number: Optional[float] = Field(default=None, description="""Numeric value when property_value_type is number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_boolean: Optional[bool] = Field(default=None, description="""Boolean value when property_value_type is boolean.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_unit: Optional[str] = Field(default=None, description="""Normalized unit where applicable (for example min, dB, W/m2K).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    property_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
     source_value_raw: Optional[str] = Field(default=None, description="""Raw source value before normalization.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     mapping_version: Optional[str] = Field(default=None, description="""Mapping specification version used to derive the normalized property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
 
@@ -976,7 +1118,7 @@ class AcousticProperty(PerformanceProperty):
     Normalized acoustic-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:AcousticProperty',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'AcousticPropertyKey'}}})
 
@@ -986,8 +1128,9 @@ class AcousticProperty(PerformanceProperty):
     property_value_number: Optional[float] = Field(default=None, description="""Numeric value when property_value_type is number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_boolean: Optional[bool] = Field(default=None, description="""Boolean value when property_value_type is boolean.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_unit: Optional[str] = Field(default=None, description="""Normalized unit where applicable (for example min, dB, W/m2K).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    property_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
     source_value_raw: Optional[str] = Field(default=None, description="""Raw source value before normalization.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     mapping_version: Optional[str] = Field(default=None, description="""Mapping specification version used to derive the normalized property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
 
@@ -997,7 +1140,7 @@ class ThermalProperty(PerformanceProperty):
     Normalized thermal-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ThermalProperty',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'ThermalPropertyKey'}}})
 
@@ -1007,8 +1150,9 @@ class ThermalProperty(PerformanceProperty):
     property_value_number: Optional[float] = Field(default=None, description="""Numeric value when property_value_type is number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_boolean: Optional[bool] = Field(default=None, description="""Boolean value when property_value_type is boolean.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_unit: Optional[str] = Field(default=None, description="""Normalized unit where applicable (for example min, dB, W/m2K).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    property_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
     source_value_raw: Optional[str] = Field(default=None, description="""Raw source value before normalization.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     mapping_version: Optional[str] = Field(default=None, description="""Mapping specification version used to derive the normalized property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
 
@@ -1018,7 +1162,7 @@ class StructuralProperty(PerformanceProperty):
     Normalized structural-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:StructuralProperty',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'StructuralPropertyKey'}}})
 
@@ -1028,8 +1172,9 @@ class StructuralProperty(PerformanceProperty):
     property_value_number: Optional[float] = Field(default=None, description="""Numeric value when property_value_type is number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_boolean: Optional[bool] = Field(default=None, description="""Boolean value when property_value_type is boolean.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_unit: Optional[str] = Field(default=None, description="""Normalized unit where applicable (for example min, dB, W/m2K).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    property_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
     source_value_raw: Optional[str] = Field(default=None, description="""Raw source value before normalization.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     mapping_version: Optional[str] = Field(default=None, description="""Mapping specification version used to derive the normalized property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
 
@@ -1039,7 +1184,7 @@ class SecurityProperty(PerformanceProperty):
     Normalized security-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SecurityProperty',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'SecurityPropertyKey'}}})
 
@@ -1049,8 +1194,9 @@ class SecurityProperty(PerformanceProperty):
     property_value_number: Optional[float] = Field(default=None, description="""Numeric value when property_value_type is number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_boolean: Optional[bool] = Field(default=None, description="""Boolean value when property_value_type is boolean.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_unit: Optional[str] = Field(default=None, description="""Normalized unit where applicable (for example min, dB, W/m2K).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    property_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
     source_value_raw: Optional[str] = Field(default=None, description="""Raw source value before normalization.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     mapping_version: Optional[str] = Field(default=None, description="""Mapping specification version used to derive the normalized property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
 
@@ -1060,7 +1206,7 @@ class MaterialProperty(PerformanceProperty):
     Normalized material-related property.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:MaterialProperty',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/performance',
+         'from_schema': 'https://schema.pragmaticbim.ch/performance',
          'slot_usage': {'property_key': {'name': 'property_key',
                                          'range': 'MaterialPropertyKey'}}})
 
@@ -1070,8 +1216,9 @@ class MaterialProperty(PerformanceProperty):
     property_value_number: Optional[float] = Field(default=None, description="""Numeric value when property_value_type is number.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_value_boolean: Optional[bool] = Field(default=None, description="""Boolean value when property_value_type is boolean.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     property_unit: Optional[str] = Field(default=None, description="""Normalized unit where applicable (for example min, dB, W/m2K).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
-    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    property_unit_uri: Optional[str] = Field(default=None, description="""Optional URI that identifies the normalized property unit in an external vocabulary such as QUDT.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
     source_value_raw: Optional[str] = Field(default=None, description="""Raw source value before normalization.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
     mapping_version: Optional[str] = Field(default=None, description="""Mapping specification version used to derive the normalized property.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty']} })
 
@@ -1083,7 +1230,7 @@ class PhysicalElement(Entity):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:PhysicalElement',
          'exact_mappings': ['bot:Element', 'ifcowl:IfcElement'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-physical',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_level': {'name': 'parent_level',
@@ -1091,13 +1238,13 @@ class PhysicalElement(Entity):
 
     parent_building: Optional[str] = Field(default=None, description="""Parent building context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space', 'System']} })
     parent_level: Optional[str] = Field(default=None, description="""Parent level/storey context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1135,19 +1282,19 @@ class Separator(PhysicalElement):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:Separator',
          'exact_mappings': ['ifcowl:IfcBuildingElement'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
 
     separator_requirement_drivers: Optional[list[SeparatorRequirementDriver]] = Field(default=None, description="""Performance requirement drivers for this separator. Multiple values are allowed because one separator may need to satisfy several requirements.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Separator']} })
     parent_building: Optional[str] = Field(default=None, description="""Parent building context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space', 'System']} })
     parent_level: Optional[str] = Field(default=None, description="""Parent level/storey context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1184,7 +1331,7 @@ class SeparatorWall(Separator):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SeparatorWall',
          'exact_mappings': ['ifcowl:IfcWall'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
 
     separator_wall_type: SeparatorWallType = Field(default=..., description="""Classification of wall-based separator element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorWall']} })
     separates_spaces: Optional[list[str]] = Field(default=None, description="""Spaces separated by this separator element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorWall']} })
@@ -1192,13 +1339,13 @@ class SeparatorWall(Separator):
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Separator']} })
     parent_building: Optional[str] = Field(default=None, description="""Parent building context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space', 'System']} })
     parent_level: Optional[str] = Field(default=None, description="""Parent level/storey context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1235,7 +1382,7 @@ class SeparatorSlab(Separator):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SeparatorSlab',
          'exact_mappings': ['ifcowl:IfcSlab'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
 
     separator_slab_type: SeparatorSlabType = Field(default=..., description="""Classification of slab-based separator element (for example floor/roof/base slab).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorSlab']} })
     separates_levels: Optional[list[str]] = Field(default=None, description="""Level context nodes separated by this slab separator.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SeparatorSlab']} })
@@ -1243,13 +1390,13 @@ class SeparatorSlab(Separator):
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Separator']} })
     parent_building: Optional[str] = Field(default=None, description="""Parent building context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space', 'System']} })
     parent_level: Optional[str] = Field(default=None, description="""Parent level/storey context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1289,7 +1436,7 @@ class ConnectionPhysical(PhysicalElement):
                             'ifcowl:IfcWindow',
                             'ifcowl:IfcFlowSegment',
                             'ifcowl:IfcCableCarrierSegment'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
 
     connection_physical_type: ConnectionPhysicalType = Field(default=..., description="""Classification of physical connector type (for example door, window, duct, pipe, cable).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
     transport_medium: TransportMedium = Field(default=..., description="""Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
@@ -1297,13 +1444,13 @@ class ConnectionPhysical(PhysicalElement):
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
     parent_building: Optional[str] = Field(default=None, description="""Parent building context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space', 'System']} })
     parent_level: Optional[str] = Field(default=None, description="""Parent level/storey context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1340,19 +1487,19 @@ class Boundary(PhysicalElement):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Boundary',
          'exact_mappings': ['ifcowl:IfcCovering'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
 
     boundary_type: BoundaryType = Field(default=..., description="""Classification of boundary element (e.g., covering).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Boundary']} })
     bounded_space: Optional[str] = Field(default=None, description="""Space bounded by this boundary element.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Boundary'], 'inverse': 'bounded_by'} })
     parent_building: Optional[str] = Field(default=None, description="""Parent building context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space', 'System']} })
     parent_level: Optional[str] = Field(default=None, description="""Parent level/storey context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1389,20 +1536,20 @@ class Equipment(PhysicalElement):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Equipment',
          'exact_mappings': ['bot:Element', 'ifcowl:IfcDistributionElement'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-physical'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-physical'})
 
     equipment_type: EquipmentType = Field(default=..., description="""Classification of equipment (for example HVAC, electrical, plumbing).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Equipment']} })
     parent_space: Optional[str] = Field(default=None, description="""Parent space where the equipment is located.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Equipment'], 'inverse': 'contained_entities'} })
     parent_system: Optional[list[str]] = Field(default=None, description="""Parent systems that the equipment belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Equipment']} })
     parent_building: Optional[str] = Field(default=None, description="""Parent building context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space', 'System']} })
     parent_level: Optional[str] = Field(default=None, description="""Parent level/storey context reference.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PhysicalElement', 'SpatialContext', 'Space']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1439,18 +1586,18 @@ class VirtualEntity(Entity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:VirtualEntity',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1487,7 +1634,7 @@ class SpatialContext(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:SpatialContext',
          'exact_mappings': ['ifcowl:IfcSpatialStructureElement'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_legal_site': {'name': 'parent_legal_site',
@@ -1513,13 +1660,13 @@ class SpatialContext(VirtualEntity):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1555,7 +1702,7 @@ class ProjectContext(SpatialContext):
     Spatial context node constrained to project semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ProjectContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1569,13 +1716,13 @@ class ProjectContext(SpatialContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1611,7 +1758,7 @@ class PerimeterContext(SpatialContext):
     Spatial context node constrained to perimeter semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:PerimeterContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1625,13 +1772,13 @@ class PerimeterContext(SpatialContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1667,7 +1814,7 @@ class LegalSiteContext(SpatialContext):
     Spatial context node constrained to legal site semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:LegalSiteContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1681,13 +1828,13 @@ class LegalSiteContext(SpatialContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1724,7 +1871,7 @@ class BuiltAssetContext(SpatialContext):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:BuiltAssetContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1738,13 +1885,13 @@ class BuiltAssetContext(SpatialContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1780,7 +1927,7 @@ class BuildingContext(BuiltAssetContext):
     Spatial context node constrained to building semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:BuildingContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1794,13 +1941,13 @@ class BuildingContext(BuiltAssetContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1836,7 +1983,7 @@ class CivilStructureContext(BuiltAssetContext):
     Spatial context node constrained to civil structure semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:CivilStructureContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1850,13 +1997,13 @@ class CivilStructureContext(BuiltAssetContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1892,7 +2039,7 @@ class LevelContext(SpatialContext):
     Spatial context node constrained to level/storey semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:LevelContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1906,13 +2053,13 @@ class LevelContext(SpatialContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1948,7 +2095,7 @@ class ZoneContext(SpatialContext):
     Spatial context node constrained to zone semantics.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ZoneContext',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     context_type: ContextType = Field(default=..., description="""Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
     zone_type: Optional[ZoneType] = Field(default=None, description="""Optional zone classification; intended for SpatialContext nodes where context_type is zone.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialContext']} })
@@ -1962,13 +2109,13 @@ class ZoneContext(SpatialContext):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2005,7 +2152,7 @@ class Space(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Space',
          'exact_mappings': ['bot:Space', 'ifcowl:IfcSpace'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_level': {'name': 'parent_level',
@@ -2020,13 +2167,13 @@ class Space(VirtualEntity):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2063,7 +2210,7 @@ class System(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:System',
          'exact_mappings': ['ifcowl:IfcSystem'],
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual',
          'slot_usage': {'parent_building': {'name': 'parent_building',
                                             'range': 'BuiltAssetContext'},
                         'parent_project': {'name': 'parent_project',
@@ -2079,13 +2226,13 @@ class System(VirtualEntity):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2121,7 +2268,7 @@ class ConnectionVirtual(VirtualEntity):
     Logical or topological connection between spaces and/or physical elements.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ConnectionVirtual',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     connection_virtual_type: ConnectionVirtualType = Field(default=..., description="""Classification of virtual connection semantics (for example structural_joint, adjacency, access).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionVirtual']} })
     connects_physical_elements: Optional[list[str]] = Field(default=None, description="""Physical elements connected by this virtual connection (for example wall-wall, wall-slab).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionVirtual']} })
@@ -2130,13 +2277,210 @@ class ConnectionVirtual(VirtualEntity):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
+    geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    documents: Optional[list[Document]] = Field(default=None, description="""Linked documents associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    metadata: Optional[list[MetadataEntry]] = Field(default=None, description="""Generic metadata container for IFC attributes/properties and project-specific extensions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    performance_properties: Optional[list[PerformanceProperty]] = Field(default=None, description="""Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    decisions: Optional[list[Decision]] = Field(default=None, description="""Decision records associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    tasks: Optional[list[Task]] = Field(default=None, description="""Tasks associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    messages: Optional[dict[str, Message]] = Field(default=None, description="""Messages associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    created_at: Optional[datetime ] = Field(default=None, description="""Creation timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    modified_at: Optional[datetime ] = Field(default=None, description="""Last modification timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    revision: Optional[int] = Field(default=None, description="""Integer revision counter for change tracking.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    status: Optional[StatusType] = Field(default=None, description="""Lifecycle or QA status.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+
+    @field_validator('ifc_global_id')
+    def pattern_ifc_global_id(cls, v):
+        pattern=re.compile(r"^[0-3][0-9A-Za-z_$]{21}$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid ifc_global_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid ifc_global_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class ScheduleTemplate(Entity):
+    """
+    Reusable schedule container defining items, milestones, and dependencies for a scoped plan.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ScheduleTemplate',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+
+    scheduled_entities: Optional[list[str]] = Field(default=None, description="""Model entities that this schedule template or schedule item applies to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleTemplate', 'ScheduleItem']} })
+    schedule_items: Optional[list[str]] = Field(default=None, description="""Schedule items contained in this template; milestone instances may also appear through the ScheduleItem subtype.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleTemplate']} })
+    schedule_dependencies: Optional[list[str]] = Field(default=None, description="""Dependency relationships used within this schedule template.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleTemplate']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
+    name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
+    geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    documents: Optional[list[Document]] = Field(default=None, description="""Linked documents associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    metadata: Optional[list[MetadataEntry]] = Field(default=None, description="""Generic metadata container for IFC attributes/properties and project-specific extensions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    performance_properties: Optional[list[PerformanceProperty]] = Field(default=None, description="""Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    decisions: Optional[list[Decision]] = Field(default=None, description="""Decision records associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    tasks: Optional[list[Task]] = Field(default=None, description="""Tasks associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    messages: Optional[dict[str, Message]] = Field(default=None, description="""Messages associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    created_at: Optional[datetime ] = Field(default=None, description="""Creation timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    modified_at: Optional[datetime ] = Field(default=None, description="""Last modification timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    revision: Optional[int] = Field(default=None, description="""Integer revision counter for change tracking.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    status: Optional[StatusType] = Field(default=None, description="""Lifecycle or QA status.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+
+    @field_validator('ifc_global_id')
+    def pattern_ifc_global_id(cls, v):
+        pattern=re.compile(r"^[0-3][0-9A-Za-z_$]{21}$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid ifc_global_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid ifc_global_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class ScheduleItem(Entity):
+    """
+    Planned work item with baseline and actual dates, linked to a schedule template and optional model entities.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ScheduleItem',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+
+    schedule_template: Optional[str] = Field(default=None, description="""Parent schedule template this item or dependency belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem', 'ScheduleDependency']} })
+    scheduled_entities: Optional[list[str]] = Field(default=None, description="""Model entities that this schedule template or schedule item applies to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleTemplate', 'ScheduleItem']} })
+    planned_start_at: Optional[datetime ] = Field(default=None, description="""Planned start timestamp for the schedule item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    planned_finish_at: Optional[datetime ] = Field(default=None, description="""Planned finish timestamp for the schedule item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    actual_start_at: Optional[datetime ] = Field(default=None, description="""Actual start timestamp for the schedule item where known.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    actual_finish_at: Optional[datetime ] = Field(default=None, description="""Actual finish timestamp for the schedule item where known.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
+    name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
+    geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    documents: Optional[list[Document]] = Field(default=None, description="""Linked documents associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    metadata: Optional[list[MetadataEntry]] = Field(default=None, description="""Generic metadata container for IFC attributes/properties and project-specific extensions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    performance_properties: Optional[list[PerformanceProperty]] = Field(default=None, description="""Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    decisions: Optional[list[Decision]] = Field(default=None, description="""Decision records associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    tasks: Optional[list[Task]] = Field(default=None, description="""Tasks associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    messages: Optional[dict[str, Message]] = Field(default=None, description="""Messages associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    created_at: Optional[datetime ] = Field(default=None, description="""Creation timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    modified_at: Optional[datetime ] = Field(default=None, description="""Last modification timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    revision: Optional[int] = Field(default=None, description="""Integer revision counter for change tracking.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    status: Optional[StatusType] = Field(default=None, description="""Lifecycle or QA status.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+
+    @field_validator('ifc_global_id')
+    def pattern_ifc_global_id(cls, v):
+        pattern=re.compile(r"^[0-3][0-9A-Za-z_$]{21}$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid ifc_global_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid ifc_global_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class Milestone(ScheduleItem):
+    """
+    Zero-duration checkpoint or delivery target within a schedule.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Milestone',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+
+    milestone_at: Optional[datetime ] = Field(default=None, description="""Target timestamp for the milestone checkpoint.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Milestone']} })
+    schedule_template: Optional[str] = Field(default=None, description="""Parent schedule template this item or dependency belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem', 'ScheduleDependency']} })
+    scheduled_entities: Optional[list[str]] = Field(default=None, description="""Model entities that this schedule template or schedule item applies to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleTemplate', 'ScheduleItem']} })
+    planned_start_at: Optional[datetime ] = Field(default=None, description="""Planned start timestamp for the schedule item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    planned_finish_at: Optional[datetime ] = Field(default=None, description="""Planned finish timestamp for the schedule item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    actual_start_at: Optional[datetime ] = Field(default=None, description="""Actual start timestamp for the schedule item where known.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    actual_finish_at: Optional[datetime ] = Field(default=None, description="""Actual finish timestamp for the schedule item where known.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
+    name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
+    geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    documents: Optional[list[Document]] = Field(default=None, description="""Linked documents associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    metadata: Optional[list[MetadataEntry]] = Field(default=None, description="""Generic metadata container for IFC attributes/properties and project-specific extensions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    performance_properties: Optional[list[PerformanceProperty]] = Field(default=None, description="""Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    decisions: Optional[list[Decision]] = Field(default=None, description="""Decision records associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    tasks: Optional[list[Task]] = Field(default=None, description="""Tasks associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    messages: Optional[dict[str, Message]] = Field(default=None, description="""Messages associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    created_at: Optional[datetime ] = Field(default=None, description="""Creation timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    modified_at: Optional[datetime ] = Field(default=None, description="""Last modification timestamp for this entity record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    revision: Optional[int] = Field(default=None, description="""Integer revision counter for change tracking.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    status: Optional[StatusType] = Field(default=None, description="""Lifecycle or QA status.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+
+    @field_validator('ifc_global_id')
+    def pattern_ifc_global_id(cls, v):
+        pattern=re.compile(r"^[0-3][0-9A-Za-z_$]{21}$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid ifc_global_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid ifc_global_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class ScheduleDependency(Entity):
+    """
+    Precedence relationship between two schedule items, optionally with lag.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ScheduleDependency',
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
+
+    schedule_template: Optional[str] = Field(default=None, description="""Parent schedule template this item or dependency belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleItem', 'ScheduleDependency']} })
+    predecessor_item: Optional[str] = Field(default=None, description="""Schedule item that must occur before the successor item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleDependency']} })
+    successor_item: Optional[str] = Field(default=None, description="""Schedule item whose timing is constrained by the predecessor item.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleDependency']} })
+    dependency_type: ScheduleDependencyType = Field(default=..., description="""Precedence logic used between the predecessor and successor items.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleDependency']} })
+    lag_days: Optional[float] = Field(default=None, description="""Optional lag or lead offset in days applied to the dependency relation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleDependency']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
+    name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2173,7 +2517,7 @@ class AbstractCostRecord(VirtualEntity):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'class_uri': 'pbs:AbstractCostRecord',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     cost_category: Optional[str] = Field(default=None, description="""Cost category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
     unit_cost: float = Field(default=..., description="""Unit cost for this cost item.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
@@ -2185,13 +2529,13 @@ class AbstractCostRecord(VirtualEntity):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2240,7 +2584,7 @@ class CostItem(AbstractCostRecord):
     Cost record used for estimation and calculation, optionally linked to quantities.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:CostItem',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     cost_category: Optional[str] = Field(default=None, description="""Cost category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
     unit_cost: float = Field(default=..., description="""Unit cost for this cost item.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
@@ -2252,13 +2596,13 @@ class CostItem(AbstractCostRecord):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2307,7 +2651,7 @@ class CostAssembly(AbstractCostRecord):
     Aggregated unit price assembled from multiple cost items.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:CostAssembly',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     component_cost_items: Optional[list[str]] = Field(default=None, description="""Atomic cost items that are aggregated into this cost assembly.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CostAssembly']} })
     cost_category: Optional[str] = Field(default=None, description="""Cost category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['AbstractCostRecord']} })
@@ -2320,13 +2664,13 @@ class CostAssembly(AbstractCostRecord):
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2375,20 +2719,20 @@ class Material(VirtualEntity):
     Material definition that can be associated with one or more entities.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Material',
-         'from_schema': 'https://example.org/pragmatic-bim-data-contract/elements-virtual'})
+         'from_schema': 'https://schema.pragmaticbim.ch/elements-virtual'})
 
     material_category: Optional[str] = Field(default=None, description="""Material category label kept intentionally open pending classification-backed modeling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Material']} })
     material_specification: Optional[str] = Field(default=None, description="""Material grade, specification, or product description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Material']} })
     cost_items: Optional[list[str]] = Field(default=None, description="""Cost items associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     cost_assemblies: Optional[list[str]] = Field(default=None, description="""Aggregated unit prices associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
     materials: Optional[list[str]] = Field(default=None, description="""Material definitions associated with this entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['VirtualEntity']} })
-    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
-    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Document']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2417,6 +2761,101 @@ class Material(VirtualEntity):
             err_msg = f"Invalid ifc_global_id format: {v}"
             raise ValueError(err_msg)
         return v
+
+
+class StateRef(ConfiguredBaseModel):
+    """
+    Pointer to a content state at a specific revision. Covers IFC models, geometry payloads, documents, and extracted text.
+
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:StateRef',
+         'from_schema': 'https://schema.pragmaticbim.ch/changes'})
+
+    state_ref: str = Field(default=..., description="""URI, path, or content hash identifying the stored content state.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateRef']} })
+    state_ref_kind: StateRefKind = Field(default=..., description="""Kind of content referenced (for example ifc_model, document, text_extract).""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateRef']} })
+    state_ref_format: Optional[str] = Field(default=None, description="""Optional serialization format (for example ifc, gltf, pdf, docx, markdown, plain_text, json).
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateRef']} })
+    state_ref_label: Optional[str] = Field(default=None, description="""Optional human-readable label (for example LOD300 export, Spec v3 draft).""", json_schema_extra = { "linkml_meta": {'domain_of': ['StateRef']} })
+
+
+class PropertyDelta(ConfiguredBaseModel):
+    """
+    Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans.
+
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:PropertyDelta',
+         'from_schema': 'https://schema.pragmaticbim.ch/changes'})
+
+    property_path: str = Field(default=..., description="""Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['PropertyDelta']} })
+    property_path_kind: PropertyPathKind = Field(default=..., description="""Classification of the property path for downstream diff interpretation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PropertyDelta']} })
+    from_value: Optional[str] = Field(default=None, description="""Prior value serialized as text. Absent or null for new subjects or fields.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PropertyDelta']} })
+    to_value: Optional[str] = Field(default=None, description="""New value serialized as text. Absent or null for deleted subjects or fields.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PropertyDelta']} })
+    source_pset: Optional[str] = Field(default=None, description="""Original IFC PropertySet name (for example Pset_WallCommon).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    source_property: Optional[str] = Field(default=None, description="""Original property name inside the source PropertySet (for example FireRating).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceProperty', 'PropertyDelta']} })
+    ifc_attribute_name: Optional[str] = Field(default=None, description="""IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PropertyDelta']} })
+
+
+class Change(ConfiguredBaseModel):
+    """
+    Detected difference for one subject between two revisions. Supports IFC model diffs, document/text diffs, and schema-entity field changes.
+
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Change',
+         'exact_mappings': ['prov:Activity'],
+         'from_schema': 'https://schema.pragmaticbim.ch/changes'})
+
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
+    change_kind: ChangeKind = Field(default=..., description="""Severity or category of change detected between two revisions.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Document).
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example documents[2], localized_descriptions[de], section.4.2.paragraph_1).
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
+    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is or embeds a Document.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change', 'ChangeSet']} })
+    to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change', 'ChangeSet']} })
+    from_state_ref: Optional[StateRef] = Field(default=None, description="""Content state pointer at the source revision.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    to_state_ref: Optional[StateRef] = Field(default=None, description="""Content state pointer at the target revision.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    property_delta: Optional[list[PropertyDelta]] = Field(default=None, description="""Field-level differences detected between the two revision states.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    triggered_task: Optional[str] = Field(default=None, description="""Id of a Task record that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    triggered_process: Optional[str] = Field(default=None, description="""External workflow process URI (for example yourcompanyos process instance).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    detected_at: Optional[datetime ] = Field(default=None, description="""Timestamp when this change was detected.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change'], 'slot_uri': 'dcterms:created'} })
+    change_source: Optional[str] = Field(default=None, description="""URI identifying the tool or pipeline that produced this change record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+
+    @field_validator('ifc_global_id')
+    def pattern_ifc_global_id(cls, v):
+        pattern=re.compile(r"^[0-3][0-9A-Za-z_$]{21}$")
+        if isinstance(v, list):
+            for element in v:
+                if isinstance(element, str) and not pattern.match(element):
+                    err_msg = f"Invalid ifc_global_id format: {element}"
+                    raise ValueError(err_msg)
+        elif isinstance(v, str) and not pattern.match(v):
+            err_msg = f"Invalid ifc_global_id format: {v}"
+            raise ValueError(err_msg)
+        return v
+
+
+class ChangeSet(ConfiguredBaseModel):
+    """
+    Batch of Change records produced by comparing two model or document revisions.
+
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:ChangeSet',
+         'exact_mappings': ['prov:Entity'],
+         'from_schema': 'https://schema.pragmaticbim.ch/changes'})
+
+    id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Task', 'Document', 'Change', 'ChangeSet']} })
+    from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change', 'ChangeSet']} })
+    to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change', 'ChangeSet']} })
+    changes: Optional[dict[str, Change]] = Field(default=None, description="""Change records included in this batch.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChangeSet']} })
+    ifc_state_ref: Optional[StateRef] = Field(default=None, description="""Optional baseline IFC model state for the comparison that produced this changeset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChangeSet']} })
+    document_state_refs: Optional[list[StateRef]] = Field(default=None, description="""Optional baseline document states for the comparison that produced this changeset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChangeSet']} })
+    produced_at: Optional[datetime ] = Field(default=None, description="""Timestamp when this changeset was produced.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChangeSet'], 'slot_uri': 'dcterms:created'} })
+    produced_by: Optional[str] = Field(default=None, description="""Agent or system that produced this changeset.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChangeSet'], 'slot_uri': 'prov:wasAttributedTo'} })
 
 
 # Model rebuild
@@ -2463,7 +2902,15 @@ ZoneContext.model_rebuild()
 Space.model_rebuild()
 System.model_rebuild()
 ConnectionVirtual.model_rebuild()
+ScheduleTemplate.model_rebuild()
+ScheduleItem.model_rebuild()
+Milestone.model_rebuild()
+ScheduleDependency.model_rebuild()
 AbstractCostRecord.model_rebuild()
 CostItem.model_rebuild()
 CostAssembly.model_rebuild()
 Material.model_rebuild()
+StateRef.model_rebuild()
+PropertyDelta.model_rebuild()
+Change.model_rebuild()
+ChangeSet.model_rebuild()

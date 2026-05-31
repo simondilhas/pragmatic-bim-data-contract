@@ -1,10 +1,18 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: EquipmentType 
 
 
 
-URI: [pbs:EquipmentType](https://example.org/pragmatic-bim-data-contract/EquipmentType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:EquipmentType](https://example.org/pragmatic-bim-data-contract/EquipmentType)
+URI: [pbs:EquipmentType](https://schema.pragmaticbim.ch/EquipmentType)
+
+**Enum URI:** [pbs:EquipmentType](https://schema.pragmaticbim.ch/EquipmentType)
 
 
 ## Permissible Values
@@ -45,7 +53,7 @@ URI: [pbs:EquipmentType](https://example.org/pragmatic-bim-data-contract/Equipme
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -57,7 +65,7 @@ URI: [pbs:EquipmentType](https://example.org/pragmatic-bim-data-contract/Equipme
 <details>
 ```yaml
 name: EquipmentType
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:EquipmentType
 permissible_values:
@@ -92,3 +100,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

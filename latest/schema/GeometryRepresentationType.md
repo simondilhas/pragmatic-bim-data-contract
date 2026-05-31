@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: GeometryRepresentationType 
 
 
@@ -7,9 +13,11 @@ _Classification of geometric representation dimension/style._
 
 
 
-URI: [pbs:GeometryRepresentationType](https://example.org/pragmatic-bim-data-contract/GeometryRepresentationType)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:GeometryRepresentationType](https://example.org/pragmatic-bim-data-contract/GeometryRepresentationType)
+URI: [pbs:GeometryRepresentationType](https://schema.pragmaticbim.ch/GeometryRepresentationType)
+
+**Enum URI:** [pbs:GeometryRepresentationType](https://schema.pragmaticbim.ch/GeometryRepresentationType)
 
 
 ## Permissible Values
@@ -47,7 +55,7 @@ URI: [pbs:GeometryRepresentationType](https://example.org/pragmatic-bim-data-con
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -60,7 +68,7 @@ URI: [pbs:GeometryRepresentationType](https://example.org/pragmatic-bim-data-con
 ```yaml
 name: GeometryRepresentationType
 description: Classification of geometric representation dimension/style.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:GeometryRepresentationType
 permissible_values:
@@ -79,3 +87,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>

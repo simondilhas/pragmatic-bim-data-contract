@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: metadata_key 
 
@@ -7,11 +10,11 @@ _Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:metadata_key](https://example.org/pragmatic-bim-data-contract/metadata_key)
-Alias: metadata_key
 
+URI: [pbs:metadata_key](https://schema.pragmaticbim.ch/metadata_key)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: metadata_key
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: metadata_key
 ```yaml
 name: metadata_key
 description: Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: metadata_key
 domain_of:
 - MetadataEntry
 range: string
 required: true
 
 ```
-</details>
+</details></div>

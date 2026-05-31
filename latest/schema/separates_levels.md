@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 5.0
+---
 
 # Slot: separates_levels 
 
@@ -7,11 +10,11 @@ _Level context nodes separated by this slab separator._
 
 
 
+<div data-search-exclude markdown="1">
 
 
-URI: [pbs:separates_levels](https://example.org/pragmatic-bim-data-contract/separates_levels)
-Alias: separates_levels
 
+URI: [pbs:separates_levels](https://schema.pragmaticbim.ch/separates_levels)
 <!-- no inheritance hierarchy -->
 
 
@@ -62,7 +65,7 @@ Alias: separates_levels
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -83,13 +86,12 @@ Alias: separates_levels
 ```yaml
 name: separates_levels
 description: Level context nodes separated by this slab separator.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
-alias: separates_levels
 domain_of:
 - SeparatorSlab
 range: LevelContext
 multivalued: true
 
 ```
-</details>
+</details></div>

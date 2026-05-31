@@ -1,4 +1,7 @@
-
+---
+search:
+  boost: 10.0
+---
 
 # Class: Separator 
 
@@ -7,11 +10,13 @@ _Abstract base class for elements that separate spaces or zones._
 
 
 
+<div data-search-exclude markdown="1">
+
 
 * __NOTE__: this is an abstract class and should not be instantiated directly
 
 
-URI: [pbs:Separator](https://example.org/pragmatic-bim-data-contract/Separator)
+URI: [pbs:Separator](https://schema.pragmaticbim.ch/Separator)
 
 
 
@@ -231,7 +236,7 @@ URI: [pbs:Separator](https://example.org/pragmatic-bim-data-contract/Separator)
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:Separator](https://example.org/pragmatic-bim-data-contract/Separator) |
+| Class URI | [pbs:Separator](https://schema.pragmaticbim.ch/Separator) |
 
 
 ## Slots
@@ -285,7 +290,7 @@ URI: [pbs:Separator](https://example.org/pragmatic-bim-data-contract/Separator)
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -313,7 +318,7 @@ URI: [pbs:Separator](https://example.org/pragmatic-bim-data-contract/Separator)
 ```yaml
 name: Separator
 description: Abstract base class for elements that separate spaces or zones.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - ifcowl:IfcBuildingElement
 is_a: PhysicalElement
@@ -331,7 +336,7 @@ class_uri: pbs:Separator
 ```yaml
 name: Separator
 description: Abstract base class for elements that separate spaces or zones.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - ifcowl:IfcBuildingElement
 is_a: PhysicalElement
@@ -343,9 +348,8 @@ attributes:
       are allowed because one separator may need to satisfy several requirements.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: separator_requirement_drivers
     owner: Separator
     domain_of:
     - Separator
@@ -354,9 +358,8 @@ attributes:
   parent_building:
     name: parent_building
     description: Parent building context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_building
     owner: Separator
     domain_of:
     - PhysicalElement
@@ -367,9 +370,8 @@ attributes:
   parent_level:
     name: parent_level
     description: Parent level/storey context reference.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: parent_level
     owner: Separator
     domain_of:
     - PhysicalElement
@@ -379,21 +381,23 @@ attributes:
   id:
     name: id
     description: Unique local identifier.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     identifier: true
-    alias: id
     owner: Separator
     domain_of:
     - Entity
+    - Task
+    - Document
+    - Change
+    - ChangeSet
     range: string
     required: true
   name:
     name: name
     description: Default display name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: name
     owner: Separator
     domain_of:
     - Entity
@@ -402,9 +406,8 @@ attributes:
   localized_names:
     name: localized_names
     description: Localized variants of name.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_names
     owner: Separator
     domain_of:
     - Entity
@@ -414,9 +417,8 @@ attributes:
   description:
     name: description
     description: Default description text.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: description
     owner: Separator
     domain_of:
     - Entity
@@ -425,9 +427,8 @@ attributes:
     name: meaning_uri
     description: Optional semantic URI for linking the entity instance to an external
       ontology concept.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: meaning_uri
     owner: Separator
     domain_of:
     - Entity
@@ -435,9 +436,8 @@ attributes:
   localized_descriptions:
     name: localized_descriptions
     description: Localized variants of description.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: localized_descriptions
     owner: Separator
     domain_of:
     - Entity
@@ -447,20 +447,19 @@ attributes:
   ifc_global_id:
     name: ifc_global_id
     description: IFC GlobalId of the mapped entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: ifc_global_id
     owner: Separator
     domain_of:
     - Entity
+    - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
   classifications:
     name: classifications
     description: Classification entries from IFC and other schemes.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: classifications
     owner: Separator
     domain_of:
     - Entity
@@ -475,9 +474,8 @@ attributes:
       coordination, analysis, visualization) without duplicating the element itself.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: geometry_representations
     owner: Separator
     domain_of:
     - Entity
@@ -487,9 +485,8 @@ attributes:
   quantity_values:
     name: quantity_values
     description: Quantities associated with the entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: quantity_values
     owner: Separator
     domain_of:
     - Entity
@@ -499,9 +496,8 @@ attributes:
   documents:
     name: documents
     description: Linked documents associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: documents
     owner: Separator
     domain_of:
     - Entity
@@ -512,9 +508,8 @@ attributes:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
       extensions.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: metadata
     owner: Separator
     domain_of:
     - Entity
@@ -527,9 +522,8 @@ attributes:
       security/material) extracted from raw IFC PropertySet values.
 
       '
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: performance_properties
     owner: Separator
     domain_of:
     - Entity
@@ -539,9 +533,8 @@ attributes:
   decisions:
     name: decisions
     description: Decision records associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: decisions
     owner: Separator
     domain_of:
     - Entity
@@ -551,9 +544,8 @@ attributes:
   tasks:
     name: tasks
     description: Tasks associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: tasks
     owner: Separator
     domain_of:
     - Entity
@@ -563,9 +555,8 @@ attributes:
   messages:
     name: messages
     description: Messages associated with this entity.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: messages
     owner: Separator
     domain_of:
     - Entity
@@ -575,9 +566,8 @@ attributes:
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: created_at
     owner: Separator
     domain_of:
     - Entity
@@ -585,9 +575,8 @@ attributes:
   modified_at:
     name: modified_at
     description: Last modification timestamp for this entity record.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: modified_at
     owner: Separator
     domain_of:
     - Entity
@@ -595,9 +584,8 @@ attributes:
   revision:
     name: revision
     description: Integer revision counter for change tracking.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: revision
     owner: Separator
     domain_of:
     - Entity
@@ -606,9 +594,8 @@ attributes:
   status:
     name: status
     description: Lifecycle or QA status.
-    from_schema: https://example.org/pragmatic-bim-data-contract
+    from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    alias: status
     owner: Separator
     domain_of:
     - Entity
@@ -616,4 +603,4 @@ attributes:
 class_uri: pbs:Separator
 
 ```
-</details>
+</details></div>

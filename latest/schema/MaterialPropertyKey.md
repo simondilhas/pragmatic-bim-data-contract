@@ -1,3 +1,9 @@
+---
+search:
+  boost: 2.0
+---
+
+
 # Enum: MaterialPropertyKey 
 
 
@@ -7,9 +13,11 @@ _Canonical material-related keys derived from IFC PropertySets and material meta
 
 
 
-URI: [pbs:MaterialPropertyKey](https://example.org/pragmatic-bim-data-contract/MaterialPropertyKey)
+<div data-search-exclude markdown="1">
 
-**Enum URI:** [pbs:MaterialPropertyKey](https://example.org/pragmatic-bim-data-contract/MaterialPropertyKey)
+URI: [pbs:MaterialPropertyKey](https://schema.pragmaticbim.ch/MaterialPropertyKey)
+
+**Enum URI:** [pbs:MaterialPropertyKey](https://schema.pragmaticbim.ch/MaterialPropertyKey)
 
 
 ## Permissible Values
@@ -47,7 +55,7 @@ URI: [pbs:MaterialPropertyKey](https://example.org/pragmatic-bim-data-contract/M
 ### Schema Source
 
 
-* from schema: https://example.org/pragmatic-bim-data-contract
+* from schema: https://schema.pragmaticbim.ch
 
 
 
@@ -61,7 +69,7 @@ URI: [pbs:MaterialPropertyKey](https://example.org/pragmatic-bim-data-contract/M
 name: MaterialPropertyKey
 description: Canonical material-related keys derived from IFC PropertySets and material
   metadata.
-from_schema: https://example.org/pragmatic-bim-data-contract
+from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:MaterialPropertyKey
 permissible_values:
@@ -80,3 +88,5 @@ permissible_values:
 
 ```
 </details>
+
+</div>
