@@ -93,6 +93,7 @@ classes:
       - property_delta
     slot_usage:
       change_type:
+        range: string
         equals_string: property_change
 
   GeometryChange:
@@ -105,6 +106,7 @@ classes:
       - affected_geometry_role
     slot_usage:
       change_type:
+        range: string
         equals_string: geometry_change
 
   RequirementChange:
@@ -118,6 +120,7 @@ classes:
       - property_delta
     slot_usage:
       change_type:
+        range: string
         equals_string: requirement_change
 
   MatchChange:
@@ -132,6 +135,7 @@ classes:
       - match_status
     slot_usage:
       change_type:
+        range: string
         equals_string: match_change
 
   AdditionChange:
@@ -142,6 +146,7 @@ classes:
     description: New entity or requirement introduced in to_revision.
     slot_usage:
       change_type:
+        range: string
         equals_string: addition
 
   DeletionChange:
@@ -152,6 +157,7 @@ classes:
     description: Entity or requirement removed in to_revision.
     slot_usage:
       change_type:
+        range: string
         equals_string: deletion
 
   ChangeSet:

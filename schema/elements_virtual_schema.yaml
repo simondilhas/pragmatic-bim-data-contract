@@ -434,11 +434,6 @@ slots:
     range: string
     description: Unit of the cost quantity value.
 
-  applies_to_entities:
-    multivalued: true
-    range: Entity
-    description: Entities this cost item applies to.
-
   component_cost_items:
     multivalued: true
     range: CostItem

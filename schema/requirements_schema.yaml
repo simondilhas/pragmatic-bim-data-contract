@@ -60,6 +60,7 @@ classes:
       - target_unit_uri
     slot_usage:
       requirement_domain:
+        range: string
         equals_string: performance
 
   SpatialRequirement:
@@ -74,6 +75,7 @@ classes:
       - min_clear_distance
     slot_usage:
       requirement_domain:
+        range: string
         equals_string: spatial
 
   RegulatoryRequirement:
@@ -86,6 +88,7 @@ classes:
       - jurisdiction
     slot_usage:
       requirement_domain:
+        range: string
         equals_string: regulatory
 
   BriefRequirement:
@@ -97,6 +100,7 @@ classes:
       - statement
     slot_usage:
       requirement_domain:
+        range: string
         equals_string: brief
 
 slots:
@@ -124,12 +128,6 @@ slots:
     range: RequirementDomain
     required: true
     description: Domain of this requirement record (performance, spatial, regulatory, brief).
-
-  applies_to_entities:
-    multivalued: true
-    range: Entity
-    inlined: false
-    description: Model entities this requirement applies to.
 
   source_document:
     range: uriorcurie

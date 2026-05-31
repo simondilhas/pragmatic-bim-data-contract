@@ -281,6 +281,12 @@ slots:
     range: Entity
     description: Parent level/storey context reference.
 
+  applies_to_entities:
+    multivalued: true
+    range: Entity
+    inlined: false
+    description: Model entities this record applies to (requirements, cost items, schedule items, etc.).
+
   classifications:
     multivalued: true
     range: Classification
