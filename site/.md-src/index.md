@@ -4,6 +4,8 @@ A pragmatic, graph-first LinkML data contract for BIM integration, querying, cos
 
 URI: https://schema.pragmaticbim.ch
 
+Repository: [github.com/simondilhas/pragmatic-bim-data-contract](https://github.com/simondilhas/pragmatic-bim-data-contract)
+
 ## Why this exists
 
 BIM data is hard to use.
@@ -120,31 +122,6 @@ Without having to:
 - handle inconsistent structures
 - rebuild logic for every project
 
-## Documentation
-
-| Section | Description |
-| --- | --- |
-| [Schema](schema/pragmatic-bim.docs.md) | LinkML schema reference, classes, slots, and downloadable artifacts |
-| [Mappings to IFC](mapping/index.md) | Declarative IFC ingestion mapping specification |
-| [Classifications](classification/index.md) | SKOS vocabularies and mapping bridges for the `Classification` slot |
-
-## Project structure
-
-```
-pragmatic-bim-data-contract/
-├── contract/           LinkML schema + IFC mapping (MIT)
-├── classification/     SKOS vocabularies + mapping bridges (CC-BY-4.0)
-├── scripts/            Build, merge, and publish tooling
-└── site/               Generated schema docs and artifacts (do not edit)
-```
-
-| Path | Role |
-| --- | --- |
-| `contract/` | LinkML schema YAML at folder root; IFC mapping in `contract/mapping/`. MIT. |
-| `classification/` | Abstract SKOS vocabularies and `mapping/` bridge files. CC-BY-4.0. |
-| `scripts/` | Schema site build, IFC mapping merge, module page generation |
-| `site/` | Generated schema documentation and artifacts (do not edit by hand) |
-
 ## How it fits in a workflow
 
 1. Ingest BIM/IFC data with project-specific extraction logic.
@@ -152,6 +129,12 @@ pragmatic-bim-data-contract/
 3. Store/query as graph or relational projections.
 4. Enrich with requirements, performance metrics, schedules, and cost/material metadata.
 5. Export, analyze, or feed application APIs.
+
+## Products that use it
+
+- [iterthink](https://www.iterthink.com/)
+- [abstractBIM](https://www.abstractbim.com/)
+- [{yourcompany}os](https://yourcompanyos.io/)
 
 ## Getting started
 

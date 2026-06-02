@@ -3,9 +3,16 @@
 
 ## Why this exists
 
-BIM data is hard to use.
+Building project data is hard to use—not because it is missing, but because it is
+buried in complexity across:
 
-Not because the data is missing, but because it is buried in complexity:
+- documents
+- plans
+- models
+- classifications
+- diagrams
+
+Standards and exchange formats add friction:
 
 - IFC (Industry Foundation Classes) is powerful but:
   - too complex (hundreds of entities and deep relationships)
@@ -22,16 +29,28 @@ Not because the data is missing, but because it is buried in complexity:
 - bSDD (buildingSMART Data Dictionary) focuses on classification, not workflows.
 
 Result: teams cannot reliably build automation, dashboards, or simulations on top
-of BIM data without heavy preprocessing.
+of project data without heavy preprocessing.
 
 ## What this is
 
 This project defines a pragmatic BIM data contract: a minimal, opinionated
-structure for BIM data designed for workflows, not modeling.
+structure for workflow-ready project data, not authoring:
+
+- documents
+- plans
+- models
+- classifications
+
 
 It acts as a layer between:
 
-- complex source data (for example IFC)
+- complex source inputs:
+
+  - documents
+  - plans
+  - models (including IFC)
+  - classifications
+
 - and real applications (QTO, simulations, dashboards, quality checks)
 
 ## Core idea
@@ -113,9 +132,16 @@ Using this contract, you can build:
 
 Without having to:
 
-- traverse complex IFC relationships
-- handle inconsistent structures
+- navigate complex source formats (IFC relationships, drawing and diagram hierarchies,
+  document metadata, classification schemes)
+- handle inconsistent structures across tools and deliverables
 - rebuild logic for every project
+
+## Products that use it
+
+- [iterthink](https://www.iterthink.com/)
+- [abstractBIM](https://www.abstractbim.com/)
+- [{yourcompany}os](https://yourcompanyos.io/)
 
 ## Project structure
 
@@ -130,13 +156,19 @@ pragmatic-bim-data-contract/
 | Path | Role |
 |------|------|
 | [`contract/`](contract/README.md) | LinkML schema YAML at folder root; IFC mapping in `contract/mapping/`. MIT. |
-| [`classification/`](classification/README.md) | Abstract SKOS vocabularies and `mapping/` bridge files. CC-BY-4.0. |
+| [`classification/`](classification/README.md) | Abstract SKOS vocabularies, mapping bridges, and diagram-friendly reference views. CC-BY-4.0. |
 | `scripts/` | Schema site build, IFC mapping merge, module page generation |
 | `site/` | Generated schema documentation and artifacts (do not edit by hand) |
 
 ## How it fits in a workflow
 
-1. Ingest BIM/IFC data with project-specific extraction logic.
+1. Ingest project source material with project-specific extraction logic:
+
+   - documents
+   - plans
+   - models (including BIM/IFC)
+   - classifications
+   - diagrams
 2. Map extracted entities to this schema.
 3. Store/query as graph or relational projections.
 4. Enrich with requirements, performance metrics, schedules, and cost/material metadata.
@@ -144,15 +176,9 @@ pragmatic-bim-data-contract/
 
 ## Getting started
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/simondilhas/pragmatic-bim-data-contract.git
-   ```
-
+1. Browse the [hosted documentation](https://schema.pragmaticbim.ch/) — schema reference, IFC mapping, classifications, and [source repository](https://github.com/simondilhas/pragmatic-bim-data-contract) link.
 2. Read [`contract/README.md`](contract/README.md) — schema modules, IFC mapping, hosted URIs, local docs build.
 3. Read [`classification/README.md`](classification/README.md) — vocabularies and mapping bridges.
-4. Browse the [hosted documentation](https://schema.pragmaticbim.ch/).
 
 ## Contributing
 

@@ -332,7 +332,7 @@ def has_hierarchy(vocab: VocabularyDoc) -> bool:
 
 
 def build_mermaid_hierarchy(vocab: VocabularyDoc) -> str:
-    """Build a Mermaid flowchart from broader/narrower relations."""
+    """Build a Mermaid class diagram from broader/narrower relations."""
     by_notation = vocab.concept_by_notation()
     edges: set[tuple[str, str]] = set()
     for concept in vocab.concepts:
@@ -348,9 +348,6 @@ def build_mermaid_hierarchy(vocab: VocabularyDoc) -> str:
 
     def node_id(code: str) -> str:
         return "n_" + "".join(ch if ch.isalnum() else "_" for ch in code)
-
-    def subgraph_id(code: str) -> str:
-        return "root_" + "".join(ch if ch.isalnum() else "_" for ch in code)
 
     def node_label(notation: str) -> str:
         concept = by_notation.get(notation)
@@ -379,19 +376,19 @@ def build_mermaid_hierarchy(vocab: VocabularyDoc) -> str:
                 stack.append(child)
         return result
 
-    lines = ["```mermaid", "flowchart TD"]
+    all_notations: set[str] = set()
+    for root in roots:
+        for parent, child in collect_edges_from_root(root):
+            all_notations.add(parent)
+            all_notations.add(child)
+
+    lines = ["```mermaid", "classDiagram", "direction TB"]
+    for notation in sorted(all_notations):
+        lines.append(f'class {node_id(notation)}["{node_label(notation)}"]')
     for root in roots:
         root_edges = collect_edges_from_root(root)
-        if not root_edges:
-            continue
-        lines.append(f'  subgraph {subgraph_id(root)} ["{node_label(root)}"]')
-        lines.append("    direction TB")
         for parent, child in sorted(root_edges):
-            lines.append(
-                f'    {node_id(parent)}["{node_label(parent)}"]'
-                f' --> {node_id(child)}["{node_label(child)}"]'
-            )
-        lines.append("  end")
+            lines.append(f"{node_id(parent)} <|-- {node_id(child)}")
     lines.append("```")
     return "\n".join(lines)
 

@@ -1,7 +1,11 @@
 # Classification
 
-SKOS vocabularies and mapping bridges for the data contract `Classification` slot
-(`classification_scheme`, `classification_code`, `classification_uri`, …).
+SKOS vocabularies, mapping bridges, and reference diagrams for the data contract
+`Classification` slot (`classification_scheme`, `classification_code`,
+`classification_uri`, …).
+
+- **classifications** — abstract vocabularies and crosswalks to project code lists
+- **diagrams** — generated hierarchy and overview views (see [Presentation visualizations](#presentation-visualizations))
 
 **License:** CC-BY-4.0 — sourced from [pragmatic-bim-public-rules](https://github.com/simondilhas/pragmatic-bim-public-rules).
 
