@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: PostalAddress 
@@ -8,7 +8,7 @@ search:
 
 _Structured postal or physical address for an agent._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,16 +21,10 @@ URI: [pbs:PostalAddress](https://schema.pragmaticbim.ch/PostalAddress)
 
 
 ```mermaid
- classDiagram
-    class PostalAddress
-    click PostalAddress href "./PostalAddress.html"
-      PostalAddress : address_country
-      PostalAddress : address_country_code
-      PostalAddress : address_locality
-      PostalAddress : address_region
-      PostalAddress : post_office_box_number
-      PostalAddress : postal_code
-      PostalAddress : street_address
+classDiagram
+direction TB
+class PostalAddress
+click PostalAddress href "./PostalAddress.html" _blank
 ```
 
 

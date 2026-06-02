@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 5.0
+  boost: 3.0
 ---
 
 # Slot: post_office_box_number 

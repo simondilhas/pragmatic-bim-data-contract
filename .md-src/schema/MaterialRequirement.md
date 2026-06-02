@@ -21,56 +21,23 @@ URI: [pbs:MaterialRequirement](https://schema.pragmaticbim.ch/MaterialRequiremen
 
 
 ```mermaid
- classDiagram
-    class MaterialRequirement
-    click MaterialRequirement href "./MaterialRequirement.html"
-      Requirement <|-- MaterialRequirement
-        click Requirement href "./Requirement.html"
-      MaterialRequirement : applies_to_entities
-        MaterialRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      MaterialRequirement : classifications
-        MaterialRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      MaterialRequirement : content_kind
-      MaterialRequirement : created_at
-      MaterialRequirement : description
-      MaterialRequirement : geometry_representations
-        MaterialRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      MaterialRequirement : id
-      MaterialRequirement : ifc_global_id
-      MaterialRequirement : localized_descriptions
-        MaterialRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      MaterialRequirement : localized_names
-        MaterialRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      MaterialRequirement : material_category
-      MaterialRequirement : material_specification
-      MaterialRequirement : meaning_uri
-      MaterialRequirement : metadata
-        MaterialRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      MaterialRequirement : modified_at
-      MaterialRequirement : name
-      MaterialRequirement : performance_properties
-        MaterialRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      MaterialRequirement : quantity_values
-        MaterialRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      MaterialRequirement : related_material
-        MaterialRequirement --> "0..1" Entity : related_material
-        click Entity href "./Entity.html"
-      MaterialRequirement : revision
-      MaterialRequirement : source_artifact
-        MaterialRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      MaterialRequirement : status
-        MaterialRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      MaterialRequirement : substitutes_allowed
+classDiagram
+direction TB
+class MaterialRequirement
+click MaterialRequirement href "./MaterialRequirement.html" _blank
+Requirement <|-- MaterialRequirement
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Entity href "./Entity.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

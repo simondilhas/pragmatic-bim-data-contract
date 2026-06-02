@@ -17,7 +17,8 @@ Name: pragmatic_bim_data_contract
 | Pydantic | [pragmatic-bim.pydantic.py](pragmatic-bim.pydantic.py) |
 | Docs (Markdown) | [pragmatic-bim.docs.md](pragmatic-bim.docs.md) |
 
-## Classes
+
+## Graph classes
 
 | Class | Description |
 | --- | --- |
@@ -61,6 +62,20 @@ Name: pragmatic_bim_data_contract
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ScheduleRequirement](ScheduleRequirement.md) | Schedule obligation requirement (deadline, milestone, or start/finish window). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CostRequirement](CostRequirement.md) | Cost or budget requirement (unit-cost cap, total budget limit, etc.). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MaterialRequirement](MaterialRequirement.md) | Material or product specification requirement for matching against assigned materials. |
+| [Change](Change.md) | Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RequirementChange](RequirementChange.md) | Change to a requirement entity or its fields. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer meets). |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AdditionChange](AdditionChange.md) | New entity introduced in to_revision. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DeletionChange](DeletionChange.md) | Entity removed in to_revision. |
+
+## Embedded value types
+
+> Structured records stored inline on parent graph nodes (`inlined: true`). Not standalone project entities — no independent `id` or lifecycle.
+
+| Class | Description |
+| --- | --- |
 | [Classification](Classification.md) | Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom). |
 | [GeometryRepresentation](GeometryRepresentation.md) | Minimal geometry reference for an entity, separating representation from encoding format. |
 | [QuantityValue](QuantityValue.md) | Minimal quantity record for costing and analysis. |
@@ -76,13 +91,7 @@ Name: pragmatic_bim_data_contract
 | [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent. |
 | [LocalizedText](LocalizedText.md) | Localized text value for a specific language tag. |
 | [TimeLink](TimeLink.md) | Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record. |
-| [Change](Change.md) | Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RequirementChange](RequirementChange.md) | Change to a requirement entity or its fields. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer meets). |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AdditionChange](AdditionChange.md) | New entity introduced in to_revision. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DeletionChange](DeletionChange.md) | Entity removed in to_revision. |
+
 
 
 

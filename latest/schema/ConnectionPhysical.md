@@ -21,68 +21,28 @@ URI: [pbs:ConnectionPhysical](https://schema.pragmaticbim.ch/ConnectionPhysical)
 
 
 ```mermaid
- classDiagram
-    class ConnectionPhysical
-    click ConnectionPhysical href "./ConnectionPhysical.html"
-      PhysicalElement <|-- ConnectionPhysical
-        click PhysicalElement href "./PhysicalElement.html"
-      ConnectionPhysical : applies_to_entities
-        ConnectionPhysical --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      ConnectionPhysical : classifications
-        ConnectionPhysical --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      ConnectionPhysical : connection_physical_requirement_drivers
-        ConnectionPhysical --> "*" ConnectionRequirementDriver : connection_physical_requirement_drivers
-        click ConnectionRequirementDriver href "./ConnectionRequirementDriver.html"
-      ConnectionPhysical : connection_physical_type
-        ConnectionPhysical --> "1" ConnectionPhysicalType : connection_physical_type
-        click ConnectionPhysicalType href "./ConnectionPhysicalType.html"
-      ConnectionPhysical : content_kind
-      ConnectionPhysical : created_at
-      ConnectionPhysical : description
-      ConnectionPhysical : frame_material
-        ConnectionPhysical --> "0..1" Material : frame_material
-        click Material href "./Material.html"
-      ConnectionPhysical : geometry_representations
-        ConnectionPhysical --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      ConnectionPhysical : id
-      ConnectionPhysical : ifc_global_id
-      ConnectionPhysical : infill_material
-        ConnectionPhysical --> "0..1" Material : infill_material
-        click Material href "./Material.html"
-      ConnectionPhysical : localized_descriptions
-        ConnectionPhysical --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      ConnectionPhysical : localized_names
-        ConnectionPhysical --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      ConnectionPhysical : meaning_uri
-      ConnectionPhysical : metadata
-        ConnectionPhysical --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      ConnectionPhysical : modified_at
-      ConnectionPhysical : name
-      ConnectionPhysical : parent_building
-        ConnectionPhysical --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      ConnectionPhysical : parent_level
-        ConnectionPhysical --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      ConnectionPhysical : performance_properties
-        ConnectionPhysical --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      ConnectionPhysical : quantity_values
-        ConnectionPhysical --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      ConnectionPhysical : revision
-      ConnectionPhysical : status
-        ConnectionPhysical --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      ConnectionPhysical : transport_medium
-        ConnectionPhysical --> "1" TransportMedium : transport_medium
-        click TransportMedium href "./TransportMedium.html"
+classDiagram
+direction TB
+class ConnectionPhysical
+click ConnectionPhysical href "./ConnectionPhysical.html" _blank
+PhysicalElement <|-- ConnectionPhysical
+click PhysicalElement href "./PhysicalElement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ConnectionRequirementDriver href "./ConnectionRequirementDriver.html" _blank
+click ConnectionPhysicalType href "./ConnectionPhysicalType.html" _blank
+click Material href "./Material.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Material href "./Material.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TransportMedium href "./TransportMedium.html" _blank
 ```
 
 

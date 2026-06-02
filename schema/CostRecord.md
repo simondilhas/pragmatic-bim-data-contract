@@ -21,67 +21,26 @@ URI: [pbs:CostRecord](https://schema.pragmaticbim.ch/CostRecord)
 
 
 ```mermaid
- classDiagram
-    class CostRecord
-    click CostRecord href "./CostRecord.html"
-      VirtualEntity <|-- CostRecord
-        click VirtualEntity href "./VirtualEntity.html"
-      CostRecord : applies_to_entities
-        CostRecord --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      CostRecord : classifications
-        CostRecord --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      CostRecord : component_cost_items
-        CostRecord --> "*" CostRecord : component_cost_items
-        click CostRecord href "./CostRecord.html"
-      CostRecord : content_kind
-      CostRecord : cost_category
-      CostRecord : cost_quantity_type
-        CostRecord --> "0..1" QuantityType : cost_quantity_type
-        click QuantityType href "./QuantityType.html"
-      CostRecord : cost_quantity_unit
-      CostRecord : cost_quantity_value
-      CostRecord : cost_records
-        CostRecord --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      CostRecord : created_at
-      CostRecord : currency
-      CostRecord : description
-      CostRecord : geometry_representations
-        CostRecord --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      CostRecord : id
-      CostRecord : ifc_global_id
-      CostRecord : localized_descriptions
-        CostRecord --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      CostRecord : localized_names
-        CostRecord --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      CostRecord : materials
-        CostRecord --> "*" Material : materials
-        click Material href "./Material.html"
-      CostRecord : meaning_uri
-      CostRecord : metadata
-        CostRecord --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      CostRecord : modified_at
-      CostRecord : name
-      CostRecord : performance_properties
-        CostRecord --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      CostRecord : quantity_values
-        CostRecord --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      CostRecord : revision
-      CostRecord : status
-        CostRecord --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      CostRecord : time_records
-        CostRecord --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      CostRecord : unit_cost
+classDiagram
+direction TB
+class CostRecord
+click CostRecord href "./CostRecord.html" _blank
+VirtualEntity <|-- CostRecord
+click VirtualEntity href "./VirtualEntity.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click QuantityType href "./QuantityType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
 ```
 
 

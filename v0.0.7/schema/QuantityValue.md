@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: QuantityValue 
@@ -8,7 +8,7 @@ search:
 
 _Minimal quantity record for costing and analysis._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,15 +21,11 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 
 
 ```mermaid
- classDiagram
-    class QuantityValue
-    click QuantityValue href "./QuantityValue.html"
-      QuantityValue : quantity_type
-        QuantityValue --> "1" QuantityType : quantity_type
-        click QuantityType href "./QuantityType.html"
-      QuantityValue : quantity_unit
-      QuantityValue : quantity_unit_uri
-      QuantityValue : quantity_value
+classDiagram
+direction TB
+class QuantityValue
+click QuantityValue href "./QuantityValue.html" _blank
+click QuantityType href "./QuantityType.html" _blank
 ```
 
 

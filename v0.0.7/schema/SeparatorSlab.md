@@ -21,62 +21,26 @@ URI: [pbs:SeparatorSlab](https://schema.pragmaticbim.ch/SeparatorSlab)
 
 
 ```mermaid
- classDiagram
-    class SeparatorSlab
-    click SeparatorSlab href "./SeparatorSlab.html"
-      Separator <|-- SeparatorSlab
-        click Separator href "./Separator.html"
-      SeparatorSlab : applies_to_entities
-        SeparatorSlab --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      SeparatorSlab : classifications
-        SeparatorSlab --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      SeparatorSlab : content_kind
-      SeparatorSlab : created_at
-      SeparatorSlab : description
-      SeparatorSlab : geometry_representations
-        SeparatorSlab --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      SeparatorSlab : id
-      SeparatorSlab : ifc_global_id
-      SeparatorSlab : localized_descriptions
-        SeparatorSlab --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      SeparatorSlab : localized_names
-        SeparatorSlab --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      SeparatorSlab : meaning_uri
-      SeparatorSlab : metadata
-        SeparatorSlab --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      SeparatorSlab : modified_at
-      SeparatorSlab : name
-      SeparatorSlab : parent_building
-        SeparatorSlab --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      SeparatorSlab : parent_level
-        SeparatorSlab --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      SeparatorSlab : performance_properties
-        SeparatorSlab --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      SeparatorSlab : quantity_values
-        SeparatorSlab --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      SeparatorSlab : revision
-      SeparatorSlab : separates_levels
-        SeparatorSlab --> "*" LevelContext : separates_levels
-        click LevelContext href "./LevelContext.html"
-      SeparatorSlab : separator_requirement_drivers
-        SeparatorSlab --> "*" SeparatorRequirementDriver : separator_requirement_drivers
-        click SeparatorRequirementDriver href "./SeparatorRequirementDriver.html"
-      SeparatorSlab : separator_slab_type
-        SeparatorSlab --> "1" SeparatorSlabType : separator_slab_type
-        click SeparatorSlabType href "./SeparatorSlabType.html"
-      SeparatorSlab : status
-        SeparatorSlab --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class SeparatorSlab
+click SeparatorSlab href "./SeparatorSlab.html" _blank
+Separator <|-- SeparatorSlab
+click Separator href "./Separator.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click SeparatorRequirementDriver href "./SeparatorRequirementDriver.html" _blank
+click SeparatorSlabType href "./SeparatorSlabType.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

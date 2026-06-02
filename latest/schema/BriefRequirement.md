@@ -21,52 +21,22 @@ URI: [pbs:BriefRequirement](https://schema.pragmaticbim.ch/BriefRequirement)
 
 
 ```mermaid
- classDiagram
-    class BriefRequirement
-    click BriefRequirement href "./BriefRequirement.html"
-      Requirement <|-- BriefRequirement
-        click Requirement href "./Requirement.html"
-      BriefRequirement : applies_to_entities
-        BriefRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      BriefRequirement : classifications
-        BriefRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      BriefRequirement : content_kind
-      BriefRequirement : created_at
-      BriefRequirement : description
-      BriefRequirement : geometry_representations
-        BriefRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      BriefRequirement : id
-      BriefRequirement : ifc_global_id
-      BriefRequirement : localized_descriptions
-        BriefRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      BriefRequirement : localized_names
-        BriefRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      BriefRequirement : meaning_uri
-      BriefRequirement : metadata
-        BriefRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      BriefRequirement : modified_at
-      BriefRequirement : name
-      BriefRequirement : performance_properties
-        BriefRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      BriefRequirement : programme_ref
-      BriefRequirement : quantity_values
-        BriefRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      BriefRequirement : revision
-      BriefRequirement : source_artifact
-        BriefRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      BriefRequirement : statement
-      BriefRequirement : status
-        BriefRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class BriefRequirement
+click BriefRequirement href "./BriefRequirement.html" _blank
+Requirement <|-- BriefRequirement
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

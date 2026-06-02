@@ -112,3 +112,8 @@
 .pbs-vocab-concepts[data-active-lang="pt-BR"] .pbs-lang-col[data-lang="pt-BR"] {
   display: table-cell;
 }
+
+.md-typeset .mermaid {
+  overflow-x: auto;
+  max-width: 100%;
+}

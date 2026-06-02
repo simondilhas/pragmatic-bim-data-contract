@@ -14,13 +14,16 @@ Source: [`separator-wall-role-classification-en.skos.ttl`](sources/separator-wal
 
 ```mermaid
 flowchart TD
-  n_W_INT["W-INT: Interior wall"] --> n_W_CIR_HOR["W-CIR-HOR: Horizontal circulation enclosure wall"]
-  n_W_INT["W-INT: Interior wall"] --> n_W_CIR_VRT["W-CIR-VRT: Vertical circulation enclosure wall"]
-  n_W_INT["W-INT: Interior wall"] --> n_W_GRD["W-GRD: Below-grade enclosure wall"]
-  n_W_INT["W-INT: Interior wall"] --> n_W_PAR["W-PAR: Party wall"]
-  n_W_INT["W-INT: Interior wall"] --> n_W_PRT["W-PRT: Internal partition wall"]
-  n_W_INT["W-INT: Interior wall"] --> n_W_SVC["W-SVC: Service and shaft enclosure wall"]
-  n_W_INT["W-INT: Interior wall"] --> n_W_UNT["W-UNT: Unit boundary wall"]
+  subgraph root_W_INT ["W-INT: Interior wall"]
+    direction TB
+    n_W_INT["W-INT: Interior wall"] --> n_W_CIR_HOR["W-CIR-HOR: Horizontal circulation enclosure wall"]
+    n_W_INT["W-INT: Interior wall"] --> n_W_CIR_VRT["W-CIR-VRT: Vertical circulation enclosure wall"]
+    n_W_INT["W-INT: Interior wall"] --> n_W_GRD["W-GRD: Below-grade enclosure wall"]
+    n_W_INT["W-INT: Interior wall"] --> n_W_PAR["W-PAR: Party wall"]
+    n_W_INT["W-INT: Interior wall"] --> n_W_PRT["W-PRT: Internal partition wall"]
+    n_W_INT["W-INT: Interior wall"] --> n_W_SVC["W-SVC: Service and shaft enclosure wall"]
+    n_W_INT["W-INT: Interior wall"] --> n_W_UNT["W-UNT: Unit boundary wall"]
+  end
 ```
 
 ## Concepts

@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: ContactPoint 
@@ -8,7 +8,7 @@ search:
 
 _Structured communication endpoint or profile for an agent._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,15 +21,10 @@ URI: [pbs:ContactPoint](https://schema.pragmaticbim.ch/ContactPoint)
 
 
 ```mermaid
- classDiagram
-    class ContactPoint
-    click ContactPoint href "./ContactPoint.html"
-      ContactPoint : availability_notes
-      ContactPoint : contact_channel_type
-      ContactPoint : contact_uri
-      ContactPoint : contact_value
-      ContactPoint : is_preferred
-      ContactPoint : usage_context
+classDiagram
+direction TB
+class ContactPoint
+click ContactPoint href "./ContactPoint.html" _blank
 ```
 
 

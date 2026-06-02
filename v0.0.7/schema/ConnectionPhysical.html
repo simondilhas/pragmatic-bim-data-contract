@@ -49,13 +49,16 @@
     
       <link rel="stylesheet" href="../stylesheets/pragmatic-bim-brand.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -479,68 +482,53 @@
 <p><em>Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable).</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/ConnectionPhysical">pbs:ConnectionPhysical</a></p>
-<pre class="mermaid"><code> classDiagram
-    class ConnectionPhysical
-    click ConnectionPhysical href "./ConnectionPhysical.html"
-      PhysicalElement &lt;|-- ConnectionPhysical
-        click PhysicalElement href "./PhysicalElement.html"
-      ConnectionPhysical : applies_to_entities
-        ConnectionPhysical --&gt; "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      ConnectionPhysical : classifications
-        ConnectionPhysical --&gt; "*" Classification : classifications
-        click Classification href "./Classification.html"
-      ConnectionPhysical : connection_physical_requirement_drivers
-        ConnectionPhysical --&gt; "*" ConnectionRequirementDriver : connection_physical_requirement_drivers
-        click ConnectionRequirementDriver href "./ConnectionRequirementDriver.html"
-      ConnectionPhysical : connection_physical_type
-        ConnectionPhysical --&gt; "1" ConnectionPhysicalType : connection_physical_type
-        click ConnectionPhysicalType href "./ConnectionPhysicalType.html"
-      ConnectionPhysical : content_kind
-      ConnectionPhysical : created_at
-      ConnectionPhysical : description
-      ConnectionPhysical : frame_material
-        ConnectionPhysical --&gt; "0..1" Material : frame_material
-        click Material href "./Material.html"
-      ConnectionPhysical : geometry_representations
-        ConnectionPhysical --&gt; "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      ConnectionPhysical : id
-      ConnectionPhysical : ifc_global_id
-      ConnectionPhysical : infill_material
-        ConnectionPhysical --&gt; "0..1" Material : infill_material
-        click Material href "./Material.html"
-      ConnectionPhysical : localized_descriptions
-        ConnectionPhysical --&gt; "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      ConnectionPhysical : localized_names
-        ConnectionPhysical --&gt; "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      ConnectionPhysical : meaning_uri
-      ConnectionPhysical : metadata
-        ConnectionPhysical --&gt; "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      ConnectionPhysical : modified_at
-      ConnectionPhysical : name
-      ConnectionPhysical : parent_building
-        ConnectionPhysical --&gt; "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      ConnectionPhysical : parent_level
-        ConnectionPhysical --&gt; "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      ConnectionPhysical : performance_properties
-        ConnectionPhysical --&gt; "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      ConnectionPhysical : quantity_values
-        ConnectionPhysical --&gt; "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      ConnectionPhysical : revision
-      ConnectionPhysical : status
-        ConnectionPhysical --&gt; "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      ConnectionPhysical : transport_medium
-        ConnectionPhysical --&gt; "1" TransportMedium : transport_medium
-        click TransportMedium href "./TransportMedium.html"</code></pre>
+<div class="panzoom-box" data-key="alt" id="panzoom0" oncontextmenu="return false;">
+    
+    <nav class="panzoom-nav">
+    <button class="panzoom-info panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path>
+    </svg>
+</button><button class="panzoom-reset panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M125.7 160l50.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L48 224c-17.7 0-32-14.3-32-32L16 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 51.2L97.6 97.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3s-163.8-62.5-226.3 0L125.7 160z"></path>
+    </svg>
+</button><button class="panzoom-max panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 32C14.3 32 0 46.3 0 64l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96z"></path>
+    </svg>
+</button><button class="panzoom-min panzoom-button panzoom-hidden">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M160 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96zM32 320c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM352 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 320c-17.7 0-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0z"></path>
+    </svg>
+</button>
+    </nav>
+    <pre class="mermaid"><code>classDiagram
+direction TB
+class ConnectionPhysical
+click ConnectionPhysical href "./ConnectionPhysical.html" _blank
+PhysicalElement &lt;|-- ConnectionPhysical
+click PhysicalElement href "./PhysicalElement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ConnectionRequirementDriver href "./ConnectionRequirementDriver.html" _blank
+click ConnectionPhysicalType href "./ConnectionPhysicalType.html" _blank
+click Material href "./Material.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Material href "./Material.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TransportMedium href "./TransportMedium.html" _blank</code></pre> 
+    <div class="panzoom-info-box panzoom-info-box-bottom panzoom-hidden">
+Hold "Alt" / "Option" to enable pan &amp; zoom
+</div>
+</div>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="Entity.html">Entity</a><ul>
@@ -1143,7 +1131,15 @@
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
+        <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/mermaid-init.js"></script>
+      
         <script src="../javascripts/classification-lang-switch.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

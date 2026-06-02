@@ -21,62 +21,26 @@ URI: [pbs:SeparatorWall](https://schema.pragmaticbim.ch/SeparatorWall)
 
 
 ```mermaid
- classDiagram
-    class SeparatorWall
-    click SeparatorWall href "./SeparatorWall.html"
-      Separator <|-- SeparatorWall
-        click Separator href "./Separator.html"
-      SeparatorWall : applies_to_entities
-        SeparatorWall --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      SeparatorWall : classifications
-        SeparatorWall --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      SeparatorWall : content_kind
-      SeparatorWall : created_at
-      SeparatorWall : description
-      SeparatorWall : geometry_representations
-        SeparatorWall --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      SeparatorWall : id
-      SeparatorWall : ifc_global_id
-      SeparatorWall : localized_descriptions
-        SeparatorWall --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      SeparatorWall : localized_names
-        SeparatorWall --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      SeparatorWall : meaning_uri
-      SeparatorWall : metadata
-        SeparatorWall --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      SeparatorWall : modified_at
-      SeparatorWall : name
-      SeparatorWall : parent_building
-        SeparatorWall --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      SeparatorWall : parent_level
-        SeparatorWall --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      SeparatorWall : performance_properties
-        SeparatorWall --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      SeparatorWall : quantity_values
-        SeparatorWall --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      SeparatorWall : revision
-      SeparatorWall : separates_spaces
-        SeparatorWall --> "*" Space : separates_spaces
-        click Space href "./Space.html"
-      SeparatorWall : separator_requirement_drivers
-        SeparatorWall --> "*" SeparatorRequirementDriver : separator_requirement_drivers
-        click SeparatorRequirementDriver href "./SeparatorRequirementDriver.html"
-      SeparatorWall : separator_wall_type
-        SeparatorWall --> "1" SeparatorWallType : separator_wall_type
-        click SeparatorWallType href "./SeparatorWallType.html"
-      SeparatorWall : status
-        SeparatorWall --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class SeparatorWall
+click SeparatorWall href "./SeparatorWall.html" _blank
+Separator <|-- SeparatorWall
+click Separator href "./Separator.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Space href "./Space.html" _blank
+click SeparatorRequirementDriver href "./SeparatorRequirementDriver.html" _blank
+click SeparatorWallType href "./SeparatorWallType.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

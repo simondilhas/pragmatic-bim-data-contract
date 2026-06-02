@@ -21,74 +21,30 @@ URI: [pbs:Space](https://schema.pragmaticbim.ch/Space)
 
 
 ```mermaid
- classDiagram
-    class Space
-    click Space href "./Space.html"
-      VirtualEntity <|-- Space
-        click VirtualEntity href "./VirtualEntity.html"
-      Space : applies_to_entities
-        Space --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Space : bounded_by
-        Space --> "*" PhysicalElement : bounded_by
-        click PhysicalElement href "./PhysicalElement.html"
-      Space : classifications
-        Space --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Space : contained_entities
-        Space --> "*" Entity : contained_entities
-        click Entity href "./Entity.html"
-      Space : content_kind
-      Space : cost_records
-        Space --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      Space : created_at
-      Space : description
-      Space : geometry_representations
-        Space --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Space : id
-      Space : ifc_global_id
-      Space : localized_descriptions
-        Space --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Space : localized_names
-        Space --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Space : materials
-        Space --> "*" Material : materials
-        click Material href "./Material.html"
-      Space : meaning_uri
-      Space : metadata
-        Space --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Space : modified_at
-      Space : name
-      Space : parent_building
-        Space --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      Space : parent_level
-        Space --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      Space : parent_zone
-        Space --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      Space : performance_properties
-        Space --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Space : quantity_values
-        Space --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Space : revision
-      Space : space_type
-        Space --> "1" SpaceType : space_type
-        click SpaceType href "./SpaceType.html"
-      Space : status
-        Space --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      Space : time_records
-        Space --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
+classDiagram
+direction TB
+class Space
+click Space href "./Space.html" _blank
+VirtualEntity <|-- Space
+click VirtualEntity href "./VirtualEntity.html" _blank
+click Entity href "./Entity.html" _blank
+click PhysicalElement href "./PhysicalElement.html" _blank
+click Classification href "./Classification.html" _blank
+click Entity href "./Entity.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click SpaceType href "./SpaceType.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
 ```
 
 

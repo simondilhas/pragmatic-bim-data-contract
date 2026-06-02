@@ -21,53 +21,22 @@ URI: [pbs:RegulatoryRequirement](https://schema.pragmaticbim.ch/RegulatoryRequir
 
 
 ```mermaid
- classDiagram
-    class RegulatoryRequirement
-    click RegulatoryRequirement href "./RegulatoryRequirement.html"
-      Requirement <|-- RegulatoryRequirement
-        click Requirement href "./Requirement.html"
-      RegulatoryRequirement : applies_to_entities
-        RegulatoryRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      RegulatoryRequirement : classifications
-        RegulatoryRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      RegulatoryRequirement : clause_ref
-      RegulatoryRequirement : content_kind
-      RegulatoryRequirement : created_at
-      RegulatoryRequirement : description
-      RegulatoryRequirement : geometry_representations
-        RegulatoryRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      RegulatoryRequirement : id
-      RegulatoryRequirement : ifc_global_id
-      RegulatoryRequirement : jurisdiction
-      RegulatoryRequirement : localized_descriptions
-        RegulatoryRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      RegulatoryRequirement : localized_names
-        RegulatoryRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      RegulatoryRequirement : meaning_uri
-      RegulatoryRequirement : metadata
-        RegulatoryRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      RegulatoryRequirement : modified_at
-      RegulatoryRequirement : name
-      RegulatoryRequirement : norm_uri
-      RegulatoryRequirement : performance_properties
-        RegulatoryRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      RegulatoryRequirement : quantity_values
-        RegulatoryRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      RegulatoryRequirement : revision
-      RegulatoryRequirement : source_artifact
-        RegulatoryRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      RegulatoryRequirement : status
-        RegulatoryRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class RegulatoryRequirement
+click RegulatoryRequirement href "./RegulatoryRequirement.html" _blank
+Requirement <|-- RegulatoryRequirement
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

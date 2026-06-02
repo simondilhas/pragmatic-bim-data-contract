@@ -23,43 +23,19 @@ URI: [pbs:MatchChange](https://schema.pragmaticbim.ch/MatchChange)
 
 
 ```mermaid
- classDiagram
-    class MatchChange
-    click MatchChange href "./MatchChange.html"
-      Change <|-- MatchChange
-        click Change href "./Change.html"
-      MatchChange : affected_subject
-        MatchChange --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      MatchChange : affected_subject_id
-      MatchChange : affected_subject_path
-      MatchChange : affected_subject_type
-      MatchChange : artifact_storage_link
-      MatchChange : change_severity
-        MatchChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      MatchChange : change_source
-      MatchChange : change_type
-        MatchChange --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      MatchChange : detected_at
-      MatchChange : from_revision
-      MatchChange : id
-      MatchChange : ifc_global_id
-      MatchChange : intent_verdict
-        MatchChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      MatchChange : match_status
-        MatchChange --> "1" MatchStatus : match_status
-        click MatchStatus href "./MatchStatus.html"
-      MatchChange : related_requirement
-        MatchChange --> "1" Requirement : related_requirement
-        click Requirement href "./Requirement.html"
-      MatchChange : to_revision
-      MatchChange : triggered_process
-      MatchChange : triggered_task
-        MatchChange --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class MatchChange
+click MatchChange href "./MatchChange.html" _blank
+Change <|-- MatchChange
+click Change href "./Change.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click MatchStatus href "./MatchStatus.html" _blank
+click Requirement href "./Requirement.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 

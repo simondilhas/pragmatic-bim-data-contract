@@ -21,57 +21,23 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
 
 
 ```mermaid
- classDiagram
-    class Message
-    click Message href "./Message.html"
-      Entity <|-- Message
-        click Entity href "./Entity.html"
-      Message : applies_to_entities
-        Message --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Message : classifications
-        Message --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Message : content_kind
-      Message : created_at
-      Message : description
-      Message : geometry_representations
-        Message --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Message : id
-      Message : ifc_global_id
-      Message : localized_descriptions
-        Message --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Message : localized_names
-        Message --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Message : meaning_uri
-      Message : message_body
-      Message : message_subject
-      Message : message_type
-      Message : metadata
-        Message --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Message : modified_at
-      Message : name
-      Message : performance_properties
-        Message --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Message : quantity_values
-        Message --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Message : recipients
-        Message --> "*" Agent : recipients
-        click Agent href "./Agent.html"
-      Message : revision
-      Message : sender
-        Message --> "0..1" Agent : sender
-        click Agent href "./Agent.html"
-      Message : sent_at
-      Message : status
-        Message --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Message
+click Message href "./Message.html" _blank
+Entity <|-- Message
+click Entity href "./Entity.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Agent href "./Agent.html" _blank
+click Agent href "./Agent.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

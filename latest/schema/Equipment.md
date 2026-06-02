@@ -21,62 +21,26 @@ URI: [pbs:Equipment](https://schema.pragmaticbim.ch/Equipment)
 
 
 ```mermaid
- classDiagram
-    class Equipment
-    click Equipment href "./Equipment.html"
-      PhysicalElement <|-- Equipment
-        click PhysicalElement href "./PhysicalElement.html"
-      Equipment : applies_to_entities
-        Equipment --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Equipment : classifications
-        Equipment --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Equipment : content_kind
-      Equipment : created_at
-      Equipment : description
-      Equipment : equipment_type
-        Equipment --> "1" EquipmentType : equipment_type
-        click EquipmentType href "./EquipmentType.html"
-      Equipment : geometry_representations
-        Equipment --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Equipment : id
-      Equipment : ifc_global_id
-      Equipment : localized_descriptions
-        Equipment --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Equipment : localized_names
-        Equipment --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Equipment : meaning_uri
-      Equipment : metadata
-        Equipment --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Equipment : modified_at
-      Equipment : name
-      Equipment : parent_building
-        Equipment --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      Equipment : parent_level
-        Equipment --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      Equipment : parent_space
-        Equipment --> "0..1" Space : parent_space
-        click Space href "./Space.html"
-      Equipment : parent_system
-        Equipment --> "*" System : parent_system
-        click System href "./System.html"
-      Equipment : performance_properties
-        Equipment --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Equipment : quantity_values
-        Equipment --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Equipment : revision
-      Equipment : status
-        Equipment --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Equipment
+click Equipment href "./Equipment.html" _blank
+PhysicalElement <|-- Equipment
+click PhysicalElement href "./PhysicalElement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click EquipmentType href "./EquipmentType.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click Space href "./Space.html" _blank
+click System href "./System.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

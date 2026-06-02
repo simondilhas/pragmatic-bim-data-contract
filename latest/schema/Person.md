@@ -21,56 +21,24 @@ URI: [pbs:Person](https://schema.pragmaticbim.ch/Person)
 
 
 ```mermaid
- classDiagram
-    class Person
-    click Person href "./Person.html"
-      Agent <|-- Person
-        click Agent href "./Agent.html"
-      Person : applies_to_entities
-        Person --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Person : belongs_to_company
-        Person --> "0..1" Company : belongs_to_company
-        click Company href "./Company.html"
-      Person : classifications
-        Person --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Person : contact_points
-        Person --> "*" ContactPoint : contact_points
-        click ContactPoint href "./ContactPoint.html"
-      Person : content_kind
-      Person : created_at
-      Person : description
-      Person : geometry_representations
-        Person --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Person : id
-      Person : ifc_global_id
-      Person : localized_descriptions
-        Person --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Person : localized_names
-        Person --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Person : meaning_uri
-      Person : metadata
-        Person --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Person : modified_at
-      Person : name
-      Person : performance_properties
-        Person --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Person : postal_addresses
-        Person --> "*" PostalAddress : postal_addresses
-        click PostalAddress href "./PostalAddress.html"
-      Person : quantity_values
-        Person --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Person : revision
-      Person : status
-        Person --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Person
+click Person href "./Person.html" _blank
+Agent <|-- Person
+click Agent href "./Agent.html" _blank
+click Entity href "./Entity.html" _blank
+click Company href "./Company.html" _blank
+click Classification href "./Classification.html" _blank
+click ContactPoint href "./ContactPoint.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click PostalAddress href "./PostalAddress.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

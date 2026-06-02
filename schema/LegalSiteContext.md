@@ -21,83 +21,33 @@ URI: [pbs:LegalSiteContext](https://schema.pragmaticbim.ch/LegalSiteContext)
 
 
 ```mermaid
- classDiagram
-    class LegalSiteContext
-    click LegalSiteContext href "./LegalSiteContext.html"
-      SpatialContext <|-- LegalSiteContext
-        click SpatialContext href "./SpatialContext.html"
-      LegalSiteContext : applies_to_entities
-        LegalSiteContext --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      LegalSiteContext : classifications
-        LegalSiteContext --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      LegalSiteContext : content_kind
-      LegalSiteContext : context_type
-        LegalSiteContext --> "1" ContextType : context_type
-        click ContextType href "./ContextType.html"
-      LegalSiteContext : cost_records
-        LegalSiteContext --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      LegalSiteContext : created_at
-      LegalSiteContext : description
-      LegalSiteContext : geometry_representations
-        LegalSiteContext --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      LegalSiteContext : group_members
-        LegalSiteContext --> "*" Entity : group_members
-        click Entity href "./Entity.html"
-      LegalSiteContext : id
-      LegalSiteContext : ifc_global_id
-      LegalSiteContext : localized_descriptions
-        LegalSiteContext --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      LegalSiteContext : localized_names
-        LegalSiteContext --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      LegalSiteContext : materials
-        LegalSiteContext --> "*" Material : materials
-        click Material href "./Material.html"
-      LegalSiteContext : meaning_uri
-      LegalSiteContext : metadata
-        LegalSiteContext --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      LegalSiteContext : modified_at
-      LegalSiteContext : name
-      LegalSiteContext : parent_building
-        LegalSiteContext --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      LegalSiteContext : parent_legal_site
-        LegalSiteContext --> "0..1" LegalSiteContext : parent_legal_site
-        click LegalSiteContext href "./LegalSiteContext.html"
-      LegalSiteContext : parent_level
-        LegalSiteContext --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      LegalSiteContext : parent_perimeter
-        LegalSiteContext --> "0..1" PerimeterContext : parent_perimeter
-        click PerimeterContext href "./PerimeterContext.html"
-      LegalSiteContext : parent_project
-        LegalSiteContext --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      LegalSiteContext : parent_zone
-        LegalSiteContext --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      LegalSiteContext : performance_properties
-        LegalSiteContext --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      LegalSiteContext : quantity_values
-        LegalSiteContext --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      LegalSiteContext : revision
-      LegalSiteContext : status
-        LegalSiteContext --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      LegalSiteContext : time_records
-        LegalSiteContext --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      LegalSiteContext : zone_type
-        LegalSiteContext --> "0..1" ZoneType : zone_type
-        click ZoneType href "./ZoneType.html"
+classDiagram
+direction TB
+class LegalSiteContext
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+SpatialContext <|-- LegalSiteContext
+click SpatialContext href "./SpatialContext.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContextType href "./ContextType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Entity href "./Entity.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerimeterContext href "./PerimeterContext.html" _blank
+click ProjectContext href "./ProjectContext.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click ZoneType href "./ZoneType.html" _blank
 ```
 
 

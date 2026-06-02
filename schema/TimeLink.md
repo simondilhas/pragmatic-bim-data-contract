@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: TimeLink 
@@ -8,7 +8,7 @@ search:
 
 _Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,16 +21,12 @@ URI: [pbs:TimeLink](https://schema.pragmaticbim.ch/TimeLink)
 
 
 ```mermaid
- classDiagram
-    class TimeLink
-    click TimeLink href "./TimeLink.html"
-      TimeLink : dependency_type
-        TimeLink --> "0..1" DependencyType : dependency_type
-        click DependencyType href "./DependencyType.html"
-      TimeLink : lag_days
-      TimeLink : target_item
-        TimeLink --> "1" TimeRecord : target_item
-        click TimeRecord href "./TimeRecord.html"
+classDiagram
+direction TB
+class TimeLink
+click TimeLink href "./TimeLink.html" _blank
+click DependencyType href "./DependencyType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
 ```
 
 

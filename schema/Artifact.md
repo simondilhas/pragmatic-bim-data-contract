@@ -23,52 +23,22 @@ URI: [pbs:Artifact](https://schema.pragmaticbim.ch/Artifact)
 
 
 ```mermaid
- classDiagram
-    class Artifact
-    click Artifact href "./Artifact.html"
-      Entity <|-- Artifact
-        click Entity href "./Entity.html"
-      Artifact : applies_to_entities
-        Artifact --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Artifact : artifact_kind
-        Artifact --> "1" ArtifactKind : artifact_kind
-        click ArtifactKind href "./ArtifactKind.html"
-      Artifact : classifications
-        Artifact --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Artifact : content_kind
-      Artifact : created_at
-      Artifact : description
-      Artifact : geometry_representations
-        Artifact --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Artifact : id
-      Artifact : ifc_global_id
-      Artifact : localized_descriptions
-        Artifact --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Artifact : localized_names
-        Artifact --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Artifact : meaning_uri
-      Artifact : media_format
-      Artifact : metadata
-        Artifact --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Artifact : modified_at
-      Artifact : name
-      Artifact : performance_properties
-        Artifact --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Artifact : quantity_values
-        Artifact --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Artifact : revision
-      Artifact : status
-        Artifact --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      Artifact : storage_link
+classDiagram
+direction TB
+class Artifact
+click Artifact href "./Artifact.html" _blank
+Entity <|-- Artifact
+click Entity href "./Entity.html" _blank
+click Entity href "./Entity.html" _blank
+click ArtifactKind href "./ArtifactKind.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

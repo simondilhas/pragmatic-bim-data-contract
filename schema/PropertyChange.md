@@ -21,46 +21,18 @@ URI: [pbs:PropertyChange](https://schema.pragmaticbim.ch/PropertyChange)
 
 
 ```mermaid
- classDiagram
-    class PropertyChange
-    click PropertyChange href "./PropertyChange.html"
-      Change <|-- PropertyChange
-        click Change href "./Change.html"
-      PropertyChange : affected_subject
-        PropertyChange --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      PropertyChange : affected_subject_id
-      PropertyChange : affected_subject_path
-      PropertyChange : affected_subject_type
-      PropertyChange : artifact_storage_link
-      PropertyChange : change_severity
-        PropertyChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      PropertyChange : change_source
-      PropertyChange : change_type
-        PropertyChange --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      PropertyChange : detected_at
-      PropertyChange : from_revision
-      PropertyChange : from_value
-      PropertyChange : id
-      PropertyChange : ifc_attribute_name
-      PropertyChange : ifc_global_id
-      PropertyChange : intent_verdict
-        PropertyChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      PropertyChange : property_path
-      PropertyChange : property_path_kind
-        PropertyChange --> "1" PropertyPathKind : property_path_kind
-        click PropertyPathKind href "./PropertyPathKind.html"
-      PropertyChange : source_property
-      PropertyChange : source_pset
-      PropertyChange : to_revision
-      PropertyChange : to_value
-      PropertyChange : triggered_process
-      PropertyChange : triggered_task
-        PropertyChange --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class PropertyChange
+click PropertyChange href "./PropertyChange.html" _blank
+Change <|-- PropertyChange
+click Change href "./Change.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click PropertyPathKind href "./PropertyPathKind.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 

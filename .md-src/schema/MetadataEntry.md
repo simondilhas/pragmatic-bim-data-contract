@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: MetadataEntry 
@@ -8,7 +8,7 @@ search:
 
 _Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,11 +21,10 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 
 
 ```mermaid
- classDiagram
-    class MetadataEntry
-    click MetadataEntry href "./MetadataEntry.html"
-      MetadataEntry : metadata_key
-      MetadataEntry : metadata_value
+classDiagram
+direction TB
+class MetadataEntry
+click MetadataEntry href "./MetadataEntry.html" _blank
 ```
 
 

@@ -21,59 +21,23 @@ URI: [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequ
 
 
 ```mermaid
- classDiagram
-    class PerformanceRequirement
-    click PerformanceRequirement href "./PerformanceRequirement.html"
-      Requirement <|-- PerformanceRequirement
-        click Requirement href "./Requirement.html"
-      PerformanceRequirement : applies_to_entities
-        PerformanceRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      PerformanceRequirement : classifications
-        PerformanceRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      PerformanceRequirement : content_kind
-      PerformanceRequirement : created_at
-      PerformanceRequirement : description
-      PerformanceRequirement : geometry_representations
-        PerformanceRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      PerformanceRequirement : id
-      PerformanceRequirement : ifc_global_id
-      PerformanceRequirement : localized_descriptions
-        PerformanceRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      PerformanceRequirement : localized_names
-        PerformanceRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      PerformanceRequirement : meaning_uri
-      PerformanceRequirement : metadata
-        PerformanceRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      PerformanceRequirement : modified_at
-      PerformanceRequirement : name
-      PerformanceRequirement : performance_properties
-        PerformanceRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      PerformanceRequirement : quantity_values
-        PerformanceRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      PerformanceRequirement : requirement_property_key
-      PerformanceRequirement : revision
-      PerformanceRequirement : source_artifact
-        PerformanceRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      PerformanceRequirement : status
-        PerformanceRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      PerformanceRequirement : target_operator
-        PerformanceRequirement --> "0..1" RequirementTargetOperator : target_operator
-        click RequirementTargetOperator href "./RequirementTargetOperator.html"
-      PerformanceRequirement : target_unit
-      PerformanceRequirement : target_unit_uri
-      PerformanceRequirement : target_value_boolean
-      PerformanceRequirement : target_value_number
-      PerformanceRequirement : target_value_string
+classDiagram
+direction TB
+class PerformanceRequirement
+click PerformanceRequirement href "./PerformanceRequirement.html" _blank
+Requirement <|-- PerformanceRequirement
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
+click RequirementTargetOperator href "./RequirementTargetOperator.html" _blank
 ```
 
 

@@ -21,55 +21,23 @@ URI: [pbs:ScheduleRequirement](https://schema.pragmaticbim.ch/ScheduleRequiremen
 
 
 ```mermaid
- classDiagram
-    class ScheduleRequirement
-    click ScheduleRequirement href "./ScheduleRequirement.html"
-      Requirement <|-- ScheduleRequirement
-        click Requirement href "./Requirement.html"
-      ScheduleRequirement : applies_to_entities
-        ScheduleRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      ScheduleRequirement : classifications
-        ScheduleRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      ScheduleRequirement : content_kind
-      ScheduleRequirement : created_at
-      ScheduleRequirement : description
-      ScheduleRequirement : due_at
-      ScheduleRequirement : earliest_start_at
-      ScheduleRequirement : geometry_representations
-        ScheduleRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      ScheduleRequirement : id
-      ScheduleRequirement : ifc_global_id
-      ScheduleRequirement : localized_descriptions
-        ScheduleRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      ScheduleRequirement : localized_names
-        ScheduleRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      ScheduleRequirement : meaning_uri
-      ScheduleRequirement : metadata
-        ScheduleRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      ScheduleRequirement : modified_at
-      ScheduleRequirement : name
-      ScheduleRequirement : performance_properties
-        ScheduleRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      ScheduleRequirement : quantity_values
-        ScheduleRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      ScheduleRequirement : related_time_record
-        ScheduleRequirement --> "0..1" Entity : related_time_record
-        click Entity href "./Entity.html"
-      ScheduleRequirement : revision
-      ScheduleRequirement : source_artifact
-        ScheduleRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      ScheduleRequirement : status
-        ScheduleRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class ScheduleRequirement
+click ScheduleRequirement href "./ScheduleRequirement.html" _blank
+Requirement <|-- ScheduleRequirement
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Entity href "./Entity.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

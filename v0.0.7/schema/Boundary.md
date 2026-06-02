@@ -21,59 +21,25 @@ URI: [pbs:Boundary](https://schema.pragmaticbim.ch/Boundary)
 
 
 ```mermaid
- classDiagram
-    class Boundary
-    click Boundary href "./Boundary.html"
-      PhysicalElement <|-- Boundary
-        click PhysicalElement href "./PhysicalElement.html"
-      Boundary : applies_to_entities
-        Boundary --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Boundary : boundary_type
-        Boundary --> "1" BoundaryType : boundary_type
-        click BoundaryType href "./BoundaryType.html"
-      Boundary : bounded_space
-        Boundary --> "0..1" Space : bounded_space
-        click Space href "./Space.html"
-      Boundary : classifications
-        Boundary --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Boundary : content_kind
-      Boundary : created_at
-      Boundary : description
-      Boundary : geometry_representations
-        Boundary --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Boundary : id
-      Boundary : ifc_global_id
-      Boundary : localized_descriptions
-        Boundary --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Boundary : localized_names
-        Boundary --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Boundary : meaning_uri
-      Boundary : metadata
-        Boundary --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Boundary : modified_at
-      Boundary : name
-      Boundary : parent_building
-        Boundary --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      Boundary : parent_level
-        Boundary --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      Boundary : performance_properties
-        Boundary --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Boundary : quantity_values
-        Boundary --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Boundary : revision
-      Boundary : status
-        Boundary --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Boundary
+click Boundary href "./Boundary.html" _blank
+PhysicalElement <|-- Boundary
+click PhysicalElement href "./PhysicalElement.html" _blank
+click Entity href "./Entity.html" _blank
+click BoundaryType href "./BoundaryType.html" _blank
+click Space href "./Space.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

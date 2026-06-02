@@ -21,59 +21,24 @@ URI: [pbs:CostRequirement](https://schema.pragmaticbim.ch/CostRequirement)
 
 
 ```mermaid
- classDiagram
-    class CostRequirement
-    click CostRequirement href "./CostRequirement.html"
-      Requirement <|-- CostRequirement
-        click Requirement href "./Requirement.html"
-      CostRequirement : applies_to_entities
-        CostRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      CostRequirement : classifications
-        CostRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      CostRequirement : content_kind
-      CostRequirement : cost_category
-      CostRequirement : cost_quantity_type
-        CostRequirement --> "0..1" QuantityType : cost_quantity_type
-        click QuantityType href "./QuantityType.html"
-      CostRequirement : created_at
-      CostRequirement : currency
-      CostRequirement : description
-      CostRequirement : geometry_representations
-        CostRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      CostRequirement : id
-      CostRequirement : ifc_global_id
-      CostRequirement : localized_descriptions
-        CostRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      CostRequirement : localized_names
-        CostRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      CostRequirement : meaning_uri
-      CostRequirement : metadata
-        CostRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      CostRequirement : modified_at
-      CostRequirement : name
-      CostRequirement : performance_properties
-        CostRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      CostRequirement : quantity_values
-        CostRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      CostRequirement : revision
-      CostRequirement : source_artifact
-        CostRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      CostRequirement : status
-        CostRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      CostRequirement : target_operator
-        CostRequirement --> "0..1" RequirementTargetOperator : target_operator
-        click RequirementTargetOperator href "./RequirementTargetOperator.html"
-      CostRequirement : target_value_number
+classDiagram
+direction TB
+class CostRequirement
+click CostRequirement href "./CostRequirement.html" _blank
+Requirement <|-- CostRequirement
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click QuantityType href "./QuantityType.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
+click RequirementTargetOperator href "./RequirementTargetOperator.html" _blank
 ```
 
 

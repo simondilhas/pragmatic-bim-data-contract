@@ -1,12 +1,14 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: PerformanceProperty 
 
 
 _Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses._
+
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 __
 
@@ -25,34 +27,23 @@ URI: [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformancePropert
 
 
 ```mermaid
- classDiagram
-    class PerformanceProperty
-    click PerformanceProperty href "./PerformanceProperty.html"
-      PerformanceProperty <|-- FireProperty
-        click FireProperty href "./FireProperty.html"
-      PerformanceProperty <|-- AcousticProperty
-        click AcousticProperty href "./AcousticProperty.html"
-      PerformanceProperty <|-- ThermalProperty
-        click ThermalProperty href "./ThermalProperty.html"
-      PerformanceProperty <|-- StructuralProperty
-        click StructuralProperty href "./StructuralProperty.html"
-      PerformanceProperty <|-- SecurityProperty
-        click SecurityProperty href "./SecurityProperty.html"
-      PerformanceProperty <|-- MaterialProperty
-        click MaterialProperty href "./MaterialProperty.html"
-      PerformanceProperty : mapping_version
-      PerformanceProperty : property_key
-      PerformanceProperty : property_unit
-      PerformanceProperty : property_unit_uri
-      PerformanceProperty : property_value_boolean
-      PerformanceProperty : property_value_number
-      PerformanceProperty : property_value_string
-      PerformanceProperty : property_value_type
-        PerformanceProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
-      PerformanceProperty : source_property
-      PerformanceProperty : source_pset
-      PerformanceProperty : source_value_raw
+classDiagram
+direction TB
+class PerformanceProperty
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+PerformanceProperty <|-- FireProperty
+click FireProperty href "./FireProperty.html" _blank
+PerformanceProperty <|-- AcousticProperty
+click AcousticProperty href "./AcousticProperty.html" _blank
+PerformanceProperty <|-- ThermalProperty
+click ThermalProperty href "./ThermalProperty.html" _blank
+PerformanceProperty <|-- StructuralProperty
+click StructuralProperty href "./StructuralProperty.html" _blank
+PerformanceProperty <|-- SecurityProperty
+click SecurityProperty href "./SecurityProperty.html" _blank
+PerformanceProperty <|-- MaterialProperty
+click MaterialProperty href "./MaterialProperty.html" _blank
+click PerformancePropertyValueType href "./PerformancePropertyValueType.html" _blank
 ```
 
 

@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: ThermalProperty 
@@ -8,7 +8,7 @@ search:
 
 _Normalized thermal-related property._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,26 +21,14 @@ URI: [pbs:ThermalProperty](https://schema.pragmaticbim.ch/ThermalProperty)
 
 
 ```mermaid
- classDiagram
-    class ThermalProperty
-    click ThermalProperty href "./ThermalProperty.html"
-      PerformanceProperty <|-- ThermalProperty
-        click PerformanceProperty href "./PerformanceProperty.html"
-      ThermalProperty : mapping_version
-      ThermalProperty : property_key
-        ThermalProperty --> "1" ThermalPropertyKey : property_key
-        click ThermalPropertyKey href "./ThermalPropertyKey.html"
-      ThermalProperty : property_unit
-      ThermalProperty : property_unit_uri
-      ThermalProperty : property_value_boolean
-      ThermalProperty : property_value_number
-      ThermalProperty : property_value_string
-      ThermalProperty : property_value_type
-        ThermalProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
-      ThermalProperty : source_property
-      ThermalProperty : source_pset
-      ThermalProperty : source_value_raw
+classDiagram
+direction TB
+class ThermalProperty
+click ThermalProperty href "./ThermalProperty.html" _blank
+PerformanceProperty <|-- ThermalProperty
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click ThermalPropertyKey href "./ThermalPropertyKey.html" _blank
+click PerformancePropertyValueType href "./PerformancePropertyValueType.html" _blank
 ```
 
 

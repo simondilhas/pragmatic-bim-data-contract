@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: LocalizedText 
@@ -8,7 +8,7 @@ search:
 
 _Localized text value for a specific language tag._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,11 +21,10 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 
 
 ```mermaid
- classDiagram
-    class LocalizedText
-    click LocalizedText href "./LocalizedText.html"
-      LocalizedText : language_tag
-      LocalizedText : text_value
+classDiagram
+direction TB
+class LocalizedText
+click LocalizedText href "./LocalizedText.html" _blank
 ```
 
 

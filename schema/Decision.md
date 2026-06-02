@@ -23,54 +23,22 @@ URI: [pbs:Decision](https://schema.pragmaticbim.ch/Decision)
 
 
 ```mermaid
- classDiagram
-    class Decision
-    click Decision href "./Decision.html"
-      Entity <|-- Decision
-        click Entity href "./Entity.html"
-      Decision : applies_to_entities
-        Decision --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Decision : classifications
-        Decision --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Decision : content_kind
-      Decision : created_at
-      Decision : decided_at
-      Decision : decided_by
-        Decision --> "0..1" Agent : decided_by
-        click Agent href "./Agent.html"
-      Decision : decision_status
-      Decision : decision_type
-      Decision : description
-      Decision : geometry_representations
-        Decision --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Decision : id
-      Decision : ifc_global_id
-      Decision : localized_descriptions
-        Decision --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Decision : localized_names
-        Decision --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Decision : meaning_uri
-      Decision : metadata
-        Decision --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Decision : modified_at
-      Decision : name
-      Decision : performance_properties
-        Decision --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Decision : quantity_values
-        Decision --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Decision : rationale
-      Decision : revision
-      Decision : status
-        Decision --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Decision
+click Decision href "./Decision.html" _blank
+Entity <|-- Decision
+click Entity href "./Entity.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click Agent href "./Agent.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

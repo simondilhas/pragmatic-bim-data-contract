@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: AcousticProperty 
@@ -8,7 +8,7 @@ search:
 
 _Normalized acoustic-related property._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,26 +21,14 @@ URI: [pbs:AcousticProperty](https://schema.pragmaticbim.ch/AcousticProperty)
 
 
 ```mermaid
- classDiagram
-    class AcousticProperty
-    click AcousticProperty href "./AcousticProperty.html"
-      PerformanceProperty <|-- AcousticProperty
-        click PerformanceProperty href "./PerformanceProperty.html"
-      AcousticProperty : mapping_version
-      AcousticProperty : property_key
-        AcousticProperty --> "1" AcousticPropertyKey : property_key
-        click AcousticPropertyKey href "./AcousticPropertyKey.html"
-      AcousticProperty : property_unit
-      AcousticProperty : property_unit_uri
-      AcousticProperty : property_value_boolean
-      AcousticProperty : property_value_number
-      AcousticProperty : property_value_string
-      AcousticProperty : property_value_type
-        AcousticProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
-      AcousticProperty : source_property
-      AcousticProperty : source_pset
-      AcousticProperty : source_value_raw
+classDiagram
+direction TB
+class AcousticProperty
+click AcousticProperty href "./AcousticProperty.html" _blank
+PerformanceProperty <|-- AcousticProperty
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click AcousticPropertyKey href "./AcousticPropertyKey.html" _blank
+click PerformancePropertyValueType href "./PerformancePropertyValueType.html" _blank
 ```
 
 

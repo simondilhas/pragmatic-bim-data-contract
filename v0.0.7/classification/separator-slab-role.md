@@ -14,11 +14,14 @@ Source: [`separator-slab-role-classification-en.skos.ttl`](sources/separator-sla
 
 ```mermaid
 flowchart TD
-  n_L_INT["L-INT: Interior slab"] --> n_L_CIR["L-CIR: Circulation slab"]
-  n_L_INT["L-INT: Interior slab"] --> n_L_GRD["L-GRD: Ground or cellar slab"]
-  n_L_INT["L-INT: Interior slab"] --> n_L_PRT["L-PRT: Internal partition slab"]
-  n_L_INT["L-INT: Interior slab"] --> n_L_ROF["L-ROF: Roof separation slab"]
-  n_L_INT["L-INT: Interior slab"] --> n_L_UNT["L-UNT: Unit boundary slab"]
+  subgraph root_L_INT ["L-INT: Interior slab"]
+    direction TB
+    n_L_INT["L-INT: Interior slab"] --> n_L_CIR["L-CIR: Circulation slab"]
+    n_L_INT["L-INT: Interior slab"] --> n_L_GRD["L-GRD: Ground or cellar slab"]
+    n_L_INT["L-INT: Interior slab"] --> n_L_PRT["L-PRT: Internal partition slab"]
+    n_L_INT["L-INT: Interior slab"] --> n_L_ROF["L-ROF: Roof separation slab"]
+    n_L_INT["L-INT: Interior slab"] --> n_L_UNT["L-UNT: Unit boundary slab"]
+  end
 ```
 
 ## Concepts

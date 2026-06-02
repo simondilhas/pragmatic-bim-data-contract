@@ -23,87 +23,37 @@ URI: [pbs:BuiltAssetContext](https://schema.pragmaticbim.ch/BuiltAssetContext)
 
 
 ```mermaid
- classDiagram
-    class BuiltAssetContext
-    click BuiltAssetContext href "./BuiltAssetContext.html"
-      SpatialContext <|-- BuiltAssetContext
-        click SpatialContext href "./SpatialContext.html"
-      BuiltAssetContext <|-- BuildingContext
-        click BuildingContext href "./BuildingContext.html"
-      BuiltAssetContext <|-- CivilStructureContext
-        click CivilStructureContext href "./CivilStructureContext.html"
-      BuiltAssetContext : applies_to_entities
-        BuiltAssetContext --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      BuiltAssetContext : classifications
-        BuiltAssetContext --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      BuiltAssetContext : content_kind
-      BuiltAssetContext : context_type
-        BuiltAssetContext --> "1" ContextType : context_type
-        click ContextType href "./ContextType.html"
-      BuiltAssetContext : cost_records
-        BuiltAssetContext --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      BuiltAssetContext : created_at
-      BuiltAssetContext : description
-      BuiltAssetContext : geometry_representations
-        BuiltAssetContext --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      BuiltAssetContext : group_members
-        BuiltAssetContext --> "*" Entity : group_members
-        click Entity href "./Entity.html"
-      BuiltAssetContext : id
-      BuiltAssetContext : ifc_global_id
-      BuiltAssetContext : localized_descriptions
-        BuiltAssetContext --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      BuiltAssetContext : localized_names
-        BuiltAssetContext --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      BuiltAssetContext : materials
-        BuiltAssetContext --> "*" Material : materials
-        click Material href "./Material.html"
-      BuiltAssetContext : meaning_uri
-      BuiltAssetContext : metadata
-        BuiltAssetContext --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      BuiltAssetContext : modified_at
-      BuiltAssetContext : name
-      BuiltAssetContext : parent_building
-        BuiltAssetContext --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      BuiltAssetContext : parent_legal_site
-        BuiltAssetContext --> "0..1" LegalSiteContext : parent_legal_site
-        click LegalSiteContext href "./LegalSiteContext.html"
-      BuiltAssetContext : parent_level
-        BuiltAssetContext --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      BuiltAssetContext : parent_perimeter
-        BuiltAssetContext --> "0..1" PerimeterContext : parent_perimeter
-        click PerimeterContext href "./PerimeterContext.html"
-      BuiltAssetContext : parent_project
-        BuiltAssetContext --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      BuiltAssetContext : parent_zone
-        BuiltAssetContext --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      BuiltAssetContext : performance_properties
-        BuiltAssetContext --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      BuiltAssetContext : quantity_values
-        BuiltAssetContext --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      BuiltAssetContext : revision
-      BuiltAssetContext : status
-        BuiltAssetContext --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      BuiltAssetContext : time_records
-        BuiltAssetContext --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      BuiltAssetContext : zone_type
-        BuiltAssetContext --> "0..1" ZoneType : zone_type
-        click ZoneType href "./ZoneType.html"
+classDiagram
+direction TB
+class BuiltAssetContext
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+SpatialContext <|-- BuiltAssetContext
+click SpatialContext href "./SpatialContext.html" _blank
+BuiltAssetContext <|-- BuildingContext
+click BuildingContext href "./BuildingContext.html" _blank
+BuiltAssetContext <|-- CivilStructureContext
+click CivilStructureContext href "./CivilStructureContext.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContextType href "./ContextType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Entity href "./Entity.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerimeterContext href "./PerimeterContext.html" _blank
+click ProjectContext href "./ProjectContext.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click ZoneType href "./ZoneType.html" _blank
 ```
 
 

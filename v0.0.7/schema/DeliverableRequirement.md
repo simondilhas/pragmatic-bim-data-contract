@@ -21,54 +21,22 @@ URI: [pbs:DeliverableRequirement](https://schema.pragmaticbim.ch/DeliverableRequ
 
 
 ```mermaid
- classDiagram
-    class DeliverableRequirement
-    click DeliverableRequirement href "./DeliverableRequirement.html"
-      Requirement <|-- DeliverableRequirement
-        click Requirement href "./Requirement.html"
-      DeliverableRequirement : acceptance_criteria
-      DeliverableRequirement : applies_to_entities
-        DeliverableRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      DeliverableRequirement : classifications
-        DeliverableRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      DeliverableRequirement : content_kind
-      DeliverableRequirement : created_at
-      DeliverableRequirement : deliverable_format
-      DeliverableRequirement : deliverable_kind
-      DeliverableRequirement : description
-      DeliverableRequirement : due_at
-      DeliverableRequirement : geometry_representations
-        DeliverableRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      DeliverableRequirement : id
-      DeliverableRequirement : ifc_global_id
-      DeliverableRequirement : localized_descriptions
-        DeliverableRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      DeliverableRequirement : localized_names
-        DeliverableRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      DeliverableRequirement : meaning_uri
-      DeliverableRequirement : metadata
-        DeliverableRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      DeliverableRequirement : modified_at
-      DeliverableRequirement : name
-      DeliverableRequirement : performance_properties
-        DeliverableRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      DeliverableRequirement : quantity_values
-        DeliverableRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      DeliverableRequirement : revision
-      DeliverableRequirement : source_artifact
-        DeliverableRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      DeliverableRequirement : status
-        DeliverableRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class DeliverableRequirement
+click DeliverableRequirement href "./DeliverableRequirement.html" _blank
+Requirement <|-- DeliverableRequirement
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

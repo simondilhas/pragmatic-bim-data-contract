@@ -21,46 +21,19 @@ URI: [pbs:RequirementChange](https://schema.pragmaticbim.ch/RequirementChange)
 
 
 ```mermaid
- classDiagram
-    class RequirementChange
-    click RequirementChange href "./RequirementChange.html"
-      Change <|-- RequirementChange
-        click Change href "./Change.html"
-      RequirementChange : affected_requirement
-        RequirementChange --> "0..1" Requirement : affected_requirement
-        click Requirement href "./Requirement.html"
-      RequirementChange : affected_subject
-        RequirementChange --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      RequirementChange : affected_subject_id
-      RequirementChange : affected_subject_path
-      RequirementChange : affected_subject_type
-      RequirementChange : artifact_storage_link
-      RequirementChange : change_severity
-        RequirementChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      RequirementChange : change_source
-      RequirementChange : change_type
-        RequirementChange --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      RequirementChange : detected_at
-      RequirementChange : from_revision
-      RequirementChange : from_value
-      RequirementChange : id
-      RequirementChange : ifc_global_id
-      RequirementChange : intent_verdict
-        RequirementChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      RequirementChange : property_path
-      RequirementChange : property_path_kind
-        RequirementChange --> "1" PropertyPathKind : property_path_kind
-        click PropertyPathKind href "./PropertyPathKind.html"
-      RequirementChange : to_revision
-      RequirementChange : to_value
-      RequirementChange : triggered_process
-      RequirementChange : triggered_task
-        RequirementChange --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class RequirementChange
+click RequirementChange href "./RequirementChange.html" _blank
+Change <|-- RequirementChange
+click Change href "./Change.html" _blank
+click Requirement href "./Requirement.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click PropertyPathKind href "./PropertyPathKind.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 

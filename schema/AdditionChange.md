@@ -21,37 +21,17 @@ URI: [pbs:AdditionChange](https://schema.pragmaticbim.ch/AdditionChange)
 
 
 ```mermaid
- classDiagram
-    class AdditionChange
-    click AdditionChange href "./AdditionChange.html"
-      Change <|-- AdditionChange
-        click Change href "./Change.html"
-      AdditionChange : affected_subject
-        AdditionChange --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      AdditionChange : affected_subject_id
-      AdditionChange : affected_subject_path
-      AdditionChange : affected_subject_type
-      AdditionChange : artifact_storage_link
-      AdditionChange : change_severity
-        AdditionChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      AdditionChange : change_source
-      AdditionChange : change_type
-        AdditionChange --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      AdditionChange : detected_at
-      AdditionChange : from_revision
-      AdditionChange : id
-      AdditionChange : ifc_global_id
-      AdditionChange : intent_verdict
-        AdditionChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      AdditionChange : to_revision
-      AdditionChange : triggered_process
-      AdditionChange : triggered_task
-        AdditionChange --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class AdditionChange
+click AdditionChange href "./AdditionChange.html" _blank
+Change <|-- AdditionChange
+click Change href "./Change.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 

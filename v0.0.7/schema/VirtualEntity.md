@@ -23,70 +23,38 @@ URI: [pbs:VirtualEntity](https://schema.pragmaticbim.ch/VirtualEntity)
 
 
 ```mermaid
- classDiagram
-    class VirtualEntity
-    click VirtualEntity href "./VirtualEntity.html"
-      Entity <|-- VirtualEntity
-        click Entity href "./Entity.html"
-      VirtualEntity <|-- SpatialContext
-        click SpatialContext href "./SpatialContext.html"
-      VirtualEntity <|-- Space
-        click Space href "./Space.html"
-      VirtualEntity <|-- System
-        click System href "./System.html"
-      VirtualEntity <|-- ConnectionVirtual
-        click ConnectionVirtual href "./ConnectionVirtual.html"
-      VirtualEntity <|-- TimeRecord
-        click TimeRecord href "./TimeRecord.html"
-      VirtualEntity <|-- CostRecord
-        click CostRecord href "./CostRecord.html"
-      VirtualEntity <|-- Material
-        click Material href "./Material.html"
-      VirtualEntity : applies_to_entities
-        VirtualEntity --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      VirtualEntity : classifications
-        VirtualEntity --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      VirtualEntity : content_kind
-      VirtualEntity : cost_records
-        VirtualEntity --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      VirtualEntity : created_at
-      VirtualEntity : description
-      VirtualEntity : geometry_representations
-        VirtualEntity --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      VirtualEntity : id
-      VirtualEntity : ifc_global_id
-      VirtualEntity : localized_descriptions
-        VirtualEntity --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      VirtualEntity : localized_names
-        VirtualEntity --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      VirtualEntity : materials
-        VirtualEntity --> "*" Material : materials
-        click Material href "./Material.html"
-      VirtualEntity : meaning_uri
-      VirtualEntity : metadata
-        VirtualEntity --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      VirtualEntity : modified_at
-      VirtualEntity : name
-      VirtualEntity : performance_properties
-        VirtualEntity --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      VirtualEntity : quantity_values
-        VirtualEntity --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      VirtualEntity : revision
-      VirtualEntity : status
-        VirtualEntity --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      VirtualEntity : time_records
-        VirtualEntity --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
+classDiagram
+direction TB
+class VirtualEntity
+click VirtualEntity href "./VirtualEntity.html" _blank
+Entity <|-- VirtualEntity
+click Entity href "./Entity.html" _blank
+VirtualEntity <|-- SpatialContext
+click SpatialContext href "./SpatialContext.html" _blank
+VirtualEntity <|-- Space
+click Space href "./Space.html" _blank
+VirtualEntity <|-- System
+click System href "./System.html" _blank
+VirtualEntity <|-- ConnectionVirtual
+click ConnectionVirtual href "./ConnectionVirtual.html" _blank
+VirtualEntity <|-- TimeRecord
+click TimeRecord href "./TimeRecord.html" _blank
+VirtualEntity <|-- CostRecord
+click CostRecord href "./CostRecord.html" _blank
+VirtualEntity <|-- Material
+click Material href "./Material.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
 ```
 
 

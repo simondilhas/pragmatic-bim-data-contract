@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: StructuralProperty 
@@ -8,7 +8,7 @@ search:
 
 _Normalized structural-related property._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,26 +21,14 @@ URI: [pbs:StructuralProperty](https://schema.pragmaticbim.ch/StructuralProperty)
 
 
 ```mermaid
- classDiagram
-    class StructuralProperty
-    click StructuralProperty href "./StructuralProperty.html"
-      PerformanceProperty <|-- StructuralProperty
-        click PerformanceProperty href "./PerformanceProperty.html"
-      StructuralProperty : mapping_version
-      StructuralProperty : property_key
-        StructuralProperty --> "1" StructuralPropertyKey : property_key
-        click StructuralPropertyKey href "./StructuralPropertyKey.html"
-      StructuralProperty : property_unit
-      StructuralProperty : property_unit_uri
-      StructuralProperty : property_value_boolean
-      StructuralProperty : property_value_number
-      StructuralProperty : property_value_string
-      StructuralProperty : property_value_type
-        StructuralProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
-      StructuralProperty : source_property
-      StructuralProperty : source_pset
-      StructuralProperty : source_value_raw
+classDiagram
+direction TB
+class StructuralProperty
+click StructuralProperty href "./StructuralProperty.html" _blank
+PerformanceProperty <|-- StructuralProperty
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click StructuralPropertyKey href "./StructuralPropertyKey.html" _blank
+click PerformancePropertyValueType href "./PerformancePropertyValueType.html" _blank
 ```
 
 

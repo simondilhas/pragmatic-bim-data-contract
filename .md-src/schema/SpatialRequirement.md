@@ -21,59 +21,24 @@ URI: [pbs:SpatialRequirement](https://schema.pragmaticbim.ch/SpatialRequirement)
 
 
 ```mermaid
- classDiagram
-    class SpatialRequirement
-    click SpatialRequirement href "./SpatialRequirement.html"
-      Requirement <|-- SpatialRequirement
-        click Requirement href "./Requirement.html"
-      SpatialRequirement : adjacency_kind
-        SpatialRequirement --> "0..1" SpatialAdjacencyKind : adjacency_kind
-        click SpatialAdjacencyKind href "./SpatialAdjacencyKind.html"
-      SpatialRequirement : applies_to_entities
-        SpatialRequirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      SpatialRequirement : classifications
-        SpatialRequirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      SpatialRequirement : content_kind
-      SpatialRequirement : created_at
-      SpatialRequirement : description
-      SpatialRequirement : geometry_representations
-        SpatialRequirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      SpatialRequirement : id
-      SpatialRequirement : ifc_global_id
-      SpatialRequirement : localized_descriptions
-        SpatialRequirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      SpatialRequirement : localized_names
-        SpatialRequirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      SpatialRequirement : meaning_uri
-      SpatialRequirement : metadata
-        SpatialRequirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      SpatialRequirement : min_area
-      SpatialRequirement : min_clear_distance
-      SpatialRequirement : min_height
-      SpatialRequirement : modified_at
-      SpatialRequirement : name
-      SpatialRequirement : performance_properties
-        SpatialRequirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      SpatialRequirement : quantity_values
-        SpatialRequirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      SpatialRequirement : related_entity
-        SpatialRequirement --> "0..1" Entity : related_entity
-        click Entity href "./Entity.html"
-      SpatialRequirement : revision
-      SpatialRequirement : source_artifact
-        SpatialRequirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      SpatialRequirement : status
-        SpatialRequirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class SpatialRequirement
+click SpatialRequirement href "./SpatialRequirement.html" _blank
+Requirement <|-- SpatialRequirement
+click Requirement href "./Requirement.html" _blank
+click SpatialAdjacencyKind href "./SpatialAdjacencyKind.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Entity href "./Entity.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

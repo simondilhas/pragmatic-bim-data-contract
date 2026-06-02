@@ -21,40 +21,18 @@ URI: [pbs:GeometryChange](https://schema.pragmaticbim.ch/GeometryChange)
 
 
 ```mermaid
- classDiagram
-    class GeometryChange
-    click GeometryChange href "./GeometryChange.html"
-      Change <|-- GeometryChange
-        click Change href "./Change.html"
-      GeometryChange : affected_geometry_role
-        GeometryChange --> "0..1" GeometryRepresentationType : affected_geometry_role
-        click GeometryRepresentationType href "./GeometryRepresentationType.html"
-      GeometryChange : affected_subject
-        GeometryChange --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      GeometryChange : affected_subject_id
-      GeometryChange : affected_subject_path
-      GeometryChange : affected_subject_type
-      GeometryChange : artifact_storage_link
-      GeometryChange : change_severity
-        GeometryChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      GeometryChange : change_source
-      GeometryChange : change_type
-        GeometryChange --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      GeometryChange : detected_at
-      GeometryChange : from_revision
-      GeometryChange : id
-      GeometryChange : ifc_global_id
-      GeometryChange : intent_verdict
-        GeometryChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      GeometryChange : to_revision
-      GeometryChange : triggered_process
-      GeometryChange : triggered_task
-        GeometryChange --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class GeometryChange
+click GeometryChange href "./GeometryChange.html" _blank
+Change <|-- GeometryChange
+click Change href "./Change.html" _blank
+click GeometryRepresentationType href "./GeometryRepresentationType.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 

@@ -21,37 +21,17 @@ URI: [pbs:DeletionChange](https://schema.pragmaticbim.ch/DeletionChange)
 
 
 ```mermaid
- classDiagram
-    class DeletionChange
-    click DeletionChange href "./DeletionChange.html"
-      Change <|-- DeletionChange
-        click Change href "./Change.html"
-      DeletionChange : affected_subject
-        DeletionChange --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      DeletionChange : affected_subject_id
-      DeletionChange : affected_subject_path
-      DeletionChange : affected_subject_type
-      DeletionChange : artifact_storage_link
-      DeletionChange : change_severity
-        DeletionChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      DeletionChange : change_source
-      DeletionChange : change_type
-        DeletionChange --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      DeletionChange : detected_at
-      DeletionChange : from_revision
-      DeletionChange : id
-      DeletionChange : ifc_global_id
-      DeletionChange : intent_verdict
-        DeletionChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      DeletionChange : to_revision
-      DeletionChange : triggered_process
-      DeletionChange : triggered_task
-        DeletionChange --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class DeletionChange
+click DeletionChange href "./DeletionChange.html" _blank
+Change <|-- DeletionChange
+click Change href "./Change.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 
