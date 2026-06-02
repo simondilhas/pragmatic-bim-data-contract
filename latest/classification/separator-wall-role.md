@@ -25,14 +25,115 @@ flowchart TD
 
 ## Concepts
 
-| Notation | Broader | Label (de) | Label (en) | Definition (de) | Definition (en) | Scope note (de) | Scope note (en) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| W-CIR-HOR | W-INT | Wand an horizontaler Erschliessung | Horizontal circulation enclosure wall | Wand, die einen horizontalen Erschliessungsraum begrenzt. | Wall bounding a horizontal circulation space. |  |  |
-| W-CIR-VRT | W-INT | Treppenhauswand / Aufzugwand | Vertical circulation enclosure wall | Wand, die einen vertikalen Erschliessungsraum begrenzt. | Wall bounding a vertical circulation space. |  |  |
-| W-EXT |  | Aussenwand | Exterior wall | Wand, die konditionierten oder nutzbaren Raum von der Aussenumgebung trennt. | Wall separating conditioned or occupied space from the exterior environment. |  |  |
-| W-GRD | W-INT | Keller-Umfassungswand | Below-grade enclosure wall | Innenwand mit Bezug zu Keller- oder unterirdischen Randbedingungen. | Interior wall associated with below-grade or cellar perimeter conditions. |  |  |
-| W-INT |  | Innenwand | Interior wall | Innenwand, deren primaere Rolle durch die topologische Lage zu angrenzenden Raeumen bestimmt wird. | Interior wall whose primary role is defined by adjacent space topology. |  |  |
-| W-PAR | W-INT | Brandwand / Grenzwand | Party wall | Wand, die dieses Gebaeude von einem Nachbargebaeude oder einer rechtlichen Grundstuecksgrenze trennt. | Wall separating this building from an adjacent building or legal plot boundary. |  |  |
-| W-PRT | W-INT | Innere Trennwand | Internal partition wall | Wand, die Raeume innerhalb derselben Nutzungseinheit voneinander trennt. | Wall separating spaces within the same occupancy unit. |  |  |
-| W-SVC | W-INT | Technik- und Schachtwand | Service and shaft enclosure wall | Wand, die Technik-, Versorgungs- oder Hohlraeume begrenzt. | Wall bounding technical, utility, or void spaces. |  |  |
-| W-UNT | W-INT | Wohnungstrennwand | Unit boundary wall | Wand, die selbstaendige Nutzungs- oder Brandabschnittseinheiten voneinander trennt. | Wall separating independent occupancy or fire-compartment units. |  |  |
+<div class="pbs-vocab-concepts" data-default-lang="en" data-active-lang="en">
+<div class="pbs-lang-switcher" role="group" aria-label="Language">
+<button type="button" class="pbs-lang-btn" data-lang="de">DE</button>
+<button type="button" class="pbs-lang-btn" data-lang="en">EN</button>
+</div>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Broader</th>
+<th class="pbs-lang-col" data-lang="de" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="de" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="de" data-field="scope_note">Scope note</th>
+<th class="pbs-lang-col" data-lang="en" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="en" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="en" data-field="scope_note">Scope note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W-CIR-HOR</td>
+<td>W-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Wand an horizontaler Erschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wand, die einen horizontalen Erschliessungsraum begrenzt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Horizontal circulation enclosure wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wall bounding a horizontal circulation space.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-CIR-VRT</td>
+<td>W-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Treppenhauswand / Aufzugwand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wand, die einen vertikalen Erschliessungsraum begrenzt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Vertical circulation enclosure wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wall bounding a vertical circulation space.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-EXT</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussenwand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wand, die konditionierten oder nutzbaren Raum von der Aussenumgebung trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wall separating conditioned or occupied space from the exterior environment.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-GRD</td>
+<td>W-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Keller-Umfassungswand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Innenwand mit Bezug zu Keller- oder unterirdischen Randbedingungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Below-grade enclosure wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Interior wall associated with below-grade or cellar perimeter conditions.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-INT</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Innenwand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Innenwand, deren primaere Rolle durch die topologische Lage zu angrenzenden Raeumen bestimmt wird.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Interior wall whose primary role is defined by adjacent space topology.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-PAR</td>
+<td>W-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Brandwand / Grenzwand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wand, die dieses Gebaeude von einem Nachbargebaeude oder einer rechtlichen Grundstuecksgrenze trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Party wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wall separating this building from an adjacent building or legal plot boundary.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-PRT</td>
+<td>W-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Innere Trennwand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wand, die Raeume innerhalb derselben Nutzungseinheit voneinander trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Internal partition wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wall separating spaces within the same occupancy unit.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-SVC</td>
+<td>W-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Technik- und Schachtwand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wand, die Technik-, Versorgungs- oder Hohlraeume begrenzt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Service and shaft enclosure wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wall bounding technical, utility, or void spaces.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-UNT</td>
+<td>W-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Wohnungstrennwand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wand, die selbstaendige Nutzungs- oder Brandabschnittseinheiten voneinander trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Unit boundary wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wall separating independent occupancy or fire-compartment units.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+</tbody>
+</table>
+</div>

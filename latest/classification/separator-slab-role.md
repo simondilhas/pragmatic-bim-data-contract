@@ -23,12 +23,95 @@ flowchart TD
 
 ## Concepts
 
-| Notation | Broader | Label (de) | Label (en) | Definition (de) | Definition (en) | Scope note (de) | Scope note (en) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| L-CIR | L-INT | Erschliessungsdecke | Circulation slab | Decke mit primaerem Bezug zu Erschliessungsraeumen. | Slab associated primarily with circulation spaces. |  |  |
-| L-EXT |  | Aussendeckung | Exterior slab | Decke, die genutzten oder konditionierten Raum von der Aussenumgebung trennt. | Slab separating occupied or conditioned space from the exterior environment. |  |  |
-| L-GRD | L-INT | Boden- oder Kellerdecke | Ground or cellar slab | Decke auf Erdgeschossniveau oder unterhalb, die Innenraum von Erdreich oder aussenseitigen Untergeschossbedingungen trennt. | Slab at ground level or below grade separating interior from earth or exterior below-grade conditions. |  |  |
-| L-INT |  | Innendeckung | Interior slab | Innendeckung, deren primaere Rolle durch die topologische Lage zu angrenzenden Raeumen oder Geschossen bestimmt wird. | Interior slab whose primary role is defined by adjacent space or level topology. |  |  |
-| L-PRT | L-INT | Innere Trennplatte | Internal partition slab | Decke, die Raeume innerhalb derselben Nutzungseinheit ohne besondere Grenzrollenfunktion trennt. | Slab separating spaces within the same occupancy unit without a special boundary role. |  |  |
-| L-ROF | L-INT | Dachabgrenzungsdecke | Roof separation slab | Decke als primaere Abgrenzung auf Dachniveau zwischen konditionierten und unkonditionierten Zonen. | Slab forming the primary separation at roof level between conditioned and unconditioned zones. |  |  |
-| L-UNT | L-INT | Geschossdecke zwischen Nutzungseinheiten | Unit boundary slab | Decke, die selbstaendige Nutzungs- oder Brandabschnittseinheiten vertikal voneinander trennt. | Slab separating independent occupancy or fire-compartment units vertically. |  |  |
+<div class="pbs-vocab-concepts" data-default-lang="en" data-active-lang="en">
+<div class="pbs-lang-switcher" role="group" aria-label="Language">
+<button type="button" class="pbs-lang-btn" data-lang="de">DE</button>
+<button type="button" class="pbs-lang-btn" data-lang="en">EN</button>
+</div>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Broader</th>
+<th class="pbs-lang-col" data-lang="de" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="de" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="de" data-field="scope_note">Scope note</th>
+<th class="pbs-lang-col" data-lang="en" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="en" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="en" data-field="scope_note">Scope note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L-CIR</td>
+<td>L-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Erschliessungsdecke</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke mit primaerem Bezug zu Erschliessungsraeumen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Circulation slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab associated primarily with circulation spaces.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>L-EXT</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussendeckung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke, die genutzten oder konditionierten Raum von der Aussenumgebung trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab separating occupied or conditioned space from the exterior environment.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>L-GRD</td>
+<td>L-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Boden- oder Kellerdecke</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke auf Erdgeschossniveau oder unterhalb, die Innenraum von Erdreich oder aussenseitigen Untergeschossbedingungen trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Ground or cellar slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab at ground level or below grade separating interior from earth or exterior below-grade conditions.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>L-INT</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Innendeckung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Innendeckung, deren primaere Rolle durch die topologische Lage zu angrenzenden Raeumen oder Geschossen bestimmt wird.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Interior slab whose primary role is defined by adjacent space or level topology.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>L-PRT</td>
+<td>L-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Innere Trennplatte</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke, die Raeume innerhalb derselben Nutzungseinheit ohne besondere Grenzrollenfunktion trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Internal partition slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab separating spaces within the same occupancy unit without a special boundary role.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>L-ROF</td>
+<td>L-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Dachabgrenzungsdecke</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke als primaere Abgrenzung auf Dachniveau zwischen konditionierten und unkonditionierten Zonen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Roof separation slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab forming the primary separation at roof level between conditioned and unconditioned zones.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>L-UNT</td>
+<td>L-INT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Geschossdecke zwischen Nutzungseinheiten</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke, die selbstaendige Nutzungs- oder Brandabschnittseinheiten vertikal voneinander trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Unit boundary slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab separating independent occupancy or fire-compartment units vertically.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+</tbody>
+</table>
+</div>

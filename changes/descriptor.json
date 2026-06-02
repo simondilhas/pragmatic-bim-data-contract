@@ -3,7 +3,7 @@
   "title": "Pragmatic BIM Data Contract - Changes",
   "description": "Change detection and revision diff records for IFC models, documents, and schema entity fields.",
   "source_file": "changes_schema.yaml",
-  "docs_index": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html",
+  "docs_index": "https://schema.pragmaticbim.ch/index.html",
   "json_schema": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json",
   "shacl": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl",
   "csv": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv",
