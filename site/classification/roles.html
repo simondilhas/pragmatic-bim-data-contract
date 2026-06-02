@@ -913,8 +913,7 @@
 <li><strong>title (en):</strong> Abstract workflow participant roles</li>
 </ul>
 <h2 id="hierarchy">Hierarchy<a class="headerlink" href="#hierarchy" title="Permanent link">&para;</a></h2>
-<p><code>mermaid
-flowchart TD
+<pre class="mermaid"><code>flowchart TD
   n_aec_group_contractor["aec.group.contractor: Contractor side"] --&gt; n_aec_contractor["aec.contractor: Contractor"]
   n_aec_group_contractor["aec.group.contractor: Contractor side"] --&gt; n_aec_supplier["aec.supplier: Supplier"]
   n_aec_group_owner["aec.group.owner: Owner side"] --&gt; n_aec_client["aec.client: Client"]
@@ -932,244 +931,250 @@ flowchart TD
   n_aec_group_planner["aec.group.planner: Planner"] --&gt; n_aec_site_manager["aec.site_manager: Site manager"]
   n_aec_group_planner["aec.group.planner: Planner"] --&gt; n_aec_structural_engineer["aec.structural_engineer: Structural engineer"]
   n_aec_group_planner["aec.group.planner: Planner"] --&gt; n_aec_sustainability_consultant["aec.sustainability_consultant: Sustainability consultant"]
-  n_aec_group_planner["aec.group.planner: Planner"] --&gt; n_aec_ventilation_engineer["aec.ventilation_engineer: Ventilation engineer"]</code></p>
+  n_aec_group_planner["aec.group.planner: Planner"] --&gt; n_aec_ventilation_engineer["aec.ventilation_engineer: Ventilation engineer"]</code></pre>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<div class="pbs-vocab-concepts" data-default-lang="en" data-active-lang="en">
+<div class="pbs-lang-switcher" role="group" aria-label="Language">
+<button type="button" class="pbs-lang-btn" data-lang="de">DE</button>
+<button type="button" class="pbs-lang-btn" data-lang="en">EN</button>
+</div>
 <table>
 <thead>
 <tr>
 <th>Notation</th>
 <th>Broader</th>
-<th>Label (de)</th>
-<th>Label (en)</th>
-<th>Definition (de)</th>
-<th>Definition (en)</th>
-<th>Scope note (de)</th>
-<th>Scope note (en)</th>
+<th class="pbs-lang-col" data-lang="de" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="de" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="de" data-field="scope_note">Scope note</th>
+<th class="pbs-lang-col" data-lang="en" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="en" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="en" data-field="scope_note">Scope note</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>aec.architect</td>
 <td>aec.group.planner</td>
-<td>Architekt</td>
-<td>Architect</td>
-<td>Der Architekt ist verantwortlich für die Architektur des Projekts.</td>
-<td>The architect is responsible for the architecture of the project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Architekt</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Architekt ist verantwortlich für die Architektur des Projekts.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Architect</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The architect is responsible for the architecture of the project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.bim_coordinator</td>
 <td>aec.group.planner</td>
-<td>BIM-Koordination</td>
-<td>BIM coordinator</td>
-<td>Der BIM-Koordinator ist verantwortlich für das BIM-Modell.</td>
-<td>The BIM coordinator is responsible for the BIM model.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">BIM-Koordination</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der BIM-Koordinator ist verantwortlich für das BIM-Modell.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">BIM coordinator</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The BIM coordinator is responsible for the BIM model.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.bim_manager</td>
 <td>aec.group.planner</td>
-<td>BIM-Manager</td>
-<td>BIM manager</td>
-<td>Der BIM-Manager ist verantwortlich für das BIM-Modell.</td>
-<td>The BIM manager to support the .</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">BIM-Manager</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der BIM-Manager ist verantwortlich für das BIM-Modell.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">BIM manager</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The BIM manager to support the .</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.client</td>
 <td>aec.group.owner</td>
-<td>Kunde</td>
-<td>Client</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Kunde</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Client</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.contractor</td>
 <td>aec.group.contractor</td>
-<td>Bauunternehmer</td>
-<td>Contractor</td>
-<td>Der Bauunternehmer ist verantwortlich für die Bauarbeiten des Projekts.</td>
-<td>The contractor is responsible for the construction of the project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Bauunternehmer</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Bauunternehmer ist verantwortlich für die Bauarbeiten des Projekts.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Contractor</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The contractor is responsible for the construction of the project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.developer</td>
 <td>aec.group.owner</td>
-<td>Entwickler</td>
-<td>Developer</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Entwickler</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Developer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.electrical_engineer</td>
 <td>aec.group.planner</td>
-<td>Elektroingenieur</td>
-<td>Electrical engineer</td>
-<td>Der Elektroingenieur ist verantwortlich für die Elektroplanung des Projekts.</td>
-<td>The electrical engineer is responsible for the electrical design of the project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Elektroingenieur</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Elektroingenieur ist verantwortlich für die Elektroplanung des Projekts.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Electrical engineer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The electrical engineer is responsible for the electrical design of the project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.facility_manager</td>
 <td>aec.group.owner</td>
-<td>Facility Management</td>
-<td>Facility manager</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Facility Management</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Facility manager</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.group.contractor</td>
 <td></td>
-<td>Ausführung / Unternehmerseite</td>
-<td>Contractor side</td>
-<td>Ausführung und Lieferkette auf Unternehmerseite.</td>
-<td>Construction execution and supply-chain roles.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Ausführung / Unternehmerseite</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Ausführung und Lieferkette auf Unternehmerseite.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Contractor side</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Construction execution and supply-chain roles.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.group.owner</td>
 <td></td>
-<td>Bauherr / Eigentümerseite</td>
-<td>Owner side</td>
-<td>Auftraggeber, Eigentümer, Projektentwickler und betreibende Rollen auf Eigentümerseite.</td>
-<td>Client, asset owner, developer, and owner-side operations roles.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Bauherr / Eigentümerseite</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Auftraggeber, Eigentümer, Projektentwickler und betreibende Rollen auf Eigentümerseite.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Owner side</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Client, asset owner, developer, and owner-side operations roles.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.group.planner</td>
 <td></td>
-<td>Planer</td>
-<td>Planner</td>
-<td>Planungs-, Ingenieur-, Koordinations-, Projektleitungs- und Bauüberwachungsrollen.</td>
-<td>Design, engineering, coordination, project-management, and site supervision roles on the planning side.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Planer</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Planungs-, Ingenieur-, Koordinations-, Projektleitungs- und Bauüberwachungsrollen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Planner</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Design, engineering, coordination, project-management, and site supervision roles on the planning side.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.group.tenant</td>
 <td></td>
-<td>Mieter / Nutzerseite</td>
-<td>Tenant side</td>
-<td>Mieter- und Nutzerrollen (Blattkonzepte bei Bedarf ergänzen).</td>
-<td>Occupier and tenant-side roles (extend with leaf concepts when needed).</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Mieter / Nutzerseite</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Mieter- und Nutzerrollen (Blattkonzepte bei Bedarf ergänzen).</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Tenant side</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Occupier and tenant-side roles (extend with leaf concepts when needed).</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.heating_engineer</td>
 <td>aec.group.planner</td>
-<td>Heizungplaner</td>
-<td>Heating engineer</td>
-<td>Der Heizungplaner ist verantwortlich für die Heizungplanung des Projekts.</td>
-<td>The heating engineer is responsible for the heating design of the project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Heizungplaner</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Heizungplaner ist verantwortlich für die Heizungplanung des Projekts.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Heating engineer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The heating engineer is responsible for the heating design of the project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.owner</td>
 <td>aec.group.owner</td>
-<td>Eigentuemer</td>
-<td>Owner</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Eigentuemer</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Owner</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.plumbing_engineer</td>
 <td>aec.group.planner</td>
-<td>Sanitärplaner</td>
-<td>Plumbing engineer</td>
-<td>Der Sanitärplaner ist verantwortlich für die Sanitärplanung des Projekts.</td>
-<td>The plumbing engineer is responsible for the plumbing design of the project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Sanitärplaner</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Sanitärplaner ist verantwortlich für die Sanitärplanung des Projekts.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Plumbing engineer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The plumbing engineer is responsible for the plumbing design of the project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.project_lead</td>
 <td>aec.group.planner</td>
-<td>Projektleitung</td>
-<td>Project lead</td>
-<td>Der Projektleitung ist verantwortlich für das Projekt innerhalb der Organisation.</td>
-<td>The project lead is responsible for the project within the organization.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Projektleitung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Projektleitung ist verantwortlich für das Projekt innerhalb der Organisation.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Project lead</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The project lead is responsible for the project within the organization.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.project_manager</td>
 <td>aec.group.planner</td>
-<td>Gesamtprojektleitung</td>
-<td>Project manager</td>
-<td>Die Gesamtprojektleitung ist verantwortlich für das Gesamtprojekt.</td>
-<td>The project manager is responsible for the overall project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gesamtprojektleitung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Die Gesamtprojektleitung ist verantwortlich für das Gesamtprojekt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Project manager</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The project manager is responsible for the overall project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.site_manager</td>
 <td>aec.group.planner</td>
-<td>Bauleiter</td>
-<td>Site manager</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Bauleiter</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Site manager</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.structural_engineer</td>
 <td>aec.group.planner</td>
-<td>Tragwerksplaner</td>
-<td>Structural engineer</td>
-<td>Der Tragwerksplaner ist verantwortlich für die Tragwerksplanung des Projekts.</td>
-<td>The structural engineer is responsible for the structural design of the project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Tragwerksplaner</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Tragwerksplaner ist verantwortlich für die Tragwerksplanung des Projekts.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Structural engineer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The structural engineer is responsible for the structural design of the project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.supplier</td>
 <td>aec.group.contractor</td>
-<td>Lieferant</td>
-<td>Supplier</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Lieferant</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Supplier</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.sustainability_consultant</td>
 <td>aec.group.planner</td>
-<td>Nachhaltigkeitsberater</td>
-<td>Sustainability consultant</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Nachhaltigkeitsberater</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Sustainability consultant</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>aec.ventilation_engineer</td>
 <td>aec.group.planner</td>
-<td>Lüftungsplaner</td>
-<td>Ventilation engineer</td>
-<td>Der Lüftungsplaner ist verantwortlich für die Lüftungplanung des Projekts.</td>
-<td>The ventilation engineer is responsible for the ventilation design of the project.</td>
-<td></td>
-<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Lüftungsplaner</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Der Lüftungsplaner ist verantwortlich für die Lüftungplanung des Projekts.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Ventilation engineer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">The ventilation engineer is responsible for the ventilation design of the project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 </tbody>
 </table>
+</div>
 
 
 
@@ -1229,6 +1234,8 @@ flowchart TD
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="javascripts/classification-lang-switch.js"></script>
       
     
   </body>

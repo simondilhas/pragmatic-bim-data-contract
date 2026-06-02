@@ -1,12 +1,12 @@
 site_name: Pragmatic BIM Classifications
 site_url: https://schema.pragmaticbim.ch/classification/
 use_directory_urls: false
-
-extra_css:
-  - stylesheets/pragmatic-bim-brand.css
-
 docs_dir: site/classification/.md-src
 site_dir: site/classification/.html-build
+extra_css:
+- stylesheets/pragmatic-bim-brand.css
+extra_javascript:
+- javascripts/classification-lang-switch.js
 theme:
   name: material
   palette:
@@ -48,6 +48,6 @@ markdown_extensions:
     custom_fences:
     - name: mermaid
       class: mermaid
-      format: '!!python/name:pymdownx.superfences.fence_code_format'
+      format: !!python/name:pymdownx.superfences.fence_code_format
 - attr_list
 - md_in_html

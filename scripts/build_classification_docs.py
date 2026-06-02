@@ -44,12 +44,24 @@ PRESERVE_SITE_ENTRIES = {
 BRAND_STYLESHEET = (
     REPO_ROOT / "docs-assets" / "material" / "assets" / "stylesheets" / "pragmatic-bim-brand.css"
 )
+BRAND_JAVASCRIPT = (
+    REPO_ROOT
+    / "docs-assets"
+    / "material"
+    / "assets"
+    / "javascripts"
+    / "classification-lang-switch.js"
+)
 
 
-def stage_brand_stylesheet(md_src: Path) -> None:
-    dest_dir = md_src / "stylesheets"
-    dest_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(BRAND_STYLESHEET, dest_dir / "pragmatic-bim-brand.css")
+def stage_brand_assets(md_src: Path) -> None:
+    stylesheet_dir = md_src / "stylesheets"
+    stylesheet_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(BRAND_STYLESHEET, stylesheet_dir / "pragmatic-bim-brand.css")
+
+    javascript_dir = md_src / "javascripts"
+    javascript_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(BRAND_JAVASCRIPT, javascript_dir / "classification-lang-switch.js")
 
 
 def clear_markdown_source(md_src: Path) -> None:
@@ -90,6 +102,7 @@ def write_mkdocs_config(nav: list[Any]) -> None:
         "docs_dir": "site/classification/.md-src",
         "site_dir": "site/classification/.html-build",
         "extra_css": ["stylesheets/pragmatic-bim-brand.css"],
+        "extra_javascript": ["javascripts/classification-lang-switch.js"],
         "theme": {
             "name": "material",
             "palette": [{"scheme": "default", "primary": "custom", "accent": "custom"}],
@@ -121,7 +134,12 @@ def write_mkdocs_config(nav: list[Any]) -> None:
             "md_in_html",
         ],
     }
-    MKDOCS_CONFIG.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
+    config_text = yaml.safe_dump(config, sort_keys=False)
+    config_text = config_text.replace(
+        "format: '!!python/name:pymdownx.superfences.fence_code_format'",
+        "format: !!python/name:pymdownx.superfences.fence_code_format",
+    )
+    MKDOCS_CONFIG.write_text(config_text, encoding="utf-8")
 
 
 def render_index_markdown(
@@ -250,7 +268,7 @@ def build_classification_docs(
     )
 
     write_mkdocs_config(build_nav(vocab_entries, mapping_entries))
-    stage_brand_stylesheet(md_src)
+    stage_brand_assets(md_src)
 
     if skip_mkdocs:
         return

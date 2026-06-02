@@ -63,3 +63,52 @@
 .md-typeset {
   color: #000000;
 }
+
+.pbs-vocab-concepts {
+  margin-top: 0.5rem;
+}
+
+.pbs-lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.pbs-lang-btn {
+  appearance: none;
+  border: 1px solid #312f8a;
+  background: #ffffff;
+  color: #312f8a;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pbs-lang-btn:hover,
+.pbs-lang-btn:focus {
+  border-color: #f57f20;
+  color: #f57f20;
+}
+
+.pbs-lang-btn.is-active {
+  background: #312f8a;
+  border-color: #312f8a;
+  color: #ffffff;
+}
+
+.pbs-vocab-concepts .pbs-lang-col {
+  display: none;
+}
+
+.pbs-vocab-concepts[data-active-lang="de"] .pbs-lang-col[data-lang="de"],
+.pbs-vocab-concepts[data-active-lang="en"] .pbs-lang-col[data-lang="en"],
+.pbs-vocab-concepts[data-active-lang="fr"] .pbs-lang-col[data-lang="fr"],
+.pbs-vocab-concepts[data-active-lang="it"] .pbs-lang-col[data-lang="it"],
+.pbs-vocab-concepts[data-active-lang="pt"] .pbs-lang-col[data-lang="pt"],
+.pbs-vocab-concepts[data-active-lang="pt-BR"] .pbs-lang-col[data-lang="pt-BR"] {
+  display: table-cell;
+}

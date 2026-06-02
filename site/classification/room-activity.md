@@ -46,36 +46,335 @@ flowchart TD
 
 ## Concepts
 
-| Notation | Broader | Label (de) | Label (en) | Definition (de) | Definition (en) | Scope note (de) | Scope note (en) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| M |  | Hauptnutzungsflaechen | Main Activity Spaces | Kategorie fuer hauptnutzungsflaechen im Klassifikationssystem. | Primary spaces for building occupants' activities |  |  |
-| M-CIR | M | Hauptnutzungserschliessung | Main Activity Circulation | Kategorie fuer hauptnutzungserschliessung im Klassifikationssystem. | Circulation spaces integral to main activities |  |  |
-| M-COM | M | Gewerbeflaechen | Commercial Spaces | Kategorie fuer gewerbeflaechen im Klassifikationssystem. | Spaces for trading and business activities |  |  |
-| M-HEL | M | Gesundheitsflaechen | Healthcare Spaces | Kategorie fuer gesundheitsflaechen im Klassifikationssystem. | Spaces for medical and wellness activities |  |  |
-| M-LRN | M | Lernflaechen | Learning Spaces | Kategorie fuer lernflaechen im Klassifikationssystem. | Spaces for educational and knowledge acquisition |  |  |
-| M-RES | M | Wohnflaechen | Residential Spaces | Kategorie fuer wohnflaechen im Klassifikationssystem. | Spaces for daily living and personal life activities |  |  |
-| M-WRK | M | Arbeitsflaechen | Work Spaces | Kategorie fuer arbeitsflaechen im Klassifikationssystem. | Spaces for professional and productive activities |  |  |
-| M-WRK-KNW | M-WRK | Wissensarbeitsflaechen | Knowledge Work Spaces | Kategorie fuer wissensarbeitsflaechen im Klassifikationssystem. | Spaces for intellectual and information-based work |  |  |
-| M-WRK-PRD | M-WRK | Produktionsarbeitsflaechen | Production Work Spaces | Kategorie fuer produktionsarbeitsflaechen im Klassifikationssystem. | Spaces for physical production and manufacturing activities |  |  |
-| O |  | Aussenflaechen | Outdoor Spaces | Kategorie fuer aussenflaechen im Klassifikationssystem. | External spaces associated with the building |  |  |
-| O-CIR | O | Aussenerschliessung | Outdoor Circulation | Kategorie fuer aussenerschliessung im Klassifikationssystem. | External movement spaces |  |  |
-| O-CIR-PED | O-CIR | Fussgaengererschliessung | Pedestrian Circulation | Kategorie fuer fussgaengererschliessung im Klassifikationssystem. | Pedestrian movement spaces |  |  |
-| O-CIR-RD | O-CIR | Fahrwege | Roads | Kategorie fuer fahrwege im Klassifikationssystem. | Vehicular circulation routes |  |  |
-| O-GRN | O | Gruenflaechen | Green Spaces | Kategorie fuer gruenflaechen im Klassifikationssystem. | Landscaped and natural area spaces |  |  |
-| O-GRN-GDN | O-GRN | Gartenflaechen | Garden Spaces | Kategorie fuer gartenflaechen im Klassifikationssystem. | Cultivated green spaces |  |  |
-| O-GRN-REC | O-GRN | Erholungsgruenflaechen | Recreational Green Spaces | Kategorie fuer erholungsgruenflaechen im Klassifikationssystem. | Spaces for leisure activities |  |  |
-| O-GRN-SPT | O-GRN | Sportflaechen | Sports Spaces | Kategorie fuer sportflaechen im Klassifikationssystem. | Formal athletic spaces |  |  |
-| S |  | Unterstuetzungsflaechen | Support Spaces | Kategorie fuer unterstuetzungsflaechen im Klassifikationssystem. | Auxiliary spaces supporting building operations |  |  |
-| S-CIR | S | Nebenerschliessungsflaechen | Support Circulation Spaces | Kategorie fuer nebenerschliessungsflaechen im Klassifikationssystem. | Auxiliary circulation spaces |  |  |
-| S-CIR-HOR | S-CIR | Horizontale Erschliessung | Horizontal Circulation | Kategorie fuer horizontale erschliessung im Klassifikationssystem. | Spaces for horizontal movement |  |  |
-| S-CIR-VRT | S-CIR | Vertikale Erschliessung | Vertical Circulation | Kategorie fuer vertikale erschliessung im Klassifikationssystem. | Spaces for vertical movement |  |  |
-| S-PRK | S | Parkierungsflaechen | Parking Spaces | Kategorie fuer parkierungsflaechen im Klassifikationssystem. | Spaces for vehicle storage and management |  |  |
-| S-PRK-EXT | S-PRK | Aussenparkierungsflaechen | Exterior Parking Spaces | Kategorie fuer aussenparkierungsflaechen im Klassifikationssystem. | Open-air vehicle parking areas |  |  |
-| S-PRK-INT | S-PRK | Innenparkierungsflaechen | Interior Parking Spaces | Kategorie fuer innenparkierungsflaechen im Klassifikationssystem. | Enclosed vehicle parking areas |  |  |
-| S-PRK-SVC | S-PRK | Servicefahrzeugflaechen | Service Vehicle Spaces | Kategorie fuer servicefahrzeugflaechen im Klassifikationssystem. | Specialized parking for service vehicles |  |  |
-| S-TEC | S | Technikflaechen | Technical Spaces | Kategorie fuer technikflaechen im Klassifikationssystem. | Spaces for building systems and equipment |  |  |
-| S-VOI | S | Hohlraeume | Void Spaces | Kategorie fuer hohlraeume im Klassifikationssystem. | Spaces not suitable for occupancy or activity |  |  |
-| S-VOI-MLT | S-VOI | Mehrgeschossige Hohlraeume | Multistory Void Spaces | Kategorie fuer mehrgeschossige hohlraeume im Klassifikationssystem. | Vertical open spaces spanning multiple floors |  |  |
-| S-VOI-PLN | S-VOI | Installationszwischenraeume | Plenum Spaces | Kategorie fuer installationszwischenraeume im Klassifikationssystem. | Horizontal service voids |  |  |
-| S-VOI-STR | S-VOI | Konstruktive Hohlraeume | Structural Voids | Kategorie fuer konstruktive hohlraeume im Klassifikationssystem. | Spaces within structural elements |  |  |
-| S-VOI-VRT | S-VOI | Vertikale Hohlraeume | Vertical Void Spaces | Kategorie fuer vertikale hohlraeume im Klassifikationssystem. | Vertical shafts and wells |  |  |
+<div class="pbs-vocab-concepts" data-default-lang="en" data-active-lang="en">
+<div class="pbs-lang-switcher" role="group" aria-label="Language">
+<button type="button" class="pbs-lang-btn" data-lang="de">DE</button>
+<button type="button" class="pbs-lang-btn" data-lang="en">EN</button>
+</div>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Broader</th>
+<th class="pbs-lang-col" data-lang="de" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="de" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="de" data-field="scope_note">Scope note</th>
+<th class="pbs-lang-col" data-lang="en" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="en" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="en" data-field="scope_note">Scope note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Hauptnutzungsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer hauptnutzungsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Main Activity Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Primary spaces for building occupants&#x27; activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-CIR</td>
+<td>M</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Hauptnutzungserschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer hauptnutzungserschliessung im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Main Activity Circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Circulation spaces integral to main activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-COM</td>
+<td>M</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gewerbeflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer gewerbeflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Commercial Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for trading and business activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-HEL</td>
+<td>M</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gesundheitsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer gesundheitsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Healthcare Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for medical and wellness activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-LRN</td>
+<td>M</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Lernflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer lernflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Learning Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for educational and knowledge acquisition</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-RES</td>
+<td>M</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Wohnflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer wohnflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Residential Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for daily living and personal life activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-WRK</td>
+<td>M</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Arbeitsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer arbeitsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Work Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for professional and productive activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-WRK-KNW</td>
+<td>M-WRK</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Wissensarbeitsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer wissensarbeitsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Knowledge Work Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for intellectual and information-based work</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>M-WRK-PRD</td>
+<td>M-WRK</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Produktionsarbeitsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer produktionsarbeitsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Production Work Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for physical production and manufacturing activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussenflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer aussenflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Outdoor Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">External spaces associated with the building</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O-CIR</td>
+<td>O</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussenerschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer aussenerschliessung im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Outdoor Circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">External movement spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O-CIR-PED</td>
+<td>O-CIR</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Fussgaengererschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer fussgaengererschliessung im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Pedestrian Circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Pedestrian movement spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O-CIR-RD</td>
+<td>O-CIR</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Fahrwege</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer fahrwege im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Roads</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Vehicular circulation routes</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O-GRN</td>
+<td>O</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gruenflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer gruenflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Green Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Landscaped and natural area spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O-GRN-GDN</td>
+<td>O-GRN</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gartenflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer gartenflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Garden Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Cultivated green spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O-GRN-REC</td>
+<td>O-GRN</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Erholungsgruenflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer erholungsgruenflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Recreational Green Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for leisure activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>O-GRN-SPT</td>
+<td>O-GRN</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Sportflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer sportflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Sports Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Formal athletic spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Unterstuetzungsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer unterstuetzungsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Support Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Auxiliary spaces supporting building operations</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-CIR</td>
+<td>S</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Nebenerschliessungsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer nebenerschliessungsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Support Circulation Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Auxiliary circulation spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-CIR-HOR</td>
+<td>S-CIR</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Horizontale Erschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer horizontale erschliessung im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Horizontal Circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for horizontal movement</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-CIR-VRT</td>
+<td>S-CIR</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Vertikale Erschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer vertikale erschliessung im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Vertical Circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for vertical movement</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-PRK</td>
+<td>S</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkierungsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer parkierungsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Parking Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for vehicle storage and management</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-PRK-EXT</td>
+<td>S-PRK</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussenparkierungsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer aussenparkierungsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior Parking Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Open-air vehicle parking areas</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-PRK-INT</td>
+<td>S-PRK</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Innenparkierungsflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer innenparkierungsflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior Parking Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Enclosed vehicle parking areas</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-PRK-SVC</td>
+<td>S-PRK</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Servicefahrzeugflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer servicefahrzeugflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Service Vehicle Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Specialized parking for service vehicles</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-TEC</td>
+<td>S</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Technikflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer technikflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Technical Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for building systems and equipment</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-VOI</td>
+<td>S</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Hohlraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer hohlraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Void Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces not suitable for occupancy or activity</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-VOI-MLT</td>
+<td>S-VOI</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Mehrgeschossige Hohlraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer mehrgeschossige hohlraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Multistory Void Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Vertical open spaces spanning multiple floors</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-VOI-PLN</td>
+<td>S-VOI</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Installationszwischenraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer installationszwischenraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Plenum Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Horizontal service voids</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-VOI-STR</td>
+<td>S-VOI</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Konstruktive Hohlraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer konstruktive hohlraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Structural Voids</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces within structural elements</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-VOI-VRT</td>
+<td>S-VOI</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Vertikale Hohlraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer vertikale hohlraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Vertical Void Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Vertical shafts and wells</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+</tbody>
+</table>
+</div>

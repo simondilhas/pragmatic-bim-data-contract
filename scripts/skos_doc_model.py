@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import html
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -359,8 +360,65 @@ def build_mermaid_hierarchy(vocab: VocabularyDoc) -> str:
     return "\n".join(lines)
 
 
-def escape_md_cell(text: str) -> str:
-    return text.replace("|", "\\|").replace("\n", " ")
+def escape_html(text: str) -> str:
+    return html.escape(text, quote=True)
+
+
+def default_lang(langs: list[str]) -> str:
+    if "en" in langs:
+        return "en"
+    return langs[0] if langs else "en"
+
+
+LANG_FIELDS = (
+    ("label", "Label", lambda c: c.pref_label),
+    ("definition", "Definition", lambda c: c.definition),
+    ("scope_note", "Scope note", lambda c: c.scope_note),
+)
+
+
+def render_concepts_table_html(vocab: VocabularyDoc) -> str:
+    if not vocab.langs:
+        return ""
+
+    default = default_lang(vocab.langs)
+    lines: list[str] = [
+        f'<div class="pbs-vocab-concepts" data-default-lang="{escape_html(default)}" '
+        f'data-active-lang="{escape_html(default)}">',
+        '<div class="pbs-lang-switcher" role="group" aria-label="Language">',
+    ]
+    for lang in vocab.langs:
+        lines.append(
+            f'<button type="button" class="pbs-lang-btn" data-lang="{escape_html(lang)}">'
+            f"{escape_html(lang.upper())}</button>"
+        )
+    lines.extend(["</div>", "<table>", "<thead>", "<tr>"])
+    lines.append("<th>Notation</th>")
+    lines.append("<th>Broader</th>")
+    for lang in vocab.langs:
+        for field_key, field_title, _ in LANG_FIELDS:
+            lines.append(
+                f'<th class="pbs-lang-col" data-lang="{escape_html(lang)}" '
+                f'data-field="{field_key}">{field_title}</th>'
+            )
+    lines.extend(["</tr>", "</thead>", "<tbody>"])
+
+    for concept in vocab.concepts:
+        broader = ", ".join(concept.broader)
+        lines.append("<tr>")
+        lines.append(f"<td>{escape_html(concept.notation)}</td>")
+        lines.append(f"<td>{escape_html(broader)}</td>")
+        for lang in vocab.langs:
+            for field_key, _, getter in LANG_FIELDS:
+                value = getter(concept).get(lang)
+                lines.append(
+                    f'<td class="pbs-lang-col" data-lang="{escape_html(lang)}" '
+                    f'data-field="{field_key}">{escape_html(value)}</td>'
+                )
+        lines.append("</tr>")
+
+    lines.extend(["</tbody>", "</table>", "</div>"])
+    return "\n".join(lines)
 
 
 def format_meta_section(meta: dict[str, LangStrings], langs: list[str]) -> list[str]:
@@ -397,21 +455,7 @@ def render_vocabulary_markdown(vocab: VocabularyDoc) -> str:
         if mermaid:
             lines.extend(["## Hierarchy", "", mermaid, ""])
 
-    label_cols = [f"Label ({lang})" for lang in vocab.langs]
-    def_cols = [f"Definition ({lang})" for lang in vocab.langs]
-    scope_cols = [f"Scope note ({lang})" for lang in vocab.langs]
-    header = ["Notation", "Broader"] + label_cols + def_cols + scope_cols
-    lines.extend(["## Concepts", "", "| " + " | ".join(header) + " |", "| " + " | ".join(["---"] * len(header)) + " |"])
-
-    for concept in vocab.concepts:
-        broader = ", ".join(concept.broader)
-        row = [escape_md_cell(concept.notation), escape_md_cell(broader)]
-        row.extend(escape_md_cell(concept.pref_label.get(lang)) for lang in vocab.langs)
-        row.extend(escape_md_cell(concept.definition.get(lang)) for lang in vocab.langs)
-        row.extend(escape_md_cell(concept.scope_note.get(lang)) for lang in vocab.langs)
-        lines.append("| " + " | ".join(row) + " |")
-
-    lines.append("")
+    lines.extend(["## Concepts", "", render_concepts_table_html(vocab), ""])
     return "\n".join(lines)
 
 
