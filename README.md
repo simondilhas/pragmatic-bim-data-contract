@@ -89,7 +89,7 @@ If your use case requires full flexibility, use IFC directly.
 
 This project intentionally ignores large parts of IFC.
 
-Only data required for real workflows is included.
+Only data required for real decision workflows is included.
 
 ### 5) Consistency over universality
 
