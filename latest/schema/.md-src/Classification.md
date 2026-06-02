@@ -70,7 +70,7 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 | [Decision](Decision.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Task](Task.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Message](Message.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [YamlDocument](YamlDocument.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Artifact](Artifact.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Requirement](Requirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |

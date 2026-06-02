@@ -47,6 +47,8 @@
       
     
     
+      <link rel="stylesheet" href="stylesheets/pragmatic-bim-brand.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -63,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+    <a href="https://schema.pragmaticbim.ch/" title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -121,7 +123,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
     
   
 </form>
@@ -200,7 +202,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+    <a href="https://schema.pragmaticbim.ch/" title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -408,6 +410,7 @@
       MatchChange : affected_subject_id
       MatchChange : affected_subject_path
       MatchChange : affected_subject_type
+      MatchChange : artifact_storage_link
       MatchChange : change_severity
         MatchChange --&gt; "0..1" ChangeSeverity : change_severity
         click ChangeSeverity href "./ChangeSeverity.html"
@@ -416,7 +419,6 @@
         MatchChange --&gt; "1" ChangeType : change_type
         click ChangeType href "./ChangeType.html"
       MatchChange : detected_at
-      MatchChange : document_storage_link
       MatchChange : from_revision
       MatchChange : id
       MatchChange : ifc_global_id
@@ -518,7 +520,7 @@
 <tr>
 <td><a href="affected_subject_type.html">affected_subject_type</a></td>
 <td>1 <br/> <a href="String.html">String</a></td>
-<td>LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).</td>
+<td>LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).</td>
 <td><a href="Change.html">Change</a></td>
 </tr>
 <tr>
@@ -534,9 +536,9 @@
 <td><a href="Change.html">Change</a></td>
 </tr>
 <tr>
-<td><a href="document_storage_link.html">document_storage_link</a></td>
+<td><a href="artifact_storage_link.html">artifact_storage_link</a></td>
 <td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
-<td>Document location when the subject is a yamlDocument entity or document field diff.</td>
+<td>Artifact location when the subject is an Artifact entity or embedded field diff.</td>
 <td><a href="Change.html">Change</a></td>
 </tr>
 <tr>
@@ -723,7 +725,7 @@
 <span class="w">  </span><span class="nt">affected_subject_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject_type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;LinkML</span><span class="nv"> </span><span class="s">class</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">changed</span><span class="nv"> </span><span class="s">subject</span><span class="nv"> </span><span class="s">(for</span><span class="nv"> </span><span class="s">example</span><span class="nv"> </span><span class="s">Space,</span><span class="nv"> </span><span class="s">SeparatorWall,</span>
-<span class="w">      </span><span class="s">yamlDocument).</span>
+<span class="w">      </span><span class="s">Artifact).</span>
 
 <span class="w">      </span><span class="s">&#39;</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -756,9 +758,9 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[0-3][0-9A-Za-z_$]{21}$</span>
-<span class="w">  </span><span class="nt">document_storage_link</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_storage_link</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document location when the subject is a yamlDocument entity or document</span>
+<span class="w">  </span><span class="nt">artifact_storage_link</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artifact_storage_link</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Artifact location when the subject is an Artifact entity or embedded</span>
 <span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">field diff.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>

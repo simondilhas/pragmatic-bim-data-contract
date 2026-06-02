@@ -270,6 +270,8 @@ attributes:
     owner: Task
     domain_of:
     - Task
+    - DeliverableRequirement
+    - ScheduleRequirement
     range: datetime
   related_decision:
     name: related_decision
@@ -386,7 +388,7 @@ attributes:
     owner: Task
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

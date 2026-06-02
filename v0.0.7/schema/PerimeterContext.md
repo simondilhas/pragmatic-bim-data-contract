@@ -453,7 +453,7 @@ attributes:
     owner: PerimeterContext
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

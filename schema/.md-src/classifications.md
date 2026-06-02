@@ -26,7 +26,7 @@ URI: [pbs:classifications](https://schema.pragmaticbim.ch/classifications)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |  no  |
-| [YamlDocument](YamlDocument.md) | Document entity referencing external storage. Links to related entities via applies_to_entities. |  no  |
+| [Artifact](Artifact.md) | External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element. |  no  |
 | [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
@@ -78,7 +78,7 @@ URI: [pbs:classifications](https://schema.pragmaticbim.ch/classifications)
 | Property | Value |
 | --- | --- |
 | Range | [Classification](Classification.md) |
-| Domain Of | [Entity](Entity.md), [YamlDocument](YamlDocument.md) |
+| Domain Of | [Entity](Entity.md), [Artifact](Artifact.md) |
 
 ### Cardinality and Requirements
 
@@ -129,7 +129,7 @@ from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - Entity
-- yamlDocument
+- Artifact
 range: Classification
 multivalued: true
 inlined: true

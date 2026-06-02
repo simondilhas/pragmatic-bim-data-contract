@@ -34,8 +34,8 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
         click Task href "./Task.html"
       Entity <|-- Message
         click Message href "./Message.html"
-      Entity <|-- YamlDocument
-        click YamlDocument href "./YamlDocument.html"
+      Entity <|-- Artifact
+        click Artifact href "./Artifact.html"
       Entity <|-- Requirement
         click Requirement href "./Requirement.html"
       Entity <|-- PhysicalElement
@@ -90,7 +90,7 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
     * [Decision](Decision.md)
     * [Task](Task.md)
     * [Message](Message.md)
-    * [YamlDocument](YamlDocument.md)
+    * [Artifact](Artifact.md)
     * [Requirement](Requirement.md)
     * [PhysicalElement](PhysicalElement.md)
     * [VirtualEntity](VirtualEntity.md)
@@ -141,13 +141,19 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 | [Decision](Decision.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Task](Task.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Message](Message.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
-| [YamlDocument](YamlDocument.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Artifact](Artifact.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Requirement](Requirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [related_entity](related_entity.md) | range | [Entity](Entity.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [BriefRequirement](BriefRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [related_time_record](related_time_record.md) | range | [Entity](Entity.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [CostRequirement](CostRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [related_material](related_material.md) | range | [Entity](Entity.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [PhysicalElement](PhysicalElement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Separator](Separator.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [SeparatorWall](SeparatorWall.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
@@ -383,7 +389,7 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

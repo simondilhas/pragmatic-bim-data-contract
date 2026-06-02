@@ -41,11 +41,17 @@ URI: [pbs:ConnectionPhysical](https://schema.pragmaticbim.ch/ConnectionPhysical)
       ConnectionPhysical : content_kind
       ConnectionPhysical : created_at
       ConnectionPhysical : description
+      ConnectionPhysical : frame_material
+        ConnectionPhysical --> "0..1" Material : frame_material
+        click Material href "./Material.html"
       ConnectionPhysical : geometry_representations
         ConnectionPhysical --> "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
       ConnectionPhysical : id
       ConnectionPhysical : ifc_global_id
+      ConnectionPhysical : infill_material
+        ConnectionPhysical --> "0..1" Material : infill_material
+        click Material href "./Material.html"
       ConnectionPhysical : localized_descriptions
         ConnectionPhysical --> "*" LocalizedText : localized_descriptions
         click LocalizedText href "./LocalizedText.html"
@@ -102,6 +108,8 @@ URI: [pbs:ConnectionPhysical](https://schema.pragmaticbim.ch/ConnectionPhysical)
 | ---  | --- | --- | --- |
 | [connection_physical_type](connection_physical_type.md) | 1 <br/> [ConnectionPhysicalType](ConnectionPhysicalType.md) | Classification of physical connector type (for example door, window, duct, pipe, cable). | direct |
 | [transport_medium](transport_medium.md) | 1 <br/> [TransportMedium](TransportMedium.md) | Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity). | direct |
+| [frame_material](frame_material.md) | 0..1 <br/> [Material](Material.md) | Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window). | direct |
+| [infill_material](infill_material.md) | 0..1 <br/> [Material](Material.md) | Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window). | direct |
 | [connection_physical_requirement_drivers](connection_physical_requirement_drivers.md) | * <br/> [ConnectionRequirementDriver](ConnectionRequirementDriver.md) | Performance requirement drivers for this physical connection element. Multiple values are allowed because one connection may need to satisfy several requirements. | direct |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [PhysicalElement](PhysicalElement.md) |
 | [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | [PhysicalElement](PhysicalElement.md) |
@@ -186,6 +194,8 @@ is_a: PhysicalElement
 slots:
 - connection_physical_type
 - transport_medium
+- frame_material
+- infill_material
 - connection_physical_requirement_drivers
 class_uri: pbs:ConnectionPhysical
 
@@ -229,6 +239,29 @@ attributes:
     - ConnectionPhysical
     range: TransportMedium
     required: true
+  frame_material:
+    name: frame_material
+    description: Material of the frame or casing surrounding the opening. Applies
+      to opening-type connectors (door, window).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ConnectionPhysical
+    domain_of:
+    - ConnectionPhysical
+    range: Material
+    inlined: false
+  infill_material:
+    name: infill_material
+    description: Material of the opening infill within the frame (for example glazing
+      for windows, door leaf or panel for doors). Applies to opening-type connectors
+      (door, window).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ConnectionPhysical
+    domain_of:
+    - ConnectionPhysical
+    range: Material
+    inlined: false
   connection_physical_requirement_drivers:
     name: connection_physical_requirement_drivers
     description: 'Performance requirement drivers for this physical connection element.
@@ -360,7 +393,7 @@ attributes:
     owner: ConnectionPhysical
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

@@ -242,6 +242,7 @@ attributes:
     rank: 1000
     owner: CostRecord
     domain_of:
+    - CostRequirement
     - CostRecord
     range: string
   unit_cost:
@@ -262,6 +263,7 @@ attributes:
     rank: 1000
     owner: CostRecord
     domain_of:
+    - CostRequirement
     - CostRecord
     range: string
     required: true
@@ -273,6 +275,7 @@ attributes:
     rank: 1000
     owner: CostRecord
     domain_of:
+    - CostRequirement
     - CostRecord
     range: QuantityType
   cost_quantity_value:
@@ -446,7 +449,7 @@ attributes:
     owner: CostRecord
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

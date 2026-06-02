@@ -62,7 +62,7 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 | [Decision](Decision.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Task](Task.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Message](Message.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [YamlDocument](YamlDocument.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Artifact](Artifact.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Requirement](Requirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |

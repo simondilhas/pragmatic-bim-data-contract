@@ -60,9 +60,9 @@ URI: [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequ
         click QuantityValue href "./QuantityValue.html"
       PerformanceRequirement : requirement_property_key
       PerformanceRequirement : revision
-      PerformanceRequirement : source_document
-        PerformanceRequirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      PerformanceRequirement : source_artifact
+        PerformanceRequirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       PerformanceRequirement : status
         PerformanceRequirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -104,7 +104,7 @@ URI: [pbs:PerformanceRequirement](https://schema.pragmaticbim.ch/PerformanceRequ
 | [target_value_boolean](target_value_boolean.md) | 0..1 <br/> [Boolean](Boolean.md) | Boolean target value when applicable. | direct |
 | [target_unit](target_unit.md) | 0..1 <br/> [String](String.md) | Unit for numeric targets (for example W/m2K, min, dB). | direct |
 | [target_unit_uri](target_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI identifying the target unit (for example QUDT). | direct |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | [Requirement](Requirement.md) |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | [Requirement](Requirement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -221,6 +221,7 @@ attributes:
     owner: PerformanceRequirement
     domain_of:
     - PerformanceRequirement
+    - CostRequirement
     range: RequirementTargetOperator
   target_value_string:
     name: target_value_string
@@ -239,6 +240,7 @@ attributes:
     owner: PerformanceRequirement
     domain_of:
     - PerformanceRequirement
+    - CostRequirement
     range: double
   target_value_boolean:
     name: target_value_boolean
@@ -267,15 +269,15 @@ attributes:
     domain_of:
     - PerformanceRequirement
     range: uriorcurie
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: PerformanceRequirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -371,7 +373,7 @@ attributes:
     owner: PerformanceRequirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

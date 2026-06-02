@@ -64,9 +64,9 @@ URI: [pbs:MaterialRequirement](https://schema.pragmaticbim.ch/MaterialRequiremen
         MaterialRequirement --> "0..1" Entity : related_material
         click Entity href "./Entity.html"
       MaterialRequirement : revision
-      MaterialRequirement : source_document
-        MaterialRequirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      MaterialRequirement : source_artifact
+        MaterialRequirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       MaterialRequirement : status
         MaterialRequirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -98,7 +98,7 @@ URI: [pbs:MaterialRequirement](https://schema.pragmaticbim.ch/MaterialRequiremen
 | [material_specification](material_specification.md) | 0..1 <br/> [String](String.md) | Material grade, specification, or product description. | direct |
 | [related_material](related_material.md) | 0..1 <br/> [Entity](Entity.md) | Optional Material entity template this requirement must match or satisfy. | direct |
 | [substitutes_allowed](substitutes_allowed.md) | 0..1 <br/> [Boolean](Boolean.md) | Whether equivalent or substitute materials are permitted. | direct |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | [Requirement](Requirement.md) |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | [Requirement](Requirement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -232,15 +232,15 @@ attributes:
     domain_of:
     - MaterialRequirement
     range: boolean
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: MaterialRequirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -336,7 +336,7 @@ attributes:
     owner: MaterialRequirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

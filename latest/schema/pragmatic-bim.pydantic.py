@@ -119,9 +119,9 @@ class ContentKind(str, Enum):
     """
     Prescriptive requirement record.
     """
-    Document = "document"
+    Artifact = "artifact"
     """
-    Document entity referencing external storage.
+    External project artifact (text document, model, or plan) at storage_link.
     """
     Decision = "decision"
     """
@@ -138,6 +138,24 @@ class ContentKind(str, Enum):
     Message = "message"
     """
     Message or communication entity for coordination.
+    """
+
+
+class ArtifactKind(str, Enum):
+    """
+    Kind of external project artifact referenced by storage_link.
+    """
+    Text_document = "text_document"
+    """
+    Text-based document (specification, contract, report, manual).
+    """
+    Model = "model"
+    """
+    BIM or coordination model file.
+    """
+    Plan = "plan"
+    """
+    Drawing or plan sheet (floor plan, section, detail).
     """
 
 
@@ -776,7 +794,7 @@ class Entity(ConfiguredBaseModel):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -824,7 +842,7 @@ class Agent(Entity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -870,7 +888,7 @@ class Person(Agent):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -915,7 +933,7 @@ class Company(Agent):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1039,7 +1057,7 @@ class Decision(Entity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1092,7 +1110,7 @@ class Task(Entity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1143,7 +1161,7 @@ class Message(Entity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1170,20 +1188,25 @@ class Message(Entity):
         return v
 
 
-class YamlDocument(Entity):
+class Artifact(Entity):
     """
-    Document entity referencing external storage. Links to related entities via applies_to_entities.
+    External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element.
+
     """
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:YamlDocument',
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:Artifact',
+         'exact_mappings': ['schema:CreativeWork'],
          'from_schema': 'https://schema.pragmaticbim.ch/entity/core',
-         'slot_usage': {'content_kind': {'equals_string': 'document',
+         'slot_usage': {'artifact_kind': {'name': 'artifact_kind', 'required': True},
+                        'content_kind': {'equals_string': 'artifact',
                                          'name': 'content_kind'},
                         'id': {'name': 'id', 'required': True}}})
 
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
-    storage_link: str = Field(default=..., description="""URI/URL/path to the stored document location.""", json_schema_extra = { "linkml_meta": {'domain_of': ['yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
+    storage_link: str = Field(default=..., description="""URI/URL/path to the stored artifact location.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact']} })
+    artifact_kind: ArtifactKind = Field(default=..., description="""Kind of external artifact (text document, model, or plan).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact']} })
+    media_format: Optional[str] = Field(default=None, description="""Encoding or format label (for example IFC4, PDF, DWG).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Artifact']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    content_kind: Literal["document"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'document'} })
+    content_kind: Literal["artifact"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'artifact'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_names: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     description: Optional[str] = Field(default=None, description="""Default description text.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1403,7 +1426,7 @@ class Requirement(Entity):
          'slot_usage': {'content_kind': {'equals_string': 'requirement',
                                          'name': 'content_kind'}}})
 
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1412,7 +1435,7 @@ class Requirement(Entity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1454,7 +1477,7 @@ class PerformanceRequirement(Requirement):
     target_value_boolean: Optional[bool] = Field(default=None, description="""Boolean target value when applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceRequirement']} })
     target_unit: Optional[str] = Field(default=None, description="""Unit for numeric targets (for example W/m2K, min, dB).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceRequirement']} })
     target_unit_uri: Optional[str] = Field(default=None, description="""Optional URI identifying the target unit (for example QUDT).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceRequirement']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1463,7 +1486,7 @@ class PerformanceRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1502,7 +1525,7 @@ class SpatialRequirement(Requirement):
     adjacency_kind: Optional[SpatialAdjacencyKind] = Field(default=None, description="""Adjacency semantics when this spatial requirement involves another subject.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialRequirement']} })
     related_entity: Optional[str] = Field(default=None, description="""Entity or space subject for adjacency or distance constraints.""", json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialRequirement']} })
     min_clear_distance: Optional[float] = Field(default=None, description="""Minimum clear distance in metres when adjacency_kind is min_clear_distance.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['SpatialRequirement']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1511,7 +1534,7 @@ class SpatialRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1548,7 +1571,7 @@ class RegulatoryRequirement(Requirement):
     norm_uri: Optional[str] = Field(default=None, description="""URI identifying the norm, standard, or building code.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RegulatoryRequirement']} })
     clause_ref: Optional[str] = Field(default=None, description="""Clause, article, or section reference within the norm.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RegulatoryRequirement']} })
     jurisdiction: Optional[str] = Field(default=None, description="""Jurisdiction or authority scope for the regulatory requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['RegulatoryRequirement']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1557,7 +1580,7 @@ class RegulatoryRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1593,7 +1616,7 @@ class BriefRequirement(Requirement):
 
     programme_ref: Optional[str] = Field(default=None, description="""URI or identifier for a programme or brief document.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BriefRequirement']} })
     statement: Optional[str] = Field(default=None, description="""Free-text requirement statement from client or programme.""", json_schema_extra = { "linkml_meta": {'domain_of': ['BriefRequirement']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1602,7 +1625,7 @@ class BriefRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1641,7 +1664,7 @@ class DeliverableRequirement(Requirement):
     due_at: Optional[datetime ] = Field(default=None, description="""Due timestamp for task completion.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Task', 'DeliverableRequirement', 'ScheduleRequirement'],
          'slot_uri': 'schema:deadline'} })
     acceptance_criteria: Optional[str] = Field(default=None, description="""Criteria that define when the deliverable is accepted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['DeliverableRequirement']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1650,7 +1673,7 @@ class DeliverableRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1688,7 +1711,7 @@ class ScheduleRequirement(Requirement):
          'slot_uri': 'schema:deadline'} })
     earliest_start_at: Optional[datetime ] = Field(default=None, description="""Earliest permitted start when a schedule requirement defines a start window.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleRequirement']} })
     related_time_record: Optional[str] = Field(default=None, description="""Optional TimeRecord plan item this schedule requirement aligns with or must satisfy.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ScheduleRequirement']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1697,7 +1720,7 @@ class ScheduleRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1736,7 +1759,7 @@ class CostRequirement(Requirement):
     target_value_number: Optional[float] = Field(default=None, description="""Numeric target value when applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PerformanceRequirement', 'CostRequirement']} })
     currency: str = Field(default=..., description="""ISO 4217 currency code (for example EUR, USD).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CostRequirement', 'CostRecord']} })
     cost_quantity_type: Optional[QuantityType] = Field(default=None, description="""Quantity type used as basis for this cost calculation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CostRequirement', 'CostRecord']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1745,7 +1768,7 @@ class CostRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1796,7 +1819,7 @@ class MaterialRequirement(Requirement):
     material_specification: Optional[str] = Field(default=None, description="""Material grade, specification, or product description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialRequirement', 'Material']} })
     related_material: Optional[str] = Field(default=None, description="""Optional Material entity template this requirement must match or satisfy.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialRequirement']} })
     substitutes_allowed: Optional[bool] = Field(default=None, description="""Whether equivalent or substitute materials are permitted.""", json_schema_extra = { "linkml_meta": {'domain_of': ['MaterialRequirement']} })
-    source_document: Optional[str] = Field(default=None, description="""Optional source document entity backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
+    source_artifact: Optional[str] = Field(default=None, description="""Optional source artifact backing this requirement.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Requirement']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["requirement"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'requirement'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1805,7 +1828,7 @@ class MaterialRequirement(Requirement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1857,7 +1880,7 @@ class PhysicalElement(Entity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1905,7 +1928,7 @@ class Separator(PhysicalElement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -1954,7 +1977,7 @@ class SeparatorWall(Separator):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2003,7 +2026,7 @@ class SeparatorSlab(Separator):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2057,7 +2080,7 @@ class ConnectionPhysical(PhysicalElement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2104,7 +2127,7 @@ class Boundary(PhysicalElement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2152,7 +2175,7 @@ class Equipment(PhysicalElement):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2200,7 +2223,7 @@ class VirtualEntity(Entity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2269,7 +2292,7 @@ class SpatialContext(VirtualEntity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2323,7 +2346,7 @@ class ProjectContext(SpatialContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2377,7 +2400,7 @@ class PerimeterContext(SpatialContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2431,7 +2454,7 @@ class LegalSiteContext(SpatialContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2486,7 +2509,7 @@ class BuiltAssetContext(SpatialContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2540,7 +2563,7 @@ class BuildingContext(BuiltAssetContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2594,7 +2617,7 @@ class CivilStructureContext(BuiltAssetContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2648,7 +2671,7 @@ class LevelContext(SpatialContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2702,7 +2725,7 @@ class ZoneContext(SpatialContext):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2758,7 +2781,7 @@ class Space(VirtualEntity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2815,7 +2838,7 @@ class System(VirtualEntity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2864,7 +2887,7 @@ class ConnectionVirtual(VirtualEntity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2930,7 +2953,7 @@ class TimeRecord(VirtualEntity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2982,7 +3005,7 @@ class CostRecord(VirtualEntity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -3041,7 +3064,7 @@ class Material(VirtualEntity):
     meaning_uri: Optional[str] = Field(default=None, description="""Optional semantic URI for linking the entity instance to an external ontology concept.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     localized_descriptions: Optional[list[LocalizedText]] = Field(default=None, description="""Localized variants of description.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'yamlDocument']} })
+    classifications: Optional[list[Classification]] = Field(default=None, description="""Classification entries from IFC and other schemes.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Artifact']} })
     geometry_representations: Optional[list[GeometryRepresentation]] = Field(default=None, description="""Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
     quantity_values: Optional[list[QuantityValue]] = Field(default=None, description="""Quantities associated with the entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -3091,12 +3114,12 @@ class Change(ConfiguredBaseModel):
     intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject: Optional[str] = Field(default=None, description="""Optional typed reference to the changed graph entity when the subject is in the project graph.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
-    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is a yamlDocument entity or document field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    artifact_storage_link: Optional[str] = Field(default=None, description="""Artifact location when the subject is an Artifact entity or embedded field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     triggered_task: Optional[str] = Field(default=None, description="""Task entity that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
@@ -3152,12 +3175,12 @@ class PropertyChange(Change):
     intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject: Optional[str] = Field(default=None, description="""Optional typed reference to the changed graph entity when the subject is in the project graph.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
-    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is a yamlDocument entity or document field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    artifact_storage_link: Optional[str] = Field(default=None, description="""Artifact location when the subject is an Artifact entity or embedded field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     triggered_task: Optional[str] = Field(default=None, description="""Task entity that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
@@ -3194,12 +3217,12 @@ class GeometryChange(Change):
     intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject: Optional[str] = Field(default=None, description="""Optional typed reference to the changed graph entity when the subject is in the project graph.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
-    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is a yamlDocument entity or document field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    artifact_storage_link: Optional[str] = Field(default=None, description="""Artifact location when the subject is an Artifact entity or embedded field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     triggered_task: Optional[str] = Field(default=None, description="""Task entity that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
@@ -3241,12 +3264,12 @@ class RequirementChange(Change):
     intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject: Optional[str] = Field(default=None, description="""Optional typed reference to the changed graph entity when the subject is in the project graph.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
-    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is a yamlDocument entity or document field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    artifact_storage_link: Optional[str] = Field(default=None, description="""Artifact location when the subject is an Artifact entity or embedded field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     triggered_task: Optional[str] = Field(default=None, description="""Task entity that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
@@ -3285,12 +3308,12 @@ class MatchChange(Change):
     intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject: Optional[str] = Field(default=None, description="""Optional typed reference to the changed graph entity when the subject is in the project graph.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
-    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is a yamlDocument entity or document field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    artifact_storage_link: Optional[str] = Field(default=None, description="""Artifact location when the subject is an Artifact entity or embedded field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     triggered_task: Optional[str] = Field(default=None, description="""Task entity that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
@@ -3326,12 +3349,12 @@ class AdditionChange(Change):
     intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject: Optional[str] = Field(default=None, description="""Optional typed reference to the changed graph entity when the subject is in the project graph.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
-    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is a yamlDocument entity or document field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    artifact_storage_link: Optional[str] = Field(default=None, description="""Artifact location when the subject is an Artifact entity or embedded field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     triggered_task: Optional[str] = Field(default=None, description="""Task entity that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
@@ -3367,12 +3390,12 @@ class DeletionChange(Change):
     intent_verdict: Optional[ChangeIntentVerdict] = Field(default=None, description="""Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject: Optional[str] = Field(default=None, description="""Optional typed reference to the changed graph entity when the subject is in the project graph.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_id: str = Field(default=..., description="""Identifier of the changed subject (entity id, document id, or external key).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
-    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    affected_subject_type: str = Field(default=..., description="""LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     affected_subject_path: Optional[str] = Field(default=None, description="""Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     ifc_global_id: Optional[str] = Field(default=None, description="""IFC GlobalId of the mapped entity.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
-    document_storage_link: Optional[str] = Field(default=None, description="""Document location when the subject is a yamlDocument entity or document field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
+    artifact_storage_link: Optional[str] = Field(default=None, description="""Artifact location when the subject is an Artifact entity or embedded field diff.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     from_revision: int = Field(default=..., description="""Source revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     to_revision: int = Field(default=..., description="""Target revision number for this change.""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
     triggered_task: Optional[str] = Field(default=None, description="""Task entity that this change triggered or should trigger.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Change']} })
@@ -3408,7 +3431,7 @@ PerformanceProperty.model_rebuild()
 Decision.model_rebuild()
 Task.model_rebuild()
 Message.model_rebuild()
-YamlDocument.model_rebuild()
+Artifact.model_rebuild()
 PostalAddress.model_rebuild()
 ContactPoint.model_rebuild()
 LocalizedText.model_rebuild()

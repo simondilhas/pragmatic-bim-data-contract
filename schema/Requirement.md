@@ -79,9 +79,9 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
         Requirement --> "*" QuantityValue : quantity_values
         click QuantityValue href "./QuantityValue.html"
       Requirement : revision
-      Requirement : source_document
-        Requirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      Requirement : source_artifact
+        Requirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       Requirement : status
         Requirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -115,7 +115,7 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | direct |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -202,7 +202,7 @@ from_schema: https://schema.pragmaticbim.ch
 is_a: Entity
 abstract: true
 slots:
-- source_document
+- source_artifact
 slot_usage:
   content_kind:
     name: content_kind
@@ -231,15 +231,15 @@ slot_usage:
     name: content_kind
     equals_string: requirement
 attributes:
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Requirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -335,7 +335,7 @@ attributes:
     owner: Requirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

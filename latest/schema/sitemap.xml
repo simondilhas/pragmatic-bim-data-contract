@@ -17,6 +17,14 @@
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/schema/Artifact.html</loc>
+         <lastmod>2026-06-02</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/ArtifactKind.html</loc>
+         <lastmod>2026-06-02</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/schema/Boolean.html</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
@@ -445,10 +453,6 @@
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/YamlDocument.html</loc>
-         <lastmod>2026-06-02</lastmod>
-    </url>
-    <url>
          <loc>https://schema.pragmaticbim.ch/schema/ZoneContext.html</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
@@ -514,6 +518,14 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/applies_to_entities.html</loc>
+         <lastmod>2026-06-02</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/artifact_kind.html</loc>
+         <lastmod>2026-06-02</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/artifact_storage_link.html</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
@@ -709,10 +721,6 @@
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/document_storage_link.html</loc>
-         <lastmod>2026-06-02</lastmod>
-    </url>
-    <url>
          <loc>https://schema.pragmaticbim.ch/schema/due_at.html</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
@@ -822,6 +830,10 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/meaning_uri.html</loc>
+         <lastmod>2026-06-02</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/media_format.html</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
@@ -1073,7 +1085,7 @@
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/source_document.html</loc>
+         <loc>https://schema.pragmaticbim.ch/schema/source_artifact.html</loc>
          <lastmod>2026-06-02</lastmod>
     </url>
     <url>

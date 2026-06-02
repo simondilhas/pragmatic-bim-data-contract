@@ -64,9 +64,9 @@ URI: [pbs:CostRequirement](https://schema.pragmaticbim.ch/CostRequirement)
         CostRequirement --> "*" QuantityValue : quantity_values
         click QuantityValue href "./QuantityValue.html"
       CostRequirement : revision
-      CostRequirement : source_document
-        CostRequirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      CostRequirement : source_artifact
+        CostRequirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       CostRequirement : status
         CostRequirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -102,7 +102,7 @@ URI: [pbs:CostRequirement](https://schema.pragmaticbim.ch/CostRequirement)
 | [target_value_number](target_value_number.md) | 0..1 <br/> [Double](Double.md) | Numeric target value when applicable. | direct |
 | [currency](currency.md) | 1 <br/> [String](String.md) | ISO 4217 currency code (for example EUR, USD). | direct |
 | [cost_quantity_type](cost_quantity_type.md) | 0..1 <br/> [QuantityType](QuantityType.md) | Quantity type used as basis for this cost calculation. | direct |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | [Requirement](Requirement.md) |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | [Requirement](Requirement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -247,15 +247,15 @@ attributes:
     - CostRequirement
     - CostRecord
     range: QuantityType
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: CostRequirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -351,7 +351,7 @@ attributes:
     owner: CostRequirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

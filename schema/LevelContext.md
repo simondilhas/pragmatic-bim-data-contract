@@ -462,7 +462,7 @@ attributes:
     owner: LevelContext
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

@@ -62,9 +62,9 @@ URI: [pbs:RegulatoryRequirement](https://schema.pragmaticbim.ch/RegulatoryRequir
         RegulatoryRequirement --> "*" QuantityValue : quantity_values
         click QuantityValue href "./QuantityValue.html"
       RegulatoryRequirement : revision
-      RegulatoryRequirement : source_document
-        RegulatoryRequirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      RegulatoryRequirement : source_artifact
+        RegulatoryRequirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       RegulatoryRequirement : status
         RegulatoryRequirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -94,7 +94,7 @@ URI: [pbs:RegulatoryRequirement](https://schema.pragmaticbim.ch/RegulatoryRequir
 | [norm_uri](norm_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the norm, standard, or building code. | direct |
 | [clause_ref](clause_ref.md) | 0..1 <br/> [String](String.md) | Clause, article, or section reference within the norm. | direct |
 | [jurisdiction](jurisdiction.md) | 0..1 <br/> [String](String.md) | Jurisdiction or authority scope for the regulatory requirement. | direct |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | [Requirement](Requirement.md) |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | [Requirement](Requirement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -211,15 +211,15 @@ attributes:
     domain_of:
     - RegulatoryRequirement
     range: string
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: RegulatoryRequirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -315,7 +315,7 @@ attributes:
     owner: RegulatoryRequirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

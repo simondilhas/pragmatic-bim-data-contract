@@ -64,9 +64,9 @@ URI: [pbs:ScheduleRequirement](https://schema.pragmaticbim.ch/ScheduleRequiremen
         ScheduleRequirement --> "0..1" Entity : related_time_record
         click Entity href "./Entity.html"
       ScheduleRequirement : revision
-      ScheduleRequirement : source_document
-        ScheduleRequirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      ScheduleRequirement : source_artifact
+        ScheduleRequirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       ScheduleRequirement : status
         ScheduleRequirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -96,7 +96,7 @@ URI: [pbs:ScheduleRequirement](https://schema.pragmaticbim.ch/ScheduleRequiremen
 | [due_at](due_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Due timestamp for task completion. | direct |
 | [earliest_start_at](earliest_start_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Earliest permitted start when a schedule requirement defines a start window. | direct |
 | [related_time_record](related_time_record.md) | 0..1 <br/> [Entity](Entity.md) | Optional TimeRecord plan item this schedule requirement aligns with or must satisfy. | direct |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | [Requirement](Requirement.md) |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | [Requirement](Requirement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -221,15 +221,15 @@ attributes:
     - ScheduleRequirement
     range: Entity
     inlined: false
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ScheduleRequirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -325,7 +325,7 @@ attributes:
     owner: ScheduleRequirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

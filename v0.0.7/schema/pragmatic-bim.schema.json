@@ -116,8 +116,15 @@
                     ]
                 },
                 "affected_subject_type": {
-                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).\n",
+                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).\n",
                     "type": "string"
+                },
+                "artifact_storage_link": {
+                    "description": "Artifact location when the subject is an Artifact entity or embedded field diff.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "change_severity": {
                     "$ref": "#/$defs/ChangeSeverity",
@@ -137,13 +144,6 @@
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "document_storage_link": {
-                    "description": "Document location when the subject is a yamlDocument entity or document field diff.",
                     "type": [
                         "string",
                         "null"
@@ -376,6 +376,189 @@
             ],
             "title": "Agent",
             "type": "object"
+        },
+        "Artifact": {
+            "additionalProperties": false,
+            "description": "External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "artifact_kind": {
+                    "$ref": "#/$defs/ArtifactKind",
+                    "description": "Kind of external artifact (text document, model, or plan)."
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "artifact",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "media_format": {
+                    "description": "Encoding or format label (for example IFC4, PDF, DWG).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                },
+                "storage_link": {
+                    "description": "URI/URL/path to the stored artifact location.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "storage_link",
+                "artifact_kind",
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "Artifact",
+            "type": "object"
+        },
+        "ArtifactKind": {
+            "description": "Kind of external project artifact referenced by storage_link.",
+            "enum": [
+                "text_document",
+                "model",
+                "plan"
+            ],
+            "title": "ArtifactKind",
+            "type": "string"
         },
         "Boundary": {
             "additionalProperties": false,
@@ -719,8 +902,8 @@
                         "null"
                     ]
                 },
-                "source_document": {
-                    "description": "Optional source document entity backing this requirement.",
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
                     "type": [
                         "string",
                         "null"
@@ -1263,8 +1446,15 @@
                     ]
                 },
                 "affected_subject_type": {
-                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).\n",
+                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).\n",
                     "type": "string"
+                },
+                "artifact_storage_link": {
+                    "description": "Artifact location when the subject is an Artifact entity or embedded field diff.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "change_severity": {
                     "$ref": "#/$defs/ChangeSeverity",
@@ -1284,13 +1474,6 @@
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "document_storage_link": {
-                    "description": "Document location when the subject is a yamlDocument entity or document field diff.",
                     "type": [
                         "string",
                         "null"
@@ -1910,6 +2093,13 @@
                         "null"
                     ]
                 },
+                "frame_material": {
+                    "description": "Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "geometry_representations": {
                     "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
                     "items": {
@@ -1927,6 +2117,13 @@
                 "ifc_global_id": {
                     "description": "IFC GlobalId of the mapped entity.",
                     "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "infill_material": {
+                    "description": "Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window).",
                     "type": [
                         "string",
                         "null"
@@ -2360,7 +2557,7 @@
                 "virtual",
                 "context",
                 "requirement",
-                "document",
+                "artifact",
                 "decision",
                 "task",
                 "agent",
@@ -2617,6 +2814,197 @@
             "title": "CostRecord",
             "type": "object"
         },
+        "CostRequirement": {
+            "additionalProperties": false,
+            "description": "Cost or budget requirement (unit-cost cap, total budget limit, etc.).",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "requirement",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "cost_category": {
+                    "description": "Cost category label kept intentionally open pending classification-backed modeling.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "cost_quantity_type": {
+                    "$ref": "#/$defs/QuantityType",
+                    "description": "Quantity type used as basis for this cost calculation."
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "currency": {
+                    "description": "ISO 4217 currency code (for example EUR, USD).",
+                    "pattern": "^[A-Z]{3}$",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                },
+                "target_operator": {
+                    "$ref": "#/$defs/RequirementTargetOperator",
+                    "description": "Comparison operator for the requirement target."
+                },
+                "target_value_number": {
+                    "description": "Numeric target value when applicable.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "currency",
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "CostRequirement",
+            "type": "object"
+        },
         "Decision": {
             "additionalProperties": false,
             "description": "Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.",
@@ -2832,8 +3220,15 @@
                     ]
                 },
                 "affected_subject_type": {
-                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).\n",
+                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).\n",
                     "type": "string"
+                },
+                "artifact_storage_link": {
+                    "description": "Artifact location when the subject is an Artifact entity or embedded field diff.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "change_severity": {
                     "$ref": "#/$defs/ChangeSeverity",
@@ -2853,13 +3248,6 @@
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "document_storage_link": {
-                    "description": "Document location when the subject is a yamlDocument entity or document field diff.",
                     "type": [
                         "string",
                         "null"
@@ -2915,6 +3303,198 @@
                 "to_revision"
             ],
             "title": "DeletionChange",
+            "type": "object"
+        },
+        "DeliverableRequirement": {
+            "additionalProperties": false,
+            "description": "Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.).",
+            "properties": {
+                "acceptance_criteria": {
+                    "description": "Criteria that define when the deliverable is accepted.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "requirement",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deliverable_format": {
+                    "description": "Required deliverable format or encoding (for example IFC4, PDF, COBie).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deliverable_kind": {
+                    "description": "Deliverable type label (for example coordination model, O&M manual, as-built record).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "due_at": {
+                    "description": "Due timestamp for task completion.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "DeliverableRequirement",
             "type": "object"
         },
         "DependencyType": {
@@ -3409,8 +3989,15 @@
                     ]
                 },
                 "affected_subject_type": {
-                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).\n",
+                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).\n",
                     "type": "string"
+                },
+                "artifact_storage_link": {
+                    "description": "Artifact location when the subject is an Artifact entity or embedded field diff.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "change_severity": {
                     "$ref": "#/$defs/ChangeSeverity",
@@ -3430,13 +4017,6 @@
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "document_storage_link": {
-                    "description": "Document location when the subject is a yamlDocument entity or document field diff.",
                     "type": [
                         "string",
                         "null"
@@ -4069,8 +4649,15 @@
                     ]
                 },
                 "affected_subject_type": {
-                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).\n",
+                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).\n",
                     "type": "string"
+                },
+                "artifact_storage_link": {
+                    "description": "Artifact location when the subject is an Artifact entity or embedded field diff.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "change_severity": {
                     "$ref": "#/$defs/ChangeSeverity",
@@ -4090,13 +4677,6 @@
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "document_storage_link": {
-                    "description": "Document location when the subject is a yamlDocument entity or document field diff.",
                     "type": [
                         "string",
                         "null"
@@ -4467,6 +5047,197 @@
             ],
             "title": "MaterialPropertyKey",
             "type": "string"
+        },
+        "MaterialRequirement": {
+            "additionalProperties": false,
+            "description": "Material or product specification requirement for matching against assigned materials.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "requirement",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "material_category": {
+                    "description": "Material category label kept intentionally open pending classification-backed modeling.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "material_specification": {
+                    "description": "Material grade, specification, or product description.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "related_material": {
+                    "description": "Optional Material entity template this requirement must match or satisfy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                },
+                "substitutes_allowed": {
+                    "description": "Whether equivalent or substitute materials are permitted.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "MaterialRequirement",
+            "type": "object"
         },
         "Message": {
             "additionalProperties": false,
@@ -4932,8 +5703,8 @@
                         "null"
                     ]
                 },
-                "source_document": {
-                    "description": "Optional source document entity backing this requirement.",
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
                     "type": [
                         "string",
                         "null"
@@ -5919,8 +6690,15 @@
                     ]
                 },
                 "affected_subject_type": {
-                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).\n",
+                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).\n",
                     "type": "string"
+                },
+                "artifact_storage_link": {
+                    "description": "Artifact location when the subject is an Artifact entity or embedded field diff.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "change_severity": {
                     "$ref": "#/$defs/ChangeSeverity",
@@ -5940,13 +6718,6 @@
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "document_storage_link": {
-                    "description": "Document location when the subject is a yamlDocument entity or document field diff.",
                     "type": [
                         "string",
                         "null"
@@ -6275,8 +7046,8 @@
                         "null"
                     ]
                 },
-                "source_document": {
-                    "description": "Optional source document entity backing this requirement.",
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
                     "type": [
                         "string",
                         "null"
@@ -6297,7 +7068,7 @@
         },
         "Requirement": {
             "additionalProperties": false,
-            "description": "Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.",
+            "description": "Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot.",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -6438,8 +7209,8 @@
                         "null"
                     ]
                 },
-                "source_document": {
-                    "description": "Optional source document entity backing this requirement.",
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
                     "type": [
                         "string",
                         "null"
@@ -6488,8 +7259,15 @@
                     ]
                 },
                 "affected_subject_type": {
-                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).\n",
+                    "description": "LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).\n",
                     "type": "string"
+                },
+                "artifact_storage_link": {
+                    "description": "Artifact location when the subject is an Artifact entity or embedded field diff.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "change_severity": {
                     "$ref": "#/$defs/ChangeSeverity",
@@ -6509,13 +7287,6 @@
                 "detected_at": {
                     "description": "Timestamp when this change was detected.",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "document_storage_link": {
-                    "description": "Document location when the subject is a yamlDocument entity or document field diff.",
                     "type": [
                         "string",
                         "null"
@@ -6607,6 +7378,192 @@
             ],
             "title": "RequirementTargetOperator",
             "type": "string"
+        },
+        "ScheduleRequirement": {
+            "additionalProperties": false,
+            "description": "Schedule obligation requirement (deadline, milestone, or start/finish window).",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "requirement",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "due_at": {
+                    "description": "Due timestamp for task completion.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "earliest_start_at": {
+                    "description": "Earliest permitted start when a schedule requirement defines a start window.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "related_time_record": {
+                    "description": "Optional TimeRecord plan item this schedule requirement aligns with or must satisfy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "ScheduleRequirement",
+            "type": "object"
         },
         "SecurityProperty": {
             "additionalProperties": false,
@@ -7985,8 +8942,8 @@
                         "null"
                     ]
                 },
-                "source_document": {
-                    "description": "Optional source document entity backing this requirement.",
+                "source_artifact": {
+                    "description": "Optional source artifact backing this requirement.",
                     "type": [
                         "string",
                         "null"
@@ -9140,167 +10097,6 @@
                 "name"
             ],
             "title": "VirtualEntity",
-            "type": "object"
-        },
-        "YamlDocument": {
-            "additionalProperties": false,
-            "description": "Document entity referencing external storage. Links to related entities via applies_to_entities.",
-            "properties": {
-                "applies_to_entities": {
-                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "classifications": {
-                    "description": "Classification entries from IFC and other schemes.",
-                    "items": {
-                        "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "content_kind": {
-                    "const": "document",
-                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
-                    "type": "string"
-                },
-                "created_at": {
-                    "description": "Creation timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "description": {
-                    "description": "Default description text.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "geometry_representations": {
-                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
-                    "items": {
-                        "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "Unique local identifier.",
-                    "type": "string"
-                },
-                "ifc_global_id": {
-                    "description": "IFC GlobalId of the mapped entity.",
-                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "localized_descriptions": {
-                    "description": "Localized variants of description.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "localized_names": {
-                    "description": "Localized variants of name.",
-                    "items": {
-                        "$ref": "#/$defs/LocalizedText"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "meaning_uri": {
-                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "metadata": {
-                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
-                    "items": {
-                        "$ref": "#/$defs/MetadataEntry"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "modified_at": {
-                    "description": "Last modification timestamp for this entity record.",
-                    "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "Default display name.",
-                    "type": "string"
-                },
-                "performance_properties": {
-                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
-                    "items": {
-                        "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "quantity_values": {
-                    "description": "Quantities associated with the entity.",
-                    "items": {
-                        "$ref": "#/$defs/QuantityValue"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "revision": {
-                    "description": "Integer revision counter for change tracking.",
-                    "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
-                },
-                "status": {
-                    "$ref": "#/$defs/StatusType",
-                    "description": "Lifecycle or QA status."
-                },
-                "storage_link": {
-                    "description": "URI/URL/path to the stored document location.",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "storage_link",
-                "id",
-                "content_kind",
-                "name"
-            ],
-            "title": "YamlDocument",
             "type": "object"
         },
         "ZoneContext": {

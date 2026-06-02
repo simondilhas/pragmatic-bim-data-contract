@@ -68,7 +68,7 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 | [Decision](Decision.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Task](Task.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Message](Message.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [YamlDocument](YamlDocument.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Artifact](Artifact.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Requirement](Requirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |

@@ -62,12 +62,16 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 | [Decision](Decision.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Task](Task.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Message](Message.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [YamlDocument](YamlDocument.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Artifact](Artifact.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Requirement](Requirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [BriefRequirement](BriefRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [CostRequirement](CostRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [PhysicalElement](PhysicalElement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Separator](Separator.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [SeparatorWall](SeparatorWall.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |

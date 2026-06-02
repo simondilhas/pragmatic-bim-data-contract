@@ -69,8 +69,8 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 | [Task](Task.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Message](Message.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Message](Message.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [YamlDocument](YamlDocument.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [YamlDocument](YamlDocument.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Artifact](Artifact.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Artifact](Artifact.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Requirement](Requirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Requirement](Requirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
@@ -81,6 +81,14 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [BriefRequirement](BriefRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [BriefRequirement](BriefRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [CostRequirement](CostRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [CostRequirement](CostRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [PhysicalElement](PhysicalElement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [PhysicalElement](PhysicalElement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Separator](Separator.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |

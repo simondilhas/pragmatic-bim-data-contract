@@ -27,7 +27,7 @@ URI: [pbs:ContentKind](https://schema.pragmaticbim.ch/ContentKind)
 | virtual | pbs:content_kind_virtual | Non-physical conceptual entity (Space, System, TimeRecord, CostRecord, etc.). | Title: Virtual<br>|
 | context | pbs:content_kind_context | Spatial context node (Building, Level, Zone, etc.). | Title: Context<br>|
 | requirement | pbs:content_kind_requirement | Prescriptive requirement record. | Title: Requirement<br>|
-| document | pbs:content_kind_document | Document entity referencing external storage. | Title: Document<br>|
+| artifact | pbs:content_kind_artifact | External project artifact (text document, model, or plan) at storage_link. | Title: Artifact<br>|
 | decision | pbs:content_kind_decision | Decision entity for workflow and governance traceability. | Title: Decision<br>|
 | task | pbs:content_kind_task | Task or action entity for implementation workflows. | Title: Task<br>|
 | agent | pbs:content_kind_agent | Person or organization acting in the project. | Title: Agent<br>|
@@ -109,15 +109,15 @@ permissible_values:
         source: de
         description: Anforderung
     title: Requirement
-  document:
-    text: document
-    description: Document entity referencing external storage.
-    meaning: pbs:content_kind_document
+  artifact:
+    text: artifact
+    description: External project artifact (text document, model, or plan) at storage_link.
+    meaning: pbs:content_kind_artifact
     alt_descriptions:
       de:
         source: de
-        description: Dokument
-    title: Document
+        description: Artefakt
+    title: Artifact
   decision:
     text: decision
     description: Decision entity for workflow and governance traceability.

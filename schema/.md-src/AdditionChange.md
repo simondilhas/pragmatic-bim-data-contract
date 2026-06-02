@@ -32,6 +32,7 @@ URI: [pbs:AdditionChange](https://schema.pragmaticbim.ch/AdditionChange)
       AdditionChange : affected_subject_id
       AdditionChange : affected_subject_path
       AdditionChange : affected_subject_type
+      AdditionChange : artifact_storage_link
       AdditionChange : change_severity
         AdditionChange --> "0..1" ChangeSeverity : change_severity
         click ChangeSeverity href "./ChangeSeverity.html"
@@ -40,7 +41,6 @@ URI: [pbs:AdditionChange](https://schema.pragmaticbim.ch/AdditionChange)
         AdditionChange --> "1" ChangeType : change_type
         click ChangeType href "./ChangeType.html"
       AdditionChange : detected_at
-      AdditionChange : document_storage_link
       AdditionChange : from_revision
       AdditionChange : id
       AdditionChange : ifc_global_id
@@ -80,10 +80,10 @@ URI: [pbs:AdditionChange](https://schema.pragmaticbim.ch/AdditionChange)
 | [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). | [Change](Change.md) |
 | [affected_subject](affected_subject.md) | 0..1 <br/> [Entity](Entity.md) | Optional typed reference to the changed graph entity when the subject is in the project graph. | [Change](Change.md) |
 | [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key). | [Change](Change.md) |
-| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument). | [Change](Change.md) |
+| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact). | [Change](Change.md) |
 | [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1). | [Change](Change.md) |
 | [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Change](Change.md) |
-| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is a yamlDocument entity or document field diff. | [Change](Change.md) |
+| [artifact_storage_link](artifact_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Artifact location when the subject is an Artifact entity or embedded field diff. | [Change](Change.md) |
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | [Change](Change.md) |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | [Change](Change.md) |
 | [triggered_task](triggered_task.md) | 0..1 <br/> [Task](Task.md) | Task entity that this change triggered or should trigger. | [Change](Change.md) |
@@ -228,7 +228,7 @@ attributes:
   affected_subject_type:
     name: affected_subject_type
     description: 'LinkML class name of the changed subject (for example Space, SeparatorWall,
-      yamlDocument).
+      Artifact).
 
       '
     from_schema: https://schema.pragmaticbim.ch
@@ -261,9 +261,9 @@ attributes:
     - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
-  document_storage_link:
-    name: document_storage_link
-    description: Document location when the subject is a yamlDocument entity or document
+  artifact_storage_link:
+    name: artifact_storage_link
+    description: Artifact location when the subject is an Artifact entity or embedded
       field diff.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000

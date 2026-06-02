@@ -63,9 +63,9 @@ URI: [pbs:DeliverableRequirement](https://schema.pragmaticbim.ch/DeliverableRequ
         DeliverableRequirement --> "*" QuantityValue : quantity_values
         click QuantityValue href "./QuantityValue.html"
       DeliverableRequirement : revision
-      DeliverableRequirement : source_document
-        DeliverableRequirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      DeliverableRequirement : source_artifact
+        DeliverableRequirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       DeliverableRequirement : status
         DeliverableRequirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -96,7 +96,7 @@ URI: [pbs:DeliverableRequirement](https://schema.pragmaticbim.ch/DeliverableRequ
 | [deliverable_format](deliverable_format.md) | 0..1 <br/> [String](String.md) | Required deliverable format or encoding (for example IFC4, PDF, COBie). | direct |
 | [due_at](due_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Due timestamp for task completion. | direct |
 | [acceptance_criteria](acceptance_criteria.md) | 0..1 <br/> [String](String.md) | Criteria that define when the deliverable is accepted. | direct |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | [Requirement](Requirement.md) |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | [Requirement](Requirement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -229,15 +229,15 @@ attributes:
     domain_of:
     - DeliverableRequirement
     range: string
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: DeliverableRequirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -333,7 +333,7 @@ attributes:
     owner: DeliverableRequirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true
