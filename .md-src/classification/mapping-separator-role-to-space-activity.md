@@ -15,12 +15,15 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 | Source | Relation | Targets |
 | --- | --- | --- |
-| `slab:L-EXT` | `relatedMatch` | `space:O` |
-| `slab:L-INT-CIR` | `relatedMatch` | `space:S-CIR-HOR` |
-| `slab:L-INT-CIR` | `relatedMatch` | `space:S-CIR-VRT` |
-| `slab:L-INT-GRD` | `relatedMatch` | `space:S-PRK-INT` |
-| `slab:L-INT-UNT` | `relatedMatch` | `space:M` |
+| `slab:L-BAS` | `relatedMatch` | `space:S-PRK-INT` |
+| `slab:L-FLR-EXT` | `relatedMatch` | `space:O` |
+| `slab:L-FLR-INT` | `relatedMatch` | `space:M` |
+| `slab:L-FLR-INT` | `relatedMatch` | `space:S-CIR-HOR` |
+| `slab:L-FLR-INT` | `relatedMatch` | `space:S-CIR-VRT` |
+| `slab:L-ROF` | `relatedMatch` | `space:O` |
 | `wall:W-EXT` | `relatedMatch` | `space:O` |
+| `wall:W-EXT-ABG` | `relatedMatch` | `space:O` |
+| `wall:W-EXT-BLG` | `relatedMatch` | `space:O` |
 | `wall:W-INT-CIR-HOR` | `relatedMatch` | `space:S-CIR-HOR` |
 | `wall:W-INT-CIR-VRT` | `relatedMatch` | `space:S-CIR-VRT` |
 | `wall:W-INT-GRD` | `relatedMatch` | `space:S-PRK-INT` |

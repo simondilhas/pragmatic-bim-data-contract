@@ -15,14 +15,19 @@ Source: [`separator-wall-role-classification-en.skos.ttl`](sources/separator-wal
 ```mermaid
 classDiagram
 direction TB
+class n_W_ABG["W-ABG: Above ground wall"]
+class n_W_BLG["W-BLG: Below ground wall"]
 class n_W_CIR_HOR["W-CIR-HOR: Horizontal circulation enclosure wall"]
 class n_W_CIR_VRT["W-CIR-VRT: Vertical circulation enclosure wall"]
+class n_W_EXT["W-EXT: Exterior wall"]
 class n_W_GRD["W-GRD: Below-grade enclosure wall"]
 class n_W_INT["W-INT: Interior wall"]
 class n_W_PAR["W-PAR: Party wall"]
 class n_W_PRT["W-PRT: Internal partition wall"]
 class n_W_SVC["W-SVC: Service and shaft enclosure wall"]
 class n_W_UNT["W-UNT: Unit boundary wall"]
+n_W_EXT <|-- n_W_ABG
+n_W_EXT <|-- n_W_BLG
 n_W_INT <|-- n_W_CIR_HOR
 n_W_INT <|-- n_W_CIR_VRT
 n_W_INT <|-- n_W_GRD
@@ -53,6 +58,26 @@ n_W_INT <|-- n_W_UNT
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>W-ABG</td>
+<td>W-EXT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Oberirdische Wand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenwand oberhalb der Gelaendehoehe, die konditionierten oder nutzbaren Raum von der Aussenumgebung trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Above ground wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior wall above ground level separating conditioned or occupied space from the exterior environment.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>W-BLG</td>
+<td>W-EXT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Unterirdische Wand</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenwand unterhalb der Gelaendehoehe, die Innenraum von Erdreich oder aussenseitigen Untergeschossbedingungen trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Below ground wall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior wall below ground level separating interior from earth or exterior below-grade conditions.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
 <tr>
 <td>W-CIR-HOR</td>
 <td>W-INT</td>
