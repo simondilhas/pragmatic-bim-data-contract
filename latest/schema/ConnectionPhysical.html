@@ -416,11 +416,17 @@
       ConnectionPhysical : content_kind
       ConnectionPhysical : created_at
       ConnectionPhysical : description
+      ConnectionPhysical : frame_material
+        ConnectionPhysical --&gt; "0..1" Material : frame_material
+        click Material href "./Material.html"
       ConnectionPhysical : geometry_representations
         ConnectionPhysical --&gt; "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
       ConnectionPhysical : id
       ConnectionPhysical : ifc_global_id
+      ConnectionPhysical : infill_material
+        ConnectionPhysical --&gt; "0..1" Material : infill_material
+        click Material href "./Material.html"
       ConnectionPhysical : localized_descriptions
         ConnectionPhysical --&gt; "*" LocalizedText : localized_descriptions
         click LocalizedText href "./LocalizedText.html"
@@ -498,6 +504,18 @@
 <td><a href="transport_medium.html">transport_medium</a></td>
 <td>1 <br/> <a href="TransportMedium.html">TransportMedium</a></td>
 <td>Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity).</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="frame_material.html">frame_material</a></td>
+<td>0..1 <br/> <a href="Material.html">Material</a></td>
+<td>Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window).</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="infill_material.html">infill_material</a></td>
+<td>0..1 <br/> <a href="Material.html">Material</a></td>
+<td>Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window).</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -673,6 +691,8 @@
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection_physical_type</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">transport_medium</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frame_material</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infill_material</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection_physical_requirement_drivers</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:ConnectionPhysical</span>
 </code></pre></div>
@@ -712,6 +732,29 @@
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TransportMedium</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">frame_material</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frame_material</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material of the frame or casing surrounding the opening. Applies</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">to opening-type connectors (door, window).</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">infill_material</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infill_material</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material of the opening infill within the frame (for example glazing</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">for windows, door leaf or panel for doors). Applies to opening-type connectors</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">(door, window).</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Material</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">connection_physical_requirement_drivers</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection_physical_requirement_drivers</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Performance</span><span class="nv"> </span><span class="s">requirement</span><span class="nv"> </span><span class="s">drivers</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">physical</span><span class="nv"> </span><span class="s">connection</span><span class="nv"> </span><span class="s">element.</span>

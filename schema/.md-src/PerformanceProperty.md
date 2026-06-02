@@ -113,6 +113,10 @@ URI: [pbs:PerformanceProperty](https://schema.pragmaticbim.ch/PerformancePropert
 | [SpatialRequirement](SpatialRequirement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [BriefRequirement](BriefRequirement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [CostRequirement](CostRequirement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [PhysicalElement](PhysicalElement.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [Separator](Separator.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |
 | [SeparatorWall](SeparatorWall.md) | [performance_properties](performance_properties.md) | range | [PerformanceProperty](PerformanceProperty.md) |

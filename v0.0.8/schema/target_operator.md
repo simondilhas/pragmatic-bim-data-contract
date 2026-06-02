@@ -25,7 +25,8 @@ URI: [pbs:target_operator](https://schema.pragmaticbim.ch/target_operator)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc |  no  |
+| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |  no  |
+| [CostRequirement](CostRequirement.md) | Cost or budget requirement (unit-cost cap, total budget limit, etc.). |  no  |
 
 
 
@@ -39,7 +40,7 @@ URI: [pbs:target_operator](https://schema.pragmaticbim.ch/target_operator)
 | Property | Value |
 | --- | --- |
 | Range | [RequirementTargetOperator](RequirementTargetOperator.md) |
-| Domain Of | [PerformanceRequirement](PerformanceRequirement.md) |
+| Domain Of | [PerformanceRequirement](PerformanceRequirement.md), [CostRequirement](CostRequirement.md) |
 
 ### Cardinality and Requirements
 
@@ -89,6 +90,7 @@ from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - PerformanceRequirement
+- CostRequirement
 range: RequirementTargetOperator
 
 ```

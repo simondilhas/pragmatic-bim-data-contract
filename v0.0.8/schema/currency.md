@@ -25,9 +25,8 @@ URI: [pbs:currency](https://schema.pragmaticbim.ch/currency)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AbstractCostRecord](AbstractCostRecord.md) | Abstract base for reusable cost record fields shared by atomic and aggregated... |  no  |
-| [CostItem](CostItem.md) | Cost record used for estimation and calculation, optionally linked to quantit... |  no  |
-| [CostAssembly](CostAssembly.md) | Aggregated unit price assembled from multiple cost items |  no  |
+| [CostRequirement](CostRequirement.md) | Cost or budget requirement (unit-cost cap, total budget limit, etc.). |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 
 
 
@@ -41,7 +40,7 @@ URI: [pbs:currency](https://schema.pragmaticbim.ch/currency)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [AbstractCostRecord](AbstractCostRecord.md) |
+| Domain Of | [CostRequirement](CostRequirement.md), [CostRecord](CostRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -98,7 +97,8 @@ description: ISO 4217 currency code (for example EUR, USD).
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- AbstractCostRecord
+- CostRequirement
+- CostRecord
 range: string
 required: true
 pattern: ^[A-Z]{3}$

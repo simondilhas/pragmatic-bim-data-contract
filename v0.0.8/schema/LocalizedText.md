@@ -23,12 +23,9 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 ```mermaid
  classDiagram
     class LocalizedText
-    click LocalizedText href "../LocalizedText/"
+    click LocalizedText href "./LocalizedText.html"
       LocalizedText : language_tag
-        
       LocalizedText : text_value
-        
-      
 ```
 
 
@@ -47,8 +44,8 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [language_tag](language_tag.md) | 1 <br/> [String](String.md) | IETF BCP 47 language tag (for example en, de, pt-BR) | direct |
-| [text_value](text_value.md) | 1 <br/> [String](String.md) | Localized text value | direct |
+| [language_tag](language_tag.md) | 1 <br/> [String](String.md) | IETF BCP 47 language tag (for example en, de, pt-BR). | direct |
+| [text_value](text_value.md) | 1 <br/> [String](String.md) | Localized text value. | direct |
 
 
 
@@ -66,8 +63,32 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 | [Person](Person.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Company](Company.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Company](Company.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Decision](Decision.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Decision](Decision.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Task](Task.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Task](Task.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Message](Message.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Message](Message.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [YamlDocument](YamlDocument.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [YamlDocument](YamlDocument.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Requirement](Requirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Requirement](Requirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [PerformanceRequirement](PerformanceRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [PerformanceRequirement](PerformanceRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [SpatialRequirement](SpatialRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [SpatialRequirement](SpatialRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [BriefRequirement](BriefRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [BriefRequirement](BriefRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [CostRequirement](CostRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [CostRequirement](CostRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [PhysicalElement](PhysicalElement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [PhysicalElement](PhysicalElement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Separator](Separator.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
@@ -108,22 +129,10 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 | [System](System.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [ConnectionVirtual](ConnectionVirtual.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractTimeRecord](AbstractTimeRecord.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeItem](TimeItem.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeItem](TimeItem.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [Milestone](Milestone.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [Milestone](Milestone.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimePlan](TimePlan.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimePlan](TimePlan.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeDependency](TimeDependency.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [TimeDependency](TimeDependency.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [AbstractCostRecord](AbstractCostRecord.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostItem](CostItem.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostItem](CostItem.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostAssembly](CostAssembly.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [CostAssembly](CostAssembly.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [TimeRecord](TimeRecord.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [TimeRecord](TimeRecord.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [CostRecord](CostRecord.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [CostRecord](CostRecord.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Material](Material.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Material](Material.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 

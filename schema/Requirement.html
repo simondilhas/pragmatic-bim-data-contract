@@ -404,7 +404,7 @@
 
 
 <h1 id="class-requirement">Class: Requirement<a class="headerlink" href="#class-requirement" title="Permanent link">&para;</a></h1>
-<p><em>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</em></p>
+<p><em>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot.</em></p>
 <p>__</p>
 <div>
 <ul>
@@ -424,6 +424,14 @@
         click RegulatoryRequirement href "./RegulatoryRequirement.html"
       Requirement &lt;|-- BriefRequirement
         click BriefRequirement href "./BriefRequirement.html"
+      Requirement &lt;|-- DeliverableRequirement
+        click DeliverableRequirement href "./DeliverableRequirement.html"
+      Requirement &lt;|-- ScheduleRequirement
+        click ScheduleRequirement href "./ScheduleRequirement.html"
+      Requirement &lt;|-- CostRequirement
+        click CostRequirement href "./CostRequirement.html"
+      Requirement &lt;|-- MaterialRequirement
+        click MaterialRequirement href "./MaterialRequirement.html"
       Requirement : applies_to_entities
         Requirement --&gt; "*" Entity : applies_to_entities
         click Entity href "./Entity.html"
@@ -471,6 +479,10 @@
 <li><a href="SpatialRequirement.html">SpatialRequirement</a></li>
 <li><a href="RegulatoryRequirement.html">RegulatoryRequirement</a></li>
 <li><a href="BriefRequirement.html">BriefRequirement</a></li>
+<li><a href="DeliverableRequirement.html">DeliverableRequirement</a></li>
+<li><a href="ScheduleRequirement.html">ScheduleRequirement</a></li>
+<li><a href="CostRequirement.html">CostRequirement</a></li>
+<li><a href="MaterialRequirement.html">MaterialRequirement</a></li>
 </ul>
 </li>
 </ul>
@@ -674,7 +686,8 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Prescriptive</span><span class="nv"> </span><span class="s">requirement</span><span class="nv"> </span><span class="s">entity</span><span class="nv"> </span><span class="s">(content_kind</span><span class="nv"> </span><span class="s">requirement).</span><span class="nv"> </span><span class="s">Applies</span>
 <span class="w">  </span><span class="s">to</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">entities</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">applies_to_entities.</span><span class="nv"> </span><span class="s">Domain</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">discriminated</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span>
-<span class="w">  </span><span class="s">(PerformanceRequirement,</span><span class="nv"> </span><span class="s">SpatialRequirement,</span><span class="nv"> </span><span class="s">etc.),</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">separate</span><span class="nv"> </span><span class="s">slot.</span>
+<span class="w">  </span><span class="s">(PerformanceRequirement,</span><span class="nv"> </span><span class="s">SpatialRequirement,</span><span class="nv"> </span><span class="s">DeliverableRequirement,</span><span class="nv"> </span><span class="s">etc.),</span><span class="nv"> </span><span class="s">not</span>
+<span class="w">  </span><span class="s">a</span><span class="nv"> </span><span class="s">separate</span><span class="nv"> </span><span class="s">slot.</span>
 
 <span class="w">  </span><span class="s">&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -694,7 +707,8 @@
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Prescriptive</span><span class="nv"> </span><span class="s">requirement</span><span class="nv"> </span><span class="s">entity</span><span class="nv"> </span><span class="s">(content_kind</span><span class="nv"> </span><span class="s">requirement).</span><span class="nv"> </span><span class="s">Applies</span>
 <span class="w">  </span><span class="s">to</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">entities</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">applies_to_entities.</span><span class="nv"> </span><span class="s">Domain</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">discriminated</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span>
-<span class="w">  </span><span class="s">(PerformanceRequirement,</span><span class="nv"> </span><span class="s">SpatialRequirement,</span><span class="nv"> </span><span class="s">etc.),</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">separate</span><span class="nv"> </span><span class="s">slot.</span>
+<span class="w">  </span><span class="s">(PerformanceRequirement,</span><span class="nv"> </span><span class="s">SpatialRequirement,</span><span class="nv"> </span><span class="s">DeliverableRequirement,</span><span class="nv"> </span><span class="s">etc.),</span><span class="nv"> </span><span class="s">not</span>
+<span class="w">  </span><span class="s">a</span><span class="nv"> </span><span class="s">separate</span><span class="nv"> </span><span class="s">slot.</span>
 
 <span class="w">  </span><span class="s">&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>

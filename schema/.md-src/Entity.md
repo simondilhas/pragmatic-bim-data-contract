@@ -148,6 +148,12 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 | [SpatialRequirement](SpatialRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [BriefRequirement](BriefRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [related_time_record](related_time_record.md) | range | [Entity](Entity.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [CostRequirement](CostRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [related_material](related_material.md) | range | [Entity](Entity.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [PhysicalElement](PhysicalElement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Separator](Separator.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [SeparatorWall](SeparatorWall.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |

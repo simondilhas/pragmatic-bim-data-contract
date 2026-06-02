@@ -626,7 +626,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Requirement.html">Requirement</a></td>
-<td>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</td>
+<td>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
@@ -643,6 +643,22 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="BriefRequirement.html">BriefRequirement</a></td>
 <td>Client or programme requirement, including free-standing brief items.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DeliverableRequirement.html">DeliverableRequirement</a></td>
+<td>Deliverable or documentation requirement (model LOD, O&amp;M manual, export format, etc.).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ScheduleRequirement.html">ScheduleRequirement</a></td>
+<td>Schedule obligation requirement (deadline, milestone, or start/finish window).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostRequirement.html">CostRequirement</a></td>
+<td>Cost or budget requirement (unit-cost cap, total budget limit, etc.).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MaterialRequirement.html">MaterialRequirement</a></td>
+<td>Material or product specification requirement for matching against assigned materials.</td>
 </tr>
 <tr>
 <td><a href="Classification.html">Classification</a></td>
@@ -747,6 +763,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="acceptance_criteria.html">acceptance_criteria</a></td>
+<td>Criteria that define when the deliverable is accepted.</td>
+</tr>
 <tr>
 <td><a href="actual_finish_at.html">actual_finish_at</a></td>
 <td>Actual finish timestamp for the time record where known.</td>
@@ -976,6 +996,14 @@
 <td>Decision type expressed as a URI/CURIE from a controlled vocabulary.</td>
 </tr>
 <tr>
+<td><a href="deliverable_format.html">deliverable_format</a></td>
+<td>Required deliverable format or encoding (for example IFC4, PDF, COBie).</td>
+</tr>
+<tr>
+<td><a href="deliverable_kind.html">deliverable_kind</a></td>
+<td>Deliverable type label (for example coordination model, O&amp;M manual, as-built record).</td>
+</tr>
+<tr>
 <td><a href="dependency_type.html">dependency_type</a></td>
 <td>FS</td>
 </tr>
@@ -996,8 +1024,16 @@
 <td>Due timestamp for task completion.</td>
 </tr>
 <tr>
+<td><a href="earliest_start_at.html">earliest_start_at</a></td>
+<td>Earliest permitted start when a schedule requirement defines a start window.</td>
+</tr>
+<tr>
 <td><a href="equipment_type.html">equipment_type</a></td>
 <td>Classification of equipment (for example HVAC, electrical, plumbing).</td>
+</tr>
+<tr>
+<td><a href="frame_material.html">frame_material</a></td>
+<td>Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window).</td>
 </tr>
 <tr>
 <td><a href="from_revision.html">from_revision</a></td>
@@ -1038,6 +1074,10 @@
 <tr>
 <td><a href="ifc_global_id.html">ifc_global_id</a></td>
 <td>IFC GlobalId of the mapped entity.</td>
+</tr>
+<tr>
+<td><a href="infill_material.html">infill_material</a></td>
+<td>Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window).</td>
 </tr>
 <tr>
 <td><a href="intent_verdict.html">intent_verdict</a></td>
@@ -1276,8 +1316,16 @@
 <td>Entity or space subject for adjacency or distance constraints.</td>
 </tr>
 <tr>
+<td><a href="related_material.html">related_material</a></td>
+<td>Optional Material entity template this requirement must match or satisfy.</td>
+</tr>
+<tr>
 <td><a href="related_requirement.html">related_requirement</a></td>
 <td>Requirement entity for match_change records.</td>
+</tr>
+<tr>
+<td><a href="related_time_record.html">related_time_record</a></td>
+<td>Optional TimeRecord plan item this schedule requirement aligns with or must satisfy.</td>
 </tr>
 <tr>
 <td><a href="requirement_property_key.html">requirement_property_key</a></td>
@@ -1358,6 +1406,10 @@
 <tr>
 <td><a href="street_address.html">street_address</a></td>
 <td>Street name and house number or equivalent address line.</td>
+</tr>
+<tr>
+<td><a href="substitutes_allowed.html">substitutes_allowed</a></td>
+<td>Whether equivalent or substitute materials are permitted.</td>
 </tr>
 <tr>
 <td><a href="successors.html">successors</a></td>

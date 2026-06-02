@@ -76,6 +76,10 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 | [SpatialRequirement](SpatialRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [BriefRequirement](BriefRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [CostRequirement](CostRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [PhysicalElement](PhysicalElement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Separator](Separator.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [SeparatorWall](SeparatorWall.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |

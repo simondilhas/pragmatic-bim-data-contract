@@ -398,7 +398,7 @@
 <tbody>
 <tr>
 <td><a href="Requirement.html">Requirement</a></td>
-<td>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</td>
+<td>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -419,6 +419,26 @@
 <tr>
 <td><a href="BriefRequirement.html">BriefRequirement</a></td>
 <td>Client or programme requirement, including free-standing brief items.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="DeliverableRequirement.html">DeliverableRequirement</a></td>
+<td>Deliverable or documentation requirement (model LOD, O&amp;M manual, export format, etc.).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ScheduleRequirement.html">ScheduleRequirement</a></td>
+<td>Schedule obligation requirement (deadline, milestone, or start/finish window).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="CostRequirement.html">CostRequirement</a></td>
+<td>Cost or budget requirement (unit-cost cap, total budget limit, etc.).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="MaterialRequirement.html">MaterialRequirement</a></td>
+<td>Material or product specification requirement for matching against assigned materials.</td>
 <td>no</td>
 </tr>
 </tbody>

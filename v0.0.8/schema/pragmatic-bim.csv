@@ -1,27 +1,24 @@
 id,mappings,description
-AbstractCostRecord,,Abstract base for reusable cost record fields shared by atomic and aggregated cost records.
-AbstractTimeRecord,,Abstract base for reusable time/schedule record fields shared by atomic and grouped time records.
 AcousticProperty,,Normalized acoustic-related property.
-AdditionChange,,New entity or requirement introduced in to_revision.
+AdditionChange,,New entity introduced in to_revision.
 Agent,,Abstract base class for people or organizations acting in workflow and communication roles.
 Boundary,,Physical element acting as a boundary treatment (for example covering).
 BriefRequirement,,"Client or programme requirement, including free-standing brief items."
 BuildingContext,,Spatial context node constrained to building semantics.
 BuiltAssetContext,,Abstract spatial context for built assets such as buildings and civil structures.
-Change,,"Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes."
-ChangeSet,,Batch of Change records produced by comparing two model or document revisions.
+Change,,Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation.
 CivilStructureContext,,Spatial context node constrained to civil structure semantics.
 Classification,,"Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom)."
 Company,,"Organization, company, or legal entity participating in the project or asset lifecycle."
 ConnectionPhysical,,"Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable)."
 ConnectionVirtual,,Logical or topological connection between spaces and/or physical elements.
 ContactPoint,,Structured communication endpoint or profile for an agent.
-CostAssembly,,Aggregated unit price assembled from multiple cost items.
-CostItem,,"Cost record used for estimation and calculation, optionally linked to quantities."
-Decision,,Decision record linked to an entity for workflow traceability and governance.
-DeletionChange,,Entity or requirement removed in to_revision.
-Document,,"Reference to an external document stored in a file system, DMS, object storage, or URL."
-Entity,,Common base class for all schema entities.
+CostRecord,,"Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price)."
+CostRequirement,,"Cost or budget requirement (unit-cost cap, total budget limit, etc.)."
+Decision,,Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.
+DeletionChange,,Entity removed in to_revision.
+DeliverableRequirement,,"Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.)."
+Entity,,"Common base class for everything in the project graph. Has identity, lifecycle, and status."
 Equipment,,"Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system."
 FireProperty,,Normalized fire-related property.
 GeometryChange,,Geometry or representation change for a subject.
@@ -32,9 +29,9 @@ LocalizedText,,Localized text value for a specific language tag.
 MatchChange,,Entity match status against a requirement changed (previously met / no longer meets).
 Material,,Material definition that can be associated with one or more entities.
 MaterialProperty,,Normalized material-related property.
-Message,,Message or communication record linked to an entity for coordination and traceability.
+MaterialRequirement,,Material or product specification requirement for matching against assigned materials.
+Message,,Message entity for coordination and traceability. Links to related entities via applies_to_entities.
 MetadataEntry,,"Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data."
-Milestone,,Zero-duration checkpoint or delivery target within a time plan.
 PerformanceProperty,,Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses.
 PerformanceRequirement,,"Performance target requirement (U-value, fire rating, airflow, acoustic, etc.)."
 PerimeterContext,,Spatial context node constrained to perimeter semantics.
@@ -43,11 +40,11 @@ PhysicalElement,,Base class for physical elements that can be placed in built as
 PostalAddress,,Structured postal or physical address for an agent.
 ProjectContext,,Spatial context node constrained to project semantics.
 PropertyChange,,"Attribute, PropertySet, schema slot, or document field change."
-PropertyDelta,,"Field-level difference between two revision states. Supports IFC attributes, PropertySets, schema slots, document fields, and text spans."
 QuantityValue,,Minimal quantity record for costing and analysis.
 RegulatoryRequirement,,"Regulatory reference requirement (building code, norm, standard)."
-Requirement,,Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities.
-RequirementChange,,Change to a requirement record or its fields.
+Requirement,,"Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot."
+RequirementChange,,Change to a requirement entity or its fields.
+ScheduleRequirement,,"Schedule obligation requirement (deadline, milestone, or start/finish window)."
 SecurityProperty,,Normalized security-related property.
 Separator,,Abstract base class for elements that separate spaces or zones.
 SeparatorSlab,,Slab-based separating element (for example floor/roof/base slab separators).
@@ -55,14 +52,13 @@ SeparatorWall,,Wall-based separating element.
 Space,,"Spatial container used for occupancy, circulation, service, or analysis."
 SpatialContext,,"Context node used to represent project, perimeter, legal site, built asset, level, or zone."
 SpatialRequirement,,"Spatial constraint requirement (min area, min height, adjacency, etc.)."
-StateRef,,"Pointer to a content state at a specific revision. Covers IFC models, geometry payloads, documents, and extracted text."
 StructuralProperty,,Normalized structural-related property.
 System,,Building service system grouping that serves spaces or zones.
-Task,,Action/task record linked to an entity for implementation and follow-up workflows.
+Task,,Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.
 ThermalProperty,,Normalized thermal-related property.
-TimeDependency,,"Precedence relationship between two time items within a plan, optionally with lag."
-TimeItem,,"Planned work item with baseline and actual dates, optionally linked to model entities and a time plan."
-TimePlan,,"Grouped schedule container defining component items, milestones, and dependencies for a scoped plan."
+TimeLink,,"Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record."
+TimeRecord,,"Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container."
 VirtualEntity,,"Abstract base class for non-physical, conceptual, or informational entities."
+yamlDocument,,Document entity referencing external storage. Links to related entities via applies_to_entities.
 ZoneContext,,Spatial context node constrained to zone semantics.
 

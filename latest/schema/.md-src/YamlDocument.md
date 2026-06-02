@@ -118,6 +118,10 @@ URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
 | [SpatialRequirement](SpatialRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
 | [BriefRequirement](BriefRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
+| [CostRequirement](CostRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
 
 
 

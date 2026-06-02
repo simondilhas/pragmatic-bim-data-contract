@@ -128,6 +128,8 @@ URI: [pbs:Material](https://schema.pragmaticbim.ch/Material)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [ConnectionPhysical](ConnectionPhysical.md) | [frame_material](frame_material.md) | range | [Material](Material.md) |
+| [ConnectionPhysical](ConnectionPhysical.md) | [infill_material](infill_material.md) | range | [Material](Material.md) |
 | [VirtualEntity](VirtualEntity.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [SpatialContext](SpatialContext.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [ProjectContext](ProjectContext.md) | [materials](materials.md) | range | [Material](Material.md) |
@@ -219,6 +221,7 @@ attributes:
     rank: 1000
     owner: Material
     domain_of:
+    - MaterialRequirement
     - Material
     range: string
   material_specification:
@@ -228,6 +231,7 @@ attributes:
     rank: 1000
     owner: Material
     domain_of:
+    - MaterialRequirement
     - Material
     range: string
   cost_records:

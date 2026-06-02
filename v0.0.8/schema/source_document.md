@@ -6,7 +6,7 @@ search:
 # Slot: source_document 
 
 
-_Optional URI to norm, brief, or source document backing this requirement._
+_Optional source document entity backing this requirement._
 
 
 
@@ -25,11 +25,15 @@ URI: [pbs:source_document](https://schema.pragmaticbim.ch/source_document)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement) |  no  |
-| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc |  no  |
-| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc |  no  |
-| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard) |  no  |
-| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items |  no  |
+| [Requirement](Requirement.md) | Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot. |  no  |
+| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |  no  |
+| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |  no  |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |  no  |
+| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items. |  no  |
+| [DeliverableRequirement](DeliverableRequirement.md) | Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.). |  no  |
+| [ScheduleRequirement](ScheduleRequirement.md) | Schedule obligation requirement (deadline, milestone, or start/finish window). |  no  |
+| [CostRequirement](CostRequirement.md) | Cost or budget requirement (unit-cost cap, total budget limit, etc.). |  no  |
+| [MaterialRequirement](MaterialRequirement.md) | Material or product specification requirement for matching against assigned materials. |  no  |
 
 
 
@@ -42,7 +46,7 @@ URI: [pbs:source_document](https://schema.pragmaticbim.ch/source_document)
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
+| Range | [YamlDocument](YamlDocument.md) |
 | Domain Of | [Requirement](Requirement.md) |
 
 ### Cardinality and Requirements
@@ -88,12 +92,13 @@ URI: [pbs:source_document](https://schema.pragmaticbim.ch/source_document)
 <details>
 ```yaml
 name: source_document
-description: Optional URI to norm, brief, or source document backing this requirement.
+description: Optional source document entity backing this requirement.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - Requirement
-range: uriorcurie
+range: yamlDocument
+inlined: false
 
 ```
 </details></div>

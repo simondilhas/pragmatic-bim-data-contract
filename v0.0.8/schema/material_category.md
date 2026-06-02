@@ -25,7 +25,8 @@ URI: [pbs:material_category](https://schema.pragmaticbim.ch/material_category)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Material](Material.md) | Material definition that can be associated with one or more entities |  no  |
+| [MaterialRequirement](MaterialRequirement.md) | Material or product specification requirement for matching against assigned materials. |  no  |
+| [Material](Material.md) | Material definition that can be associated with one or more entities. |  no  |
 
 
 
@@ -39,7 +40,7 @@ URI: [pbs:material_category](https://schema.pragmaticbim.ch/material_category)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [Material](Material.md) |
+| Domain Of | [MaterialRequirement](MaterialRequirement.md), [Material](Material.md) |
 
 ### Cardinality and Requirements
 
@@ -89,6 +90,7 @@ description: Material category label kept intentionally open pending classificat
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
+- MaterialRequirement
 - Material
 range: string
 

@@ -14,7 +14,7 @@ _Due timestamp for task completion._
 
 
 
-URI: [schema:deadline](http://schema.org/deadline)
+URI: [schema:deadline](https://schema.org/deadline)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,9 @@ URI: [schema:deadline](http://schema.org/deadline)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workf... |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
+| [DeliverableRequirement](DeliverableRequirement.md) | Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.). |  no  |
+| [ScheduleRequirement](ScheduleRequirement.md) | Schedule obligation requirement (deadline, milestone, or start/finish window). |  no  |
 
 
 
@@ -39,8 +41,8 @@ URI: [schema:deadline](http://schema.org/deadline)
 | Property | Value |
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
-| Domain Of | [Task](Task.md) |
-| Slot URI | [schema:deadline](http://schema.org/deadline) |
+| Domain Of | [Task](Task.md), [DeliverableRequirement](DeliverableRequirement.md), [ScheduleRequirement](ScheduleRequirement.md) |
+| Slot URI | [schema:deadline](https://schema.org/deadline) |
 
 ### Cardinality and Requirements
 
@@ -91,6 +93,8 @@ rank: 1000
 slot_uri: schema:deadline
 domain_of:
 - Task
+- DeliverableRequirement
+- ScheduleRequirement
 range: datetime
 
 ```

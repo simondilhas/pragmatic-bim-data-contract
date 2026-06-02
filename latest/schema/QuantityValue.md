@@ -74,6 +74,10 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 | [SpatialRequirement](SpatialRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [BriefRequirement](BriefRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [CostRequirement](CostRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [PhysicalElement](PhysicalElement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Separator](Separator.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [SeparatorWall](SeparatorWall.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |

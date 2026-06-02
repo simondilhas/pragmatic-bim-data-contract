@@ -14,8 +14,10 @@ ConnectionPhysical,,"Physical connector providing functional connection between 
 ConnectionVirtual,,Logical or topological connection between spaces and/or physical elements.
 ContactPoint,,Structured communication endpoint or profile for an agent.
 CostRecord,,"Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price)."
+CostRequirement,,"Cost or budget requirement (unit-cost cap, total budget limit, etc.)."
 Decision,,Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.
 DeletionChange,,Entity removed in to_revision.
+DeliverableRequirement,,"Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.)."
 Entity,,"Common base class for everything in the project graph. Has identity, lifecycle, and status."
 Equipment,,"Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system."
 FireProperty,,Normalized fire-related property.
@@ -27,6 +29,7 @@ LocalizedText,,Localized text value for a specific language tag.
 MatchChange,,Entity match status against a requirement changed (previously met / no longer meets).
 Material,,Material definition that can be associated with one or more entities.
 MaterialProperty,,Normalized material-related property.
+MaterialRequirement,,Material or product specification requirement for matching against assigned materials.
 Message,,Message entity for coordination and traceability. Links to related entities via applies_to_entities.
 MetadataEntry,,"Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data."
 PerformanceProperty,,Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses.
@@ -39,8 +42,9 @@ ProjectContext,,Spatial context node constrained to project semantics.
 PropertyChange,,"Attribute, PropertySet, schema slot, or document field change."
 QuantityValue,,Minimal quantity record for costing and analysis.
 RegulatoryRequirement,,"Regulatory reference requirement (building code, norm, standard)."
-Requirement,,"Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot."
+Requirement,,"Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot."
 RequirementChange,,Change to a requirement entity or its fields.
+ScheduleRequirement,,"Schedule obligation requirement (deadline, milestone, or start/finish window)."
 SecurityProperty,,Normalized security-related property.
 Separator,,Abstract base class for elements that separate spaces or zones.
 SeparatorSlab,,Slab-based separating element (for example floor/roof/base slab separators).

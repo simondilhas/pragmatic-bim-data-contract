@@ -6,7 +6,7 @@ search:
 # Class: Requirement 
 
 
-_Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot._
+_Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot._
 
 __
 
@@ -38,6 +38,14 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
         click RegulatoryRequirement href "./RegulatoryRequirement.html"
       Requirement <|-- BriefRequirement
         click BriefRequirement href "./BriefRequirement.html"
+      Requirement <|-- DeliverableRequirement
+        click DeliverableRequirement href "./DeliverableRequirement.html"
+      Requirement <|-- ScheduleRequirement
+        click ScheduleRequirement href "./ScheduleRequirement.html"
+      Requirement <|-- CostRequirement
+        click CostRequirement href "./CostRequirement.html"
+      Requirement <|-- MaterialRequirement
+        click MaterialRequirement href "./MaterialRequirement.html"
       Requirement : applies_to_entities
         Requirement --> "*" Entity : applies_to_entities
         click Entity href "./Entity.html"
@@ -90,6 +98,10 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
         * [SpatialRequirement](SpatialRequirement.md)
         * [RegulatoryRequirement](RegulatoryRequirement.md)
         * [BriefRequirement](BriefRequirement.md)
+        * [DeliverableRequirement](DeliverableRequirement.md)
+        * [ScheduleRequirement](ScheduleRequirement.md)
+        * [CostRequirement](CostRequirement.md)
+        * [MaterialRequirement](MaterialRequirement.md)
 
 
 ## Class Properties
@@ -182,7 +194,8 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
 name: Requirement
 description: 'Prescriptive requirement entity (content_kind requirement). Applies
   to model entities via applies_to_entities. Domain is discriminated by concrete subclass
-  (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.
+  (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not
+  a separate slot.
 
   '
 from_schema: https://schema.pragmaticbim.ch
@@ -206,7 +219,8 @@ class_uri: pbs:Requirement
 name: Requirement
 description: 'Prescriptive requirement entity (content_kind requirement). Applies
   to model entities via applies_to_entities. Domain is discriminated by concrete subclass
-  (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.
+  (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not
+  a separate slot.
 
   '
 from_schema: https://schema.pragmaticbim.ch
