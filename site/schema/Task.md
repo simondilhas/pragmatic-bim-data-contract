@@ -23,57 +23,23 @@ URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 
 
 ```mermaid
- classDiagram
-    class Task
-    click Task href "./Task.html"
-      Entity <|-- Task
-        click Entity href "./Entity.html"
-      Task : applies_to_entities
-        Task --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Task : assignee
-        Task --> "0..1" Agent : assignee
-        click Agent href "./Agent.html"
-      Task : classifications
-        Task --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Task : content_kind
-      Task : created_at
-      Task : description
-      Task : due_at
-      Task : geometry_representations
-        Task --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Task : id
-      Task : ifc_global_id
-      Task : localized_descriptions
-        Task --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Task : localized_names
-        Task --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Task : meaning_uri
-      Task : metadata
-        Task --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Task : modified_at
-      Task : name
-      Task : performance_properties
-        Task --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Task : quantity_values
-        Task --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Task : related_decision
-        Task --> "0..1" Decision : related_decision
-        click Decision href "./Decision.html"
-      Task : revision
-      Task : status
-        Task --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      Task : task_notes
-      Task : task_status
-      Task : task_type
+classDiagram
+direction TB
+class Task
+click Task href "./Task.html" _blank
+Entity <|-- Task
+click Entity href "./Entity.html" _blank
+click Entity href "./Entity.html" _blank
+click Agent href "./Agent.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Decision href "./Decision.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

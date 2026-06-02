@@ -21,53 +21,23 @@ URI: [pbs:Company](https://schema.pragmaticbim.ch/Company)
 
 
 ```mermaid
- classDiagram
-    class Company
-    click Company href "./Company.html"
-      Agent <|-- Company
-        click Agent href "./Agent.html"
-      Company : applies_to_entities
-        Company --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Company : classifications
-        Company --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Company : contact_points
-        Company --> "*" ContactPoint : contact_points
-        click ContactPoint href "./ContactPoint.html"
-      Company : content_kind
-      Company : created_at
-      Company : description
-      Company : geometry_representations
-        Company --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Company : id
-      Company : ifc_global_id
-      Company : localized_descriptions
-        Company --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Company : localized_names
-        Company --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Company : meaning_uri
-      Company : metadata
-        Company --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Company : modified_at
-      Company : name
-      Company : performance_properties
-        Company --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Company : postal_addresses
-        Company --> "*" PostalAddress : postal_addresses
-        click PostalAddress href "./PostalAddress.html"
-      Company : quantity_values
-        Company --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Company : revision
-      Company : status
-        Company --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Company
+click Company href "./Company.html" _blank
+Agent <|-- Company
+click Agent href "./Agent.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContactPoint href "./ContactPoint.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click PostalAddress href "./PostalAddress.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

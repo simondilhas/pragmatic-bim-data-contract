@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: FireProperty 
@@ -8,7 +8,7 @@ search:
 
 _Normalized fire-related property._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,26 +21,14 @@ URI: [pbs:FireProperty](https://schema.pragmaticbim.ch/FireProperty)
 
 
 ```mermaid
- classDiagram
-    class FireProperty
-    click FireProperty href "./FireProperty.html"
-      PerformanceProperty <|-- FireProperty
-        click PerformanceProperty href "./PerformanceProperty.html"
-      FireProperty : mapping_version
-      FireProperty : property_key
-        FireProperty --> "1" FirePropertyKey : property_key
-        click FirePropertyKey href "./FirePropertyKey.html"
-      FireProperty : property_unit
-      FireProperty : property_unit_uri
-      FireProperty : property_value_boolean
-      FireProperty : property_value_number
-      FireProperty : property_value_string
-      FireProperty : property_value_type
-        FireProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
-      FireProperty : source_property
-      FireProperty : source_pset
-      FireProperty : source_value_raw
+classDiagram
+direction TB
+class FireProperty
+click FireProperty href "./FireProperty.html" _blank
+PerformanceProperty <|-- FireProperty
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click FirePropertyKey href "./FirePropertyKey.html" _blank
+click PerformancePropertyValueType href "./PerformancePropertyValueType.html" _blank
 ```
 
 

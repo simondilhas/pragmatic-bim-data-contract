@@ -23,61 +23,35 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 
 
 ```mermaid
- classDiagram
-    class Entity
-    click Entity href "./Entity.html"
-      Entity <|-- Agent
-        click Agent href "./Agent.html"
-      Entity <|-- Decision
-        click Decision href "./Decision.html"
-      Entity <|-- Task
-        click Task href "./Task.html"
-      Entity <|-- Message
-        click Message href "./Message.html"
-      Entity <|-- Artifact
-        click Artifact href "./Artifact.html"
-      Entity <|-- Requirement
-        click Requirement href "./Requirement.html"
-      Entity <|-- PhysicalElement
-        click PhysicalElement href "./PhysicalElement.html"
-      Entity <|-- VirtualEntity
-        click VirtualEntity href "./VirtualEntity.html"
-      Entity : applies_to_entities
-        Entity --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Entity : classifications
-        Entity --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Entity : content_kind
-      Entity : created_at
-      Entity : description
-      Entity : geometry_representations
-        Entity --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Entity : id
-      Entity : ifc_global_id
-      Entity : localized_descriptions
-        Entity --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Entity : localized_names
-        Entity --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Entity : meaning_uri
-      Entity : metadata
-        Entity --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Entity : modified_at
-      Entity : name
-      Entity : performance_properties
-        Entity --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Entity : quantity_values
-        Entity --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Entity : revision
-      Entity : status
-        Entity --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Entity
+click Entity href "./Entity.html" _blank
+Entity <|-- Agent
+click Agent href "./Agent.html" _blank
+Entity <|-- Decision
+click Decision href "./Decision.html" _blank
+Entity <|-- Task
+click Task href "./Task.html" _blank
+Entity <|-- Message
+click Message href "./Message.html" _blank
+Entity <|-- Artifact
+click Artifact href "./Artifact.html" _blank
+Entity <|-- Requirement
+click Requirement href "./Requirement.html" _blank
+Entity <|-- PhysicalElement
+click PhysicalElement href "./PhysicalElement.html" _blank
+Entity <|-- VirtualEntity
+click VirtualEntity href "./VirtualEntity.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

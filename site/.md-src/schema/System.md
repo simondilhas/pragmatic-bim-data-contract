@@ -21,77 +21,31 @@ URI: [pbs:System](https://schema.pragmaticbim.ch/System)
 
 
 ```mermaid
- classDiagram
-    class System
-    click System href "./System.html"
-      VirtualEntity <|-- System
-        click VirtualEntity href "./VirtualEntity.html"
-      System : applies_to_entities
-        System --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      System : classifications
-        System --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      System : contained_entities
-        System --> "*" Entity : contained_entities
-        click Entity href "./Entity.html"
-      System : content_kind
-      System : cost_records
-        System --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      System : created_at
-      System : description
-      System : geometry_representations
-        System --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      System : id
-      System : ifc_global_id
-      System : localized_descriptions
-        System --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      System : localized_names
-        System --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      System : materials
-        System --> "*" Material : materials
-        click Material href "./Material.html"
-      System : meaning_uri
-      System : metadata
-        System --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      System : modified_at
-      System : name
-      System : parent_building
-        System --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      System : parent_project
-        System --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      System : performance_properties
-        System --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      System : quantity_values
-        System --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      System : revision
-      System : serves_spaces
-        System --> "*" Space : serves_spaces
-        click Space href "./Space.html"
-      System : serves_zones
-        System --> "*" ZoneContext : serves_zones
-        click ZoneContext href "./ZoneContext.html"
-      System : status
-        System --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      System : system_discipline
-        System --> "1" SystemDiscipline : system_discipline
-        click SystemDiscipline href "./SystemDiscipline.html"
-      System : system_type
-        System --> "1" SystemType : system_type
-        click SystemType href "./SystemType.html"
-      System : time_records
-        System --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
+classDiagram
+direction TB
+class System
+click System href "./System.html" _blank
+VirtualEntity <|-- System
+click VirtualEntity href "./VirtualEntity.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click Entity href "./Entity.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click ProjectContext href "./ProjectContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Space href "./Space.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click StatusType href "./StatusType.html" _blank
+click SystemDiscipline href "./SystemDiscipline.html" _blank
+click SystemType href "./SystemType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
 ```
 
 

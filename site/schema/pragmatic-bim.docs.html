@@ -53,13 +53,16 @@
     
       <link rel="stylesheet" href="../stylesheets/pragmatic-bim-brand.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -322,10 +325,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#classes" class="md-nav__link">
+  <a href="#graph-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Classes
+        Graph classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-value-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedded value types
       
     </span>
   </a>
@@ -476,10 +490,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#classes" class="md-nav__link">
+  <a href="#graph-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Classes
+        Graph classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embedded-value-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embedded value types
       
     </span>
   </a>
@@ -582,7 +607,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<h2 id="graph-classes">Graph classes<a class="headerlink" href="#graph-classes" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -752,6 +777,48 @@
 <td>Material or product specification requirement for matching against assigned materials.</td>
 </tr>
 <tr>
+<td><a href="Change.html">Change</a></td>
+<td>Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PropertyChange.html">PropertyChange</a></td>
+<td>Attribute, PropertySet, schema slot, or document field change.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="GeometryChange.html">GeometryChange</a></td>
+<td>Geometry or representation change for a subject.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RequirementChange.html">RequirementChange</a></td>
+<td>Change to a requirement entity or its fields.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MatchChange.html">MatchChange</a></td>
+<td>Entity match status against a requirement changed (previously met / no longer meets).</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AdditionChange.html">AdditionChange</a></td>
+<td>New entity introduced in to_revision.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DeletionChange.html">DeletionChange</a></td>
+<td>Entity removed in to_revision.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="embedded-value-types">Embedded value types<a class="headerlink" href="#embedded-value-types" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Structured records stored inline on parent graph nodes (<code>inlined: true</code>). Not standalone project entities — no independent <code>id</code> or lifecycle.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><a href="Classification.html">Classification</a></td>
 <td>Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).</td>
 </tr>
@@ -810,34 +877,6 @@
 <tr>
 <td><a href="TimeLink.html">TimeLink</a></td>
 <td>Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record.</td>
-</tr>
-<tr>
-<td><a href="Change.html">Change</a></td>
-<td>Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PropertyChange.html">PropertyChange</a></td>
-<td>Attribute, PropertySet, schema slot, or document field change.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="GeometryChange.html">GeometryChange</a></td>
-<td>Geometry or representation change for a subject.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RequirementChange.html">RequirementChange</a></td>
-<td>Change to a requirement entity or its fields.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MatchChange.html">MatchChange</a></td>
-<td>Entity match status against a requirement changed (previously met / no longer meets).</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="AdditionChange.html">AdditionChange</a></td>
-<td>New entity introduced in to_revision.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DeletionChange.html">DeletionChange</a></td>
-<td>Entity removed in to_revision.</td>
 </tr>
 </tbody>
 </table>
@@ -1917,7 +1956,15 @@
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
+        <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/mermaid-init.js"></script>
+      
         <script src="../javascripts/classification-lang-switch.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

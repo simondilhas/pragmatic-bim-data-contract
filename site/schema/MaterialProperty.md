@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: MaterialProperty 
@@ -8,7 +8,7 @@ search:
 
 _Normalized material-related property._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,26 +21,14 @@ URI: [pbs:MaterialProperty](https://schema.pragmaticbim.ch/MaterialProperty)
 
 
 ```mermaid
- classDiagram
-    class MaterialProperty
-    click MaterialProperty href "./MaterialProperty.html"
-      PerformanceProperty <|-- MaterialProperty
-        click PerformanceProperty href "./PerformanceProperty.html"
-      MaterialProperty : mapping_version
-      MaterialProperty : property_key
-        MaterialProperty --> "1" MaterialPropertyKey : property_key
-        click MaterialPropertyKey href "./MaterialPropertyKey.html"
-      MaterialProperty : property_unit
-      MaterialProperty : property_unit_uri
-      MaterialProperty : property_value_boolean
-      MaterialProperty : property_value_number
-      MaterialProperty : property_value_string
-      MaterialProperty : property_value_type
-        MaterialProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
-      MaterialProperty : source_property
-      MaterialProperty : source_pset
-      MaterialProperty : source_value_raw
+classDiagram
+direction TB
+class MaterialProperty
+click MaterialProperty href "./MaterialProperty.html" _blank
+PerformanceProperty <|-- MaterialProperty
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click MaterialPropertyKey href "./MaterialPropertyKey.html" _blank
+click PerformancePropertyValueType href "./PerformancePropertyValueType.html" _blank
 ```
 
 

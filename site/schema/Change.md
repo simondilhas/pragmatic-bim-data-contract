@@ -25,47 +25,27 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 
 
 ```mermaid
- classDiagram
-    class Change
-    click Change href "./Change.html"
-      Change <|-- PropertyChange
-        click PropertyChange href "./PropertyChange.html"
-      Change <|-- GeometryChange
-        click GeometryChange href "./GeometryChange.html"
-      Change <|-- RequirementChange
-        click RequirementChange href "./RequirementChange.html"
-      Change <|-- MatchChange
-        click MatchChange href "./MatchChange.html"
-      Change <|-- AdditionChange
-        click AdditionChange href "./AdditionChange.html"
-      Change <|-- DeletionChange
-        click DeletionChange href "./DeletionChange.html"
-      Change : affected_subject
-        Change --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      Change : affected_subject_id
-      Change : affected_subject_path
-      Change : affected_subject_type
-      Change : artifact_storage_link
-      Change : change_severity
-        Change --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      Change : change_source
-      Change : change_type
-        Change --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      Change : detected_at
-      Change : from_revision
-      Change : id
-      Change : ifc_global_id
-      Change : intent_verdict
-        Change --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      Change : to_revision
-      Change : triggered_process
-      Change : triggered_task
-        Change --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class Change
+click Change href "./Change.html" _blank
+Change <|-- PropertyChange
+click PropertyChange href "./PropertyChange.html" _blank
+Change <|-- GeometryChange
+click GeometryChange href "./GeometryChange.html" _blank
+Change <|-- RequirementChange
+click RequirementChange href "./RequirementChange.html" _blank
+Change <|-- MatchChange
+click MatchChange href "./MatchChange.html" _blank
+Change <|-- AdditionChange
+click AdditionChange href "./AdditionChange.html" _blank
+Change <|-- DeletionChange
+click DeletionChange href "./DeletionChange.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 

@@ -349,13 +349,49 @@ def build_mermaid_hierarchy(vocab: VocabularyDoc) -> str:
     def node_id(code: str) -> str:
         return "n_" + "".join(ch if ch.isalnum() else "_" for ch in code)
 
+    def subgraph_id(code: str) -> str:
+        return "root_" + "".join(ch if ch.isalnum() else "_" for ch in code)
+
+    def node_label(notation: str) -> str:
+        concept = by_notation.get(notation)
+        label = concept.pref_label.get("en") or concept.notation if concept else notation
+        return f"{notation}: {label}".replace('"', "'")
+
+    children = {child for _, child in edges}
+    parents = {parent for parent, _ in edges}
+    roots = sorted(parents - children)
+
+    adjacency: dict[str, list[str]] = {}
+    for parent, child in edges:
+        adjacency.setdefault(parent, []).append(child)
+
+    def collect_edges_from_root(root: str) -> set[tuple[str, str]]:
+        result: set[tuple[str, str]] = set()
+        stack = [root]
+        visited: set[str] = set()
+        while stack:
+            node = stack.pop()
+            if node in visited:
+                continue
+            visited.add(node)
+            for child in adjacency.get(node, []):
+                result.add((node, child))
+                stack.append(child)
+        return result
+
     lines = ["```mermaid", "flowchart TD"]
-    for parent, child in sorted(edges):
-        pl = by_notation.get(parent)
-        cl = by_notation.get(child)
-        plabel = pl.pref_label.get("en") or pl.notation if pl else parent
-        clabel = cl.pref_label.get("en") or cl.notation if cl else child
-        lines.append(f'  {node_id(parent)}["{parent}: {plabel}"] --> {node_id(child)}["{child}: {clabel}"]')
+    for root in roots:
+        root_edges = collect_edges_from_root(root)
+        if not root_edges:
+            continue
+        lines.append(f'  subgraph {subgraph_id(root)} ["{node_label(root)}"]')
+        lines.append("    direction TB")
+        for parent, child in sorted(root_edges):
+            lines.append(
+                f'    {node_id(parent)}["{node_label(parent)}"]'
+                f' --> {node_id(child)}["{node_label(child)}"]'
+            )
+        lines.append("  end")
     lines.append("```")
     return "\n".join(lines)
 

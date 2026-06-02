@@ -25,66 +25,38 @@ URI: [pbs:Requirement](https://schema.pragmaticbim.ch/Requirement)
 
 
 ```mermaid
- classDiagram
-    class Requirement
-    click Requirement href "./Requirement.html"
-      Entity <|-- Requirement
-        click Entity href "./Entity.html"
-      Requirement <|-- PerformanceRequirement
-        click PerformanceRequirement href "./PerformanceRequirement.html"
-      Requirement <|-- SpatialRequirement
-        click SpatialRequirement href "./SpatialRequirement.html"
-      Requirement <|-- RegulatoryRequirement
-        click RegulatoryRequirement href "./RegulatoryRequirement.html"
-      Requirement <|-- BriefRequirement
-        click BriefRequirement href "./BriefRequirement.html"
-      Requirement <|-- DeliverableRequirement
-        click DeliverableRequirement href "./DeliverableRequirement.html"
-      Requirement <|-- ScheduleRequirement
-        click ScheduleRequirement href "./ScheduleRequirement.html"
-      Requirement <|-- CostRequirement
-        click CostRequirement href "./CostRequirement.html"
-      Requirement <|-- MaterialRequirement
-        click MaterialRequirement href "./MaterialRequirement.html"
-      Requirement : applies_to_entities
-        Requirement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Requirement : classifications
-        Requirement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Requirement : content_kind
-      Requirement : created_at
-      Requirement : description
-      Requirement : geometry_representations
-        Requirement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Requirement : id
-      Requirement : ifc_global_id
-      Requirement : localized_descriptions
-        Requirement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Requirement : localized_names
-        Requirement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Requirement : meaning_uri
-      Requirement : metadata
-        Requirement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Requirement : modified_at
-      Requirement : name
-      Requirement : performance_properties
-        Requirement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Requirement : quantity_values
-        Requirement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Requirement : revision
-      Requirement : source_artifact
-        Requirement --> "0..1" Artifact : source_artifact
-        click Artifact href "./Artifact.html"
-      Requirement : status
-        Requirement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Requirement
+click Requirement href "./Requirement.html" _blank
+Entity <|-- Requirement
+click Entity href "./Entity.html" _blank
+Requirement <|-- PerformanceRequirement
+click PerformanceRequirement href "./PerformanceRequirement.html" _blank
+Requirement <|-- SpatialRequirement
+click SpatialRequirement href "./SpatialRequirement.html" _blank
+Requirement <|-- RegulatoryRequirement
+click RegulatoryRequirement href "./RegulatoryRequirement.html" _blank
+Requirement <|-- BriefRequirement
+click BriefRequirement href "./BriefRequirement.html" _blank
+Requirement <|-- DeliverableRequirement
+click DeliverableRequirement href "./DeliverableRequirement.html" _blank
+Requirement <|-- ScheduleRequirement
+click ScheduleRequirement href "./ScheduleRequirement.html" _blank
+Requirement <|-- CostRequirement
+click CostRequirement href "./CostRequirement.html" _blank
+Requirement <|-- MaterialRequirement
+click MaterialRequirement href "./MaterialRequirement.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Artifact href "./Artifact.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

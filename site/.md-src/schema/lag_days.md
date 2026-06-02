@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 5.0
+  boost: 3.0
 ---
 
 # Slot: lag_days 

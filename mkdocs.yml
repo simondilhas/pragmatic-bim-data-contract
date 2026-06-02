@@ -6,6 +6,8 @@ extra_css:
   - stylesheets/pragmatic-bim-brand.css
 
 extra_javascript:
+  - https://unpkg.com/mermaid@11/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
   - javascripts/classification-lang-switch.js
 
 docs_dir: site/.md-src
@@ -31,6 +33,8 @@ nav:
 
 plugins:
   - search
+  - panzoom:
+      full_screen: true
 
 validation:
   unrecognized_links: ignore

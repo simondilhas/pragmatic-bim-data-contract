@@ -21,83 +21,33 @@ URI: [pbs:ProjectContext](https://schema.pragmaticbim.ch/ProjectContext)
 
 
 ```mermaid
- classDiagram
-    class ProjectContext
-    click ProjectContext href "./ProjectContext.html"
-      SpatialContext <|-- ProjectContext
-        click SpatialContext href "./SpatialContext.html"
-      ProjectContext : applies_to_entities
-        ProjectContext --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      ProjectContext : classifications
-        ProjectContext --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      ProjectContext : content_kind
-      ProjectContext : context_type
-        ProjectContext --> "1" ContextType : context_type
-        click ContextType href "./ContextType.html"
-      ProjectContext : cost_records
-        ProjectContext --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      ProjectContext : created_at
-      ProjectContext : description
-      ProjectContext : geometry_representations
-        ProjectContext --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      ProjectContext : group_members
-        ProjectContext --> "*" Entity : group_members
-        click Entity href "./Entity.html"
-      ProjectContext : id
-      ProjectContext : ifc_global_id
-      ProjectContext : localized_descriptions
-        ProjectContext --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      ProjectContext : localized_names
-        ProjectContext --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      ProjectContext : materials
-        ProjectContext --> "*" Material : materials
-        click Material href "./Material.html"
-      ProjectContext : meaning_uri
-      ProjectContext : metadata
-        ProjectContext --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      ProjectContext : modified_at
-      ProjectContext : name
-      ProjectContext : parent_building
-        ProjectContext --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      ProjectContext : parent_legal_site
-        ProjectContext --> "0..1" LegalSiteContext : parent_legal_site
-        click LegalSiteContext href "./LegalSiteContext.html"
-      ProjectContext : parent_level
-        ProjectContext --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      ProjectContext : parent_perimeter
-        ProjectContext --> "0..1" PerimeterContext : parent_perimeter
-        click PerimeterContext href "./PerimeterContext.html"
-      ProjectContext : parent_project
-        ProjectContext --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      ProjectContext : parent_zone
-        ProjectContext --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      ProjectContext : performance_properties
-        ProjectContext --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      ProjectContext : quantity_values
-        ProjectContext --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      ProjectContext : revision
-      ProjectContext : status
-        ProjectContext --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      ProjectContext : time_records
-        ProjectContext --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      ProjectContext : zone_type
-        ProjectContext --> "0..1" ZoneType : zone_type
-        click ZoneType href "./ZoneType.html"
+classDiagram
+direction TB
+class ProjectContext
+click ProjectContext href "./ProjectContext.html" _blank
+SpatialContext <|-- ProjectContext
+click SpatialContext href "./SpatialContext.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContextType href "./ContextType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Entity href "./Entity.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerimeterContext href "./PerimeterContext.html" _blank
+click ProjectContext href "./ProjectContext.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click ZoneType href "./ZoneType.html" _blank
 ```
 
 

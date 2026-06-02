@@ -23,57 +23,27 @@ URI: [pbs:Agent](https://schema.pragmaticbim.ch/Agent)
 
 
 ```mermaid
- classDiagram
-    class Agent
-    click Agent href "./Agent.html"
-      Entity <|-- Agent
-        click Entity href "./Entity.html"
-      Agent <|-- Person
-        click Person href "./Person.html"
-      Agent <|-- Company
-        click Company href "./Company.html"
-      Agent : applies_to_entities
-        Agent --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Agent : classifications
-        Agent --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Agent : contact_points
-        Agent --> "*" ContactPoint : contact_points
-        click ContactPoint href "./ContactPoint.html"
-      Agent : content_kind
-      Agent : created_at
-      Agent : description
-      Agent : geometry_representations
-        Agent --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Agent : id
-      Agent : ifc_global_id
-      Agent : localized_descriptions
-        Agent --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Agent : localized_names
-        Agent --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Agent : meaning_uri
-      Agent : metadata
-        Agent --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Agent : modified_at
-      Agent : name
-      Agent : performance_properties
-        Agent --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Agent : postal_addresses
-        Agent --> "*" PostalAddress : postal_addresses
-        click PostalAddress href "./PostalAddress.html"
-      Agent : quantity_values
-        Agent --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Agent : revision
-      Agent : status
-        Agent --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Agent
+click Agent href "./Agent.html" _blank
+Entity <|-- Agent
+click Entity href "./Entity.html" _blank
+Agent <|-- Person
+click Person href "./Person.html" _blank
+Agent <|-- Company
+click Company href "./Company.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContactPoint href "./ContactPoint.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click PostalAddress href "./PostalAddress.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

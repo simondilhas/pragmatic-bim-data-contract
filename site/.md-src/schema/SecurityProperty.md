@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: SecurityProperty 
@@ -8,7 +8,7 @@ search:
 
 _Normalized security-related property._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,26 +21,14 @@ URI: [pbs:SecurityProperty](https://schema.pragmaticbim.ch/SecurityProperty)
 
 
 ```mermaid
- classDiagram
-    class SecurityProperty
-    click SecurityProperty href "./SecurityProperty.html"
-      PerformanceProperty <|-- SecurityProperty
-        click PerformanceProperty href "./PerformanceProperty.html"
-      SecurityProperty : mapping_version
-      SecurityProperty : property_key
-        SecurityProperty --> "1" SecurityPropertyKey : property_key
-        click SecurityPropertyKey href "./SecurityPropertyKey.html"
-      SecurityProperty : property_unit
-      SecurityProperty : property_unit_uri
-      SecurityProperty : property_value_boolean
-      SecurityProperty : property_value_number
-      SecurityProperty : property_value_string
-      SecurityProperty : property_value_type
-        SecurityProperty --> "1" PerformancePropertyValueType : property_value_type
-        click PerformancePropertyValueType href "./PerformancePropertyValueType.html"
-      SecurityProperty : source_property
-      SecurityProperty : source_pset
-      SecurityProperty : source_value_raw
+classDiagram
+direction TB
+class SecurityProperty
+click SecurityProperty href "./SecurityProperty.html" _blank
+PerformanceProperty <|-- SecurityProperty
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click SecurityPropertyKey href "./SecurityPropertyKey.html" _blank
+click PerformancePropertyValueType href "./PerformancePropertyValueType.html" _blank
 ```
 
 

@@ -23,61 +23,31 @@ URI: [pbs:PhysicalElement](https://schema.pragmaticbim.ch/PhysicalElement)
 
 
 ```mermaid
- classDiagram
-    class PhysicalElement
-    click PhysicalElement href "./PhysicalElement.html"
-      Entity <|-- PhysicalElement
-        click Entity href "./Entity.html"
-      PhysicalElement <|-- Separator
-        click Separator href "./Separator.html"
-      PhysicalElement <|-- ConnectionPhysical
-        click ConnectionPhysical href "./ConnectionPhysical.html"
-      PhysicalElement <|-- Boundary
-        click Boundary href "./Boundary.html"
-      PhysicalElement <|-- Equipment
-        click Equipment href "./Equipment.html"
-      PhysicalElement : applies_to_entities
-        PhysicalElement --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      PhysicalElement : classifications
-        PhysicalElement --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      PhysicalElement : content_kind
-      PhysicalElement : created_at
-      PhysicalElement : description
-      PhysicalElement : geometry_representations
-        PhysicalElement --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      PhysicalElement : id
-      PhysicalElement : ifc_global_id
-      PhysicalElement : localized_descriptions
-        PhysicalElement --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      PhysicalElement : localized_names
-        PhysicalElement --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      PhysicalElement : meaning_uri
-      PhysicalElement : metadata
-        PhysicalElement --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      PhysicalElement : modified_at
-      PhysicalElement : name
-      PhysicalElement : parent_building
-        PhysicalElement --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      PhysicalElement : parent_level
-        PhysicalElement --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      PhysicalElement : performance_properties
-        PhysicalElement --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      PhysicalElement : quantity_values
-        PhysicalElement --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      PhysicalElement : revision
-      PhysicalElement : status
-        PhysicalElement --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class PhysicalElement
+click PhysicalElement href "./PhysicalElement.html" _blank
+Entity <|-- PhysicalElement
+click Entity href "./Entity.html" _blank
+PhysicalElement <|-- Separator
+click Separator href "./Separator.html" _blank
+PhysicalElement <|-- ConnectionPhysical
+click ConnectionPhysical href "./ConnectionPhysical.html" _blank
+PhysicalElement <|-- Boundary
+click Boundary href "./Boundary.html" _blank
+PhysicalElement <|-- Equipment
+click Equipment href "./Equipment.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 

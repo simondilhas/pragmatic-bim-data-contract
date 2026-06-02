@@ -29,6 +29,14 @@ BRAND_JAVASCRIPT = (
     / "javascripts"
     / "classification-lang-switch.js"
 )
+MERMAID_INIT_JAVASCRIPT = (
+    REPO_ROOT
+    / "docs-assets"
+    / "material"
+    / "assets"
+    / "javascripts"
+    / "mermaid-init.js"
+)
 
 SITE_ROOT_PRESERVE = {
     ".md-src",
@@ -123,6 +131,7 @@ def stage_brand_assets(md_src: Path) -> None:
     javascript_dir = md_src / "javascripts"
     javascript_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(BRAND_JAVASCRIPT, javascript_dir / "classification-lang-switch.js")
+    shutil.copy2(MERMAID_INIT_JAVASCRIPT, javascript_dir / "mermaid-init.js")
 
 
 def publish_schema_markdown(md_src: Path, site_schema_dir: Path) -> None:

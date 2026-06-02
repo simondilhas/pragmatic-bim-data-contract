@@ -1,5 +1,6 @@
 linkml
 mkdocs
 mkdocs-material
+mkdocs-panzoom-plugin
 pyyaml
 rdflib

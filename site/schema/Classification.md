@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: Classification 
@@ -8,7 +8,7 @@ search:
 
 _Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom)._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,15 +21,10 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 
 
 ```mermaid
- classDiagram
-    class Classification
-    click Classification href "./Classification.html"
-      Classification : classification_code
-      Classification : classification_label
-      Classification : classification_scheme
-      Classification : classification_source
-      Classification : classification_uri
-      Classification : classification_version
+classDiagram
+direction TB
+class Classification
+click Classification href "./Classification.html" _blank
 ```
 
 

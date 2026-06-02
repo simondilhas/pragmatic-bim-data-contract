@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: GeometryRepresentation 
@@ -8,7 +8,7 @@ search:
 
 _Minimal geometry reference for an entity, separating representation from encoding format._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,14 +21,11 @@ URI: [pbs:GeometryRepresentation](https://schema.pragmaticbim.ch/GeometryReprese
 
 
 ```mermaid
- classDiagram
-    class GeometryRepresentation
-    click GeometryRepresentation href "./GeometryRepresentation.html"
-      GeometryRepresentation : geometry_format
-      GeometryRepresentation : geometry_reference
-      GeometryRepresentation : geometry_representation
-        GeometryRepresentation --> "1" GeometryRepresentationType : geometry_representation
-        click GeometryRepresentationType href "./GeometryRepresentationType.html"
+classDiagram
+direction TB
+class GeometryRepresentation
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click GeometryRepresentationType href "./GeometryRepresentationType.html" _blank
 ```
 
 
