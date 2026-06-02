@@ -3,10 +3,12 @@ search:
   boost: 10.0
 ---
 
-# Class: YamlDocument 
+# Class: Artifact 
 
 
-_Document entity referencing external storage. Links to related entities via applies_to_entities._
+_External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element._
+
+__
 
 
 
@@ -14,7 +16,7 @@ _Document entity referencing external storage. Links to related entities via app
 
 
 
-URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
+URI: [pbs:Artifact](https://schema.pragmaticbim.ch/Artifact)
 
 
 
@@ -22,47 +24,51 @@ URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
 
 ```mermaid
  classDiagram
-    class YamlDocument
-    click YamlDocument href "./YamlDocument.html"
-      Entity <|-- YamlDocument
+    class Artifact
+    click Artifact href "./Artifact.html"
+      Entity <|-- Artifact
         click Entity href "./Entity.html"
-      YamlDocument : applies_to_entities
-        YamlDocument --> "*" Entity : applies_to_entities
+      Artifact : applies_to_entities
+        Artifact --> "*" Entity : applies_to_entities
         click Entity href "./Entity.html"
-      YamlDocument : classifications
-        YamlDocument --> "*" Classification : classifications
+      Artifact : artifact_kind
+        Artifact --> "1" ArtifactKind : artifact_kind
+        click ArtifactKind href "./ArtifactKind.html"
+      Artifact : classifications
+        Artifact --> "*" Classification : classifications
         click Classification href "./Classification.html"
-      YamlDocument : content_kind
-      YamlDocument : created_at
-      YamlDocument : description
-      YamlDocument : geometry_representations
-        YamlDocument --> "*" GeometryRepresentation : geometry_representations
+      Artifact : content_kind
+      Artifact : created_at
+      Artifact : description
+      Artifact : geometry_representations
+        Artifact --> "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
-      YamlDocument : id
-      YamlDocument : ifc_global_id
-      YamlDocument : localized_descriptions
-        YamlDocument --> "*" LocalizedText : localized_descriptions
+      Artifact : id
+      Artifact : ifc_global_id
+      Artifact : localized_descriptions
+        Artifact --> "*" LocalizedText : localized_descriptions
         click LocalizedText href "./LocalizedText.html"
-      YamlDocument : localized_names
-        YamlDocument --> "*" LocalizedText : localized_names
+      Artifact : localized_names
+        Artifact --> "*" LocalizedText : localized_names
         click LocalizedText href "./LocalizedText.html"
-      YamlDocument : meaning_uri
-      YamlDocument : metadata
-        YamlDocument --> "*" MetadataEntry : metadata
+      Artifact : meaning_uri
+      Artifact : media_format
+      Artifact : metadata
+        Artifact --> "*" MetadataEntry : metadata
         click MetadataEntry href "./MetadataEntry.html"
-      YamlDocument : modified_at
-      YamlDocument : name
-      YamlDocument : performance_properties
-        YamlDocument --> "*" PerformanceProperty : performance_properties
+      Artifact : modified_at
+      Artifact : name
+      Artifact : performance_properties
+        Artifact --> "*" PerformanceProperty : performance_properties
         click PerformanceProperty href "./PerformanceProperty.html"
-      YamlDocument : quantity_values
-        YamlDocument --> "*" QuantityValue : quantity_values
+      Artifact : quantity_values
+        Artifact --> "*" QuantityValue : quantity_values
         click QuantityValue href "./QuantityValue.html"
-      YamlDocument : revision
-      YamlDocument : status
-        YamlDocument --> "0..1" StatusType : status
+      Artifact : revision
+      Artifact : status
+        Artifact --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
-      YamlDocument : storage_link
+      Artifact : storage_link
 ```
 
 
@@ -71,14 +77,14 @@ URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
 
 ## Inheritance
 * [Entity](Entity.md)
-    * **YamlDocument**
+    * **Artifact**
 
 
 ## Class Properties
 
 | Property | Value |
 | --- | --- |
-| Class URI | [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument) |
+| Class URI | [pbs:Artifact](https://schema.pragmaticbim.ch/Artifact) |
 
 
 ## Slots
@@ -86,7 +92,9 @@ URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | direct |
-| [storage_link](storage_link.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI/URL/path to the stored document location. | direct |
+| [storage_link](storage_link.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI/URL/path to the stored artifact location. | direct |
+| [artifact_kind](artifact_kind.md) | 1 <br/> [ArtifactKind](ArtifactKind.md) | Kind of external artifact (text document, model, or plan). | direct |
+| [media_format](media_format.md) | 0..1 <br/> [String](String.md) | Encoding or format label (for example IFC4, PDF, DWG). | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -113,15 +121,15 @@ URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Requirement](Requirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [PerformanceRequirement](PerformanceRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [SpatialRequirement](SpatialRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [RegulatoryRequirement](RegulatoryRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [BriefRequirement](BriefRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [DeliverableRequirement](DeliverableRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [ScheduleRequirement](ScheduleRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [CostRequirement](CostRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
-| [MaterialRequirement](MaterialRequirement.md) | [source_document](source_document.md) | range | [YamlDocument](YamlDocument.md) |
+| [Requirement](Requirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [PerformanceRequirement](PerformanceRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [SpatialRequirement](SpatialRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [BriefRequirement](BriefRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [CostRequirement](CostRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
 
 
 
@@ -152,8 +160,9 @@ URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | pbs:YamlDocument |
-| native | pbs:YamlDocument |
+| self | pbs:Artifact |
+| native | pbs:Artifact |
+| exact | schema:CreativeWork |
 
 
 
@@ -168,22 +177,31 @@ URI: [pbs:YamlDocument](https://schema.pragmaticbim.ch/YamlDocument)
 
 <details>
 ```yaml
-name: yamlDocument
-description: Document entity referencing external storage. Links to related entities
-  via applies_to_entities.
+name: Artifact
+description: 'External project artifact (text document, model, or plan) at storage_link.
+  Used for provenance (Requirement.source_artifact). Not a modeled building element.
+
+  '
 from_schema: https://schema.pragmaticbim.ch
+exact_mappings:
+- schema:CreativeWork
 is_a: Entity
 slots:
 - classifications
 - storage_link
+- artifact_kind
+- media_format
 slot_usage:
   content_kind:
     name: content_kind
-    equals_string: document
+    equals_string: artifact
   id:
     name: id
     required: true
-class_uri: pbs:YamlDocument
+  artifact_kind:
+    name: artifact_kind
+    required: true
+class_uri: pbs:Artifact
 
 ```
 </details>
@@ -192,17 +210,24 @@ class_uri: pbs:YamlDocument
 
 <details>
 ```yaml
-name: yamlDocument
-description: Document entity referencing external storage. Links to related entities
-  via applies_to_entities.
+name: Artifact
+description: 'External project artifact (text document, model, or plan) at storage_link.
+  Used for provenance (Requirement.source_artifact). Not a modeled building element.
+
+  '
 from_schema: https://schema.pragmaticbim.ch
+exact_mappings:
+- schema:CreativeWork
 is_a: Entity
 slot_usage:
   content_kind:
     name: content_kind
-    equals_string: document
+    equals_string: artifact
   id:
     name: id
+    required: true
+  artifact_kind:
+    name: artifact_kind
     required: true
 attributes:
   classifications:
@@ -210,30 +235,49 @@ attributes:
     description: Classification entries from IFC and other schemes.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true
   storage_link:
     name: storage_link
-    description: URI/URL/path to the stored document location.
+    description: URI/URL/path to the stored artifact location.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
-    - yamlDocument
+    - Artifact
     range: uriorcurie
     required: true
+  artifact_kind:
+    name: artifact_kind
+    description: Kind of external artifact (text document, model, or plan).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Artifact
+    domain_of:
+    - Artifact
+    range: ArtifactKind
+    required: true
+  media_format:
+    name: media_format
+    description: Encoding or format label (for example IFC4, PDF, DWG).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Artifact
+    domain_of:
+    - Artifact
+    range: string
   id:
     name: id
     description: Unique local identifier.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     identifier: true
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     - Change
@@ -245,18 +289,18 @@ attributes:
       be a ContentKind value.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: string
     required: true
-    equals_string: document
+    equals_string: artifact
   name:
     name: name
     description: Default display name.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: string
@@ -266,7 +310,7 @@ attributes:
     description: Localized variants of name.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: LocalizedText
@@ -277,7 +321,7 @@ attributes:
     description: Default description text.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: string
@@ -287,7 +331,7 @@ attributes:
       ontology concept.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: uriorcurie
@@ -296,7 +340,7 @@ attributes:
     description: Localized variants of description.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: LocalizedText
@@ -307,7 +351,7 @@ attributes:
     description: IFC GlobalId of the mapped entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     - Change
@@ -322,7 +366,7 @@ attributes:
       '
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: GeometryRepresentation
@@ -333,7 +377,7 @@ attributes:
     description: Quantities associated with the entity.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: QuantityValue
@@ -345,7 +389,7 @@ attributes:
       extensions.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: MetadataEntry
@@ -359,7 +403,7 @@ attributes:
       '
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: PerformanceProperty
@@ -371,7 +415,7 @@ attributes:
       schedule items, etc.).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     - TimeRecord
@@ -384,7 +428,7 @@ attributes:
     description: Creation timestamp for this entity record.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: datetime
@@ -393,7 +437,7 @@ attributes:
     description: Last modification timestamp for this entity record.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: datetime
@@ -402,7 +446,7 @@ attributes:
     description: Integer revision counter for change tracking.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: integer
@@ -412,11 +456,11 @@ attributes:
     description: Lifecycle or QA status.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
-    owner: yamlDocument
+    owner: Artifact
     domain_of:
     - Entity
     range: StatusType
-class_uri: pbs:YamlDocument
+class_uri: pbs:Artifact
 
 ```
 </details></div>

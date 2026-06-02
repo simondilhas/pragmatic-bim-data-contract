@@ -141,7 +141,7 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 | `virtual` | Virtual entities | `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `CostRecord`, `Material` |
 | `context` | Spatial context | `BuildingContext`, `LevelContext`, `ZoneContext`, `PerimeterContext` |
 | `requirement` | Requirements | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement`, `DeliverableRequirement`, `ScheduleRequirement`, `CostRequirement`, `MaterialRequirement` |
-| `document` | Documents | `Document` |
+| `artifact` | Artifacts | `Artifact` |
 | `decision` | Decisions | `Decision` |
 | `task` | Tasks | `Task` |
 | `agent` | Agents | `Person`, `Company` |

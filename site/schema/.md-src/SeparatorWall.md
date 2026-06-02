@@ -349,7 +349,7 @@ attributes:
     owner: SeparatorWall
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

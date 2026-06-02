@@ -42,7 +42,7 @@ classes:
     - affected_subject_type
     - affected_subject_path
     - ifc_global_id
-    - document_storage_link
+    - artifact_storage_link
     - from_revision
     - to_revision
     - triggered_task
@@ -171,7 +171,7 @@ slots:
   affected_subject_type:
     range: string
     required: true
-    description: 'LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).
+    description: 'LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact).
 
       '
   affected_subject_path:
@@ -179,9 +179,9 @@ slots:
     description: 'Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).
 
       '
-  document_storage_link:
+  artifact_storage_link:
     range: uriorcurie
-    description: Document location when the subject is a yamlDocument entity or document field diff.
+    description: Artifact location when the subject is an Artifact entity or embedded field diff.
   from_revision:
     range: integer
     minimum_value: 0

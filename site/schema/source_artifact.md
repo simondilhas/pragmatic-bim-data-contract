@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: source_document 
+# Slot: source_artifact 
 
 
-_Optional source document entity backing this requirement._
+_Optional source artifact backing this requirement._
 
 
 
@@ -14,7 +14,7 @@ _Optional source document entity backing this requirement._
 
 
 
-URI: [pbs:source_document](https://schema.pragmaticbim.ch/source_document)
+URI: [pbs:source_artifact](https://schema.pragmaticbim.ch/source_artifact)
 <!-- no inheritance hierarchy -->
 
 
@@ -46,7 +46,7 @@ URI: [pbs:source_document](https://schema.pragmaticbim.ch/source_document)
 
 | Property | Value |
 | --- | --- |
-| Range | [YamlDocument](YamlDocument.md) |
+| Range | [Artifact](Artifact.md) |
 | Domain Of | [Requirement](Requirement.md) |
 
 ### Cardinality and Requirements
@@ -81,8 +81,8 @@ URI: [pbs:source_document](https://schema.pragmaticbim.ch/source_document)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | pbs:source_document |
-| native | pbs:source_document |
+| self | pbs:source_artifact |
+| native | pbs:source_artifact |
 
 
 
@@ -91,13 +91,13 @@ URI: [pbs:source_document](https://schema.pragmaticbim.ch/source_document)
 
 <details>
 ```yaml
-name: source_document
-description: Optional source document entity backing this requirement.
+name: source_artifact
+description: Optional source artifact backing this requirement.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - Requirement
-range: yamlDocument
+range: Artifact
 inlined: false
 
 ```

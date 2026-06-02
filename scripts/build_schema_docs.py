@@ -32,6 +32,15 @@ PRESERVE_SITE_ENTRIES = {
     "pragmatic-bim.csv",
     "pragmatic-bim.pydantic.py",
 }
+BRAND_STYLESHEET = (
+    REPO_ROOT / "docs-assets" / "material" / "assets" / "stylesheets" / "pragmatic-bim-brand.css"
+)
+
+
+def stage_brand_stylesheet(md_src: Path) -> None:
+    dest_dir = md_src / "stylesheets"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(BRAND_STYLESHEET, dest_dir / "pragmatic-bim-brand.css")
 
 
 def find_gen_doc() -> str:
@@ -114,6 +123,7 @@ def build_schema_docs(
 ) -> None:
     run_gen_doc(md_src, schema_root)
     postprocess_md_dir(md_src, schema_root=schema_root)
+    stage_brand_stylesheet(md_src)
 
     if skip_mkdocs:
         return

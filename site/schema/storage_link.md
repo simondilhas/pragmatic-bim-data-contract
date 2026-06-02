@@ -6,7 +6,7 @@ search:
 # Slot: storage_link 
 
 
-_URI/URL/path to the stored document location._
+_URI/URL/path to the stored artifact location._
 
 
 
@@ -25,7 +25,7 @@ URI: [pbs:storage_link](https://schema.pragmaticbim.ch/storage_link)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [YamlDocument](YamlDocument.md) | Document entity referencing external storage. Links to related entities via applies_to_entities. |  no  |
+| [Artifact](Artifact.md) | External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element. |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [pbs:storage_link](https://schema.pragmaticbim.ch/storage_link)
 | Property | Value |
 | --- | --- |
 | Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [YamlDocument](YamlDocument.md) |
+| Domain Of | [Artifact](Artifact.md) |
 
 ### Cardinality and Requirements
 
@@ -85,11 +85,11 @@ URI: [pbs:storage_link](https://schema.pragmaticbim.ch/storage_link)
 <details>
 ```yaml
 name: storage_link
-description: URI/URL/path to the stored document location.
+description: URI/URL/path to the stored artifact location.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- yamlDocument
+- Artifact
 range: uriorcurie
 required: true
 

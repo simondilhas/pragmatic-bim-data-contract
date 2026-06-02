@@ -518,7 +518,7 @@ attributes:
     owner: SpatialContext
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

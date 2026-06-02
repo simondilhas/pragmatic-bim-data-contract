@@ -2,6 +2,12 @@ site_name: Pragmatic BIM Data Contract
 site_url: https://schema.pragmaticbim.ch/schema/
 use_directory_urls: false
 
+extra:
+  homepage: https://schema.pragmaticbim.ch/
+
+extra_css:
+  - stylesheets/pragmatic-bim-brand.css
+
 docs_dir: site/schema/.md-src
 site_dir: site/schema/.html-build
 
@@ -9,8 +15,8 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: blue
-      accent: blue
+      primary: custom
+      accent: custom
   features:
     - search.suggest
     - search.highlight

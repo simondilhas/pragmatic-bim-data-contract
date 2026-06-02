@@ -41,6 +41,15 @@ PRESERVE_SITE_ENTRIES = {
     "sources",
     "classifications.json",
 }
+BRAND_STYLESHEET = (
+    REPO_ROOT / "docs-assets" / "material" / "assets" / "stylesheets" / "pragmatic-bim-brand.css"
+)
+
+
+def stage_brand_stylesheet(md_src: Path) -> None:
+    dest_dir = md_src / "stylesheets"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(BRAND_STYLESHEET, dest_dir / "pragmatic-bim-brand.css")
 
 
 def clear_markdown_source(md_src: Path) -> None:
@@ -80,9 +89,10 @@ def write_mkdocs_config(nav: list[Any]) -> None:
         "use_directory_urls": False,
         "docs_dir": "site/classification/.md-src",
         "site_dir": "site/classification/.html-build",
+        "extra_css": ["stylesheets/pragmatic-bim-brand.css"],
         "theme": {
             "name": "material",
-            "palette": [{"scheme": "default", "primary": "blue", "accent": "blue"}],
+            "palette": [{"scheme": "default", "primary": "custom", "accent": "custom"}],
             "features": [
                 "search.suggest",
                 "search.highlight",
@@ -240,6 +250,7 @@ def build_classification_docs(
     )
 
     write_mkdocs_config(build_nav(vocab_entries, mapping_entries))
+    stage_brand_stylesheet(md_src)
 
     if skip_mkdocs:
         return

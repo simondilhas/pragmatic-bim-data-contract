@@ -1,14 +1,18 @@
 site_name: Pragmatic BIM Classifications
 site_url: https://schema.pragmaticbim.ch/classification/
 use_directory_urls: false
+
+extra_css:
+  - stylesheets/pragmatic-bim-brand.css
+
 docs_dir: site/classification/.md-src
 site_dir: site/classification/.html-build
 theme:
   name: material
   palette:
   - scheme: default
-    primary: blue
-    accent: blue
+    primary: custom
+    accent: custom
   features:
   - search.suggest
   - search.highlight

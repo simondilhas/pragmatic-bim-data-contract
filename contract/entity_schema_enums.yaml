@@ -53,14 +53,14 @@ enums:
           de:
             source: de
             description: Anforderung
-      document:
-        description: Document entity referencing external storage.
-        meaning: pbs:content_kind_document
-        title: Document
+      artifact:
+        description: External project artifact (text document, model, or plan) at storage_link.
+        meaning: pbs:content_kind_artifact
+        title: Artifact
         alt_descriptions:
           de:
             source: de
-            description: Dokument
+            description: Artefakt
       decision:
         description: Decision entity for workflow and governance traceability.
         meaning: pbs:content_kind_decision
@@ -93,6 +93,34 @@ enums:
           de:
             source: de
             description: Nachricht
+  ArtifactKind:
+    enum_uri: pbs:ArtifactKind
+    description: Kind of external project artifact referenced by storage_link.
+    permissible_values:
+      text_document:
+        description: Text-based document (specification, contract, report, manual).
+        meaning: pbs:artifact_kind_text_document
+        title: Text document
+        alt_descriptions:
+          de:
+            source: de
+            description: Textdokument
+      model:
+        description: BIM or coordination model file.
+        meaning: pbs:artifact_kind_model
+        title: Model
+        alt_descriptions:
+          de:
+            source: de
+            description: Modell
+      plan:
+        description: Drawing or plan sheet (floor plan, section, detail).
+        meaning: pbs:artifact_kind_plan
+        title: Plan
+        alt_descriptions:
+          de:
+            source: de
+            description: Plan
   QuantityType:
     enum_uri: pbs:QuantityType
     permissible_values:

@@ -13,6 +13,7 @@ classification/
 ├── abstract-separator-classification/  # SKOS
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
+├── abstract-material-classification/   # SKOS
 ├── abstract-usecase-classification/    # SKOS — project lifecycle use cases
 └── mapping/                            # bridge TTL files
 ```
@@ -23,6 +24,7 @@ classification/
 | `abstract-separator-classification/` | Wall/slab separator roles and connection types |
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
+| `abstract-material-classification/` | Abstract material categories |
 | `abstract-usecase-classification/` | Project lifecycle use cases (ordering, design, QA, construction, handover, operation, deconstruction) |
 | `mapping/` | Crosswalks from abstract concepts to external code lists (SIA, D0165, BKP, …) |
 
@@ -35,6 +37,7 @@ classification/
 | `mapping/d0165-to-abstract-room-classification.mapping.ttl` | D0165 → space activity (reverse) |
 | `mapping/abstract-room-classification-to-sia416.mapping.ttl` | Space activity → SIA 416 area classes |
 | `mapping/abstract-roles-to-bkp.mapping.ttl` | Workflow roles → BKP cost lines |
+| `mapping/abstract-material-to-uniclass-ma.mapping.ttl` | Abstract material → Uniclass Ma |
 
 Bridge files reference external IRIs by code. Full proprietary vocabularies are not shipped in this repository.
 
@@ -74,4 +77,4 @@ python classification/scripts/visualize.py --room-only
 ## Related
 
 - [`contract/README.md`](../contract/README.md) — data contract schema and `Classification` slot definition
-- [`contract/mappings/README.md`](../contract/mappings/README.md) — IFC ingestion populates `classifications[]` from `IfcRelAssociatesClassification`
+- [`contract/mapping/README.md`](../contract/mapping/README.md) — IFC ingestion populates `classifications[]` from `IfcRelAssociatesClassification`

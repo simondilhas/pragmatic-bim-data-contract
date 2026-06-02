@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://schema.pragmaticbim.ch/schema/source_document.html">
+        <link rel="canonical" href="https://schema.pragmaticbim.ch/schema/artifact_kind.html">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: source_document - Pragmatic BIM Data Contract</title>
+        <title>Slot: artifact_kind - Pragmatic BIM Data Contract</title>
       
     
     
@@ -47,6 +47,8 @@
       
     
     
+      <link rel="stylesheet" href="stylesheets/pragmatic-bim-brand.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -63,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-source_document" class="md-skip">
+        <a href="#slot-artifact_kind" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+    <a href="https://schema.pragmaticbim.ch/" title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: source_document
+              Slot: artifact_kind
             
           </span>
         </div>
@@ -121,7 +123,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
     
   
 </form>
@@ -200,7 +202,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+    <a href="https://schema.pragmaticbim.ch/" title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -381,10 +383,10 @@
 
 
 
-<h1 id="slot-source_document">Slot: source_document<a class="headerlink" href="#slot-source_document" title="Permanent link">&para;</a></h1>
-<p><em>Optional source document entity backing this requirement.</em></p>
+<h1 id="slot-artifact_kind">Slot: artifact_kind<a class="headerlink" href="#slot-artifact_kind" title="Permanent link">&para;</a></h1>
+<p><em>Kind of external artifact (text document, model, or plan).</em></p>
 <div>
-<p>URI: <a href="https://schema.pragmaticbim.ch/source_document">pbs:source_document</a></p>
+<p>URI: <a href="https://schema.pragmaticbim.ch/artifact_kind">pbs:artifact_kind</a></p>
 <!-- no inheritance hierarchy -->
 <h2 id="applicable-classes">Applicable Classes<a class="headerlink" href="#applicable-classes" title="Permanent link">&para;</a></h2>
 <table>
@@ -397,49 +399,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Requirement.html">Requirement</a></td>
-<td>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
-<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="SpatialRequirement.html">SpatialRequirement</a></td>
-<td>Spatial constraint requirement (min area, min height, adjacency, etc.).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="RegulatoryRequirement.html">RegulatoryRequirement</a></td>
-<td>Regulatory reference requirement (building code, norm, standard).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="BriefRequirement.html">BriefRequirement</a></td>
-<td>Client or programme requirement, including free-standing brief items.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="DeliverableRequirement.html">DeliverableRequirement</a></td>
-<td>Deliverable or documentation requirement (model LOD, O&amp;M manual, export format, etc.).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="ScheduleRequirement.html">ScheduleRequirement</a></td>
-<td>Schedule obligation requirement (deadline, milestone, or start/finish window).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="CostRequirement.html">CostRequirement</a></td>
-<td>Cost or budget requirement (unit-cost cap, total budget limit, etc.).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="MaterialRequirement.html">MaterialRequirement</a></td>
-<td>Material or product specification requirement for matching against assigned materials.</td>
-<td>no</td>
+<td><a href="Artifact.html">Artifact</a></td>
+<td>External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element.</td>
+<td>yes</td>
 </tr>
 </tbody>
 </table>
@@ -455,11 +417,11 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="YamlDocument.html">YamlDocument</a></td>
+<td><a href="ArtifactKind.html">ArtifactKind</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Requirement.html">Requirement</a></td>
+<td><a href="Artifact.html">Artifact</a></td>
 </tr>
 </tbody>
 </table>
@@ -473,8 +435,8 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td>Required</td>
+<td>Yes</td>
 </tr>
 </tbody>
 </table>
@@ -494,24 +456,24 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>pbs:source_document</td>
+<td>pbs:artifact_kind</td>
 </tr>
 <tr>
 <td>native</td>
-<td>pbs:source_document</td>
+<td>pbs:artifact_kind</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source_document</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional source document entity backing this requirement.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">artifact_kind</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Kind of external artifact (text document, model, or plan).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yamlDocument</span>
-<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Artifact</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ArtifactKind</span>
+<span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 </div>

@@ -17,16 +17,13 @@ contract/
 ├── entity_requirements_schema.yaml
 ├── changes_schema.yaml
 ├── changes_schema_enums.yaml
-└── mappings/                             # IFC ingestion — see mappings/README.md
-    ├── ifc_mapping.yaml
-    ├── ifc_mapping.merged.yaml           # generated
-    └── entities/
+└── mapping/                              # IFC ingestion — see mapping/README.md
 ```
 
 | File | Role |
 |------|------|
 | `00_pragmatic_bim_data_contract.yaml` | Root entrypoint importing all modules |
-| `entity_core_schema.yaml` | `Entity` base, agents, documents, decisions, tasks, messages |
+| `entity_core_schema.yaml` | `Entity` base, agents, artifacts, decisions, tasks, messages |
 | `entity_physical_schema.yaml` | Physical element hierarchy |
 | `entity_virtual_schema.yaml` | Virtual entities (`Space`, `System`, `TimeRecord`, …) |
 | `entity_performance_schema.yaml` | Performance property classes on `Entity.performance_properties` |
@@ -34,7 +31,7 @@ contract/
 | `entity_requirements_schema.yaml` | Requirement subclasses and requirement-driver slots |
 | `changes_schema.yaml` | Typed change records |
 | `changes_schema_enums.yaml` | Change enums (EN/DE labels) |
-| `mappings/` | Declarative IFC → contract mapping |
+| `mapping/` | Declarative IFC → contract mapping |
 
 Cross-cutting enums such as `ContentKind` and `StatusType` live in `entity_schema_enums.yaml`.
 
@@ -42,7 +39,7 @@ Cross-cutting enums such as `ContentKind` and `StatusType` live in `entity_schem
 
 The contract has two top-level concerns:
 
-1. **Entity graph** — everything modeled, specified, or managed in the project. All graph nodes are `Entity` subclasses with uniform `id`, `content_kind`, `status`, `created_at`, and `applies_to_entities`. The `content_kind` slot discriminates branches: physical, virtual, context, requirement, document, decision, task, agent, and message. Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
+1. **Entity graph** — everything modeled, specified, or managed in the project. All graph nodes are `Entity` subclasses with uniform `id`, `content_kind`, `status`, `created_at`, and `applies_to_entities`. The `content_kind` slot discriminates branches: physical, virtual, context, requirement, artifact, decision, task, agent, and message. Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
 2. **Change audit** — revision diff records as `Change` subclasses (`PropertyChange`, `GeometryChange`, `RequirementChange`, `MatchChange`, `AdditionChange`, `DeletionChange`). Change observes the graph between revisions; it is not an Entity and has no `content_kind`.
 
 Full class hierarchy and reference tables: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
@@ -50,6 +47,8 @@ Full class hierarchy and reference tables: [schema documentation](https://schema
 ### Breaking change (major version)
 
 Documents, decisions, tasks, and messages are now top-level entity records linked via `applies_to_entities` instead of being embedded on other entities. `ContentKind.change` is removed. Change records use typed references (`affected_subject`, `affected_requirement`, `related_requirement`, `triggered_task`) instead of bare string IDs where applicable.
+
+External files are modeled as `Artifact` (`content_kind: artifact`) with `artifact_kind` (text document, model, plan) and `storage_link`, replacing `yamlDocument` / `ContentKind.document`. Requirement provenance uses `source_artifact` (was `source_document`). Change records use `artifact_storage_link` (was `document_storage_link`).
 
 ## Modeling conventions
 
@@ -60,7 +59,7 @@ Documents, decisions, tasks, and messages are now top-level entity records linke
 
 ## IFC mapping
 
-[`mappings/README.md`](mappings/README.md) documents the split YAML sources, merge workflow, database projection, and entity mapping rules. After editing mapping sources:
+[`mapping/README.md`](mapping/README.md) documents the split YAML sources, merge workflow, database projection, and entity mapping rules. After editing mapping sources:
 
 ```bash
 python scripts/merge_ifc_mapping.py

@@ -6,7 +6,7 @@ search:
 # Slot: affected_subject_type 
 
 
-_LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument)._
+_LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact)._
 
 __
 
@@ -94,7 +94,7 @@ URI: [pbs:affected_subject_type](https://schema.pragmaticbim.ch/affected_subject
 ```yaml
 name: affected_subject_type
 description: 'LinkML class name of the changed subject (for example Space, SeparatorWall,
-  yamlDocument).
+  Artifact).
 
   '
 from_schema: https://schema.pragmaticbim.ch

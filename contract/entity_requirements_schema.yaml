@@ -31,7 +31,7 @@ classes:
 
       '
     slots:
-    - source_document
+    - source_artifact
     slot_usage:
       content_kind:
         equals_string: requirement
@@ -127,10 +127,10 @@ slots:
     multivalued: true
     range: ConnectionRequirementDriver
     description: Main requirement drivers for this virtual connection.
-  source_document:
-    range: yamlDocument
+  source_artifact:
+    range: Artifact
     inlined: false
-    description: Optional source document entity backing this requirement.
+    description: Optional source artifact backing this requirement.
   requirement_property_key:
     range: string
     required: true

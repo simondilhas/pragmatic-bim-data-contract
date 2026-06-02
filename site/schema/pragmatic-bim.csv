@@ -2,6 +2,7 @@ id,mappings,description
 AcousticProperty,,Normalized acoustic-related property.
 AdditionChange,,New entity introduced in to_revision.
 Agent,,Abstract base class for people or organizations acting in workflow and communication roles.
+Artifact,,"External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element."
 Boundary,,Physical element acting as a boundary treatment (for example covering).
 BriefRequirement,,"Client or programme requirement, including free-standing brief items."
 BuildingContext,,Spatial context node constrained to building semantics.
@@ -59,6 +60,5 @@ ThermalProperty,,Normalized thermal-related property.
 TimeLink,,"Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record."
 TimeRecord,,"Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container."
 VirtualEntity,,"Abstract base class for non-physical, conceptual, or informational entities."
-yamlDocument,,Document entity referencing external storage. Links to related entities via applies_to_entities.
 ZoneContext,,Spatial context node constrained to zone semantics.
 

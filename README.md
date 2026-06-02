@@ -129,7 +129,7 @@ pragmatic-bim-data-contract/
 
 | Path | Role |
 |------|------|
-| [`contract/`](contract/README.md) | LinkML schema YAML at folder root; IFC mapping in `contract/mappings/`. MIT. |
+| [`contract/`](contract/README.md) | LinkML schema YAML at folder root; IFC mapping in `contract/mapping/`. MIT. |
 | [`classification/`](classification/README.md) | Abstract SKOS vocabularies and `mapping/` bridge files. CC-BY-4.0. |
 | `scripts/` | Schema site build, IFC mapping merge, module page generation |
 | `site/` | Generated schema documentation and artifacts (do not edit by hand) |

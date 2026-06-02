@@ -68,9 +68,9 @@ URI: [pbs:SpatialRequirement](https://schema.pragmaticbim.ch/SpatialRequirement)
         SpatialRequirement --> "0..1" Entity : related_entity
         click Entity href "./Entity.html"
       SpatialRequirement : revision
-      SpatialRequirement : source_document
-        SpatialRequirement --> "0..1" YamlDocument : source_document
-        click YamlDocument href "./YamlDocument.html"
+      SpatialRequirement : source_artifact
+        SpatialRequirement --> "0..1" Artifact : source_artifact
+        click Artifact href "./Artifact.html"
       SpatialRequirement : status
         SpatialRequirement --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
@@ -102,7 +102,7 @@ URI: [pbs:SpatialRequirement](https://schema.pragmaticbim.ch/SpatialRequirement)
 | [adjacency_kind](adjacency_kind.md) | 0..1 <br/> [SpatialAdjacencyKind](SpatialAdjacencyKind.md) | Adjacency semantics when this spatial requirement involves another subject. | direct |
 | [related_entity](related_entity.md) | 0..1 <br/> [Entity](Entity.md) | Entity or space subject for adjacency or distance constraints. | direct |
 | [min_clear_distance](min_clear_distance.md) | 0..1 <br/> [Double](Double.md) | Minimum clear distance in metres when adjacency_kind is min_clear_distance. | direct |
-| [source_document](source_document.md) | 0..1 <br/> [YamlDocument](YamlDocument.md) | Optional source document entity backing this requirement. | [Requirement](Requirement.md) |
+| [source_artifact](source_artifact.md) | 0..1 <br/> [Artifact](Artifact.md) | Optional source artifact backing this requirement. | [Requirement](Requirement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -244,15 +244,15 @@ attributes:
     - SpatialRequirement
     range: double
     minimum_value: 0
-  source_document:
-    name: source_document
-    description: Optional source document entity backing this requirement.
+  source_artifact:
+    name: source_artifact
+    description: Optional source artifact backing this requirement.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: SpatialRequirement
     domain_of:
     - Requirement
-    range: yamlDocument
+    range: Artifact
     inlined: false
   id:
     name: id
@@ -348,7 +348,7 @@ attributes:
     owner: SpatialRequirement
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

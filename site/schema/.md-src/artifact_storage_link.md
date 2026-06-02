@@ -3,10 +3,10 @@ search:
   boost: 5.0
 ---
 
-# Slot: document_storage_link 
+# Slot: artifact_storage_link 
 
 
-_Document location when the subject is a yamlDocument entity or document field diff._
+_Artifact location when the subject is an Artifact entity or embedded field diff._
 
 
 
@@ -14,7 +14,7 @@ _Document location when the subject is a yamlDocument entity or document field d
 
 
 
-URI: [pbs:document_storage_link](https://schema.pragmaticbim.ch/document_storage_link)
+URI: [pbs:artifact_storage_link](https://schema.pragmaticbim.ch/artifact_storage_link)
 <!-- no inheritance hierarchy -->
 
 
@@ -79,8 +79,8 @@ URI: [pbs:document_storage_link](https://schema.pragmaticbim.ch/document_storage
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | pbs:document_storage_link |
-| native | pbs:document_storage_link |
+| self | pbs:artifact_storage_link |
+| native | pbs:artifact_storage_link |
 
 
 
@@ -89,8 +89,8 @@ URI: [pbs:document_storage_link](https://schema.pragmaticbim.ch/document_storage
 
 <details>
 ```yaml
-name: document_storage_link
-description: Document location when the subject is a yamlDocument entity or document
+name: artifact_storage_link
+description: Artifact location when the subject is an Artifact entity or embedded
   field diff.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000

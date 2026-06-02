@@ -188,17 +188,26 @@ classes:
     slot_usage:
       content_kind:
         equals_string: message
-  yamlDocument:
+  Artifact:
     is_a: Entity
-    class_uri: pbs:YamlDocument
-    description: Document entity referencing external storage. Links to related entities via applies_to_entities.
+    class_uri: pbs:Artifact
+    exact_mappings:
+    - schema:CreativeWork
+    description: 'External project artifact (text document, model, or plan) at storage_link. Used for provenance
+      (Requirement.source_artifact). Not a modeled building element.
+
+      '
     slots:
     - classifications
     - storage_link
+    - artifact_kind
+    - media_format
     slot_usage:
       content_kind:
-        equals_string: document
+        equals_string: artifact
       id:
+        required: true
+      artifact_kind:
         required: true
   PostalAddress:
     class_uri: pbs:PostalAddress
@@ -555,7 +564,14 @@ slots:
   mapping_version:
     range: string
     description: Mapping specification version used to derive the normalized property.
+  artifact_kind:
+    range: ArtifactKind
+    required: true
+    description: Kind of external artifact (text document, model, or plan).
+  media_format:
+    range: string
+    description: Encoding or format label (for example IFC4, PDF, DWG).
   storage_link:
     range: uriorcurie
     required: true
-    description: URI/URL/path to the stored document location.
+    description: URI/URL/path to the stored artifact location.

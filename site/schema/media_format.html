@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://schema.pragmaticbim.ch/schema/document_storage_link.html">
+        <link rel="canonical" href="https://schema.pragmaticbim.ch/schema/media_format.html">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: document_storage_link - Pragmatic BIM Data Contract</title>
+        <title>Slot: media_format - Pragmatic BIM Data Contract</title>
       
     
     
@@ -47,6 +47,8 @@
       
     
     
+      <link rel="stylesheet" href="stylesheets/pragmatic-bim-brand.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -63,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-document_storage_link" class="md-skip">
+        <a href="#slot-media_format" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+    <a href="https://schema.pragmaticbim.ch/" title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: document_storage_link
+              Slot: media_format
             
           </span>
         </div>
@@ -121,7 +123,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
     
   
 </form>
@@ -200,7 +202,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+    <a href="https://schema.pragmaticbim.ch/" title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -381,10 +383,10 @@
 
 
 
-<h1 id="slot-document_storage_link">Slot: document_storage_link<a class="headerlink" href="#slot-document_storage_link" title="Permanent link">&para;</a></h1>
-<p><em>Document location when the subject is a yamlDocument entity or document field diff.</em></p>
+<h1 id="slot-media_format">Slot: media_format<a class="headerlink" href="#slot-media_format" title="Permanent link">&para;</a></h1>
+<p><em>Encoding or format label (for example IFC4, PDF, DWG).</em></p>
 <div>
-<p>URI: <a href="https://schema.pragmaticbim.ch/document_storage_link">pbs:document_storage_link</a></p>
+<p>URI: <a href="https://schema.pragmaticbim.ch/media_format">pbs:media_format</a></p>
 <!-- no inheritance hierarchy -->
 <h2 id="applicable-classes">Applicable Classes<a class="headerlink" href="#applicable-classes" title="Permanent link">&para;</a></h2>
 <table>
@@ -397,38 +399,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Change.html">Change</a></td>
-<td>Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="PropertyChange.html">PropertyChange</a></td>
-<td>Attribute, PropertySet, schema slot, or document field change.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="GeometryChange.html">GeometryChange</a></td>
-<td>Geometry or representation change for a subject.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="RequirementChange.html">RequirementChange</a></td>
-<td>Change to a requirement entity or its fields.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="MatchChange.html">MatchChange</a></td>
-<td>Entity match status against a requirement changed (previously met / no longer meets).</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="AdditionChange.html">AdditionChange</a></td>
-<td>New entity introduced in to_revision.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="DeletionChange.html">DeletionChange</a></td>
-<td>Entity removed in to_revision.</td>
+<td><a href="Artifact.html">Artifact</a></td>
+<td>External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element.</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -445,11 +417,11 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="Uriorcurie.html">Uriorcurie</a></td>
+<td><a href="String.html">String</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Change.html">Change</a></td>
+<td><a href="Artifact.html">Artifact</a></td>
 </tr>
 </tbody>
 </table>
@@ -484,24 +456,23 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>pbs:document_storage_link</td>
+<td>pbs:media_format</td>
 </tr>
 <tr>
 <td>native</td>
-<td>pbs:document_storage_link</td>
+<td>pbs:media_format</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_storage_link</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document location when the subject is a yamlDocument entity or document</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">field diff.</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">media_format</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Encoding or format label (for example IFC4, PDF, DWG).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Artifact</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 </code></pre></div>
 </details>
 </div>
