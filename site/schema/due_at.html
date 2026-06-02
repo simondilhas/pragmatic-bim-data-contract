@@ -401,6 +401,16 @@
 <td>Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="DeliverableRequirement.html">DeliverableRequirement</a></td>
+<td>Deliverable or documentation requirement (model LOD, O&amp;M manual, export format, etc.).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ScheduleRequirement.html">ScheduleRequirement</a></td>
+<td>Schedule obligation requirement (deadline, milestone, or start/finish window).</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
@@ -419,7 +429,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Task.html">Task</a></td>
+<td><a href="Task.html">Task</a>, <a href="DeliverableRequirement.html">DeliverableRequirement</a>, <a href="ScheduleRequirement.html">ScheduleRequirement</a></td>
 </tr>
 <tr>
 <td>Slot URI</td>
@@ -475,6 +485,8 @@
 <span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:deadline</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DeliverableRequirement</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScheduleRequirement</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">datetime</span>
 </code></pre></div>
 </details>

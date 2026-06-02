@@ -239,7 +239,7 @@ def main() -> None:
     parser.add_argument(
         "--schema-root",
         type=Path,
-        default=Path(os.environ.get("SCHEMA_ROOT", "schema/00_pragmatic_bim_data_contract.yaml")),
+        default=Path(os.environ.get("SCHEMA_ROOT", "contract/00_pragmatic_bim_data_contract.yaml")),
     )
     args = parser.parse_args()
 

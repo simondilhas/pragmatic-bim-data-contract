@@ -26,7 +26,8 @@ classes:
     abstract: true
     class_uri: pbs:Requirement
     description: 'Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities.
-      Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.
+      Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.),
+      not a separate slot.
 
       '
     slots:
@@ -71,6 +72,42 @@ classes:
     slots:
     - programme_ref
     - statement
+  DeliverableRequirement:
+    is_a: Requirement
+    class_uri: pbs:DeliverableRequirement
+    description: Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.).
+    slots:
+    - deliverable_kind
+    - deliverable_format
+    - due_at
+    - acceptance_criteria
+  ScheduleRequirement:
+    is_a: Requirement
+    class_uri: pbs:ScheduleRequirement
+    description: Schedule obligation requirement (deadline, milestone, or start/finish window).
+    slots:
+    - due_at
+    - earliest_start_at
+    - related_time_record
+  CostRequirement:
+    is_a: Requirement
+    class_uri: pbs:CostRequirement
+    description: Cost or budget requirement (unit-cost cap, total budget limit, etc.).
+    slots:
+    - cost_category
+    - target_operator
+    - target_value_number
+    - currency
+    - cost_quantity_type
+  MaterialRequirement:
+    is_a: Requirement
+    class_uri: pbs:MaterialRequirement
+    description: Material or product specification requirement for matching against assigned materials.
+    slots:
+    - material_category
+    - material_specification
+    - related_material
+    - substitutes_allowed
 slots:
   separator_requirement_drivers:
     multivalued: true
@@ -153,3 +190,26 @@ slots:
   statement:
     range: string
     description: Free-text requirement statement from client or programme.
+  deliverable_kind:
+    range: string
+    description: Deliverable type label (for example coordination model, O&M manual, as-built record).
+  deliverable_format:
+    range: string
+    description: Required deliverable format or encoding (for example IFC4, PDF, COBie).
+  acceptance_criteria:
+    range: string
+    description: Criteria that define when the deliverable is accepted.
+  earliest_start_at:
+    range: datetime
+    description: Earliest permitted start when a schedule requirement defines a start window.
+  related_time_record:
+    range: Entity
+    inlined: false
+    description: Optional TimeRecord plan item this schedule requirement aligns with or must satisfy.
+  related_material:
+    range: Entity
+    inlined: false
+    description: Optional Material entity template this requirement must match or satisfy.
+  substitutes_allowed:
+    range: boolean
+    description: Whether equivalent or substitute materials are permitted.

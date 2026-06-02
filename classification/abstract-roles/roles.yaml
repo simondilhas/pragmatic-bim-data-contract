@@ -1,0 +1,121 @@
+# Workflow participant roles for this org template (not capability integrations).
+# Stable `id` for BPMN / process variables; map to users or IdP groups per tenant.
+
+roles:
+  - id: aec.project_lead
+    labels:
+      - en: Project lead
+      - de: Projektleitung
+    description:
+      - en: The project lead is responsible for the project within the organization.
+      - de: Der Projektleitung ist verantwortlich für das Projekt innerhalb der Organisation.
+  - id: aec.project_manager
+    labels:
+      - en: Project manager
+      - de: Gesamtprojektleitung
+    description:
+      - en: The project manager is responsible for the overall project.
+      - de: Die Gesamtprojektleitung ist verantwortlich für das Gesamtprojekt.
+  - id: aec.bim_coordinator
+    labels:
+      - en: BIM coordinator
+      - de: BIM-Koordination
+    description:
+      - en: The BIM coordinator is responsible for the BIM model.
+      - de: Der BIM-Koordinator ist verantwortlich für das BIM-Modell.
+  - id: aec.bim_manager
+    labels:
+      - en: BIM manager
+      - de: BIM-Manager
+    description:
+      - en: The BIM manager to support the .
+      - de: Der BIM-Manager ist verantwortlich für das BIM-Modell.
+  - id: aec.contractor
+    labels:
+      - en: Contractor
+      - de: Bauunternehmer
+    description:
+      - en: The contractor is responsible for the construction of the project.
+      - de: Der Bauunternehmer ist verantwortlich für die Bauarbeiten des Projekts.
+    label_de: Bauunternehmer
+  - id: aec.supplier
+    labels:
+      - en: Supplier
+      - de: Lieferant
+  - id: aec.client
+    labels:
+      - en: Client
+      - de: Kunde
+  - id: aec.owner
+    labels:
+      - en: Owner
+      - de: Eigentuemer
+  - id: aec.developer
+    labels:
+      - en: Developer
+      - de: Entwickler
+  - id: aec.facility_manager
+    labels:
+      - en: Facility manager
+      - de: Facility Management
+  - id: aec.sustainability_consultant
+    labels:
+      - en: Sustainability consultant
+      - de: Nachhaltigkeitsberater
+  - id: aec.site_manager
+    labels:
+      - en: Site manager
+      - de: Bauleiter
+  - id: aec.structural_engineer
+    labels:
+      - en: Structural engineer
+      - de: Tragwerksplaner
+  - id: aec.architect
+    labels:
+      - en: Architect
+      - de: Architekt
+    description:
+      - en: The architect is responsible for the architecture of the project.
+      - de: Der Architekt ist verantwortlich für die Architektur des Projekts.
+  - id: aec.structural_engineer
+    labels:
+      - en: Structural engineer
+      - de: Tragwerksplaner
+    description:
+      - en: The structural engineer is responsible for the structural design of the project.
+      - de: Der Tragwerksplaner ist verantwortlich für die Tragwerksplanung des Projekts.
+  - id: aec.electrical_engineer
+    labels:
+      - en: Electrical engineer
+      - de: Elektroingenieur
+    description:
+      - en: The electrical engineer is responsible for the electrical design of the project.
+      - de: Der Elektroingenieur ist verantwortlich für die Elektroplanung des Projekts.
+  - id: aec.plumbing_engineer
+    labels:
+      - en: Plumbing engineer
+      - de: Sanitärplaner 
+    description:
+      - en: The plumbing engineer is responsible for the plumbing design of the project.
+      - de: Der Sanitärplaner ist verantwortlich für die Sanitärplanung des Projekts.
+  - id: aec.ventilation_engineer
+    labels:
+      - en: Ventilation engineer
+      - de: Lüftungsplaner
+    description:
+      - en: The ventilation engineer is responsible for the ventilation design of the project.
+      - de: Der Lüftungsplaner ist verantwortlich für die Lüftungplanung des Projekts.
+  - id: aec.heating_engineer
+    labels:
+      - en: Heating engineer
+      - de: Heizungplaner
+    description:
+      - en: The heating engineer is responsible for the heating design of the project.
+      - de: Der Heizungplaner ist verantwortlich für die Heizungplanung des Projekts.
+  - id: aac.project_management_office
+    labels:
+      - en: Project management office
+      - de: Sekretariat
+    description:
+      - en: The project management office is responsible for administrative tasks.
+      - de: Das Sekretariat ist verantwortlich für die administrativen Aufgaben.

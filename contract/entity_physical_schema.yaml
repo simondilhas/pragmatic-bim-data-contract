@@ -78,6 +78,8 @@ classes:
     slots:
     - connection_physical_type
     - transport_medium
+    - frame_material
+    - infill_material
     - connection_physical_requirement_drivers
   Boundary:
     is_a: PhysicalElement
@@ -109,6 +111,14 @@ slots:
     range: TransportMedium
     required: true
     description: Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity).
+  frame_material:
+    range: Material
+    inlined: false
+    description: Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window).
+  infill_material:
+    range: Material
+    inlined: false
+    description: Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window).
   separator_wall_type:
     range: SeparatorWallType
     required: true

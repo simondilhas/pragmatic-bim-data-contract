@@ -119,43 +119,20 @@ Without having to:
 
 ## Project structure
 
-- `schema/00_pragmatic_bim_data_contract.yaml`: root schema entrypoint importing all modules.
-- **Entity graph** (single query surface)
-  - `schema/entity_core_schema.yaml`: `Entity` base, agents, documents, decisions, tasks, messages, and reusable base slots.
-  - `schema/entity_physical_schema.yaml`: physical element hierarchy and element-related slots.
-  - `schema/entity_virtual_schema.yaml`: virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `TimeLink`, `CostRecord`, `Material`) and their slots.
-  - `schema/entity_performance_schema.yaml`: normalized performance property classes extracted from IFC and stored on `Entity`.
-  - `schema/entity_schema_enums.yaml`: all entity-graph enums (element types, `ContentKind`, quantities, status, performance keys, requirement drivers, …) including EN/DE labels.
-  - `schema/entity_requirements_schema.yaml`: requirement entity subclasses and element-level requirement-driver slots.
-- **Change audit** (observes the graph, not part of it)
-  - `schema/changes_schema.yaml`: typed change records (`PropertyChange`, `GeometryChange`, `MatchChange`, …).
-  - `schema/changes_schema_enums.yaml`: change type, severity, match status, and diff path enums (EN/DE labels).
-- **Shared**
-  - (none — cross-cutting enums such as `ContentKind` and `StatusType` live in `entity_schema_enums.yaml`)
-- `mappings/`: declarative IFC → schema mapping for external ingestion adapters (see `mappings/README.md`; run `python scripts/merge_ifc_mapping.py` after edits).
-- `converter/`: converter module for transforming data to and from the schema (see `converter/README.md`).
+```
+pragmatic-bim-data-contract/
+├── contract/           LinkML schema + IFC mapping (MIT)
+├── classification/     SKOS vocabularies + mapping bridges (CC-BY-4.0)
+├── scripts/            Build, merge, and publish tooling
+└── site/               Generated schema docs and artifacts (do not edit)
+```
 
-## Schema overview
-
-The contract has two top-level concerns:
-
-1. **Entity graph** — everything modeled, specified, or managed in the project. All graph nodes are `Entity` subclasses with uniform `id`, `content_kind`, `status`, `created_at`, and `applies_to_entities`. The `content_kind` slot discriminates branches: physical, virtual, context, requirement, document, decision, task, agent, and message. Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
-2. **Change audit** — revision diff records as `Change` subclasses (`PropertyChange`, `GeometryChange`, `RequirementChange`, `MatchChange`, `AdditionChange`, `DeletionChange`). Change observes the graph between revisions; it is not an Entity and has no `content_kind`.
-
-Supporting modules: **entity** (core, physical, virtual, performance, requirements, enums), **changes**.
-
-Full class hierarchy and reference tables: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
-
-### Breaking change (major version)
-
-Documents, decisions, tasks, and messages are now top-level entity records linked via `applies_to_entities` instead of being embedded on other entities. `ContentKind.change` is removed. Change records use typed references (`affected_subject`, `affected_requirement`, `related_requirement`, `triggered_task`) instead of bare string IDs where applicable.
-
-## Modeling conventions
-
-- Entity-to-entity relationships are modeled as ID references (`inlined: false`).
-- Value objects that belong inside a record are embedded (`inlined: true`).
-- `cost_category` and `material_category` are intentionally open text for now and can later be aligned with stronger classification systems.
-- Units can be carried as plain strings for operational compatibility and optionally accompanied by unit URIs (for example QUDT) for stronger semantic alignment.
+| Path | Role |
+|------|------|
+| [`contract/`](contract/README.md) | LinkML schema YAML at folder root; IFC mapping in `contract/mappings/`. MIT. |
+| [`classification/`](classification/README.md) | Abstract SKOS vocabularies and `mapping/` bridge files. CC-BY-4.0. |
+| `scripts/` | Schema site build, IFC mapping merge, module page generation |
+| `site/` | Generated schema documentation and artifacts (do not edit by hand) |
 
 ## How it fits in a workflow
 
@@ -167,92 +144,15 @@ Documents, decisions, tasks, and messages are now top-level entity records linke
 
 ## Getting started
 
-1. Clone this repository.
-2. Start with `schema/00_pragmatic_bim_data_contract.yaml` to understand module composition.
-3. Browse the [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
-4. Inspect module definitions in `schema/`.
-5. Use or extend the converter in `converter/`.
-6. Follow `converter/README.md` for converter setup and commands.
+1. Clone the repository:
 
-## Hosted schema URIs (GitHub Pages / custom domain)
+   ```bash
+   git clone https://github.com/simondilhas/pragmatic-bim-data-contract.git
+   ```
 
-Generated schema artifacts are published via GitHub Pages from stable release tags (`v*`).
-
-- Stable landing page: `https://schema.pragmaticbim.ch/` (redirects to the docs index)
-- Stable docs (HTML): `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html`
-- Stable JSON Schema: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json`
-- Stable SHACL: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl`
-- Stable CSV: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv`
-- Stable Pydantic: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py`
-- Stable docs (Markdown, raw): `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md`
-- Latest stable alias: `https://schema.pragmaticbim.ch/latest/`
-- Version-pinned snapshot: `https://schema.pragmaticbim.ch/vX.Y.Z/`
-
-### URI resolution
-
-Human-readable documentation lives on one page: [`/schema/pragmatic-bim.docs.html`](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html). It contains the overview, diagrams, artifact links, and reference tables for classes, slots, and enums.
-
-| Purpose | URL pattern | Example |
-|---|---|---|
-| Root schema | `https://schema.pragmaticbim.ch/` | redirects to docs index |
-| Documentation index | `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html` | main entry point |
-| Module metadata (JSON) | `https://schema.pragmaticbim.ch/{slug}/descriptor.json` | [`/entity/virtual/descriptor.json`](https://schema.pragmaticbim.ch/entity/virtual/descriptor.json) |
-| Class documentation | `https://schema.pragmaticbim.ch/schema/{ClassName}.html` | [`/schema/VirtualEntity.html`](https://schema.pragmaticbim.ch/schema/VirtualEntity.html) |
-| Validation / codegen | `https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json` | merged schema (all modules) |
-
-Module slug → primary class doc (linked from the index tables):
-
-| Module slug | Primary class docs |
-|---|---|
-| `entity/core` | `Entity.html` |
-| `entity/virtual` | `VirtualEntity.html` |
-| `entity/physical` | `PhysicalElement.html` |
-| `entity/performance` | `FireProperty.html` |
-| `entity/enums` | `ContentKind.html`, `RequirementTargetOperator.html`, `FirePropertyKey.html` |
-| `entity/requirements` | `Requirement.html` |
-| `changes` | `PropertyChange.html`, `Change.html` |
-| `changes/enums` | `ChangeType.html` |
-
-Module descriptors are generated by [`scripts/generate_module_pages.py`](scripts/generate_module_pages.py) during the stable Pages release workflow.
-
-### Local schema documentation build
-
-Install tooling once, then build the full site from `schema/*.yaml`:
-
-```bash
-pip install -r requirements-docs.txt
-python scripts/build_site.py
-```
-
-| Folder | Role |
-|--------|------|
-| `schema/` | Source of truth (edit this) |
-| `site/` | Generated publish output (do not edit by hand) |
-
-Output includes HTML docs, machine artifacts (JSON Schema, SHACL, CSV, Pydantic), and module `descriptor.json` files. Main entry point: `site/schema/pragmatic-bim.docs.html`.
-
-Optional live preview:
-
-```bash
-python scripts/build_site.py serve
-```
-
-Development and pull request validation remain in CI (`schema-generation.yml`) and are not deployed to the stable Pages root.
-
-Enable Pages once in repository settings:
-
-1. Go to `Settings` -> `Pages`.
-2. Under Build and deployment, set Source to `GitHub Actions`.
-
-## Private extensions (SKOS/SPARQL)
-
-Classification assets and private SKOS/SPARQL rules are currently maintained in
-the sibling repository `../pragmatic-bim-private-rules`.
-
-Recommended local checkout layout:
-
-- `../pragmatic-bim-data-contract` (this repository)
-- `../pragmatic-bim-private-rules`
+2. Read [`contract/README.md`](contract/README.md) — schema modules, IFC mapping, hosted URIs, local docs build.
+3. Read [`classification/README.md`](classification/README.md) — vocabularies and mapping bridges.
+4. Browse the [hosted schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
 
 ## Contributing
 
@@ -264,5 +164,6 @@ Contributions are welcome.
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE` for details.
+- **Contract (schema + IFC mapping) and repository code:** MIT — see [`LICENSE`](LICENSE).
+- **Classification assets:** CC-BY-4.0 — see [pragmatic-bim-public-rules](https://github.com/simondilhas/pragmatic-bim-public-rules).
 t

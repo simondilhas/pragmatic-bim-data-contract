@@ -1,0 +1,328 @@
+{
+    "ModelVersion": "2.0",
+    "OrganizationCode": "abstract",
+    "DictionaryCode": "BuildingSpaceActivityClassification",
+    "DictionaryName": "Building Space and Activity Classification System",
+    "DictionaryVersion": "1.0.3",
+    "LanguageIsoCode": "EN",
+    "LanguageOnly": false,
+    "UseOwnUri": false,
+    "MoreInfoUrl": "https://github.com/simondilhas/pragmatic-bim-public-rules",
+    "DictionaryUri": "",
+    "License": "CC BY 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "ReleaseDate": "2024-11-04",
+    "Status": "Active",
+    "Classes": [
+        {
+            "Code": "M",
+            "Name": "Main Activity Spaces",
+            "ClassType": "Class",
+            "Definition": "Primary spaces for building occupants' activities",
+            "Description": "Core functional spaces that serve the building's primary purpose",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": null
+        },
+        {
+            "Code": "M-RES",
+            "Name": "Residential Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for daily living and personal life activities",
+            "Description": "Spaces designed for sleeping, eating, personal care, relaxation, and domestic activities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M"
+        },
+        {
+            "Code": "M-WRK",
+            "Name": "Work Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for professional and productive activities",
+            "Description": "Spaces designed for desk work, meetings, creative work, manufacturing, and service provision",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M"
+        },
+        {
+            "Code": "M-WRK-KNW",
+            "Name": "Knowledge Work Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for intellectual and information-based work",
+            "Description": "Spaces designed for cognitive tasks, analysis, design, research, and collaborative intellectual work, including offices, meeting rooms, and creative studios",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M-WRK"
+        },
+        {
+            "Code": "M-WRK-PRD",
+            "Name": "Production Work Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for physical production and manufacturing activities",
+            "Description": "Spaces designed for manufacturing, assembly, fabrication, maintenance, and other hands-on work activities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M-WRK"
+        },
+        {
+            "Code": "M-LRN",
+            "Name": "Learning Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for educational and knowledge acquisition",
+            "Description": "Spaces designed for teaching, studying, training, research, and skill development",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M"
+        },
+        {
+            "Code": "M-COM",
+            "Name": "Commercial Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for trading and business activities",
+            "Description": "Spaces designed for buying, selling, displaying merchandise, storage, and customer service",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M"
+        },
+        {
+            "Code": "M-HEL",
+            "Name": "Healthcare Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for medical and wellness activities",
+            "Description": "Spaces designed for diagnosis, treatment, recovery, therapy, and preventive care",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M"
+        },
+        {
+            "Code": "M-CIR",
+            "Name": "Main Activity Circulation",
+            "ClassType": "Class",
+            "Definition": "Circulation spaces integral to main activities",
+            "Description": "Circulation spaces that are part of the primary function, such as museum galleries, shopping mall concourses, or hospital corridors",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "M"
+        },
+        {
+            "Code": "S",
+            "Name": "Support Spaces",
+            "ClassType": "Class",
+            "Definition": "Auxiliary spaces supporting building operations",
+            "Description": "Spaces that enable the functioning of main activity spaces",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": null
+        },
+        {
+            "Code": "S-CIR",
+            "Name": "Support Circulation Spaces",
+            "ClassType": "Class",
+            "Definition": "Auxiliary circulation spaces",
+            "Description": "Main circulation spaces, Corridors, fire exits, and other circulation spaces not part of main activities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S"
+        },
+        {
+            "Code": "S-CIR-HOR",
+            "Name": "Horizontal Circulation",
+            "ClassType": "Class",
+            "Definition": "Spaces for horizontal movement",
+            "Description": "Including corridors, hallways, bridges, connecting passages, and emergency exit routes",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-CIR"
+        },
+        {
+            "Code": "S-CIR-VRT",
+            "Name": "Vertical Circulation",
+            "ClassType": "Class",
+            "Definition": "Spaces for vertical movement",
+            "Description": "Including staircases, elevator lobbies, escalator spaces, and ramps",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-CIR"
+        },
+        {
+            "Code": "S-TEC",
+            "Name": "Technical Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for building systems and equipment",
+            "Description": "Including mechanical rooms, electrical rooms, and equipment spaces",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S"
+        },
+        {
+            "Code": "S-PRK",
+            "Name": "Parking Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for vehicle storage and management",
+            "Description": "Indoor and outdoor spaces for vehicle parking and related activities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S"
+        },
+        {
+            "Code": "S-PRK-INT",
+            "Name": "Interior Parking Spaces",
+            "ClassType": "Class",
+            "Definition": "Enclosed vehicle parking areas",
+            "Description": "Including underground and enclosed structured parking facilities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-PRK"
+        },
+        {
+            "Code": "S-PRK-EXT",
+            "Name": "Exterior Parking Spaces",
+            "ClassType": "Class",
+            "Definition": "Open-air vehicle parking areas",
+            "Description": "Including surface lots and open-air structured parking",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-PRK"
+        },
+        {
+            "Code": "S-PRK-SVC",
+            "Name": "Service Vehicle Spaces",
+            "ClassType": "Class",
+            "Definition": "Specialized parking for service vehicles",
+            "Description": "Including loading docks, delivery areas, and maintenance vehicle parking",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-PRK"
+        },
+        {
+            "Code": "S-VOI",
+            "Name": "Void Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces not suitable for occupancy or activity",
+            "Description": "Including vertical shafts, mechanical voids, and inaccessible spaces",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S"
+        },
+        {
+            "Code": "S-VOI-VRT",
+            "Name": "Vertical Void Spaces",
+            "ClassType": "Class",
+            "Definition": "Vertical shafts and wells",
+            "Description": "Including elevator shafts, utility shafts, and mechanical risers",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-VOI"
+        },
+        {
+            "Code": "S-VOI-PLN",
+            "Name": "Plenum Spaces",
+            "ClassType": "Class",
+            "Definition": "Horizontal service voids",
+            "Description": "Including ceiling plenums and raised floor voids",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-VOI"
+        },
+        {
+            "Code": "S-VOI-STR",
+            "Name": "Structural Voids",
+            "ClassType": "Class",
+            "Definition": "Spaces within structural elements",
+            "Description": "Including wall cavities and structural enclosures",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-VOI"
+        },
+        {
+            "Code": "S-VOI-MLT",
+            "Name": "Multistory Void Spaces",
+            "ClassType": "Class",
+            "Definition": "Vertical open spaces spanning multiple floors",
+            "Description": "Including atria, double-height spaces, and multistory interior volumes and spaces above the last stair",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-VOI"
+        },
+        {
+            "Code": "O",
+            "Name": "Outdoor Spaces",
+            "ClassType": "Class",
+            "Definition": "External spaces associated with the building",
+            "Description": "Open-air spaces that complement building functions",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": null
+        },
+        {
+            "Code": "O-GRN",
+            "Name": "Green Spaces",
+            "ClassType": "Class",
+            "Definition": "Landscaped and natural area spaces",
+            "Description": "Outdoor spaces for recreation, sports, and nature activities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O"
+        },
+        {
+            "Code": "O-GRN-REC",
+            "Name": "Recreational Green Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for leisure activities",
+            "Description": "Areas for playing, picnicking, exercising, and informal sports",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O-GRN"
+        },
+        {
+            "Code": "O-GRN-SPT",
+            "Name": "Sports Spaces",
+            "ClassType": "Class",
+            "Definition": "Formal athletic spaces",
+            "Description": "Designated fields and courts for organized sports and games",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O-GRN"
+        },
+        {
+            "Code": "O-GRN-GDN",
+            "Name": "Garden Spaces",
+            "ClassType": "Class",
+            "Definition": "Cultivated green spaces",
+            "Description": "Areas for community gardens, landscaping, and urban farming",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O-GRN"
+        },
+        {
+            "Code": "O-CIR",
+            "Name": "Outdoor Circulation",
+            "ClassType": "Class",
+            "Definition": "External movement spaces",
+            "Description": "Including roads, paths, and other outdoor circulation routes",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O"
+        },
+        {
+            "Code": "O-CIR-RD",
+            "Name": "Roads",
+            "ClassType": "Class",
+            "Definition": "Vehicular circulation routes",
+            "Description": "Including access roads, driveways, and service roads",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O-CIR"
+        },
+        {
+            "Code": "O-CIR-PED",
+            "Name": "Pedestrian Circulation",
+            "ClassType": "Class",
+            "Definition": "Pedestrian movement spaces",
+            "Description": "Including walkways, paths, and outdoor corridors",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O-CIR"
+        }
+    ]
+}

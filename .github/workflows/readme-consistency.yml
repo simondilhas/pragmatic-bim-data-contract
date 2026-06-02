@@ -1,0 +1,35 @@
+name: README Consistency
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "**/README.md"
+      - "classification/catalog.yaml"
+      - "scripts/check_readme_consistency.py"
+      - "scripts/merge_ifc_mapping.py"
+      - ".github/workflows/readme-consistency.yml"
+  pull_request:
+    paths:
+      - "**/README.md"
+      - "classification/catalog.yaml"
+      - "scripts/check_readme_consistency.py"
+      - "scripts/merge_ifc_mapping.py"
+      - ".github/workflows/readme-consistency.yml"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Verify README links and path naming
+        run: python scripts/check_readme_consistency.py --check

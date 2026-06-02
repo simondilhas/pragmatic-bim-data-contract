@@ -221,6 +221,7 @@ attributes:
     owner: PerformanceRequirement
     domain_of:
     - PerformanceRequirement
+    - CostRequirement
     range: RequirementTargetOperator
   target_value_string:
     name: target_value_string
@@ -239,6 +240,7 @@ attributes:
     owner: PerformanceRequirement
     domain_of:
     - PerformanceRequirement
+    - CostRequirement
     range: double
   target_value_boolean:
     name: target_value_boolean

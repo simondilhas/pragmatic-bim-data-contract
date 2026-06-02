@@ -26,7 +26,7 @@ except ImportError as exc:  # pragma: no cover
     raise SystemExit("PyYAML required: pip install pyyaml") from exc
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-MAPPINGS_DIR = REPO_ROOT / "mappings"
+MAPPINGS_DIR = REPO_ROOT / "contract" / "mappings"
 ENTRYPOINT = MAPPINGS_DIR / "ifc_mapping.yaml"
 OUTPUT = MAPPINGS_DIR / "ifc_mapping.merged.yaml"
 

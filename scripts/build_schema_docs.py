@@ -18,7 +18,7 @@ sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
 from postprocess_schema_docs import postprocess_md_dir  # noqa: E402
 
-DEFAULT_SCHEMA_ROOT = REPO_ROOT / "schema" / "00_pragmatic_bim_data_contract.yaml"
+DEFAULT_SCHEMA_ROOT = REPO_ROOT / "contract" / "00_pragmatic_bim_data_contract.yaml"
 DEFAULT_MD_SRC = REPO_ROOT / "site" / "schema" / ".md-src"
 DEFAULT_SITE_DIR = REPO_ROOT / "site" / "schema"
 DEFAULT_HTML_BUILD = DEFAULT_SITE_DIR / ".html-build"
@@ -188,14 +188,14 @@ def verify_schema_docs(
         errors = compare_doc_trees(md_src, tmp_md_src)
         if errors:
             print(
-                "Schema docs are out of date relative to schema/*.yaml. "
+                "Schema docs are out of date relative to contract/*.yaml. "
                 "Run: python scripts/build_site.py",
                 file=sys.stderr,
             )
             for error in errors:
                 print(error, file=sys.stderr)
             raise SystemExit(1)
-    print("Schema docs are up to date with schema/*.yaml.")
+    print("Schema docs are up to date with contract/*.yaml.")
 
 
 def main() -> None:
@@ -216,7 +216,7 @@ def main() -> None:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="Verify committed schema docs match a fresh build from schema/*.yaml.",
+        help="Verify committed schema docs match a fresh build from contract/*.yaml.",
     )
     args = parser.parse_args()
 

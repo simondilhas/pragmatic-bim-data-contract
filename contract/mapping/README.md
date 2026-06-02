@@ -15,7 +15,7 @@ Declarative mapping from IFC entity classes to the [Pragmatic BIM Data Contract]
 | [`_templates.yaml`](_templates.yaml) | Shared entity templates (`inherits`) |
 | [`entities/architectural.yaml`](entities/architectural.yaml) | Walls, slabs, doors, spatial context, structure |
 | [`entities/hvac.yaml`](entities/hvac.yaml) | Ducts, pipes, equipment, systems |
-| [`../scripts/merge_ifc_mapping.py`](../scripts/merge_ifc_mapping.py) | Merge split sources → `ifc_mapping.merged.yaml` |
+| [`../../scripts/merge_ifc_mapping.py`](../../scripts/merge_ifc_mapping.py) | Merge split sources → `ifc_mapping.merged.yaml` |
 
 Split sources are the **source of truth**. Edit those, then regenerate the merged file.
 
@@ -77,7 +77,7 @@ IFC exports vary by authoring tool and project. This mapping:
 3. Declares IFC relationship → `content_relations.relation_type` mappings aligned with PBS schema slot names.
 4. Assigns geometry roles for the `content_geometries` table.
 
-Schema slots are defined in [`schema/`](../schema/). This mapping must not introduce fields absent from those YAML modules.
+Schema slots are defined in [`contract/`](../) (LinkML YAML at folder root). This mapping must not introduce fields absent from those modules.
 
 ---
 
@@ -125,7 +125,7 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 
 | Column | Source |
 |--------|--------|
-| `geometry_role` | `body_3d`, `footprint_2d`, `axis`, or `point` ([`GeometryRepresentationType`](../schema/entity_schema_enums.yaml)) |
+| `geometry_role` | `body_3d`, `footprint_2d`, `axis`, or `point` ([`GeometryRepresentationType`](../entity_schema_enums.yaml)) |
 | `geometry_space` | IFC representation context or storey GlobalId |
 | `geom` | Geometry payload (adapter-specific) |
 
@@ -133,14 +133,14 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 
 ## `content_kind` and `canonical_type`
 
-`content_kind` is the Entity type discriminator (see [`Entity.content_kind`](../schema/entity_core_schema.yaml) and [`ContentKind`](../schema/entity_schema_enums.yaml)). IFC ingestion produces `physical`, `virtual`, or `context` only. Application pipelines create other entity kinds directly.
+`content_kind` is the Entity type discriminator (see [`Entity.content_kind`](../entity_core_schema.yaml) and [`ContentKind`](../entity_schema_enums.yaml)). IFC ingestion produces `physical`, `virtual`, or `context` only. Application pipelines create other entity kinds directly.
 
 | `content_kind` | Entity branch | Examples |
 |----------------|---------------|----------|
 | `physical` | Physical elements | `SeparatorWall`, `ConnectionPhysical`, `Equipment` |
 | `virtual` | Virtual entities | `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `CostRecord`, `Material` |
 | `context` | Spatial context | `BuildingContext`, `LevelContext`, `ZoneContext`, `PerimeterContext` |
-| `requirement` | Requirements | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement` |
+| `requirement` | Requirements | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement`, `DeliverableRequirement`, `ScheduleRequirement`, `CostRequirement`, `MaterialRequirement` |
 | `document` | Documents | `Document` |
 | `decision` | Decisions | `Decision` |
 | `task` | Tasks | `Task` |
@@ -318,7 +318,7 @@ Global rules live under `relationships` in `ifc_mapping.yaml`. Each entity lists
 
 ## Geometry roles
 
-Uses [`GeometryRepresentationType`](../schema/entity_schema_enums.yaml) values:
+Uses [`GeometryRepresentationType`](../entity_schema_enums.yaml) values:
 
 | Entity group | Primary | Secondary |
 |--------------|---------|-----------|
@@ -446,7 +446,7 @@ source_system_overrides:
 
 ## Adding a new IFC class
 
-1. Identify the nearest PBS class in [`entity_physical_schema.yaml`](../schema/entity_physical_schema.yaml) or [`entity_virtual_schema.yaml`](../schema/entity_virtual_schema.yaml).
+1. Identify the nearest PBS class in [`entity_physical_schema.yaml`](../entity_physical_schema.yaml) or [`entity_virtual_schema.yaml`](../entity_virtual_schema.yaml).
 2. Add an `entities.IfcNewClass` block with `content_kind`, `canonical_type`, required type slots, and geometry.
 3. Copy `fields` and `attributes` patterns from a similar entity; only use slot names that exist on the target PBS class (plus `Entity` base slots).
 4. List applicable IFC relationships under `relations`.

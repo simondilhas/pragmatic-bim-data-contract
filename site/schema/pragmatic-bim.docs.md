@@ -51,11 +51,15 @@ Name: pragmatic_bim_data_contract
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Material](Material.md) | Material definition that can be associated with one or more entities. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Requirement](Requirement.md) | Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Requirement](Requirement.md) | Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DeliverableRequirement](DeliverableRequirement.md) | Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.). |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ScheduleRequirement](ScheduleRequirement.md) | Schedule obligation requirement (deadline, milestone, or start/finish window). |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CostRequirement](CostRequirement.md) | Cost or budget requirement (unit-cost cap, total budget limit, etc.). |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MaterialRequirement](MaterialRequirement.md) | Material or product specification requirement for matching against assigned materials. |
 | [Classification](Classification.md) | Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom). |
 | [GeometryRepresentation](GeometryRepresentation.md) | Minimal geometry reference for an entity, separating representation from encoding format. |
 | [QuantityValue](QuantityValue.md) | Minimal quantity record for costing and analysis. |
@@ -86,6 +90,7 @@ Name: pragmatic_bim_data_contract
 
 | Slot | Description |
 | --- | --- |
+| [acceptance_criteria](acceptance_criteria.md) | Criteria that define when the deliverable is accepted. |
 | [actual_finish_at](actual_finish_at.md) | Actual finish timestamp for the time record where known. |
 | [actual_start_at](actual_start_at.md) | Actual start timestamp for the time record where known. |
 | [address_country](address_country.md) | Country name. |
@@ -143,12 +148,16 @@ Name: pragmatic_bim_data_contract
 | [decided_by](decided_by.md) | Agent responsible for the decision. |
 | [decision_status](decision_status.md) | Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded). |
 | [decision_type](decision_type.md) | Decision type expressed as a URI/CURIE from a controlled vocabulary. |
+| [deliverable_format](deliverable_format.md) | Required deliverable format or encoding (for example IFC4, PDF, COBie). |
+| [deliverable_kind](deliverable_kind.md) | Deliverable type label (for example coordination model, O&M manual, as-built record). |
 | [dependency_type](dependency_type.md) | FS | SS | FF | SF |
 | [description](description.md) | Default description text. |
 | [detected_at](detected_at.md) | Timestamp when this change was detected. |
 | [document_storage_link](document_storage_link.md) | Document location when the subject is a yamlDocument entity or document field diff. |
 | [due_at](due_at.md) | Due timestamp for task completion. |
+| [earliest_start_at](earliest_start_at.md) | Earliest permitted start when a schedule requirement defines a start window. |
 | [equipment_type](equipment_type.md) | Classification of equipment (for example HVAC, electrical, plumbing). |
+| [frame_material](frame_material.md) | Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window). |
 | [from_revision](from_revision.md) | Source revision number for this change. |
 | [from_value](from_value.md) | Prior value serialized as text. Absent or null for new subjects or fields. |
 | [geometry_format](geometry_format.md) | Optional serialization/encoding format (for example ifc, gltf, wkt, geojson), independent of representation kind. |
@@ -159,6 +168,7 @@ Name: pragmatic_bim_data_contract
 | [id](id.md) | Unique local identifier. |
 | [ifc_attribute_name](ifc_attribute_name.md) | IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId). |
 | [ifc_global_id](ifc_global_id.md) | IFC GlobalId of the mapped entity. |
+| [infill_material](infill_material.md) | Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window). |
 | [intent_verdict](intent_verdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). |
 | [is_preferred](is_preferred.md) | Indicates whether this is the preferred contact point. |
 | [jurisdiction](jurisdiction.md) | Jurisdiction or authority scope for the regulatory requirement. |
@@ -218,7 +228,9 @@ Name: pragmatic_bim_data_contract
 | [recipients](recipients.md) | Agents that received the message. |
 | [related_decision](related_decision.md) | Optional reference to a decision that informs or drives this task. |
 | [related_entity](related_entity.md) | Entity or space subject for adjacency or distance constraints. |
+| [related_material](related_material.md) | Optional Material entity template this requirement must match or satisfy. |
 | [related_requirement](related_requirement.md) | Requirement entity for match_change records. |
+| [related_time_record](related_time_record.md) | Optional TimeRecord plan item this schedule requirement aligns with or must satisfy. |
 | [requirement_property_key](requirement_property_key.md) | Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance property keys where applicable. |
 | [revision](revision.md) | Integer revision counter for change tracking. |
 | [sender](sender.md) | Agent that sent the message. |
@@ -239,6 +251,7 @@ Name: pragmatic_bim_data_contract
 | [status](status.md) | Lifecycle or QA status. |
 | [storage_link](storage_link.md) | URI/URL/path to the stored document location. |
 | [street_address](street_address.md) | Street name and house number or equivalent address line. |
+| [substitutes_allowed](substitutes_allowed.md) | Whether equivalent or substitute materials are permitted. |
 | [successors](successors.md) | Forward precedence links to successor records. Reverse lookup (find all predecessors of X) requires scanning all TimeRecord.successors — acceptable for document exchange, not for live graph queries. |
 | [system_discipline](system_discipline.md) | Classification of system discipline (electrical, sanitary, ventilation, heating). |
 | [system_type](system_type.md) | Classification of system role (unit, network, terminal). |

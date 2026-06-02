@@ -68,6 +68,10 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 | [SpatialRequirement](SpatialRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [BriefRequirement](BriefRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [DeliverableRequirement](DeliverableRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [ScheduleRequirement](ScheduleRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [CostRequirement](CostRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [MaterialRequirement](MaterialRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [PhysicalElement](PhysicalElement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Separator](Separator.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [SeparatorWall](SeparatorWall.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |

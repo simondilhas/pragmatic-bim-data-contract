@@ -25,6 +25,7 @@ URI: [pbs:cost_category](https://schema.pragmaticbim.ch/cost_category)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [CostRequirement](CostRequirement.md) | Cost or budget requirement (unit-cost cap, total budget limit, etc.). |  no  |
 | [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 
 
@@ -39,7 +40,7 @@ URI: [pbs:cost_category](https://schema.pragmaticbim.ch/cost_category)
 | Property | Value |
 | --- | --- |
 | Range | [String](String.md) |
-| Domain Of | [CostRecord](CostRecord.md) |
+| Domain Of | [CostRequirement](CostRequirement.md), [CostRecord](CostRecord.md) |
 
 ### Cardinality and Requirements
 
@@ -89,6 +90,7 @@ description: Cost category label kept intentionally open pending classification-
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
+- CostRequirement
 - CostRecord
 range: string
 
