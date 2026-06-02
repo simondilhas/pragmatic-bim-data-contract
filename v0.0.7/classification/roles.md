@@ -13,34 +13,47 @@ Source: [`roles.skos.ttl`](sources/roles.ttl)
 ## Hierarchy
 
 ```mermaid
-flowchart TD
-  subgraph root_aec_group_contractor ["aec.group.contractor: Contractor side"]
-    direction TB
-    n_aec_group_contractor["aec.group.contractor: Contractor side"] --> n_aec_contractor["aec.contractor: Contractor"]
-    n_aec_group_contractor["aec.group.contractor: Contractor side"] --> n_aec_supplier["aec.supplier: Supplier"]
-  end
-  subgraph root_aec_group_owner ["aec.group.owner: Owner side"]
-    direction TB
-    n_aec_group_owner["aec.group.owner: Owner side"] --> n_aec_client["aec.client: Client"]
-    n_aec_group_owner["aec.group.owner: Owner side"] --> n_aec_developer["aec.developer: Developer"]
-    n_aec_group_owner["aec.group.owner: Owner side"] --> n_aec_facility_manager["aec.facility_manager: Facility manager"]
-    n_aec_group_owner["aec.group.owner: Owner side"] --> n_aec_owner["aec.owner: Owner"]
-  end
-  subgraph root_aec_group_planner ["aec.group.planner: Planner"]
-    direction TB
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_architect["aec.architect: Architect"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_bim_coordinator["aec.bim_coordinator: BIM coordinator"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_bim_manager["aec.bim_manager: BIM manager"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_electrical_engineer["aec.electrical_engineer: Electrical engineer"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_heating_engineer["aec.heating_engineer: Heating engineer"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_plumbing_engineer["aec.plumbing_engineer: Plumbing engineer"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_project_lead["aec.project_lead: Project lead"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_project_manager["aec.project_manager: Project manager"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_site_manager["aec.site_manager: Site manager"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_structural_engineer["aec.structural_engineer: Structural engineer"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_sustainability_consultant["aec.sustainability_consultant: Sustainability consultant"]
-    n_aec_group_planner["aec.group.planner: Planner"] --> n_aec_ventilation_engineer["aec.ventilation_engineer: Ventilation engineer"]
-  end
+classDiagram
+direction TB
+class n_aec_architect["aec.architect: Architect"]
+class n_aec_bim_coordinator["aec.bim_coordinator: BIM coordinator"]
+class n_aec_bim_manager["aec.bim_manager: BIM manager"]
+class n_aec_client["aec.client: Client"]
+class n_aec_contractor["aec.contractor: Contractor"]
+class n_aec_developer["aec.developer: Developer"]
+class n_aec_electrical_engineer["aec.electrical_engineer: Electrical engineer"]
+class n_aec_facility_manager["aec.facility_manager: Facility manager"]
+class n_aec_group_contractor["aec.group.contractor: Contractor side"]
+class n_aec_group_owner["aec.group.owner: Owner side"]
+class n_aec_group_planner["aec.group.planner: Planner"]
+class n_aec_heating_engineer["aec.heating_engineer: Heating engineer"]
+class n_aec_owner["aec.owner: Owner"]
+class n_aec_plumbing_engineer["aec.plumbing_engineer: Plumbing engineer"]
+class n_aec_project_lead["aec.project_lead: Project lead"]
+class n_aec_project_manager["aec.project_manager: Project manager"]
+class n_aec_site_manager["aec.site_manager: Site manager"]
+class n_aec_structural_engineer["aec.structural_engineer: Structural engineer"]
+class n_aec_supplier["aec.supplier: Supplier"]
+class n_aec_sustainability_consultant["aec.sustainability_consultant: Sustainability consultant"]
+class n_aec_ventilation_engineer["aec.ventilation_engineer: Ventilation engineer"]
+n_aec_group_contractor <|-- n_aec_contractor
+n_aec_group_contractor <|-- n_aec_supplier
+n_aec_group_owner <|-- n_aec_client
+n_aec_group_owner <|-- n_aec_developer
+n_aec_group_owner <|-- n_aec_facility_manager
+n_aec_group_owner <|-- n_aec_owner
+n_aec_group_planner <|-- n_aec_architect
+n_aec_group_planner <|-- n_aec_bim_coordinator
+n_aec_group_planner <|-- n_aec_bim_manager
+n_aec_group_planner <|-- n_aec_electrical_engineer
+n_aec_group_planner <|-- n_aec_heating_engineer
+n_aec_group_planner <|-- n_aec_plumbing_engineer
+n_aec_group_planner <|-- n_aec_project_lead
+n_aec_group_planner <|-- n_aec_project_manager
+n_aec_group_planner <|-- n_aec_site_manager
+n_aec_group_planner <|-- n_aec_structural_engineer
+n_aec_group_planner <|-- n_aec_sustainability_consultant
+n_aec_group_planner <|-- n_aec_ventilation_engineer
 ```
 
 ## Concepts

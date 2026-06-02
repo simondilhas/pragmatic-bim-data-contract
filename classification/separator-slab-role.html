@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -432,15 +432,19 @@
     </svg>
 </button>
     </nav>
-    <pre class="mermaid"><code>flowchart TD
-  subgraph root_L_INT ["L-INT: Interior slab"]
-    direction TB
-    n_L_INT["L-INT: Interior slab"] --&gt; n_L_CIR["L-CIR: Circulation slab"]
-    n_L_INT["L-INT: Interior slab"] --&gt; n_L_GRD["L-GRD: Ground or cellar slab"]
-    n_L_INT["L-INT: Interior slab"] --&gt; n_L_PRT["L-PRT: Internal partition slab"]
-    n_L_INT["L-INT: Interior slab"] --&gt; n_L_ROF["L-ROF: Roof separation slab"]
-    n_L_INT["L-INT: Interior slab"] --&gt; n_L_UNT["L-UNT: Unit boundary slab"]
-  end</code></pre> 
+    <pre class="mermaid"><code>classDiagram
+direction TB
+class n_L_CIR["L-CIR: Circulation slab"]
+class n_L_GRD["L-GRD: Ground or cellar slab"]
+class n_L_INT["L-INT: Interior slab"]
+class n_L_PRT["L-PRT: Internal partition slab"]
+class n_L_ROF["L-ROF: Roof separation slab"]
+class n_L_UNT["L-UNT: Unit boundary slab"]
+n_L_INT &lt;|-- n_L_CIR
+n_L_INT &lt;|-- n_L_GRD
+n_L_INT &lt;|-- n_L_PRT
+n_L_INT &lt;|-- n_L_ROF
+n_L_INT &lt;|-- n_L_UNT</code></pre> 
     <div class="panzoom-info-box panzoom-info-box-bottom panzoom-hidden">
 Hold "Alt" / "Option" to enable pan &amp; zoom
 </div>

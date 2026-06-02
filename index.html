@@ -60,7 +60,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -401,32 +401,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#how-it-fits-in-a-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
         How it fits in a workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#products-that-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Products that use it
       
     </span>
   </a>
@@ -676,32 +665,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#how-it-fits-in-a-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
         How it fits in a workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#products-that-use-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Products that use it
       
     </span>
   </a>
@@ -739,6 +717,7 @@
 <h1 id="pragmatic-bim-data-contract">Pragmatic BIM Data Contract<a class="headerlink" href="#pragmatic-bim-data-contract" title="Permanent link">&para;</a></h1>
 <p>A pragmatic, graph-first LinkML data contract for BIM integration, querying, costing, and analysis workflows.</p>
 <p>URI: https://schema.pragmaticbim.ch</p>
+<p>Repository: <a href="https://github.com/simondilhas/pragmatic-bim-data-contract">github.com/simondilhas/pragmatic-bim-data-contract</a></p>
 <h2 id="why-this-exists">Why this exists<a class="headerlink" href="#why-this-exists" title="Permanent link">&para;</a></h2>
 <p>BIM data is hard to use.</p>
 <p>Not because the data is missing, but because it is buried in complexity:</p>
@@ -835,62 +814,6 @@ structure for BIM data designed for workflows, not modeling.</p>
 <li>handle inconsistent structures</li>
 <li>rebuild logic for every project</li>
 </ul>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Section</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="schema/pragmatic-bim.docs.html">Schema</a></td>
-<td>LinkML schema reference, classes, slots, and downloadable artifacts</td>
-</tr>
-<tr>
-<td><a href="mapping/index.html">Mappings to IFC</a></td>
-<td>Declarative IFC ingestion mapping specification</td>
-</tr>
-<tr>
-<td><a href="classification/index.html">Classifications</a></td>
-<td>SKOS vocabularies and mapping bridges for the <code>Classification</code> slot</td>
-</tr>
-</tbody>
-</table>
-<h2 id="project-structure">Project structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>pragmatic-bim-data-contract/
-├── contract/           LinkML schema + IFC mapping (MIT)
-├── classification/     SKOS vocabularies + mapping bridges (CC-BY-4.0)
-├── scripts/            Build, merge, and publish tooling
-└── site/               Generated schema docs and artifacts (do not edit)
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Path</th>
-<th>Role</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>contract/</code></td>
-<td>LinkML schema YAML at folder root; IFC mapping in <code>contract/mapping/</code>. MIT.</td>
-</tr>
-<tr>
-<td><code>classification/</code></td>
-<td>Abstract SKOS vocabularies and <code>mapping/</code> bridge files. CC-BY-4.0.</td>
-</tr>
-<tr>
-<td><code>scripts/</code></td>
-<td>Schema site build, IFC mapping merge, module page generation</td>
-</tr>
-<tr>
-<td><code>site/</code></td>
-<td>Generated schema documentation and artifacts (do not edit by hand)</td>
-</tr>
-</tbody>
-</table>
 <h2 id="how-it-fits-in-a-workflow">How it fits in a workflow<a class="headerlink" href="#how-it-fits-in-a-workflow" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Ingest BIM/IFC data with project-specific extraction logic.</li>
@@ -899,6 +822,12 @@ structure for BIM data designed for workflows, not modeling.</p>
 <li>Enrich with requirements, performance metrics, schedules, and cost/material metadata.</li>
 <li>Export, analyze, or feed application APIs.</li>
 </ol>
+<h2 id="products-that-use-it">Products that use it<a class="headerlink" href="#products-that-use-it" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.iterthink.com/">iterthink</a></li>
+<li><a href="https://www.abstractbim.com/">abstractBIM</a></li>
+<li><a href="https://yourcompanyos.io/">{yourcompany}os</a></li>
+</ul>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Browse the <a href="schema/pragmatic-bim.docs.html">Schema</a> reference and download artifacts (JSON Schema, SHACL, CSV, Pydantic).</li>
