@@ -3,7 +3,7 @@
   "title": "Pragmatic BIM Data Contract - Entity Virtual",
   "description": "Virtual entities such as context, space, system, time, cost, and material information.",
   "source_file": "entity_virtual_schema.yaml",
-  "docs_index": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html",
+  "docs_index": "https://schema.pragmaticbim.ch/index.html",
   "json_schema": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json",
   "shacl": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl",
   "csv": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv",

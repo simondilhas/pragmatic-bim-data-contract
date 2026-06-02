@@ -233,7 +233,7 @@ def main() -> None:
     parser.add_argument(
         "--md-dir",
         type=Path,
-        default=Path("site/schema/.md-src"),
+        default=Path("site/.md-src/schema"),
         help="Directory containing gen-doc markdown output.",
     )
     parser.add_argument(

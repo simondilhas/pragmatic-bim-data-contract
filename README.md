@@ -152,7 +152,7 @@ pragmatic-bim-data-contract/
 
 2. Read [`contract/README.md`](contract/README.md) — schema modules, IFC mapping, hosted URIs, local docs build.
 3. Read [`classification/README.md`](classification/README.md) — vocabularies and mapping bridges.
-4. Browse the [hosted schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
+4. Browse the [hosted documentation](https://schema.pragmaticbim.ch/).
 
 ## Contributing
 

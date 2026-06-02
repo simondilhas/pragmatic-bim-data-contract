@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import html
 import json
 from pathlib import Path
 from urllib.parse import urlparse
@@ -86,8 +85,12 @@ def load_modules(schema_dir: Path, base_url: str) -> list[dict]:
 
 
 def artifact_urls(base_url: str) -> dict[str, str]:
-    schema_base = f"{base_url.rstrip('/')}/schema"
-    urls = {"docs_index": f"{schema_base}/pragmatic-bim.docs.html"}
+    base = base_url.rstrip("/")
+    schema_base = f"{base}/schema"
+    urls = {
+        "docs_index": f"{base}/index.html",
+        "schema_docs": f"{schema_base}/pragmatic-bim.docs.html",
+    }
     for key, _, filename, _ in ARTIFACTS:
         urls[key] = f"{schema_base}/{filename}"
     return urls
@@ -109,41 +112,10 @@ def build_descriptor(module: dict, base_url: str) -> dict:
     }
     primary = module.get("primary_doc")
     if primary:
-        descriptor["html"] = f"{urls['docs_index'].rsplit('/', 1)[0]}/{primary}.html"
+        schema_base = urls["schema_docs"].rsplit("/", 1)[0]
+        descriptor["html"] = f"{schema_base}/{primary}.html"
         descriptor["primary_doc"] = primary
     return descriptor
-
-
-def render_root_index(base_url: str) -> str:
-    base = base_url.rstrip("/")
-    schema_docs = f"{base}/schema/pragmatic-bim.docs.html"
-    classification_docs = f"{base}/classification/index.html"
-    return f"""<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pragmatic BIM Data Contract</title>
-    <style>
-      body {{ font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }}
-      h1 {{ font-size: 1.5rem; }}
-      ul {{ padding-left: 1.25rem; }}
-    </style>
-  </head>
-  <body>
-    <h1>Pragmatic BIM Data Contract</h1>
-    <ul>
-      <li><a href="./schema/pragmatic-bim.docs.html">Schema documentation</a></li>
-      <li><a href="./classification/index.html">Classification vocabularies</a></li>
-    </ul>
-    <p>
-      Canonical URLs:
-      <a href="{html.escape(schema_docs)}">schema</a> ·
-      <a href="{html.escape(classification_docs)}">classifications</a>
-    </p>
-  </body>
-</html>
-"""
 
 
 def write_module_descriptors(
@@ -171,11 +143,6 @@ def main() -> None:
     parser.add_argument("--site-dir", type=Path, default=Path("site"))
     parser.add_argument("--schema-dir", type=Path, default=Path("contract"))
     parser.add_argument("--base-url", default="https://schema.pragmaticbim.ch")
-    parser.add_argument(
-        "--write-root-index",
-        action="store_true",
-        help="Write site/index.html redirecting to the main schema docs page.",
-    )
     args = parser.parse_args()
 
     modules = load_modules(args.schema_dir, args.base_url)
@@ -189,7 +156,8 @@ def main() -> None:
     )
     manifest = {
         "base_url": args.base_url.rstrip("/"),
-        "docs_index": f"{args.base_url.rstrip('/')}/schema/pragmatic-bim.docs.html",
+        "docs_index": f"{args.base_url.rstrip('/')}/index.html",
+        "schema_docs": f"{args.base_url.rstrip('/')}/schema/pragmatic-bim.docs.html",
         "modules": [
             {
                 "slug": module["slug"],
@@ -205,12 +173,6 @@ def main() -> None:
         json.dumps(manifest, indent=2) + "\n",
         encoding="utf-8",
     )
-
-    if args.write_root_index:
-        (args.site_dir / "index.html").write_text(
-            render_root_index(args.base_url.rstrip("/")),
-            encoding="utf-8",
-        )
 
     print(f"Generated descriptors for {len(modules)} modules in {args.site_dir}")
 

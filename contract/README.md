@@ -69,7 +69,7 @@ python scripts/merge_ifc_mapping.py
 
 Generated schema artifacts are published via GitHub Pages from stable release tags (`v*`).
 
-- Stable landing page: `https://schema.pragmaticbim.ch/` (redirects to the docs index)
+- Stable landing page: `https://schema.pragmaticbim.ch/` (documentation index)
 - Stable docs (HTML): `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html`
 - Stable JSON Schema: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json`
 - Stable SHACL: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl`
@@ -85,7 +85,8 @@ Human-readable documentation lives on one page: [`/schema/pragmatic-bim.docs.htm
 
 | Purpose | URL pattern | Example |
 |---|---|---|
-| Documentation index | `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html` | main entry point |
+| Documentation index | `https://schema.pragmaticbim.ch/` | main entry point |
+| Schema reference | `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html` | classes, slots, artifacts |
 | Module metadata (JSON) | `https://schema.pragmaticbim.ch/{slug}/descriptor.json` | [`/entity/virtual/descriptor.json`](https://schema.pragmaticbim.ch/entity/virtual/descriptor.json) |
 | Class documentation | `https://schema.pragmaticbim.ch/schema/{ClassName}.html` | [`/schema/VirtualEntity.html`](https://schema.pragmaticbim.ch/schema/VirtualEntity.html) |
 | Validation / codegen | `https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json` | merged schema (all modules) |
@@ -119,7 +120,7 @@ python scripts/build_site.py
 | `contract/` | LinkML source of truth (edit YAML here) |
 | `site/` | Generated publish output (do not edit by hand) |
 
-Main entry point: `site/schema/pragmatic-bim.docs.html`.
+Main entry point: `site/index.html`.
 
 Optional live preview:
 
@@ -129,7 +130,7 @@ python scripts/build_site.py serve
 
 Development and pull request validation remain in CI (`schema-generation.yml`) and are not deployed to the stable Pages root.
 
-Classification vocabulary docs are published at [schema.pragmaticbim.ch/classification](https://schema.pragmaticbim.ch/classification/).
+Classification vocabulary docs are part of the unified site at [schema.pragmaticbim.ch/classification](https://schema.pragmaticbim.ch/classification/).
 
 ## Related
 

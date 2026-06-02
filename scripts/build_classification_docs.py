@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build classification HTML documentation from SKOS TTL via MkDocs Material."""
+"""Generate classification markdown documentation from SKOS TTL."""
 
 from __future__ import annotations
 
@@ -9,13 +9,10 @@ import filecmp
 import json
 import os
 import shutil
-import subprocess
 import sys
 import tempfile
 from pathlib import Path
 from typing import Any
-
-import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
@@ -30,116 +27,15 @@ from skos_doc_model import (  # noqa: E402
 
 CLASSIFICATION_ROOT = REPO_ROOT / "classification"
 CATALOG_PATH = CLASSIFICATION_ROOT / "catalog.yaml"
-DEFAULT_MD_SRC = REPO_ROOT / "site" / "classification" / ".md-src"
+DEFAULT_MD_SRC = REPO_ROOT / "site" / ".md-src" / "classification"
 DEFAULT_SITE_DIR = REPO_ROOT / "site" / "classification"
-DEFAULT_HTML_BUILD = DEFAULT_SITE_DIR / ".html-build"
-MKDOCS_CONFIG = REPO_ROOT / "mkdocs-classification.yml"
-BASE_URL = os.environ.get("CLASSIFICATION_BASE_URL", "https://schema.pragmaticbim.ch/classification")
-PRESERVE_SITE_ENTRIES = {
-    ".md-src",
-    ".html-build",
-    "sources",
-    "classifications.json",
-}
-BRAND_STYLESHEET = (
-    REPO_ROOT / "docs-assets" / "material" / "assets" / "stylesheets" / "pragmatic-bim-brand.css"
-)
-BRAND_JAVASCRIPT = (
-    REPO_ROOT
-    / "docs-assets"
-    / "material"
-    / "assets"
-    / "javascripts"
-    / "classification-lang-switch.js"
-)
-
-
-def stage_brand_assets(md_src: Path) -> None:
-    stylesheet_dir = md_src / "stylesheets"
-    stylesheet_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(BRAND_STYLESHEET, stylesheet_dir / "pragmatic-bim-brand.css")
-
-    javascript_dir = md_src / "javascripts"
-    javascript_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(BRAND_JAVASCRIPT, javascript_dir / "classification-lang-switch.js")
+DEFAULT_BASE_URL = os.environ.get("SCHEMA_BASE_URL", "https://schema.pragmaticbim.ch")
 
 
 def clear_markdown_source(md_src: Path) -> None:
     if md_src.exists():
         shutil.rmtree(md_src)
     md_src.mkdir(parents=True, exist_ok=True)
-
-
-def clear_published_doc_outputs(site_dir: Path) -> None:
-    if not site_dir.exists():
-        site_dir.mkdir(parents=True, exist_ok=True)
-        return
-    for item in site_dir.iterdir():
-        if item.name in PRESERVE_SITE_ENTRIES:
-            continue
-        if item.is_dir():
-            shutil.rmtree(item)
-        else:
-            item.unlink()
-
-
-def build_nav(vocab_entries: list[dict[str, Any]], mapping_entries: list[dict[str, Any]]) -> list[Any]:
-    nav: list[Any] = [{"Overview": "index.md"}]
-    vocab_nav = [{entry["title"]: f"{entry['slug']}.md"} for entry in vocab_entries]
-    if vocab_nav:
-        nav.append({"Vocabularies": vocab_nav})
-    mapping_nav = [{entry["title"]: f"mapping-{entry['slug']}.md"} for entry in mapping_entries]
-    if mapping_nav:
-        nav.append({"Mappings": mapping_nav})
-    return nav
-
-
-def write_mkdocs_config(nav: list[Any]) -> None:
-    config = {
-        "site_name": "Pragmatic BIM Classifications",
-        "site_url": f"{BASE_URL.rstrip('/')}/",
-        "use_directory_urls": False,
-        "docs_dir": "site/classification/.md-src",
-        "site_dir": "site/classification/.html-build",
-        "extra_css": ["stylesheets/pragmatic-bim-brand.css"],
-        "extra_javascript": ["javascripts/classification-lang-switch.js"],
-        "theme": {
-            "name": "material",
-            "palette": [{"scheme": "default", "primary": "custom", "accent": "custom"}],
-            "features": [
-                "search.suggest",
-                "search.highlight",
-                "content.code.copy",
-                "navigation.top",
-            ],
-        },
-        "nav": nav,
-        "plugins": ["search"],
-        "validation": {"unrecognized_links": "ignore"},
-        "markdown_extensions": [
-            "tables",
-            {"toc": {"permalink": True}},
-            {
-                "pymdownx.superfences": {
-                    "custom_fences": [
-                        {
-                            "name": "mermaid",
-                            "class": "mermaid",
-                            "format": "!!python/name:pymdownx.superfences.fence_code_format",
-                        }
-                    ]
-                }
-            },
-            "attr_list",
-            "md_in_html",
-        ],
-    }
-    config_text = yaml.safe_dump(config, sort_keys=False)
-    config_text = config_text.replace(
-        "format: '!!python/name:pymdownx.superfences.fence_code_format'",
-        "format: !!python/name:pymdownx.superfences.fence_code_format",
-    )
-    MKDOCS_CONFIG.write_text(config_text, encoding="utf-8")
 
 
 def render_index_markdown(
@@ -183,17 +79,19 @@ def write_classifications_json(
     site_dir: Path,
     vocab_docs: list,
     mapping_docs: list,
+    *,
+    base_url: str,
 ) -> None:
-    base = BASE_URL.rstrip("/")
+    base = base_url.rstrip("/")
     payload = {
         "base_url": base,
-        "docs_index": f"{base}/index.html",
+        "docs_index": f"{base}/classification/index.html",
         "vocabularies": [
             {
                 "slug": vocab.slug,
                 "title": vocab.title,
-                "source_ttl": f"{base}/sources/{vocab.slug}.ttl",
-                "docs_html": f"{base}/{vocab.slug}.html",
+                "source_ttl": f"{base}/classification/sources/{vocab.slug}.ttl",
+                "docs_html": f"{base}/classification/{vocab.slug}.html",
                 "scheme_iri": vocab.scheme_iri,
             }
             for vocab in vocab_docs
@@ -202,8 +100,8 @@ def write_classifications_json(
             {
                 "slug": mapping.slug,
                 "title": mapping.title,
-                "source_ttl": f"{base}/sources/mapping-{mapping.slug}.ttl",
-                "docs_html": f"{base}/mapping-{mapping.slug}.html",
+                "source_ttl": f"{base}/classification/sources/mapping-{mapping.slug}.ttl",
+                "docs_html": f"{base}/classification/mapping-{mapping.slug}.html",
                 "dataset_iri": mapping.dataset_iri,
             }
             for mapping in mapping_docs
@@ -215,32 +113,12 @@ def write_classifications_json(
     )
 
 
-def merge_html_build(html_build: Path, site_dir: Path) -> None:
-    if not html_build.is_dir():
-        raise SystemExit(f"MkDocs output directory not found: {html_build}")
-    site_dir.mkdir(parents=True, exist_ok=True)
-    for item in html_build.iterdir():
-        dest = site_dir / item.name
-        if item.is_dir():
-            if dest.exists():
-                shutil.rmtree(dest)
-            shutil.copytree(item, dest)
-        else:
-            shutil.copy2(item, dest)
-
-
-def publish_markdown_artifacts(md_src: Path, site_dir: Path) -> None:
-    for md_file in md_src.glob("*.md"):
-        shutil.copy2(md_file, site_dir / md_file.name)
-
-
-def build_classification_docs(
+def generate_classification_markdown(
     *,
     md_src: Path,
     site_dir: Path,
-    html_build: Path,
     catalog_path: Path = CATALOG_PATH,
-    skip_mkdocs: bool = False,
+    base_url: str = DEFAULT_BASE_URL,
 ) -> None:
     vocab_entries, mapping_entries = load_catalog(catalog_path)
     clear_markdown_source(md_src)
@@ -267,32 +145,8 @@ def build_classification_docs(
         encoding="utf-8",
     )
 
-    write_mkdocs_config(build_nav(vocab_entries, mapping_entries))
-    stage_brand_assets(md_src)
-
-    if skip_mkdocs:
-        return
-
     write_sources(site_dir, vocab_docs, mapping_docs)
-    write_classifications_json(site_dir, vocab_docs, mapping_docs)
-
-    if html_build.exists():
-        shutil.rmtree(html_build)
-
-    subprocess.run(
-        ["mkdocs", "build", "-f", str(MKDOCS_CONFIG), "-d", str(html_build)],
-        check=True,
-        cwd=REPO_ROOT,
-    )
-
-    clear_published_doc_outputs(site_dir)
-    merge_html_build(html_build, site_dir)
-    publish_markdown_artifacts(md_src, site_dir)
-    write_sources(site_dir, vocab_docs, mapping_docs)
-    write_classifications_json(site_dir, vocab_docs, mapping_docs)
-
-    if html_build.exists():
-        shutil.rmtree(html_build)
+    write_classifications_json(site_dir, vocab_docs, mapping_docs, base_url=base_url)
 
 
 def collect_doc_tree(root: Path) -> list[Path]:
@@ -331,19 +185,15 @@ def compare_doc_trees(expected_dir: Path, actual_dir: Path) -> list[str]:
 def verify_classification_docs(
     *,
     md_src: Path,
-    site_dir: Path,
-    html_build: Path,
     catalog_path: Path = CATALOG_PATH,
 ) -> None:
     with tempfile.TemporaryDirectory() as tmp:
         tmp_root = Path(tmp)
-        tmp_md_src = tmp_root / ".md-src"
-        build_classification_docs(
+        tmp_md_src = tmp_root / "classification"
+        generate_classification_markdown(
             md_src=tmp_md_src,
             site_dir=tmp_root / "site",
-            html_build=tmp_root / ".html-build",
             catalog_path=catalog_path,
-            skip_mkdocs=True,
         )
         errors = compare_doc_trees(md_src, tmp_md_src)
         if errors:
@@ -362,12 +212,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--md-src", type=Path, default=DEFAULT_MD_SRC)
     parser.add_argument("--site-dir", type=Path, default=DEFAULT_SITE_DIR)
-    parser.add_argument("--html-build", type=Path, default=DEFAULT_HTML_BUILD)
     parser.add_argument("--catalog", type=Path, default=CATALOG_PATH)
     parser.add_argument(
-        "--skip-mkdocs",
-        action="store_true",
-        help="Only regenerate markdown.",
+        "--base-url",
+        default=DEFAULT_BASE_URL,
+        help="Published site base URL for classifications.json.",
     )
     parser.add_argument(
         "--check",
@@ -377,24 +226,16 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.check:
-        verify_classification_docs(
-            md_src=args.md_src,
-            site_dir=args.site_dir,
-            html_build=args.html_build,
-            catalog_path=args.catalog,
-        )
+        verify_classification_docs(md_src=args.md_src, catalog_path=args.catalog)
         return
 
-    build_classification_docs(
+    generate_classification_markdown(
         md_src=args.md_src,
         site_dir=args.site_dir,
-        html_build=args.html_build,
         catalog_path=args.catalog,
-        skip_mkdocs=args.skip_mkdocs,
+        base_url=args.base_url,
     )
-    entry = args.site_dir / "index.html"
-    print(f"Built classification docs in {args.site_dir}")
-    print(f"Main entry point: {entry}")
+    print(f"Generated classification markdown in {args.md_src}")
 
 
 if __name__ == "__main__":

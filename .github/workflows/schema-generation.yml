@@ -18,7 +18,6 @@ on:
       - "scripts/postprocess_schema_docs.py"
       - "scripts/generate_module_pages.py"
       - "mkdocs.yml"
-      - "mkdocs-classification.yml"
       - ".github/workflows/schema-generation.yml"
   pull_request:
     paths:
@@ -32,7 +31,6 @@ on:
       - "scripts/postprocess_schema_docs.py"
       - "scripts/generate_module_pages.py"
       - "mkdocs.yml"
-      - "mkdocs-classification.yml"
       - ".github/workflows/schema-generation.yml"
   workflow_dispatch:
 

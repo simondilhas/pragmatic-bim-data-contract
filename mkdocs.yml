@@ -1,15 +1,15 @@
 site_name: Pragmatic BIM Data Contract
-site_url: https://schema.pragmaticbim.ch/schema/
+site_url: https://schema.pragmaticbim.ch/
 use_directory_urls: false
-
-extra:
-  homepage: https://schema.pragmaticbim.ch/
 
 extra_css:
   - stylesheets/pragmatic-bim-brand.css
 
-docs_dir: site/schema/.md-src
-site_dir: site/schema/.html-build
+extra_javascript:
+  - javascripts/classification-lang-switch.js
+
+docs_dir: site/.md-src
+site_dir: site/.html-build
 
 theme:
   name: material
@@ -24,10 +24,16 @@ theme:
     - navigation.top
 
 nav:
-  - Pragmatic BIM Data Contract: pragmatic-bim.docs.md
+  - Pragmatic BIM Data Contract: index.md
+  - Schema: schema/pragmatic-bim.docs.md
+  - Mappings to IFC: mapping/index.md
+  - Classifications: classification/index.md
 
 plugins:
   - search
+
+validation:
+  unrecognized_links: ignore
 
 markdown_extensions:
   - tables

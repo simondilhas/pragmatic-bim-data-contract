@@ -49,7 +49,7 @@ Human-readable reference docs are generated from the SKOS and mapping TTL files:
 - **Regenerate locally:** `python scripts/build_classification_docs.py` (or `python scripts/build_site.py` for schema + classifications)
 - **Catalog:** [`catalog.yaml`](catalog.yaml) lists vocabularies and mappings included in the docs
 
-CI validates that committed `site/classification/.md-src/` matches the TTL sources (`schema-generation.yml`).
+CI validates that committed `site/.md-src/classification/` matches the TTL sources (`schema-generation.yml`).
 
 ## Presentation visualizations
 
