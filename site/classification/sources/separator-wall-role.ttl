@@ -22,10 +22,37 @@
   skos:prefLabel "Aussenwand"@de ;
   skos:definition "Wall separating conditioned or occupied space from the exterior environment."@en ;
   skos:definition "Wand, die konditionierten oder nutzbaren Raum von der Aussenumgebung trennt."@de ;
-  dcterms:description "Including facade walls, below-grade exterior walls, and roof parapet walls where applicable."@en ;
-  dcterms:description "Einschliesslich Fassadenwaende, aussenseitiger Kellerwaende und Attikawaende, soweit anwendbar."@de ;
+  skos:narrower :W_EXT_ABG, :W_EXT_BLG ;
+  dcterms:description "Including facade and envelope walls where exterior separation drives requirements; subdivided by above- and below-ground position."@en ;
+  dcterms:description "Einschliesslich Fassaden- und Huellenwaende, wenn die Aussenabgrenzung die Anforderungen bestimmt; unterteilt nach ober- und unterirdischer Lage."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "W-EXT" .
+
+:W_EXT_ABG a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "W-ABG" ;
+  skos:prefLabel "Above ground wall"@en ;
+  skos:prefLabel "Oberirdische Wand"@de ;
+  skos:definition "Exterior wall above ground level separating conditioned or occupied space from the exterior environment."@en ;
+  skos:definition "Aussenwand oberhalb der Gelaendehoehe, die konditionierten oder nutzbaren Raum von der Aussenumgebung trennt."@de ;
+  dcterms:description "Including facade walls, curtain walls, parapet walls, and other above-grade envelope walls."@en ;
+  dcterms:description "Einschliesslich Fassadenwaende, Vorhangfassaden, Attikawaende und andere oberirdische Huellenwaende."@de ;
+  skos:broader :W_EXT ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "W-ABG" .
+
+:W_EXT_BLG a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "W-BLG" ;
+  skos:prefLabel "Below ground wall"@en ;
+  skos:prefLabel "Unterirdische Wand"@de ;
+  skos:definition "Exterior wall below ground level separating interior from earth or exterior below-grade conditions."@en ;
+  skos:definition "Aussenwand unterhalb der Gelaendehoehe, die Innenraum von Erdreich oder aussenseitigen Untergeschossbedingungen trennt."@de ;
+  dcterms:description "Including basement perimeter walls, retaining walls, and other below-grade envelope walls."@en ;
+  dcterms:description "Einschliesslich Kellerumfassungswaende, Stuetzwaende und andere unterirdische Huellenwaende."@de ;
+  skos:broader :W_EXT ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "W-BLG" .
 
 :W_INT a skos:Concept ;
   skos:inScheme :scheme ;

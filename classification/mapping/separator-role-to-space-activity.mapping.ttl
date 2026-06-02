@@ -18,10 +18,12 @@ wall:W_INT_CIR_HOR skos:relatedMatch space:S_CIR_HOR .
 wall:W_INT_SVC skos:relatedMatch space:S_TEC, space:S_VOI, space:S_VOI_VRT, space:S_VOI_PLN, space:S_VOI_STR, space:S_VOI_MLT .
 wall:W_INT_UNT skos:relatedMatch space:M .
 wall:W_EXT skos:relatedMatch space:O .
+wall:W_EXT_ABG skos:relatedMatch space:O .
+wall:W_EXT_BLG skos:relatedMatch space:O .
 wall:W_INT_GRD skos:relatedMatch space:S_PRK_INT .
 
 # Slab roles to adjacent space activity hints
-slab:L_INT_UNT skos:relatedMatch space:M .
-slab:L_INT_CIR skos:relatedMatch space:S_CIR_HOR, space:S_CIR_VRT .
-slab:L_EXT skos:relatedMatch space:O .
-slab:L_INT_GRD skos:relatedMatch space:S_PRK_INT .
+slab:L_FLR_INT skos:relatedMatch space:M, space:S_CIR_HOR, space:S_CIR_VRT .
+slab:L_FLR_EXT skos:relatedMatch space:O .
+slab:L_BAS skos:relatedMatch space:S_PRK_INT .
+slab:L_ROF skos:relatedMatch space:O .
