@@ -2,27 +2,37 @@ name: Schema Generation
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-  SCHEMA_ROOT: schema/00_pragmatic_bim_data_contract.yaml
+  SCHEMA_ROOT: contract/00_pragmatic_bim_data_contract.yaml
 
 on:
   push:
     branches: ["main"]
     paths:
-      - "schema/**"
+      - "contract/*.yaml"
+      - "contract/00_pragmatic_bim_data_contract.yaml"
+      - "classification/**"
       - "scripts/build_site.py"
       - "scripts/build_schema_docs.py"
+      - "scripts/build_classification_docs.py"
+      - "scripts/skos_doc_model.py"
       - "scripts/postprocess_schema_docs.py"
       - "scripts/generate_module_pages.py"
       - "mkdocs.yml"
+      - "mkdocs-classification.yml"
       - ".github/workflows/schema-generation.yml"
   pull_request:
     paths:
-      - "schema/**"
+      - "contract/*.yaml"
+      - "contract/00_pragmatic_bim_data_contract.yaml"
+      - "classification/**"
       - "scripts/build_site.py"
       - "scripts/build_schema_docs.py"
+      - "scripts/build_classification_docs.py"
+      - "scripts/skos_doc_model.py"
       - "scripts/postprocess_schema_docs.py"
       - "scripts/generate_module_pages.py"
       - "mkdocs.yml"
+      - "mkdocs-classification.yml"
       - ".github/workflows/schema-generation.yml"
   workflow_dispatch:
 

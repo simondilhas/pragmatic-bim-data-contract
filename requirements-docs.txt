@@ -2,3 +2,4 @@ linkml
 mkdocs
 mkdocs-material
 pyyaml
+rdflib

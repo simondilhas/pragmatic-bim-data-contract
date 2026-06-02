@@ -114,19 +114,33 @@ def build_descriptor(module: dict, base_url: str) -> dict:
     return descriptor
 
 
-def render_root_redirect(base_url: str) -> str:
-    docs_index = f"{base_url.rstrip('/')}/schema/pragmatic-bim.docs.html"
+def render_root_index(base_url: str) -> str:
+    base = base_url.rstrip("/")
+    schema_docs = f"{base}/schema/pragmatic-bim.docs.html"
+    classification_docs = f"{base}/classification/index.html"
     return f"""<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="0; url=./schema/pragmatic-bim.docs.html">
-    <link rel="canonical" href="{html.escape(docs_index)}">
     <title>Pragmatic BIM Data Contract</title>
+    <style>
+      body {{ font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }}
+      h1 {{ font-size: 1.5rem; }}
+      ul {{ padding-left: 1.25rem; }}
+    </style>
   </head>
   <body>
-    <p><a href="./schema/pragmatic-bim.docs.html">Pragmatic BIM Data Contract</a></p>
+    <h1>Pragmatic BIM Data Contract</h1>
+    <ul>
+      <li><a href="./schema/pragmatic-bim.docs.html">Schema documentation</a></li>
+      <li><a href="./classification/index.html">Classification vocabularies</a></li>
+    </ul>
+    <p>
+      Canonical URLs:
+      <a href="{html.escape(schema_docs)}">schema</a> ·
+      <a href="{html.escape(classification_docs)}">classifications</a>
+    </p>
   </body>
 </html>
 """
@@ -155,7 +169,7 @@ def write_module_descriptors(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--site-dir", type=Path, default=Path("site"))
-    parser.add_argument("--schema-dir", type=Path, default=Path("schema"))
+    parser.add_argument("--schema-dir", type=Path, default=Path("contract"))
     parser.add_argument("--base-url", default="https://schema.pragmaticbim.ch")
     parser.add_argument(
         "--write-root-index",
@@ -194,7 +208,7 @@ def main() -> None:
 
     if args.write_root_index:
         (args.site_dir / "index.html").write_text(
-            render_root_redirect(args.base_url.rstrip("/")),
+            render_root_index(args.base_url.rstrip("/")),
             encoding="utf-8",
         )
 

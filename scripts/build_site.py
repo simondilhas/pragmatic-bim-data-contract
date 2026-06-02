@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the published schema site from schema/*.yaml (LinkML-first)."""
+"""Build the published schema site from contract/*.yaml (LinkML-first)."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_SCHEMA_ROOT = REPO_ROOT / "schema" / "00_pragmatic_bim_data_contract.yaml"
+DEFAULT_SCHEMA_ROOT = REPO_ROOT / "contract" / "00_pragmatic_bim_data_contract.yaml"
 DEFAULT_SITE_SCHEMA = REPO_ROOT / "site" / "schema"
 MAIN_ENTRY = DEFAULT_SITE_SCHEMA / "pragmatic-bim.docs.html"
 
@@ -57,6 +57,20 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
         cwd=REPO_ROOT,
     )
 
+    classification_out = site_dir / "classification"
+    subprocess.run(
+        [
+            sys.executable,
+            str(REPO_ROOT / "scripts" / "build_classification_docs.py"),
+            "--md-src",
+            str(classification_out / ".md-src"),
+            "--site-dir",
+            str(classification_out),
+        ],
+        check=True,
+        cwd=REPO_ROOT,
+    )
+
     subprocess.run(
         [
             sys.executable,
@@ -82,6 +96,15 @@ def check_site(*, schema_root: Path) -> None:
             "--check",
             "--schema-root",
             str(schema_root),
+        ],
+        check=True,
+        cwd=REPO_ROOT,
+    )
+    subprocess.run(
+        [
+            sys.executable,
+            str(REPO_ROOT / "scripts" / "build_classification_docs.py"),
+            "--check",
         ],
         check=True,
         cwd=REPO_ROOT,

@@ -1,0 +1,3 @@
+[submodule "classification/public"]
+	path = classification/public
+	url = https://github.com/simondilhas/pragmatic-bim-public-rules.git
