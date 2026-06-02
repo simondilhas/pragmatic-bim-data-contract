@@ -21,7 +21,7 @@
     
     
       
-        <title>Enum: PropertyPathKind - Pragmatic BIM Schema</title>
+        <title>Enum: PropertyPathKind - Pragmatic BIM Data Contract</title>
       
     
     
@@ -46,8 +46,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="assets/pillars.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +102,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pragmatic BIM Schema
+            Pragmatic BIM Data Contract
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -202,13 +200,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pragmatic BIM Schema
+    Pragmatic BIM Data Contract
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -227,7 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Schema Index
+    Pragmatic BIM Data Contract
   
 
     
@@ -356,6 +354,7 @@
 <th>Value</th>
 <th>Meaning</th>
 <th>Description</th>
+<th>Additional Info</th>
 </tr>
 </thead>
 <tbody>
@@ -363,26 +362,31 @@
 <td>ifc_attribute</td>
 <td>pbs:property_path_kind_ifc_attribute</td>
 <td>Direct IFC entity attribute (for example IfcWall.Name).</td>
+<td>Title: IFC Attribute<br></td>
 </tr>
 <tr>
 <td>ifc_pset</td>
 <td>pbs:property_path_kind_ifc_pset</td>
 <td>IFC PropertySet property (for example Pset_WallCommon.FireRating).</td>
+<td>Title: IFC PropertySet<br></td>
 </tr>
 <tr>
 <td>schema_slot</td>
 <td>pbs:property_path_kind_schema_slot</td>
 <td>Field on a schema entity (for example description, space_type).</td>
+<td>Title: Schema Slot<br></td>
 </tr>
 <tr>
 <td>document_field</td>
 <td>pbs:property_path_kind_document_field</td>
 <td>Structured field in an extracted document (for example section.4.2.title).</td>
+<td>Title: Document Field<br></td>
 </tr>
 <tr>
 <td>text_span</td>
 <td>pbs:property_path_kind_text_span</td>
 <td>Free-text span anchor (for example body:char_offset:1204-1389).</td>
+<td>Title: Text Span<br></td>
 </tr>
 </tbody>
 </table>
@@ -419,22 +423,47 @@
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_attribute</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Direct IFC entity attribute (for example IfcWall.Name).</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:property_path_kind_ifc_attribute</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC Attribut</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC Attribute</span>
 <span class="w">  </span><span class="nt">ifc_pset</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifc_pset</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC PropertySet property (for example Pset_WallCommon.FireRating).</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:property_path_kind_ifc_pset</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC PropertySet</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC PropertySet</span>
 <span class="w">  </span><span class="nt">schema_slot</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema_slot</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Field on a schema entity (for example description, space_type).</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:property_path_kind_schema_slot</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Schema Feld</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Schema Slot</span>
 <span class="w">  </span><span class="nt">document_field</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_field</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Structured field in an extracted document (for example section.4.2.title).</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:property_path_kind_document_field</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentfeld</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document Field</span>
 <span class="w">  </span><span class="nt">text_span</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text_span</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Free-text span anchor (for example body:char_offset:1204-1389).</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:property_path_kind_text_span</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Textabschnitt</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text Span</span>
 </code></pre></div>
 </details>
 </div>
@@ -500,8 +529,6 @@
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="assets/pillars.js"></script>
       
     
   </body>

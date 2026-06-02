@@ -6,7 +6,7 @@ search:
 # Class: Message 
 
 
-_Message or communication record linked to an entity for coordination and traceability._
+_Message entity for coordination and traceability. Links to related entities via applies_to_entities._
 
 
 
@@ -26,17 +26,15 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
     click Message href "./Message.html"
       Entity <|-- Message
         click Entity href "./Entity.html"
+      Message : applies_to_entities
+        Message --> "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
       Message : classifications
         Message --> "*" Classification : classifications
         click Classification href "./Classification.html"
+      Message : content_kind
       Message : created_at
-      Message : decisions
-        Message --> "*" Decision : decisions
-        click Decision href "./Decision.html"
       Message : description
-      Message : documents
-        Message --> "*" Document : documents
-        click Document href "./Document.html"
       Message : geometry_representations
         Message --> "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
@@ -52,9 +50,6 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
       Message : message_body
       Message : message_subject
       Message : message_type
-      Message : messages
-        Message --> "*" Message : messages
-        click Message href "./Message.html"
       Message : metadata
         Message --> "*" MetadataEntry : metadata
         click MetadataEntry href "./MetadataEntry.html"
@@ -77,9 +72,6 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
       Message : status
         Message --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
-      Message : tasks
-        Message --> "*" Task : tasks
-        click Task href "./Task.html"
 ```
 
 
@@ -109,6 +101,7 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
 | [message_subject](message_subject.md) | 0..1 <br/> [String](String.md) | Optional subject or headline for the message. | direct |
 | [message_body](message_body.md) | 0..1 <br/> [String](String.md) | Human-readable message content. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
+| [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
 | [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Entity](Entity.md) |
@@ -118,12 +111,9 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
 | [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | [Entity](Entity.md) |
 | [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | [Entity](Entity.md) |
 | [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | [Entity](Entity.md) |
 | [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | [Entity](Entity.md) |
 | [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | [Entity](Entity.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | [Entity](Entity.md) |
 | [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | [Entity](Entity.md) |
 | [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | [Entity](Entity.md) |
 | [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | [Entity](Entity.md) |
@@ -131,40 +121,6 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
 
 
 
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [Entity](Entity.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Agent](Agent.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Person](Person.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Company](Company.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Message](Message.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [PhysicalElement](PhysicalElement.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Separator](Separator.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [SeparatorWall](SeparatorWall.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [SeparatorSlab](SeparatorSlab.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [ConnectionPhysical](ConnectionPhysical.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Boundary](Boundary.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Equipment](Equipment.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [VirtualEntity](VirtualEntity.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [SpatialContext](SpatialContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [ProjectContext](ProjectContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [PerimeterContext](PerimeterContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [LegalSiteContext](LegalSiteContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [BuiltAssetContext](BuiltAssetContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [BuildingContext](BuildingContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [CivilStructureContext](CivilStructureContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [LevelContext](LevelContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [ZoneContext](ZoneContext.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Space](Space.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [System](System.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [ConnectionVirtual](ConnectionVirtual.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [TimeRecord](TimeRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [CostRecord](CostRecord.md) | [messages](messages.md) | range | [Message](Message.md) |
-| [Material](Material.md) | [messages](messages.md) | range | [Message](Message.md) |
 
 
 
@@ -213,8 +169,8 @@ URI: [pbs:Message](https://schema.pragmaticbim.ch/Message)
 <details>
 ```yaml
 name: Message
-description: Message or communication record linked to an entity for coordination
-  and traceability.
+description: Message entity for coordination and traceability. Links to related entities
+  via applies_to_entities.
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:Message
@@ -227,6 +183,10 @@ slots:
 - sent_at
 - message_subject
 - message_body
+slot_usage:
+  content_kind:
+    name: content_kind
+    equals_string: message
 class_uri: pbs:Message
 
 ```
@@ -237,13 +197,17 @@ class_uri: pbs:Message
 <details>
 ```yaml
 name: Message
-description: Message or communication record linked to an entity for coordination
-  and traceability.
+description: Message entity for coordination and traceability. Links to related entities
+  via applies_to_entities.
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:Message
 - prov:Entity
 is_a: Entity
+slot_usage:
+  content_kind:
+    name: content_kind
+    equals_string: message
 attributes:
   message_type:
     name: message_type
@@ -317,13 +281,21 @@ attributes:
     owner: Message
     domain_of:
     - Entity
-    - Task
-    - Document
-    - Requirement
     - Change
-    - ChangeSet
     range: string
     required: true
+  content_kind:
+    name: content_kind
+    description: Entity type discriminator for adapter projection and querying. Must
+      be a ContentKind value.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Message
+    domain_of:
+    - Entity
+    range: string
+    required: true
+    equals_string: message
   name:
     name: name
     description: Default display name.
@@ -332,7 +304,6 @@ attributes:
     owner: Message
     domain_of:
     - Entity
-    - Requirement
     range: string
     required: true
   localized_names:
@@ -354,7 +325,6 @@ attributes:
     owner: Message
     domain_of:
     - Entity
-    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -396,7 +366,7 @@ attributes:
     owner: Message
     domain_of:
     - Entity
-    - Document
+    - yamlDocument
     range: Classification
     multivalued: true
     inlined: true
@@ -426,17 +396,6 @@ attributes:
     range: QuantityValue
     multivalued: true
     inlined: true
-  documents:
-    name: documents
-    description: Linked documents associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Message
-    domain_of:
-    - Entity
-    range: Document
-    multivalued: true
-    inlined: true
   metadata:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
@@ -463,39 +422,20 @@ attributes:
     range: PerformanceProperty
     multivalued: true
     inlined: true
-  decisions:
-    name: decisions
-    description: Decision records associated with this entity.
+  applies_to_entities:
+    name: applies_to_entities
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Message
     domain_of:
     - Entity
-    range: Decision
+    - TimeRecord
+    - CostRecord
+    range: Entity
     multivalued: true
-    inlined: true
-  tasks:
-    name: tasks
-    description: Tasks associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Message
-    domain_of:
-    - Entity
-    range: Task
-    multivalued: true
-    inlined: true
-  messages:
-    name: messages
-    description: Messages associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Message
-    domain_of:
-    - Entity
-    range: Message
-    multivalued: true
-    inlined: true
+    inlined: false
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
@@ -532,7 +472,6 @@ attributes:
     owner: Message
     domain_of:
     - Entity
-    - Requirement
     range: StatusType
 class_uri: pbs:Message
 

@@ -21,7 +21,7 @@
     
     
       
-        <title>Class: Message - Pragmatic BIM Schema</title>
+        <title>Class: Message - Pragmatic BIM Data Contract</title>
       
     
     
@@ -46,8 +46,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="assets/pillars.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +102,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pragmatic BIM Schema
+            Pragmatic BIM Data Contract
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -202,13 +200,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pragmatic BIM Schema
+    Pragmatic BIM Data Contract
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -227,7 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Schema Index
+    Pragmatic BIM Data Contract
   
 
     
@@ -293,17 +291,6 @@
     <span class="md-ellipsis">
       
         Slots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usages
       
     </span>
   </a>
@@ -406,7 +393,7 @@
 
 
 <h1 id="class-message">Class: Message<a class="headerlink" href="#class-message" title="Permanent link">&para;</a></h1>
-<p><em>Message or communication record linked to an entity for coordination and traceability.</em></p>
+<p><em>Message entity for coordination and traceability. Links to related entities via applies_to_entities.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/Message">pbs:Message</a></p>
 <pre class="mermaid"><code> classDiagram
@@ -414,17 +401,15 @@
     click Message href "./Message.html"
       Entity &lt;|-- Message
         click Entity href "./Entity.html"
+      Message : applies_to_entities
+        Message --&gt; "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
       Message : classifications
         Message --&gt; "*" Classification : classifications
         click Classification href "./Classification.html"
+      Message : content_kind
       Message : created_at
-      Message : decisions
-        Message --&gt; "*" Decision : decisions
-        click Decision href "./Decision.html"
       Message : description
-      Message : documents
-        Message --&gt; "*" Document : documents
-        click Document href "./Document.html"
       Message : geometry_representations
         Message --&gt; "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
@@ -440,9 +425,6 @@
       Message : message_body
       Message : message_subject
       Message : message_type
-      Message : messages
-        Message --&gt; "*" Message : messages
-        click Message href "./Message.html"
       Message : metadata
         Message --&gt; "*" MetadataEntry : metadata
         click MetadataEntry href "./MetadataEntry.html"
@@ -464,10 +446,7 @@
       Message : sent_at
       Message : status
         Message --&gt; "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      Message : tasks
-        Message --&gt; "*" Task : tasks
-        click Task href "./Task.html"</code></pre>
+        click StatusType href "./StatusType.html"</code></pre>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="Entity.html">Entity</a><ul>
@@ -544,6 +523,12 @@
 <td><a href="Entity.html">Entity</a></td>
 </tr>
 <tr>
+<td><a href="content_kind.html">content_kind</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Entity type discriminator for adapter projection and querying. Must be a ContentKind value.</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
 <td><a href="name.html">name</a></td>
 <td>1 <br/> <a href="String.html">String</a></td>
 <td>Default display name.</td>
@@ -598,12 +583,6 @@
 <td><a href="Entity.html">Entity</a></td>
 </tr>
 <tr>
-<td><a href="documents.html">documents</a></td>
-<td>* <br/> <a href="Document.html">Document</a></td>
-<td>Linked documents associated with this entity.</td>
-<td><a href="Entity.html">Entity</a></td>
-</tr>
-<tr>
 <td><a href="metadata.html">metadata</a></td>
 <td>* <br/> <a href="MetadataEntry.html">MetadataEntry</a></td>
 <td>Generic metadata container for IFC attributes/properties and project-specific extensions.</td>
@@ -616,21 +595,9 @@
 <td><a href="Entity.html">Entity</a></td>
 </tr>
 <tr>
-<td><a href="decisions.html">decisions</a></td>
-<td>* <br/> <a href="Decision.html">Decision</a></td>
-<td>Decision records associated with this entity.</td>
-<td><a href="Entity.html">Entity</a></td>
-</tr>
-<tr>
-<td><a href="tasks.html">tasks</a></td>
-<td>* <br/> <a href="Task.html">Task</a></td>
-<td>Tasks associated with this entity.</td>
-<td><a href="Entity.html">Entity</a></td>
-</tr>
-<tr>
-<td><a href="messages.html">messages</a></td>
-<td>* <br/> <a href="Message.html">Message</a></td>
-<td>Messages associated with this entity.</td>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>* <br/> <a href="Entity.html">Entity</a></td>
+<td>Model entities this record applies to (requirements, cost items, schedule items, etc.).</td>
 <td><a href="Entity.html">Entity</a></td>
 </tr>
 <tr>
@@ -656,187 +623,6 @@
 <td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
 <td>Lifecycle or QA status.</td>
 <td><a href="Entity.html">Entity</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Entity.html">Entity</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Agent.html">Agent</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Person.html">Person</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Company.html">Company</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Message.html">Message</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="PhysicalElement.html">PhysicalElement</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Separator.html">Separator</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="SeparatorWall.html">SeparatorWall</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Boundary.html">Boundary</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Equipment.html">Equipment</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="VirtualEntity.html">VirtualEntity</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="SpatialContext.html">SpatialContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="ProjectContext.html">ProjectContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="PerimeterContext.html">PerimeterContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="BuildingContext.html">BuildingContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="LevelContext.html">LevelContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="ZoneContext.html">ZoneContext</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Space.html">Space</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="System.html">System</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="TimeRecord.html">TimeRecord</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="CostRecord.html">CostRecord</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
-</tr>
-<tr>
-<td><a href="Material.html">Material</a></td>
-<td><a href="messages.html">messages</a></td>
-<td>range</td>
-<td><a href="Message.html">Message</a></td>
 </tr>
 </tbody>
 </table>
@@ -873,8 +659,8 @@
 <h3 id="direct">Direct<a class="headerlink" href="#direct" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message or communication record linked to an entity for coordination</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">and traceability.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message entity for coordination and traceability. Links to related entities</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">via applies_to_entities.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Message</span>
@@ -887,19 +673,27 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sent_at</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message_subject</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message_body</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">content_kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content_kind</span>
+<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:Message</span>
 </code></pre></div>
 </details>
 <h3 id="induced">Induced<a class="headerlink" href="#induced" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message or communication record linked to an entity for coordination</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">and traceability.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message entity for coordination and traceability. Links to related entities</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">via applies_to_entities.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Message</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Entity</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="nt">slot_usage</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">content_kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content_kind</span>
+<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">message_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message_type</span>
@@ -973,13 +767,21 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">content_kind</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content_kind</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity type discriminator for adapter projection and querying. Must</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">be a ContentKind value.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">message</span>
 <span class="w">  </span><span class="nt">name</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Default display name.</span>
@@ -988,7 +790,6 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">localized_names</span><span class="p">:</span>
@@ -1010,7 +811,6 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">  </span><span class="nt">meaning_uri</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meaning_uri</span>
@@ -1052,7 +852,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">yamlDocument</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -1082,17 +882,6 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">QuantityValue</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">documents</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">documents</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Linked documents associated with this entity.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">metadata</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">metadata</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Generic metadata container for IFC attributes/properties and project-specific</span>
@@ -1119,39 +908,20 @@
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceProperty</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">decisions</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">decisions</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decision records associated with this entity.</span>
+<span class="w">  </span><span class="nt">applies_to_entities</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">applies_to_entities</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Model entities this record applies to (requirements, cost items,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">schedule items, etc.).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Decision</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tasks</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tasks associated with this entity.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">messages</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">messages</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Messages associated with this entity.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">created_at</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">created_at</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Creation timestamp for this entity record.</span>
@@ -1188,7 +958,6 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Message</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StatusType</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:Message</span>
 </code></pre></div>
@@ -1256,8 +1025,6 @@
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="assets/pillars.js"></script>
       
     
   </body>

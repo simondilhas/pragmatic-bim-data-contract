@@ -14,7 +14,7 @@ _Human-readable message content._
 
 
 
-URI: [schema:text](http://schema.org/text)
+URI: [schema:text](https://schema.org/text)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:text](http://schema.org/text)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:text](http://schema.org/text)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:text](http://schema.org/text) |
+| Slot URI | [schema:text](https://schema.org/text) |
 
 ### Cardinality and Requirements
 

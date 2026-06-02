@@ -26,17 +26,15 @@ URI: [pbs:SeparatorWall](https://schema.pragmaticbim.ch/SeparatorWall)
     click SeparatorWall href "./SeparatorWall.html"
       Separator <|-- SeparatorWall
         click Separator href "./Separator.html"
+      SeparatorWall : applies_to_entities
+        SeparatorWall --> "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
       SeparatorWall : classifications
         SeparatorWall --> "*" Classification : classifications
         click Classification href "./Classification.html"
+      SeparatorWall : content_kind
       SeparatorWall : created_at
-      SeparatorWall : decisions
-        SeparatorWall --> "*" Decision : decisions
-        click Decision href "./Decision.html"
       SeparatorWall : description
-      SeparatorWall : documents
-        SeparatorWall --> "*" Document : documents
-        click Document href "./Document.html"
       SeparatorWall : geometry_representations
         SeparatorWall --> "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
@@ -49,9 +47,6 @@ URI: [pbs:SeparatorWall](https://schema.pragmaticbim.ch/SeparatorWall)
         SeparatorWall --> "*" LocalizedText : localized_names
         click LocalizedText href "./LocalizedText.html"
       SeparatorWall : meaning_uri
-      SeparatorWall : messages
-        SeparatorWall --> "*" Message : messages
-        click Message href "./Message.html"
       SeparatorWall : metadata
         SeparatorWall --> "*" MetadataEntry : metadata
         click MetadataEntry href "./MetadataEntry.html"
@@ -82,9 +77,6 @@ URI: [pbs:SeparatorWall](https://schema.pragmaticbim.ch/SeparatorWall)
       SeparatorWall : status
         SeparatorWall --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
-      SeparatorWall : tasks
-        SeparatorWall --> "*" Task : tasks
-        click Task href "./Task.html"
 ```
 
 
@@ -115,6 +107,7 @@ URI: [pbs:SeparatorWall](https://schema.pragmaticbim.ch/SeparatorWall)
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [PhysicalElement](PhysicalElement.md) |
 | [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | [PhysicalElement](PhysicalElement.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
+| [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
 | [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Entity](Entity.md) |
@@ -124,12 +117,9 @@ URI: [pbs:SeparatorWall](https://schema.pragmaticbim.ch/SeparatorWall)
 | [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | [Entity](Entity.md) |
 | [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | [Entity](Entity.md) |
 | [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | [Entity](Entity.md) |
 | [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | [Entity](Entity.md) |
 | [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | [Entity](Entity.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | [Entity](Entity.md) |
 | [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | [Entity](Entity.md) |
 | [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | [Entity](Entity.md) |
 | [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | [Entity](Entity.md) |
@@ -274,13 +264,21 @@ attributes:
     owner: SeparatorWall
     domain_of:
     - Entity
-    - Task
-    - Document
-    - Requirement
     - Change
-    - ChangeSet
     range: string
     required: true
+  content_kind:
+    name: content_kind
+    description: Entity type discriminator for adapter projection and querying. Must
+      be a ContentKind value.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: SeparatorWall
+    domain_of:
+    - Entity
+    range: string
+    required: true
+    equals_string: physical
   name:
     name: name
     description: Default display name.
@@ -289,7 +287,6 @@ attributes:
     owner: SeparatorWall
     domain_of:
     - Entity
-    - Requirement
     range: string
     required: true
   localized_names:
@@ -311,7 +308,6 @@ attributes:
     owner: SeparatorWall
     domain_of:
     - Entity
-    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -353,7 +349,7 @@ attributes:
     owner: SeparatorWall
     domain_of:
     - Entity
-    - Document
+    - yamlDocument
     range: Classification
     multivalued: true
     inlined: true
@@ -383,17 +379,6 @@ attributes:
     range: QuantityValue
     multivalued: true
     inlined: true
-  documents:
-    name: documents
-    description: Linked documents associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: SeparatorWall
-    domain_of:
-    - Entity
-    range: Document
-    multivalued: true
-    inlined: true
   metadata:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
@@ -420,39 +405,20 @@ attributes:
     range: PerformanceProperty
     multivalued: true
     inlined: true
-  decisions:
-    name: decisions
-    description: Decision records associated with this entity.
+  applies_to_entities:
+    name: applies_to_entities
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: SeparatorWall
     domain_of:
     - Entity
-    range: Decision
+    - TimeRecord
+    - CostRecord
+    range: Entity
     multivalued: true
-    inlined: true
-  tasks:
-    name: tasks
-    description: Tasks associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: SeparatorWall
-    domain_of:
-    - Entity
-    range: Task
-    multivalued: true
-    inlined: true
-  messages:
-    name: messages
-    description: Messages associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: SeparatorWall
-    domain_of:
-    - Entity
-    range: Message
-    multivalued: true
-    inlined: true
+    inlined: false
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
@@ -489,7 +455,6 @@ attributes:
     owner: SeparatorWall
     domain_of:
     - Entity
-    - Requirement
     range: StatusType
 class_uri: pbs:SeparatorWall
 

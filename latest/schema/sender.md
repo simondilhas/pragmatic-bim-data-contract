@@ -14,7 +14,7 @@ _Agent that sent the message._
 
 
 
-URI: [schema:sender](http://schema.org/sender)
+URI: [schema:sender](https://schema.org/sender)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:sender](http://schema.org/sender)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:sender](http://schema.org/sender)
 | --- | --- |
 | Range | [Agent](Agent.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:sender](http://schema.org/sender) |
+| Slot URI | [schema:sender](https://schema.org/sender) |
 
 ### Cardinality and Requirements
 

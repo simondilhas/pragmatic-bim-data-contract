@@ -14,7 +14,7 @@ _Task status URI/CURIE aligned with action status vocabularies._
 
 
 
-URI: [schema:actionStatus](http://schema.org/actionStatus)
+URI: [schema:actionStatus](https://schema.org/actionStatus)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:actionStatus](http://schema.org/actionStatus)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:actionStatus](http://schema.org/actionStatus)
 | --- | --- |
 | Range | [Uriorcurie](Uriorcurie.md) |
 | Domain Of | [Task](Task.md) |
-| Slot URI | [schema:actionStatus](http://schema.org/actionStatus) |
+| Slot URI | [schema:actionStatus](https://schema.org/actionStatus) |
 
 ### Cardinality and Requirements
 

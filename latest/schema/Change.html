@@ -21,7 +21,7 @@
     
     
       
-        <title>Class: Change - Pragmatic BIM Schema</title>
+        <title>Class: Change - Pragmatic BIM Data Contract</title>
       
     
     
@@ -46,8 +46,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="assets/pillars.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +102,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pragmatic BIM Schema
+            Pragmatic BIM Data Contract
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -202,13 +200,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pragmatic BIM Schema
+    Pragmatic BIM Data Contract
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -227,7 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Schema Index
+    Pragmatic BIM Data Contract
   
 
     
@@ -293,17 +291,6 @@
     <span class="md-ellipsis">
       
         Slots
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usages
       
     </span>
   </a>
@@ -406,7 +393,7 @@
 
 
 <h1 id="class-change">Class: Change<a class="headerlink" href="#class-change" title="Permanent link">&para;</a></h1>
-<p><em>Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation.</em></p>
+<p><em>Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation.</em></p>
 <p>__</p>
 <div>
 <ul>
@@ -428,6 +415,9 @@
         click AdditionChange href "./AdditionChange.html"
       Change &lt;|-- DeletionChange
         click DeletionChange href "./DeletionChange.html"
+      Change : affected_subject
+        Change --&gt; "0..1" Entity : affected_subject
+        click Entity href "./Entity.html"
       Change : affected_subject_id
       Change : affected_subject_path
       Change : affected_subject_type
@@ -448,7 +438,9 @@
         click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
       Change : to_revision
       Change : triggered_process
-      Change : triggered_task</code></pre>
+      Change : triggered_task
+        Change --&gt; "0..1" Task : triggered_task
+        click Task href "./Task.html"</code></pre>
 <h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Change</strong><ul>
@@ -512,6 +504,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="affected_subject.html">affected_subject</a></td>
+<td>0..1 <br/> <a href="Entity.html">Entity</a></td>
+<td>Optional typed reference to the changed graph entity when the subject is in the project graph.</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="affected_subject_id.html">affected_subject_id</a></td>
 <td>1 <br/> <a href="String.html">String</a></td>
 <td>Identifier of the changed subject (entity id, document id, or external key).</td>
@@ -520,13 +518,13 @@
 <tr>
 <td><a href="affected_subject_type.html">affected_subject_type</a></td>
 <td>1 <br/> <a href="String.html">String</a></td>
-<td>LinkML class name of the changed subject (for example Space, SeparatorWall, Document).</td>
+<td>LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument).</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="affected_subject_path.html">affected_subject_path</a></td>
 <td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Optional JSON-pointer-style path for nested targets (for example documents[2], localized_descriptions[de], section.4.2.paragraph_1).</td>
+<td>Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1).</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -538,7 +536,7 @@
 <tr>
 <td><a href="document_storage_link.html">document_storage_link</a></td>
 <td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
-<td>Document location when the subject is or embeds a Document.</td>
+<td>Document location when the subject is a yamlDocument entity or document field diff.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -555,8 +553,8 @@
 </tr>
 <tr>
 <td><a href="triggered_task.html">triggered_task</a></td>
-<td>0..1 <br/> <a href="String.html">String</a></td>
-<td>Id of a Task record that this change triggered or should trigger.</td>
+<td>0..1 <br/> <a href="Task.html">Task</a></td>
+<td>Task entity that this change triggered or should trigger.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -576,25 +574,6 @@
 <td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
 <td>URI identifying the tool or pipeline that produced this change record.</td>
 <td>direct</td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="ChangeSet.html">ChangeSet</a></td>
-<td><a href="changes.html">changes</a></td>
-<td>range</td>
-<td><a href="Change.html">Change</a></td>
 </tr>
 </tbody>
 </table>
@@ -627,9 +606,9 @@
 <h3 id="direct">Direct<a class="headerlink" href="#direct" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Detected</span><span class="nv"> </span><span class="s">difference</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">subject</span><span class="nv"> </span><span class="s">between</span><span class="nv"> </span><span class="s">two</span><span class="nv"> </span><span class="s">revisions</span><span class="nv"> </span><span class="s">(content_kind</span>
-<span class="w">  </span><span class="s">change).</span><span class="nv"> </span><span class="s">Supports</span><span class="nv"> </span><span class="s">IFC</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">diffs,</span><span class="nv"> </span><span class="s">document/text</span><span class="nv"> </span><span class="s">diffs,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">schema-entity</span><span class="nv"> </span><span class="s">field</span>
-<span class="w">  </span><span class="s">changes.</span><span class="nv"> </span><span class="s">Use</span><span class="nv"> </span><span class="s">change_type</span><span class="nv"> </span><span class="s">together</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">interpretation.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Audit</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">observing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">project</span><span class="nv"> </span><span class="s">graph</span><span class="nv"> </span><span class="s">moving</span><span class="nv"> </span><span class="s">between</span><span class="nv"> </span><span class="s">revisions.</span><span class="nv"> </span><span class="s">Not</span>
+<span class="w">  </span><span class="s">an</span><span class="nv"> </span><span class="s">Entity</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">graph</span><span class="nv"> </span><span class="s">node</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">watches</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">graph.</span><span class="nv"> </span><span class="s">Use</span><span class="nv"> </span><span class="s">change_type</span><span class="nv"> </span><span class="s">together</span>
+<span class="w">  </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">interpretation.</span>
 
 <span class="w">  </span><span class="s">&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -639,6 +618,7 @@
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_type</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">change_severity</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">intent_verdict</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject_id</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject_type</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject_path</span>
@@ -676,9 +656,9 @@
 <h3 id="induced">Induced<a class="headerlink" href="#induced" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Detected</span><span class="nv"> </span><span class="s">difference</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">one</span><span class="nv"> </span><span class="s">subject</span><span class="nv"> </span><span class="s">between</span><span class="nv"> </span><span class="s">two</span><span class="nv"> </span><span class="s">revisions</span><span class="nv"> </span><span class="s">(content_kind</span>
-<span class="w">  </span><span class="s">change).</span><span class="nv"> </span><span class="s">Supports</span><span class="nv"> </span><span class="s">IFC</span><span class="nv"> </span><span class="s">model</span><span class="nv"> </span><span class="s">diffs,</span><span class="nv"> </span><span class="s">document/text</span><span class="nv"> </span><span class="s">diffs,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">schema-entity</span><span class="nv"> </span><span class="s">field</span>
-<span class="w">  </span><span class="s">changes.</span><span class="nv"> </span><span class="s">Use</span><span class="nv"> </span><span class="s">change_type</span><span class="nv"> </span><span class="s">together</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">interpretation.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Audit</span><span class="nv"> </span><span class="s">record</span><span class="nv"> </span><span class="s">observing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">project</span><span class="nv"> </span><span class="s">graph</span><span class="nv"> </span><span class="s">moving</span><span class="nv"> </span><span class="s">between</span><span class="nv"> </span><span class="s">revisions.</span><span class="nv"> </span><span class="s">Not</span>
+<span class="w">  </span><span class="s">an</span><span class="nv"> </span><span class="s">Entity</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">graph</span><span class="nv"> </span><span class="s">node</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">watches</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">graph.</span><span class="nv"> </span><span class="s">Use</span><span class="nv"> </span><span class="s">change_type</span><span class="nv"> </span><span class="s">together</span>
+<span class="w">  </span><span class="s">with</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">concrete</span><span class="nv"> </span><span class="s">subclass</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">interpretation.</span>
 
 <span class="w">  </span><span class="s">&#39;</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -713,11 +693,7 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">change_type</span><span class="p">:</span>
@@ -749,6 +725,17 @@
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeIntentVerdict</span>
+<span class="w">  </span><span class="nt">affected_subject</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional typed reference to the changed graph entity when the subject</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">is in the project graph.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">affected_subject_id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject_id</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Identifier of the changed subject (entity id, document id, or external</span>
@@ -763,7 +750,7 @@
 <span class="w">  </span><span class="nt">affected_subject_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject_type</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;LinkML</span><span class="nv"> </span><span class="s">class</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">changed</span><span class="nv"> </span><span class="s">subject</span><span class="nv"> </span><span class="s">(for</span><span class="nv"> </span><span class="s">example</span><span class="nv"> </span><span class="s">Space,</span><span class="nv"> </span><span class="s">SeparatorWall,</span>
-<span class="w">      </span><span class="s">Document).</span>
+<span class="w">      </span><span class="s">yamlDocument).</span>
 
 <span class="w">      </span><span class="s">&#39;</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -776,7 +763,7 @@
 <span class="w">  </span><span class="nt">affected_subject_path</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">affected_subject_path</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Optional</span><span class="nv"> </span><span class="s">JSON-pointer-style</span><span class="nv"> </span><span class="s">path</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">nested</span><span class="nv"> </span><span class="s">targets</span><span class="nv"> </span><span class="s">(for</span><span class="nv"> </span><span class="s">example</span>
-<span class="w">      </span><span class="s">documents[2],</span><span class="nv"> </span><span class="s">localized_descriptions[de],</span><span class="nv"> </span><span class="s">section.4.2.paragraph_1).</span>
+<span class="w">      </span><span class="s">localized_descriptions[de],</span><span class="nv"> </span><span class="s">section.4.2.paragraph_1).</span>
 
 <span class="w">      </span><span class="s">&#39;</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
@@ -798,7 +785,8 @@
 <span class="w">    </span><span class="nt">pattern</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^[0-3][0-9A-Za-z_$]{21}$</span>
 <span class="w">  </span><span class="nt">document_storage_link</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">document_storage_link</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document location when the subject is or embeds a Document.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Document location when the subject is a yamlDocument entity or document</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">field diff.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
@@ -813,7 +801,6 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
@@ -825,19 +812,19 @@
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ChangeSet</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">minimum_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">  </span><span class="nt">triggered_task</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">triggered_task</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Id of a Task record that this change triggered or should trigger.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task entity that this change triggered or should trigger.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">triggered_process</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">triggered_process</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">External workflow process URI (for example yourcompanyos process</span>
@@ -933,8 +920,6 @@
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="assets/pillars.js"></script>
       
     
   </body>

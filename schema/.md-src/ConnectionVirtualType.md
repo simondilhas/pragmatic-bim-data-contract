@@ -21,12 +21,12 @@ URI: [pbs:ConnectionVirtualType](https://schema.pragmaticbim.ch/ConnectionVirtua
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| structural_joint | pbs:connection_virtual_type_structural_joint | Logical structural continuity or structural joint relation. |
-| adjacency | pbs:connection_virtual_type_adjacency | Topological adjacency relation without implying a physical opening. |
-| access | pbs:connection_virtual_type_access | Access relation indicating passability or navigational linkage. |
-| other | pbs:connection_virtual_type_other | Other virtual connection semantics not covered by the controlled values. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| structural_joint | pbs:connection_virtual_type_structural_joint | Logical structural continuity or structural joint relation. | Title: Structural Joint<br>|
+| adjacency | pbs:connection_virtual_type_adjacency | Topological adjacency relation without implying a physical opening. | Title: Adjacency<br>|
+| access | pbs:connection_virtual_type_access | Access relation indicating passability or navigational linkage. | Title: Access<br>|
+| other | pbs:connection_virtual_type_other | Other virtual connection semantics not covered by the controlled values. | Title: Other<br>|
 
 
 
@@ -77,19 +77,39 @@ permissible_values:
     text: structural_joint
     description: Logical structural continuity or structural joint relation.
     meaning: pbs:connection_virtual_type_structural_joint
+    alt_descriptions:
+      de:
+        source: de
+        description: Strukturelle Fuge
+    title: Structural Joint
   adjacency:
     text: adjacency
     description: Topological adjacency relation without implying a physical opening.
     meaning: pbs:connection_virtual_type_adjacency
+    alt_descriptions:
+      de:
+        source: de
+        description: Nachbarschaft
+    title: Adjacency
   access:
     text: access
     description: Access relation indicating passability or navigational linkage.
     meaning: pbs:connection_virtual_type_access
+    alt_descriptions:
+      de:
+        source: de
+        description: Zugang
+    title: Access
   other:
     text: other
     description: Other virtual connection semantics not covered by the controlled
       values.
     meaning: pbs:connection_virtual_type_other
+    alt_descriptions:
+      de:
+        source: de
+        description: Sonstiges
+    title: Other
 
 ```
 </details>

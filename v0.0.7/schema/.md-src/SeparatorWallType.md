@@ -21,11 +21,11 @@ URI: [pbs:SeparatorWallType](https://schema.pragmaticbim.ch/SeparatorWallType)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| unit_boundary | ifcowl:IfcWall | Wall separator that defines boundaries between occupancy units. |
-| vertical_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or encloses vertical circulation areas. |
-| horizontal_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or structures horizontal circulation areas. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| unit_boundary | ifcowl:IfcWall | Wall separator that defines boundaries between occupancy units. | Title: Unit Boundary<br>|
+| vertical_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or encloses vertical circulation areas. | Title: Vertical Circulation Boundary<br>|
+| horizontal_circulation_boundary | ifcowl:IfcWall | Wall separator that bounds or structures horizontal circulation areas. | Title: Horizontal Circulation Boundary<br>|
 
 
 
@@ -75,14 +75,29 @@ permissible_values:
     text: unit_boundary
     description: Wall separator that defines boundaries between occupancy units.
     meaning: ifcowl:IfcWall
+    alt_descriptions:
+      de:
+        source: de
+        description: Einheitstrennung
+    title: Unit Boundary
   vertical_circulation_boundary:
     text: vertical_circulation_boundary
     description: Wall separator that bounds or encloses vertical circulation areas.
     meaning: ifcowl:IfcWall
+    alt_descriptions:
+      de:
+        source: de
+        description: Vertikale Erschliessungstrennung
+    title: Vertical Circulation Boundary
   horizontal_circulation_boundary:
     text: horizontal_circulation_boundary
     description: Wall separator that bounds or structures horizontal circulation areas.
     meaning: ifcowl:IfcWall
+    alt_descriptions:
+      de:
+        source: de
+        description: Horizontale Erschliessungstrennung
+    title: Horizontal Circulation Boundary
 
 ```
 </details>

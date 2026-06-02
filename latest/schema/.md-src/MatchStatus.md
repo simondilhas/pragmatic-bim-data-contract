@@ -21,11 +21,11 @@ URI: [pbs:MatchStatus](https://schema.pragmaticbim.ch/MatchStatus)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| met | pbs:match_status_met | Subject satisfies the requirement. |
-| unmet | pbs:match_status_unmet | Subject no longer satisfies the requirement. |
-| unknown | pbs:match_status_unknown | Match could not be determined. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| met | pbs:match_status_met | Subject satisfies the requirement. | Title: Met<br>|
+| unmet | pbs:match_status_unmet | Subject no longer satisfies the requirement. | Title: Unmet<br>|
+| unknown | pbs:match_status_unknown | Match could not be determined. | Title: Unknown<br>|
 
 
 
@@ -75,14 +75,29 @@ permissible_values:
     text: met
     description: Subject satisfies the requirement.
     meaning: pbs:match_status_met
+    alt_descriptions:
+      de:
+        source: de
+        description: Erfuellt
+    title: Met
   unmet:
     text: unmet
     description: Subject no longer satisfies the requirement.
     meaning: pbs:match_status_unmet
+    alt_descriptions:
+      de:
+        source: de
+        description: Nicht erfuellt
+    title: Unmet
   unknown:
     text: unknown
     description: Match could not be determined.
     meaning: pbs:match_status_unknown
+    alt_descriptions:
+      de:
+        source: de
+        description: Unbekannt
+    title: Unknown
 
 ```
 </details>

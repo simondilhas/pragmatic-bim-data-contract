@@ -16,11 +16,11 @@ URI: [pbs:BoundaryType](https://schema.pragmaticbim.ch/BoundaryType)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| flooring | ifcowl:IfcCoveringTypeEnum.FLOORING |  |
-| ceiling | ifcowl:IfcCoveringTypeEnum.CEILING |  |
-| cladding | ifcowl:IfcCoveringTypeEnum.CLADDING |  |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| flooring | ifcowl:IfcCoveringTypeEnum.FLOORING |  | Title: Flooring<br>|
+| ceiling | ifcowl:IfcCoveringTypeEnum.CEILING |  | Title: Ceiling<br>|
+| cladding | ifcowl:IfcCoveringTypeEnum.CLADDING |  | Title: Cladding<br>|
 
 
 
@@ -68,12 +68,27 @@ permissible_values:
   flooring:
     text: flooring
     meaning: ifcowl:IfcCoveringTypeEnum.FLOORING
+    alt_descriptions:
+      de:
+        source: de
+        description: Bodenbelag
+    title: Flooring
   ceiling:
     text: ceiling
     meaning: ifcowl:IfcCoveringTypeEnum.CEILING
+    alt_descriptions:
+      de:
+        source: de
+        description: Decke
+    title: Ceiling
   cladding:
     text: cladding
     meaning: ifcowl:IfcCoveringTypeEnum.CLADDING
+    alt_descriptions:
+      de:
+        source: de
+        description: Verkleidung
+    title: Cladding
 
 ```
 </details>

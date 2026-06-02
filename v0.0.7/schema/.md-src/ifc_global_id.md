@@ -25,12 +25,20 @@ URI: [pbs:ifc_global_id](https://schema.pragmaticbim.ch/ifc_global_id)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Entity](Entity.md) | Common base class for all schema entities. |  no  |
-| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation. |  no  |
+| [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |  no  |
+| [Change](Change.md) | Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation. |  no  |
 | [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Decision](Decision.md) | Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs. |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
+| [YamlDocument](YamlDocument.md) | Document entity referencing external storage. Links to related entities via applies_to_entities. |  no  |
+| [Requirement](Requirement.md) | Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |  no  |
+| [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |  no  |
+| [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |  no  |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |  no  |
+| [BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items. |  no  |
 | [PhysicalElement](PhysicalElement.md) | Base class for physical elements that can be placed in built asset/level context. |  no  |
 | [Separator](Separator.md) | Abstract base class for elements that separate spaces or zones. |  no  |
 | [SeparatorWall](SeparatorWall.md) | Wall-based separating element. |  no  |
@@ -56,10 +64,10 @@ URI: [pbs:ifc_global_id](https://schema.pragmaticbim.ch/ifc_global_id)
 | [Material](Material.md) | Material definition that can be associated with one or more entities. |  no  |
 | [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
 | [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |  no  |
-| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement entity or its fields. |  no  |
 | [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer meets). |  no  |
-| [AdditionChange](AdditionChange.md) | New entity or requirement introduced in to_revision. |  no  |
-| [DeletionChange](DeletionChange.md) | Entity or requirement removed in to_revision. |  no  |
+| [AdditionChange](AdditionChange.md) | New entity introduced in to_revision. |  no  |
+| [DeletionChange](DeletionChange.md) | Entity removed in to_revision. |  no  |
 
 
 

@@ -14,7 +14,7 @@ _Postal or ZIP code._
 
 
 
-URI: [schema:postalCode](http://schema.org/postalCode)
+URI: [schema:postalCode](https://schema.org/postalCode)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [schema:postalCode](http://schema.org/postalCode)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:postalCode](http://schema.org/postalCode) |
+| Slot URI | [schema:postalCode](https://schema.org/postalCode) |
 
 ### Cardinality and Requirements
 

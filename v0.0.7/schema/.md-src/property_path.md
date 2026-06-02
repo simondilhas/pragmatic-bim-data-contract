@@ -28,7 +28,7 @@ URI: [pbs:property_path](https://schema.pragmaticbim.ch/property_path)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  yes  |
-| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement entity or its fields. |  no  |
 
 
 

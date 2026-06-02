@@ -14,7 +14,7 @@ _Due timestamp for task completion._
 
 
 
-URI: [schema:deadline](http://schema.org/deadline)
+URI: [schema:deadline](https://schema.org/deadline)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:deadline](http://schema.org/deadline)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:deadline](http://schema.org/deadline)
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
 | Domain Of | [Task](Task.md) |
-| Slot URI | [schema:deadline](http://schema.org/deadline) |
+| Slot URI | [schema:deadline](https://schema.org/deadline) |
 
 ### Cardinality and Requirements
 

@@ -21,11 +21,11 @@ URI: [pbs:SystemType](https://schema.pragmaticbim.ch/SystemType)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| unit | ifcowl:IfcUnitaryEquipment | Generating or converting unit (for example AHU, chiller, heat pump). |
-| network | ifcowl:IfcDistributionFlowElement | Distribution network element carrying flow (for example ducts, pipes, cable carriers). |
-| terminal | ifcowl:IfcFlowTerminal | End/terminal element located in served spaces. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| unit | ifcowl:IfcUnitaryEquipment | Generating or converting unit (for example AHU, chiller, heat pump). | Title: Unit<br>|
+| network | ifcowl:IfcDistributionFlowElement | Distribution network element carrying flow (for example ducts, pipes, cable carriers). | Title: Network<br>|
+| terminal | ifcowl:IfcFlowTerminal | End/terminal element located in served spaces. | Title: Terminal<br>|
 
 
 
@@ -75,15 +75,30 @@ permissible_values:
     text: unit
     description: Generating or converting unit (for example AHU, chiller, heat pump).
     meaning: ifcowl:IfcUnitaryEquipment
+    alt_descriptions:
+      de:
+        source: de
+        description: Einheit
+    title: Unit
   network:
     text: network
     description: Distribution network element carrying flow (for example ducts, pipes,
       cable carriers).
     meaning: ifcowl:IfcDistributionFlowElement
+    alt_descriptions:
+      de:
+        source: de
+        description: Netz
+    title: Network
   terminal:
     text: terminal
     description: End/terminal element located in served spaces.
     meaning: ifcowl:IfcFlowTerminal
+    alt_descriptions:
+      de:
+        source: de
+        description: Endgeraet
+    title: Terminal
 
 ```
 </details>

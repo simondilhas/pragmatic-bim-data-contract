@@ -21,12 +21,12 @@ URI: [pbs:ChangeSeverity](https://schema.pragmaticbim.ch/ChangeSeverity)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| unchanged | pbs:change_severity_unchanged | No material difference (typically omitted from persisted Change records). |
-| minor | pbs:change_severity_minor | Small attribute, metadata, or wording adjustment. |
-| major | pbs:change_severity_major | Significant attribute, geometry, relationship, or structural content change. |
-| rewritten | pbs:change_severity_rewritten | Subject substantially replaced while retaining the same identity. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| unchanged | pbs:change_severity_unchanged | No material difference (typically omitted from persisted Change records). | Title: Unchanged<br>|
+| minor | pbs:change_severity_minor | Small attribute, metadata, or wording adjustment. | Title: Minor<br>|
+| major | pbs:change_severity_major | Significant attribute, geometry, relationship, or structural content change. | Title: Major<br>|
+| rewritten | pbs:change_severity_rewritten | Subject substantially replaced while retaining the same identity. | Title: Rewritten<br>|
 
 
 
@@ -76,19 +76,39 @@ permissible_values:
     text: unchanged
     description: No material difference (typically omitted from persisted Change records).
     meaning: pbs:change_severity_unchanged
+    alt_descriptions:
+      de:
+        source: de
+        description: Unveraendert
+    title: Unchanged
   minor:
     text: minor
     description: Small attribute, metadata, or wording adjustment.
     meaning: pbs:change_severity_minor
+    alt_descriptions:
+      de:
+        source: de
+        description: Geringfuegig
+    title: Minor
   major:
     text: major
     description: Significant attribute, geometry, relationship, or structural content
       change.
     meaning: pbs:change_severity_major
+    alt_descriptions:
+      de:
+        source: de
+        description: Erheblich
+    title: Major
   rewritten:
     text: rewritten
     description: Subject substantially replaced while retaining the same identity.
     meaning: pbs:change_severity_rewritten
+    alt_descriptions:
+      de:
+        source: de
+        description: Neu geschrieben
+    title: Rewritten
 
 ```
 </details>

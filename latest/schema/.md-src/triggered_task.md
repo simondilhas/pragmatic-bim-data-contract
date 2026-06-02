@@ -6,7 +6,7 @@ search:
 # Slot: triggered_task 
 
 
-_Id of a Task record that this change triggered or should trigger._
+_Task entity that this change triggered or should trigger._
 
 
 
@@ -25,13 +25,13 @@ URI: [pbs:triggered_task](https://schema.pragmaticbim.ch/triggered_task)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation. |  no  |
+| [Change](Change.md) | Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation. |  no  |
 | [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
 | [GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |  no  |
-| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement entity or its fields. |  no  |
 | [MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer meets). |  no  |
-| [AdditionChange](AdditionChange.md) | New entity or requirement introduced in to_revision. |  no  |
-| [DeletionChange](DeletionChange.md) | Entity or requirement removed in to_revision. |  no  |
+| [AdditionChange](AdditionChange.md) | New entity introduced in to_revision. |  no  |
+| [DeletionChange](DeletionChange.md) | Entity removed in to_revision. |  no  |
 
 
 
@@ -44,7 +44,7 @@ URI: [pbs:triggered_task](https://schema.pragmaticbim.ch/triggered_task)
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
+| Range | [Task](Task.md) |
 | Domain Of | [Change](Change.md) |
 
 ### Cardinality and Requirements
@@ -90,12 +90,13 @@ URI: [pbs:triggered_task](https://schema.pragmaticbim.ch/triggered_task)
 <details>
 ```yaml
 name: triggered_task
-description: Id of a Task record that this change triggered or should trigger.
+description: Task entity that this change triggered or should trigger.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - Change
-range: string
+range: Task
+inlined: false
 
 ```
 </details></div>

@@ -38,9 +38,13 @@ URI: [pbs:SpatialContext](https://schema.pragmaticbim.ch/SpatialContext)
         click LevelContext href "./LevelContext.html"
       SpatialContext <|-- ZoneContext
         click ZoneContext href "./ZoneContext.html"
+      SpatialContext : applies_to_entities
+        SpatialContext --> "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
       SpatialContext : classifications
         SpatialContext --> "*" Classification : classifications
         click Classification href "./Classification.html"
+      SpatialContext : content_kind
       SpatialContext : context_type
         SpatialContext --> "1" ContextType : context_type
         click ContextType href "./ContextType.html"
@@ -48,13 +52,7 @@ URI: [pbs:SpatialContext](https://schema.pragmaticbim.ch/SpatialContext)
         SpatialContext --> "*" CostRecord : cost_records
         click CostRecord href "./CostRecord.html"
       SpatialContext : created_at
-      SpatialContext : decisions
-        SpatialContext --> "*" Decision : decisions
-        click Decision href "./Decision.html"
       SpatialContext : description
-      SpatialContext : documents
-        SpatialContext --> "*" Document : documents
-        click Document href "./Document.html"
       SpatialContext : geometry_representations
         SpatialContext --> "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
@@ -73,9 +71,6 @@ URI: [pbs:SpatialContext](https://schema.pragmaticbim.ch/SpatialContext)
         SpatialContext --> "*" Material : materials
         click Material href "./Material.html"
       SpatialContext : meaning_uri
-      SpatialContext : messages
-        SpatialContext --> "*" Message : messages
-        click Message href "./Message.html"
       SpatialContext : metadata
         SpatialContext --> "*" MetadataEntry : metadata
         click MetadataEntry href "./MetadataEntry.html"
@@ -109,9 +104,6 @@ URI: [pbs:SpatialContext](https://schema.pragmaticbim.ch/SpatialContext)
       SpatialContext : status
         SpatialContext --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
-      SpatialContext : tasks
-        SpatialContext --> "*" Task : tasks
-        click Task href "./Task.html"
       SpatialContext : time_records
         SpatialContext --> "*" TimeRecord : time_records
         click TimeRecord href "./TimeRecord.html"
@@ -161,6 +153,7 @@ URI: [pbs:SpatialContext](https://schema.pragmaticbim.ch/SpatialContext)
 | [time_records](time_records.md) | * <br/> [TimeRecord](TimeRecord.md) | Time records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [materials](materials.md) | * <br/> [Material](Material.md) | Material definitions associated with this entity. | [VirtualEntity](VirtualEntity.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
+| [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
 | [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | [Entity](Entity.md) |
 | [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | [Entity](Entity.md) |
@@ -170,12 +163,9 @@ URI: [pbs:SpatialContext](https://schema.pragmaticbim.ch/SpatialContext)
 | [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | [Entity](Entity.md) |
 | [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | [Entity](Entity.md) |
 | [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | [Entity](Entity.md) |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | [Entity](Entity.md) |
 | [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | [Entity](Entity.md) |
 | [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | [Entity](Entity.md) |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | [Entity](Entity.md) |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | [Entity](Entity.md) |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | [Entity](Entity.md) |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | [Entity](Entity.md) |
 | [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | [Entity](Entity.md) |
 | [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | [Entity](Entity.md) |
 | [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | [Entity](Entity.md) |
@@ -248,6 +238,9 @@ slots:
 - parent_zone
 - group_members
 slot_usage:
+  content_kind:
+    name: content_kind
+    equals_string: context
   parent_project:
     name: parent_project
     range: ProjectContext
@@ -284,6 +277,9 @@ exact_mappings:
 - ifcowl:IfcSpatialStructureElement
 is_a: VirtualEntity
 slot_usage:
+  content_kind:
+    name: content_kind
+    equals_string: context
   parent_project:
     name: parent_project
     range: ProjectContext
@@ -437,13 +433,21 @@ attributes:
     owner: SpatialContext
     domain_of:
     - Entity
-    - Task
-    - Document
-    - Requirement
     - Change
-    - ChangeSet
     range: string
     required: true
+  content_kind:
+    name: content_kind
+    description: Entity type discriminator for adapter projection and querying. Must
+      be a ContentKind value.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: SpatialContext
+    domain_of:
+    - Entity
+    range: string
+    required: true
+    equals_string: context
   name:
     name: name
     description: Default display name.
@@ -452,7 +456,6 @@ attributes:
     owner: SpatialContext
     domain_of:
     - Entity
-    - Requirement
     range: string
     required: true
   localized_names:
@@ -474,7 +477,6 @@ attributes:
     owner: SpatialContext
     domain_of:
     - Entity
-    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -516,7 +518,7 @@ attributes:
     owner: SpatialContext
     domain_of:
     - Entity
-    - Document
+    - yamlDocument
     range: Classification
     multivalued: true
     inlined: true
@@ -546,17 +548,6 @@ attributes:
     range: QuantityValue
     multivalued: true
     inlined: true
-  documents:
-    name: documents
-    description: Linked documents associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: SpatialContext
-    domain_of:
-    - Entity
-    range: Document
-    multivalued: true
-    inlined: true
   metadata:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
@@ -583,39 +574,20 @@ attributes:
     range: PerformanceProperty
     multivalued: true
     inlined: true
-  decisions:
-    name: decisions
-    description: Decision records associated with this entity.
+  applies_to_entities:
+    name: applies_to_entities
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: SpatialContext
     domain_of:
     - Entity
-    range: Decision
+    - TimeRecord
+    - CostRecord
+    range: Entity
     multivalued: true
-    inlined: true
-  tasks:
-    name: tasks
-    description: Tasks associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: SpatialContext
-    domain_of:
-    - Entity
-    range: Task
-    multivalued: true
-    inlined: true
-  messages:
-    name: messages
-    description: Messages associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: SpatialContext
-    domain_of:
-    - Entity
-    range: Message
-    multivalued: true
-    inlined: true
+    inlined: false
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
@@ -652,7 +624,6 @@ attributes:
     owner: SpatialContext
     domain_of:
     - Entity
-    - Requirement
     range: StatusType
 class_uri: pbs:SpatialContext
 tree_root: true

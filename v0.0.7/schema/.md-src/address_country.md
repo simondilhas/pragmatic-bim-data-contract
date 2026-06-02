@@ -14,7 +14,7 @@ _Country name._
 
 
 
-URI: [schema:addressCountry](http://schema.org/addressCountry)
+URI: [schema:addressCountry](https://schema.org/addressCountry)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [schema:addressCountry](http://schema.org/addressCountry)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:addressCountry](http://schema.org/addressCountry) |
+| Slot URI | [schema:addressCountry](https://schema.org/addressCountry) |
 
 ### Cardinality and Requirements
 

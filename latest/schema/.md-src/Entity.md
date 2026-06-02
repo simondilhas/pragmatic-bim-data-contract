@@ -6,7 +6,7 @@ search:
 # Class: Entity 
 
 
-_Common base class for all schema entities._
+_Common base class for everything in the project graph. Has identity, lifecycle, and status._
 
 
 
@@ -28,23 +28,29 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
     click Entity href "./Entity.html"
       Entity <|-- Agent
         click Agent href "./Agent.html"
+      Entity <|-- Decision
+        click Decision href "./Decision.html"
+      Entity <|-- Task
+        click Task href "./Task.html"
       Entity <|-- Message
         click Message href "./Message.html"
+      Entity <|-- YamlDocument
+        click YamlDocument href "./YamlDocument.html"
+      Entity <|-- Requirement
+        click Requirement href "./Requirement.html"
       Entity <|-- PhysicalElement
         click PhysicalElement href "./PhysicalElement.html"
       Entity <|-- VirtualEntity
         click VirtualEntity href "./VirtualEntity.html"
+      Entity : applies_to_entities
+        Entity --> "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
       Entity : classifications
         Entity --> "*" Classification : classifications
         click Classification href "./Classification.html"
+      Entity : content_kind
       Entity : created_at
-      Entity : decisions
-        Entity --> "*" Decision : decisions
-        click Decision href "./Decision.html"
       Entity : description
-      Entity : documents
-        Entity --> "*" Document : documents
-        click Document href "./Document.html"
       Entity : geometry_representations
         Entity --> "*" GeometryRepresentation : geometry_representations
         click GeometryRepresentation href "./GeometryRepresentation.html"
@@ -57,9 +63,6 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
         Entity --> "*" LocalizedText : localized_names
         click LocalizedText href "./LocalizedText.html"
       Entity : meaning_uri
-      Entity : messages
-        Entity --> "*" Message : messages
-        click Message href "./Message.html"
       Entity : metadata
         Entity --> "*" MetadataEntry : metadata
         click MetadataEntry href "./MetadataEntry.html"
@@ -75,9 +78,6 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
       Entity : status
         Entity --> "0..1" StatusType : status
         click StatusType href "./StatusType.html"
-      Entity : tasks
-        Entity --> "*" Task : tasks
-        click Task href "./Task.html"
 ```
 
 
@@ -87,7 +87,11 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 ## Inheritance
 * **Entity**
     * [Agent](Agent.md)
+    * [Decision](Decision.md)
+    * [Task](Task.md)
     * [Message](Message.md)
+    * [YamlDocument](YamlDocument.md)
+    * [Requirement](Requirement.md)
     * [PhysicalElement](PhysicalElement.md)
     * [VirtualEntity](VirtualEntity.md)
 
@@ -104,6 +108,7 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | direct |
+| [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | direct |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | direct |
 | [localized_names](localized_names.md) | * <br/> [LocalizedText](LocalizedText.md) | Localized variants of name. | direct |
 | [description](description.md) | 0..1 <br/> [String](String.md) | Default description text. | direct |
@@ -113,12 +118,9 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 | [classifications](classifications.md) | * <br/> [Classification](Classification.md) | Classification entries from IFC and other schemes. | direct |
 | [geometry_representations](geometry_representations.md) | * <br/> [GeometryRepresentation](GeometryRepresentation.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. | direct |
 | [quantity_values](quantity_values.md) | * <br/> [QuantityValue](QuantityValue.md) | Quantities associated with the entity. | direct |
-| [documents](documents.md) | * <br/> [Document](Document.md) | Linked documents associated with this entity. | direct |
 | [metadata](metadata.md) | * <br/> [MetadataEntry](MetadataEntry.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. | direct |
 | [performance_properties](performance_properties.md) | * <br/> [PerformanceProperty](PerformanceProperty.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. | direct |
-| [decisions](decisions.md) | * <br/> [Decision](Decision.md) | Decision records associated with this entity. | direct |
-| [tasks](tasks.md) | * <br/> [Task](Task.md) | Tasks associated with this entity. | direct |
-| [messages](messages.md) | * <br/> [Message](Message.md) | Messages associated with this entity. | direct |
+| [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | direct |
 | [created_at](created_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Creation timestamp for this entity record. | direct |
 | [modified_at](modified_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Last modification timestamp for this entity record. | direct |
 | [revision](revision.md) | 0..1 <br/> [Integer](Integer.md) | Integer revision counter for change tracking. | direct |
@@ -132,25 +134,61 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Entity](Entity.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Agent](Agent.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Person](Person.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Company](Company.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Decision](Decision.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Task](Task.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Message](Message.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [YamlDocument](YamlDocument.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Requirement](Requirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [related_entity](related_entity.md) | range | [Entity](Entity.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [BriefRequirement](BriefRequirement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [PhysicalElement](PhysicalElement.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Separator](Separator.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [SeparatorWall](SeparatorWall.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [SeparatorSlab](SeparatorSlab.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [ConnectionPhysical](ConnectionPhysical.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Boundary](Boundary.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Equipment](Equipment.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [VirtualEntity](VirtualEntity.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [SpatialContext](SpatialContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [SpatialContext](SpatialContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [ProjectContext](ProjectContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [ProjectContext](ProjectContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [PerimeterContext](PerimeterContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [PerimeterContext](PerimeterContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [LegalSiteContext](LegalSiteContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [BuiltAssetContext](BuiltAssetContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [BuildingContext](BuildingContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [BuildingContext](BuildingContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [CivilStructureContext](CivilStructureContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [CivilStructureContext](CivilStructureContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [LevelContext](LevelContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [LevelContext](LevelContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [ZoneContext](ZoneContext.md) | [group_members](group_members.md) | range | [Entity](Entity.md) |
+| [ZoneContext](ZoneContext.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Space](Space.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
+| [Space](Space.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [System](System.md) | [contained_entities](contained_entities.md) | range | [Entity](Entity.md) |
+| [System](System.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [ConnectionVirtual](ConnectionVirtual.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [TimeRecord](TimeRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [CostRecord](CostRecord.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Material](Material.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Change](Change.md) | [affected_subject](affected_subject.md) | range | [Entity](Entity.md) |
+| [PropertyChange](PropertyChange.md) | [affected_subject](affected_subject.md) | range | [Entity](Entity.md) |
+| [GeometryChange](GeometryChange.md) | [affected_subject](affected_subject.md) | range | [Entity](Entity.md) |
+| [RequirementChange](RequirementChange.md) | [affected_subject](affected_subject.md) | range | [Entity](Entity.md) |
+| [MatchChange](MatchChange.md) | [affected_subject](affected_subject.md) | range | [Entity](Entity.md) |
+| [AdditionChange](AdditionChange.md) | [affected_subject](affected_subject.md) | range | [Entity](Entity.md) |
+| [DeletionChange](DeletionChange.md) | [affected_subject](affected_subject.md) | range | [Entity](Entity.md) |
 
 
 
@@ -198,11 +236,13 @@ URI: [pbs:Entity](https://schema.pragmaticbim.ch/Entity)
 <details>
 ```yaml
 name: Entity
-description: Common base class for all schema entities.
+description: Common base class for everything in the project graph. Has identity,
+  lifecycle, and status.
 from_schema: https://schema.pragmaticbim.ch
 abstract: true
 slots:
 - id
+- content_kind
 - name
 - localized_names
 - description
@@ -212,16 +252,21 @@ slots:
 - classifications
 - geometry_representations
 - quantity_values
-- documents
 - metadata
 - performance_properties
-- decisions
-- tasks
-- messages
+- applies_to_entities
 - created_at
 - modified_at
 - revision
 - status
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
+  content_kind:
+    name: content_kind
+    required: true
 class_uri: pbs:Entity
 
 ```
@@ -232,9 +277,18 @@ class_uri: pbs:Entity
 <details>
 ```yaml
 name: Entity
-description: Common base class for all schema entities.
+description: Common base class for everything in the project graph. Has identity,
+  lifecycle, and status.
 from_schema: https://schema.pragmaticbim.ch
 abstract: true
+slot_usage:
+  id:
+    name: id
+    identifier: true
+    required: true
+  content_kind:
+    name: content_kind
+    required: true
 attributes:
   id:
     name: id
@@ -245,11 +299,18 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
-    - Task
-    - Document
-    - Requirement
     - Change
-    - ChangeSet
+    range: string
+    required: true
+  content_kind:
+    name: content_kind
+    description: Entity type discriminator for adapter projection and querying. Must
+      be a ContentKind value.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Entity
+    domain_of:
+    - Entity
     range: string
     required: true
   name:
@@ -260,7 +321,6 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
-    - Requirement
     range: string
     required: true
   localized_names:
@@ -282,7 +342,6 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
-    - Requirement
     range: string
   meaning_uri:
     name: meaning_uri
@@ -324,7 +383,7 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
-    - Document
+    - yamlDocument
     range: Classification
     multivalued: true
     inlined: true
@@ -354,17 +413,6 @@ attributes:
     range: QuantityValue
     multivalued: true
     inlined: true
-  documents:
-    name: documents
-    description: Linked documents associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Entity
-    domain_of:
-    - Entity
-    range: Document
-    multivalued: true
-    inlined: true
   metadata:
     name: metadata
     description: Generic metadata container for IFC attributes/properties and project-specific
@@ -391,39 +439,20 @@ attributes:
     range: PerformanceProperty
     multivalued: true
     inlined: true
-  decisions:
-    name: decisions
-    description: Decision records associated with this entity.
+  applies_to_entities:
+    name: applies_to_entities
+    description: Model entities this record applies to (requirements, cost items,
+      schedule items, etc.).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Entity
     domain_of:
     - Entity
-    range: Decision
+    - TimeRecord
+    - CostRecord
+    range: Entity
     multivalued: true
-    inlined: true
-  tasks:
-    name: tasks
-    description: Tasks associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Entity
-    domain_of:
-    - Entity
-    range: Task
-    multivalued: true
-    inlined: true
-  messages:
-    name: messages
-    description: Messages associated with this entity.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Entity
-    domain_of:
-    - Entity
-    range: Message
-    multivalued: true
-    inlined: true
+    inlined: false
   created_at:
     name: created_at
     description: Creation timestamp for this entity record.
@@ -460,7 +489,6 @@ attributes:
     owner: Entity
     domain_of:
     - Entity
-    - Requirement
     range: StatusType
 class_uri: pbs:Entity
 

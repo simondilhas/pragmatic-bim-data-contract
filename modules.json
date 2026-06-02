@@ -1,41 +1,42 @@
 {
   "base_url": "https://schema.pragmaticbim.ch",
+  "docs_index": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html",
   "modules": [
     {
       "slug": "changes",
       "id": "https://schema.pragmaticbim.ch/changes",
       "title": "Pragmatic BIM Data Contract - Changes",
-      "landing_page": "https://schema.pragmaticbim.ch/changes"
+      "descriptor": "https://schema.pragmaticbim.ch/changes/descriptor.json"
     },
     {
       "slug": "entity/core",
       "id": "https://schema.pragmaticbim.ch/entity/core",
       "title": "Pragmatic BIM Data Contract - Entity Core",
-      "landing_page": "https://schema.pragmaticbim.ch/entity/core"
+      "descriptor": "https://schema.pragmaticbim.ch/entity/core/descriptor.json"
     },
     {
       "slug": "entity/performance",
       "id": "https://schema.pragmaticbim.ch/entity/performance",
       "title": "Pragmatic BIM Data Contract - Entity Performance",
-      "landing_page": "https://schema.pragmaticbim.ch/entity/performance"
+      "descriptor": "https://schema.pragmaticbim.ch/entity/performance/descriptor.json"
     },
     {
       "slug": "entity/physical",
       "id": "https://schema.pragmaticbim.ch/entity/physical",
       "title": "Pragmatic BIM Data Contract - Entity Physical",
-      "landing_page": "https://schema.pragmaticbim.ch/entity/physical"
+      "descriptor": "https://schema.pragmaticbim.ch/entity/physical/descriptor.json"
+    },
+    {
+      "slug": "entity/requirements",
+      "id": "https://schema.pragmaticbim.ch/entity/requirements",
+      "title": "Pragmatic BIM Data Contract - Entity Requirements",
+      "descriptor": "https://schema.pragmaticbim.ch/entity/requirements/descriptor.json"
     },
     {
       "slug": "entity/virtual",
       "id": "https://schema.pragmaticbim.ch/entity/virtual",
       "title": "Pragmatic BIM Data Contract - Entity Virtual",
-      "landing_page": "https://schema.pragmaticbim.ch/entity/virtual"
-    },
-    {
-      "slug": "requirements",
-      "id": "https://schema.pragmaticbim.ch/requirements",
-      "title": "Pragmatic BIM Data Contract - Requirements",
-      "landing_page": "https://schema.pragmaticbim.ch/requirements"
+      "descriptor": "https://schema.pragmaticbim.ch/entity/virtual/descriptor.json"
     }
   ]
 }

@@ -21,12 +21,12 @@ URI: [pbs:SeparatorSlabType](https://schema.pragmaticbim.ch/SeparatorSlabType)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| floor | ifcowl:IfcSlabTypeEnum.FLOOR |  |
-| roof | ifcowl:IfcSlabTypeEnum.ROOF |  |
-| baseslab | ifcowl:IfcSlabTypeEnum.BASESLAB |  |
-| balcony | ifcowl:IfcSlabTypeEnum.FLOOR | Balcony slab; mapped to FLOOR as the closest IFC slab type. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| floor | ifcowl:IfcSlabTypeEnum.FLOOR |  | Title: Floor<br>|
+| roof | ifcowl:IfcSlabTypeEnum.ROOF |  | Title: Roof<br>|
+| baseslab | ifcowl:IfcSlabTypeEnum.BASESLAB |  | Title: Base Slab<br>|
+| balcony | ifcowl:IfcSlabTypeEnum.FLOOR | Balcony slab; mapped to FLOOR as the closest IFC slab type. | Title: Balcony<br>|
 
 
 
@@ -75,16 +75,36 @@ permissible_values:
   floor:
     text: floor
     meaning: ifcowl:IfcSlabTypeEnum.FLOOR
+    alt_descriptions:
+      de:
+        source: de
+        description: Boden
+    title: Floor
   roof:
     text: roof
     meaning: ifcowl:IfcSlabTypeEnum.ROOF
+    alt_descriptions:
+      de:
+        source: de
+        description: Dach
+    title: Roof
   baseslab:
     text: baseslab
     meaning: ifcowl:IfcSlabTypeEnum.BASESLAB
+    alt_descriptions:
+      de:
+        source: de
+        description: Bodenplatte
+    title: Base Slab
   balcony:
     text: balcony
     description: Balcony slab; mapped to FLOOR as the closest IFC slab type.
     meaning: ifcowl:IfcSlabTypeEnum.FLOOR
+    alt_descriptions:
+      de:
+        source: de
+        description: Balkon
+    title: Balcony
 
 ```
 </details>

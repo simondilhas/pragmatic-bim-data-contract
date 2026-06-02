@@ -14,7 +14,7 @@ _Timestamp when the message was sent._
 
 
 
-URI: [schema:dateSent](http://schema.org/dateSent)
+URI: [schema:dateSent](https://schema.org/dateSent)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:dateSent](http://schema.org/dateSent)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:dateSent](http://schema.org/dateSent)
 | --- | --- |
 | Range | [Datetime](Datetime.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:dateSent](http://schema.org/dateSent) |
+| Slot URI | [schema:dateSent](https://schema.org/dateSent) |
 
 ### Cardinality and Requirements
 

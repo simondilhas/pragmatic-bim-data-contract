@@ -21,10 +21,10 @@ URI: [pbs:ChangeIntentVerdict](https://schema.pragmaticbim.ch/ChangeIntentVerdic
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| stable | pbs:change_intent_verdict_stable | Change preserves design intent; downstream rules may treat as cosmetic. |
-| new_intent | pbs:change_intent_verdict_new_intent | Change alters design intent; may require re-evaluation or new tasks. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| stable | pbs:change_intent_verdict_stable | Change preserves design intent; downstream rules may treat as cosmetic. | Title: Stable<br>|
+| new_intent | pbs:change_intent_verdict_new_intent | Change alters design intent; may require re-evaluation or new tasks. | Title: New Intent<br>|
 
 
 
@@ -75,10 +75,20 @@ permissible_values:
     text: stable
     description: Change preserves design intent; downstream rules may treat as cosmetic.
     meaning: pbs:change_intent_verdict_stable
+    alt_descriptions:
+      de:
+        source: de
+        description: Stabil
+    title: Stable
   new_intent:
     text: new_intent
     description: Change alters design intent; may require re-evaluation or new tasks.
     meaning: pbs:change_intent_verdict_new_intent
+    alt_descriptions:
+      de:
+        source: de
+        description: Neue Absicht
+    title: New Intent
 
 ```
 </details>

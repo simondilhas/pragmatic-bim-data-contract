@@ -65,7 +65,15 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 | [Agent](Agent.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Person](Person.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Company](Company.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Decision](Decision.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Task](Task.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Message](Message.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [YamlDocument](YamlDocument.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Requirement](Requirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [PerformanceRequirement](PerformanceRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [SpatialRequirement](SpatialRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [BriefRequirement](BriefRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [PhysicalElement](PhysicalElement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Separator](Separator.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [SeparatorWall](SeparatorWall.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |

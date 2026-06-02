@@ -21,14 +21,14 @@ URI: [pbs:SeparatorRequirementDriver](https://schema.pragmaticbim.ch/SeparatorRe
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| acoustic | pbs:requirement_driver_acoustic |  |
-| fire | pbs:requirement_driver_fire |  |
-| thermal | pbs:requirement_driver_thermal |  |
-| privacy | pbs:requirement_driver_privacy |  |
-| hygiene | pbs:requirement_driver_hygiene |  |
-| structural | pbs:requirement_driver_structural |  |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| acoustic | pbs:requirement_driver_acoustic |  | Title: Acoustic<br>|
+| fire | pbs:requirement_driver_fire |  | Title: Fire<br>|
+| thermal | pbs:requirement_driver_thermal |  | Title: Thermal<br>|
+| privacy | pbs:requirement_driver_privacy |  | Title: Privacy<br>|
+| hygiene | pbs:requirement_driver_hygiene |  | Title: Hygiene<br>|
+| structural | pbs:requirement_driver_structural |  | Title: Structural<br>|
 
 
 
@@ -77,21 +77,51 @@ permissible_values:
   acoustic:
     text: acoustic
     meaning: pbs:requirement_driver_acoustic
+    alt_descriptions:
+      de:
+        source: de
+        description: Akustik
+    title: Acoustic
   fire:
     text: fire
     meaning: pbs:requirement_driver_fire
+    alt_descriptions:
+      de:
+        source: de
+        description: Brandschutz
+    title: Fire
   thermal:
     text: thermal
     meaning: pbs:requirement_driver_thermal
+    alt_descriptions:
+      de:
+        source: de
+        description: Waerme
+    title: Thermal
   privacy:
     text: privacy
     meaning: pbs:requirement_driver_privacy
+    alt_descriptions:
+      de:
+        source: de
+        description: Privatsphaere
+    title: Privacy
   hygiene:
     text: hygiene
     meaning: pbs:requirement_driver_hygiene
+    alt_descriptions:
+      de:
+        source: de
+        description: Hygiene
+    title: Hygiene
   structural:
     text: structural
     meaning: pbs:requirement_driver_structural
+    alt_descriptions:
+      de:
+        source: de
+        description: Tragwerk
+    title: Structural
 
 ```
 </details>

@@ -14,7 +14,7 @@ _Post office box number where applicable._
 
 
 
-URI: [schema:postOfficeBoxNumber](http://schema.org/postOfficeBoxNumber)
+URI: [schema:postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [schema:postOfficeBoxNumber](http://schema.org/postOfficeBoxNumber)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:postOfficeBoxNumber](http://schema.org/postOfficeBoxNumber) |
+| Slot URI | [schema:postOfficeBoxNumber](https://schema.org/postOfficeBoxNumber) |
 
 ### Cardinality and Requirements
 

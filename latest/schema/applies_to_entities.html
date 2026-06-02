@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: applies_to_entities - Pragmatic BIM Schema</title>
+        <title>Slot: applies_to_entities - Pragmatic BIM Data Contract</title>
       
     
     
@@ -46,8 +46,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="assets/pillars.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +102,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pragmatic BIM Schema
+            Pragmatic BIM Data Contract
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -202,13 +200,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pragmatic BIM Schema
+    Pragmatic BIM Data Contract
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -227,7 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Schema Index
+    Pragmatic BIM Data Contract
   
 
     
@@ -399,8 +397,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Requirement.html">Requirement</a></td>
-<td>Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</td>
+<td><a href="Entity.html">Entity</a></td>
+<td>Common base class for everything in the project graph. Has identity, lifecycle, and status.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -411,6 +409,46 @@
 <tr>
 <td><a href="CostRecord.html">CostRecord</a></td>
 <td>Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td>Abstract base class for people or organizations acting in workflow and communication roles.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td>Organization, company, or legal entity participating in the project or asset lifecycle.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Decision.html">Decision</a></td>
+<td>Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Task.html">Task</a></td>
+<td>Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td>Message entity for coordination and traceability. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="YamlDocument.html">YamlDocument</a></td>
+<td>Document entity referencing external storage. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Requirement.html">Requirement</a></td>
+<td>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -433,6 +471,111 @@
 <td>Client or programme requirement, including free-standing brief items.</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td>Base class for physical elements that can be placed in built asset/level context.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td>Abstract base class for elements that separate spaces or zones.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td>Wall-based separating element.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td>Slab-based separating element (for example floor/roof/base slab separators).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td>Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td>Physical element acting as a boundary treatment (for example covering).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td>Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td>Abstract base class for non-physical, conceptual, or informational entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td>Context node used to represent project, perimeter, legal site, built asset, level, or zone.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td>Spatial context node constrained to project semantics.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td>Spatial context node constrained to perimeter semantics.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td>Spatial context node constrained to legal site semantics.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td>Abstract spatial context for built assets such as buildings and civil structures.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td>Spatial context node constrained to building semantics.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td>Spatial context node constrained to civil structure semantics.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td>Spatial context node constrained to level/storey semantics.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td>Spatial context node constrained to zone semantics.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td>Spatial container used for occupancy, circulation, service, or analysis.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td>Building service system grouping that serves spaces or zones.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td>Logical or topological connection between spaces and/or physical elements.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td>Material definition that can be associated with one or more entities.</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>
@@ -451,7 +594,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Requirement.html">Requirement</a>, <a href="TimeRecord.html">TimeRecord</a>, <a href="CostRecord.html">CostRecord</a></td>
+<td><a href="Entity.html">Entity</a>, <a href="TimeRecord.html">TimeRecord</a>, <a href="CostRecord.html">CostRecord</a></td>
 </tr>
 </tbody>
 </table>
@@ -502,7 +645,7 @@
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TimeRecord</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CostRecord</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
@@ -573,8 +716,6 @@
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="assets/pillars.js"></script>
       
     
   </body>

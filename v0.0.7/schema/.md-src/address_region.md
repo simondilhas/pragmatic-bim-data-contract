@@ -14,7 +14,7 @@ _Region, state, canton, or province._
 
 
 
-URI: [schema:addressRegion](http://schema.org/addressRegion)
+URI: [schema:addressRegion](https://schema.org/addressRegion)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [schema:addressRegion](http://schema.org/addressRegion)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:addressRegion](http://schema.org/addressRegion) |
+| Slot URI | [schema:addressRegion](https://schema.org/addressRegion) |
 
 ### Cardinality and Requirements
 

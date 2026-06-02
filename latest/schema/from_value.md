@@ -26,7 +26,7 @@ URI: [pbs:from_value](https://schema.pragmaticbim.ch/from_value)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |  no  |
-| [RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |  no  |
+| [RequirementChange](RequirementChange.md) | Change to a requirement entity or its fields. |  no  |
 
 
 

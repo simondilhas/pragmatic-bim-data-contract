@@ -21,13 +21,13 @@ URI: [pbs:PropertyPathKind](https://schema.pragmaticbim.ch/PropertyPathKind)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| ifc_attribute | pbs:property_path_kind_ifc_attribute | Direct IFC entity attribute (for example IfcWall.Name). |
-| ifc_pset | pbs:property_path_kind_ifc_pset | IFC PropertySet property (for example Pset_WallCommon.FireRating). |
-| schema_slot | pbs:property_path_kind_schema_slot | Field on a schema entity (for example description, space_type). |
-| document_field | pbs:property_path_kind_document_field | Structured field in an extracted document (for example section.4.2.title). |
-| text_span | pbs:property_path_kind_text_span | Free-text span anchor (for example body:char_offset:1204-1389). |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| ifc_attribute | pbs:property_path_kind_ifc_attribute | Direct IFC entity attribute (for example IfcWall.Name). | Title: IFC Attribute<br>|
+| ifc_pset | pbs:property_path_kind_ifc_pset | IFC PropertySet property (for example Pset_WallCommon.FireRating). | Title: IFC PropertySet<br>|
+| schema_slot | pbs:property_path_kind_schema_slot | Field on a schema entity (for example description, space_type). | Title: Schema Slot<br>|
+| document_field | pbs:property_path_kind_document_field | Structured field in an extracted document (for example section.4.2.title). | Title: Document Field<br>|
+| text_span | pbs:property_path_kind_text_span | Free-text span anchor (for example body:char_offset:1204-1389). | Title: Text Span<br>|
 
 
 
@@ -78,22 +78,47 @@ permissible_values:
     text: ifc_attribute
     description: Direct IFC entity attribute (for example IfcWall.Name).
     meaning: pbs:property_path_kind_ifc_attribute
+    alt_descriptions:
+      de:
+        source: de
+        description: IFC Attribut
+    title: IFC Attribute
   ifc_pset:
     text: ifc_pset
     description: IFC PropertySet property (for example Pset_WallCommon.FireRating).
     meaning: pbs:property_path_kind_ifc_pset
+    alt_descriptions:
+      de:
+        source: de
+        description: IFC PropertySet
+    title: IFC PropertySet
   schema_slot:
     text: schema_slot
     description: Field on a schema entity (for example description, space_type).
     meaning: pbs:property_path_kind_schema_slot
+    alt_descriptions:
+      de:
+        source: de
+        description: Schema Feld
+    title: Schema Slot
   document_field:
     text: document_field
     description: Structured field in an extracted document (for example section.4.2.title).
     meaning: pbs:property_path_kind_document_field
+    alt_descriptions:
+      de:
+        source: de
+        description: Dokumentfeld
+    title: Document Field
   text_span:
     text: text_span
     description: Free-text span anchor (for example body:char_offset:1204-1389).
     meaning: pbs:property_path_kind_text_span
+    alt_descriptions:
+      de:
+        source: de
+        description: Textabschnitt
+    title: Text Span
 
 ```
 </details>
