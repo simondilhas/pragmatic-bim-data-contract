@@ -25,7 +25,7 @@ URI: [prov:used](http://www.w3.org/ns/prov#used)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -92,6 +92,7 @@ slot_uri: prov:used
 domain_of:
 - Task
 range: Decision
+inlined: false
 
 ```
 </details></div>

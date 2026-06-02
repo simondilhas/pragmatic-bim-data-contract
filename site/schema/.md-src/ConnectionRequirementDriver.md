@@ -21,15 +21,15 @@ URI: [pbs:ConnectionRequirementDriver](https://schema.pragmaticbim.ch/Connection
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| fire | pbs:connection_requirement_driver_fire |  |
-| security | pbs:connection_requirement_driver_security |  |
-| accessibility | pbs:connection_requirement_driver_accessibility |  |
-| acoustic | pbs:connection_requirement_driver_acoustic |  |
-| thermal | pbs:connection_requirement_driver_thermal |  |
-| visual | pbs:connection_requirement_driver_visual |  |
-| structural | pbs:connection_requirement_driver_structural |  |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| fire | pbs:connection_requirement_driver_fire |  | Title: Fire<br>|
+| security | pbs:connection_requirement_driver_security |  | Title: Security<br>|
+| accessibility | pbs:connection_requirement_driver_accessibility |  | Title: Accessibility<br>|
+| acoustic | pbs:connection_requirement_driver_acoustic |  | Title: Acoustic<br>|
+| thermal | pbs:connection_requirement_driver_thermal |  | Title: Thermal<br>|
+| visual | pbs:connection_requirement_driver_visual |  | Title: Visual<br>|
+| structural | pbs:connection_requirement_driver_structural |  | Title: Structural<br>|
 
 
 
@@ -79,24 +79,59 @@ permissible_values:
   fire:
     text: fire
     meaning: pbs:connection_requirement_driver_fire
+    alt_descriptions:
+      de:
+        source: de
+        description: Brandschutz
+    title: Fire
   security:
     text: security
     meaning: pbs:connection_requirement_driver_security
+    alt_descriptions:
+      de:
+        source: de
+        description: Sicherheit
+    title: Security
   accessibility:
     text: accessibility
     meaning: pbs:connection_requirement_driver_accessibility
+    alt_descriptions:
+      de:
+        source: de
+        description: Barrierefreiheit
+    title: Accessibility
   acoustic:
     text: acoustic
     meaning: pbs:connection_requirement_driver_acoustic
+    alt_descriptions:
+      de:
+        source: de
+        description: Akustik
+    title: Acoustic
   thermal:
     text: thermal
     meaning: pbs:connection_requirement_driver_thermal
+    alt_descriptions:
+      de:
+        source: de
+        description: Waerme
+    title: Thermal
   visual:
     text: visual
     meaning: pbs:connection_requirement_driver_visual
+    alt_descriptions:
+      de:
+        source: de
+        description: Visuell
+    title: Visual
   structural:
     text: structural
     meaning: pbs:connection_requirement_driver_structural
+    alt_descriptions:
+      de:
+        source: de
+        description: Tragwerk
+    title: Structural
 
 ```
 </details>

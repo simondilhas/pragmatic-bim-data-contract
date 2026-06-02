@@ -23,13 +23,15 @@ default_prefix: pbs
 default_range: string
 imports:
 - linkml:types
+- entity_schema_enums
 classes:
   Entity:
     abstract: true
     class_uri: pbs:Entity
-    description: Common base class for all schema entities.
+    description: Common base class for everything in the project graph. Has identity, lifecycle, and status.
     slots:
     - id
+    - content_kind
     - name
     - localized_names
     - description
@@ -39,16 +41,19 @@ classes:
     - classifications
     - geometry_representations
     - quantity_values
-    - documents
     - metadata
     - performance_properties
-    - decisions
-    - tasks
-    - messages
+    - applies_to_entities
     - created_at
     - modified_at
     - revision
     - status
+    slot_usage:
+      id:
+        required: true
+        identifier: true
+      content_kind:
+        required: true
   Agent:
     is_a: Entity
     abstract: true
@@ -59,6 +64,9 @@ classes:
     slots:
     - postal_addresses
     - contact_points
+    slot_usage:
+      content_kind:
+        equals_string: agent
   Person:
     is_a: Agent
     class_uri: pbs:Person
@@ -126,24 +134,34 @@ classes:
     - source_value_raw
     - mapping_version
   Decision:
+    is_a: Entity
     class_uri: pbs:Decision
     exact_mappings:
     - prov:Entity
-    description: Decision record linked to an entity for workflow traceability and governance.
+    description: 'Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status
+      uses workflow vocabulary URIs.
+
+      '
     slots:
     - decision_type
     - decision_status
     - decided_by
     - decided_at
     - rationale
+    slot_usage:
+      content_kind:
+        equals_string: decision
   Task:
+    is_a: Entity
     class_uri: pbs:Task
     exact_mappings:
     - schema:Action
     - prov:Activity
-    description: Action/task record linked to an entity for implementation and follow-up workflows.
+    description: 'Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses
+      action status vocabulary URIs. Links to related entities via applies_to_entities.
+
+      '
     slots:
-    - id
     - task_type
     - task_status
     - assignee
@@ -151,17 +169,15 @@ classes:
     - related_decision
     - task_notes
     slot_usage:
-      id:
-        required: false
-        identifier: false
-        description: Optional stable identifier when referenced externally (for example from Change.triggered_task).
+      content_kind:
+        equals_string: task
   Message:
     is_a: Entity
     class_uri: pbs:Message
     exact_mappings:
     - schema:Message
     - prov:Entity
-    description: Message or communication record linked to an entity for coordination and traceability.
+    description: Message entity for coordination and traceability. Links to related entities via applies_to_entities.
     slots:
     - message_type
     - sender
@@ -169,18 +185,21 @@ classes:
     - sent_at
     - message_subject
     - message_body
-  Document:
-    class_uri: pbs:Document
-    description: Reference to an external document stored in a file system, DMS, object storage, or URL.
+    slot_usage:
+      content_kind:
+        equals_string: message
+  yamlDocument:
+    is_a: Entity
+    class_uri: pbs:YamlDocument
+    description: Document entity referencing external storage. Links to related entities via applies_to_entities.
     slots:
-    - id
     - classifications
     - storage_link
     slot_usage:
+      content_kind:
+        equals_string: document
       id:
-        required: false
-        identifier: false
-        description: Optional stable identifier when referenced externally (for example from Change records).
+        required: true
   PostalAddress:
     class_uri: pbs:PostalAddress
     exact_mappings:
@@ -218,6 +237,10 @@ slots:
     required: true
     range: string
     description: Unique local identifier.
+  content_kind:
+    range: string
+    required: true
+    description: Entity type discriminator for adapter projection and querying. Must be a ContentKind value.
   name:
     required: true
     range: string
@@ -275,11 +298,6 @@ slots:
     range: QuantityValue
     inlined: true
     description: Quantities associated with the entity.
-  documents:
-    multivalued: true
-    range: Document
-    inlined: true
-    description: Linked documents associated with this entity.
   metadata:
     multivalued: true
     range: MetadataEntry
@@ -293,21 +311,6 @@ slots:
       from raw IFC PropertySet values.
 
       '
-  decisions:
-    multivalued: true
-    range: Decision
-    inlined: true
-    description: Decision records associated with this entity.
-  tasks:
-    multivalued: true
-    range: Task
-    inlined: true
-    description: Tasks associated with this entity.
-  messages:
-    multivalued: true
-    range: Message
-    inlined: true
-    description: Messages associated with this entity.
   postal_addresses:
     multivalued: true
     range: PostalAddress
@@ -362,6 +365,7 @@ slots:
     description: Due timestamp for task completion.
   related_decision:
     range: Decision
+    inlined: false
     slot_uri: prov:used
     description: Optional reference to a decision that informs or drives this task.
   task_notes:

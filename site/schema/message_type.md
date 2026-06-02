@@ -25,7 +25,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
 
 
 

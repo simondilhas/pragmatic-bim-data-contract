@@ -43,7 +43,7 @@ Instead of trying to standardize everything, this contract:
 - focuses on what is actually needed
 - separates performance properties from requirement drivers so each can be queried,
   validated, and updated independently
-- models change as first-class data (`Change`, `ChangeSet`) rather
+- models change as first-class data (`Change` and its subclasses) rather
   than relying on opaque file diffs
 
 It is intentionally limited.
@@ -120,114 +120,35 @@ Without having to:
 ## Project structure
 
 - `schema/00_pragmatic_bim_data_contract.yaml`: root schema entrypoint importing all modules.
-- **Entity pillar**
-  - `schema/entity_core_schema.yaml`: core entities and reusable base slots.
+- **Entity graph** (single query surface)
+  - `schema/entity_core_schema.yaml`: `Entity` base, agents, documents, decisions, tasks, messages, and reusable base slots.
   - `schema/entity_physical_schema.yaml`: physical element hierarchy and element-related slots.
   - `schema/entity_virtual_schema.yaml`: virtual entities (`SpatialContext`, `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `TimeLink`, `CostRecord`, `Material`) and their slots.
-  - `schema/entity_performance_schema.yaml`: normalized performance properties stored on `Entity` (extracted IFC values).
-  - `schema/entity_schema_enums.yaml`: entity, element, context, and scheduling enums.
-  - `schema/entity_performance_schema_enums.yaml`: performance property key and value-type enums.
-- **Requirements pillar**
-  - `schema/requirements_schema.yaml`: prescriptive requirement records and element-level requirement-driver slots.
-  - `schema/requirements_schema_enums.yaml`: requirement drivers, domains, and target operators.
-- **Changes pillar**
-  - `schema/changes_schema.yaml`: typed change records (`PropertyChange`, `GeometryChange`, `MatchChange`, …) and `ChangeSet` batches.
-  - `schema/changes_schema_enums.yaml`: change type, severity, match status, and diff path enums.
+  - `schema/entity_performance_schema.yaml`: normalized performance property classes extracted from IFC and stored on `Entity`.
+  - `schema/entity_schema_enums.yaml`: all entity-graph enums (element types, `ContentKind`, quantities, status, performance keys, requirement drivers, …) including EN/DE labels.
+  - `schema/entity_requirements_schema.yaml`: requirement entity subclasses and element-level requirement-driver slots.
+- **Change audit** (observes the graph, not part of it)
+  - `schema/changes_schema.yaml`: typed change records (`PropertyChange`, `GeometryChange`, `MatchChange`, …).
+  - `schema/changes_schema_enums.yaml`: change type, severity, match status, and diff path enums (EN/DE labels).
 - **Shared**
-  - `schema/shared_schema_enums.yaml`: cross-pillar vocabularies (`ContentKind`, `StatusType`, `QuantityType`).
-- `schema/enum_localizations.yaml`: enum label/localization metadata.
+  - (none — cross-cutting enums such as `ContentKind` and `StatusType` live in `entity_schema_enums.yaml`)
 - `mappings/`: declarative IFC → schema mapping for external ingestion adapters (see `mappings/README.md`; run `python scripts/merge_ifc_mapping.py` after edits).
 - `converter/`: converter module for transforming data to and from the schema (see `converter/README.md`).
 
 ## Schema overview
 
-The contract groups data into three top-level concerns (see [`ContentKind`](schema/shared_schema_enums.yaml) for adapter projection):
+The contract has two top-level concerns:
 
-1. **Entities** — BIM and project graph (`Entity` subclasses: physical, virtual, context). Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
-2. **Requirements** — prescriptive records as `Requirement` subclasses (`PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement`); the class is the domain discriminator.
-3. **Changes** — revision diff records as `Change` subclasses (`PropertyChange`, `GeometryChange`, `RequirementChange`, `MatchChange`, `AdditionChange`, `DeletionChange`) with required `change_type` and optional `change_severity`.
+1. **Entity graph** — everything modeled, specified, or managed in the project. All graph nodes are `Entity` subclasses with uniform `id`, `content_kind`, `status`, `created_at`, and `applies_to_entities`. The `content_kind` slot discriminates branches: physical, virtual, context, requirement, document, decision, task, agent, and message. Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
+2. **Change audit** — revision diff records as `Change` subclasses (`PropertyChange`, `GeometryChange`, `RequirementChange`, `MatchChange`, `AdditionChange`, `DeletionChange`). Change observes the graph between revisions; it is not an Entity and has no `content_kind`.
 
-Supporting modules: **entity** (core, physical, virtual, performance, enums), **requirements**, **changes**, **shared enums**, **enum localizations**.
+Supporting modules: **entity** (core, physical, virtual, performance, requirements, enums), **changes**.
 
-<!-- diagram:pillars-overview begin -->
-```mermaid
-flowchart TB
-  Root["Pragmatic BIM Data Contract"]
-  Root --> Entity["Entities"]
-  Root --> Requirement["Requirements"]
-  Root --> Change["Changes"]
-```
-<!-- diagram:pillars-overview end -->
+Full class hierarchy and reference tables: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
 
-Interactive full class hierarchy: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
+### Breaking change (major version)
 
-<!-- diagram:entity-detail begin -->
-```mermaid
-classDiagram
-  direction TB
-  Entity <|-- Agent
-  Agent <|-- Company
-  Agent <|-- Person
-  Entity <|-- Message
-  Entity <|-- PhysicalElement
-  PhysicalElement <|-- Boundary
-  PhysicalElement <|-- ConnectionPhysical
-  PhysicalElement <|-- Equipment
-  PhysicalElement <|-- Separator
-  Separator <|-- SeparatorSlab
-  Separator <|-- SeparatorWall
-  Entity <|-- VirtualEntity
-  VirtualEntity <|-- ConnectionVirtual
-  VirtualEntity <|-- CostRecord
-  VirtualEntity <|-- Material
-  VirtualEntity <|-- Space
-  VirtualEntity <|-- SpatialContext
-  SpatialContext <|-- BuiltAssetContext
-  BuiltAssetContext <|-- BuildingContext
-  BuiltAssetContext <|-- CivilStructureContext
-  SpatialContext <|-- LegalSiteContext
-  SpatialContext <|-- LevelContext
-  SpatialContext <|-- PerimeterContext
-  SpatialContext <|-- ProjectContext
-  SpatialContext <|-- ZoneContext
-  VirtualEntity <|-- System
-  VirtualEntity <|-- TimeRecord
-  PerformanceProperty <|-- AcousticProperty
-  PerformanceProperty <|-- FireProperty
-  PerformanceProperty <|-- MaterialProperty
-  PerformanceProperty <|-- SecurityProperty
-  PerformanceProperty <|-- StructuralProperty
-  PerformanceProperty <|-- ThermalProperty
-  Entity *-- PerformanceProperty
-```
-<!-- diagram:entity-detail end -->
-
-<!-- diagram:requirements-overview begin -->
-```mermaid
-classDiagram
-  direction TB
-  Requirement <|-- BriefRequirement
-  Requirement <|-- PerformanceRequirement
-  Requirement <|-- RegulatoryRequirement
-  Requirement <|-- SpatialRequirement
-```
-<!-- diagram:requirements-overview end -->
-
-<!-- diagram:changes-overview begin -->
-```mermaid
-classDiagram
-  direction TB
-  Change <|-- AdditionChange
-  Change <|-- DeletionChange
-  Change <|-- GeometryChange
-  Change <|-- MatchChange
-  Change <|-- PropertyChange
-  Change <|-- RequirementChange
-  ChangeSet *-- Change
-```
-<!-- diagram:changes-overview end -->
-
-Browse the generated schema documentation at [https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
+Documents, decisions, tasks, and messages are now top-level entity records linked via `applies_to_entities` instead of being embedded on other entities. `ContentKind.change` is removed. Change records use typed references (`affected_subject`, `affected_requirement`, `related_requirement`, `triggered_task`) instead of bare string IDs where applicable.
 
 ## Modeling conventions
 
@@ -257,7 +178,7 @@ Browse the generated schema documentation at [https://schema.pragmaticbim.ch/sch
 
 Generated schema artifacts are published via GitHub Pages from stable release tags (`v*`).
 
-- Stable landing page: `https://schema.pragmaticbim.ch/`
+- Stable landing page: `https://schema.pragmaticbim.ch/` (redirects to the docs index)
 - Stable docs (HTML): `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html`
 - Stable JSON Schema: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json`
 - Stable SHACL: `https://schema.pragmaticbim.ch/schema/pragmatic-bim.shacl.ttl`
@@ -269,17 +190,17 @@ Generated schema artifacts are published via GitHub Pages from stable release ta
 
 ### URI resolution
 
-LinkML module `id` values are published as landing pages on the stable site:
+Human-readable documentation lives on one page: [`/schema/pragmatic-bim.docs.html`](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html). It contains the overview, diagrams, artifact links, and reference tables for classes, slots, and enums.
 
 | Purpose | URL pattern | Example |
 |---|---|---|
-| Root schema | `https://schema.pragmaticbim.ch/` | — |
-| Module namespace URI | `https://schema.pragmaticbim.ch/{slug}` | [`/entity/virtual`](https://schema.pragmaticbim.ch/entity/virtual) |
+| Root schema | `https://schema.pragmaticbim.ch/` | redirects to docs index |
+| Documentation index | `https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html` | main entry point |
 | Module metadata (JSON) | `https://schema.pragmaticbim.ch/{slug}/descriptor.json` | [`/entity/virtual/descriptor.json`](https://schema.pragmaticbim.ch/entity/virtual/descriptor.json) |
 | Class documentation | `https://schema.pragmaticbim.ch/schema/{ClassName}.html` | [`/schema/VirtualEntity.html`](https://schema.pragmaticbim.ch/schema/VirtualEntity.html) |
 | Validation / codegen | `https://schema.pragmaticbim.ch/schema/pragmatic-bim.schema.json` | merged schema (all modules) |
 
-Module slug → primary doc entry:
+Module slug → primary class doc (linked from the index tables):
 
 | Module slug | Primary class docs |
 |---|---|
@@ -287,32 +208,33 @@ Module slug → primary doc entry:
 | `entity/virtual` | `VirtualEntity.html` |
 | `entity/physical` | `PhysicalElement.html` |
 | `entity/performance` | `FireProperty.html` |
-| `entity/enums` | `GeometryRepresentationType.html` |
-| `entity/performance-enums` | `PerformancePropertyValueType.html` |
-| `requirements` | schema index (slots-only module) |
-| `requirements/enums` | `RequirementTargetOperator.html` |
-| `changes` | `PropertyChange.html`, `ChangeSet.html` |
+| `entity/enums` | `ContentKind.html`, `RequirementTargetOperator.html`, `FirePropertyKey.html` |
+| `entity/requirements` | `Requirement.html` |
+| `changes` | `PropertyChange.html`, `Change.html` |
 | `changes/enums` | `ChangeType.html` |
-| `shared/enums` | `ContentKind.html` |
 
-Resolver pages are generated by [`scripts/generate_module_pages.py`](scripts/generate_module_pages.py) during the stable Pages release workflow.
+Module descriptors are generated by [`scripts/generate_module_pages.py`](scripts/generate_module_pages.py) during the stable Pages release workflow.
 
 ### Local schema documentation build
 
-HTML docs use [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) on top of LinkML `gen-doc` output:
+Install tooling once, then build the full site from `schema/*.yaml`:
 
 ```bash
 pip install -r requirements-docs.txt
-python scripts/build_schema_docs.py --dev
+python scripts/build_site.py
 ```
 
-This generates schema artifacts and diagrams, post-processes markdown, and writes HTML under `site/schema/` (including `pragmatic-bim.docs.html` and `{ClassName}.html`).
+| Folder | Role |
+|--------|------|
+| `schema/` | Source of truth (edit this) |
+| `site/` | Generated publish output (do not edit by hand) |
 
-Optional live preview while editing docs assets:
+Output includes HTML docs, machine artifacts (JSON Schema, SHACL, CSV, Pydantic), and module `descriptor.json` files. Main entry point: `site/schema/pragmatic-bim.docs.html`.
+
+Optional live preview:
 
 ```bash
-python scripts/build_schema_docs.py --dev
-mkdocs serve
+python scripts/build_site.py serve
 ```
 
 Development and pull request validation remain in CI (`schema-generation.yml`) and are not deployed to the stable Pages root.

@@ -14,7 +14,7 @@ _Responsible agent._
 
 
 
-URI: [schema:agent](http://schema.org/agent)
+URI: [schema:agent](https://schema.org/agent)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:agent](http://schema.org/agent)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:agent](http://schema.org/agent)
 | --- | --- |
 | Range | [Agent](Agent.md) |
 | Domain Of | [Task](Task.md) |
-| Slot URI | [schema:agent](http://schema.org/agent) |
+| Slot URI | [schema:agent](https://schema.org/agent) |
 
 ### Cardinality and Requirements
 

@@ -10,8 +10,14 @@ from pathlib import Path
 
 import yaml
 
-PREAMBLE_MARKER = "<!-- schema-diagrams-preamble -->"
 INDEX_NAME = "pragmatic-bim.docs.md"
+ARTIFACTS = (
+    ("JSON Schema", "pragmatic-bim.schema.json"),
+    ("SHACL", "pragmatic-bim.shacl.ttl"),
+    ("CSV", "pragmatic-bim.csv"),
+    ("Pydantic", "pragmatic-bim.pydantic.py"),
+    ("Docs (Markdown)", "pragmatic-bim.docs.md"),
+)
 
 
 def load_class_metadata(schema_root: Path) -> tuple[dict[str, int], dict[str, str], dict[str, str]]:
@@ -86,6 +92,25 @@ def build_class_hierarchy_order(
 
 def normalize_desc(value: str) -> str:
     return " ".join(value.split()).strip()
+
+
+def render_artifacts_section() -> str:
+    rows = "\n".join(
+        f"| {label} | [{filename}]({filename}) |"
+        for label, filename in ARTIFACTS
+    )
+    return f"## Artifacts\n\n| Format | File |\n| --- | --- |\n{rows}"
+
+
+def inject_artifacts_section(index_text: str) -> str:
+    if "## Artifacts" in index_text:
+        return index_text
+    match = re.search(r"^## Classes\s*$", index_text, re.MULTILINE)
+    if not match:
+        raise SystemExit("Expected ## Classes section in gen-doc index markdown")
+    prefix = index_text[: match.start()].rstrip()
+    suffix = index_text[match.start() :].lstrip()
+    return f"{prefix}\n\n{render_artifacts_section()}\n\n{suffix}"
 
 
 def reorder_classes_table(
@@ -178,20 +203,10 @@ def normalize_mermaid_blocks(text: str) -> str:
     return pattern.sub(repl, text)
 
 
-def inject_pillars_accordion(index_text: str, accordion_path: Path) -> str:
-    if PREAMBLE_MARKER in index_text:
-        return index_text
-    if not accordion_path.is_file():
-        raise SystemExit(f"Pillars accordion snippet not found: {accordion_path}")
-    accordion = accordion_path.read_text(encoding="utf-8").strip()
-    return f"{accordion}\n\n{index_text}"
-
-
 def postprocess_md_dir(
     md_dir: Path,
     *,
     schema_root: Path,
-    accordion_path: Path,
 ) -> None:
     if not md_dir.is_dir():
         raise SystemExit(f"Markdown source directory not found: {md_dir}")
@@ -202,7 +217,7 @@ def postprocess_md_dir(
     for md_file in sorted(md_dir.glob("*.md")):
         text = md_file.read_text(encoding="utf-8")
         if md_file.name == INDEX_NAME:
-            text = inject_pillars_accordion(text, accordion_path)
+            text = inject_artifacts_section(text)
             text = reorder_classes_table(
                 text,
                 class_order,
@@ -226,18 +241,9 @@ def main() -> None:
         type=Path,
         default=Path(os.environ.get("SCHEMA_ROOT", "schema/00_pragmatic_bim_data_contract.yaml")),
     )
-    parser.add_argument(
-        "--accordion-path",
-        type=Path,
-        default=Path("docs/diagrams/pillars-accordion.md"),
-    )
     args = parser.parse_args()
 
-    postprocess_md_dir(
-        args.md_dir,
-        schema_root=args.schema_root,
-        accordion_path=args.accordion_path,
-    )
+    postprocess_md_dir(args.md_dir, schema_root=args.schema_root)
     print(f"Post-processed markdown in {args.md_dir}")
 
 

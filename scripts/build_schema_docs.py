@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Build schema HTML documentation with MkDocs Material."""
+"""Build schema HTML documentation from live LinkML YAML via MkDocs Material."""
 
 from __future__ import annotations
 
 import argparse
+import difflib
+import filecmp
 import os
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -19,9 +22,16 @@ DEFAULT_SCHEMA_ROOT = REPO_ROOT / "schema" / "00_pragmatic_bim_data_contract.yam
 DEFAULT_MD_SRC = REPO_ROOT / "site" / "schema" / ".md-src"
 DEFAULT_SITE_DIR = REPO_ROOT / "site" / "schema"
 DEFAULT_HTML_BUILD = DEFAULT_SITE_DIR / ".html-build"
-DEFAULT_ASSETS_SRC = REPO_ROOT / "docs" / "assets"
-DEFAULT_ACCORDION = REPO_ROOT / "docs" / "diagrams" / "pillars-accordion.md"
 INDEX_NAME = "pragmatic-bim.docs.md"
+MAIN_ENTRY = DEFAULT_SITE_DIR / "pragmatic-bim.docs.html"
+PRESERVE_SITE_ENTRIES = {
+    ".md-src",
+    ".html-build",
+    "pragmatic-bim.shacl.ttl",
+    "pragmatic-bim.schema.json",
+    "pragmatic-bim.csv",
+    "pragmatic-bim.pydantic.py",
+}
 
 
 def find_gen_doc() -> str:
@@ -31,8 +41,27 @@ def find_gen_doc() -> str:
     raise SystemExit("No gen-doc command found; install linkml from requirements-docs.txt")
 
 
-def run_gen_doc(md_src: Path, schema_root: Path) -> None:
+def clear_markdown_source(md_src: Path) -> None:
+    if md_src.exists():
+        shutil.rmtree(md_src)
     md_src.mkdir(parents=True, exist_ok=True)
+
+
+def clear_published_doc_outputs(site_dir: Path) -> None:
+    if not site_dir.exists():
+        site_dir.mkdir(parents=True, exist_ok=True)
+        return
+    for item in site_dir.iterdir():
+        if item.name in PRESERVE_SITE_ENTRIES:
+            continue
+        if item.is_dir():
+            shutil.rmtree(item)
+        else:
+            item.unlink()
+
+
+def run_gen_doc(md_src: Path, schema_root: Path) -> None:
+    clear_markdown_source(md_src)
     cmd = find_gen_doc()
     args = [
         cmd,
@@ -48,15 +77,6 @@ def run_gen_doc(md_src: Path, schema_root: Path) -> None:
         str(schema_root),
     ]
     subprocess.run(args, check=True, cwd=REPO_ROOT)
-
-
-def copy_assets(md_src: Path, assets_src: Path) -> None:
-    if not assets_src.is_dir():
-        raise SystemExit(f"Assets directory not found: {assets_src}")
-    target = md_src / "assets"
-    if target.exists():
-        shutil.rmtree(target)
-    shutil.copytree(assets_src, target)
 
 
 def merge_html_build(html_build: Path, site_dir: Path) -> None:
@@ -90,16 +110,10 @@ def build_schema_docs(
     site_dir: Path,
     html_build: Path,
     schema_root: Path,
-    accordion_path: Path,
-    assets_src: Path,
     skip_mkdocs: bool = False,
 ) -> None:
-    postprocess_md_dir(
-        md_src,
-        schema_root=schema_root,
-        accordion_path=accordion_path,
-    )
-    copy_assets(md_src, assets_src)
+    run_gen_doc(md_src, schema_root)
+    postprocess_md_dir(md_src, schema_root=schema_root)
 
     if skip_mkdocs:
         return
@@ -108,16 +122,80 @@ def build_schema_docs(
         shutil.rmtree(html_build)
 
     subprocess.run(
-        ["mkdocs", "build", "-f", str(REPO_ROOT / "mkdocs.yml")],
+        ["mkdocs", "build", "-f", str(REPO_ROOT / "mkdocs.yml"), "-d", str(html_build)],
         check=True,
         cwd=REPO_ROOT,
     )
 
+    clear_published_doc_outputs(site_dir)
     merge_html_build(html_build, site_dir)
     publish_markdown_artifacts(md_src, site_dir)
 
     if html_build.exists():
         shutil.rmtree(html_build)
+
+
+def collect_doc_tree(root: Path) -> list[Path]:
+    if not root.exists():
+        return []
+    return sorted(p for p in root.rglob("*") if p.is_file())
+
+
+def compare_doc_trees(expected_dir: Path, actual_dir: Path) -> list[str]:
+    errors: list[str] = []
+    expected_files = collect_doc_tree(expected_dir)
+    actual_files = collect_doc_tree(actual_dir)
+    expected_rel = [path.relative_to(expected_dir) for path in expected_files]
+    actual_rel = [path.relative_to(actual_dir) for path in actual_files]
+    if expected_rel != actual_rel:
+        errors.append(
+            "Schema doc file set mismatch:\n"
+            f"  expected: {[str(path) for path in expected_rel]}\n"
+            f"  actual:   {[str(path) for path in actual_rel]}"
+        )
+    for rel_path in expected_rel:
+        expected = expected_dir / rel_path
+        actual = actual_dir / rel_path
+        if filecmp.cmp(expected, actual, shallow=False):
+            continue
+        diff = difflib.unified_diff(
+            expected.read_text(encoding="utf-8").splitlines(keepends=True),
+            actual.read_text(encoding="utf-8").splitlines(keepends=True),
+            fromfile=str(rel_path),
+            tofile=f"{rel_path} (generated)",
+        )
+        errors.append("".join(diff))
+    return errors
+
+
+def verify_schema_docs(
+    *,
+    md_src: Path,
+    site_dir: Path,
+    html_build: Path,
+    schema_root: Path,
+) -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_root = Path(tmp)
+        tmp_md_src = tmp_root / ".md-src"
+        build_schema_docs(
+            md_src=tmp_md_src,
+            site_dir=tmp_root / "site",
+            html_build=tmp_root / ".html-build",
+            schema_root=schema_root,
+            skip_mkdocs=True,
+        )
+        errors = compare_doc_trees(md_src, tmp_md_src)
+        if errors:
+            print(
+                "Schema docs are out of date relative to schema/*.yaml. "
+                "Run: python scripts/build_site.py",
+                file=sys.stderr,
+            )
+            for error in errors:
+                print(error, file=sys.stderr)
+            raise SystemExit(1)
+    print("Schema docs are up to date with schema/*.yaml.")
 
 
 def main() -> None:
@@ -130,38 +208,37 @@ def main() -> None:
         type=Path,
         default=Path(os.environ.get("SCHEMA_ROOT", DEFAULT_SCHEMA_ROOT)),
     )
-    parser.add_argument("--accordion-path", type=Path, default=DEFAULT_ACCORDION)
-    parser.add_argument("--assets-src", type=Path, default=DEFAULT_ASSETS_SRC)
-    parser.add_argument(
-        "--dev",
-        action="store_true",
-        help="Run gen-doc and generate_diagrams.py before building docs.",
-    )
     parser.add_argument(
         "--skip-mkdocs",
         action="store_true",
-        help="Only post-process markdown (for tests).",
+        help="Only regenerate and post-process markdown.",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Verify committed schema docs match a fresh build from schema/*.yaml.",
     )
     args = parser.parse_args()
 
-    if args.dev:
-        run_gen_doc(args.md_src, args.schema_root)
-        subprocess.run(
-            [sys.executable, str(REPO_ROOT / "scripts" / "generate_diagrams.py"), "--skip-readme"],
-            check=True,
-            cwd=REPO_ROOT,
+    if args.check:
+        verify_schema_docs(
+            md_src=args.md_src,
+            site_dir=args.site_dir,
+            html_build=args.html_build,
+            schema_root=args.schema_root,
         )
+        return
 
     build_schema_docs(
         md_src=args.md_src,
         site_dir=args.site_dir,
         html_build=args.html_build,
         schema_root=args.schema_root,
-        accordion_path=args.accordion_path,
-        assets_src=args.assets_src,
         skip_mkdocs=args.skip_mkdocs,
     )
-    print(f"Built schema docs in {args.site_dir}")
+    entry = args.site_dir / "pragmatic-bim.docs.html"
+    print(f"Built schema docs from live YAML in {args.site_dir}")
+    print(f"Main entry point: {entry}")
 
 
 if __name__ == "__main__":

@@ -9,16 +9,20 @@ on:
     branches: ["main"]
     paths:
       - "schema/**"
-      - "scripts/generate_diagrams.py"
+      - "scripts/build_site.py"
+      - "scripts/build_schema_docs.py"
+      - "scripts/postprocess_schema_docs.py"
       - "scripts/generate_module_pages.py"
-      - "docs/diagrams/**"
+      - "mkdocs.yml"
       - ".github/workflows/schema-generation.yml"
   pull_request:
     paths:
       - "schema/**"
-      - "scripts/generate_diagrams.py"
+      - "scripts/build_site.py"
+      - "scripts/build_schema_docs.py"
+      - "scripts/postprocess_schema_docs.py"
       - "scripts/generate_module_pages.py"
-      - "docs/diagrams/**"
+      - "mkdocs.yml"
       - ".github/workflows/schema-generation.yml"
   workflow_dispatch:
 
@@ -38,11 +42,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Verify generated schema diagrams
+      - name: Verify site output matches live YAML
         run: |
           python -m pip install --upgrade pip
-          pip install pyyaml
-          python scripts/generate_diagrams.py --check
+          pip install -r requirements-docs.txt
+          python scripts/build_site.py check
 
       - name: Install LinkML
         run: |

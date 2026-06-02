@@ -14,7 +14,7 @@ _Agents that received the message._
 
 
 
-URI: [schema:recipient](http://schema.org/recipient)
+URI: [schema:recipient](https://schema.org/recipient)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:recipient](http://schema.org/recipient)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:recipient](http://schema.org/recipient)
 | --- | --- |
 | Range | [Agent](Agent.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:recipient](http://schema.org/recipient) |
+| Slot URI | [schema:recipient](https://schema.org/recipient) |
 
 ### Cardinality and Requirements
 

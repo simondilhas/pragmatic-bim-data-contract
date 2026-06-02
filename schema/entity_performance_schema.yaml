@@ -19,7 +19,7 @@ default_range: string
 imports:
 - linkml:types
 - entity_core_schema
-- entity_performance_schema_enums
+- entity_schema_enums
 classes:
   FireProperty:
     is_a: PerformanceProperty

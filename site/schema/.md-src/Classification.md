@@ -67,8 +67,15 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 | [Agent](Agent.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Person](Person.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Company](Company.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Decision](Decision.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Task](Task.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Message](Message.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [Document](Document.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [YamlDocument](YamlDocument.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Requirement](Requirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [PerformanceRequirement](PerformanceRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [SpatialRequirement](SpatialRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [RegulatoryRequirement](RegulatoryRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [BriefRequirement](BriefRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [PhysicalElement](PhysicalElement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Separator](Separator.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [SeparatorWall](SeparatorWall.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |

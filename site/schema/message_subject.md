@@ -14,7 +14,7 @@ _Optional subject or headline for the message._
 
 
 
-URI: [schema:headline](http://schema.org/headline)
+URI: [schema:headline](https://schema.org/headline)
 <!-- no inheritance hierarchy -->
 
 
@@ -25,7 +25,7 @@ URI: [schema:headline](http://schema.org/headline)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -40,7 +40,7 @@ URI: [schema:headline](http://schema.org/headline)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [Message](Message.md) |
-| Slot URI | [schema:headline](http://schema.org/headline) |
+| Slot URI | [schema:headline](https://schema.org/headline) |
 
 ### Cardinality and Requirements
 

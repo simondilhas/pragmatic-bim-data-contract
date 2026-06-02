@@ -18,7 +18,7 @@ default_prefix: pbs
 default_range: string
 imports:
 - linkml:types
-- requirements_schema
+- entity_requirements_schema
 classes:
   VirtualEntity:
     is_a: Entity
@@ -29,6 +29,9 @@ classes:
     - cost_records
     - time_records
     - materials
+    slot_usage:
+      content_kind:
+        equals_string: virtual
   SpatialContext:
     is_a: VirtualEntity
     class_uri: pbs:SpatialContext
@@ -47,6 +50,8 @@ classes:
     - parent_zone
     - group_members
     slot_usage:
+      content_kind:
+        equals_string: context
       parent_project:
         range: ProjectContext
       parent_perimeter:

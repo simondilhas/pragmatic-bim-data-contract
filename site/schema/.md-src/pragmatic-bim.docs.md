@@ -1,95 +1,3 @@
-<!-- schema-diagrams-preamble -->
-
-## Schema diagrams
-
-Generated from `schema/*.yaml`. Click a pillar in the overview or use the buttons below to explore each branch.
-
-<div id="pillars-acc" class="pillars-acc">
-
-<div class="pillars-overview">
-<pre class="mermaid">
-flowchart TB
-  Root["Pragmatic BIM Data Contract"]
-  Root --> Entity["Entities"]
-  Root --> Requirement["Requirements"]
-  Root --> Change["Changes"]
-</pre>
-</div>
-
-<div class="pillar-controls">
-  <button type="button" class="pillar-btn" data-pillar="entity">Entities</button>
-  <button type="button" class="pillar-btn" data-pillar="requirement">Requirements</button>
-  <button type="button" class="pillar-btn" data-pillar="change">Changes</button>
-</div>
-
-<div class="pillar-panels">
-  <div id="pillar-entity" class="pillar-panel" hidden>
-<pre class="mermaid">
-classDiagram
-  direction TB
-  Entity <|-- Agent
-  Agent <|-- Company
-  Agent <|-- Person
-  Entity <|-- Message
-  Entity <|-- PhysicalElement
-  PhysicalElement <|-- Boundary
-  PhysicalElement <|-- ConnectionPhysical
-  PhysicalElement <|-- Equipment
-  PhysicalElement <|-- Separator
-  Separator <|-- SeparatorSlab
-  Separator <|-- SeparatorWall
-  Entity <|-- VirtualEntity
-  VirtualEntity <|-- ConnectionVirtual
-  VirtualEntity <|-- CostRecord
-  VirtualEntity <|-- Material
-  VirtualEntity <|-- Space
-  VirtualEntity <|-- SpatialContext
-  SpatialContext <|-- BuiltAssetContext
-  BuiltAssetContext <|-- BuildingContext
-  BuiltAssetContext <|-- CivilStructureContext
-  SpatialContext <|-- LegalSiteContext
-  SpatialContext <|-- LevelContext
-  SpatialContext <|-- PerimeterContext
-  SpatialContext <|-- ProjectContext
-  SpatialContext <|-- ZoneContext
-  VirtualEntity <|-- System
-  VirtualEntity <|-- TimeRecord
-  PerformanceProperty <|-- AcousticProperty
-  PerformanceProperty <|-- FireProperty
-  PerformanceProperty <|-- MaterialProperty
-  PerformanceProperty <|-- SecurityProperty
-  PerformanceProperty <|-- StructuralProperty
-  PerformanceProperty <|-- ThermalProperty
-  Entity *-- PerformanceProperty
-</pre>
-  </div>
-  <div id="pillar-requirement" class="pillar-panel" hidden>
-<pre class="mermaid">
-classDiagram
-  direction TB
-  Requirement <|-- BriefRequirement
-  Requirement <|-- PerformanceRequirement
-  Requirement <|-- RegulatoryRequirement
-  Requirement <|-- SpatialRequirement
-</pre>
-  </div>
-  <div id="pillar-change" class="pillar-panel" hidden>
-<pre class="mermaid">
-classDiagram
-  direction TB
-  Change <|-- AdditionChange
-  Change <|-- DeletionChange
-  Change <|-- GeometryChange
-  Change <|-- MatchChange
-  Change <|-- PropertyChange
-  Change <|-- RequirementChange
-  ChangeSet *-- Change
-</pre>
-  </div>
-</div>
-
-</div>
-
 # Pragmatic BIM Data Contract
 
 To provide a simple, implementation-ready BIM data model for integration, querying, costing, and analysis workflows, this schema defines a pragmatic, graph-first LinkML structure that is IFC-aware and extensible across classification schemes.
@@ -99,17 +7,27 @@ URI: https://schema.pragmaticbim.ch
 
 Name: pragmatic_bim_data_contract
 
+## Artifacts
 
+| Format | File |
+| --- | --- |
+| JSON Schema | [pragmatic-bim.schema.json](pragmatic-bim.schema.json) |
+| SHACL | [pragmatic-bim.shacl.ttl](pragmatic-bim.shacl.ttl) |
+| CSV | [pragmatic-bim.csv](pragmatic-bim.csv) |
+| Pydantic | [pragmatic-bim.pydantic.py](pragmatic-bim.pydantic.py) |
+| Docs (Markdown) | [pragmatic-bim.docs.md](pragmatic-bim.docs.md) |
 
 ## Classes
 
 | Class | Description |
 | --- | --- |
-| [Entity](Entity.md) | Common base class for all schema entities. |
+| [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Decision](Decision.md) | Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PhysicalElement](PhysicalElement.md) | Base class for physical elements that can be placed in built asset/level context. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Separator](Separator.md) | Abstract base class for elements that separate spaces or zones. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SeparatorWall](SeparatorWall.md) | Wall-based separating element. |
@@ -133,6 +51,11 @@ Name: pragmatic_bim_data_contract
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Material](Material.md) | Material definition that can be associated with one or more entities. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Requirement](Requirement.md) | Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items. |
 | [Classification](Classification.md) | Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom). |
 | [GeometryRepresentation](GeometryRepresentation.md) | Minimal geometry reference for an entity, separating representation from encoding format. |
 | [QuantityValue](QuantityValue.md) | Minimal quantity record for costing and analysis. |
@@ -144,26 +67,18 @@ Name: pragmatic_bim_data_contract
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[StructuralProperty](StructuralProperty.md) | Normalized structural-related property. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SecurityProperty](SecurityProperty.md) | Normalized security-related property. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MaterialProperty](MaterialProperty.md) | Normalized material-related property. |
-| [Decision](Decision.md) | Decision record linked to an entity for workflow traceability and governance. |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |
-| [Document](Document.md) | Reference to an external document stored in a file system, DMS, object storage, or URL. |
 | [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent. |
 | [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent. |
 | [LocalizedText](LocalizedText.md) | Localized text value for a specific language tag. |
 | [TimeLink](TimeLink.md) | Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record. |
-| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BriefRequirement](BriefRequirement.md) | Client or programme requirement, including free-standing brief items. |
-| [Change](Change.md) | Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation. |
+| [Change](Change.md) | Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PropertyChange](PropertyChange.md) | Attribute, PropertySet, schema slot, or document field change. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GeometryChange](GeometryChange.md) | Geometry or representation change for a subject. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RequirementChange](RequirementChange.md) | Change to a requirement record or its fields. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RequirementChange](RequirementChange.md) | Change to a requirement entity or its fields. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MatchChange](MatchChange.md) | Entity match status against a requirement changed (previously met / no longer meets). |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AdditionChange](AdditionChange.md) | New entity or requirement introduced in to_revision. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DeletionChange](DeletionChange.md) | Entity or requirement removed in to_revision. |
-| [ChangeSet](ChangeSet.md) | Batch of Change records produced by comparing two model or document revisions. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AdditionChange](AdditionChange.md) | New entity introduced in to_revision. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DeletionChange](DeletionChange.md) | Entity removed in to_revision. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[YamlDocument](YamlDocument.md) | Document entity referencing external storage. Links to related entities via applies_to_entities. |
 
 
 
@@ -179,10 +94,11 @@ Name: pragmatic_bim_data_contract
 | [address_region](address_region.md) | Region, state, canton, or province. |
 | [adjacency_kind](adjacency_kind.md) | Adjacency semantics when this spatial requirement involves another subject. |
 | [affected_geometry_role](affected_geometry_role.md) | Geometry role affected for GeometryChange records. |
-| [affected_requirement_id](affected_requirement_id.md) | Identifier of the requirement record affected by this change. |
+| [affected_requirement](affected_requirement.md) | Requirement entity affected by this change. |
+| [affected_subject](affected_subject.md) | Optional typed reference to the changed graph entity when the subject is in the project graph. |
 | [affected_subject_id](affected_subject_id.md) | Identifier of the changed subject (entity id, document id, or external key). |
-| [affected_subject_path](affected_subject_path.md) | Optional JSON-pointer-style path for nested targets (for example documents[2], localized_descriptions[de], section.4.2.paragraph_1). |
-| [affected_subject_type](affected_subject_type.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, Document). |
+| [affected_subject_path](affected_subject_path.md) | Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1). |
+| [affected_subject_type](affected_subject_type.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument). |
 | [applies_to_entities](applies_to_entities.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). |
 | [assignee](assignee.md) | Responsible agent. |
 | [availability_notes](availability_notes.md) | Optional notes about availability, office hours, or response expectations. |
@@ -193,7 +109,6 @@ Name: pragmatic_bim_data_contract
 | [change_severity](change_severity.md) | Optional severity independent of change type. |
 | [change_source](change_source.md) | URI identifying the tool or pipeline that produced this change record. |
 | [change_type](change_type.md) | Category of change detected between two revisions. |
-| [changes](changes.md) | Change records included in this batch. |
 | [classification_code](classification_code.md) | Classification code inside the scheme. |
 | [classification_label](classification_label.md) | Optional human-readable classification label. |
 | [classification_scheme](classification_scheme.md) | Name of the classification scheme (for example ifc, uniclass, omniclass, custom). |
@@ -215,6 +130,7 @@ Name: pragmatic_bim_data_contract
 | [contact_uri](contact_uri.md) | URI for the contact endpoint or profile where applicable. |
 | [contact_value](contact_value.md) | Human-readable contact value such as an email address, phone number, handle, or username. |
 | [contained_entities](contained_entities.md) | Generic containment for associated entities. |
+| [content_kind](content_kind.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. |
 | [context_type](context_type.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). |
 | [cost_category](cost_category.md) | Cost category label kept intentionally open pending classification-backed modeling. |
 | [cost_quantity_type](cost_quantity_type.md) | Quantity type used as basis for this cost calculation. |
@@ -227,13 +143,10 @@ Name: pragmatic_bim_data_contract
 | [decided_by](decided_by.md) | Agent responsible for the decision. |
 | [decision_status](decision_status.md) | Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded). |
 | [decision_type](decision_type.md) | Decision type expressed as a URI/CURIE from a controlled vocabulary. |
-| [decisions](decisions.md) | Decision records associated with this entity. |
 | [dependency_type](dependency_type.md) | FS | SS | FF | SF |
 | [description](description.md) | Default description text. |
 | [detected_at](detected_at.md) | Timestamp when this change was detected. |
-| [document_state_uris](document_state_uris.md) | Optional URIs or content hashes for baseline document states used in this comparison. |
-| [document_storage_link](document_storage_link.md) | Document location when the subject is or embeds a Document. |
-| [documents](documents.md) | Linked documents associated with this entity. |
+| [document_storage_link](document_storage_link.md) | Document location when the subject is a yamlDocument entity or document field diff. |
 | [due_at](due_at.md) | Due timestamp for task completion. |
 | [equipment_type](equipment_type.md) | Classification of equipment (for example HVAC, electrical, plumbing). |
 | [from_revision](from_revision.md) | Source revision number for this change. |
@@ -246,7 +159,6 @@ Name: pragmatic_bim_data_contract
 | [id](id.md) | Unique local identifier. |
 | [ifc_attribute_name](ifc_attribute_name.md) | IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId). |
 | [ifc_global_id](ifc_global_id.md) | IFC GlobalId of the mapped entity. |
-| [ifc_state_uri](ifc_state_uri.md) | Optional URI, path, or content hash for the baseline IFC model state used in this comparison. |
 | [intent_verdict](intent_verdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). |
 | [is_preferred](is_preferred.md) | Indicates whether this is the preferred contact point. |
 | [jurisdiction](jurisdiction.md) | Jurisdiction or authority scope for the regulatory requirement. |
@@ -263,7 +175,6 @@ Name: pragmatic_bim_data_contract
 | [message_body](message_body.md) | Human-readable message content. |
 | [message_subject](message_subject.md) | Optional subject or headline for the message. |
 | [message_type](message_type.md) | Message type expressed as a URI/CURIE from a controlled vocabulary. |
-| [messages](messages.md) | Messages associated with this entity. |
 | [metadata](metadata.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. |
 | [metadata_key](metadata_key.md) | Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference. |
 | [metadata_value](metadata_value.md) | Metadata value serialized as text. |
@@ -288,8 +199,6 @@ Name: pragmatic_bim_data_contract
 | [post_office_box_number](post_office_box_number.md) | Post office box number where applicable. |
 | [postal_addresses](postal_addresses.md) | Structured postal or physical addresses associated with this agent. |
 | [postal_code](postal_code.md) | Postal or ZIP code. |
-| [produced_at](produced_at.md) | Timestamp when this changeset was produced. |
-| [produced_by](produced_by.md) | Agent or system that produced this changeset. |
 | [programme_ref](programme_ref.md) | URI or identifier for a programme or brief document. |
 | [property_key](property_key.md) | Canonical key inside the domain; constrained via subclass slot_usage to a domain-specific enum. |
 | [property_path](property_path.md) | Canonical path to the changed field. Examples: Pset_WallCommon.FireRating, IfcWall.Name, description, section.4.2.requirement_3, body:char_offset:1204-1389. |
@@ -309,7 +218,7 @@ Name: pragmatic_bim_data_contract
 | [recipients](recipients.md) | Agents that received the message. |
 | [related_decision](related_decision.md) | Optional reference to a decision that informs or drives this task. |
 | [related_entity](related_entity.md) | Entity or space subject for adjacency or distance constraints. |
-| [related_requirement_id](related_requirement_id.md) | Requirement identifier for match_change records. |
+| [related_requirement](related_requirement.md) | Requirement entity for match_change records. |
 | [requirement_property_key](requirement_property_key.md) | Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance property keys where applicable. |
 | [revision](revision.md) | Integer revision counter for change tracking. |
 | [sender](sender.md) | Agent that sent the message. |
@@ -321,7 +230,7 @@ Name: pragmatic_bim_data_contract
 | [separator_wall_type](separator_wall_type.md) | Classification of wall-based separator element. |
 | [serves_spaces](serves_spaces.md) | Spaces served by this system. |
 | [serves_zones](serves_zones.md) | Zone context nodes served by this system. |
-| [source_document](source_document.md) | Optional URI to norm, brief, or source document backing this requirement. |
+| [source_document](source_document.md) | Optional source document entity backing this requirement. |
 | [source_property](source_property.md) | Original property name inside the source PropertySet (for example FireRating). |
 | [source_pset](source_pset.md) | Original IFC PropertySet name (for example Pset_WallCommon). |
 | [source_value_raw](source_value_raw.md) | Raw source value before normalization. |
@@ -344,7 +253,6 @@ Name: pragmatic_bim_data_contract
 | [task_notes](task_notes.md) | Additional notes or implementation details for the task. |
 | [task_status](task_status.md) | Task status URI/CURIE aligned with action status vocabularies. |
 | [task_type](task_type.md) | Task type expressed as a URI/CURIE from a controlled vocabulary. |
-| [tasks](tasks.md) | Tasks associated with this entity. |
 | [text_value](text_value.md) | Localized text value. |
 | [time_plan](time_plan.md) | Parent time plan this record belongs to. |
 | [time_records](time_records.md) | Time records associated with this entity. |
@@ -352,7 +260,7 @@ Name: pragmatic_bim_data_contract
 | [to_value](to_value.md) | New value serialized as text. Absent or null for deleted subjects or fields. |
 | [transport_medium](transport_medium.md) | Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity). |
 | [triggered_process](triggered_process.md) | External workflow process URI (for example yourcompanyos process instance). |
-| [triggered_task](triggered_task.md) | Id of a Task record that this change triggered or should trigger. |
+| [triggered_task](triggered_task.md) | Task entity that this change triggered or should trigger. |
 | [unit_cost](unit_cost.md) | Unit cost for this cost item. |
 | [usage_context](usage_context.md) | Optional usage context such as work, personal, support, billing, or emergency. |
 | [zone_type](zone_type.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. |
@@ -370,7 +278,7 @@ Name: pragmatic_bim_data_contract
 | [ConnectionPhysicalType](ConnectionPhysicalType.md) | Classification of physical connector elements that connect spaces. |
 | [ConnectionRequirementDriver](ConnectionRequirementDriver.md) | Main requirement drivers for connection element performance. |
 | [ConnectionVirtualType](ConnectionVirtualType.md) | Classification of virtual connection semantics using schema-internal meanings because no stable 1:1 IFC mapping exists for these concepts. |
-| [ContentKind](ContentKind.md) | Top-level content category for adapter projection and schema routing. |
+| [ContentKind](ContentKind.md) | Entity type discriminator for adapter projection and querying — not a module router. |
 | [ContextType](ContextType.md) |  |
 | [DependencyType](DependencyType.md) | Precedence logic between two time records (FS finish-to-start, SS start-to-start, FF finish-to-finish, SF start-to-finish). |
 | [EquipmentType](EquipmentType.md) |  |

@@ -25,7 +25,7 @@ URI: [pbs:storage_link](https://schema.pragmaticbim.ch/storage_link)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Document](Document.md) | Reference to an external document stored in a file system, DMS, object storage, or URL. |  no  |
+| [YamlDocument](YamlDocument.md) | Document entity referencing external storage. Links to related entities via applies_to_entities. |  no  |
 
 
 
@@ -39,7 +39,7 @@ URI: [pbs:storage_link](https://schema.pragmaticbim.ch/storage_link)
 | Property | Value |
 | --- | --- |
 | Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Document](Document.md) |
+| Domain Of | [YamlDocument](YamlDocument.md) |
 
 ### Cardinality and Requirements
 
@@ -89,7 +89,7 @@ description: URI/URL/path to the stored document location.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- Document
+- yamlDocument
 range: uriorcurie
 required: true
 

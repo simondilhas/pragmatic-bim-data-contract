@@ -18,7 +18,7 @@ default_prefix: pbs
 default_range: string
 imports:
 - linkml:types
-- requirements_schema
+- entity_requirements_schema
 classes:
   PhysicalElement:
     is_a: Entity
@@ -32,6 +32,8 @@ classes:
     - parent_building
     - parent_level
     slot_usage:
+      content_kind:
+        equals_string: physical
       parent_building:
         range: BuiltAssetContext
       parent_level:

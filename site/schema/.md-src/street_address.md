@@ -14,7 +14,7 @@ _Street name and house number or equivalent address line._
 
 
 
-URI: [schema:streetAddress](http://schema.org/streetAddress)
+URI: [schema:streetAddress](https://schema.org/streetAddress)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [schema:streetAddress](http://schema.org/streetAddress)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:streetAddress](http://schema.org/streetAddress) |
+| Slot URI | [schema:streetAddress](https://schema.org/streetAddress) |
 
 ### Cardinality and Requirements
 

@@ -21,12 +21,12 @@ URI: [pbs:RequirementTargetOperator](https://schema.pragmaticbim.ch/RequirementT
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| equals | pbs:requirement_target_operator_equals |  |
-| minimum | pbs:requirement_target_operator_minimum |  |
-| maximum | pbs:requirement_target_operator_maximum |  |
-| range | pbs:requirement_target_operator_range |  |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| equals | pbs:requirement_target_operator_equals |  | Title: Equals<br>|
+| minimum | pbs:requirement_target_operator_minimum |  | Title: Minimum<br>|
+| maximum | pbs:requirement_target_operator_maximum |  | Title: Maximum<br>|
+| range | pbs:requirement_target_operator_range |  | Title: Range<br>|
 
 
 
@@ -75,15 +75,35 @@ permissible_values:
   equals:
     text: equals
     meaning: pbs:requirement_target_operator_equals
+    alt_descriptions:
+      de:
+        source: de
+        description: Gleich
+    title: Equals
   minimum:
     text: minimum
     meaning: pbs:requirement_target_operator_minimum
+    alt_descriptions:
+      de:
+        source: de
+        description: Minimum
+    title: Minimum
   maximum:
     text: maximum
     meaning: pbs:requirement_target_operator_maximum
+    alt_descriptions:
+      de:
+        source: de
+        description: Maximum
+    title: Maximum
   range:
     text: range
     meaning: pbs:requirement_target_operator_range
+    alt_descriptions:
+      de:
+        source: de
+        description: Bereich
+    title: Range
 
 ```
 </details>

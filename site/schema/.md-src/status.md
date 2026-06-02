@@ -25,12 +25,15 @@ URI: [pbs:status](https://schema.pragmaticbim.ch/status)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Entity](Entity.md) | Common base class for all schema entities. |  no  |
-| [Requirement](Requirement.md) | Prescriptive requirement record (content_kind requirement). Not an Entity; may apply to one or more model entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |  no  |
+| [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |  no  |
 | [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
-| [Message](Message.md) | Message or communication record linked to an entity for coordination and traceability. |  no  |
+| [Decision](Decision.md) | Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs. |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
+| [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
+| [YamlDocument](YamlDocument.md) | Document entity referencing external storage. Links to related entities via applies_to_entities. |  no  |
+| [Requirement](Requirement.md) | Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot. |  no  |
 | [PerformanceRequirement](PerformanceRequirement.md) | Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). |  no  |
 | [SpatialRequirement](SpatialRequirement.md) | Spatial constraint requirement (min area, min height, adjacency, etc.). |  no  |
 | [RegulatoryRequirement](RegulatoryRequirement.md) | Regulatory reference requirement (building code, norm, standard). |  no  |
@@ -71,7 +74,7 @@ URI: [pbs:status](https://schema.pragmaticbim.ch/status)
 | Property | Value |
 | --- | --- |
 | Range | [StatusType](StatusType.md) |
-| Domain Of | [Entity](Entity.md), [Requirement](Requirement.md) |
+| Domain Of | [Entity](Entity.md) |
 
 ### Cardinality and Requirements
 
@@ -121,7 +124,6 @@ from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - Entity
-- Requirement
 range: StatusType
 
 ```

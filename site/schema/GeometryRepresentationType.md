@@ -21,12 +21,12 @@ URI: [pbs:GeometryRepresentationType](https://schema.pragmaticbim.ch/GeometryRep
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| axis | None | Linear axis/centerline representation. |
-| body_3d | None | 3D volumetric/body representation. |
-| footprint_2d | None | 2D surface/footprint representation. |
-| point | None | Point/dot representation. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| axis | None | Linear axis/centerline representation. | Title: Axis<br>|
+| body_3d | None | 3D volumetric/body representation. | Title: 3D Body<br>|
+| footprint_2d | None | 2D surface/footprint representation. | Title: 2D Footprint<br>|
+| point | None | Point/dot representation. | Title: Point<br>|
 
 
 
@@ -76,15 +76,35 @@ permissible_values:
   axis:
     text: axis
     description: Linear axis/centerline representation.
+    alt_descriptions:
+      de:
+        source: de
+        description: Achse
+    title: Axis
   body_3d:
     text: body_3d
     description: 3D volumetric/body representation.
+    alt_descriptions:
+      de:
+        source: de
+        description: 3D Koerper
+    title: 3D Body
   footprint_2d:
     text: footprint_2d
     description: 2D surface/footprint representation.
+    alt_descriptions:
+      de:
+        source: de
+        description: 2D Grundriss
+    title: 2D Footprint
   point:
     text: point
     description: Point/dot representation.
+    alt_descriptions:
+      de:
+        source: de
+        description: Punkt
+    title: Point
 
 ```
 </details>

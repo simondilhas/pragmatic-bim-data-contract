@@ -24,9 +24,19 @@ enums:
       stable:
         description: Change preserves design intent; downstream rules may treat as cosmetic.
         meaning: pbs:change_intent_verdict_stable
+        title: Stable
+        alt_descriptions:
+          de:
+            source: de
+            description: Stabil
       new_intent:
         description: Change alters design intent; may require re-evaluation or new tasks.
         meaning: pbs:change_intent_verdict_new_intent
+        title: New Intent
+        alt_descriptions:
+          de:
+            source: de
+            description: Neue Absicht
   ChangeSeverity:
     enum_uri: pbs:ChangeSeverity
     description: Optional severity of a change independent of change type.
@@ -34,15 +44,35 @@ enums:
       unchanged:
         description: No material difference (typically omitted from persisted Change records).
         meaning: pbs:change_severity_unchanged
+        title: Unchanged
+        alt_descriptions:
+          de:
+            source: de
+            description: Unveraendert
       minor:
         description: Small attribute, metadata, or wording adjustment.
         meaning: pbs:change_severity_minor
+        title: Minor
+        alt_descriptions:
+          de:
+            source: de
+            description: Geringfuegig
       major:
         description: Significant attribute, geometry, relationship, or structural content change.
         meaning: pbs:change_severity_major
+        title: Major
+        alt_descriptions:
+          de:
+            source: de
+            description: Erheblich
       rewritten:
         description: Subject substantially replaced while retaining the same identity.
         meaning: pbs:change_severity_rewritten
+        title: Rewritten
+        alt_descriptions:
+          de:
+            source: de
+            description: Neu geschrieben
   ChangeType:
     enum_uri: pbs:ChangeType
     description: Category of change detected between two revisions.
@@ -50,21 +80,51 @@ enums:
       geometry_change:
         description: Geometry or representation changed.
         meaning: pbs:change_type_geometry_change
+        title: Geometry Change
+        alt_descriptions:
+          de:
+            source: de
+            description: Geometrieaenderung
       property_change:
         description: Attribute, PropertySet, or schema slot changed.
         meaning: pbs:change_type_property_change
+        title: Property Change
+        alt_descriptions:
+          de:
+            source: de
+            description: Eigenschaftsaenderung
       requirement_change:
         description: Requirement record or field changed.
         meaning: pbs:change_type_requirement_change
+        title: Requirement Change
+        alt_descriptions:
+          de:
+            source: de
+            description: Anforderungsaenderung
       match_change:
         description: Entity match status against a requirement changed (met / unmet).
         meaning: pbs:change_type_match_change
+        title: Match Change
+        alt_descriptions:
+          de:
+            source: de
+            description: Erfuellungsaenderung
       addition:
         description: New entity or requirement introduced.
         meaning: pbs:change_type_addition
+        title: Addition
+        alt_descriptions:
+          de:
+            source: de
+            description: Hinzufuegung
       deletion:
         description: Entity or requirement removed.
         meaning: pbs:change_type_deletion
+        title: Deletion
+        alt_descriptions:
+          de:
+            source: de
+            description: Loeschung
   MatchStatus:
     enum_uri: pbs:MatchStatus
     description: Whether an entity satisfies a related requirement at the target revision.
@@ -72,12 +132,27 @@ enums:
       met:
         description: Subject satisfies the requirement.
         meaning: pbs:match_status_met
+        title: Met
+        alt_descriptions:
+          de:
+            source: de
+            description: Erfuellt
       unmet:
         description: Subject no longer satisfies the requirement.
         meaning: pbs:match_status_unmet
+        title: Unmet
+        alt_descriptions:
+          de:
+            source: de
+            description: Nicht erfuellt
       unknown:
         description: Match could not be determined.
         meaning: pbs:match_status_unknown
+        title: Unknown
+        alt_descriptions:
+          de:
+            source: de
+            description: Unbekannt
   PropertyPathKind:
     enum_uri: pbs:PropertyPathKind
     description: Classification of a property path for diff interpretation across IFC and text sources.
@@ -85,15 +160,40 @@ enums:
       ifc_attribute:
         description: Direct IFC entity attribute (for example IfcWall.Name).
         meaning: pbs:property_path_kind_ifc_attribute
+        title: IFC Attribute
+        alt_descriptions:
+          de:
+            source: de
+            description: IFC Attribut
       ifc_pset:
         description: IFC PropertySet property (for example Pset_WallCommon.FireRating).
         meaning: pbs:property_path_kind_ifc_pset
+        title: IFC PropertySet
+        alt_descriptions:
+          de:
+            source: de
+            description: IFC PropertySet
       schema_slot:
         description: Field on a schema entity (for example description, space_type).
         meaning: pbs:property_path_kind_schema_slot
+        title: Schema Slot
+        alt_descriptions:
+          de:
+            source: de
+            description: Schema Feld
       document_field:
         description: Structured field in an extracted document (for example section.4.2.title).
         meaning: pbs:property_path_kind_document_field
+        title: Document Field
+        alt_descriptions:
+          de:
+            source: de
+            description: Dokumentfeld
       text_span:
         description: Free-text span anchor (for example body:char_offset:1204-1389).
         meaning: pbs:property_path_kind_text_span
+        title: Text Span
+        alt_descriptions:
+          de:
+            source: de
+            description: Textabschnitt

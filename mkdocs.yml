@@ -1,4 +1,4 @@
-site_name: Pragmatic BIM Schema
+site_name: Pragmatic BIM Data Contract
 site_url: https://schema.pragmaticbim.ch/schema/
 use_directory_urls: false
 
@@ -18,7 +18,7 @@ theme:
     - navigation.top
 
 nav:
-  - Schema Index: pragmatic-bim.docs.md
+  - Pragmatic BIM Data Contract: pragmatic-bim.docs.md
 
 plugins:
   - search
@@ -34,9 +34,3 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
   - md_in_html
-
-extra_css:
-  - assets/pillars.css
-
-extra_javascript:
-  - assets/pillars.js

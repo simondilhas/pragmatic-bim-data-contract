@@ -9,7 +9,6 @@
   "csv": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.csv",
   "pydantic": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.pydantic.py",
   "docs_md": "https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.md",
-  "landing_page": "https://schema.pragmaticbim.ch/entity/performance",
   "html": "https://schema.pragmaticbim.ch/schema/FireProperty.html",
   "primary_doc": "FireProperty"
 }

@@ -21,12 +21,12 @@ URI: [pbs:SystemDiscipline](https://schema.pragmaticbim.ch/SystemDiscipline)
 
 
 ## Permissible Values
-| Value | Meaning | Description |
-| --- | --- | --- |
-| electrical | ifcowl:IfcDistributionSystemEnum.ELECTRICAL | Electrical power, lighting, and related electrical services. |
-| sanitary | ifcowl:IfcDistributionSystemEnum.PLUMBING | Water supply, drainage, and sanitary plumbing services. |
-| ventilation | ifcowl:IfcDistributionSystemEnum.VENTILATION | Air movement and ventilation services. |
-| heating | ifcowl:IfcDistributionSystemEnum.HEATING | Heat generation and heat distribution services. |
+| Value | Meaning | Description | Additional Info |
+| --- | --- | --- | --- |
+| electrical | ifcowl:IfcDistributionSystemEnum.ELECTRICAL | Electrical power, lighting, and related electrical services. | Title: Electrical<br>|
+| sanitary | ifcowl:IfcDistributionSystemEnum.PLUMBING | Water supply, drainage, and sanitary plumbing services. | Title: Sanitary<br>|
+| ventilation | ifcowl:IfcDistributionSystemEnum.VENTILATION | Air movement and ventilation services. | Title: Ventilation<br>|
+| heating | ifcowl:IfcDistributionSystemEnum.HEATING | Heat generation and heat distribution services. | Title: Heating<br>|
 
 
 
@@ -76,18 +76,38 @@ permissible_values:
     text: electrical
     description: Electrical power, lighting, and related electrical services.
     meaning: ifcowl:IfcDistributionSystemEnum.ELECTRICAL
+    alt_descriptions:
+      de:
+        source: de
+        description: Elektro
+    title: Electrical
   sanitary:
     text: sanitary
     description: Water supply, drainage, and sanitary plumbing services.
     meaning: ifcowl:IfcDistributionSystemEnum.PLUMBING
+    alt_descriptions:
+      de:
+        source: de
+        description: Sanitaer
+    title: Sanitary
   ventilation:
     text: ventilation
     description: Air movement and ventilation services.
     meaning: ifcowl:IfcDistributionSystemEnum.VENTILATION
+    alt_descriptions:
+      de:
+        source: de
+        description: Lueftung
+    title: Ventilation
   heating:
     text: heating
     description: Heat generation and heat distribution services.
     meaning: ifcowl:IfcDistributionSystemEnum.HEATING
+    alt_descriptions:
+      de:
+        source: de
+        description: Heizung
+    title: Heating
 
 ```
 </details>

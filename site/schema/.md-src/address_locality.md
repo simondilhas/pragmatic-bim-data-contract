@@ -14,7 +14,7 @@ _Locality, city, or town._
 
 
 
-URI: [schema:addressLocality](http://schema.org/addressLocality)
+URI: [schema:addressLocality](https://schema.org/addressLocality)
 <!-- no inheritance hierarchy -->
 
 
@@ -40,7 +40,7 @@ URI: [schema:addressLocality](http://schema.org/addressLocality)
 | --- | --- |
 | Range | [String](String.md) |
 | Domain Of | [PostalAddress](PostalAddress.md) |
-| Slot URI | [schema:addressLocality](http://schema.org/addressLocality) |
+| Slot URI | [schema:addressLocality](https://schema.org/addressLocality) |
 
 ### Cardinality and Requirements
 

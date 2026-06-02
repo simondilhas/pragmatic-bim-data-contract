@@ -25,7 +25,7 @@ URI: [dcterms:type](http://purl.org/dc/terms/type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Task](Task.md) | Action/task record linked to an entity for implementation and follow-up workflows. |  no  |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
 
 
 

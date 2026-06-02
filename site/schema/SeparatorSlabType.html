@@ -21,7 +21,7 @@
     
     
       
-        <title>Enum: SeparatorSlabType - Pragmatic BIM Schema</title>
+        <title>Enum: SeparatorSlabType - Pragmatic BIM Data Contract</title>
       
     
     
@@ -46,8 +46,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="assets/pillars.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +102,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pragmatic BIM Schema
+            Pragmatic BIM Data Contract
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -202,13 +200,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pragmatic BIM Schema
+    Pragmatic BIM Data Contract
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -227,7 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Schema Index
+    Pragmatic BIM Data Contract
   
 
     
@@ -356,6 +354,7 @@
 <th>Value</th>
 <th>Meaning</th>
 <th>Description</th>
+<th>Additional Info</th>
 </tr>
 </thead>
 <tbody>
@@ -363,21 +362,25 @@
 <td>floor</td>
 <td>ifcowl:IfcSlabTypeEnum.FLOOR</td>
 <td></td>
+<td>Title: Floor<br></td>
 </tr>
 <tr>
 <td>roof</td>
 <td>ifcowl:IfcSlabTypeEnum.ROOF</td>
 <td></td>
+<td>Title: Roof<br></td>
 </tr>
 <tr>
 <td>baseslab</td>
 <td>ifcowl:IfcSlabTypeEnum.BASESLAB</td>
 <td></td>
+<td>Title: Base Slab<br></td>
 </tr>
 <tr>
 <td>balcony</td>
 <td>ifcowl:IfcSlabTypeEnum.FLOOR</td>
 <td>Balcony slab; mapped to FLOOR as the closest IFC slab type.</td>
+<td>Title: Balcony<br></td>
 </tr>
 </tbody>
 </table>
@@ -412,16 +415,36 @@
 <span class="w">  </span><span class="nt">floor</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">floor</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifcowl:IfcSlabTypeEnum.FLOOR</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Boden</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Floor</span>
 <span class="w">  </span><span class="nt">roof</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">roof</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifcowl:IfcSlabTypeEnum.ROOF</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dach</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Roof</span>
 <span class="w">  </span><span class="nt">baseslab</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseslab</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifcowl:IfcSlabTypeEnum.BASESLAB</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bodenplatte</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Base Slab</span>
 <span class="w">  </span><span class="nt">balcony</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">balcony</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Balcony slab; mapped to FLOOR as the closest IFC slab type.</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifcowl:IfcSlabTypeEnum.FLOOR</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Balkon</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Balcony</span>
 </code></pre></div>
 </details>
 </div>
@@ -487,8 +510,6 @@
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="assets/pillars.js"></script>
       
     
   </body>

@@ -19,14 +19,11 @@ default_prefix: pbs
 default_range: string
 imports:
 - linkml:types
-- shared_schema_enums
-- entity_core_schema
 - entity_schema_enums
-- entity_performance_schema_enums
+- entity_core_schema
 - entity_performance_schema
 - entity_physical_schema
 - entity_virtual_schema
-- requirements_schema_enums
-- requirements_schema
+- entity_requirements_schema
 - changes_schema_enums
 - changes_schema

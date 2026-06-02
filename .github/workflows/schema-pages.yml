@@ -64,46 +64,6 @@ jobs:
 
       - name: Generate schema outputs
         run: |
-          mkdir -p site/schema
-
-          find_cmd() {
-            for cmd in "$@"; do
-              if command -v "$cmd" >/dev/null 2>&1; then
-                echo "$cmd"
-                return 0
-              fi
-            done
-            return 1
-          }
-
-          CSV_CMD="$(find_cmd gen-csv csvgen)" || { echo "No CSV generator command found"; exit 1; }
-          PYDANTIC_CMD="$(find_cmd gen-pydantic pydanticgen)" || { echo "No Pydantic generator command found"; exit 1; }
-          DOC_CMD="$(find_cmd gen-markdown gen-docs gen-doc)" || { echo "No docs generator command found"; exit 1; }
-
-          gen-shacl "$SCHEMA_ROOT" > site/schema/pragmatic-bim.shacl.ttl
-          gen-json-schema "$SCHEMA_ROOT" > site/schema/pragmatic-bim.schema.json
-          "$CSV_CMD" "$SCHEMA_ROOT" > site/schema/pragmatic-bim.csv
-          "$PYDANTIC_CMD" "$SCHEMA_ROOT" > site/schema/pragmatic-bim.pydantic.py
-
-          if [ "$DOC_CMD" = "gen-doc" ] || [ "$DOC_CMD" = "gen-docs" ]; then
-            "$DOC_CMD" \
-              --index-name pragmatic-bim.docs \
-              --hierarchical-class-view \
-              --truncate-descriptions false \
-              --diagram-type mermaid_class_diagram \
-              -d site/schema/.md-src \
-              "$SCHEMA_ROOT"
-          else
-            mkdir -p site/schema/.md-src
-            "$DOC_CMD" "$SCHEMA_ROOT" > site/schema/.md-src/pragmatic-bim.docs.md
-          fi
-
-          python scripts/generate_diagrams.py --skip-readme
-
-          python scripts/build_schema_docs.py \
-            --md-src site/schema/.md-src \
-            --site-dir site/schema
-
           case "$RELEASE_VERSION" in
             v[0-9]*)
               ;;
@@ -112,14 +72,7 @@ jobs:
               exit 1
               ;;
           esac
-
-      - name: Generate module resolver pages
-        run: |
-          python scripts/generate_module_pages.py \
-            --site-dir site \
-            --schema-dir schema \
-            --base-url https://schema.pragmaticbim.ch \
-            --write-root-index
+          python scripts/build_site.py
 
       - name: Publish latest and versioned snapshots
         run: |
@@ -143,16 +96,12 @@ jobs:
             mkdir -p "$(dirname "site/latest/$slug")" "$(dirname "site/$RELEASE_VERSION/$slug")"
             cp -R "site/$slug" "site/latest/$slug"
             cp -R "site/$slug" "site/$RELEASE_VERSION/$slug"
-            mkdir -p "$(dirname "site/latest/$slug.html")" "$(dirname "site/$RELEASE_VERSION/$slug.html")"
-            cp "site/$slug.html" "site/latest/$slug.html"
-            cp "site/$slug.html" "site/$RELEASE_VERSION/$slug.html"
           done
 
           python scripts/generate_module_pages.py \
             --site-dir "site/$RELEASE_VERSION" \
             --schema-dir schema \
             --base-url "https://schema.pragmaticbim.ch/$RELEASE_VERSION" \
-            --release-label "$RELEASE_VERSION" \
             --write-root-index
 
           python - <<'PY'

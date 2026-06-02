@@ -133,15 +133,21 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 
 ## `content_kind` and `canonical_type`
 
-| `content_kind` | PBS module | Examples |
-|----------------|------------|----------|
-| `physical` | [`entity_physical_schema.yaml`](../schema/entity_physical_schema.yaml) | `SeparatorWall`, `ConnectionPhysical`, `Equipment`, `PhysicalElement` |
-| `virtual` | [`entity_virtual_schema.yaml`](../schema/entity_virtual_schema.yaml) | `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `CostRecord`, `Material` |
-| `context` | Spatial context subclasses | `BuildingContext`, `LevelContext`, `ZoneContext`, `PerimeterContext` |
-| `requirement` | [`requirements_schema.yaml`](../schema/requirements_schema.yaml) | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement` |
-| `change` | [`changes_schema.yaml`](../schema/changes_schema.yaml) | `PropertyChange`, `GeometryChange`, `MatchChange`, `AdditionChange`, `DeletionChange` |
+`content_kind` is the Entity type discriminator (see [`Entity.content_kind`](../schema/entity_core_schema.yaml) and [`ContentKind`](../schema/entity_schema_enums.yaml)). IFC ingestion produces `physical`, `virtual`, or `context` only. Application pipelines create other entity kinds directly.
 
-`requirement` and `change` rows are **not** produced from IFC entity mapping blocks today. Adapters or validation pipelines create them directly. Use the concrete requirement or change class (for example `PerformanceRequirement`, `PropertyChange`) together with `change_type` where applicable, alongside `canonical_type`.
+| `content_kind` | Entity branch | Examples |
+|----------------|---------------|----------|
+| `physical` | Physical elements | `SeparatorWall`, `ConnectionPhysical`, `Equipment` |
+| `virtual` | Virtual entities | `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `CostRecord`, `Material` |
+| `context` | Spatial context | `BuildingContext`, `LevelContext`, `ZoneContext`, `PerimeterContext` |
+| `requirement` | Requirements | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement` |
+| `document` | Documents | `Document` |
+| `decision` | Decisions | `Decision` |
+| `task` | Tasks | `Task` |
+| `agent` | Agents | `Person`, `Company` |
+| `message` | Messages | `Message` |
+
+**Change records** (`PropertyChange`, `GeometryChange`, etc.) are not entities and have no `content_kind`. Adapters or validation pipelines create them directly in a separate change store. Use the concrete change class together with `change_type` where applicable.
 
 **Variant suffixes** disambiguate IFC `PredefinedType` or transport role without inventing new PBS classes:
 

@@ -6,7 +6,7 @@ search:
 # Class: Change 
 
 
-_Detected difference for one subject between two revisions (content_kind change). Supports IFC model diffs, document/text diffs, and schema-entity field changes. Use change_type together with the concrete subclass for interpretation._
+_Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation._
 
 __
 
@@ -40,6 +40,9 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
         click AdditionChange href "./AdditionChange.html"
       Change <|-- DeletionChange
         click DeletionChange href "./DeletionChange.html"
+      Change : affected_subject
+        Change --> "0..1" Entity : affected_subject
+        click Entity href "./Entity.html"
       Change : affected_subject_id
       Change : affected_subject_path
       Change : affected_subject_type
@@ -61,6 +64,8 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
       Change : to_revision
       Change : triggered_process
       Change : triggered_task
+        Change --> "0..1" Task : triggered_task
+        click Task href "./Task.html"
 ```
 
 
@@ -92,27 +97,21 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 | [change_type](change_type.md) | 1 <br/> [ChangeType](ChangeType.md) | Category of change detected between two revisions. | direct |
 | [change_severity](change_severity.md) | 0..1 <br/> [ChangeSeverity](ChangeSeverity.md) | Optional severity independent of change type. | direct |
 | [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). | direct |
+| [affected_subject](affected_subject.md) | 0..1 <br/> [Entity](Entity.md) | Optional typed reference to the changed graph entity when the subject is in the project graph. | direct |
 | [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key). | direct |
-| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, Document). | direct |
-| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example documents[2], localized_descriptions[de], section.4.2.paragraph_1). | direct |
+| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument). | direct |
+| [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1). | direct |
 | [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | direct |
-| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is or embeds a Document. | direct |
+| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is a yamlDocument entity or document field diff. | direct |
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | direct |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | direct |
-| [triggered_task](triggered_task.md) | 0..1 <br/> [String](String.md) | Id of a Task record that this change triggered or should trigger. | direct |
+| [triggered_task](triggered_task.md) | 0..1 <br/> [Task](Task.md) | Task entity that this change triggered or should trigger. | direct |
 | [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | direct |
 | [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | direct |
 | [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record. | direct |
 
 
 
-
-
-## Usages
-
-| used by | used in | type | used |
-| ---  | --- | --- | --- |
-| [ChangeSet](ChangeSet.md) | [changes](changes.md) | range | [Change](Change.md) |
 
 
 
@@ -160,9 +159,9 @@ URI: [pbs:Change](https://schema.pragmaticbim.ch/Change)
 <details>
 ```yaml
 name: Change
-description: 'Detected difference for one subject between two revisions (content_kind
-  change). Supports IFC model diffs, document/text diffs, and schema-entity field
-  changes. Use change_type together with the concrete subclass for interpretation.
+description: 'Audit record observing the project graph moving between revisions. Not
+  an Entity and not a graph node — it watches the graph. Use change_type together
+  with the concrete subclass for interpretation.
 
   '
 from_schema: https://schema.pragmaticbim.ch
@@ -172,6 +171,7 @@ slots:
 - change_type
 - change_severity
 - intent_verdict
+- affected_subject
 - affected_subject_id
 - affected_subject_type
 - affected_subject_path
@@ -213,9 +213,9 @@ class_uri: pbs:Change
 <details>
 ```yaml
 name: Change
-description: 'Detected difference for one subject between two revisions (content_kind
-  change). Supports IFC model diffs, document/text diffs, and schema-entity field
-  changes. Use change_type together with the concrete subclass for interpretation.
+description: 'Audit record observing the project graph moving between revisions. Not
+  an Entity and not a graph node — it watches the graph. Use change_type together
+  with the concrete subclass for interpretation.
 
   '
 from_schema: https://schema.pragmaticbim.ch
@@ -250,11 +250,7 @@ attributes:
     owner: Change
     domain_of:
     - Entity
-    - Task
-    - Document
-    - Requirement
     - Change
-    - ChangeSet
     range: string
     required: true
   change_type:
@@ -286,6 +282,17 @@ attributes:
     domain_of:
     - Change
     range: ChangeIntentVerdict
+  affected_subject:
+    name: affected_subject
+    description: Optional typed reference to the changed graph entity when the subject
+      is in the project graph.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Change
+    domain_of:
+    - Change
+    range: Entity
+    inlined: false
   affected_subject_id:
     name: affected_subject_id
     description: Identifier of the changed subject (entity id, document id, or external
@@ -300,7 +307,7 @@ attributes:
   affected_subject_type:
     name: affected_subject_type
     description: 'LinkML class name of the changed subject (for example Space, SeparatorWall,
-      Document).
+      yamlDocument).
 
       '
     from_schema: https://schema.pragmaticbim.ch
@@ -313,7 +320,7 @@ attributes:
   affected_subject_path:
     name: affected_subject_path
     description: 'Optional JSON-pointer-style path for nested targets (for example
-      documents[2], localized_descriptions[de], section.4.2.paragraph_1).
+      localized_descriptions[de], section.4.2.paragraph_1).
 
       '
     from_schema: https://schema.pragmaticbim.ch
@@ -335,7 +342,8 @@ attributes:
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
   document_storage_link:
     name: document_storage_link
-    description: Document location when the subject is or embeds a Document.
+    description: Document location when the subject is a yamlDocument entity or document
+      field diff.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Change
@@ -350,7 +358,6 @@ attributes:
     owner: Change
     domain_of:
     - Change
-    - ChangeSet
     range: integer
     required: true
     minimum_value: 0
@@ -362,19 +369,19 @@ attributes:
     owner: Change
     domain_of:
     - Change
-    - ChangeSet
     range: integer
     required: true
     minimum_value: 0
   triggered_task:
     name: triggered_task
-    description: Id of a Task record that this change triggered or should trigger.
+    description: Task entity that this change triggered or should trigger.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: Change
     domain_of:
     - Change
-    range: string
+    range: Task
+    inlined: false
   triggered_process:
     name: triggered_process
     description: External workflow process URI (for example yourcompanyos process

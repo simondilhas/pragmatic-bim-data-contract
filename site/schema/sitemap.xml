@@ -49,10 +49,6 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/ChangeSet.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
          <loc>https://schema.pragmaticbim.ch/schema/ChangeSeverity.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
@@ -138,10 +134,6 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/DependencyType.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
-         <loc>https://schema.pragmaticbim.ch/schema/Document.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
@@ -437,6 +429,10 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/schema/YamlDocument.html</loc>
+         <lastmod>2026-05-31</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/schema/ZoneContext.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
@@ -477,7 +473,11 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/affected_requirement_id.html</loc>
+         <loc>https://schema.pragmaticbim.ch/schema/affected_requirement.html</loc>
+         <lastmod>2026-05-31</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/affected_subject.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
@@ -530,10 +530,6 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/change_type.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
-         <loc>https://schema.pragmaticbim.ch/schema/changes.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
@@ -621,6 +617,10 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/schema/content_kind.html</loc>
+         <lastmod>2026-05-31</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/schema/context_type.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
@@ -669,10 +669,6 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/decisions.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
          <loc>https://schema.pragmaticbim.ch/schema/dependency_type.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
@@ -685,15 +681,7 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/document_state_uris.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
          <loc>https://schema.pragmaticbim.ch/schema/document_storage_link.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
-         <loc>https://schema.pragmaticbim.ch/schema/documents.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
@@ -742,10 +730,6 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/ifc_global_id.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
-         <loc>https://schema.pragmaticbim.ch/schema/ifc_state_uri.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
@@ -810,10 +794,6 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/message_type.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
-         <loc>https://schema.pragmaticbim.ch/schema/messages.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
@@ -921,14 +901,6 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/produced_at.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
-         <loc>https://schema.pragmaticbim.ch/schema/produced_by.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
          <loc>https://schema.pragmaticbim.ch/schema/programme_ref.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
@@ -1005,7 +977,7 @@
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/schema/related_requirement_id.html</loc>
+         <loc>https://schema.pragmaticbim.ch/schema/related_requirement.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>
@@ -1142,10 +1114,6 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/task_type.html</loc>
-         <lastmod>2026-05-31</lastmod>
-    </url>
-    <url>
-         <loc>https://schema.pragmaticbim.ch/schema/tasks.html</loc>
          <lastmod>2026-05-31</lastmod>
     </url>
     <url>

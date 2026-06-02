@@ -21,7 +21,7 @@
     
     
       
-        <title>Slot: performance_properties - Pragmatic BIM Schema</title>
+        <title>Slot: performance_properties - Pragmatic BIM Data Contract</title>
       
     
     
@@ -46,8 +46,6 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="assets/pillars.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -90,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Pragmatic BIM Schema" class="md-header__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +102,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Pragmatic BIM Schema
+            Pragmatic BIM Data Contract
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -202,13 +200,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Pragmatic BIM Schema" class="md-nav__button md-logo" aria-label="Pragmatic BIM Schema" data-md-component="logo">
+    <a href="." title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    Pragmatic BIM Schema
+    Pragmatic BIM Data Contract
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -227,7 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Schema Index
+    Pragmatic BIM Data Contract
   
 
     
@@ -401,7 +399,7 @@
 <tbody>
 <tr>
 <td><a href="Entity.html">Entity</a></td>
-<td>Common base class for all schema entities.</td>
+<td>Common base class for everything in the project graph. Has identity, lifecycle, and status.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -420,8 +418,48 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="Decision.html">Decision</a></td>
+<td>Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Task.html">Task</a></td>
+<td>Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="Message.html">Message</a></td>
-<td>Message or communication record linked to an entity for coordination and traceability.</td>
+<td>Message entity for coordination and traceability. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="YamlDocument.html">YamlDocument</a></td>
+<td>Document entity referencing external storage. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Requirement.html">Requirement</a></td>
+<td>Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, etc.), not a separate slot.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
+<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SpatialRequirement.html">SpatialRequirement</a></td>
+<td>Spatial constraint requirement (min area, min height, adjacency, etc.).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="RegulatoryRequirement.html">RegulatoryRequirement</a></td>
+<td>Regulatory reference requirement (building code, norm, standard).</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="BriefRequirement.html">BriefRequirement</a></td>
+<td>Client or programme requirement, including free-standing brief items.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -679,8 +717,6 @@
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="assets/pillars.js"></script>
       
     
   </body>
