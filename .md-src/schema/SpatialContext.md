@@ -6,7 +6,7 @@ search:
 # Class: SpatialContext 
 
 
-_Context node used to represent project, perimeter, legal site, built asset, level, or zone._
+_Context node used to represent perimeter, legal site, built asset, level, or zone._
 
 
 
@@ -27,8 +27,6 @@ class SpatialContext
 click SpatialContext href "./SpatialContext.html" _blank
 VirtualEntity <|-- SpatialContext
 click VirtualEntity href "./VirtualEntity.html" _blank
-SpatialContext <|-- ProjectContext
-click ProjectContext href "./ProjectContext.html" _blank
 SpatialContext <|-- PerimeterContext
 click PerimeterContext href "./PerimeterContext.html" _blank
 SpatialContext <|-- LegalSiteContext
@@ -53,7 +51,7 @@ click BuiltAssetContext href "./BuiltAssetContext.html" _blank
 click LegalSiteContext href "./LegalSiteContext.html" _blank
 click LevelContext href "./LevelContext.html" _blank
 click PerimeterContext href "./PerimeterContext.html" _blank
-click ProjectContext href "./ProjectContext.html" _blank
+click Project href "./Project.html" _blank
 click ZoneContext href "./ZoneContext.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
@@ -70,7 +68,6 @@ click ZoneType href "./ZoneType.html" _blank
 * [Entity](Entity.md)
     * [VirtualEntity](VirtualEntity.md)
         * **SpatialContext**
-            * [ProjectContext](ProjectContext.md)
             * [PerimeterContext](PerimeterContext.md)
             * [LegalSiteContext](LegalSiteContext.md)
             * [BuiltAssetContext](BuiltAssetContext.md)
@@ -83,16 +80,15 @@ click ZoneType href "./ZoneType.html" _blank
 | Property | Value |
 | --- | --- |
 | Class URI | [pbs:SpatialContext](https://schema.pragmaticbim.ch/SpatialContext) |
-| Tree Root | Yes |
 
 
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). | direct |
+| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). | direct |
 | [zone_type](zone_type.md) | 0..1 <br/> [ZoneType](ZoneType.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. | direct |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference. | direct |
+| [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | direct |
 | [parent_perimeter](parent_perimeter.md) | 0..1 <br/> [PerimeterContext](PerimeterContext.md) | Parent perimeter context reference. | direct |
 | [parent_legal_site](parent_legal_site.md) | 0..1 <br/> [LegalSiteContext](LegalSiteContext.md) | Parent legal site context reference. | direct |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | direct |
@@ -171,8 +167,8 @@ click ZoneType href "./ZoneType.html" _blank
 <details>
 ```yaml
 name: SpatialContext
-description: Context node used to represent project, perimeter, legal site, built
-  asset, level, or zone.
+description: Context node used to represent perimeter, legal site, built asset, level,
+  or zone.
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - ifcowl:IfcSpatialStructureElement
@@ -193,7 +189,7 @@ slot_usage:
     equals_string: context
   parent_project:
     name: parent_project
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     range: PerimeterContext
@@ -210,7 +206,6 @@ slot_usage:
     name: parent_zone
     range: ZoneContext
 class_uri: pbs:SpatialContext
-tree_root: true
 
 ```
 </details>
@@ -220,8 +215,8 @@ tree_root: true
 <details>
 ```yaml
 name: SpatialContext
-description: Context node used to represent project, perimeter, legal site, built
-  asset, level, or zone.
+description: Context node used to represent perimeter, legal site, built asset, level,
+  or zone.
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - ifcowl:IfcSpatialStructureElement
@@ -232,7 +227,7 @@ slot_usage:
     equals_string: context
   parent_project:
     name: parent_project
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     range: PerimeterContext
@@ -251,8 +246,8 @@ slot_usage:
 attributes:
   context_type:
     name: context_type
-    description: Classification of context entity (project, perimeter, legal_site,
-      building, civil_structure, level, zone).
+    description: Classification of context entity (perimeter, legal_site, building,
+      civil_structure, level, zone).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: SpatialContext
@@ -272,14 +267,16 @@ attributes:
     range: ZoneType
   parent_project:
     name: parent_project
-    description: Parent project context reference.
+    description: Parent project reference.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: SpatialContext
     domain_of:
+    - Process
+    - Deliverable
     - SpatialContext
     - System
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     description: Parent perimeter context reference.
@@ -576,7 +573,6 @@ attributes:
     - Entity
     range: StatusType
 class_uri: pbs:SpatialContext
-tree_root: true
 
 ```
 </details></div>

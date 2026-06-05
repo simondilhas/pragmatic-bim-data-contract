@@ -21,70 +21,27 @@ URI: [pbs:TimeRecord](https://schema.pragmaticbim.ch/TimeRecord)
 
 
 ```mermaid
- classDiagram
-    class TimeRecord
-    click TimeRecord href "./TimeRecord.html"
-      VirtualEntity <|-- TimeRecord
-        click VirtualEntity href "./VirtualEntity.html"
-      TimeRecord : actual_finish_at
-      TimeRecord : actual_start_at
-      TimeRecord : applies_to_entities
-        TimeRecord --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      TimeRecord : classifications
-        TimeRecord --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      TimeRecord : component_time_items
-        TimeRecord --> "*" TimeRecord : component_time_items
-        click TimeRecord href "./TimeRecord.html"
-      TimeRecord : content_kind
-      TimeRecord : cost_records
-        TimeRecord --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      TimeRecord : created_at
-      TimeRecord : description
-      TimeRecord : geometry_representations
-        TimeRecord --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      TimeRecord : id
-      TimeRecord : ifc_global_id
-      TimeRecord : localized_descriptions
-        TimeRecord --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      TimeRecord : localized_names
-        TimeRecord --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      TimeRecord : materials
-        TimeRecord --> "*" Material : materials
-        click Material href "./Material.html"
-      TimeRecord : meaning_uri
-      TimeRecord : metadata
-        TimeRecord --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      TimeRecord : milestone_at
-      TimeRecord : modified_at
-      TimeRecord : name
-      TimeRecord : performance_properties
-        TimeRecord --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      TimeRecord : planned_finish_at
-      TimeRecord : planned_start_at
-      TimeRecord : quantity_values
-        TimeRecord --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      TimeRecord : revision
-      TimeRecord : status
-        TimeRecord --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      TimeRecord : successors
-        TimeRecord --> "*" TimeLink : successors
-        click TimeLink href "./TimeLink.html"
-      TimeRecord : time_plan
-        TimeRecord --> "0..1" TimeRecord : time_plan
-        click TimeRecord href "./TimeRecord.html"
-      TimeRecord : time_records
-        TimeRecord --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
+classDiagram
+direction TB
+class TimeRecord
+click TimeRecord href "./TimeRecord.html" _blank
+VirtualEntity <|-- TimeRecord
+click VirtualEntity href "./VirtualEntity.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeLink href "./TimeLink.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
 ```
 
 
@@ -148,7 +105,6 @@ URI: [pbs:TimeRecord](https://schema.pragmaticbim.ch/TimeRecord)
 | ---  | --- | --- | --- |
 | [VirtualEntity](VirtualEntity.md) | [time_records](time_records.md) | range | [TimeRecord](TimeRecord.md) |
 | [SpatialContext](SpatialContext.md) | [time_records](time_records.md) | range | [TimeRecord](TimeRecord.md) |
-| [ProjectContext](ProjectContext.md) | [time_records](time_records.md) | range | [TimeRecord](TimeRecord.md) |
 | [PerimeterContext](PerimeterContext.md) | [time_records](time_records.md) | range | [TimeRecord](TimeRecord.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [time_records](time_records.md) | range | [TimeRecord](TimeRecord.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [time_records](time_records.md) | range | [TimeRecord](TimeRecord.md) |
@@ -476,7 +432,7 @@ attributes:
     owner: TimeRecord
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

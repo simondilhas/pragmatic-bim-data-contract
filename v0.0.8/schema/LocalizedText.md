@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: LocalizedText 
@@ -8,7 +8,7 @@ search:
 
 _Localized text value for a specific language tag._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,11 +21,10 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 
 
 ```mermaid
- classDiagram
-    class LocalizedText
-    click LocalizedText href "./LocalizedText.html"
-      LocalizedText : language_tag
-      LocalizedText : text_value
+classDiagram
+direction TB
+class LocalizedText
+click LocalizedText href "./LocalizedText.html" _blank
 ```
 
 
@@ -63,14 +62,28 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 | [Person](Person.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Company](Company.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Company](Company.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [SoftwareAgent](SoftwareAgent.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [SoftwareAgent](SoftwareAgent.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Decision](Decision.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Decision](Decision.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Task](Task.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Task](Task.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Process](Process.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Process](Process.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Message](Message.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Message](Message.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [YamlDocument](YamlDocument.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [YamlDocument](YamlDocument.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Artifact](Artifact.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Artifact](Artifact.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Contract](Contract.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Contract](Contract.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Project](Project.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Project](Project.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Program](Program.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Program](Program.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Product](Product.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Product](Product.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
+| [Deliverable](Deliverable.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
+| [Deliverable](Deliverable.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [Requirement](Requirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [Requirement](Requirement.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
@@ -107,8 +120,6 @@ URI: [pbs:LocalizedText](https://schema.pragmaticbim.ch/LocalizedText)
 | [VirtualEntity](VirtualEntity.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [SpatialContext](SpatialContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [SpatialContext](SpatialContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
-| [ProjectContext](ProjectContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
-| [ProjectContext](ProjectContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [PerimeterContext](PerimeterContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |
 | [PerimeterContext](PerimeterContext.md) | [localized_descriptions](localized_descriptions.md) | range | [LocalizedText](LocalizedText.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [localized_names](localized_names.md) | range | [LocalizedText](LocalizedText.md) |

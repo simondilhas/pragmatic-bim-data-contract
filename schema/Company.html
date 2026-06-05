@@ -575,13 +575,13 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td><a href="postal_addresses.html">postal_addresses</a></td>
 <td>* <br/> <a href="PostalAddress.html">PostalAddress</a></td>
 <td>Structured postal or physical addresses associated with this agent.</td>
-<td><a href="Agent.html">Agent</a></td>
+<td>direct</td>
 </tr>
 <tr>
 <td><a href="contact_points.html">contact_points</a></td>
 <td>* <br/> <a href="ContactPoint.html">ContactPoint</a></td>
 <td>Structured communication channels and profiles associated with this agent.</td>
-<td><a href="Agent.html">Agent</a></td>
+<td>direct</td>
 </tr>
 <tr>
 <td><a href="id.html">id</a></td>
@@ -710,6 +710,36 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td>range</td>
 <td><a href="Company.html">Company</a></td>
 </tr>
+<tr>
+<td><a href="SoftwareAgent.html">SoftwareAgent</a></td>
+<td><a href="operated_by.html">operated_by</a></td>
+<td>range</td>
+<td><a href="Company.html">Company</a></td>
+</tr>
+<tr>
+<td><a href="Project.html">Project</a></td>
+<td><a href="client.html">client</a></td>
+<td>range</td>
+<td><a href="Company.html">Company</a></td>
+</tr>
+<tr>
+<td><a href="Program.html">Program</a></td>
+<td><a href="client.html">client</a></td>
+<td>range</td>
+<td><a href="Company.html">Company</a></td>
+</tr>
+<tr>
+<td><a href="Product.html">Product</a></td>
+<td><a href="vendor.html">vendor</a></td>
+<td>range</td>
+<td><a href="Company.html">Company</a></td>
+</tr>
+<tr>
+<td><a href="CostRecord.html">CostRecord</a></td>
+<td><a href="priced_for_customer.html">priced_for_customer</a></td>
+<td>range</td>
+<td><a href="Company.html">Company</a></td>
+</tr>
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information<a class="headerlink" href="#identifier-and-mapping-information" title="Permanent link">&para;</a></h2>
@@ -752,6 +782,9 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:Organization</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Agent</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
+<span class="nt">slots</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postal_addresses</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_points</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:Company</span>
 </code></pre></div>
 </details>
@@ -773,7 +806,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Company</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Company</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostalAddress</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -785,7 +819,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Company</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Company</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ContactPoint</span>
 <span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

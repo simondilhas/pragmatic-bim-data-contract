@@ -26,8 +26,7 @@ URI: [pbs:materials](https://schema.pragmaticbim.ch/materials)
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [VirtualEntity](VirtualEntity.md) | Abstract base class for non-physical, conceptual, or informational entities. |  no  |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, level, or zone. |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics. |  no  |
+| [SpatialContext](SpatialContext.md) | Context node used to represent perimeter, legal site, built asset, level, or zone. |  no  |
 | [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics. |  no  |
 | [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics. |  no  |
 | [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structures. |  no  |
@@ -39,7 +38,7 @@ URI: [pbs:materials](https://schema.pragmaticbim.ch/materials)
 | [System](System.md) | Building service system grouping that serves spaces or zones. |  no  |
 | [ConnectionVirtual](ConnectionVirtual.md) | Logical or topological connection between spaces and/or physical elements. |  no  |
 | [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
-| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 | [Material](Material.md) | Material definition that can be associated with one or more entities. |  no  |
 
 

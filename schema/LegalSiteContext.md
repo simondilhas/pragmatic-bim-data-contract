@@ -41,7 +41,7 @@ click BuiltAssetContext href "./BuiltAssetContext.html" _blank
 click LegalSiteContext href "./LegalSiteContext.html" _blank
 click LevelContext href "./LevelContext.html" _blank
 click PerimeterContext href "./PerimeterContext.html" _blank
-click ProjectContext href "./ProjectContext.html" _blank
+click Project href "./Project.html" _blank
 click ZoneContext href "./ZoneContext.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
@@ -72,9 +72,9 @@ click ZoneType href "./ZoneType.html" _blank
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
+| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
 | [zone_type](zone_type.md) | 0..1 <br/> [ZoneType](ZoneType.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. | [SpatialContext](SpatialContext.md) |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference. | [SpatialContext](SpatialContext.md) |
+| [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | [SpatialContext](SpatialContext.md) |
 | [parent_perimeter](parent_perimeter.md) | 0..1 <br/> [PerimeterContext](PerimeterContext.md) | Parent perimeter context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_legal_site](parent_legal_site.md) | 0..1 <br/> [LegalSiteContext](LegalSiteContext.md) | Parent legal site context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [SpatialContext](SpatialContext.md) |
@@ -112,7 +112,6 @@ click ZoneType href "./ZoneType.html" _blank
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [SpatialContext](SpatialContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
-| [ProjectContext](ProjectContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
 | [PerimeterContext](PerimeterContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
@@ -186,8 +185,8 @@ is_a: SpatialContext
 attributes:
   context_type:
     name: context_type
-    description: Classification of context entity (project, perimeter, legal_site,
-      building, civil_structure, level, zone).
+    description: Classification of context entity (perimeter, legal_site, building,
+      civil_structure, level, zone).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: LegalSiteContext
@@ -207,14 +206,16 @@ attributes:
     range: ZoneType
   parent_project:
     name: parent_project
-    description: Parent project context reference.
+    description: Parent project reference.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: LegalSiteContext
     domain_of:
+    - Process
+    - Deliverable
     - SpatialContext
     - System
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     description: Parent perimeter context reference.

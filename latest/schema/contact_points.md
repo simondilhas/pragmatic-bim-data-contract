@@ -25,7 +25,6 @@ URI: [pbs:contact_points](https://schema.pragmaticbim.ch/contact_points)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
 | [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
 
@@ -41,7 +40,7 @@ URI: [pbs:contact_points](https://schema.pragmaticbim.ch/contact_points)
 | Property | Value |
 | --- | --- |
 | Range | [ContactPoint](ContactPoint.md) |
-| Domain Of | [Agent](Agent.md) |
+| Domain Of | [Person](Person.md), [Company](Company.md) |
 
 ### Cardinality and Requirements
 
@@ -91,7 +90,8 @@ description: Structured communication channels and profiles associated with this
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- Agent
+- Person
+- Company
 range: ContactPoint
 multivalued: true
 inlined: true

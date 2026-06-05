@@ -21,83 +21,33 @@ URI: [pbs:ZoneContext](https://schema.pragmaticbim.ch/ZoneContext)
 
 
 ```mermaid
- classDiagram
-    class ZoneContext
-    click ZoneContext href "./ZoneContext.html"
-      SpatialContext <|-- ZoneContext
-        click SpatialContext href "./SpatialContext.html"
-      ZoneContext : applies_to_entities
-        ZoneContext --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      ZoneContext : classifications
-        ZoneContext --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      ZoneContext : content_kind
-      ZoneContext : context_type
-        ZoneContext --> "1" ContextType : context_type
-        click ContextType href "./ContextType.html"
-      ZoneContext : cost_records
-        ZoneContext --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      ZoneContext : created_at
-      ZoneContext : description
-      ZoneContext : geometry_representations
-        ZoneContext --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      ZoneContext : group_members
-        ZoneContext --> "*" Entity : group_members
-        click Entity href "./Entity.html"
-      ZoneContext : id
-      ZoneContext : ifc_global_id
-      ZoneContext : localized_descriptions
-        ZoneContext --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      ZoneContext : localized_names
-        ZoneContext --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      ZoneContext : materials
-        ZoneContext --> "*" Material : materials
-        click Material href "./Material.html"
-      ZoneContext : meaning_uri
-      ZoneContext : metadata
-        ZoneContext --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      ZoneContext : modified_at
-      ZoneContext : name
-      ZoneContext : parent_building
-        ZoneContext --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      ZoneContext : parent_legal_site
-        ZoneContext --> "0..1" LegalSiteContext : parent_legal_site
-        click LegalSiteContext href "./LegalSiteContext.html"
-      ZoneContext : parent_level
-        ZoneContext --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      ZoneContext : parent_perimeter
-        ZoneContext --> "0..1" PerimeterContext : parent_perimeter
-        click PerimeterContext href "./PerimeterContext.html"
-      ZoneContext : parent_project
-        ZoneContext --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      ZoneContext : parent_zone
-        ZoneContext --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      ZoneContext : performance_properties
-        ZoneContext --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      ZoneContext : quantity_values
-        ZoneContext --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      ZoneContext : revision
-      ZoneContext : status
-        ZoneContext --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      ZoneContext : time_records
-        ZoneContext --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      ZoneContext : zone_type
-        ZoneContext --> "0..1" ZoneType : zone_type
-        click ZoneType href "./ZoneType.html"
+classDiagram
+direction TB
+class ZoneContext
+click ZoneContext href "./ZoneContext.html" _blank
+SpatialContext <|-- ZoneContext
+click SpatialContext href "./SpatialContext.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContextType href "./ContextType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Entity href "./Entity.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerimeterContext href "./PerimeterContext.html" _blank
+click Project href "./Project.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click ZoneType href "./ZoneType.html" _blank
 ```
 
 
@@ -122,9 +72,9 @@ URI: [pbs:ZoneContext](https://schema.pragmaticbim.ch/ZoneContext)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
+| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
 | [zone_type](zone_type.md) | 0..1 <br/> [ZoneType](ZoneType.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. | [SpatialContext](SpatialContext.md) |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference. | [SpatialContext](SpatialContext.md) |
+| [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | [SpatialContext](SpatialContext.md) |
 | [parent_perimeter](parent_perimeter.md) | 0..1 <br/> [PerimeterContext](PerimeterContext.md) | Parent perimeter context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_legal_site](parent_legal_site.md) | 0..1 <br/> [LegalSiteContext](LegalSiteContext.md) | Parent legal site context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [SpatialContext](SpatialContext.md) |
@@ -162,7 +112,6 @@ URI: [pbs:ZoneContext](https://schema.pragmaticbim.ch/ZoneContext)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [SpatialContext](SpatialContext.md) | [parent_zone](parent_zone.md) | range | [ZoneContext](ZoneContext.md) |
-| [ProjectContext](ProjectContext.md) | [parent_zone](parent_zone.md) | range | [ZoneContext](ZoneContext.md) |
 | [PerimeterContext](PerimeterContext.md) | [parent_zone](parent_zone.md) | range | [ZoneContext](ZoneContext.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [parent_zone](parent_zone.md) | range | [ZoneContext](ZoneContext.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [parent_zone](parent_zone.md) | range | [ZoneContext](ZoneContext.md) |
@@ -238,8 +187,8 @@ is_a: SpatialContext
 attributes:
   context_type:
     name: context_type
-    description: Classification of context entity (project, perimeter, legal_site,
-      building, civil_structure, level, zone).
+    description: Classification of context entity (perimeter, legal_site, building,
+      civil_structure, level, zone).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ZoneContext
@@ -259,14 +208,16 @@ attributes:
     range: ZoneType
   parent_project:
     name: parent_project
-    description: Parent project context reference.
+    description: Parent project reference.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ZoneContext
     domain_of:
+    - Process
+    - Deliverable
     - SpatialContext
     - System
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     description: Parent perimeter context reference.
@@ -455,7 +406,7 @@ attributes:
     owner: ZoneContext
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

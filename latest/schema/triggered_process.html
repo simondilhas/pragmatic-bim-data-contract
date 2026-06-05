@@ -468,7 +468,7 @@
 
 
 <h1 id="slot-triggered_process">Slot: triggered_process<a class="headerlink" href="#slot-triggered_process" title="Permanent link">&para;</a></h1>
-<p><em>External workflow process URI (for example yourcompanyos process instance).</em></p>
+<p><em>BPMN process instance that this change triggered or should trigger.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/triggered_process">pbs:triggered_process</a></p>
 <!-- no inheritance hierarchy -->
@@ -531,7 +531,7 @@
 <tbody>
 <tr>
 <td>Range</td>
-<td><a href="Uriorcurie.html">Uriorcurie</a></td>
+<td><a href="Process.html">Process</a></td>
 </tr>
 <tr>
 <td>Domain Of</td>
@@ -581,12 +581,13 @@
 <h2 id="linkml-source">LinkML Source<a class="headerlink" href="#linkml-source" title="Permanent link">&para;</a></h2>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">triggered_process</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">External workflow process URI (for example yourcompanyos process instance).</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BPMN process instance that this change triggered or should trigger.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Change</span>
-<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uriorcurie</span>
+<span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Process</span>
+<span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 </details>
 </div>

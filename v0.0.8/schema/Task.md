@@ -23,57 +23,24 @@ URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 
 
 ```mermaid
- classDiagram
-    class Task
-    click Task href "./Task.html"
-      Entity <|-- Task
-        click Entity href "./Entity.html"
-      Task : applies_to_entities
-        Task --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Task : assignee
-        Task --> "0..1" Agent : assignee
-        click Agent href "./Agent.html"
-      Task : classifications
-        Task --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Task : content_kind
-      Task : created_at
-      Task : description
-      Task : due_at
-      Task : geometry_representations
-        Task --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Task : id
-      Task : ifc_global_id
-      Task : localized_descriptions
-        Task --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Task : localized_names
-        Task --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Task : meaning_uri
-      Task : metadata
-        Task --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Task : modified_at
-      Task : name
-      Task : performance_properties
-        Task --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Task : quantity_values
-        Task --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Task : related_decision
-        Task --> "0..1" Decision : related_decision
-        click Decision href "./Decision.html"
-      Task : revision
-      Task : status
-        Task --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      Task : task_notes
-      Task : task_status
-      Task : task_type
+classDiagram
+direction TB
+class Task
+click Task href "./Task.html" _blank
+Entity <|-- Task
+click Entity href "./Entity.html" _blank
+click Entity href "./Entity.html" _blank
+click Agent href "./Agent.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click Process href "./Process.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click Decision href "./Decision.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 
@@ -101,6 +68,7 @@ URI: [pbs:Task](https://schema.pragmaticbim.ch/Task)
 | [assignee](assignee.md) | 0..1 <br/> [Agent](Agent.md) | Responsible agent. | direct |
 | [due_at](due_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Due timestamp for task completion. | direct |
 | [related_decision](related_decision.md) | 0..1 <br/> [Decision](Decision.md) | Optional reference to a decision that informs or drives this task. | direct |
+| [parent_process](parent_process.md) | 0..1 <br/> [Process](Process.md) | Optional BPMN process instance that owns or spawned this task. | direct |
 | [task_notes](task_notes.md) | 0..1 <br/> [String](String.md) | Additional notes or implementation details for the task. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
@@ -200,6 +168,7 @@ slots:
 - assignee
 - due_at
 - related_decision
+- parent_process
 - task_notes
 slot_usage:
   content_kind:
@@ -283,6 +252,16 @@ attributes:
     domain_of:
     - Task
     range: Decision
+    inlined: false
+  parent_process:
+    name: parent_process
+    description: Optional BPMN process instance that owns or spawned this task.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Task
+    domain_of:
+    - Task
+    range: Process
     inlined: false
   task_notes:
     name: task_notes
@@ -388,7 +367,7 @@ attributes:
     owner: Task
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

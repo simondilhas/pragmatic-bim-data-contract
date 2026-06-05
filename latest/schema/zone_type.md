@@ -25,8 +25,7 @@ URI: [pbs:zone_type](https://schema.pragmaticbim.ch/zone_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, level, or zone. |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics. |  no  |
+| [SpatialContext](SpatialContext.md) | Context node used to represent perimeter, legal site, built asset, level, or zone. |  no  |
 | [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics. |  no  |
 | [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics. |  no  |
 | [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structures. |  no  |

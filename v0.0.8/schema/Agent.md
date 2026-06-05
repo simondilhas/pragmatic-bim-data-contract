@@ -6,7 +6,7 @@ search:
 # Class: Agent 
 
 
-_Abstract base class for people or organizations acting in workflow and communication roles._
+_Abstract base class for human and software actors in workflow and communication roles._
 
 
 
@@ -23,57 +23,27 @@ URI: [pbs:Agent](https://schema.pragmaticbim.ch/Agent)
 
 
 ```mermaid
- classDiagram
-    class Agent
-    click Agent href "./Agent.html"
-      Entity <|-- Agent
-        click Entity href "./Entity.html"
-      Agent <|-- Person
-        click Person href "./Person.html"
-      Agent <|-- Company
-        click Company href "./Company.html"
-      Agent : applies_to_entities
-        Agent --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Agent : classifications
-        Agent --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Agent : contact_points
-        Agent --> "*" ContactPoint : contact_points
-        click ContactPoint href "./ContactPoint.html"
-      Agent : content_kind
-      Agent : created_at
-      Agent : description
-      Agent : geometry_representations
-        Agent --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Agent : id
-      Agent : ifc_global_id
-      Agent : localized_descriptions
-        Agent --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Agent : localized_names
-        Agent --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Agent : meaning_uri
-      Agent : metadata
-        Agent --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Agent : modified_at
-      Agent : name
-      Agent : performance_properties
-        Agent --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Agent : postal_addresses
-        Agent --> "*" PostalAddress : postal_addresses
-        click PostalAddress href "./PostalAddress.html"
-      Agent : quantity_values
-        Agent --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Agent : revision
-      Agent : status
-        Agent --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Agent
+click Agent href "./Agent.html" _blank
+Entity <|-- Agent
+click Entity href "./Entity.html" _blank
+Agent <|-- Person
+click Person href "./Person.html" _blank
+Agent <|-- Company
+click Company href "./Company.html" _blank
+Agent <|-- SoftwareAgent
+click SoftwareAgent href "./SoftwareAgent.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 
@@ -85,6 +55,7 @@ URI: [pbs:Agent](https://schema.pragmaticbim.ch/Agent)
     * **Agent**
         * [Person](Person.md)
         * [Company](Company.md)
+        * [SoftwareAgent](SoftwareAgent.md)
 
 
 ## Class Properties
@@ -98,8 +69,6 @@ URI: [pbs:Agent](https://schema.pragmaticbim.ch/Agent)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | direct |
-| [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -129,8 +98,10 @@ URI: [pbs:Agent](https://schema.pragmaticbim.ch/Agent)
 | ---  | --- | --- | --- |
 | [Decision](Decision.md) | [decided_by](decided_by.md) | range | [Agent](Agent.md) |
 | [Task](Task.md) | [assignee](assignee.md) | range | [Agent](Agent.md) |
+| [Process](Process.md) | [process_participants](process_participants.md) | range | [Agent](Agent.md) |
 | [Message](Message.md) | [sender](sender.md) | range | [Agent](Agent.md) |
 | [Message](Message.md) | [recipients](recipients.md) | range | [Agent](Agent.md) |
+| [Contract](Contract.md) | [contract_parties](contract_parties.md) | range | [Agent](Agent.md) |
 
 
 
@@ -179,16 +150,13 @@ URI: [pbs:Agent](https://schema.pragmaticbim.ch/Agent)
 <details>
 ```yaml
 name: Agent
-description: Abstract base class for people or organizations acting in workflow and
-  communication roles.
+description: Abstract base class for human and software actors in workflow and communication
+  roles.
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Agent
 is_a: Entity
 abstract: true
-slots:
-- postal_addresses
-- contact_points
 slot_usage:
   content_kind:
     name: content_kind
@@ -203,8 +171,8 @@ class_uri: pbs:Agent
 <details>
 ```yaml
 name: Agent
-description: Abstract base class for people or organizations acting in workflow and
-  communication roles.
+description: Abstract base class for human and software actors in workflow and communication
+  roles.
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - prov:Agent
@@ -215,29 +183,6 @@ slot_usage:
     name: content_kind
     equals_string: agent
 attributes:
-  postal_addresses:
-    name: postal_addresses
-    description: Structured postal or physical addresses associated with this agent.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Agent
-    domain_of:
-    - Agent
-    range: PostalAddress
-    multivalued: true
-    inlined: true
-  contact_points:
-    name: contact_points
-    description: Structured communication channels and profiles associated with this
-      agent.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Agent
-    domain_of:
-    - Agent
-    range: ContactPoint
-    multivalued: true
-    inlined: true
   id:
     name: id
     description: Unique local identifier.
@@ -332,7 +277,7 @@ attributes:
     owner: Agent
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

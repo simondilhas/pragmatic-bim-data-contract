@@ -36,6 +36,7 @@ click GeometryRepresentation href "./GeometryRepresentation.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
+click Process href "./Process.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
 click Decision href "./Decision.html" _blank
@@ -67,6 +68,7 @@ click StatusType href "./StatusType.html" _blank
 | [assignee](assignee.md) | 0..1 <br/> [Agent](Agent.md) | Responsible agent. | direct |
 | [due_at](due_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Due timestamp for task completion. | direct |
 | [related_decision](related_decision.md) | 0..1 <br/> [Decision](Decision.md) | Optional reference to a decision that informs or drives this task. | direct |
+| [parent_process](parent_process.md) | 0..1 <br/> [Process](Process.md) | Optional BPMN process instance that owns or spawned this task. | direct |
 | [task_notes](task_notes.md) | 0..1 <br/> [String](String.md) | Additional notes or implementation details for the task. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
@@ -166,6 +168,7 @@ slots:
 - assignee
 - due_at
 - related_decision
+- parent_process
 - task_notes
 slot_usage:
   content_kind:
@@ -249,6 +252,16 @@ attributes:
     domain_of:
     - Task
     range: Decision
+    inlined: false
+  parent_process:
+    name: parent_process
+    description: Optional BPMN process instance that owns or spawned this task.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Task
+    domain_of:
+    - Task
+    range: Process
     inlined: false
   task_notes:
     name: task_notes

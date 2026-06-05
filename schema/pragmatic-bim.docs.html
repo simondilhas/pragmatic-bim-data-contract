@@ -622,7 +622,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Agent.html">Agent</a></td>
-<td>Abstract base class for people or organizations acting in workflow and communication roles.</td>
+<td>Abstract base class for human and software actors in workflow and communication roles.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Person.html">Person</a></td>
@@ -633,6 +633,10 @@
 <td>Organization, company, or legal entity participating in the project or asset lifecycle.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SoftwareAgent.html">SoftwareAgent</a></td>
+<td>Automated actor (integration, bot, or pipeline) acting in workflow roles.</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Decision.html">Decision</a></td>
 <td>Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.</td>
 </tr>
@@ -641,12 +645,36 @@
 <td>Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Process.html">Process</a></td>
+<td>Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record.</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Message.html">Message</a></td>
 <td>Message entity for coordination and traceability. Links to related entities via applies_to_entities.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Artifact.html">Artifact</a></td>
 <td>External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Contract.html">Contract</a></td>
+<td>Commercial agreement entity for project scope, parties, and governance. Links to a signed artifact and related model entities via applies_to_entities. Entity.status covers record lifecycle; contract_status uses workflow vocabulary URIs.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Project.html">Project</a></td>
+<td>Business delivery scope for spatial context, systems, and workflow entities.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Program.html">Program</a></td>
+<td>Portfolio or capital program scope grouping related projects.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Product.html">Product</a></td>
+<td>Commercial product or service offering sold by a company.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Deliverable.html">Deliverable</a></td>
+<td>Outcome or handover item produced within a project.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PhysicalElement.html">PhysicalElement</a></td>
@@ -682,11 +710,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SpatialContext.html">SpatialContext</a></td>
-<td>Context node used to represent project, perimeter, legal site, built asset, level, or zone.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ProjectContext.html">ProjectContext</a></td>
-<td>Spatial context node constrained to project semantics.</td>
+<td>Context node used to represent perimeter, legal site, built asset, level, or zone.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PerimeterContext.html">PerimeterContext</a></td>
@@ -734,7 +758,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="CostRecord.html">CostRecord</a></td>
-<td>Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
+<td>Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Material.html">Material</a></td>
@@ -982,6 +1006,10 @@
 <td>Space bounded by this boundary element.</td>
 </tr>
 <tr>
+<td><a href="catalog_cost_records.html">catalog_cost_records</a></td>
+<td>Catalog cost and price records for this product (cost_record_role cost or price).</td>
+</tr>
+<tr>
 <td><a href="change_severity.html">change_severity</a></td>
 <td>Optional severity independent of change type.</td>
 </tr>
@@ -1024,6 +1052,14 @@
 <tr>
 <td><a href="clause_ref.html">clause_ref</a></td>
 <td>Clause, article, or section reference within the norm.</td>
+</tr>
+<tr>
+<td><a href="client.html">client</a></td>
+<td>Owning client organization.</td>
+</tr>
+<tr>
+<td><a href="completed_at.html">completed_at</a></td>
+<td>Timestamp when the process instance completed or terminated, when applicable.</td>
 </tr>
 <tr>
 <td><a href="component_cost_items.html">component_cost_items</a></td>
@@ -1083,7 +1119,23 @@
 </tr>
 <tr>
 <td><a href="context_type.html">context_type</a></td>
-<td>Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).</td>
+<td>Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone).</td>
+</tr>
+<tr>
+<td><a href="contract_parties.html">contract_parties</a></td>
+<td>Agents party to the contract (for example client, contractor, consultant).</td>
+</tr>
+<tr>
+<td><a href="contract_reference.html">contract_reference</a></td>
+<td>Human-readable contract number or external reference.</td>
+</tr>
+<tr>
+<td><a href="contract_status.html">contract_status</a></td>
+<td>Contract status expressed as a URI/CURIE (for example draft, signed, active, terminated, superseded).</td>
+</tr>
+<tr>
+<td><a href="contract_type.html">contract_type</a></td>
+<td>Contract type expressed as a URI/CURIE from a controlled vocabulary (for example design, construction, supply).</td>
 </tr>
 <tr>
 <td><a href="cost_category.html">cost_category</a></td>
@@ -1100,6 +1152,10 @@
 <tr>
 <td><a href="cost_quantity_value.html">cost_quantity_value</a></td>
 <td>Quantity magnitude used as basis for this cost calculation.</td>
+</tr>
+<tr>
+<td><a href="cost_record_role.html">cost_record_role</a></td>
+<td>Role of this cost record (catalog cost, catalog price, project estimate, or actual).</td>
 </tr>
 <tr>
 <td><a href="cost_records.html">cost_records</a></td>
@@ -1130,6 +1186,10 @@
 <td>Decision type expressed as a URI/CURIE from a controlled vocabulary.</td>
 </tr>
 <tr>
+<td><a href="deliverable_code.html">deliverable_code</a></td>
+<td>External or internal deliverable identifier within a project.</td>
+</tr>
+<tr>
 <td><a href="deliverable_format.html">deliverable_format</a></td>
 <td>Required deliverable format or encoding (for example IFC4, PDF, COBie).</td>
 </tr>
@@ -1158,8 +1218,20 @@
 <td>Earliest permitted start when a schedule requirement defines a start window.</td>
 </tr>
 <tr>
+<td><a href="effective_from.html">effective_from</a></td>
+<td>Start of contractual validity.</td>
+</tr>
+<tr>
+<td><a href="effective_until.html">effective_until</a></td>
+<td>End of contractual validity when applicable.</td>
+</tr>
+<tr>
 <td><a href="equipment_type.html">equipment_type</a></td>
 <td>Classification of equipment (for example HVAC, electrical, plumbing).</td>
+</tr>
+<tr>
+<td><a href="external_instance_uri.html">external_instance_uri</a></td>
+<td>URI of the corresponding process instance in an external workflow engine when applicable.</td>
 </tr>
 <tr>
 <td><a href="frame_material.html">frame_material</a></td>
@@ -1318,6 +1390,10 @@
 <td>URI identifying the norm, standard, or building code.</td>
 </tr>
 <tr>
+<td><a href="operated_by.html">operated_by</a></td>
+<td>Organization accountable for this software agent.</td>
+</tr>
+<tr>
 <td><a href="parent_building.html">parent_building</a></td>
 <td>Parent building context reference.</td>
 </tr>
@@ -1334,8 +1410,16 @@
 <td>Parent perimeter context reference.</td>
 </tr>
 <tr>
+<td><a href="parent_process.html">parent_process</a></td>
+<td>Optional BPMN process instance that owns or spawned this task.</td>
+</tr>
+<tr>
+<td><a href="parent_program.html">parent_program</a></td>
+<td>Parent program reference.</td>
+</tr>
+<tr>
 <td><a href="parent_project.html">parent_project</a></td>
-<td>Parent project context reference.</td>
+<td>Parent project reference.</td>
 </tr>
 <tr>
 <td><a href="parent_space.html">parent_space</a></td>
@@ -1374,8 +1458,36 @@
 <td>Postal or ZIP code.</td>
 </tr>
 <tr>
+<td><a href="priced_for_customer.html">priced_for_customer</a></td>
+<td>Optional customer for a customer-specific catalog price when cost_record_role is price.</td>
+</tr>
+<tr>
+<td><a href="process_definition_uri.html">process_definition_uri</a></td>
+<td>URI identifying the BPMN process definition (for example engine definition key or BPMN artifact URI).</td>
+</tr>
+<tr>
+<td><a href="process_participants.html">process_participants</a></td>
+<td>Agents participating in this BPMN process instance (for example assignees mapped from lane roles).</td>
+</tr>
+<tr>
+<td><a href="process_status.html">process_status</a></td>
+<td>Process instance status expressed as a URI/CURIE (for example active, suspended, completed, terminated).</td>
+</tr>
+<tr>
+<td><a href="product_code.html">product_code</a></td>
+<td>External or internal product catalog identifier.</td>
+</tr>
+<tr>
+<td><a href="program_code.html">program_code</a></td>
+<td>External or internal program identifier.</td>
+</tr>
+<tr>
 <td><a href="programme_ref.html">programme_ref</a></td>
 <td>URI or identifier for a programme or brief document.</td>
+</tr>
+<tr>
+<td><a href="project_code.html">project_code</a></td>
+<td>External or internal project identifier.</td>
 </tr>
 <tr>
 <td><a href="property_key.html">property_key</a></td>
@@ -1454,6 +1566,10 @@
 <td>Optional Material entity template this requirement must match or satisfy.</td>
 </tr>
 <tr>
+<td><a href="related_product.html">related_product</a></td>
+<td>Optional catalog product this deliverable implements or this cost record is priced from.</td>
+</tr>
+<tr>
 <td><a href="related_requirement.html">related_requirement</a></td>
 <td>Requirement entity for match_change records.</td>
 </tr>
@@ -1506,6 +1622,22 @@
 <td>Zone context nodes served by this system.</td>
 </tr>
 <tr>
+<td><a href="service_endpoint.html">service_endpoint</a></td>
+<td>Optional URI of the running service or integration endpoint.</td>
+</tr>
+<tr>
+<td><a href="signed_artifact.html">signed_artifact</a></td>
+<td>Optional signed contract artifact at storage_link.</td>
+</tr>
+<tr>
+<td><a href="signed_at.html">signed_at</a></td>
+<td>Timestamp when the contract was signed.</td>
+</tr>
+<tr>
+<td><a href="software_version.html">software_version</a></td>
+<td>Optional deployed version label for the software agent.</td>
+</tr>
+<tr>
 <td><a href="source_artifact.html">source_artifact</a></td>
 <td>Optional source artifact backing this requirement.</td>
 </tr>
@@ -1524,6 +1656,10 @@
 <tr>
 <td><a href="space_type.html">space_type</a></td>
 <td>Classification of space (void, circulation, usable, service).</td>
+</tr>
+<tr>
+<td><a href="started_at.html">started_at</a></td>
+<td>Timestamp when the process instance started.</td>
 </tr>
 <tr>
 <td><a href="statement.html">statement</a></td>
@@ -1627,7 +1763,7 @@
 </tr>
 <tr>
 <td><a href="triggered_process.html">triggered_process</a></td>
-<td>External workflow process URI (for example yourcompanyos process instance).</td>
+<td>BPMN process instance that this change triggered or should trigger.</td>
 </tr>
 <tr>
 <td><a href="triggered_task.html">triggered_task</a></td>
@@ -1640,6 +1776,10 @@
 <tr>
 <td><a href="usage_context.html">usage_context</a></td>
 <td>Optional usage context such as work, personal, support, billing, or emergency.</td>
+</tr>
+<tr>
+<td><a href="vendor.html">vendor</a></td>
+<td>Company that sells or offers this product.</td>
 </tr>
 <tr>
 <td><a href="zone_type.html">zone_type</a></td>
@@ -1698,6 +1838,10 @@
 </tr>
 <tr>
 <td><a href="ContextType.html">ContextType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="CostRecordRole.html">CostRecordRole</a></td>
 <td></td>
 </tr>
 <tr>

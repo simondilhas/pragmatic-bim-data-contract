@@ -62,9 +62,9 @@ click StatusType href "./StatusType.html" _blank
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | direct |
+| [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | direct |
 | [belongs_to_company](belongs_to_company.md) | 0..1 <br/> [Company](Company.md) | Optional company that the person belongs to. | direct |
-| [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | [Agent](Agent.md) |
-| [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | [Agent](Agent.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -142,6 +142,8 @@ exact_mappings:
 - prov:Agent
 is_a: Agent
 slots:
+- postal_addresses
+- contact_points
 - belongs_to_company
 class_uri: pbs:Person
 
@@ -161,16 +163,6 @@ exact_mappings:
 - prov:Agent
 is_a: Agent
 attributes:
-  belongs_to_company:
-    name: belongs_to_company
-    description: Optional company that the person belongs to.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Person
-    domain_of:
-    - Person
-    range: Company
-    inlined: false
   postal_addresses:
     name: postal_addresses
     description: Structured postal or physical addresses associated with this agent.
@@ -178,7 +170,8 @@ attributes:
     rank: 1000
     owner: Person
     domain_of:
-    - Agent
+    - Person
+    - Company
     range: PostalAddress
     multivalued: true
     inlined: true
@@ -190,10 +183,21 @@ attributes:
     rank: 1000
     owner: Person
     domain_of:
-    - Agent
+    - Person
+    - Company
     range: ContactPoint
     multivalued: true
     inlined: true
+  belongs_to_company:
+    name: belongs_to_company
+    description: Optional company that the person belongs to.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: Company
+    inlined: false
   id:
     name: id
     description: Unique local identifier.

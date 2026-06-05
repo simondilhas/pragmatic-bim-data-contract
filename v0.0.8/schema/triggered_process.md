@@ -6,7 +6,7 @@ search:
 # Slot: triggered_process 
 
 
-_External workflow process URI (for example yourcompanyos process instance)._
+_BPMN process instance that this change triggered or should trigger._
 
 
 
@@ -44,7 +44,7 @@ URI: [pbs:triggered_process](https://schema.pragmaticbim.ch/triggered_process)
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
+| Range | [Process](Process.md) |
 | Domain Of | [Change](Change.md) |
 
 ### Cardinality and Requirements
@@ -90,12 +90,13 @@ URI: [pbs:triggered_process](https://schema.pragmaticbim.ch/triggered_process)
 <details>
 ```yaml
 name: triggered_process
-description: External workflow process URI (for example yourcompanyos process instance).
+description: BPMN process instance that this change triggered or should trigger.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
 - Change
-range: uriorcurie
+range: Process
+inlined: false
 
 ```
 </details></div>

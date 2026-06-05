@@ -21,46 +21,19 @@ URI: [pbs:PropertyChange](https://schema.pragmaticbim.ch/PropertyChange)
 
 
 ```mermaid
- classDiagram
-    class PropertyChange
-    click PropertyChange href "./PropertyChange.html"
-      Change <|-- PropertyChange
-        click Change href "./Change.html"
-      PropertyChange : affected_subject
-        PropertyChange --> "0..1" Entity : affected_subject
-        click Entity href "./Entity.html"
-      PropertyChange : affected_subject_id
-      PropertyChange : affected_subject_path
-      PropertyChange : affected_subject_type
-      PropertyChange : change_severity
-        PropertyChange --> "0..1" ChangeSeverity : change_severity
-        click ChangeSeverity href "./ChangeSeverity.html"
-      PropertyChange : change_source
-      PropertyChange : change_type
-        PropertyChange --> "1" ChangeType : change_type
-        click ChangeType href "./ChangeType.html"
-      PropertyChange : detected_at
-      PropertyChange : document_storage_link
-      PropertyChange : from_revision
-      PropertyChange : from_value
-      PropertyChange : id
-      PropertyChange : ifc_attribute_name
-      PropertyChange : ifc_global_id
-      PropertyChange : intent_verdict
-        PropertyChange --> "0..1" ChangeIntentVerdict : intent_verdict
-        click ChangeIntentVerdict href "./ChangeIntentVerdict.html"
-      PropertyChange : property_path
-      PropertyChange : property_path_kind
-        PropertyChange --> "1" PropertyPathKind : property_path_kind
-        click PropertyPathKind href "./PropertyPathKind.html"
-      PropertyChange : source_property
-      PropertyChange : source_pset
-      PropertyChange : to_revision
-      PropertyChange : to_value
-      PropertyChange : triggered_process
-      PropertyChange : triggered_task
-        PropertyChange --> "0..1" Task : triggered_task
-        click Task href "./Task.html"
+classDiagram
+direction TB
+class PropertyChange
+click PropertyChange href "./PropertyChange.html" _blank
+Change <|-- PropertyChange
+click Change href "./Change.html" _blank
+click Entity href "./Entity.html" _blank
+click ChangeSeverity href "./ChangeSeverity.html" _blank
+click ChangeType href "./ChangeType.html" _blank
+click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
+click PropertyPathKind href "./PropertyPathKind.html" _blank
+click Process href "./Process.html" _blank
+click Task href "./Task.html" _blank
 ```
 
 
@@ -96,14 +69,14 @@ URI: [pbs:PropertyChange](https://schema.pragmaticbim.ch/PropertyChange)
 | [intent_verdict](intent_verdict.md) | 0..1 <br/> [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). | [Change](Change.md) |
 | [affected_subject](affected_subject.md) | 0..1 <br/> [Entity](Entity.md) | Optional typed reference to the changed graph entity when the subject is in the project graph. | [Change](Change.md) |
 | [affected_subject_id](affected_subject_id.md) | 1 <br/> [String](String.md) | Identifier of the changed subject (entity id, document id, or external key). | [Change](Change.md) |
-| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, yamlDocument). | [Change](Change.md) |
+| [affected_subject_type](affected_subject_type.md) | 1 <br/> [String](String.md) | LinkML class name of the changed subject (for example Space, SeparatorWall, Artifact). | [Change](Change.md) |
 | [affected_subject_path](affected_subject_path.md) | 0..1 <br/> [String](String.md) | Optional JSON-pointer-style path for nested targets (for example localized_descriptions[de], section.4.2.paragraph_1). | [Change](Change.md) |
 | [ifc_global_id](ifc_global_id.md) | 0..1 <br/> [String](String.md) | IFC GlobalId of the mapped entity. | [Change](Change.md) |
-| [document_storage_link](document_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Document location when the subject is a yamlDocument entity or document field diff. | [Change](Change.md) |
+| [artifact_storage_link](artifact_storage_link.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Artifact location when the subject is an Artifact entity or embedded field diff. | [Change](Change.md) |
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | [Change](Change.md) |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | [Change](Change.md) |
 | [triggered_task](triggered_task.md) | 0..1 <br/> [Task](Task.md) | Task entity that this change triggered or should trigger. | [Change](Change.md) |
-| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | [Change](Change.md) |
+| [triggered_process](triggered_process.md) | 0..1 <br/> [Process](Process.md) | BPMN process instance that this change triggered or should trigger. | [Change](Change.md) |
 | [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | [Change](Change.md) |
 | [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record. | [Change](Change.md) |
 
@@ -358,7 +331,7 @@ attributes:
   affected_subject_type:
     name: affected_subject_type
     description: 'LinkML class name of the changed subject (for example Space, SeparatorWall,
-      yamlDocument).
+      Artifact).
 
       '
     from_schema: https://schema.pragmaticbim.ch
@@ -391,9 +364,9 @@ attributes:
     - Change
     range: string
     pattern: ^[0-3][0-9A-Za-z_$]{21}$
-  document_storage_link:
-    name: document_storage_link
-    description: Document location when the subject is a yamlDocument entity or document
+  artifact_storage_link:
+    name: artifact_storage_link
+    description: Artifact location when the subject is an Artifact entity or embedded
       field diff.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
@@ -435,14 +408,14 @@ attributes:
     inlined: false
   triggered_process:
     name: triggered_process
-    description: External workflow process URI (for example yourcompanyos process
-      instance).
+    description: BPMN process instance that this change triggered or should trigger.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: PropertyChange
     domain_of:
     - Change
-    range: uriorcurie
+    range: Process
+    inlined: false
   detected_at:
     name: detected_at
     description: Timestamp when this change was detected.

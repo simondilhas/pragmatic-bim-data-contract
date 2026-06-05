@@ -58,7 +58,6 @@ click ContactPoint href "./ContactPoint.html" _blank
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Agent](Agent.md) | [contact_points](contact_points.md) | range | [ContactPoint](ContactPoint.md) |
 | [Person](Person.md) | [contact_points](contact_points.md) | range | [ContactPoint](ContactPoint.md) |
 | [Company](Company.md) | [contact_points](contact_points.md) | range | [ContactPoint](ContactPoint.md) |
 

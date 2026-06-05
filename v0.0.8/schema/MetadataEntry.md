@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: MetadataEntry 
@@ -8,7 +8,7 @@ search:
 
 _Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,11 +21,10 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 
 
 ```mermaid
- classDiagram
-    class MetadataEntry
-    click MetadataEntry href "./MetadataEntry.html"
-      MetadataEntry : metadata_key
-      MetadataEntry : metadata_value
+classDiagram
+direction TB
+class MetadataEntry
+click MetadataEntry href "./MetadataEntry.html" _blank
 ```
 
 
@@ -59,10 +58,17 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 | [Agent](Agent.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Person](Person.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Company](Company.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [SoftwareAgent](SoftwareAgent.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Decision](Decision.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Task](Task.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Process](Process.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Message](Message.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [YamlDocument](YamlDocument.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Artifact](Artifact.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Contract](Contract.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Project](Project.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Program](Program.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Product](Product.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
+| [Deliverable](Deliverable.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [Requirement](Requirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
@@ -81,7 +87,6 @@ URI: [pbs:MetadataEntry](https://schema.pragmaticbim.ch/MetadataEntry)
 | [Equipment](Equipment.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [VirtualEntity](VirtualEntity.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [SpatialContext](SpatialContext.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
-| [ProjectContext](ProjectContext.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [PerimeterContext](PerimeterContext.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [metadata](metadata.md) | range | [MetadataEntry](MetadataEntry.md) |

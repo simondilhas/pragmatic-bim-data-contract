@@ -35,6 +35,7 @@ click ChangeType href "./ChangeType.html" _blank
 click ChangeIntentVerdict href "./ChangeIntentVerdict.html" _blank
 click MatchStatus href "./MatchStatus.html" _blank
 click Requirement href "./Requirement.html" _blank
+click Process href "./Process.html" _blank
 click Task href "./Task.html" _blank
 ```
 
@@ -73,7 +74,7 @@ click Task href "./Task.html" _blank
 | [from_revision](from_revision.md) | 1 <br/> [Integer](Integer.md) | Source revision number for this change. | [Change](Change.md) |
 | [to_revision](to_revision.md) | 1 <br/> [Integer](Integer.md) | Target revision number for this change. | [Change](Change.md) |
 | [triggered_task](triggered_task.md) | 0..1 <br/> [Task](Task.md) | Task entity that this change triggered or should trigger. | [Change](Change.md) |
-| [triggered_process](triggered_process.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | External workflow process URI (for example yourcompanyos process instance). | [Change](Change.md) |
+| [triggered_process](triggered_process.md) | 0..1 <br/> [Process](Process.md) | BPMN process instance that this change triggered or should trigger. | [Change](Change.md) |
 | [detected_at](detected_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when this change was detected. | [Change](Change.md) |
 | [change_source](change_source.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI identifying the tool or pipeline that produced this change record. | [Change](Change.md) |
 
@@ -321,14 +322,14 @@ attributes:
     inlined: false
   triggered_process:
     name: triggered_process
-    description: External workflow process URI (for example yourcompanyos process
-      instance).
+    description: BPMN process instance that this change triggered or should trigger.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: MatchChange
     domain_of:
     - Change
-    range: uriorcurie
+    range: Process
+    inlined: false
   detected_at:
     name: detected_at
     description: Timestamp when this change was detected.

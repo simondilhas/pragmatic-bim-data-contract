@@ -21,83 +21,33 @@ URI: [pbs:LegalSiteContext](https://schema.pragmaticbim.ch/LegalSiteContext)
 
 
 ```mermaid
- classDiagram
-    class LegalSiteContext
-    click LegalSiteContext href "./LegalSiteContext.html"
-      SpatialContext <|-- LegalSiteContext
-        click SpatialContext href "./SpatialContext.html"
-      LegalSiteContext : applies_to_entities
-        LegalSiteContext --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      LegalSiteContext : classifications
-        LegalSiteContext --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      LegalSiteContext : content_kind
-      LegalSiteContext : context_type
-        LegalSiteContext --> "1" ContextType : context_type
-        click ContextType href "./ContextType.html"
-      LegalSiteContext : cost_records
-        LegalSiteContext --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      LegalSiteContext : created_at
-      LegalSiteContext : description
-      LegalSiteContext : geometry_representations
-        LegalSiteContext --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      LegalSiteContext : group_members
-        LegalSiteContext --> "*" Entity : group_members
-        click Entity href "./Entity.html"
-      LegalSiteContext : id
-      LegalSiteContext : ifc_global_id
-      LegalSiteContext : localized_descriptions
-        LegalSiteContext --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      LegalSiteContext : localized_names
-        LegalSiteContext --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      LegalSiteContext : materials
-        LegalSiteContext --> "*" Material : materials
-        click Material href "./Material.html"
-      LegalSiteContext : meaning_uri
-      LegalSiteContext : metadata
-        LegalSiteContext --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      LegalSiteContext : modified_at
-      LegalSiteContext : name
-      LegalSiteContext : parent_building
-        LegalSiteContext --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      LegalSiteContext : parent_legal_site
-        LegalSiteContext --> "0..1" LegalSiteContext : parent_legal_site
-        click LegalSiteContext href "./LegalSiteContext.html"
-      LegalSiteContext : parent_level
-        LegalSiteContext --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      LegalSiteContext : parent_perimeter
-        LegalSiteContext --> "0..1" PerimeterContext : parent_perimeter
-        click PerimeterContext href "./PerimeterContext.html"
-      LegalSiteContext : parent_project
-        LegalSiteContext --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      LegalSiteContext : parent_zone
-        LegalSiteContext --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      LegalSiteContext : performance_properties
-        LegalSiteContext --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      LegalSiteContext : quantity_values
-        LegalSiteContext --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      LegalSiteContext : revision
-      LegalSiteContext : status
-        LegalSiteContext --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      LegalSiteContext : time_records
-        LegalSiteContext --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      LegalSiteContext : zone_type
-        LegalSiteContext --> "0..1" ZoneType : zone_type
-        click ZoneType href "./ZoneType.html"
+classDiagram
+direction TB
+class LegalSiteContext
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+SpatialContext <|-- LegalSiteContext
+click SpatialContext href "./SpatialContext.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContextType href "./ContextType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Entity href "./Entity.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerimeterContext href "./PerimeterContext.html" _blank
+click Project href "./Project.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click ZoneType href "./ZoneType.html" _blank
 ```
 
 
@@ -122,9 +72,9 @@ URI: [pbs:LegalSiteContext](https://schema.pragmaticbim.ch/LegalSiteContext)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
+| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
 | [zone_type](zone_type.md) | 0..1 <br/> [ZoneType](ZoneType.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. | [SpatialContext](SpatialContext.md) |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference. | [SpatialContext](SpatialContext.md) |
+| [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | [SpatialContext](SpatialContext.md) |
 | [parent_perimeter](parent_perimeter.md) | 0..1 <br/> [PerimeterContext](PerimeterContext.md) | Parent perimeter context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_legal_site](parent_legal_site.md) | 0..1 <br/> [LegalSiteContext](LegalSiteContext.md) | Parent legal site context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [SpatialContext](SpatialContext.md) |
@@ -162,7 +112,6 @@ URI: [pbs:LegalSiteContext](https://schema.pragmaticbim.ch/LegalSiteContext)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [SpatialContext](SpatialContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
-| [ProjectContext](ProjectContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
 | [PerimeterContext](PerimeterContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [parent_legal_site](parent_legal_site.md) | range | [LegalSiteContext](LegalSiteContext.md) |
@@ -236,8 +185,8 @@ is_a: SpatialContext
 attributes:
   context_type:
     name: context_type
-    description: Classification of context entity (project, perimeter, legal_site,
-      building, civil_structure, level, zone).
+    description: Classification of context entity (perimeter, legal_site, building,
+      civil_structure, level, zone).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: LegalSiteContext
@@ -257,14 +206,16 @@ attributes:
     range: ZoneType
   parent_project:
     name: parent_project
-    description: Parent project context reference.
+    description: Parent project reference.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: LegalSiteContext
     domain_of:
+    - Process
+    - Deliverable
     - SpatialContext
     - System
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     description: Parent perimeter context reference.
@@ -453,7 +404,7 @@ attributes:
     owner: LegalSiteContext
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

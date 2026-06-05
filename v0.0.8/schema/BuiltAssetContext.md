@@ -23,87 +23,37 @@ URI: [pbs:BuiltAssetContext](https://schema.pragmaticbim.ch/BuiltAssetContext)
 
 
 ```mermaid
- classDiagram
-    class BuiltAssetContext
-    click BuiltAssetContext href "./BuiltAssetContext.html"
-      SpatialContext <|-- BuiltAssetContext
-        click SpatialContext href "./SpatialContext.html"
-      BuiltAssetContext <|-- BuildingContext
-        click BuildingContext href "./BuildingContext.html"
-      BuiltAssetContext <|-- CivilStructureContext
-        click CivilStructureContext href "./CivilStructureContext.html"
-      BuiltAssetContext : applies_to_entities
-        BuiltAssetContext --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      BuiltAssetContext : classifications
-        BuiltAssetContext --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      BuiltAssetContext : content_kind
-      BuiltAssetContext : context_type
-        BuiltAssetContext --> "1" ContextType : context_type
-        click ContextType href "./ContextType.html"
-      BuiltAssetContext : cost_records
-        BuiltAssetContext --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      BuiltAssetContext : created_at
-      BuiltAssetContext : description
-      BuiltAssetContext : geometry_representations
-        BuiltAssetContext --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      BuiltAssetContext : group_members
-        BuiltAssetContext --> "*" Entity : group_members
-        click Entity href "./Entity.html"
-      BuiltAssetContext : id
-      BuiltAssetContext : ifc_global_id
-      BuiltAssetContext : localized_descriptions
-        BuiltAssetContext --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      BuiltAssetContext : localized_names
-        BuiltAssetContext --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      BuiltAssetContext : materials
-        BuiltAssetContext --> "*" Material : materials
-        click Material href "./Material.html"
-      BuiltAssetContext : meaning_uri
-      BuiltAssetContext : metadata
-        BuiltAssetContext --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      BuiltAssetContext : modified_at
-      BuiltAssetContext : name
-      BuiltAssetContext : parent_building
-        BuiltAssetContext --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      BuiltAssetContext : parent_legal_site
-        BuiltAssetContext --> "0..1" LegalSiteContext : parent_legal_site
-        click LegalSiteContext href "./LegalSiteContext.html"
-      BuiltAssetContext : parent_level
-        BuiltAssetContext --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      BuiltAssetContext : parent_perimeter
-        BuiltAssetContext --> "0..1" PerimeterContext : parent_perimeter
-        click PerimeterContext href "./PerimeterContext.html"
-      BuiltAssetContext : parent_project
-        BuiltAssetContext --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      BuiltAssetContext : parent_zone
-        BuiltAssetContext --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      BuiltAssetContext : performance_properties
-        BuiltAssetContext --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      BuiltAssetContext : quantity_values
-        BuiltAssetContext --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      BuiltAssetContext : revision
-      BuiltAssetContext : status
-        BuiltAssetContext --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      BuiltAssetContext : time_records
-        BuiltAssetContext --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      BuiltAssetContext : zone_type
-        BuiltAssetContext --> "0..1" ZoneType : zone_type
-        click ZoneType href "./ZoneType.html"
+classDiagram
+direction TB
+class BuiltAssetContext
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+SpatialContext <|-- BuiltAssetContext
+click SpatialContext href "./SpatialContext.html" _blank
+BuiltAssetContext <|-- BuildingContext
+click BuildingContext href "./BuildingContext.html" _blank
+BuiltAssetContext <|-- CivilStructureContext
+click CivilStructureContext href "./CivilStructureContext.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContextType href "./ContextType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Entity href "./Entity.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerimeterContext href "./PerimeterContext.html" _blank
+click Project href "./Project.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click ZoneType href "./ZoneType.html" _blank
 ```
 
 
@@ -130,9 +80,9 @@ URI: [pbs:BuiltAssetContext](https://schema.pragmaticbim.ch/BuiltAssetContext)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
+| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
 | [zone_type](zone_type.md) | 0..1 <br/> [ZoneType](ZoneType.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. | [SpatialContext](SpatialContext.md) |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference. | [SpatialContext](SpatialContext.md) |
+| [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | [SpatialContext](SpatialContext.md) |
 | [parent_perimeter](parent_perimeter.md) | 0..1 <br/> [PerimeterContext](PerimeterContext.md) | Parent perimeter context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_legal_site](parent_legal_site.md) | 0..1 <br/> [LegalSiteContext](LegalSiteContext.md) | Parent legal site context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [SpatialContext](SpatialContext.md) |
@@ -177,7 +127,6 @@ URI: [pbs:BuiltAssetContext](https://schema.pragmaticbim.ch/BuiltAssetContext)
 | [Boundary](Boundary.md) | [parent_building](parent_building.md) | range | [BuiltAssetContext](BuiltAssetContext.md) |
 | [Equipment](Equipment.md) | [parent_building](parent_building.md) | range | [BuiltAssetContext](BuiltAssetContext.md) |
 | [SpatialContext](SpatialContext.md) | [parent_building](parent_building.md) | range | [BuiltAssetContext](BuiltAssetContext.md) |
-| [ProjectContext](ProjectContext.md) | [parent_building](parent_building.md) | range | [BuiltAssetContext](BuiltAssetContext.md) |
 | [PerimeterContext](PerimeterContext.md) | [parent_building](parent_building.md) | range | [BuiltAssetContext](BuiltAssetContext.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [parent_building](parent_building.md) | range | [BuiltAssetContext](BuiltAssetContext.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [parent_building](parent_building.md) | range | [BuiltAssetContext](BuiltAssetContext.md) |
@@ -257,8 +206,8 @@ abstract: true
 attributes:
   context_type:
     name: context_type
-    description: Classification of context entity (project, perimeter, legal_site,
-      building, civil_structure, level, zone).
+    description: Classification of context entity (perimeter, legal_site, building,
+      civil_structure, level, zone).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: BuiltAssetContext
@@ -278,14 +227,16 @@ attributes:
     range: ZoneType
   parent_project:
     name: parent_project
-    description: Parent project context reference.
+    description: Parent project reference.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: BuiltAssetContext
     domain_of:
+    - Process
+    - Deliverable
     - SpatialContext
     - System
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     description: Parent perimeter context reference.
@@ -474,7 +425,7 @@ attributes:
     owner: BuiltAssetContext
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

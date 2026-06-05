@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: Classification 
@@ -8,7 +8,7 @@ search:
 
 _Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom)._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,15 +21,10 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 
 
 ```mermaid
- classDiagram
-    class Classification
-    click Classification href "./Classification.html"
-      Classification : classification_code
-      Classification : classification_label
-      Classification : classification_scheme
-      Classification : classification_source
-      Classification : classification_uri
-      Classification : classification_version
+classDiagram
+direction TB
+class Classification
+click Classification href "./Classification.html" _blank
 ```
 
 
@@ -67,10 +62,17 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 | [Agent](Agent.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Person](Person.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Company](Company.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [SoftwareAgent](SoftwareAgent.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Decision](Decision.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Task](Task.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Process](Process.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Message](Message.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [YamlDocument](YamlDocument.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Artifact](Artifact.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Contract](Contract.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Project](Project.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Program](Program.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Product](Product.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
+| [Deliverable](Deliverable.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [Requirement](Requirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
@@ -89,7 +91,6 @@ URI: [pbs:Classification](https://schema.pragmaticbim.ch/Classification)
 | [Equipment](Equipment.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [VirtualEntity](VirtualEntity.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [SpatialContext](SpatialContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
-| [ProjectContext](ProjectContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [PerimeterContext](PerimeterContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [classifications](classifications.md) | range | [Classification](Classification.md) |

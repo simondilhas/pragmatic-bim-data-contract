@@ -6,7 +6,7 @@ search:
 # Slot: context_type 
 
 
-_Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)._
+_Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)._
 
 
 
@@ -25,8 +25,7 @@ URI: [pbs:context_type](https://schema.pragmaticbim.ch/context_type)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, level, or zone. |  no  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics. |  no  |
+| [SpatialContext](SpatialContext.md) | Context node used to represent perimeter, legal site, built asset, level, or zone. |  no  |
 | [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics. |  no  |
 | [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics. |  no  |
 | [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structures. |  no  |
@@ -93,8 +92,8 @@ URI: [pbs:context_type](https://schema.pragmaticbim.ch/context_type)
 <details>
 ```yaml
 name: context_type
-description: Classification of context entity (project, perimeter, legal_site, building,
-  civil_structure, level, zone).
+description: Classification of context entity (perimeter, legal_site, building, civil_structure,
+  level, zone).
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:

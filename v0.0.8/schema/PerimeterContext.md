@@ -21,83 +21,33 @@ URI: [pbs:PerimeterContext](https://schema.pragmaticbim.ch/PerimeterContext)
 
 
 ```mermaid
- classDiagram
-    class PerimeterContext
-    click PerimeterContext href "./PerimeterContext.html"
-      SpatialContext <|-- PerimeterContext
-        click SpatialContext href "./SpatialContext.html"
-      PerimeterContext : applies_to_entities
-        PerimeterContext --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      PerimeterContext : classifications
-        PerimeterContext --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      PerimeterContext : content_kind
-      PerimeterContext : context_type
-        PerimeterContext --> "1" ContextType : context_type
-        click ContextType href "./ContextType.html"
-      PerimeterContext : cost_records
-        PerimeterContext --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      PerimeterContext : created_at
-      PerimeterContext : description
-      PerimeterContext : geometry_representations
-        PerimeterContext --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      PerimeterContext : group_members
-        PerimeterContext --> "*" Entity : group_members
-        click Entity href "./Entity.html"
-      PerimeterContext : id
-      PerimeterContext : ifc_global_id
-      PerimeterContext : localized_descriptions
-        PerimeterContext --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      PerimeterContext : localized_names
-        PerimeterContext --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      PerimeterContext : materials
-        PerimeterContext --> "*" Material : materials
-        click Material href "./Material.html"
-      PerimeterContext : meaning_uri
-      PerimeterContext : metadata
-        PerimeterContext --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      PerimeterContext : modified_at
-      PerimeterContext : name
-      PerimeterContext : parent_building
-        PerimeterContext --> "0..1" BuiltAssetContext : parent_building
-        click BuiltAssetContext href "./BuiltAssetContext.html"
-      PerimeterContext : parent_legal_site
-        PerimeterContext --> "0..1" LegalSiteContext : parent_legal_site
-        click LegalSiteContext href "./LegalSiteContext.html"
-      PerimeterContext : parent_level
-        PerimeterContext --> "0..1" LevelContext : parent_level
-        click LevelContext href "./LevelContext.html"
-      PerimeterContext : parent_perimeter
-        PerimeterContext --> "0..1" PerimeterContext : parent_perimeter
-        click PerimeterContext href "./PerimeterContext.html"
-      PerimeterContext : parent_project
-        PerimeterContext --> "0..1" ProjectContext : parent_project
-        click ProjectContext href "./ProjectContext.html"
-      PerimeterContext : parent_zone
-        PerimeterContext --> "0..1" ZoneContext : parent_zone
-        click ZoneContext href "./ZoneContext.html"
-      PerimeterContext : performance_properties
-        PerimeterContext --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      PerimeterContext : quantity_values
-        PerimeterContext --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      PerimeterContext : revision
-      PerimeterContext : status
-        PerimeterContext --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      PerimeterContext : time_records
-        PerimeterContext --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
-      PerimeterContext : zone_type
-        PerimeterContext --> "0..1" ZoneType : zone_type
-        click ZoneType href "./ZoneType.html"
+classDiagram
+direction TB
+class PerimeterContext
+click PerimeterContext href "./PerimeterContext.html" _blank
+SpatialContext <|-- PerimeterContext
+click SpatialContext href "./SpatialContext.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click ContextType href "./ContextType.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click Entity href "./Entity.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click BuiltAssetContext href "./BuiltAssetContext.html" _blank
+click LegalSiteContext href "./LegalSiteContext.html" _blank
+click LevelContext href "./LevelContext.html" _blank
+click PerimeterContext href "./PerimeterContext.html" _blank
+click Project href "./Project.html" _blank
+click ZoneContext href "./ZoneContext.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
+click ZoneType href "./ZoneType.html" _blank
 ```
 
 
@@ -116,15 +66,16 @@ URI: [pbs:PerimeterContext](https://schema.pragmaticbim.ch/PerimeterContext)
 | Property | Value |
 | --- | --- |
 | Class URI | [pbs:PerimeterContext](https://schema.pragmaticbim.ch/PerimeterContext) |
+| Tree Root | Yes |
 
 
 ## Slots
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
+| [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
 | [zone_type](zone_type.md) | 0..1 <br/> [ZoneType](ZoneType.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. | [SpatialContext](SpatialContext.md) |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference. | [SpatialContext](SpatialContext.md) |
+| [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | [SpatialContext](SpatialContext.md) |
 | [parent_perimeter](parent_perimeter.md) | 0..1 <br/> [PerimeterContext](PerimeterContext.md) | Parent perimeter context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_legal_site](parent_legal_site.md) | 0..1 <br/> [LegalSiteContext](LegalSiteContext.md) | Parent legal site context reference. | [SpatialContext](SpatialContext.md) |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | [SpatialContext](SpatialContext.md) |
@@ -162,7 +113,6 @@ URI: [pbs:PerimeterContext](https://schema.pragmaticbim.ch/PerimeterContext)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [SpatialContext](SpatialContext.md) | [parent_perimeter](parent_perimeter.md) | range | [PerimeterContext](PerimeterContext.md) |
-| [ProjectContext](ProjectContext.md) | [parent_perimeter](parent_perimeter.md) | range | [PerimeterContext](PerimeterContext.md) |
 | [PerimeterContext](PerimeterContext.md) | [parent_perimeter](parent_perimeter.md) | range | [PerimeterContext](PerimeterContext.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [parent_perimeter](parent_perimeter.md) | range | [PerimeterContext](PerimeterContext.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [parent_perimeter](parent_perimeter.md) | range | [PerimeterContext](PerimeterContext.md) |
@@ -221,6 +171,7 @@ description: Spatial context node constrained to perimeter semantics.
 from_schema: https://schema.pragmaticbim.ch
 is_a: SpatialContext
 class_uri: pbs:PerimeterContext
+tree_root: true
 
 ```
 </details>
@@ -236,8 +187,8 @@ is_a: SpatialContext
 attributes:
   context_type:
     name: context_type
-    description: Classification of context entity (project, perimeter, legal_site,
-      building, civil_structure, level, zone).
+    description: Classification of context entity (perimeter, legal_site, building,
+      civil_structure, level, zone).
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: PerimeterContext
@@ -257,14 +208,16 @@ attributes:
     range: ZoneType
   parent_project:
     name: parent_project
-    description: Parent project context reference.
+    description: Parent project reference.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: PerimeterContext
     domain_of:
+    - Process
+    - Deliverable
     - SpatialContext
     - System
-    range: ProjectContext
+    range: Project
   parent_perimeter:
     name: parent_perimeter
     description: Parent perimeter context reference.
@@ -453,7 +406,7 @@ attributes:
     owner: PerimeterContext
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true
@@ -561,6 +514,7 @@ attributes:
     - Entity
     range: StatusType
 class_uri: pbs:PerimeterContext
+tree_root: true
 
 ```
 </details></div>

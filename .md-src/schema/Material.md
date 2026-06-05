@@ -98,7 +98,6 @@ click TimeRecord href "./TimeRecord.html" _blank
 | [ConnectionPhysical](ConnectionPhysical.md) | [infill_material](infill_material.md) | range | [Material](Material.md) |
 | [VirtualEntity](VirtualEntity.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [SpatialContext](SpatialContext.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [ProjectContext](ProjectContext.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [PerimeterContext](PerimeterContext.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [materials](materials.md) | range | [Material](Material.md) |

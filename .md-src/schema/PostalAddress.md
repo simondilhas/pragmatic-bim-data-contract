@@ -59,7 +59,6 @@ click PostalAddress href "./PostalAddress.html" _blank
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Agent](Agent.md) | [postal_addresses](postal_addresses.md) | range | [PostalAddress](PostalAddress.md) |
 | [Person](Person.md) | [postal_addresses](postal_addresses.md) | range | [PostalAddress](PostalAddress.md) |
 | [Company](Company.md) | [postal_addresses](postal_addresses.md) | range | [PostalAddress](PostalAddress.md) |
 

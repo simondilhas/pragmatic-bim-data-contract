@@ -494,7 +494,7 @@
 </tr>
 <tr>
 <td><a href="Agent.html">Agent</a></td>
-<td>Abstract base class for people or organizations acting in workflow and communication roles.</td>
+<td>Abstract base class for human and software actors in workflow and communication roles.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -508,6 +508,11 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="SoftwareAgent.html">SoftwareAgent</a></td>
+<td>Automated actor (integration, bot, or pipeline) acting in workflow roles.</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="Decision.html">Decision</a></td>
 <td>Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.</td>
 <td>no</td>
@@ -515,6 +520,11 @@
 <tr>
 <td><a href="Task.html">Task</a></td>
 <td>Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Process.html">Process</a></td>
+<td>Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -526,6 +536,31 @@
 <td><a href="Artifact.html">Artifact</a></td>
 <td>External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element.</td>
 <td>yes</td>
+</tr>
+<tr>
+<td><a href="Contract.html">Contract</a></td>
+<td>Commercial agreement entity for project scope, parties, and governance. Links to a signed artifact and related model entities via applies_to_entities. Entity.status covers record lifecycle; contract_status uses workflow vocabulary URIs.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Project.html">Project</a></td>
+<td>Business delivery scope for spatial context, systems, and workflow entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Program.html">Program</a></td>
+<td>Portfolio or capital program scope grouping related projects.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Product.html">Product</a></td>
+<td>Commercial product or service offering sold by a company.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Deliverable.html">Deliverable</a></td>
+<td>Outcome or handover item produced within a project.</td>
+<td>no</td>
 </tr>
 <tr>
 <td><a href="Requirement.html">Requirement</a></td>
@@ -614,12 +649,7 @@
 </tr>
 <tr>
 <td><a href="SpatialContext.html">SpatialContext</a></td>
-<td>Context node used to represent project, perimeter, legal site, built asset, level, or zone.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="ProjectContext.html">ProjectContext</a></td>
-<td>Spatial context node constrained to project semantics.</td>
+<td>Context node used to represent perimeter, legal site, built asset, level, or zone.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -679,7 +709,7 @@
 </tr>
 <tr>
 <td><a href="CostRecord.html">CostRecord</a></td>
-<td>Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
+<td>Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price).</td>
 <td>no</td>
 </tr>
 <tr>

@@ -21,58 +21,24 @@ URI: [pbs:Material](https://schema.pragmaticbim.ch/Material)
 
 
 ```mermaid
- classDiagram
-    class Material
-    click Material href "./Material.html"
-      VirtualEntity <|-- Material
-        click VirtualEntity href "./VirtualEntity.html"
-      Material : applies_to_entities
-        Material --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Material : classifications
-        Material --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Material : content_kind
-      Material : cost_records
-        Material --> "*" CostRecord : cost_records
-        click CostRecord href "./CostRecord.html"
-      Material : created_at
-      Material : description
-      Material : geometry_representations
-        Material --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Material : id
-      Material : ifc_global_id
-      Material : localized_descriptions
-        Material --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Material : localized_names
-        Material --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Material : material_category
-      Material : material_specification
-      Material : materials
-        Material --> "*" Material : materials
-        click Material href "./Material.html"
-      Material : meaning_uri
-      Material : metadata
-        Material --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Material : modified_at
-      Material : name
-      Material : performance_properties
-        Material --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Material : quantity_values
-        Material --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Material : revision
-      Material : status
-        Material --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
-      Material : time_records
-        Material --> "*" TimeRecord : time_records
-        click TimeRecord href "./TimeRecord.html"
+classDiagram
+direction TB
+class Material
+click Material href "./Material.html" _blank
+VirtualEntity <|-- Material
+click VirtualEntity href "./VirtualEntity.html" _blank
+click Entity href "./Entity.html" _blank
+click Classification href "./Classification.html" _blank
+click CostRecord href "./CostRecord.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click Material href "./Material.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
+click TimeRecord href "./TimeRecord.html" _blank
 ```
 
 
@@ -132,7 +98,6 @@ URI: [pbs:Material](https://schema.pragmaticbim.ch/Material)
 | [ConnectionPhysical](ConnectionPhysical.md) | [infill_material](infill_material.md) | range | [Material](Material.md) |
 | [VirtualEntity](VirtualEntity.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [SpatialContext](SpatialContext.md) | [materials](materials.md) | range | [Material](Material.md) |
-| [ProjectContext](ProjectContext.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [PerimeterContext](PerimeterContext.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [materials](materials.md) | range | [Material](Material.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [materials](materials.md) | range | [Material](Material.md) |
@@ -361,7 +326,7 @@ attributes:
     owner: Material
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

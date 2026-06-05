@@ -1,6 +1,6 @@
 ---
 search:
-  boost: 10.0
+  boost: 2.0
 ---
 
 # Class: QuantityValue 
@@ -8,7 +8,7 @@ search:
 
 _Minimal quantity record for costing and analysis._
 
-
+> **Embedded value type** — nested inside a parent record, not a graph node.
 
 <div data-search-exclude markdown="1">
 
@@ -21,15 +21,11 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 
 
 ```mermaid
- classDiagram
-    class QuantityValue
-    click QuantityValue href "./QuantityValue.html"
-      QuantityValue : quantity_type
-        QuantityValue --> "1" QuantityType : quantity_type
-        click QuantityType href "./QuantityType.html"
-      QuantityValue : quantity_unit
-      QuantityValue : quantity_unit_uri
-      QuantityValue : quantity_value
+classDiagram
+direction TB
+class QuantityValue
+click QuantityValue href "./QuantityValue.html" _blank
+click QuantityType href "./QuantityType.html" _blank
 ```
 
 
@@ -65,10 +61,17 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 | [Agent](Agent.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Person](Person.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Company](Company.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [SoftwareAgent](SoftwareAgent.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Decision](Decision.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Task](Task.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Process](Process.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Message](Message.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [YamlDocument](YamlDocument.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Artifact](Artifact.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Contract](Contract.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Project](Project.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Program](Program.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Product](Product.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
+| [Deliverable](Deliverable.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [Requirement](Requirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
@@ -87,7 +90,6 @@ URI: [pbs:QuantityValue](https://schema.pragmaticbim.ch/QuantityValue)
 | [Equipment](Equipment.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [VirtualEntity](VirtualEntity.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [SpatialContext](SpatialContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
-| [ProjectContext](ProjectContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [PerimeterContext](PerimeterContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [quantity_values](quantity_values.md) | range | [QuantityValue](QuantityValue.md) |

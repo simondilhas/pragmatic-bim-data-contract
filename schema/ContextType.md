@@ -18,7 +18,6 @@ URI: [pbs:ContextType](https://schema.pragmaticbim.ch/ContextType)
 ## Permissible Values
 | Value | Meaning | Description | Additional Info |
 | --- | --- | --- | --- |
-| project | ifcowl:IfcProject |  | Title: Project<br>|
 | perimeter | ifcowl:IfcSite |  | Title: Perimeter<br>|
 | legal_site | pbs:LegalSiteContext |  | Title: Legal Site<br>|
 | building | bot:Building |  | Title: Building<br>|
@@ -33,7 +32,7 @@ URI: [pbs:ContextType](https://schema.pragmaticbim.ch/ContextType)
 
 | Name | Description |
 | ---  | --- |
-| [context_type](context_type.md) | Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone). |
+| [context_type](context_type.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). |
 
 
 
@@ -69,14 +68,6 @@ from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 enum_uri: pbs:ContextType
 permissible_values:
-  project:
-    text: project
-    meaning: ifcowl:IfcProject
-    alt_descriptions:
-      de:
-        source: de
-        description: Projekt
-    title: Project
   perimeter:
     text: perimeter
     meaning: ifcowl:IfcSite

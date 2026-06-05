@@ -21,56 +21,24 @@ URI: [pbs:Person](https://schema.pragmaticbim.ch/Person)
 
 
 ```mermaid
- classDiagram
-    class Person
-    click Person href "./Person.html"
-      Agent <|-- Person
-        click Agent href "./Agent.html"
-      Person : applies_to_entities
-        Person --> "*" Entity : applies_to_entities
-        click Entity href "./Entity.html"
-      Person : belongs_to_company
-        Person --> "0..1" Company : belongs_to_company
-        click Company href "./Company.html"
-      Person : classifications
-        Person --> "*" Classification : classifications
-        click Classification href "./Classification.html"
-      Person : contact_points
-        Person --> "*" ContactPoint : contact_points
-        click ContactPoint href "./ContactPoint.html"
-      Person : content_kind
-      Person : created_at
-      Person : description
-      Person : geometry_representations
-        Person --> "*" GeometryRepresentation : geometry_representations
-        click GeometryRepresentation href "./GeometryRepresentation.html"
-      Person : id
-      Person : ifc_global_id
-      Person : localized_descriptions
-        Person --> "*" LocalizedText : localized_descriptions
-        click LocalizedText href "./LocalizedText.html"
-      Person : localized_names
-        Person --> "*" LocalizedText : localized_names
-        click LocalizedText href "./LocalizedText.html"
-      Person : meaning_uri
-      Person : metadata
-        Person --> "*" MetadataEntry : metadata
-        click MetadataEntry href "./MetadataEntry.html"
-      Person : modified_at
-      Person : name
-      Person : performance_properties
-        Person --> "*" PerformanceProperty : performance_properties
-        click PerformanceProperty href "./PerformanceProperty.html"
-      Person : postal_addresses
-        Person --> "*" PostalAddress : postal_addresses
-        click PostalAddress href "./PostalAddress.html"
-      Person : quantity_values
-        Person --> "*" QuantityValue : quantity_values
-        click QuantityValue href "./QuantityValue.html"
-      Person : revision
-      Person : status
-        Person --> "0..1" StatusType : status
-        click StatusType href "./StatusType.html"
+classDiagram
+direction TB
+class Person
+click Person href "./Person.html" _blank
+Agent <|-- Person
+click Agent href "./Agent.html" _blank
+click Entity href "./Entity.html" _blank
+click Company href "./Company.html" _blank
+click Classification href "./Classification.html" _blank
+click ContactPoint href "./ContactPoint.html" _blank
+click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click LocalizedText href "./LocalizedText.html" _blank
+click MetadataEntry href "./MetadataEntry.html" _blank
+click PerformanceProperty href "./PerformanceProperty.html" _blank
+click PostalAddress href "./PostalAddress.html" _blank
+click QuantityValue href "./QuantityValue.html" _blank
+click StatusType href "./StatusType.html" _blank
 ```
 
 
@@ -94,9 +62,9 @@ URI: [pbs:Person](https://schema.pragmaticbim.ch/Person)
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | direct |
+| [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | direct |
 | [belongs_to_company](belongs_to_company.md) | 0..1 <br/> [Company](Company.md) | Optional company that the person belongs to. | direct |
-| [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | [Agent](Agent.md) |
-| [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | [Agent](Agent.md) |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -174,6 +142,8 @@ exact_mappings:
 - prov:Agent
 is_a: Agent
 slots:
+- postal_addresses
+- contact_points
 - belongs_to_company
 class_uri: pbs:Person
 
@@ -193,16 +163,6 @@ exact_mappings:
 - prov:Agent
 is_a: Agent
 attributes:
-  belongs_to_company:
-    name: belongs_to_company
-    description: Optional company that the person belongs to.
-    from_schema: https://schema.pragmaticbim.ch
-    rank: 1000
-    owner: Person
-    domain_of:
-    - Person
-    range: Company
-    inlined: false
   postal_addresses:
     name: postal_addresses
     description: Structured postal or physical addresses associated with this agent.
@@ -210,7 +170,8 @@ attributes:
     rank: 1000
     owner: Person
     domain_of:
-    - Agent
+    - Person
+    - Company
     range: PostalAddress
     multivalued: true
     inlined: true
@@ -222,10 +183,21 @@ attributes:
     rank: 1000
     owner: Person
     domain_of:
-    - Agent
+    - Person
+    - Company
     range: ContactPoint
     multivalued: true
     inlined: true
+  belongs_to_company:
+    name: belongs_to_company
+    description: Optional company that the person belongs to.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: Company
+    inlined: false
   id:
     name: id
     description: Unique local identifier.
@@ -320,7 +292,7 @@ attributes:
     owner: Person
     domain_of:
     - Entity
-    - yamlDocument
+    - Artifact
     range: Classification
     multivalued: true
     inlined: true

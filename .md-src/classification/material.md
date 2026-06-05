@@ -10,6 +10,31 @@ Source: [`material-classification.skos.ttl`](sources/material.ttl)
 - **prefLabel (en):** Abstract Material Classification
 - **title (en):** Abstract Material Classification
 
+## Hierarchy
+
+```mermaid
+classDiagram
+direction TB
+class n_MAT_CONC["MAT-CONC: Concrete"]
+class n_MAT_CONC_NRF["MAT-CONC-NRF: Non-reinforced concrete"]
+class n_MAT_CONC_RFT["MAT-CONC-RFT: Reinforced concrete"]
+class n_MAT_INS["MAT-INS: Insulation"]
+class n_MAT_INS_MWO["MAT-INS-MWO: Mineral wool"]
+class n_MAT_INS_PVC["MAT-INS-PVC: PVC insulation"]
+class n_MAT_MET["MAT-MET: Metal"]
+class n_MAT_MET_ALU["MAT-MET-ALU: Aluminium"]
+class n_MAT_MET_STL["MAT-MET-STL: Steel"]
+class n_MAT_MSN["MAT-MSN: Masonry / stone / ceramic"]
+class n_MAT_MSN_CLY["MAT-MSN-CLY: Clay"]
+n_MAT_CONC <|-- n_MAT_CONC_NRF
+n_MAT_CONC <|-- n_MAT_CONC_RFT
+n_MAT_INS <|-- n_MAT_INS_MWO
+n_MAT_INS <|-- n_MAT_INS_PVC
+n_MAT_MET <|-- n_MAT_MET_ALU
+n_MAT_MET <|-- n_MAT_MET_STL
+n_MAT_MSN <|-- n_MAT_MSN_CLY
+```
+
 ## Concepts
 
 <div class="pbs-vocab-concepts" data-default-lang="en" data-active-lang="en">
@@ -32,6 +57,16 @@ Source: [`material-classification.skos.ttl`](sources/material.ttl)
 </thead>
 <tbody>
 <tr>
+<td>MAT-ASP</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Asphalt</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist Asphalt oder bitumenhaltiger Bindemittelgemisch.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Einschliesslich Strassenbelaege, Dichtungsbahnen und Abdichtungen, wenn Asphalt dominiert.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Asphalt</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is asphalt or bituminous binder mix.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Including road surfacing, roofing membranes, and waterproofing where asphalt dominates.</td>
+</tr>
+<tr>
 <td>MAT-CMP</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Verbund / Mehrstoff</td>
@@ -50,6 +85,26 @@ Source: [`material-classification.skos.ttl`](sources/material.ttl)
 <td class="pbs-lang-col" data-lang="en" data-field="label">Concrete</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is concrete or cement-based cast or precast mineral mass.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Tags dominant substance of an element or layer, not element type. For windows or assemblies, use a separate component classification.</td>
+</tr>
+<tr>
+<td>MAT-CONC-NRF</td>
+<td>MAT-CONC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Unbewehrter Beton</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist unbewehrter Beton ohne strukturelle Stahlbewehrung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Non-reinforced concrete</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is plain concrete without structural steel reinforcement.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MAT-CONC-RFT</td>
+<td>MAT-CONC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Stahlbeton</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist Beton mit eingebetteter Stahlbewehrung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Reinforced concrete</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is concrete with embedded steel reinforcement.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>MAT-GLS</td>
@@ -82,6 +137,26 @@ Source: [`material-classification.skos.ttl`](sources/material.ttl)
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Tags dominant substance of an element or layer, not element type.</td>
 </tr>
 <tr>
+<td>MAT-INS-MWO</td>
+<td>MAT-INS</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Mineralwolle</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist Mineralwolldaemmung wie Steinwolle oder Glaswolle.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Mineral wool</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is mineral wool insulation such as rock wool or glass wool.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MAT-INS-PVC</td>
+<td>MAT-INS</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">PVC-Daemmung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist PVC-basierte Waerme- oder Schalldaemmung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">PVC insulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is PVC-based thermal or acoustic insulation.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>MAT-MET</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Metall</td>
@@ -92,6 +167,26 @@ Source: [`material-classification.skos.ttl`](sources/material.ttl)
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Tags dominant substance of an element or layer, not element type.</td>
 </tr>
 <tr>
+<td>MAT-MET-ALU</td>
+<td>MAT-MET</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aluminium</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist Aluminium oder Aluminiumlegierung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Aluminium</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is aluminium or aluminium alloy.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MAT-MET-STL</td>
+<td>MAT-MET</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Stahl</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist Stahl oder Stahllegierung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Steel</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is steel or steel alloy.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>MAT-MSN</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Mauerwerk / Stein / Keramik</td>
@@ -100,6 +195,16 @@ Source: [`material-classification.skos.ttl`](sources/material.ttl)
 <td class="pbs-lang-col" data-lang="en" data-field="label">Masonry / stone / ceramic</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is natural stone, brick, block, tile, or ceramic units.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Tags dominant substance of an element or layer, not element type.</td>
+</tr>
+<tr>
+<td>MAT-MSN-CLY</td>
+<td>MAT-MSN</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Ton</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist Ton, einschliesslich gebrannter Tonprodukte wie Ziegel und Fliesen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Clay</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is clay, including fired clay products such as brick and tile.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>MAT-OTH</td>

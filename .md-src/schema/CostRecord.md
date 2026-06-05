@@ -6,7 +6,7 @@ search:
 # Class: CostRecord 
 
 
-_Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price)._
+_Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price)._
 
 
 
@@ -31,6 +31,7 @@ click Entity href "./Entity.html" _blank
 click Classification href "./Classification.html" _blank
 click CostRecord href "./CostRecord.html" _blank
 click QuantityType href "./QuantityType.html" _blank
+click CostRecordRole href "./CostRecordRole.html" _blank
 click CostRecord href "./CostRecord.html" _blank
 click GeometryRepresentation href "./GeometryRepresentation.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
@@ -38,7 +39,9 @@ click LocalizedText href "./LocalizedText.html" _blank
 click Material href "./Material.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
+click Company href "./Company.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
+click Product href "./Product.html" _blank
 click StatusType href "./StatusType.html" _blank
 click TimeRecord href "./TimeRecord.html" _blank
 ```
@@ -64,12 +67,15 @@ click TimeRecord href "./TimeRecord.html" _blank
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [cost_record_role](cost_record_role.md) | 1 <br/> [CostRecordRole](CostRecordRole.md) | Role of this cost record (catalog cost, catalog price, project estimate, or actual). | direct |
 | [cost_category](cost_category.md) | 0..1 <br/> [String](String.md) | Cost category label kept intentionally open pending classification-backed modeling. | direct |
 | [unit_cost](unit_cost.md) | 1 <br/> [Double](Double.md) | Unit cost for this cost item. | direct |
 | [currency](currency.md) | 1 <br/> [String](String.md) | ISO 4217 currency code (for example EUR, USD). | direct |
 | [cost_quantity_type](cost_quantity_type.md) | 0..1 <br/> [QuantityType](QuantityType.md) | Quantity type used as basis for this cost calculation. | direct |
 | [cost_quantity_value](cost_quantity_value.md) | 0..1 <br/> [Double](Double.md) | Quantity magnitude used as basis for this cost calculation. | direct |
 | [cost_quantity_unit](cost_quantity_unit.md) | 0..1 <br/> [String](String.md) | Unit of the cost quantity value. | direct |
+| [related_product](related_product.md) | 0..1 <br/> [Product](Product.md) | Optional catalog product this deliverable implements or this cost record is priced from. | direct |
+| [priced_for_customer](priced_for_customer.md) | 0..1 <br/> [Company](Company.md) | Optional customer for a customer-specific catalog price when cost_record_role is price. | direct |
 | [applies_to_entities](applies_to_entities.md) | * <br/> [Entity](Entity.md) | Model entities this record applies to (requirements, cost items, schedule items, etc.). | direct |
 | [component_cost_items](component_cost_items.md) | * <br/> [CostRecord](CostRecord.md) | Cost records aggregated into this assembly record. | direct |
 | [cost_records](cost_records.md) | * <br/> [CostRecord](CostRecord.md) | Cost records associated with this entity. | [VirtualEntity](VirtualEntity.md) |
@@ -101,9 +107,9 @@ click TimeRecord href "./TimeRecord.html" _blank
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Product](Product.md) | [catalog_cost_records](catalog_cost_records.md) | range | [CostRecord](CostRecord.md) |
 | [VirtualEntity](VirtualEntity.md) | [cost_records](cost_records.md) | range | [CostRecord](CostRecord.md) |
 | [SpatialContext](SpatialContext.md) | [cost_records](cost_records.md) | range | [CostRecord](CostRecord.md) |
-| [ProjectContext](ProjectContext.md) | [cost_records](cost_records.md) | range | [CostRecord](CostRecord.md) |
 | [PerimeterContext](PerimeterContext.md) | [cost_records](cost_records.md) | range | [CostRecord](CostRecord.md) |
 | [LegalSiteContext](LegalSiteContext.md) | [cost_records](cost_records.md) | range | [CostRecord](CostRecord.md) |
 | [BuiltAssetContext](BuiltAssetContext.md) | [cost_records](cost_records.md) | range | [CostRecord](CostRecord.md) |
@@ -165,19 +171,33 @@ click TimeRecord href "./TimeRecord.html" _blank
 <details>
 ```yaml
 name: CostRecord
-description: Cost record for estimation and calculation, optionally linked to entities.
+description: Cost record for estimation, catalog pricing, and calculation. Use cost_record_role
+  to distinguish catalog cost/price (on Product) from project estimate/actual lines.
   Populate component_cost_items to act as an assembly (aggregated unit price).
 from_schema: https://schema.pragmaticbim.ch
 is_a: VirtualEntity
 slots:
+- cost_record_role
 - cost_category
 - unit_cost
 - currency
 - cost_quantity_type
 - cost_quantity_value
 - cost_quantity_unit
+- related_product
+- priced_for_customer
 - applies_to_entities
 - component_cost_items
+slot_usage:
+  cost_record_role:
+    name: cost_record_role
+    required: true
+  related_product:
+    name: related_product
+    range: Product
+  priced_for_customer:
+    name: priced_for_customer
+    range: Company
 class_uri: pbs:CostRecord
 
 ```
@@ -188,11 +208,33 @@ class_uri: pbs:CostRecord
 <details>
 ```yaml
 name: CostRecord
-description: Cost record for estimation and calculation, optionally linked to entities.
+description: Cost record for estimation, catalog pricing, and calculation. Use cost_record_role
+  to distinguish catalog cost/price (on Product) from project estimate/actual lines.
   Populate component_cost_items to act as an assembly (aggregated unit price).
 from_schema: https://schema.pragmaticbim.ch
 is_a: VirtualEntity
+slot_usage:
+  cost_record_role:
+    name: cost_record_role
+    required: true
+  related_product:
+    name: related_product
+    range: Product
+  priced_for_customer:
+    name: priced_for_customer
+    range: Company
 attributes:
+  cost_record_role:
+    name: cost_record_role
+    description: Role of this cost record (catalog cost, catalog price, project estimate,
+      or actual).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: CostRecord
+    domain_of:
+    - CostRecord
+    range: CostRecordRole
+    required: true
   cost_category:
     name: cost_category
     description: Cost category label kept intentionally open pending classification-backed
@@ -256,6 +298,29 @@ attributes:
     domain_of:
     - CostRecord
     range: string
+  related_product:
+    name: related_product
+    description: Optional catalog product this deliverable implements or this cost
+      record is priced from.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: CostRecord
+    domain_of:
+    - Deliverable
+    - CostRecord
+    range: Product
+    inlined: false
+  priced_for_customer:
+    name: priced_for_customer
+    description: Optional customer for a customer-specific catalog price when cost_record_role
+      is price.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: CostRecord
+    domain_of:
+    - CostRecord
+    range: Company
+    inlined: false
   applies_to_entities:
     name: applies_to_entities
     description: Model entities this record applies to (requirements, cost items,
