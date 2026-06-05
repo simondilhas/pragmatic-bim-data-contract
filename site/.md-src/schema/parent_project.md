@@ -6,7 +6,7 @@ search:
 # Slot: parent_project 
 
 
-_Parent project context reference._
+_Parent project reference._
 
 
 
@@ -25,9 +25,9 @@ URI: [pbs:parent_project](https://schema.pragmaticbim.ch/parent_project)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SpatialContext](SpatialContext.md) | Context node used to represent project, perimeter, legal site, built asset, level, or zone. |  yes  |
+| [Deliverable](Deliverable.md) | Outcome or handover item produced within a project. |  yes  |
+| [SpatialContext](SpatialContext.md) | Context node used to represent perimeter, legal site, built asset, level, or zone. |  yes  |
 | [System](System.md) | Building service system grouping that serves spaces or zones. |  yes  |
-| [ProjectContext](ProjectContext.md) | Spatial context node constrained to project semantics. |  no  |
 | [PerimeterContext](PerimeterContext.md) | Spatial context node constrained to perimeter semantics. |  no  |
 | [LegalSiteContext](LegalSiteContext.md) | Spatial context node constrained to legal site semantics. |  no  |
 | [BuiltAssetContext](BuiltAssetContext.md) | Abstract spatial context for built assets such as buildings and civil structures. |  no  |
@@ -47,8 +47,8 @@ URI: [pbs:parent_project](https://schema.pragmaticbim.ch/parent_project)
 
 | Property | Value |
 | --- | --- |
-| Range | [ProjectContext](ProjectContext.md) |
-| Domain Of | [SpatialContext](SpatialContext.md), [System](System.md) |
+| Range | [Project](Project.md) |
+| Domain Of | [Deliverable](Deliverable.md), [SpatialContext](SpatialContext.md), [System](System.md) |
 
 ### Cardinality and Requirements
 
@@ -93,13 +93,14 @@ URI: [pbs:parent_project](https://schema.pragmaticbim.ch/parent_project)
 <details>
 ```yaml
 name: parent_project
-description: Parent project context reference.
+description: Parent project reference.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
+- Deliverable
 - SpatialContext
 - System
-range: ProjectContext
+range: Project
 
 ```
 </details></div>

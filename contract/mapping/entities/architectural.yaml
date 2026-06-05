@@ -457,6 +457,25 @@
       - IfcRelServicesBuildings
       - IfcRelAssociatesClassification
 
+  IfcProject:
+    content_kind: project
+    canonical_type: Project
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_attribute_fallback
+        fallbacks:
+          - attribute: Name
+          - attribute: LongName
+      storey: null
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+    geometry: null
+    relations:
+      - IfcRelAggregates
+      - IfcRelAssociatesClassification
+
   IfcSite:
     content_kind: context
     canonical_type: PerimeterContext

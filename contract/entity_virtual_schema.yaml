@@ -37,8 +37,7 @@ classes:
     class_uri: pbs:SpatialContext
     exact_mappings:
     - ifcowl:IfcSpatialStructureElement
-    description: Context node used to represent project, perimeter, legal site, built asset, level, or zone.
-    tree_root: true
+    description: Context node used to represent perimeter, legal site, built asset, level, or zone.
     slots:
     - context_type
     - zone_type
@@ -53,7 +52,7 @@ classes:
       content_kind:
         equals_string: context
       parent_project:
-        range: ProjectContext
+        range: Project
       parent_perimeter:
         range: PerimeterContext
       parent_legal_site:
@@ -64,13 +63,10 @@ classes:
         range: LevelContext
       parent_zone:
         range: ZoneContext
-  ProjectContext:
-    is_a: SpatialContext
-    class_uri: pbs:ProjectContext
-    description: Spatial context node constrained to project semantics.
   PerimeterContext:
     is_a: SpatialContext
     class_uri: pbs:PerimeterContext
+    tree_root: true
     description: Spatial context node constrained to perimeter semantics.
   LegalSiteContext:
     is_a: SpatialContext
@@ -132,7 +128,7 @@ classes:
     - contained_entities
     slot_usage:
       parent_project:
-        range: ProjectContext
+        range: Project
       parent_building:
         range: BuiltAssetContext
   ConnectionVirtual:
@@ -192,17 +188,28 @@ classes:
     is_a: VirtualEntity
     class_uri: pbs:CostRecord
     description: >-
-      Cost record for estimation and calculation, optionally linked to entities.
+      Cost record for estimation, catalog pricing, and calculation. Use cost_record_role
+      to distinguish catalog cost/price (on Product) from project estimate/actual lines.
       Populate component_cost_items to act as an assembly (aggregated unit price).
     slots:
+    - cost_record_role
     - cost_category
     - unit_cost
     - currency
     - cost_quantity_type
     - cost_quantity_value
     - cost_quantity_unit
+    - related_product
+    - priced_for_customer
     - applies_to_entities
     - component_cost_items
+    slot_usage:
+      cost_record_role:
+        required: true
+      related_product:
+        range: Product
+      priced_for_customer:
+        range: Company
   Material:
     is_a: VirtualEntity
     class_uri: pbs:Material
@@ -214,13 +221,13 @@ slots:
   context_type:
     range: ContextType
     required: true
-    description: Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).
+    description: Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone).
   zone_type:
     range: ZoneType
     description: Optional zone classification; intended for SpatialContext nodes where context_type is zone.
   parent_project:
-    range: ProjectContext
-    description: Parent project context reference.
+    range: Project
+    description: Parent project reference.
   parent_perimeter:
     range: PerimeterContext
     description: Parent perimeter context reference.
@@ -317,6 +324,14 @@ slots:
   cost_category:
     range: string
     description: Cost category label kept intentionally open pending classification-backed modeling.
+  cost_record_role:
+    range: CostRecordRole
+    required: true
+    description: Role of this cost record (catalog cost, catalog price, project estimate, or actual).
+  priced_for_customer:
+    range: Company
+    inlined: false
+    description: Optional customer for a customer-specific catalog price when cost_record_role is price.
   unit_cost:
     range: double
     required: true

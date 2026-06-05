@@ -26,8 +26,13 @@ URI: [pbs:ContentKind](https://schema.pragmaticbim.ch/ContentKind)
 | physical | pbs:content_kind_physical | Tangible BIM element (SeparatorWall, Equipment, etc.). | Title: Physical<br>|
 | virtual | pbs:content_kind_virtual | Non-physical conceptual entity (Space, System, TimeRecord, CostRecord, etc.). | Title: Virtual<br>|
 | context | pbs:content_kind_context | Spatial context node (Building, Level, Zone, etc.). | Title: Context<br>|
+| project | pbs:content_kind_project | Business delivery scope anchoring spatial context and workflow entities. | Title: Project<br>|
+| program | pbs:content_kind_program | Portfolio or capital program scope grouping related projects. | Title: Program<br>|
+| product | pbs:content_kind_product | Commercial product or service offering sold by a company. | Title: Product<br>|
+| deliverable | pbs:content_kind_deliverable | Outcome or handover item produced within a project. | Title: Deliverable<br>|
 | requirement | pbs:content_kind_requirement | Prescriptive requirement record. | Title: Requirement<br>|
 | artifact | pbs:content_kind_artifact | External project artifact (text document, model, or plan) at storage_link. | Title: Artifact<br>|
+| contract | pbs:content_kind_contract | Commercial agreement entity linking parties, scope, and signed artifacts. | Title: Contract<br>|
 | decision | pbs:content_kind_decision | Decision entity for workflow and governance traceability. | Title: Decision<br>|
 | task | pbs:content_kind_task | Task or action entity for implementation workflows. | Title: Task<br>|
 | agent | pbs:content_kind_agent | Person or organization acting in the project. | Title: Agent<br>|
@@ -100,6 +105,42 @@ permissible_values:
         source: de
         description: Kontext
     title: Context
+  project:
+    text: project
+    description: Business delivery scope anchoring spatial context and workflow entities.
+    meaning: pbs:content_kind_project
+    alt_descriptions:
+      de:
+        source: de
+        description: Projekt
+    title: Project
+  program:
+    text: program
+    description: Portfolio or capital program scope grouping related projects.
+    meaning: pbs:content_kind_program
+    alt_descriptions:
+      de:
+        source: de
+        description: Programm
+    title: Program
+  product:
+    text: product
+    description: Commercial product or service offering sold by a company.
+    meaning: pbs:content_kind_product
+    alt_descriptions:
+      de:
+        source: de
+        description: Produkt
+    title: Product
+  deliverable:
+    text: deliverable
+    description: Outcome or handover item produced within a project.
+    meaning: pbs:content_kind_deliverable
+    alt_descriptions:
+      de:
+        source: de
+        description: Lieferobjekt
+    title: Deliverable
   requirement:
     text: requirement
     description: Prescriptive requirement record.
@@ -118,6 +159,15 @@ permissible_values:
         source: de
         description: Artefakt
     title: Artifact
+  contract:
+    text: contract
+    description: Commercial agreement entity linking parties, scope, and signed artifacts.
+    meaning: pbs:content_kind_contract
+    alt_descriptions:
+      de:
+        source: de
+        description: Vertrag
+    title: Contract
   decision:
     text: decision
     description: Decision entity for workflow and governance traceability.

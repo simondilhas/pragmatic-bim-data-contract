@@ -91,6 +91,7 @@ click StatusType href "./StatusType.html" _blank
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Contract](Contract.md) | [signed_artifact](signed_artifact.md) | range | [Artifact](Artifact.md) |
 | [Requirement](Requirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
 | [PerformanceRequirement](PerformanceRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |
 | [SpatialRequirement](SpatialRequirement.md) | [source_artifact](source_artifact.md) | range | [Artifact](Artifact.md) |

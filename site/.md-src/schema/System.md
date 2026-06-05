@@ -37,7 +37,7 @@ click LocalizedText href "./LocalizedText.html" _blank
 click Material href "./Material.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
 click BuiltAssetContext href "./BuiltAssetContext.html" _blank
-click ProjectContext href "./ProjectContext.html" _blank
+click Project href "./Project.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
 click Space href "./Space.html" _blank
@@ -71,7 +71,7 @@ click TimeRecord href "./TimeRecord.html" _blank
 | ---  | --- | --- | --- |
 | [system_type](system_type.md) | 1 <br/> [SystemType](SystemType.md) | Classification of system role (unit, network, terminal). | direct |
 | [system_discipline](system_discipline.md) | 1 <br/> [SystemDiscipline](SystemDiscipline.md) | Classification of system discipline (electrical, sanitary, ventilation, heating). | direct |
-| [parent_project](parent_project.md) | 0..1 <br/> [ProjectContext](ProjectContext.md) | Parent project context reference. | direct |
+| [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | direct |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | direct |
 | [serves_spaces](serves_spaces.md) | * <br/> [Space](Space.md) | Spaces served by this system. | direct |
 | [serves_zones](serves_zones.md) | * <br/> [ZoneContext](ZoneContext.md) | Zone context nodes served by this system. | direct |
@@ -171,7 +171,7 @@ slots:
 slot_usage:
   parent_project:
     name: parent_project
-    range: ProjectContext
+    range: Project
   parent_building:
     name: parent_building
     range: BuiltAssetContext
@@ -193,7 +193,7 @@ is_a: VirtualEntity
 slot_usage:
   parent_project:
     name: parent_project
-    range: ProjectContext
+    range: Project
   parent_building:
     name: parent_building
     range: BuiltAssetContext
@@ -221,14 +221,15 @@ attributes:
     required: true
   parent_project:
     name: parent_project
-    description: Parent project context reference.
+    description: Parent project reference.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: System
     domain_of:
+    - Deliverable
     - SpatialContext
     - System
-    range: ProjectContext
+    range: Project
   parent_building:
     name: parent_building
     description: Parent building context reference.

@@ -45,6 +45,38 @@ enums:
           de:
             source: de
             description: Kontext
+      project:
+        description: Business delivery scope anchoring spatial context and workflow entities.
+        meaning: pbs:content_kind_project
+        title: Project
+        alt_descriptions:
+          de:
+            source: de
+            description: Projekt
+      program:
+        description: Portfolio or capital program scope grouping related projects.
+        meaning: pbs:content_kind_program
+        title: Program
+        alt_descriptions:
+          de:
+            source: de
+            description: Programm
+      product:
+        description: Commercial product or service offering sold by a company.
+        meaning: pbs:content_kind_product
+        title: Product
+        alt_descriptions:
+          de:
+            source: de
+            description: Produkt
+      deliverable:
+        description: Outcome or handover item produced within a project.
+        meaning: pbs:content_kind_deliverable
+        title: Deliverable
+        alt_descriptions:
+          de:
+            source: de
+            description: Lieferobjekt
       requirement:
         description: Prescriptive requirement record.
         meaning: pbs:content_kind_requirement
@@ -61,6 +93,14 @@ enums:
           de:
             source: de
             description: Artefakt
+      contract:
+        description: Commercial agreement entity linking parties, scope, and signed artifacts.
+        meaning: pbs:content_kind_contract
+        title: Contract
+        alt_descriptions:
+          de:
+            source: de
+            description: Vertrag
       decision:
         description: Decision entity for workflow and governance traceability.
         meaning: pbs:content_kind_decision
@@ -77,8 +117,16 @@ enums:
           de:
             source: de
             description: Aufgabe
+      process:
+        description: Running BPMN process instance for workflow orchestration.
+        meaning: pbs:content_kind_process
+        title: Process
+        alt_descriptions:
+          de:
+            source: de
+            description: Prozess
       agent:
-        description: Person or organization acting in the project.
+        description: Person, organization, or software actor in the project.
         meaning: pbs:content_kind_agent
         title: Agent
         alt_descriptions:
@@ -121,6 +169,41 @@ enums:
           de:
             source: de
             description: Plan
+  CostRecordRole:
+    enum_uri: pbs:CostRecordRole
+    permissible_values:
+      cost:
+        title: Cost
+        description: Internal or vendor cost for a catalog product.
+        meaning: pbs:cost_record_role_cost
+        alt_descriptions:
+          de:
+            source: de
+            description: Kosten
+      price:
+        title: Price
+        description: Sale or list price for a catalog product; may be customer-specific.
+        meaning: pbs:cost_record_role_price
+        alt_descriptions:
+          de:
+            source: de
+            description: Preis
+      estimate:
+        title: Estimate
+        description: Project-side estimated cost line.
+        meaning: pbs:cost_record_role_estimate
+        alt_descriptions:
+          de:
+            source: de
+            description: Schaetzung
+      actual:
+        title: Actual
+        description: Project-side incurred or actual cost line.
+        meaning: pbs:cost_record_role_actual
+        alt_descriptions:
+          de:
+            source: de
+            description: Ist
   QuantityType:
     enum_uri: pbs:QuantityType
     permissible_values:
@@ -307,13 +390,6 @@ enums:
   ContextType:
     enum_uri: pbs:ContextType
     permissible_values:
-      project:
-        meaning: ifcowl:IfcProject
-        title: Project
-        alt_descriptions:
-          de:
-            source: de
-            description: Projekt
       perimeter:
         meaning: ifcowl:IfcSite
         exact_mappings:

@@ -534,7 +534,7 @@ click BuiltAssetContext href "./BuiltAssetContext.html" _blank
 click LegalSiteContext href "./LegalSiteContext.html" _blank
 click LevelContext href "./LevelContext.html" _blank
 click PerimeterContext href "./PerimeterContext.html" _blank
-click ProjectContext href "./ProjectContext.html" _blank
+click Project href "./Project.html" _blank
 click ZoneContext href "./ZoneContext.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
@@ -587,7 +587,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <tr>
 <td><a href="context_type.html">context_type</a></td>
 <td>1 <br/> <a href="ContextType.html">ContextType</a></td>
-<td>Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).</td>
+<td>Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone).</td>
 <td><a href="SpatialContext.html">SpatialContext</a></td>
 </tr>
 <tr>
@@ -598,8 +598,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </tr>
 <tr>
 <td><a href="parent_project.html">parent_project</a></td>
-<td>0..1 <br/> <a href="ProjectContext.html">ProjectContext</a></td>
-<td>Parent project context reference.</td>
+<td>0..1 <br/> <a href="Project.html">Project</a></td>
+<td>Parent project reference.</td>
 <td><a href="SpatialContext.html">SpatialContext</a></td>
 </tr>
 <tr>
@@ -784,12 +784,6 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
 </tr>
 <tr>
-<td><a href="ProjectContext.html">ProjectContext</a></td>
-<td><a href="parent_legal_site.html">parent_legal_site</a></td>
-<td>range</td>
-<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
-</tr>
-<tr>
 <td><a href="PerimeterContext.html">PerimeterContext</a></td>
 <td><a href="parent_legal_site.html">parent_legal_site</a></td>
 <td>range</td>
@@ -877,8 +871,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">context_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">context_type</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification of context entity (project, perimeter, legal_site,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">building, civil_structure, level, zone).</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification of context entity (perimeter, legal_site, building,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">civil_structure, level, zone).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LegalSiteContext</span>
@@ -898,14 +892,15 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZoneType</span>
 <span class="w">  </span><span class="nt">parent_project</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_project</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent project context reference.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent project reference.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LegalSiteContext</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deliverable</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProjectContext</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="w">  </span><span class="nt">parent_perimeter</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_perimeter</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent perimeter context reference.</span>

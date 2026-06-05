@@ -25,7 +25,7 @@ URI: [pbs:cost_quantity_unit](https://schema.pragmaticbim.ch/cost_quantity_unit)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [CostRecord](CostRecord.md) | Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
+| [CostRecord](CostRecord.md) | Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
 
 
 

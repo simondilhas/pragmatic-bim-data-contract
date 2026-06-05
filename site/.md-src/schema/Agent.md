@@ -101,6 +101,7 @@ click StatusType href "./StatusType.html" _blank
 | [Task](Task.md) | [assignee](assignee.md) | range | [Agent](Agent.md) |
 | [Message](Message.md) | [sender](sender.md) | range | [Agent](Agent.md) |
 | [Message](Message.md) | [recipients](recipients.md) | range | [Agent](Agent.md) |
+| [Contract](Contract.md) | [contract_parties](contract_parties.md) | range | [Agent](Agent.md) |
 
 
 

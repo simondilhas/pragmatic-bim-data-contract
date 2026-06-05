@@ -60,10 +60,7 @@ classes:
     class_uri: pbs:Agent
     exact_mappings:
     - prov:Agent
-    description: Abstract base class for people or organizations acting in workflow and communication roles.
-    slots:
-    - postal_addresses
-    - contact_points
+    description: Abstract base class for human and software actors in workflow and communication roles.
     slot_usage:
       content_kind:
         equals_string: agent
@@ -75,6 +72,8 @@ classes:
     - prov:Agent
     description: Individual stakeholder, contributor, assignee, or responsible party represented in the schema.
     slots:
+    - postal_addresses
+    - contact_points
     - belongs_to_company
   Company:
     is_a: Agent
@@ -83,6 +82,19 @@ classes:
     - schema:Organization
     - prov:Agent
     description: Organization, company, or legal entity participating in the project or asset lifecycle.
+    slots:
+    - postal_addresses
+    - contact_points
+  SoftwareAgent:
+    is_a: Agent
+    class_uri: pbs:SoftwareAgent
+    exact_mappings:
+    - prov:SoftwareAgent
+    description: Automated actor (integration, bot, or pipeline) acting in workflow roles.
+    slots:
+    - operated_by
+    - software_version
+    - service_endpoint
   Classification:
     class_uri: pbs:Classification
     description: Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom).
@@ -167,10 +179,32 @@ classes:
     - assignee
     - due_at
     - related_decision
+    - parent_process
     - task_notes
     slot_usage:
       content_kind:
         equals_string: task
+  Process:
+    is_a: Entity
+    class_uri: pbs:Process
+    description: 'Running BPMN process instance in the project graph. Use process_definition_uri for the
+      BPMN definition key or artifact. When orchestration state lives in an external engine, set
+      external_instance_uri to that system of record.
+
+      '
+    slots:
+    - process_definition_uri
+    - external_instance_uri
+    - process_status
+    - started_at
+    - completed_at
+    - process_participants
+    - parent_project
+    slot_usage:
+      content_kind:
+        equals_string: process
+      process_definition_uri:
+        required: true
   Message:
     is_a: Entity
     class_uri: pbs:Message
@@ -209,6 +243,80 @@ classes:
         required: true
       artifact_kind:
         required: true
+  Contract:
+    is_a: Entity
+    class_uri: pbs:Contract
+    description: 'Commercial agreement entity for project scope, parties, and governance. Links to a signed artifact
+      and related model entities via applies_to_entities. Entity.status covers record lifecycle; contract_status uses
+      workflow vocabulary URIs.
+
+      '
+    slots:
+    - contract_type
+    - contract_status
+    - contract_parties
+    - contract_reference
+    - signed_artifact
+    - signed_at
+    - effective_from
+    - effective_until
+    slot_usage:
+      content_kind:
+        equals_string: contract
+  Project:
+    is_a: Entity
+    class_uri: pbs:Project
+    exact_mappings:
+    - ifcowl:IfcProject
+    description: Business delivery scope for spatial context, systems, and workflow entities.
+    slots:
+    - project_code
+    - client
+    - parent_program
+    slot_usage:
+      content_kind:
+        equals_string: project
+      parent_program:
+        range: Program
+  Program:
+    is_a: Entity
+    class_uri: pbs:Program
+    tree_root: true
+    description: Portfolio or capital program scope grouping related projects.
+    slots:
+    - program_code
+    - client
+    slot_usage:
+      content_kind:
+        equals_string: program
+  Product:
+    is_a: Entity
+    class_uri: pbs:Product
+    description: Commercial product or service offering sold by a company.
+    slots:
+    - product_code
+    - vendor
+    - catalog_cost_records
+    slot_usage:
+      content_kind:
+        equals_string: product
+      catalog_cost_records:
+        range: CostRecord
+  Deliverable:
+    is_a: Entity
+    class_uri: pbs:Deliverable
+    description: Outcome or handover item produced within a project.
+    slots:
+    - deliverable_code
+    - parent_project
+    - related_product
+    slot_usage:
+      content_kind:
+        equals_string: deliverable
+      parent_project:
+        range: Project
+      related_product:
+        range: Product
   PostalAddress:
     class_uri: pbs:PostalAddress
     exact_mappings:
@@ -334,6 +442,16 @@ slots:
     range: Company
     inlined: false
     description: Optional company that the person belongs to.
+  operated_by:
+    range: Company
+    inlined: false
+    description: Organization accountable for this software agent.
+  software_version:
+    range: string
+    description: Optional deployed version label for the software agent.
+  service_endpoint:
+    range: uriorcurie
+    description: Optional URI of the running service or integration endpoint.
   decision_type:
     range: uriorcurie
     slot_uri: dcterms:type
@@ -377,6 +495,10 @@ slots:
     inlined: false
     slot_uri: prov:used
     description: Optional reference to a decision that informs or drives this task.
+  parent_process:
+    range: Process
+    inlined: false
+    description: Optional BPMN process instance that owns or spawned this task.
   task_notes:
     range: string
     slot_uri: rdfs:comment
@@ -575,3 +697,88 @@ slots:
     range: uriorcurie
     required: true
     description: URI/URL/path to the stored artifact location.
+  contract_type:
+    range: uriorcurie
+    slot_uri: dcterms:type
+    description: Contract type expressed as a URI/CURIE from a controlled vocabulary (for example design, construction, supply).
+  contract_status:
+    range: uriorcurie
+    slot_uri: adms:status
+    description: Contract status expressed as a URI/CURIE (for example draft, signed, active, terminated, superseded).
+  contract_parties:
+    multivalued: true
+    range: Agent
+    inlined: false
+    description: Agents party to the contract (for example client, contractor, consultant).
+  contract_reference:
+    range: string
+    description: Human-readable contract number or external reference.
+  signed_artifact:
+    range: Artifact
+    inlined: false
+    description: Optional signed contract artifact at storage_link.
+  signed_at:
+    range: datetime
+    description: Timestamp when the contract was signed.
+  effective_from:
+    range: datetime
+    description: Start of contractual validity.
+  effective_until:
+    range: datetime
+    description: End of contractual validity when applicable.
+  project_code:
+    range: string
+    description: External or internal project identifier.
+  client:
+    range: Company
+    inlined: false
+    description: Owning client organization.
+  program_code:
+    range: string
+    description: External or internal program identifier.
+  product_code:
+    range: string
+    description: External or internal product catalog identifier.
+  vendor:
+    range: Company
+    inlined: false
+    description: Company that sells or offers this product.
+  deliverable_code:
+    range: string
+    description: External or internal deliverable identifier within a project.
+  related_product:
+    range: Product
+    inlined: false
+    description: Optional catalog product this deliverable implements or this cost record is priced from.
+  catalog_cost_records:
+    multivalued: true
+    range: CostRecord
+    inlined: false
+    description: Catalog cost and price records for this product (cost_record_role cost or price).
+  parent_program:
+    range: Program
+    inlined: false
+    description: Parent program reference.
+  process_definition_uri:
+    range: uriorcurie
+    required: true
+    description: URI identifying the BPMN process definition (for example engine definition key or BPMN artifact URI).
+  external_instance_uri:
+    range: uriorcurie
+    description: URI of the corresponding process instance in an external workflow engine when applicable.
+  process_status:
+    range: uriorcurie
+    slot_uri: adms:status
+    description: Process instance status expressed as a URI/CURIE (for example active, suspended, completed, terminated).
+  started_at:
+    range: datetime
+    slot_uri: dcterms:created
+    description: Timestamp when the process instance started.
+  completed_at:
+    range: datetime
+    description: Timestamp when the process instance completed or terminated, when applicable.
+  process_participants:
+    multivalued: true
+    range: Agent
+    inlined: false
+    description: Agents participating in this BPMN process instance (for example assignees mapped from lane roles).

@@ -479,7 +479,7 @@
 
 
 <h1 id="class-spatialcontext">Class: SpatialContext<a class="headerlink" href="#class-spatialcontext" title="Permanent link">&para;</a></h1>
-<p><em>Context node used to represent project, perimeter, legal site, built asset, level, or zone.</em></p>
+<p><em>Context node used to represent perimeter, legal site, built asset, level, or zone.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/SpatialContext">pbs:SpatialContext</a></p>
 <div class="panzoom-box" data-key="alt" id="panzoom0" oncontextmenu="return false;">
@@ -509,8 +509,6 @@ class SpatialContext
 click SpatialContext href "./SpatialContext.html" _blank
 VirtualEntity &lt;|-- SpatialContext
 click VirtualEntity href "./VirtualEntity.html" _blank
-SpatialContext &lt;|-- ProjectContext
-click ProjectContext href "./ProjectContext.html" _blank
 SpatialContext &lt;|-- PerimeterContext
 click PerimeterContext href "./PerimeterContext.html" _blank
 SpatialContext &lt;|-- LegalSiteContext
@@ -535,7 +533,7 @@ click BuiltAssetContext href "./BuiltAssetContext.html" _blank
 click LegalSiteContext href "./LegalSiteContext.html" _blank
 click LevelContext href "./LevelContext.html" _blank
 click PerimeterContext href "./PerimeterContext.html" _blank
-click ProjectContext href "./ProjectContext.html" _blank
+click Project href "./Project.html" _blank
 click ZoneContext href "./ZoneContext.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
@@ -551,7 +549,6 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <li><a href="Entity.html">Entity</a><ul>
 <li><a href="VirtualEntity.html">VirtualEntity</a><ul>
 <li><strong>SpatialContext</strong><ul>
-<li><a href="ProjectContext.html">ProjectContext</a></li>
 <li><a href="PerimeterContext.html">PerimeterContext</a></li>
 <li><a href="LegalSiteContext.html">LegalSiteContext</a></li>
 <li><a href="BuiltAssetContext.html">BuiltAssetContext</a></li>
@@ -577,10 +574,6 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td>Class URI</td>
 <td><a href="https://schema.pragmaticbim.ch/SpatialContext">pbs:SpatialContext</a></td>
 </tr>
-<tr>
-<td>Tree Root</td>
-<td>Yes</td>
-</tr>
 </tbody>
 </table>
 <h2 id="slots">Slots<a class="headerlink" href="#slots" title="Permanent link">&para;</a></h2>
@@ -597,7 +590,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <tr>
 <td><a href="context_type.html">context_type</a></td>
 <td>1 <br/> <a href="ContextType.html">ContextType</a></td>
-<td>Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone).</td>
+<td>Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone).</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -608,8 +601,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </tr>
 <tr>
 <td><a href="parent_project.html">parent_project</a></td>
-<td>0..1 <br/> <a href="ProjectContext.html">ProjectContext</a></td>
-<td>Parent project context reference.</td>
+<td>0..1 <br/> <a href="Project.html">Project</a></td>
+<td>Parent project reference.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -809,8 +802,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <h3 id="direct">Direct<a class="headerlink" href="#direct" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Context node used to represent project, perimeter, legal site, built</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">asset, level, or zone.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Context node used to represent perimeter, legal site, built asset, level,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">or zone.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifcowl:IfcSpatialStructureElement</span>
@@ -831,7 +824,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">context</span>
 <span class="w">  </span><span class="nt">parent_project</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_project</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProjectContext</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="w">  </span><span class="nt">parent_perimeter</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_perimeter</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerimeterContext</span>
@@ -848,14 +841,13 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_zone</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZoneContext</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:SpatialContext</span>
-<span class="nt">tree_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 <h3 id="induced">Induced<a class="headerlink" href="#induced" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Context node used to represent project, perimeter, legal site, built</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">asset, level, or zone.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Context node used to represent perimeter, legal site, built asset, level,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">or zone.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ifcowl:IfcSpatialStructureElement</span>
@@ -866,7 +858,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">context</span>
 <span class="w">  </span><span class="nt">parent_project</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_project</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProjectContext</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="w">  </span><span class="nt">parent_perimeter</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_perimeter</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerimeterContext</span>
@@ -885,8 +877,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">context_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">context_type</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification of context entity (project, perimeter, legal_site,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">building, civil_structure, level, zone).</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification of context entity (perimeter, legal_site, building,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">civil_structure, level, zone).</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
@@ -906,14 +898,15 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ZoneType</span>
 <span class="w">  </span><span class="nt">parent_project</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_project</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent project context reference.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent project reference.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deliverable</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProjectContext</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Project</span>
 <span class="w">  </span><span class="nt">parent_perimeter</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_perimeter</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent perimeter context reference.</span>
@@ -1210,7 +1203,6 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StatusType</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:SpatialContext</span>
-<span class="nt">tree_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 </details>
 </div>

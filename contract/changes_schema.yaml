@@ -213,8 +213,9 @@ slots:
     inlined: false
     description: Task entity that this change triggered or should trigger.
   triggered_process:
-    range: uriorcurie
-    description: External workflow process URI (for example yourcompanyos process instance).
+    range: Process
+    inlined: false
+    description: BPMN process instance that this change triggered or should trigger.
   detected_at:
     range: datetime
     slot_uri: dcterms:created

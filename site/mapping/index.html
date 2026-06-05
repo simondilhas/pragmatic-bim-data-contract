@@ -1440,7 +1440,7 @@ ifc_mapping.merged.yaml   ← single file for adapters
 </table>
 <hr />
 <h2 id="content_kind-and-canonical_type"><code>content_kind</code> and <code>canonical_type</code><a class="headerlink" href="#content_kind-and-canonical_type" title="Permanent link">&para;</a></h2>
-<p><code>content_kind</code> is the Entity type discriminator (see <a href="../entity_core_schema.yaml"><code>Entity.content_kind</code></a> and <a href="../entity_schema_enums.yaml"><code>ContentKind</code></a>). IFC ingestion produces <code>physical</code>, <code>virtual</code>, or <code>context</code> only. Application pipelines create other entity kinds directly.</p>
+<p><code>content_kind</code> is the Entity type discriminator (see <a href="../entity_core_schema.yaml"><code>Entity.content_kind</code></a> and <a href="../entity_schema_enums.yaml"><code>ContentKind</code></a>). IFC ingestion produces <code>physical</code>, <code>virtual</code>, <code>context</code>, and <code>project</code> (from <code>IfcProject</code>). Application pipelines create other entity kinds directly.</p>
 <table>
 <thead>
 <tr>
@@ -1466,6 +1466,26 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <td><code>BuildingContext</code>, <code>LevelContext</code>, <code>ZoneContext</code>, <code>PerimeterContext</code></td>
 </tr>
 <tr>
+<td><code>project</code></td>
+<td>Business delivery scope</td>
+<td><code>Project</code></td>
+</tr>
+<tr>
+<td><code>program</code></td>
+<td>Portfolio or capital program</td>
+<td><code>Program</code></td>
+</tr>
+<tr>
+<td><code>product</code></td>
+<td>Commercial offering</td>
+<td><code>Product</code></td>
+</tr>
+<tr>
+<td><code>deliverable</code></td>
+<td>Project outcome or handover</td>
+<td><code>Deliverable</code></td>
+</tr>
+<tr>
 <td><code>requirement</code></td>
 <td>Requirements</td>
 <td><code>PerformanceRequirement</code>, <code>SpatialRequirement</code>, <code>RegulatoryRequirement</code>, <code>BriefRequirement</code>, <code>DeliverableRequirement</code>, <code>ScheduleRequirement</code>, <code>CostRequirement</code>, <code>MaterialRequirement</code></td>
@@ -1474,6 +1494,11 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <td><code>artifact</code></td>
 <td>Artifacts</td>
 <td><code>Artifact</code></td>
+</tr>
+<tr>
+<td><code>contract</code></td>
+<td>Contracts</td>
+<td><code>Contract</code></td>
 </tr>
 <tr>
 <td><code>decision</code></td>
@@ -1498,6 +1523,7 @@ ifc_mapping.merged.yaml   ← single file for adapters
 </tbody>
 </table>
 <p><strong>Change records</strong> (<code>PropertyChange</code>, <code>GeometryChange</code>, etc.) are not entities and have no <code>content_kind</code>. Adapters or validation pipelines create them directly in a separate change store. Use the concrete change class together with <code>change_type</code> where applicable.</p>
+<p><strong>CostRecordRole</strong> (<code>cost</code>, <code>price</code>, <code>estimate</code>, <code>actual</code>) is application-created on <code>CostRecord</code> entities — not produced by IFC ingestion. Catalog <code>cost</code> and <code>price</code> records attach to <code>Product.catalog_cost_records</code>; project <code>estimate</code> and <code>actual</code> records use <code>applies_to_entities</code>.</p>
 <p><strong>Variant suffixes</strong> disambiguate IFC <code>PredefinedType</code> or transport role without inventing new PBS classes:</p>
 <ul>
 <li><code>SeparatorSlab.floor</code>, <code>.roof</code>, <code>.baseslab</code></li>

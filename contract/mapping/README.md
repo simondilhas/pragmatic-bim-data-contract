@@ -133,21 +133,29 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 
 ## `content_kind` and `canonical_type`
 
-`content_kind` is the Entity type discriminator (see [`Entity.content_kind`](../entity_core_schema.yaml) and [`ContentKind`](../entity_schema_enums.yaml)). IFC ingestion produces `physical`, `virtual`, or `context` only. Application pipelines create other entity kinds directly.
+`content_kind` is the Entity type discriminator (see [`Entity.content_kind`](../entity_core_schema.yaml) and [`ContentKind`](../entity_schema_enums.yaml)). IFC ingestion produces `physical`, `virtual`, `context`, and `project` (from `IfcProject`). Application pipelines create other entity kinds directly.
 
 | `content_kind` | Entity branch | Examples |
 |----------------|---------------|----------|
 | `physical` | Physical elements | `SeparatorWall`, `ConnectionPhysical`, `Equipment` |
 | `virtual` | Virtual entities | `Space`, `System`, `ConnectionVirtual`, `TimeRecord`, `CostRecord`, `Material` |
 | `context` | Spatial context | `BuildingContext`, `LevelContext`, `ZoneContext`, `PerimeterContext` |
+| `project` | Business delivery scope | `Project` |
+| `program` | Portfolio or capital program | `Program` |
+| `product` | Commercial offering | `Product` |
+| `deliverable` | Project outcome or handover | `Deliverable` |
 | `requirement` | Requirements | `PerformanceRequirement`, `SpatialRequirement`, `RegulatoryRequirement`, `BriefRequirement`, `DeliverableRequirement`, `ScheduleRequirement`, `CostRequirement`, `MaterialRequirement` |
 | `artifact` | Artifacts | `Artifact` |
+| `contract` | Contracts | `Contract` |
 | `decision` | Decisions | `Decision` |
 | `task` | Tasks | `Task` |
-| `agent` | Agents | `Person`, `Company` |
+| `process` | BPMN process instances | `Process` |
+| `agent` | Agents | `Person`, `Company`, `SoftwareAgent` |
 | `message` | Messages | `Message` |
 
 **Change records** (`PropertyChange`, `GeometryChange`, etc.) are not entities and have no `content_kind`. Adapters or validation pipelines create them directly in a separate change store. Use the concrete change class together with `change_type` where applicable.
+
+**CostRecordRole** (`cost`, `price`, `estimate`, `actual`) is application-created on `CostRecord` entities — not produced by IFC ingestion. Catalog `cost` and `price` records attach to `Product.catalog_cost_records`; project `estimate` and `actual` records use `applies_to_entities`.
 
 **Variant suffixes** disambiguate IFC `PredefinedType` or transport role without inventing new PBS classes:
 

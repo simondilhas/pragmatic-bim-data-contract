@@ -13,7 +13,7 @@
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-public-rules> ;
   skos:definition "Substance-centric dominant-material classification for rough sustainability and embodied-carbon workflows."@en ;
   skos:definition "Substanzorientierte Klassifikation des dominanten Materials fuer grobe Nachhaltigkeits- und Graue-Energie-Berechnungen."@de ;
-  skos:hasTopConcept :MAT-CONC, :MAT-MSN, :MAT-MET, :MAT-WOD, :MAT-GYP, :MAT-GLS, :MAT-INS, :MAT-PLA, :MAT-CMP, :MAT-OTH .
+  skos:hasTopConcept :MAT-CONC, :MAT-MSN, :MAT-MET, :MAT-WOD, :MAT-GYP, :MAT-GLS, :MAT-INS, :MAT-PLA, :MAT-ASP, :MAT-CMP, :MAT-OTH .
 
 :MAT-CONC a skos:Concept ;
   skos:inScheme :scheme ;
@@ -23,10 +23,33 @@
   skos:prefLabel "Beton"@de ;
   skos:definition "Dominant material is concrete or cement-based cast or precast mineral mass."@en ;
   skos:definition "Dominantes Material ist Beton oder zementgebundene gegossene oder vorgefertigte mineralische Masse."@de ;
+  skos:narrower :MAT-CONC-RFT, :MAT-CONC-NRF ;
   skos:scopeNote "Tags dominant substance of an element or layer, not element type. For windows or assemblies, use a separate component classification."@en ;
   skos:scopeNote "Kennzeichnet die dominante Substanz eines Elements oder einer Schicht, nicht den Elementtyp. Fuer Fenster oder Baugruppen separate Komponentenklassifikation verwenden."@de ;
   dcterms:subject "IfcMaterial" ;
   dcterms:identifier "concrete" .
+
+:MAT-CONC-RFT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MAT-CONC-RFT" ;
+  skos:prefLabel "Reinforced concrete"@en ;
+  skos:prefLabel "Stahlbeton"@de ;
+  skos:definition "Dominant material is concrete with embedded steel reinforcement."@en ;
+  skos:definition "Dominantes Material ist Beton mit eingebetteter Stahlbewehrung."@de ;
+  skos:broader :MAT-CONC ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "reinforced-concrete" .
+
+:MAT-CONC-NRF a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MAT-CONC-NRF" ;
+  skos:prefLabel "Non-reinforced concrete"@en ;
+  skos:prefLabel "Unbewehrter Beton"@de ;
+  skos:definition "Dominant material is plain concrete without structural steel reinforcement."@en ;
+  skos:definition "Dominantes Material ist unbewehrter Beton ohne strukturelle Stahlbewehrung."@de ;
+  skos:broader :MAT-CONC ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "non-reinforced-concrete" .
 
 :MAT-MSN a skos:Concept ;
   skos:inScheme :scheme ;
@@ -36,10 +59,22 @@
   skos:prefLabel "Mauerwerk / Stein / Keramik"@de ;
   skos:definition "Dominant material is natural stone, brick, block, tile, or ceramic units."@en ;
   skos:definition "Dominantes Material sind Naturstein, Ziegel, Block, Platte oder keramische Baueinheiten."@de ;
+  skos:narrower :MAT-MSN-CLY ;
   skos:scopeNote "Tags dominant substance of an element or layer, not element type."@en ;
   skos:scopeNote "Kennzeichnet die dominante Substanz eines Elements oder einer Schicht, nicht den Elementtyp."@de ;
   dcterms:subject "IfcMaterial" ;
   dcterms:identifier "masonry" .
+
+:MAT-MSN-CLY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MAT-MSN-CLY" ;
+  skos:prefLabel "Clay"@en ;
+  skos:prefLabel "Ton"@de ;
+  skos:definition "Dominant material is clay, including fired clay products such as brick and tile."@en ;
+  skos:definition "Dominantes Material ist Ton, einschliesslich gebrannter Tonprodukte wie Ziegel und Fliesen."@de ;
+  skos:broader :MAT-MSN ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "clay" .
 
 :MAT-MET a skos:Concept ;
   skos:inScheme :scheme ;
@@ -49,10 +84,33 @@
   skos:prefLabel "Metall"@de ;
   skos:definition "Dominant material is steel, aluminium, copper, or other metal."@en ;
   skos:definition "Dominantes Material ist Stahl, Aluminium, Kupfer oder anderes Metall."@de ;
+  skos:narrower :MAT-MET-STL, :MAT-MET-ALU ;
   skos:scopeNote "Tags dominant substance of an element or layer, not element type."@en ;
   skos:scopeNote "Kennzeichnet die dominante Substanz eines Elements oder einer Schicht, nicht den Elementtyp."@de ;
   dcterms:subject "IfcMaterial" ;
   dcterms:identifier "metal" .
+
+:MAT-MET-STL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MAT-MET-STL" ;
+  skos:prefLabel "Steel"@en ;
+  skos:prefLabel "Stahl"@de ;
+  skos:definition "Dominant material is steel or steel alloy."@en ;
+  skos:definition "Dominantes Material ist Stahl oder Stahllegierung."@de ;
+  skos:broader :MAT-MET ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "steel" .
+
+:MAT-MET-ALU a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MAT-MET-ALU" ;
+  skos:prefLabel "Aluminium"@en ;
+  skos:prefLabel "Aluminium"@de ;
+  skos:definition "Dominant material is aluminium or aluminium alloy."@en ;
+  skos:definition "Dominantes Material ist Aluminium oder Aluminiumlegierung."@de ;
+  skos:broader :MAT-MET ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "aluminium" .
 
 :MAT-WOD a skos:Concept ;
   skos:inScheme :scheme ;
@@ -101,10 +159,33 @@
   skos:prefLabel "Daemmung"@de ;
   skos:definition "Dominant material is thermal or acoustic insulation such as mineral wool, glass wool, or foam boards."@en ;
   skos:definition "Dominantes Material ist Waerme- oder Schalldaemmung wie Mineralwolle, Glaswolle oder Daemmplatten."@de ;
+  skos:narrower :MAT-INS-MWO, :MAT-INS-PVC ;
   skos:scopeNote "Tags dominant substance of an element or layer, not element type."@en ;
   skos:scopeNote "Kennzeichnet die dominante Substanz eines Elements oder einer Schicht, nicht den Elementtyp."@de ;
   dcterms:subject "IfcMaterial" ;
   dcterms:identifier "insulation" .
+
+:MAT-INS-MWO a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MAT-INS-MWO" ;
+  skos:prefLabel "Mineral wool"@en ;
+  skos:prefLabel "Mineralwolle"@de ;
+  skos:definition "Dominant material is mineral wool insulation such as rock wool or glass wool."@en ;
+  skos:definition "Dominantes Material ist Mineralwolldaemmung wie Steinwolle oder Glaswolle."@de ;
+  skos:broader :MAT-INS ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "mineral-wool" .
+
+:MAT-INS-PVC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MAT-INS-PVC" ;
+  skos:prefLabel "PVC insulation"@en ;
+  skos:prefLabel "PVC-Daemmung"@de ;
+  skos:definition "Dominant material is PVC-based thermal or acoustic insulation."@en ;
+  skos:definition "Dominantes Material ist PVC-basierte Waerme- oder Schalldaemmung."@de ;
+  skos:broader :MAT-INS ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "pvc-insulation" .
 
 :MAT-PLA a skos:Concept ;
   skos:inScheme :scheme ;
@@ -118,6 +199,19 @@
   skos:scopeNote "Kennzeichnet die dominante Substanz eines Elements oder einer Schicht, nicht den Elementtyp."@de ;
   dcterms:subject "IfcMaterial" ;
   dcterms:identifier "plastic" .
+
+:MAT-ASP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MAT-ASP" ;
+  skos:prefLabel "Asphalt"@en ;
+  skos:prefLabel "Asphalt"@de ;
+  skos:definition "Dominant material is asphalt or bituminous binder mix."@en ;
+  skos:definition "Dominantes Material ist Asphalt oder bitumenhaltiger Bindemittelgemisch."@de ;
+  skos:scopeNote "Including road surfacing, roofing membranes, and waterproofing where asphalt dominates."@en ;
+  skos:scopeNote "Einschliesslich Strassenbelaege, Dichtungsbahnen und Abdichtungen, wenn Asphalt dominiert."@de ;
+  dcterms:subject "IfcMaterial" ;
+  dcterms:identifier "asphalt" .
 
 :MAT-CMP a skos:Concept ;
   skos:inScheme :scheme ;

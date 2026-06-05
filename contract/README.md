@@ -23,7 +23,7 @@ contract/
 | File | Role |
 |------|------|
 | `00_pragmatic_bim_data_contract.yaml` | Root entrypoint importing all modules |
-| `entity_core_schema.yaml` | `Entity` base, agents, artifacts, decisions, tasks, messages |
+| `entity_core_schema.yaml` | `Entity` base, agents, artifacts, contracts, programs, projects, products, deliverables, decisions, tasks, processes, messages |
 | `entity_physical_schema.yaml` | Physical element hierarchy |
 | `entity_virtual_schema.yaml` | Virtual entities (`Space`, `System`, `TimeRecord`, …) |
 | `entity_performance_schema.yaml` | Performance property classes on `Entity.performance_properties` |
@@ -39,16 +39,22 @@ Cross-cutting enums such as `ContentKind` and `StatusType` live in `entity_schem
 
 The contract has two top-level concerns:
 
-1. **Entity graph** — everything modeled, specified, or managed in the project. All graph nodes are `Entity` subclasses with uniform `id`, `content_kind`, `status`, `created_at`, and `applies_to_entities`. The `content_kind` slot discriminates branches: physical, virtual, context, requirement, artifact, decision, task, agent, and message. Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
+1. **Entity graph** — everything modeled, specified, or managed in the project. All graph nodes are `Entity` subclasses with uniform `id`, `content_kind`, `status`, `created_at`, and `applies_to_entities`. The `content_kind` slot discriminates branches: physical, virtual, context, project, program, product, deliverable, requirement, artifact, contract, decision, task, process, agent, and message. Normalized IFC performance values stay on `Entity.performance_properties` (not requirements).
 2. **Change audit** — revision diff records as `Change` subclasses (`PropertyChange`, `GeometryChange`, `RequirementChange`, `MatchChange`, `AdditionChange`, `DeletionChange`). Change observes the graph between revisions; it is not an Entity and has no `content_kind`.
 
 Full class hierarchy and reference tables: [schema documentation](https://schema.pragmaticbim.ch/schema/pragmatic-bim.docs.html).
 
 ### Breaking change (major version)
 
-Documents, decisions, tasks, and messages are now top-level entity records linked via `applies_to_entities` instead of being embedded on other entities. `ContentKind.change` is removed. Change records use typed references (`affected_subject`, `affected_requirement`, `related_requirement`, `triggered_task`) instead of bare string IDs where applicable.
+Documents, decisions, tasks, and messages are now top-level entity records linked via `applies_to_entities` instead of being embedded on other entities. `ContentKind.change` is removed. Change records use typed references (`affected_subject`, `affected_requirement`, `related_requirement`, `triggered_task`, `triggered_process`) instead of bare string IDs where applicable.
 
 External files are modeled as `Artifact` (`content_kind: artifact`) with `artifact_kind` (text document, model, plan) and `storage_link`, replacing `yamlDocument` / `ContentKind.document`. Requirement provenance uses `source_artifact` (was `source_document`). Change records use `artifact_storage_link` (was `document_storage_link`).
+
+`ProjectContext` is removed. Business delivery scope is modeled as `Project` (`content_kind: project`) in `entity_core_schema.yaml`, with optional `project_code` and `client`. Spatial context no longer includes a project node; the spatial tree root is `PerimeterContext`. `parent_project` on spatial context nodes and systems references `Project`. IFC `IfcProject` maps to `Project`; `ContextType.project` is removed.
+
+Business scope hierarchy: `Program` (`content_kind: program`) groups `Project` records via `parent_program`. `Deliverable` (`content_kind: deliverable`) records link to a project via `parent_project` and optionally to a catalog `Product` via `related_product`. `Product` (`content_kind: product`) is a company offering at the same tier as `Program`, with `vendor` referencing the selling `Company`. Spatial context is not linked to `Product` or `Deliverable`.
+
+`Product` catalog pricing uses `catalog_cost_records` pointing to `CostRecord` entities with `cost_record_role` `cost` (internal/vendor cost) or `price` (sale or list price). Customer-specific prices set `priced_for_customer` on the cost record; omit it for the default list price. Project-side lines use `cost_record_role` `estimate` or `actual`, scoped via `applies_to_entities`, with optional `related_product` back to the catalog. See `CostRecordRole` in `entity_schema_enums.yaml`.
 
 ## Modeling conventions
 
