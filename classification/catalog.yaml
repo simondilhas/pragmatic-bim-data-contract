@@ -58,3 +58,7 @@ mappings:
   - slug: material-to-uniclass-ma
     path: mapping/abstract-material-to-uniclass-ma.mapping.ttl
     title: Abstract material to Uniclass Ma mapping
+
+  - slug: kbob-document-types-to-document-function
+    path: mapping/kbob-document-types-to-document-function.mapping.ttl
+    title: KBOB document types to document function mapping

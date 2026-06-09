@@ -27,3 +27,4 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Room activity to SIA 416 mapping](mapping-room-activity-to-sia416.md) | `mapping/abstract-room-classification-to-sia416.mapping.ttl` |
 | [Abstract roles to BKP mapping](mapping-roles-to-bkp.md) | `mapping/abstract-roles-to-bkp.mapping.ttl` |
 | [Abstract material to Uniclass Ma mapping](mapping-material-to-uniclass-ma.md) | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` |
+| [KBOB document types to document function mapping](mapping-kbob-document-types-to-document-function.md) | `mapping/kbob-document-types-to-document-function.mapping.ttl` |
