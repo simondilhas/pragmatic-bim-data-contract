@@ -25,7 +25,7 @@ URI: [pbs:postal_addresses](https://schema.pragmaticbim.ch/postal_addresses)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
 
 

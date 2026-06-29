@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -1639,6 +1639,14 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <tr>
 <td><code>ifc_relation_heuristic</code></td>
 <td>Infer value from related entities (e.g. system discipline)</td>
+</tr>
+<tr>
+<td><code>vocabulary_lookup</code></td>
+<td>Map IFC PropertySet or attribute values through SKOS bridge TTL files and/or vocabulary prefLabels</td>
+</tr>
+<tr>
+<td><code>vocabulary_derived_classification</code></td>
+<td>Derive a <code>Classification</code> entry from a resolved enum/slot via a mapping bridge</td>
 </tr>
 <tr>
 <td><code>constant</code></td>

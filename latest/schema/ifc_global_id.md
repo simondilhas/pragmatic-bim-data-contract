@@ -28,7 +28,7 @@ URI: [pbs:ifc_global_id](https://schema.pragmaticbim.ch/ifc_global_id)
 | [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |  no  |
 | [Change](Change.md) | Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation. |  no  |
 | [Agent](Agent.md) | Abstract base class for human and software actors in workflow and communication roles. |  no  |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
 | [SoftwareAgent](SoftwareAgent.md) | Automated actor (integration, bot, or pipeline) acting in workflow roles. |  no  |
 | [Decision](Decision.md) | Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs. |  no  |

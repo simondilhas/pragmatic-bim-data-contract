@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -535,6 +535,7 @@ click LevelContext href "./LevelContext.html" _blank
 click ZoneContext href "./ZoneContext.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
+click SpaceNameType href "./SpaceNameType.html" _blank
 click SpaceType href "./SpaceType.html" _blank
 click StatusType href "./StatusType.html" _blank
 click TimeRecord href "./TimeRecord.html" _blank</code></pre> 
@@ -582,6 +583,12 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td><a href="space_type.html">space_type</a></td>
 <td>1 <br/> <a href="SpaceType.html">SpaceType</a></td>
 <td>Classification of space (void, circulation, usable, service).</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="space_name_type.html">space_name_type</a></td>
+<td>0..1 <br/> <a href="SpaceNameType.html">SpaceNameType</a></td>
+<td>Normalized abstract room name type (for example office, kitchen, corridor). Project-specific labels remain on name. When set, adapters may derive a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity mapping bridge.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -826,6 +833,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VirtualEntity</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">space_type</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">space_name_type</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_building</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_level</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_zone</span>
@@ -868,6 +876,18 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Space</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpaceType</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">space_name_type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">space_name_type</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Normalized abstract room name type (for example office, kitchen,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">corridor). Project-specific labels remain on name. When set, adapters may derive</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">mapping bridge.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Space</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Space</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpaceNameType</span>
 <span class="w">  </span><span class="nt">parent_building</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parent_building</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Parent building context reference.</span>

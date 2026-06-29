@@ -6,7 +6,9 @@ search:
 # Class: Person 
 
 
-_Individual stakeholder, contributor, assignee, or responsible party represented in the schema._
+_Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction._
+
+__
 
 
 
@@ -30,12 +32,15 @@ click Agent href "./Agent.html" _blank
 click Entity href "./Entity.html" _blank
 click Company href "./Company.html" _blank
 click Classification href "./Classification.html" _blank
+click ConsentRecord href "./ConsentRecord.html" _blank
 click ContactPoint href "./ContactPoint.html" _blank
+click Company href "./Company.html" _blank
 click GeometryRepresentation href "./GeometryRepresentation.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
+click PersonalDataProcessingState href "./PersonalDataProcessingState.html" _blank
 click PostalAddress href "./PostalAddress.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
 click StatusType href "./StatusType.html" _blank
@@ -65,6 +70,14 @@ click StatusType href "./StatusType.html" _blank
 | [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | direct |
 | [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | direct |
 | [belongs_to_company](belongs_to_company.md) | 0..1 <br/> [Company](Company.md) | Optional company that the person belongs to. | direct |
+| [personal_data_processing_state](personal_data_processing_state.md) | 0..1 <br/> [PersonalDataProcessingState](PersonalDataProcessingState.md) | Privacy handling state for personal data on this person, orthogonal to workflow QA status. | direct |
+| [consent_records](consent_records.md) | * <br/> [ConsentRecord](ConsentRecord.md) | Audit trail of lawful basis and consent for processing personal data. When lawful_basis is consent and state is active, at least one non-withdrawn record should be present. | direct |
+| [data_controller](data_controller.md) | 0..1 <br/> [Company](Company.md) | Organization accountable as data controller for this person record. | direct |
+| [processing_purposes](processing_purposes.md) | * <br/> [String](String.md) | High-level purposes for processing personal data (for example project coordination, contract administration). | direct |
+| [retain_until](retain_until.md) | 0..1 <br/> [Datetime](Datetime.md) | Storage-limit deadline after which personal data should be deleted or redacted. | direct |
+| [privacy_policy_uri](privacy_policy_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI of the current or default privacy policy or notice applicable to this person record. | direct |
+| [redacted_at](redacted_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when identifying personal data was redacted on this record. | direct |
+| [redaction_reason](redaction_reason.md) | 0..1 <br/> [String](String.md) | Reason for redaction (for example external model export, erasure request, retention expired). | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -134,8 +147,11 @@ click StatusType href "./StatusType.html" _blank
 <details>
 ```yaml
 name: Person
-description: Individual stakeholder, contributor, assignee, or responsible party represented
-  in the schema.
+description: 'Individual stakeholder, contributor, assignee, or responsible party
+  represented in the schema. Instances may contain personal data; privacy slots govern
+  lawful processing, consent, retention, and redaction.
+
+  '
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:Person
@@ -145,6 +161,14 @@ slots:
 - postal_addresses
 - contact_points
 - belongs_to_company
+- personal_data_processing_state
+- consent_records
+- data_controller
+- processing_purposes
+- retain_until
+- privacy_policy_uri
+- redacted_at
+- redaction_reason
 class_uri: pbs:Person
 
 ```
@@ -155,8 +179,11 @@ class_uri: pbs:Person
 <details>
 ```yaml
 name: Person
-description: Individual stakeholder, contributor, assignee, or responsible party represented
-  in the schema.
+description: 'Individual stakeholder, contributor, assignee, or responsible party
+  represented in the schema. Instances may contain personal data; privacy slots govern
+  lawful processing, consent, retention, and redaction.
+
+  '
 from_schema: https://schema.pragmaticbim.ch
 exact_mappings:
 - schema:Person
@@ -198,6 +225,92 @@ attributes:
     - Person
     range: Company
     inlined: false
+  personal_data_processing_state:
+    name: personal_data_processing_state
+    description: Privacy handling state for personal data on this person, orthogonal
+      to workflow QA status.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: PersonalDataProcessingState
+  consent_records:
+    name: consent_records
+    description: 'Audit trail of lawful basis and consent for processing personal
+      data. When lawful_basis is consent and state is active, at least one non-withdrawn
+      record should be present.
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: ConsentRecord
+    multivalued: true
+    inlined: true
+  data_controller:
+    name: data_controller
+    description: Organization accountable as data controller for this person record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: Company
+    inlined: false
+  processing_purposes:
+    name: processing_purposes
+    description: High-level purposes for processing personal data (for example project
+      coordination, contract administration).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: string
+    multivalued: true
+  retain_until:
+    name: retain_until
+    description: Storage-limit deadline after which personal data should be deleted
+      or redacted.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: datetime
+  privacy_policy_uri:
+    name: privacy_policy_uri
+    description: URI of the current or default privacy policy or notice applicable
+      to this person record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    - ConsentRecord
+    range: uriorcurie
+  redacted_at:
+    name: redacted_at
+    description: Timestamp when identifying personal data was redacted on this record.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: datetime
+  redaction_reason:
+    name: redaction_reason
+    description: Reason for redaction (for example external model export, erasure
+      request, retention expired).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: string
   id:
     name: id
     description: Unique local identifier.

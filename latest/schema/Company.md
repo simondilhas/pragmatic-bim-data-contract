@@ -91,6 +91,7 @@ click StatusType href "./StatusType.html" _blank
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Person](Person.md) | [belongs_to_company](belongs_to_company.md) | range | [Company](Company.md) |
+| [Person](Person.md) | [data_controller](data_controller.md) | range | [Company](Company.md) |
 | [SoftwareAgent](SoftwareAgent.md) | [operated_by](operated_by.md) | range | [Company](Company.md) |
 | [Project](Project.md) | [client](client.md) | range | [Company](Company.md) |
 | [Program](Program.md) | [client](client.md) | range | [Company](Company.md) |

@@ -44,7 +44,16 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `abs:S` | `mapsToSia416` | `sia:VF` |
 | `abs:S-CIR` | `mapsToSia416` | `sia:VF` |
 | `abs:S-CIR-HOR` | `mapsToSia416` | `sia:VF` |
-| `abs:S-CIR-VRT` | `mapsToSia416` | `sia:VF` |
+| `abs:S-CIR-VRT-MAN` | `mapsToSia416` | `sia:VF` |
+| `abs:S-CIR-VRT-MEC` | `mapsToSia416` | `sia:VF` |
+| `abs:S-HYG` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-HYG-GRD` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-HYG-SHW` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-HYG-WC` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-HYG-WC-F` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-HYG-WC-IV` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-HYG-WC-M` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-HYG-WC-MIX` | `mapsToSia416` | `sia:NNF` |
 | `abs:S-PRK` | `mapsToSia416` | `sia:AVF` |
 | `abs:S-PRK` | `mapsToSia416` | `sia:BUF` |
 | `abs:S-PRK` | `mapsToSia416` | `sia:NNF` |
@@ -53,6 +62,9 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `abs:S-PRK-INT` | `mapsToSia416` | `sia:NNF` |
 | `abs:S-PRK-SVC` | `mapsToSia416` | `sia:BUF` |
 | `abs:S-PRK-SVC` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-STO` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-STO-GEN` | `mapsToSia416` | `sia:NNF` |
+| `abs:S-STO-LCK` | `mapsToSia416` | `sia:NNF` |
 | `abs:S-TEC` | `mapsToSia416` | `sia:FF` |
 | `abs:S-VOI-MLT` | `mapsToSia416` | `sia:KF` |
 | `abs:S-VOI-MLT` | `mapsToSia416` | `sia:VF` |

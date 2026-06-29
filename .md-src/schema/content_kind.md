@@ -27,7 +27,7 @@ URI: [pbs:content_kind](https://schema.pragmaticbim.ch/content_kind)
 | --- | --- | --- |
 | [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |  yes  |
 | [Agent](Agent.md) | Abstract base class for human and software actors in workflow and communication roles. |  yes  |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
 | [SoftwareAgent](SoftwareAgent.md) | Automated actor (integration, bot, or pipeline) acting in workflow roles. |  no  |
 | [Decision](Decision.md) | Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs. |  yes  |
