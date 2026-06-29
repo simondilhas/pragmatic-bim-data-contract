@@ -6,7 +6,7 @@ search:
 # Class: PerformanceRequirement 
 
 
-_Performance target requirement (U-value, fire rating, airflow, acoustic, etc.)._
+_Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). Boolean targets use target_value_boolean with requirement_property_key aligned to entity slot names where applicable (for example is_heated on Space). Application pipelines compare the subject entity slot to the requirement target and record the outcome as MatchChange (match_status met, unmet, or unknown)._
 
 
 
@@ -138,7 +138,10 @@ click RequirementTargetOperator href "./RequirementTargetOperator.html" _blank
 ```yaml
 name: PerformanceRequirement
 description: Performance target requirement (U-value, fire rating, airflow, acoustic,
-  etc.).
+  etc.). Boolean targets use target_value_boolean with requirement_property_key aligned
+  to entity slot names where applicable (for example is_heated on Space). Application
+  pipelines compare the subject entity slot to the requirement target and record the
+  outcome as MatchChange (match_status met, unmet, or unknown).
 from_schema: https://schema.pragmaticbim.ch
 is_a: Requirement
 slots:
@@ -160,7 +163,10 @@ class_uri: pbs:PerformanceRequirement
 ```yaml
 name: PerformanceRequirement
 description: Performance target requirement (U-value, fire rating, airflow, acoustic,
-  etc.).
+  etc.). Boolean targets use target_value_boolean with requirement_property_key aligned
+  to entity slot names where applicable (for example is_heated on Space). Application
+  pipelines compare the subject entity slot to the requirement target and record the
+  outcome as MatchChange (match_status met, unmet, or unknown).
 from_schema: https://schema.pragmaticbim.ch
 is_a: Requirement
 attributes:

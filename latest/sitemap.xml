@@ -921,6 +921,14 @@
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/schema/elevation.html</loc>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/elevation_unit.html</loc>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/schema/equipment_type.html</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
@@ -982,6 +990,18 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/schema/intent_verdict.html</loc>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/is_above_ground.html</loc>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/is_cooled.html</loc>
+         <lastmod>2026-06-29</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/schema/is_heated.html</loc>
          <lastmod>2026-06-29</lastmod>
     </url>
     <url>

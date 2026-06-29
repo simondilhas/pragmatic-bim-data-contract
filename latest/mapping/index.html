@@ -647,6 +647,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ifcspace-space-conditioning-and-above-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IfcSpace → Space (conditioning and above-ground)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ifcslab-predefinedtype-split" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1089,6 +1100,17 @@
     <span class="md-ellipsis">
       
         IfcDuctSegment → ConnectionPhysical
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ifcspace-space-conditioning-and-above-ground" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IfcSpace → Space (conditioning and above-ground)
       
     </span>
   </a>
@@ -1649,6 +1671,10 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <td>Derive a <code>Classification</code> entry from a resolved enum/slot via a mapping bridge</td>
 </tr>
 <tr>
+<td><code>attribute_derivation</code></td>
+<td>Derive a typed attribute when unset (e.g. <code>is_above_ground</code> from <code>parent_level.elevation</code>)</td>
+</tr>
+<tr>
 <td><code>constant</code></td>
 <td>Fixed PBS enum or string value</td>
 </tr>
@@ -1931,6 +1957,56 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <span class="nt">relations</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IfcRelConnectsPathElements</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IfcRelAssignsToSystem</span>
+</code></pre></div>
+<h3 id="ifcspace-space-conditioning-and-above-ground">IfcSpace → Space (conditioning and above-ground)<a class="headerlink" href="#ifcspace-space-conditioning-and-above-ground" title="Permanent link">&para;</a></h3>
+<p>Space carries optional design-state booleans as typed PBS slots (not requirements):</p>
+<table>
+<thead>
+<tr>
+<th>PBS slot</th>
+<th>IFC source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is_heated</code></td>
+<td><code>Pset_SpaceCommon.IsHeated</code></td>
+<td>As-designed heating flag</td>
+</tr>
+<tr>
+<td><code>is_cooled</code></td>
+<td><code>Pset_SpaceCommon.IsAirConditioned</code></td>
+<td>As-designed cooling / AC flag</td>
+</tr>
+<tr>
+<td><code>is_above_ground</code></td>
+<td>— (no standard IFC pset)</td>
+<td>Explicit override; see derivation below</td>
+</tr>
+</tbody>
+</table>
+<p><code>IfcBuildingStorey.Elevation</code> maps to <code>LevelContext.elevation</code> (unit <code>m</code>). When <code>is_above_ground</code> is unset on a Space, adapters apply the <code>attribute_derivation</code> rule in <code>conventions.space_above_ground_from_level</code>:</p>
+<div class="highlight"><pre><span></span><code>if space.is_above_ground is null and parent_level.elevation is known:
+  is_above_ground := parent_level.elevation &gt;= 0
+</code></pre></div>
+<p>Explicit <code>is_above_ground</code> on Space always wins over the derived value.</p>
+<p><strong>Prescriptive validation (application layer):</strong> when a brief requires a space to be heated, cooled, or above ground, create a <code>PerformanceRequirement</code> with <code>requirement_property_key</code> matching the Space slot name (<code>is_heated</code>, <code>is_cooled</code>, or <code>is_above_ground</code>), <code>target_value_boolean: true</code>, and link via <code>applies_to_entities</code>. Compare the Space slot (or derived <code>is_above_ground</code>) to the requirement target and record the outcome as <code>MatchChange</code> with <code>match_status</code> <code>met</code>, <code>unmet</code>, or <code>unknown</code>.</p>
+<p>Example requirement entity:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">content_kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">requirement</span>
+<span class="nt">canonical_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceRequirement</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Office heating requirement</span>
+<span class="nt">requirement_property_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">is_heated</span>
+<span class="nt">target_value_boolean</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">applies_to_entities</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">&lt;Space id&gt;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<p>Example match change when validation runs between revisions:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">change_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">match</span>
+<span class="nt">related_requirement</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;PerformanceRequirement id&gt;</span>
+<span class="nt">affected_subject</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;Space id&gt;</span>
+<span class="nt">match_status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">met</span><span class="w">   </span><span class="c1"># or unmet / unknown</span>
+<span class="nt">from_revision</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">to_revision</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <h3 id="ifcslab-predefinedtype-split">IfcSlab PredefinedType split<a class="headerlink" href="#ifcslab-predefinedtype-split" title="Permanent link">&para;</a></h3>
 <p>Per <strong>IfcSlabTypeEnum</strong> (IFC 4.3). <code>CEILING</code> is <strong>not</strong> a slab type — ceilings are <code>IfcCovering</code> with <code>PredefinedType=CEILING</code>.</p>

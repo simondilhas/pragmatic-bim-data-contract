@@ -71,6 +71,9 @@ click TimeRecord href "./TimeRecord.html" _blank
 | ---  | --- | --- | --- |
 | [space_type](space_type.md) | 1 <br/> [SpaceType](SpaceType.md) | Classification of space (void, circulation, usable, service). | direct |
 | [space_name_type](space_name_type.md) | 0..1 <br/> [SpaceNameType](SpaceNameType.md) | Normalized abstract room name type (for example office, kitchen, corridor). Project-specific labels remain on name. When set, adapters may derive a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity mapping bridge. | direct |
+| [is_heated](is_heated.md) | 0..1 <br/> [Boolean](Boolean.md) | Whether the space is designed to receive heating. | direct |
+| [is_cooled](is_cooled.md) | 0..1 <br/> [Boolean](Boolean.md) | Whether the space is designed to receive cooling (air conditioning). | direct |
+| [is_above_ground](is_above_ground.md) | 0..1 <br/> [Boolean](Boolean.md) | Whether the space is above ground level. When unset, consumers may derive from parent_level elevation relative to project datum. | direct |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | direct |
 | [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | direct |
 | [parent_zone](parent_zone.md) | 0..1 <br/> [ZoneContext](ZoneContext.md) | Parent zone context reference. | direct |
@@ -168,6 +171,9 @@ is_a: VirtualEntity
 slots:
 - space_type
 - space_name_type
+- is_heated
+- is_cooled
+- is_above_ground
 - parent_building
 - parent_level
 - parent_zone
@@ -226,6 +232,34 @@ attributes:
     domain_of:
     - Space
     range: SpaceNameType
+  is_heated:
+    name: is_heated
+    description: Whether the space is designed to receive heating.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Space
+    domain_of:
+    - Space
+    range: boolean
+  is_cooled:
+    name: is_cooled
+    description: Whether the space is designed to receive cooling (air conditioning).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Space
+    domain_of:
+    - Space
+    range: boolean
+  is_above_ground:
+    name: is_above_ground
+    description: Whether the space is above ground level. When unset, consumers may
+      derive from parent_level elevation relative to project datum.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Space
+    domain_of:
+    - Space
+    range: boolean
   parent_building:
     name: parent_building
     description: Parent building context reference.
