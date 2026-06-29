@@ -23,7 +23,19 @@ abs:M_CIR ex:mapsToD0165 d0165:VF_9, d0165:VF_9_1, d0165:VF_9_2 .
 abs:S ex:mapsToD0165 d0165:NNF_7, d0165:FF_8, d0165:VF_9 .
 abs:S_CIR ex:mapsToD0165 d0165:VF_9 .
 abs:S_CIR_HOR ex:mapsToD0165 d0165:VF_9_1 .
-abs:S_CIR_VRT ex:mapsToD0165 d0165:VF_9_2, d0165:VF_9_3 .
+abs:S_CIR_VRT_MAN ex:mapsToD0165 d0165:VF_9_2 .
+abs:S_CIR_VRT_MEC ex:mapsToD0165 d0165:VF_9_3 .
+abs:S_HYG ex:mapsToD0165 d0165:NNF_7_1, d0165:NNF_7_2 .
+abs:S_HYG_GRD ex:mapsToD0165 d0165:NNF_7_2 .
+abs:S_HYG_WC ex:mapsToD0165 d0165:NNF_7_1 .
+abs:S_HYG_WC_F ex:mapsToD0165 d0165:NNF_7_1 .
+abs:S_HYG_WC_IV ex:mapsToD0165 d0165:NNF_7_1 .
+abs:S_HYG_WC_M ex:mapsToD0165 d0165:NNF_7_1 .
+abs:S_HYG_WC_MIX ex:mapsToD0165 d0165:NNF_7_1 .
+abs:S_HYG_SHW ex:mapsToD0165 d0165:NNF_7_2 .
+abs:S_STO ex:mapsToD0165 d0165:NNF_7_3 .
+abs:S_STO_GEN ex:mapsToD0165 d0165:NNF_7_3 .
+abs:S_STO_LCK ex:mapsToD0165 d0165:NNF_7_3 .
 abs:S_TEC ex:mapsToD0165 d0165:FF_8 .
 
 abs:S_PRK ex:mapsToD0165 d0165:NNF_7_4, d0165:BUF_10_1, d0165:BUF_10_2 .

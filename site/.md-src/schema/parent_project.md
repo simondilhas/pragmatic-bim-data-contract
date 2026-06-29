@@ -25,6 +25,7 @@ URI: [pbs:parent_project](https://schema.pragmaticbim.ch/parent_project)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Process](Process.md) | Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record. |  no  |
 | [Deliverable](Deliverable.md) | Outcome or handover item produced within a project. |  yes  |
 | [SpatialContext](SpatialContext.md) | Context node used to represent perimeter, legal site, built asset, level, or zone. |  yes  |
 | [System](System.md) | Building service system grouping that serves spaces or zones. |  yes  |
@@ -48,7 +49,7 @@ URI: [pbs:parent_project](https://schema.pragmaticbim.ch/parent_project)
 | Property | Value |
 | --- | --- |
 | Range | [Project](Project.md) |
-| Domain Of | [Deliverable](Deliverable.md), [SpatialContext](SpatialContext.md), [System](System.md) |
+| Domain Of | [Process](Process.md), [Deliverable](Deliverable.md), [SpatialContext](SpatialContext.md), [System](System.md) |
 
 ### Cardinality and Requirements
 
@@ -97,6 +98,7 @@ description: Parent project reference.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
+- Process
 - Deliverable
 - SpatialContext
 - System

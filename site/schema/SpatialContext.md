@@ -272,6 +272,7 @@ attributes:
     rank: 1000
     owner: SpatialContext
     domain_of:
+    - Process
     - Deliverable
     - SpatialContext
     - System

@@ -198,6 +198,7 @@ attributes:
     rank: 1000
     owner: BuildingContext
     domain_of:
+    - Process
     - Deliverable
     - SpatialContext
     - System

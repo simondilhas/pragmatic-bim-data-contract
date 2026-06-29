@@ -13,7 +13,8 @@ SKOS vocabularies, mapping bridges, and reference diagrams for the data contract
 
 ```
 classification/
-├── abstract-room-classification/       # SKOS + JSON
+├── abstract-room-classification/       # SKOS + JSON — space activity (area) vocabulary
+├── abstract-room-name-classification/  # SKOS — normalized room name types
 ├── abstract-separator-classification/  # SKOS
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
@@ -25,6 +26,7 @@ classification/
 | Path | Role |
 |------|------|
 | `abstract-room-classification/` | Building space and activity vocabulary |
+| `abstract-room-name-classification/` | Normalized abstract room name types |
 | `abstract-separator-classification/` | Wall/slab separator roles and connection types |
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
@@ -40,6 +42,8 @@ classification/
 | `mapping/abstract-room-classification-to-d0165.mapping.ttl` | Space activity → SIA D0165 area codes |
 | `mapping/d0165-to-abstract-room-classification.mapping.ttl` | D0165 → space activity (reverse) |
 | `mapping/abstract-room-classification-to-sia416.mapping.ttl` | Space activity → SIA 416 area classes |
+| `mapping/abstract-room-name-to-space-activity.mapping.ttl` | Room name → space activity |
+| `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` | armasuisse Raumliste → abstract room names |
 | `mapping/abstract-roles-to-bkp.mapping.ttl` | Workflow roles → BKP cost lines |
 | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` | Abstract material → Uniclass Ma |
 

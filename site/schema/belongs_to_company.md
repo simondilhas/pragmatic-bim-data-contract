@@ -25,7 +25,7 @@ URI: [pbs:belongs_to_company](https://schema.pragmaticbim.ch/belongs_to_company)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction. |  no  |
 
 
 

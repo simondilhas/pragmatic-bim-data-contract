@@ -61,8 +61,8 @@ click StatusType href "./StatusType.html" _blank
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | [Agent](Agent.md) |
-| [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | [Agent](Agent.md) |
+| [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | direct |
+| [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -91,6 +91,8 @@ click StatusType href "./StatusType.html" _blank
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Person](Person.md) | [belongs_to_company](belongs_to_company.md) | range | [Company](Company.md) |
+| [Person](Person.md) | [data_controller](data_controller.md) | range | [Company](Company.md) |
+| [SoftwareAgent](SoftwareAgent.md) | [operated_by](operated_by.md) | range | [Company](Company.md) |
 | [Project](Project.md) | [client](client.md) | range | [Company](Company.md) |
 | [Program](Program.md) | [client](client.md) | range | [Company](Company.md) |
 | [Product](Product.md) | [vendor](vendor.md) | range | [Company](Company.md) |
@@ -150,6 +152,9 @@ exact_mappings:
 - schema:Organization
 - prov:Agent
 is_a: Agent
+slots:
+- postal_addresses
+- contact_points
 class_uri: pbs:Company
 
 ```
@@ -175,7 +180,8 @@ attributes:
     rank: 1000
     owner: Company
     domain_of:
-    - Agent
+    - Person
+    - Company
     range: PostalAddress
     multivalued: true
     inlined: true
@@ -187,7 +193,8 @@ attributes:
     rank: 1000
     owner: Company
     domain_of:
-    - Agent
+    - Person
+    - Company
     range: ContactPoint
     multivalued: true
     inlined: true

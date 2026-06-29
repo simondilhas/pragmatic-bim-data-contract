@@ -6,6 +6,10 @@ vocabularies:
     path: abstract-room-classification/building_space-activity-classification-en.skos.ttl
     title: Building space activity classification
 
+  - slug: room-name
+    path: abstract-room-name-classification/building-space-name-classification.skos.ttl
+    title: Building space name classification
+
   - slug: separator-wall-role
     path: abstract-separator-classification/separator-wall-role-classification-en.skos.ttl
     title: Separator wall role classification
@@ -50,6 +54,14 @@ mappings:
   - slug: room-activity-to-sia416
     path: mapping/abstract-room-classification-to-sia416.mapping.ttl
     title: Room activity to SIA 416 mapping
+
+  - slug: room-name-to-activity
+    path: mapping/abstract-room-name-to-space-activity.mapping.ttl
+    title: Room name to space activity mapping
+
+  - slug: armasuisse-room-name-to-room-name
+    path: mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl
+    title: armasuisse room name to abstract room name mapping
 
   - slug: roles-to-bkp
     path: mapping/abstract-roles-to-bkp.mapping.ttl

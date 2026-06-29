@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -494,17 +494,22 @@
 </tr>
 <tr>
 <td><a href="Agent.html">Agent</a></td>
-<td>Abstract base class for people or organizations acting in workflow and communication roles.</td>
+<td>Abstract base class for human and software actors in workflow and communication roles.</td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="Person.html">Person</a></td>
-<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema.</td>
+<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction.</td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="Company.html">Company</a></td>
 <td>Organization, company, or legal entity participating in the project or asset lifecycle.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="SoftwareAgent.html">SoftwareAgent</a></td>
+<td>Automated actor (integration, bot, or pipeline) acting in workflow roles.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -515,6 +520,11 @@
 <tr>
 <td><a href="Task.html">Task</a></td>
 <td>Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="Process.html">Process</a></td>
+<td>Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record.</td>
 <td>no</td>
 </tr>
 <tr>

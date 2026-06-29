@@ -214,6 +214,8 @@ Each `entities.Ifc*` entry defines:
 | `ifc_relation` | Resolve value through an IFC relationship |
 | `ifc_attribute_heuristic` | Map attribute value through keyword rules with a default |
 | `ifc_relation_heuristic` | Infer value from related entities (e.g. system discipline) |
+| `vocabulary_lookup` | Map IFC PropertySet or attribute values through SKOS bridge TTL files and/or vocabulary prefLabels |
+| `vocabulary_derived_classification` | Derive a `Classification` entry from a resolved enum/slot via a mapping bridge |
 | `constant` | Fixed PBS enum or string value |
 | `predefined_type_map` | Branch on IFC `PredefinedType` |
 

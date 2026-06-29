@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -483,6 +483,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="Process.html">Process</a></td>
+<td>Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record.</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="Deliverable.html">Deliverable</a></td>
 <td>Outcome or handover item produced within a project.</td>
 <td>yes</td>
@@ -550,7 +555,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Deliverable.html">Deliverable</a>, <a href="SpatialContext.html">SpatialContext</a>, <a href="System.html">System</a></td>
+<td><a href="Process.html">Process</a>, <a href="Deliverable.html">Deliverable</a>, <a href="SpatialContext.html">SpatialContext</a>, <a href="System.html">System</a></td>
 </tr>
 </tbody>
 </table>
@@ -600,6 +605,7 @@
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Process</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deliverable</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SpatialContext</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">System</span>

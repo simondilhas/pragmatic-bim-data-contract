@@ -90,10 +90,10 @@ d0165:HNF_6_8 ex:mapsToAbstract abs:M_HEL .
 d0165:KFN ex:mapsToAbstract abs:S_VOI_STR .
 d0165:KFT ex:mapsToAbstract abs:S_VOI_STR .
 d0165:NNF_7 ex:mapsToAbstract abs:S .
-d0165:NNF_7_1 ex:mapsToAbstract abs:S .
+d0165:NNF_7_1 ex:mapsToAbstract abs:S_HYG, abs:S_HYG_WC, abs:S_HYG_WC_F, abs:S_HYG_WC_IV, abs:S_HYG_WC_M, abs:S_HYG_WC_MIX .
 d0165:NNF_7_10 ex:mapsToAbstract abs:S .
-d0165:NNF_7_2 ex:mapsToAbstract abs:S .
-d0165:NNF_7_3 ex:mapsToAbstract abs:S .
+d0165:NNF_7_2 ex:mapsToAbstract abs:S_HYG, abs:S_HYG_GRD, abs:S_HYG_SHW .
+d0165:NNF_7_3 ex:mapsToAbstract abs:S_STO, abs:S_STO_GEN .
 d0165:NNF_7_4 ex:mapsToAbstract abs:S .
 d0165:NNF_7_5 ex:mapsToAbstract abs:S .
 d0165:NNF_7_6 ex:mapsToAbstract abs:S .
@@ -101,6 +101,6 @@ d0165:NNF_7_7 ex:mapsToAbstract abs:S .
 d0165:UUF ex:mapsToAbstract abs:O .
 d0165:VF_9 ex:mapsToAbstract abs:S_CIR .
 d0165:VF_9_1 ex:mapsToAbstract abs:S_CIR .
-d0165:VF_9_2 ex:mapsToAbstract abs:S_CIR .
-d0165:VF_9_3 ex:mapsToAbstract abs:S_CIR .
+d0165:VF_9_2 ex:mapsToAbstract abs:S_CIR_VRT_MAN .
+d0165:VF_9_3 ex:mapsToAbstract abs:S_CIR_VRT_MEC, abs:S_VOI_VRT .
 d0165:VF_9_4 ex:mapsToAbstract abs:S_CIR .

@@ -3,7 +3,7 @@
     "OrganizationCode": "abstract",
     "DictionaryCode": "BuildingSpaceActivityClassification",
     "DictionaryName": "Building Space and Activity Classification System",
-    "DictionaryVersion": "1.0.3",
+    "DictionaryVersion": "1.0.5",
     "LanguageIsoCode": "EN",
     "LanguageOnly": false,
     "UseOwnUri": false,
@@ -135,14 +135,134 @@
             "ParentClassCode": "S-CIR"
         },
         {
-            "Code": "S-CIR-VRT",
-            "Name": "Vertical Circulation",
+            "Code": "S-CIR-VRT-MAN",
+            "Name": "Stair and Ramp Circulation",
             "ClassType": "Class",
-            "Definition": "Spaces for vertical movement",
-            "Description": "Including staircases, elevator lobbies, escalator spaces, and ramps",
+            "Definition": "Spaces for human-powered vertical movement",
+            "Description": "Including staircases, stairwells, ramps, and inclined walkways",
             "RelatedIfcEntityNamesList": ["IfcSpace"],
             "Status": "Active",
             "ParentClassCode": "S-CIR"
+        },
+        {
+            "Code": "S-CIR-VRT-MEC",
+            "Name": "Lift and Escalator Circulation",
+            "ClassType": "Class",
+            "Definition": "Spaces for mechanical vertical movement",
+            "Description": "Including elevator lobbies, escalator landings, and moving-walkway areas",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-CIR"
+        },
+        {
+            "Code": "S-HYG",
+            "Name": "Hygiene Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for personal hygiene and sanitary activities",
+            "Description": "Auxiliary spaces for toilets, washing, and changing not integral to main activities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S"
+        },
+        {
+            "Code": "S-HYG-WC",
+            "Name": "Toilet Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for toilet and hand-washing use",
+            "Description": "Toilet rooms classified by intended user group when known",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-HYG"
+        },
+        {
+            "Code": "S-HYG-WC-M",
+            "Name": "Male Toilet Spaces",
+            "ClassType": "Class",
+            "Definition": "Toilet spaces designated for male use",
+            "Description": "Including men's restrooms and urinal areas",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-HYG-WC"
+        },
+        {
+            "Code": "S-HYG-WC-F",
+            "Name": "Female Toilet Spaces",
+            "ClassType": "Class",
+            "Definition": "Toilet spaces designated for female use",
+            "Description": "Including women's restrooms",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-HYG-WC"
+        },
+        {
+            "Code": "S-HYG-WC-IV",
+            "Name": "Accessible Toilet Spaces",
+            "ClassType": "Class",
+            "Definition": "Toilet spaces designed for accessible or inclusive use",
+            "Description": "Including wheelchair-accessible WC and inclusive toilet facilities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-HYG-WC"
+        },
+        {
+            "Code": "S-HYG-WC-MIX",
+            "Name": "Mixed Toilet Spaces",
+            "ClassType": "Class",
+            "Definition": "Toilet spaces for mixed or unisex use",
+            "Description": "Including unisex, family, and all-gender restrooms",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-HYG-WC"
+        },
+        {
+            "Code": "S-HYG-GRD",
+            "Name": "Cloakroom Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for storing outer garments at building entry or events",
+            "Description": "Including reception cloakrooms, coat checks, and visitor garderobes",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-HYG"
+        },
+        {
+            "Code": "S-HYG-SHW",
+            "Name": "Shower and Changing Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for washing, showering, and changing clothes",
+            "Description": "Including showers and sport or staff changing rooms, not entrance cloakrooms",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-HYG"
+        },
+        {
+            "Code": "S-STO",
+            "Name": "Storage Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for storing materials, equipment, and personal belongings",
+            "Description": "Auxiliary spaces for general storage not integral to main activities",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S"
+        },
+        {
+            "Code": "S-STO-GEN",
+            "Name": "General Storage Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for materials, archives, and general building storage",
+            "Description": "Including janitor closets, archives, supply rooms, and material storage",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-STO"
+        },
+        {
+            "Code": "S-STO-LCK",
+            "Name": "Locker Storage Spaces",
+            "ClassType": "Class",
+            "Definition": "Spaces for personal lockers and assigned storage",
+            "Description": "Including locker banks and assigned personal storage, not staffed cloakrooms",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "S-STO"
         },
         {
             "Code": "S-TEC",

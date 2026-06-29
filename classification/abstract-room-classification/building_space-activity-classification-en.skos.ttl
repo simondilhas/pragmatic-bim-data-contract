@@ -11,7 +11,7 @@
   dcterms:issued "2024-11-04" ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-public-rules> ;
-  skos:definition "Building Space and Activity Classification System (BuildingSpaceActivityClassification), version 1.0.3."@en ;
+  skos:definition "Building Space and Activity Classification System (BuildingSpaceActivityClassification), version 1.0.5."@en ;
   skos:definition "Klassifikationssystem fuer Gebaeude-, Raum- und Aktivitaetsflaechen mit hierarchischer Einteilung von Nutzungs-, Unterstuetzungs- und Aussenbereichen."@de ;
   skos:hasTopConcept :M, :O, :S .
 
@@ -248,7 +248,7 @@
   skos:definition "Kategorie fuer unterstuetzungsflaechen im Klassifikationssystem."@de ;
   dcterms:description "Spaces that enable the functioning of main activity spaces"@en ;
   dcterms:description "Diese Klasse umfasst unterstuetzungsflaechen innerhalb des Klassifikationssystems."@de ;
-  skos:narrower :S_CIR, :S_PRK, :S_TEC, :S_VOI ;
+  skos:narrower :S_CIR, :S_HYG, :S_PRK, :S_STO, :S_TEC, :S_VOI ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "S" .
 
@@ -262,7 +262,7 @@
   dcterms:description "Main circulation spaces, Corridors, fire exits, and other circulation spaces not part of main activities"@en ;
   dcterms:description "Diese Klasse umfasst nebenerschliessungsflaechen innerhalb des Klassifikationssystems."@de ;
   skos:broader :S ;
-  skos:narrower :S_CIR_HOR, :S_CIR_VRT ;
+  skos:narrower :S_CIR_HOR, :S_CIR_VRT_MAN, :S_CIR_VRT_MEC ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "S-CIR" .
 
@@ -279,18 +279,137 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "S-CIR-HOR" .
 
-:S_CIR_VRT a skos:Concept ;
+:S_CIR_VRT_MAN a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:notation "S-CIR-VRT" ;
-  skos:prefLabel "Vertical Circulation"@en ;
-  skos:prefLabel "Vertikale Erschliessung"@de ;
-  skos:definition "Spaces for vertical movement"@en ;
-  skos:definition "Kategorie fuer vertikale erschliessung im Klassifikationssystem."@de ;
-  dcterms:description "Including staircases, elevator lobbies, escalator spaces, and ramps"@en ;
-  dcterms:description "Diese Klasse umfasst vertikale erschliessung innerhalb des Klassifikationssystems."@de ;
+  skos:notation "S-CIR-VRT-MAN" ;
+  skos:prefLabel "Stair and Ramp Circulation"@en ;
+  skos:prefLabel "Treppen- und Rampenerschliessung"@de ;
+  skos:definition "Spaces for human-powered vertical movement"@en ;
+  skos:definition "Kategorie fuer treppen- und rampenerschliessung im Klassifikationssystem."@de ;
+  dcterms:description "Including staircases, stairwells, ramps, and inclined walkways"@en ;
+  dcterms:description "Diese Klasse umfasst treppen- und rampenerschliessung innerhalb des Klassifikationssystems."@de ;
   skos:broader :S_CIR ;
   dcterms:subject "IfcSpace" ;
-  dcterms:identifier "S-CIR-VRT" .
+  dcterms:identifier "S-CIR-VRT-MAN" .
+
+:S_CIR_VRT_MEC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-CIR-VRT-MEC" ;
+  skos:prefLabel "Lift and Escalator Circulation"@en ;
+  skos:prefLabel "Lift- und Rolltreppenerschliessung"@de ;
+  skos:definition "Spaces for mechanical vertical movement"@en ;
+  skos:definition "Kategorie fuer lift- und rolltreppenerschliessung im Klassifikationssystem."@de ;
+  dcterms:description "Including elevator lobbies, escalator landings, and moving-walkway areas"@en ;
+  dcterms:description "Diese Klasse umfasst lift- und rolltreppenerschliessung innerhalb des Klassifikationssystems."@de ;
+  skos:broader :S_CIR ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-CIR-VRT-MEC" .
+
+:S_HYG a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG" ;
+  skos:prefLabel "Hygiene Spaces"@en ;
+  skos:prefLabel "Hygiene- und Sanitaerflaechen"@de ;
+  skos:definition "Spaces for personal hygiene and sanitary activities"@en ;
+  skos:definition "Kategorie fuer hygiene- und sanitaerflaechen im Klassifikationssystem."@de ;
+  dcterms:description "Auxiliary spaces for toilets, washing, and changing not integral to main activities"@en ;
+  dcterms:description "Diese Klasse umfasst hygiene- und sanitaerflaechen innerhalb des Klassifikationssystems."@de ;
+  skos:broader :S ;
+  skos:narrower :S_HYG_GRD, :S_HYG_SHW, :S_HYG_WC ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG" .
+
+:S_HYG_WC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG-WC" ;
+  skos:prefLabel "Toilet Spaces"@en ;
+  skos:prefLabel "WC- und Sanitaerraeume"@de ;
+  skos:definition "Spaces for toilet and hand-washing use"@en ;
+  skos:definition "Kategorie fuer wc- und sanitaerraeume im Klassifikationssystem."@de ;
+  dcterms:description "Toilet rooms classified by intended user group when known"@en ;
+  dcterms:description "WC-Raeume nach vorgesehener Nutzergruppe, sofern bekannt."@de ;
+  skos:broader :S_HYG ;
+  skos:narrower :S_HYG_WC_F, :S_HYG_WC_IV, :S_HYG_WC_M, :S_HYG_WC_MIX ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG-WC" .
+
+:S_HYG_WC_M a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG-WC-M" ;
+  skos:prefLabel "Male Toilet Spaces"@en ;
+  skos:prefLabel "Herren-WC"@de ;
+  skos:definition "Toilet spaces designated for male use"@en ;
+  skos:definition "WC-Raeume fuer Maenner."@de ;
+  dcterms:description "Including men's restrooms and urinal areas"@en ;
+  dcterms:description "Einschliesslich Herren-WC und Urinalbereiche."@de ;
+  skos:broader :S_HYG_WC ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG-WC-M" .
+
+:S_HYG_WC_F a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG-WC-F" ;
+  skos:prefLabel "Female Toilet Spaces"@en ;
+  skos:prefLabel "Damen-WC"@de ;
+  skos:definition "Toilet spaces designated for female use"@en ;
+  skos:definition "WC-Raeume fuer Frauen."@de ;
+  dcterms:description "Including women's restrooms"@en ;
+  dcterms:description "Einschliesslich Damen-WC."@de ;
+  skos:broader :S_HYG_WC ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG-WC-F" .
+
+:S_HYG_WC_IV a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG-WC-IV" ;
+  skos:prefLabel "Accessible Toilet Spaces"@en ;
+  skos:prefLabel "Barrierefreie WC-Raeume"@de ;
+  skos:definition "Toilet spaces designed for accessible or inclusive use"@en ;
+  skos:definition "WC-Raeume fuer barrierefreie oder inklusive Nutzung."@de ;
+  dcterms:description "Including wheelchair-accessible WC and inclusive toilet facilities"@en ;
+  dcterms:description "Einschliesslich rollstuhlgaengiger WC-Raeume und inklusiver Sanitaereinrichtungen."@de ;
+  skos:broader :S_HYG_WC ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG-WC-IV" .
+
+:S_HYG_WC_MIX a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG-WC-MIX" ;
+  skos:prefLabel "Mixed Toilet Spaces"@en ;
+  skos:prefLabel "Allgemeine WC-Raeume"@de ;
+  skos:definition "Toilet spaces for mixed or unisex use"@en ;
+  skos:definition "WC-Raeume fuer gemischte oder geschlechtsneutrale Nutzung."@de ;
+  dcterms:description "Including unisex, family, and all-gender restrooms"@en ;
+  dcterms:description "Einschliesslich Unisex-, Familien- und all-gender-WC."@de ;
+  skos:broader :S_HYG_WC ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG-WC-MIX" .
+
+:S_HYG_GRD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG-GRD" ;
+  skos:prefLabel "Cloakroom Spaces"@en ;
+  skos:prefLabel "Garderoben"@de ;
+  skos:definition "Spaces for storing outer garments at building entry or events"@en ;
+  skos:definition "Raeume zur Abgabe und Aufbewahrung von Oberbekleidung bei Eintritt oder Veranstaltungen."@de ;
+  dcterms:description "Including reception cloakrooms, coat checks, and visitor garderobes"@en ;
+  dcterms:description "Einschliesslich Empfangsgarderoben, Garderoben mit Bedienung und Besuchergarderoben."@de ;
+  skos:broader :S_HYG ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG-GRD" .
+
+:S_HYG_SHW a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-HYG-SHW" ;
+  skos:prefLabel "Shower and Changing Spaces"@en ;
+  skos:prefLabel "Dusch- und Umkleideraeume"@de ;
+  skos:definition "Spaces for washing, showering, and changing clothes"@en ;
+  skos:definition "Kategorie fuer dusch- und umkleideraeume im Klassifikationssystem."@de ;
+  dcterms:description "Including showers and sport or staff changing rooms, not entrance cloakrooms"@en ;
+  dcterms:description "Einschliesslich Duschen sowie Sport- oder Personalumkleiden, nicht Eingangsgarderoben."@de ;
+  skos:broader :S_HYG ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-HYG-SHW" .
 
 :S_PRK a skos:Concept ;
   skos:inScheme :scheme ;
@@ -344,6 +463,46 @@
   skos:broader :S_PRK ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "S-PRK-SVC" .
+
+:S_STO a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-STO" ;
+  skos:prefLabel "Storage Spaces"@en ;
+  skos:prefLabel "Lager- und Abstellflaechen"@de ;
+  skos:definition "Spaces for storing materials, equipment, and personal belongings"@en ;
+  skos:definition "Kategorie fuer lager- und abstellflaechen im Klassifikationssystem."@de ;
+  dcterms:description "Auxiliary spaces for general storage not integral to main activities"@en ;
+  dcterms:description "Diese Klasse umfasst lager- und abstellflaechen innerhalb des Klassifikationssystems."@de ;
+  skos:broader :S ;
+  skos:narrower :S_STO_GEN, :S_STO_LCK ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-STO" .
+
+:S_STO_GEN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-STO-GEN" ;
+  skos:prefLabel "General Storage Spaces"@en ;
+  skos:prefLabel "Allgemeine Lagerraeume"@de ;
+  skos:definition "Spaces for materials, archives, and general building storage"@en ;
+  skos:definition "Kategorie fuer allgemeine lagerraeume im Klassifikationssystem."@de ;
+  dcterms:description "Including janitor closets, archives, supply rooms, and material storage"@en ;
+  dcterms:description "Diese Klasse umfasst allgemeine lagerraeume innerhalb des Klassifikationssystems."@de ;
+  skos:broader :S_STO ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-STO-GEN" .
+
+:S_STO_LCK a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "S-STO-LCK" ;
+  skos:prefLabel "Locker Storage Spaces"@en ;
+  skos:prefLabel "Schliessfach- und Garderobenflaechen"@de ;
+  skos:definition "Spaces for personal lockers and assigned storage"@en ;
+  skos:definition "Kategorie fuer schliessfach- und garderobenflaechen im Klassifikationssystem."@de ;
+  dcterms:description "Including locker banks and assigned personal storage, not staffed cloakrooms"@en ;
+  dcterms:description "Einschliesslich Schliessfachanlagen und zugeordneter Personalabstellflaechen, nicht bediente Garderoben."@de ;
+  skos:broader :S_STO ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "S-STO-LCK" .
 
 :S_TEC a skos:Concept ;
   skos:inScheme :scheme ;

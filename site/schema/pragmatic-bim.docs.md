@@ -23,11 +23,13 @@ Name: pragmatic_bim_data_contract
 | Class | Description |
 | --- | --- |
 | [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Agent](Agent.md) | Abstract base class for human and software actors in workflow and communication roles. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SoftwareAgent](SoftwareAgent.md) | Automated actor (integration, bot, or pipeline) acting in workflow roles. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Decision](Decision.md) | Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Process](Process.md) | Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Artifact](Artifact.md) | External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Contract](Contract.md) | Commercial agreement entity for project scope, parties, and governance. Links to a signed artifact and related model entities via applies_to_entities. Entity.status covers record lifecycle; contract_status uses workflow vocabulary URIs. |
@@ -93,6 +95,7 @@ Name: pragmatic_bim_data_contract
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[MaterialProperty](MaterialProperty.md) | Normalized material-related property. |
 | [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent. |
 | [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent. |
+| [ConsentRecord](ConsentRecord.md) | Record of lawful basis, scope, and lifecycle for processing personal data on a Person. |
 | [LocalizedText](LocalizedText.md) | Localized text value for a specific language tag. |
 | [TimeLink](TimeLink.md) | Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record. |
 
@@ -139,6 +142,7 @@ Name: pragmatic_bim_data_contract
 | [classifications](classifications.md) | Classification entries from IFC and other schemes. |
 | [clause_ref](clause_ref.md) | Clause, article, or section reference within the norm. |
 | [client](client.md) | Owning client organization. |
+| [completed_at](completed_at.md) | Timestamp when the process instance completed or terminated, when applicable. |
 | [component_cost_items](component_cost_items.md) | Cost records aggregated into this assembly record. |
 | [component_time_items](component_time_items.md) | Time records contained in this plan; set milestone_at on a record to mark it as a checkpoint. |
 | [connection_physical_requirement_drivers](connection_physical_requirement_drivers.md) | Performance requirement drivers for this physical connection element. Multiple values are allowed because one connection may need to satisfy several requirements. |
@@ -147,6 +151,8 @@ Name: pragmatic_bim_data_contract
 | [connection_virtual_type](connection_virtual_type.md) | Classification of virtual connection semantics (for example structural_joint, adjacency, access). |
 | [connects_physical_elements](connects_physical_elements.md) | Physical elements connected by this virtual connection (for example wall-wall, wall-slab). |
 | [connects_spaces](connects_spaces.md) | Spaces connected by this virtual connection. |
+| [consent_notes](consent_notes.md) | Optional notes about how or where consent was captured. |
+| [consent_records](consent_records.md) | Audit trail of lawful basis and consent for processing personal data. When lawful_basis is consent and state is active, at least one non-withdrawn record should be present. |
 | [contact_channel_type](contact_channel_type.md) | Communication channel type such as email, phone, website, linkedin, whatsapp, signal, slack, teams, or telegram. |
 | [contact_points](contact_points.md) | Structured communication channels and profiles associated with this agent. |
 | [contact_uri](contact_uri.md) | URI for the contact endpoint or profile where applicable. |
@@ -166,6 +172,8 @@ Name: pragmatic_bim_data_contract
 | [cost_records](cost_records.md) | Cost records associated with this entity. |
 | [created_at](created_at.md) | Creation timestamp for this entity record. |
 | [currency](currency.md) | ISO 4217 currency code (for example EUR, USD). |
+| [data_categories](data_categories.md) | Personal data categories covered by this consent or processing record. |
+| [data_controller](data_controller.md) | Organization accountable as data controller for this person record. |
 | [decided_at](decided_at.md) | Timestamp when the decision was made. |
 | [decided_by](decided_by.md) | Agent responsible for the decision. |
 | [decision_status](decision_status.md) | Decision status expressed as a URI/CURIE (for example proposed, accepted, rejected, superseded). |
@@ -181,6 +189,7 @@ Name: pragmatic_bim_data_contract
 | [effective_from](effective_from.md) | Start of contractual validity. |
 | [effective_until](effective_until.md) | End of contractual validity when applicable. |
 | [equipment_type](equipment_type.md) | Classification of equipment (for example HVAC, electrical, plumbing). |
+| [external_instance_uri](external_instance_uri.md) | URI of the corresponding process instance in an external workflow engine when applicable. |
 | [frame_material](frame_material.md) | Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window). |
 | [from_revision](from_revision.md) | Source revision number for this change. |
 | [from_value](from_value.md) | Prior value serialized as text. Absent or null for new subjects or fields. |
@@ -188,6 +197,7 @@ Name: pragmatic_bim_data_contract
 | [geometry_reference](geometry_reference.md) | URI/path/hash/pointer to geometry payload. |
 | [geometry_representation](geometry_representation.md) | Representation kind/dimension (for example body_3d, footprint_2d, point), independent of file format. |
 | [geometry_representations](geometry_representations.md) | Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself. |
+| [granted_at](granted_at.md) | Timestamp when consent was given. Required when lawful_basis is consent. |
 | [group_members](group_members.md) | Zone members; may include spaces, separations, systems, etc. |
 | [id](id.md) | Unique local identifier. |
 | [ifc_attribute_name](ifc_attribute_name.md) | IFC attribute name when property_path_kind is ifc_attribute (for example Name, GlobalId). |
@@ -198,6 +208,7 @@ Name: pragmatic_bim_data_contract
 | [jurisdiction](jurisdiction.md) | Jurisdiction or authority scope for the regulatory requirement. |
 | [lag_days](lag_days.md) |  |
 | [language_tag](language_tag.md) | IETF BCP 47 language tag (for example en, de, pt-BR). |
+| [lawful_basis](lawful_basis.md) | Lawful basis for processing the scoped personal data categories. |
 | [localized_descriptions](localized_descriptions.md) | Localized variants of description. |
 | [localized_names](localized_names.md) | Localized variants of name. |
 | [mapping_version](mapping_version.md) | Mapping specification version used to derive the normalized property. |
@@ -220,22 +231,31 @@ Name: pragmatic_bim_data_contract
 | [modified_at](modified_at.md) | Last modification timestamp for this entity record. |
 | [name](name.md) | Default display name. |
 | [norm_uri](norm_uri.md) | URI identifying the norm, standard, or building code. |
+| [operated_by](operated_by.md) | Organization accountable for this software agent. |
 | [parent_building](parent_building.md) | Parent building context reference. |
 | [parent_legal_site](parent_legal_site.md) | Parent legal site context reference. |
 | [parent_level](parent_level.md) | Parent level/storey context reference. |
 | [parent_perimeter](parent_perimeter.md) | Parent perimeter context reference. |
+| [parent_process](parent_process.md) | Optional BPMN process instance that owns or spawned this task. |
 | [parent_program](parent_program.md) | Parent program reference. |
 | [parent_project](parent_project.md) | Parent project reference. |
 | [parent_space](parent_space.md) | Parent space where the equipment is located. |
 | [parent_system](parent_system.md) | Parent systems that the equipment belongs to. |
 | [parent_zone](parent_zone.md) | Parent zone context reference. |
 | [performance_properties](performance_properties.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. |
+| [personal_data_processing_state](personal_data_processing_state.md) | Privacy handling state for personal data on this person, orthogonal to workflow QA status. |
 | [planned_finish_at](planned_finish_at.md) | Planned finish timestamp for the time record. |
 | [planned_start_at](planned_start_at.md) | Planned start timestamp for the time record. |
 | [post_office_box_number](post_office_box_number.md) | Post office box number where applicable. |
 | [postal_addresses](postal_addresses.md) | Structured postal or physical addresses associated with this agent. |
 | [postal_code](postal_code.md) | Postal or ZIP code. |
 | [priced_for_customer](priced_for_customer.md) | Optional customer for a customer-specific catalog price when cost_record_role is price. |
+| [privacy_policy_uri](privacy_policy_uri.md) | URI of the current or default privacy policy or notice applicable to this person record. |
+| [process_definition_uri](process_definition_uri.md) | URI identifying the BPMN process definition (for example engine definition key or BPMN artifact URI). |
+| [process_participants](process_participants.md) | Agents participating in this BPMN process instance (for example assignees mapped from lane roles). |
+| [process_status](process_status.md) | Process instance status expressed as a URI/CURIE (for example active, suspended, completed, terminated). |
+| [processing_purpose](processing_purpose.md) | Human-readable purpose for which the personal data categories are processed. |
+| [processing_purposes](processing_purposes.md) | High-level purposes for processing personal data (for example project coordination, contract administration). |
 | [product_code](product_code.md) | External or internal product catalog identifier. |
 | [program_code](program_code.md) | External or internal program identifier. |
 | [programme_ref](programme_ref.md) | URI or identifier for a programme or brief document. |
@@ -256,6 +276,8 @@ Name: pragmatic_bim_data_contract
 | [quantity_values](quantity_values.md) | Quantities associated with the entity. |
 | [rationale](rationale.md) | Human-readable rationale that explains why the decision was made. |
 | [recipients](recipients.md) | Agents that received the message. |
+| [redacted_at](redacted_at.md) | Timestamp when identifying personal data was redacted on this record. |
+| [redaction_reason](redaction_reason.md) | Reason for redaction (for example external model export, erasure request, retention expired). |
 | [related_decision](related_decision.md) | Optional reference to a decision that informs or drives this task. |
 | [related_entity](related_entity.md) | Entity or space subject for adjacency or distance constraints. |
 | [related_material](related_material.md) | Optional Material entity template this requirement must match or satisfy. |
@@ -263,6 +285,7 @@ Name: pragmatic_bim_data_contract
 | [related_requirement](related_requirement.md) | Requirement entity for match_change records. |
 | [related_time_record](related_time_record.md) | Optional TimeRecord plan item this schedule requirement aligns with or must satisfy. |
 | [requirement_property_key](requirement_property_key.md) | Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance property keys where applicable. |
+| [retain_until](retain_until.md) | Storage-limit deadline after which personal data should be deleted or redacted. |
 | [revision](revision.md) | Integer revision counter for change tracking. |
 | [sender](sender.md) | Agent that sent the message. |
 | [sent_at](sent_at.md) | Timestamp when the message was sent. |
@@ -273,13 +296,17 @@ Name: pragmatic_bim_data_contract
 | [separator_wall_type](separator_wall_type.md) | Classification of wall-based separator element. |
 | [serves_spaces](serves_spaces.md) | Spaces served by this system. |
 | [serves_zones](serves_zones.md) | Zone context nodes served by this system. |
+| [service_endpoint](service_endpoint.md) | Optional URI of the running service or integration endpoint. |
 | [signed_artifact](signed_artifact.md) | Optional signed contract artifact at storage_link. |
 | [signed_at](signed_at.md) | Timestamp when the contract was signed. |
+| [software_version](software_version.md) | Optional deployed version label for the software agent. |
 | [source_artifact](source_artifact.md) | Optional source artifact backing this requirement. |
 | [source_property](source_property.md) | Original property name inside the source PropertySet (for example FireRating). |
 | [source_pset](source_pset.md) | Original IFC PropertySet name (for example Pset_WallCommon). |
 | [source_value_raw](source_value_raw.md) | Raw source value before normalization. |
+| [space_name_type](space_name_type.md) | Normalized abstract room name type (for example office, kitchen, corridor). Project-specific labels remain on name. When set, adapters may derive a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity mapping bridge. |
 | [space_type](space_type.md) | Classification of space (void, circulation, usable, service). |
+| [started_at](started_at.md) | Timestamp when the process instance started. |
 | [statement](statement.md) | Free-text requirement statement from client or programme. |
 | [status](status.md) | Lifecycle or QA status. |
 | [storage_link](storage_link.md) | URI/URL/path to the stored artifact location. |
@@ -305,11 +332,12 @@ Name: pragmatic_bim_data_contract
 | [to_revision](to_revision.md) | Target revision number for this change. |
 | [to_value](to_value.md) | New value serialized as text. Absent or null for deleted subjects or fields. |
 | [transport_medium](transport_medium.md) | Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity). |
-| [triggered_process](triggered_process.md) | External workflow process URI (for example yourcompanyos process instance). |
+| [triggered_process](triggered_process.md) | BPMN process instance that this change triggered or should trigger. |
 | [triggered_task](triggered_task.md) | Task entity that this change triggered or should trigger. |
 | [unit_cost](unit_cost.md) | Unit cost for this cost item. |
 | [usage_context](usage_context.md) | Optional usage context such as work, personal, support, billing, or emergency. |
 | [vendor](vendor.md) | Company that sells or offers this product. |
+| [withdrawn_at](withdrawn_at.md) | Timestamp when consent was withdrawn, if applicable. |
 | [zone_type](zone_type.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. |
 
 
@@ -333,9 +361,12 @@ Name: pragmatic_bim_data_contract
 | [EquipmentType](EquipmentType.md) |  |
 | [FirePropertyKey](FirePropertyKey.md) | Canonical fire-related keys derived from IFC PropertySets. |
 | [GeometryRepresentationType](GeometryRepresentationType.md) | Classification of geometric representation dimension/style. |
+| [LawfulBasis](LawfulBasis.md) | Lawful basis for processing personal data, aligned with GDPR Article 6 and similar regimes. |
 | [MatchStatus](MatchStatus.md) | Whether an entity satisfies a related requirement at the target revision. |
 | [MaterialPropertyKey](MaterialPropertyKey.md) | Canonical material-related keys derived from IFC PropertySets and material metadata. |
 | [PerformancePropertyValueType](PerformancePropertyValueType.md) | Type discriminator for normalized performance property values. |
+| [PersonalDataCategory](PersonalDataCategory.md) | Category of personal data covered by consent or processing scope. |
+| [PersonalDataProcessingState](PersonalDataProcessingState.md) | Privacy handling state for personal data on a Person record, orthogonal to workflow QA status. |
 | [PropertyPathKind](PropertyPathKind.md) | Classification of a property path for diff interpretation across IFC and text sources. |
 | [QuantityType](QuantityType.md) |  |
 | [RequirementTargetOperator](RequirementTargetOperator.md) | Comparison operator for numeric or textual requirement targets. |
@@ -343,6 +374,7 @@ Name: pragmatic_bim_data_contract
 | [SeparatorRequirementDriver](SeparatorRequirementDriver.md) | Main requirement drivers for separator performance. |
 | [SeparatorSlabType](SeparatorSlabType.md) | Classification of slab-based separator elements. |
 | [SeparatorWallType](SeparatorWallType.md) | Classification of wall-based separator elements. |
+| [SpaceNameType](SpaceNameType.md) | Normalized abstract room name type for IfcSpace; finer-grained than space activity classification. |
 | [SpaceType](SpaceType.md) | Classification of space semantics used by modeling and downstream conversion. |
 | [SpatialAdjacencyKind](SpatialAdjacencyKind.md) | Spatial adjacency semantics for spatial requirements. |
 | [StatusType](StatusType.md) | Lifecycle or QA gate status used for model progression and approvals. |

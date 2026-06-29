@@ -198,6 +198,7 @@ attributes:
     rank: 1000
     owner: CivilStructureContext
     domain_of:
+    - Process
     - Deliverable
     - SpatialContext
     - System

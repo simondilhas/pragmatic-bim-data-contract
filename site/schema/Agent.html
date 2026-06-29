@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -490,7 +490,7 @@
 
 
 <h1 id="class-agent">Class: Agent<a class="headerlink" href="#class-agent" title="Permanent link">&para;</a></h1>
-<p><em>Abstract base class for people or organizations acting in workflow and communication roles.</em></p>
+<p><em>Abstract base class for human and software actors in workflow and communication roles.</em></p>
 <div>
 <ul>
 <li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
@@ -527,15 +527,15 @@ Agent &lt;|-- Person
 click Person href "./Person.html" _blank
 Agent &lt;|-- Company
 click Company href "./Company.html" _blank
+Agent &lt;|-- SoftwareAgent
+click SoftwareAgent href "./SoftwareAgent.html" _blank
 click Entity href "./Entity.html" _blank
 click Classification href "./Classification.html" _blank
-click ContactPoint href "./ContactPoint.html" _blank
 click GeometryRepresentation href "./GeometryRepresentation.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
-click PostalAddress href "./PostalAddress.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
 click StatusType href "./StatusType.html" _blank</code></pre> 
     <div class="panzoom-info-box panzoom-info-box-bottom panzoom-hidden">
@@ -548,6 +548,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <li><strong>Agent</strong><ul>
 <li><a href="Person.html">Person</a></li>
 <li><a href="Company.html">Company</a></li>
+<li><a href="SoftwareAgent.html">SoftwareAgent</a></li>
 </ul>
 </li>
 </ul>
@@ -579,18 +580,6 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="postal_addresses.html">postal_addresses</a></td>
-<td>* <br/> <a href="PostalAddress.html">PostalAddress</a></td>
-<td>Structured postal or physical addresses associated with this agent.</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="contact_points.html">contact_points</a></td>
-<td>* <br/> <a href="ContactPoint.html">ContactPoint</a></td>
-<td>Structured communication channels and profiles associated with this agent.</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="id.html">id</a></td>
 <td>1 <br/> <a href="String.html">String</a></td>
@@ -725,6 +714,12 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td><a href="Agent.html">Agent</a></td>
 </tr>
 <tr>
+<td><a href="Process.html">Process</a></td>
+<td><a href="process_participants.html">process_participants</a></td>
+<td>range</td>
+<td><a href="Agent.html">Agent</a></td>
+</tr>
+<tr>
 <td><a href="Message.html">Message</a></td>
 <td><a href="sender.html">sender</a></td>
 <td>range</td>
@@ -777,16 +772,13 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <h3 id="direct">Direct<a class="headerlink" href="#direct" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Abstract base class for people or organizations acting in workflow and</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">communication roles.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Abstract base class for human and software actors in workflow and communication</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">roles.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Agent</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Entity</span>
 <span class="nt">abstract</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="nt">slots</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postal_addresses</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_points</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">content_kind</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content_kind</span>
@@ -797,8 +789,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <h3 id="induced">Induced<a class="headerlink" href="#induced" title="Permanent link">&para;</a></h3>
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Abstract base class for people or organizations acting in workflow and</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">communication roles.</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Abstract base class for human and software actors in workflow and communication</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">roles.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">exact_mappings</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prov:Agent</span>
@@ -809,29 +801,6 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">content_kind</span>
 <span class="w">    </span><span class="nt">equals_string</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent</span>
 <span class="nt">attributes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">postal_addresses</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postal_addresses</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Structured postal or physical addresses associated with this agent.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostalAddress</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">contact_points</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_points</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Structured communication channels and profiles associated with this</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">agent.</span>
-<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
-<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
-<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ContactPoint</span>
-<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique local identifier.</span>

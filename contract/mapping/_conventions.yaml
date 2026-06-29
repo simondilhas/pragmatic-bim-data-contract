@@ -95,3 +95,35 @@ conventions:
       - *metadata_unmapped_ifc_attributes
       - *metadata_unmapped_psets
 
+  space_name_type_lookup: &space_name_type_lookup
+    source: vocabulary_lookup
+    description: >
+      Resolve Pset_SpaceCommon.Reference (armasuisse Raumliste) or name labels to
+      SpaceNameType enum values using mapping bridges and vocabulary prefLabels.
+    tables:
+      - match:
+          source: ifc_pset_fallback
+          fallbacks:
+            - pset: Pset_SpaceCommon
+              property: Reference
+        bridge: armasuisse-room-name-to-abstract-room-name
+      - match:
+          source: ifc_attribute_fallback
+          fallbacks:
+            - attribute: LongName
+            - attribute: Name
+        vocabulary: building-space-name-classification
+        match_property: prefLabel
+    default: null
+
+  space_activity_from_name_type: &space_activity_from_name_type
+    source: vocabulary_derived_classification
+    description: >
+      When space_name_type is set, append a BuildingSpaceActivityClassification entry
+      unless that scheme is already present on classifications[].
+    from_attribute: space_name_type
+    bridge: abstract-room-name-to-space-activity
+    classification_scheme: BuildingSpaceActivityClassification
+    classification_source: derived-from-space-name-type
+    append_if_scheme_missing: true
+

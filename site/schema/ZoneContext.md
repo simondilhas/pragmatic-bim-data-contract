@@ -213,6 +213,7 @@ attributes:
     rank: 1000
     owner: ZoneContext
     domain_of:
+    - Process
     - Deliverable
     - SpatialContext
     - System

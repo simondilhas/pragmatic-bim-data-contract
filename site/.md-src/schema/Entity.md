@@ -33,6 +33,8 @@ Entity <|-- Decision
 click Decision href "./Decision.html" _blank
 Entity <|-- Task
 click Task href "./Task.html" _blank
+Entity <|-- Process
+click Process href "./Process.html" _blank
 Entity <|-- Message
 click Message href "./Message.html" _blank
 Entity <|-- Artifact
@@ -73,6 +75,7 @@ click StatusType href "./StatusType.html" _blank
     * [Agent](Agent.md)
     * [Decision](Decision.md)
     * [Task](Task.md)
+    * [Process](Process.md)
     * [Message](Message.md)
     * [Artifact](Artifact.md)
     * [Contract](Contract.md)
@@ -127,8 +130,10 @@ click StatusType href "./StatusType.html" _blank
 | [Agent](Agent.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Person](Person.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Company](Company.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [SoftwareAgent](SoftwareAgent.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Decision](Decision.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Task](Task.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
+| [Process](Process.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Message](Message.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Artifact](Artifact.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |
 | [Contract](Contract.md) | [applies_to_entities](applies_to_entities.md) | range | [Entity](Entity.md) |

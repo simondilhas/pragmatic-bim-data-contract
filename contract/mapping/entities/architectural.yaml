@@ -345,6 +345,8 @@
         <<: *code_space
       storey: *storey_from_containment
       classifications: *classifications_mapping
+    derivations:
+      - *space_activity_from_name_type
     attributes:
       <<: *attributes_entity_base
       space_type:
@@ -362,6 +364,7 @@
             value: modeled_gross_floor_area
           - match: [volume, gross volume]
             value: modeled_gross_volume
+      space_name_type: *space_name_type_lookup
     geometry: *geometry_footprint_body
     relations:
       - IfcRelContainedInSpatialStructure

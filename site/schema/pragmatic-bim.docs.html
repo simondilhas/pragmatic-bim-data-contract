@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -622,15 +622,19 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Agent.html">Agent</a></td>
-<td>Abstract base class for people or organizations acting in workflow and communication roles.</td>
+<td>Abstract base class for human and software actors in workflow and communication roles.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Person.html">Person</a></td>
-<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema.</td>
+<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Company.html">Company</a></td>
 <td>Organization, company, or legal entity participating in the project or asset lifecycle.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SoftwareAgent.html">SoftwareAgent</a></td>
+<td>Automated actor (integration, bot, or pipeline) acting in workflow roles.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Decision.html">Decision</a></td>
@@ -639,6 +643,10 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Task.html">Task</a></td>
 <td>Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Process.html">Process</a></td>
+<td>Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Message.html">Message</a></td>
@@ -887,6 +895,10 @@
 <td>Structured communication endpoint or profile for an agent.</td>
 </tr>
 <tr>
+<td><a href="ConsentRecord.html">ConsentRecord</a></td>
+<td>Record of lawful basis, scope, and lifecycle for processing personal data on a Person.</td>
+</tr>
+<tr>
 <td><a href="LocalizedText.html">LocalizedText</a></td>
 <td>Localized text value for a specific language tag.</td>
 </tr>
@@ -1050,6 +1062,10 @@
 <td>Owning client organization.</td>
 </tr>
 <tr>
+<td><a href="completed_at.html">completed_at</a></td>
+<td>Timestamp when the process instance completed or terminated, when applicable.</td>
+</tr>
+<tr>
 <td><a href="component_cost_items.html">component_cost_items</a></td>
 <td>Cost records aggregated into this assembly record.</td>
 </tr>
@@ -1080,6 +1096,14 @@
 <tr>
 <td><a href="connects_spaces.html">connects_spaces</a></td>
 <td>Spaces connected by this virtual connection.</td>
+</tr>
+<tr>
+<td><a href="consent_notes.html">consent_notes</a></td>
+<td>Optional notes about how or where consent was captured.</td>
+</tr>
+<tr>
+<td><a href="consent_records.html">consent_records</a></td>
+<td>Audit trail of lawful basis and consent for processing personal data. When lawful_basis is consent and state is active, at least one non-withdrawn record should be present.</td>
 </tr>
 <tr>
 <td><a href="contact_channel_type.html">contact_channel_type</a></td>
@@ -1158,6 +1182,14 @@
 <td>ISO 4217 currency code (for example EUR, USD).</td>
 </tr>
 <tr>
+<td><a href="data_categories.html">data_categories</a></td>
+<td>Personal data categories covered by this consent or processing record.</td>
+</tr>
+<tr>
+<td><a href="data_controller.html">data_controller</a></td>
+<td>Organization accountable as data controller for this person record.</td>
+</tr>
+<tr>
 <td><a href="decided_at.html">decided_at</a></td>
 <td>Timestamp when the decision was made.</td>
 </tr>
@@ -1218,6 +1250,10 @@
 <td>Classification of equipment (for example HVAC, electrical, plumbing).</td>
 </tr>
 <tr>
+<td><a href="external_instance_uri.html">external_instance_uri</a></td>
+<td>URI of the corresponding process instance in an external workflow engine when applicable.</td>
+</tr>
+<tr>
 <td><a href="frame_material.html">frame_material</a></td>
 <td>Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window).</td>
 </tr>
@@ -1244,6 +1280,10 @@
 <tr>
 <td><a href="geometry_representations.html">geometry_representations</a></td>
 <td>Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.</td>
+</tr>
+<tr>
+<td><a href="granted_at.html">granted_at</a></td>
+<td>Timestamp when consent was given. Required when lawful_basis is consent.</td>
 </tr>
 <tr>
 <td><a href="group_members.html">group_members</a></td>
@@ -1284,6 +1324,10 @@
 <tr>
 <td><a href="language_tag.html">language_tag</a></td>
 <td>IETF BCP 47 language tag (for example en, de, pt-BR).</td>
+</tr>
+<tr>
+<td><a href="lawful_basis.html">lawful_basis</a></td>
+<td>Lawful basis for processing the scoped personal data categories.</td>
 </tr>
 <tr>
 <td><a href="localized_descriptions.html">localized_descriptions</a></td>
@@ -1374,6 +1418,10 @@
 <td>URI identifying the norm, standard, or building code.</td>
 </tr>
 <tr>
+<td><a href="operated_by.html">operated_by</a></td>
+<td>Organization accountable for this software agent.</td>
+</tr>
+<tr>
 <td><a href="parent_building.html">parent_building</a></td>
 <td>Parent building context reference.</td>
 </tr>
@@ -1388,6 +1436,10 @@
 <tr>
 <td><a href="parent_perimeter.html">parent_perimeter</a></td>
 <td>Parent perimeter context reference.</td>
+</tr>
+<tr>
+<td><a href="parent_process.html">parent_process</a></td>
+<td>Optional BPMN process instance that owns or spawned this task.</td>
 </tr>
 <tr>
 <td><a href="parent_program.html">parent_program</a></td>
@@ -1414,6 +1466,10 @@
 <td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.</td>
 </tr>
 <tr>
+<td><a href="personal_data_processing_state.html">personal_data_processing_state</a></td>
+<td>Privacy handling state for personal data on this person, orthogonal to workflow QA status.</td>
+</tr>
+<tr>
 <td><a href="planned_finish_at.html">planned_finish_at</a></td>
 <td>Planned finish timestamp for the time record.</td>
 </tr>
@@ -1436,6 +1492,30 @@
 <tr>
 <td><a href="priced_for_customer.html">priced_for_customer</a></td>
 <td>Optional customer for a customer-specific catalog price when cost_record_role is price.</td>
+</tr>
+<tr>
+<td><a href="privacy_policy_uri.html">privacy_policy_uri</a></td>
+<td>URI of the current or default privacy policy or notice applicable to this person record.</td>
+</tr>
+<tr>
+<td><a href="process_definition_uri.html">process_definition_uri</a></td>
+<td>URI identifying the BPMN process definition (for example engine definition key or BPMN artifact URI).</td>
+</tr>
+<tr>
+<td><a href="process_participants.html">process_participants</a></td>
+<td>Agents participating in this BPMN process instance (for example assignees mapped from lane roles).</td>
+</tr>
+<tr>
+<td><a href="process_status.html">process_status</a></td>
+<td>Process instance status expressed as a URI/CURIE (for example active, suspended, completed, terminated).</td>
+</tr>
+<tr>
+<td><a href="processing_purpose.html">processing_purpose</a></td>
+<td>Human-readable purpose for which the personal data categories are processed.</td>
+</tr>
+<tr>
+<td><a href="processing_purposes.html">processing_purposes</a></td>
+<td>High-level purposes for processing personal data (for example project coordination, contract administration).</td>
 </tr>
 <tr>
 <td><a href="product_code.html">product_code</a></td>
@@ -1518,6 +1598,14 @@
 <td>Agents that received the message.</td>
 </tr>
 <tr>
+<td><a href="redacted_at.html">redacted_at</a></td>
+<td>Timestamp when identifying personal data was redacted on this record.</td>
+</tr>
+<tr>
+<td><a href="redaction_reason.html">redaction_reason</a></td>
+<td>Reason for redaction (for example external model export, erasure request, retention expired).</td>
+</tr>
+<tr>
 <td><a href="related_decision.html">related_decision</a></td>
 <td>Optional reference to a decision that informs or drives this task.</td>
 </tr>
@@ -1544,6 +1632,10 @@
 <tr>
 <td><a href="requirement_property_key.html">requirement_property_key</a></td>
 <td>Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance property keys where applicable.</td>
+</tr>
+<tr>
+<td><a href="retain_until.html">retain_until</a></td>
+<td>Storage-limit deadline after which personal data should be deleted or redacted.</td>
 </tr>
 <tr>
 <td><a href="revision.html">revision</a></td>
@@ -1586,12 +1678,20 @@
 <td>Zone context nodes served by this system.</td>
 </tr>
 <tr>
+<td><a href="service_endpoint.html">service_endpoint</a></td>
+<td>Optional URI of the running service or integration endpoint.</td>
+</tr>
+<tr>
 <td><a href="signed_artifact.html">signed_artifact</a></td>
 <td>Optional signed contract artifact at storage_link.</td>
 </tr>
 <tr>
 <td><a href="signed_at.html">signed_at</a></td>
 <td>Timestamp when the contract was signed.</td>
+</tr>
+<tr>
+<td><a href="software_version.html">software_version</a></td>
+<td>Optional deployed version label for the software agent.</td>
 </tr>
 <tr>
 <td><a href="source_artifact.html">source_artifact</a></td>
@@ -1610,8 +1710,16 @@
 <td>Raw source value before normalization.</td>
 </tr>
 <tr>
+<td><a href="space_name_type.html">space_name_type</a></td>
+<td>Normalized abstract room name type (for example office, kitchen, corridor). Project-specific labels remain on name. When set, adapters may derive a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity mapping bridge.</td>
+</tr>
+<tr>
 <td><a href="space_type.html">space_type</a></td>
 <td>Classification of space (void, circulation, usable, service).</td>
+</tr>
+<tr>
+<td><a href="started_at.html">started_at</a></td>
+<td>Timestamp when the process instance started.</td>
 </tr>
 <tr>
 <td><a href="statement.html">statement</a></td>
@@ -1715,7 +1823,7 @@
 </tr>
 <tr>
 <td><a href="triggered_process.html">triggered_process</a></td>
-<td>External workflow process URI (for example yourcompanyos process instance).</td>
+<td>BPMN process instance that this change triggered or should trigger.</td>
 </tr>
 <tr>
 <td><a href="triggered_task.html">triggered_task</a></td>
@@ -1732,6 +1840,10 @@
 <tr>
 <td><a href="vendor.html">vendor</a></td>
 <td>Company that sells or offers this product.</td>
+</tr>
+<tr>
+<td><a href="withdrawn_at.html">withdrawn_at</a></td>
+<td>Timestamp when consent was withdrawn, if applicable.</td>
 </tr>
 <tr>
 <td><a href="zone_type.html">zone_type</a></td>
@@ -1813,6 +1925,10 @@
 <td>Classification of geometric representation dimension/style.</td>
 </tr>
 <tr>
+<td><a href="LawfulBasis.html">LawfulBasis</a></td>
+<td>Lawful basis for processing personal data, aligned with GDPR Article 6 and similar regimes.</td>
+</tr>
+<tr>
 <td><a href="MatchStatus.html">MatchStatus</a></td>
 <td>Whether an entity satisfies a related requirement at the target revision.</td>
 </tr>
@@ -1823,6 +1939,14 @@
 <tr>
 <td><a href="PerformancePropertyValueType.html">PerformancePropertyValueType</a></td>
 <td>Type discriminator for normalized performance property values.</td>
+</tr>
+<tr>
+<td><a href="PersonalDataCategory.html">PersonalDataCategory</a></td>
+<td>Category of personal data covered by consent or processing scope.</td>
+</tr>
+<tr>
+<td><a href="PersonalDataProcessingState.html">PersonalDataProcessingState</a></td>
+<td>Privacy handling state for personal data on a Person record, orthogonal to workflow QA status.</td>
 </tr>
 <tr>
 <td><a href="PropertyPathKind.html">PropertyPathKind</a></td>
@@ -1851,6 +1975,10 @@
 <tr>
 <td><a href="SeparatorWallType.html">SeparatorWallType</a></td>
 <td>Classification of wall-based separator elements.</td>
+</tr>
+<tr>
+<td><a href="SpaceNameType.html">SpaceNameType</a></td>
+<td>Normalized abstract room name type for IfcSpace; finer-grained than space activity classification.</td>
 </tr>
 <tr>
 <td><a href="SpaceType.html">SpaceType</a></td>

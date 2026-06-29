@@ -211,6 +211,7 @@ attributes:
     rank: 1000
     owner: LegalSiteContext
     domain_of:
+    - Process
     - Deliverable
     - SpatialContext
     - System

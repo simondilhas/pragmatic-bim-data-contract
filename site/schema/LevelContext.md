@@ -220,6 +220,7 @@ attributes:
     rank: 1000
     owner: LevelContext
     domain_of:
+    - Process
     - Deliverable
     - SpatialContext
     - System

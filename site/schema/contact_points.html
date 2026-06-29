@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -483,13 +483,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Agent.html">Agent</a></td>
-<td>Abstract base class for people or organizations acting in workflow and communication roles.</td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="Person.html">Person</a></td>
-<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema.</td>
+<td>Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction.</td>
 <td>no</td>
 </tr>
 <tr>
@@ -515,7 +510,7 @@
 </tr>
 <tr>
 <td>Domain Of</td>
-<td><a href="Agent.html">Agent</a></td>
+<td><a href="Person.html">Person</a>, <a href="Company.html">Company</a></td>
 </tr>
 </tbody>
 </table>
@@ -565,7 +560,8 @@
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="nt">domain_of</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Agent</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Company</span>
 <span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ContactPoint</span>
 <span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

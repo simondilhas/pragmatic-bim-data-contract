@@ -70,11 +70,22 @@ classes:
     exact_mappings:
     - schema:Person
     - prov:Agent
-    description: Individual stakeholder, contributor, assignee, or responsible party represented in the schema.
+    description: 'Individual stakeholder, contributor, assignee, or responsible party represented in the schema.
+      Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction.
+
+      '
     slots:
     - postal_addresses
     - contact_points
     - belongs_to_company
+    - personal_data_processing_state
+    - consent_records
+    - data_controller
+    - processing_purposes
+    - retain_until
+    - privacy_policy_uri
+    - redacted_at
+    - redaction_reason
   Company:
     is_a: Agent
     class_uri: pbs:Company
@@ -342,6 +353,26 @@ classes:
     - usage_context
     - is_preferred
     - availability_notes
+  ConsentRecord:
+    class_uri: pbs:ConsentRecord
+    description: Record of lawful basis, scope, and lifecycle for processing personal data on a Person.
+    slots:
+    - lawful_basis
+    - processing_purpose
+    - data_categories
+    - granted_at
+    - withdrawn_at
+    - privacy_policy_uri
+    - consent_notes
+    slot_usage:
+      lawful_basis:
+        required: true
+      processing_purpose:
+        required: true
+      data_categories:
+        required: true
+      privacy_policy_uri:
+        required: true
   LocalizedText:
     class_uri: pbs:LocalizedText
     description: Localized text value for a specific language tag.
@@ -442,6 +473,59 @@ slots:
     range: Company
     inlined: false
     description: Optional company that the person belongs to.
+  personal_data_processing_state:
+    range: PersonalDataProcessingState
+    description: Privacy handling state for personal data on this person, orthogonal to workflow QA status.
+  consent_records:
+    multivalued: true
+    range: ConsentRecord
+    inlined: true
+    description: 'Audit trail of lawful basis and consent for processing personal data. When lawful_basis is consent
+      and state is active, at least one non-withdrawn record should be present.
+
+      '
+  data_controller:
+    range: Company
+    inlined: false
+    description: Organization accountable as data controller for this person record.
+  processing_purposes:
+    multivalued: true
+    range: string
+    description: High-level purposes for processing personal data (for example project coordination, contract administration).
+  retain_until:
+    range: datetime
+    description: Storage-limit deadline after which personal data should be deleted or redacted.
+  privacy_policy_uri:
+    range: uriorcurie
+    description: URI of the current or default privacy policy or notice applicable to this person record.
+  redacted_at:
+    range: datetime
+    description: Timestamp when identifying personal data was redacted on this record.
+  redaction_reason:
+    range: string
+    description: Reason for redaction (for example external model export, erasure request, retention expired).
+  lawful_basis:
+    range: LawfulBasis
+    required: true
+    description: Lawful basis for processing the scoped personal data categories.
+  processing_purpose:
+    range: string
+    required: true
+    description: Human-readable purpose for which the personal data categories are processed.
+  data_categories:
+    multivalued: true
+    range: PersonalDataCategory
+    required: true
+    description: Personal data categories covered by this consent or processing record.
+  granted_at:
+    range: datetime
+    description: Timestamp when consent was given. Required when lawful_basis is consent.
+  withdrawn_at:
+    range: datetime
+    description: Timestamp when consent was withdrawn, if applicable.
+  consent_notes:
+    range: string
+    description: Optional notes about how or where consent was captured.
   operated_by:
     range: Company
     inlined: false

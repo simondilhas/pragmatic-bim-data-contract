@@ -5,7 +5,7 @@ Source: [`building_space-activity-classification-en.skos.ttl`](sources/room-acti
 ## Scheme
 
 - **definition (de):** Klassifikationssystem fuer Gebaeude-, Raum- und Aktivitaetsflaechen mit hierarchischer Einteilung von Nutzungs-, Unterstuetzungs- und Aussenbereichen.
-- **definition (en):** Building Space and Activity Classification System (BuildingSpaceActivityClassification), version 1.0.3.
+- **definition (en):** Building Space and Activity Classification System (BuildingSpaceActivityClassification), version 1.0.5.
 - **prefLabel (de):** Klassifikationssystem fuer Gebaeude-, Raum- und Aktivitaetsflaechen
 - **prefLabel (en):** Building Space and Activity Classification System
 - **title (en):** Building Space and Activity Classification System
@@ -35,11 +35,23 @@ class n_O_GRN_SPT["O-GRN-SPT: Sports Spaces"]
 class n_S["S: Support Spaces"]
 class n_S_CIR["S-CIR: Support Circulation Spaces"]
 class n_S_CIR_HOR["S-CIR-HOR: Horizontal Circulation"]
-class n_S_CIR_VRT["S-CIR-VRT: Vertical Circulation"]
+class n_S_CIR_VRT_MAN["S-CIR-VRT-MAN: Stair and Ramp Circulation"]
+class n_S_CIR_VRT_MEC["S-CIR-VRT-MEC: Lift and Escalator Circulation"]
+class n_S_HYG["S-HYG: Hygiene Spaces"]
+class n_S_HYG_GRD["S-HYG-GRD: Cloakroom Spaces"]
+class n_S_HYG_SHW["S-HYG-SHW: Shower and Changing Spaces"]
+class n_S_HYG_WC["S-HYG-WC: Toilet Spaces"]
+class n_S_HYG_WC_F["S-HYG-WC-F: Female Toilet Spaces"]
+class n_S_HYG_WC_IV["S-HYG-WC-IV: Accessible Toilet Spaces"]
+class n_S_HYG_WC_M["S-HYG-WC-M: Male Toilet Spaces"]
+class n_S_HYG_WC_MIX["S-HYG-WC-MIX: Mixed Toilet Spaces"]
 class n_S_PRK["S-PRK: Parking Spaces"]
 class n_S_PRK_EXT["S-PRK-EXT: Exterior Parking Spaces"]
 class n_S_PRK_INT["S-PRK-INT: Interior Parking Spaces"]
 class n_S_PRK_SVC["S-PRK-SVC: Service Vehicle Spaces"]
+class n_S_STO["S-STO: Storage Spaces"]
+class n_S_STO_GEN["S-STO-GEN: General Storage Spaces"]
+class n_S_STO_LCK["S-STO-LCK: Locker Storage Spaces"]
 class n_S_TEC["S-TEC: Technical Spaces"]
 class n_S_VOI["S-VOI: Void Spaces"]
 class n_S_VOI_MLT["S-VOI-MLT: Multistory Void Spaces"]
@@ -62,14 +74,26 @@ n_O_GRN <|-- n_O_GRN_GDN
 n_O_GRN <|-- n_O_GRN_REC
 n_O_GRN <|-- n_O_GRN_SPT
 n_S <|-- n_S_CIR
+n_S <|-- n_S_HYG
 n_S <|-- n_S_PRK
+n_S <|-- n_S_STO
 n_S <|-- n_S_TEC
 n_S <|-- n_S_VOI
 n_S_CIR <|-- n_S_CIR_HOR
-n_S_CIR <|-- n_S_CIR_VRT
+n_S_CIR <|-- n_S_CIR_VRT_MAN
+n_S_CIR <|-- n_S_CIR_VRT_MEC
+n_S_HYG <|-- n_S_HYG_GRD
+n_S_HYG <|-- n_S_HYG_SHW
+n_S_HYG <|-- n_S_HYG_WC
+n_S_HYG_WC <|-- n_S_HYG_WC_F
+n_S_HYG_WC <|-- n_S_HYG_WC_IV
+n_S_HYG_WC <|-- n_S_HYG_WC_M
+n_S_HYG_WC <|-- n_S_HYG_WC_MIX
 n_S_PRK <|-- n_S_PRK_EXT
 n_S_PRK <|-- n_S_PRK_INT
 n_S_PRK <|-- n_S_PRK_SVC
+n_S_STO <|-- n_S_STO_GEN
+n_S_STO <|-- n_S_STO_LCK
 n_S_VOI <|-- n_S_VOI_MLT
 n_S_VOI <|-- n_S_VOI_PLN
 n_S_VOI <|-- n_S_VOI_STR
@@ -298,13 +322,103 @@ n_S_VOI <|-- n_S_VOI_VRT
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>S-CIR-VRT</td>
+<td>S-CIR-VRT-MAN</td>
 <td>S-CIR</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Vertikale Erschliessung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer vertikale erschliessung im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Treppen- und Rampenerschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer treppen- und rampenerschliessung im Klassifikationssystem.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Vertical Circulation</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for vertical movement</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Stair and Ramp Circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for human-powered vertical movement</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-CIR-VRT-MEC</td>
+<td>S-CIR</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Lift- und Rolltreppenerschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer lift- und rolltreppenerschliessung im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Lift and Escalator Circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for mechanical vertical movement</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG</td>
+<td>S</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Hygiene- und Sanitaerflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer hygiene- und sanitaerflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Hygiene Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for personal hygiene and sanitary activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG-GRD</td>
+<td>S-HYG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Garderoben</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raeume zur Abgabe und Aufbewahrung von Oberbekleidung bei Eintritt oder Veranstaltungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Cloakroom Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for storing outer garments at building entry or events</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG-SHW</td>
+<td>S-HYG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Dusch- und Umkleideraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer dusch- und umkleideraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Shower and Changing Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for washing, showering, and changing clothes</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG-WC</td>
+<td>S-HYG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">WC- und Sanitaerraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer wc- und sanitaerraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Toilet Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for toilet and hand-washing use</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG-WC-F</td>
+<td>S-HYG-WC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Damen-WC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC-Raeume fuer Frauen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Female Toilet Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet spaces designated for female use</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG-WC-IV</td>
+<td>S-HYG-WC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Barrierefreie WC-Raeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC-Raeume fuer barrierefreie oder inklusive Nutzung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Accessible Toilet Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet spaces designed for accessible or inclusive use</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG-WC-M</td>
+<td>S-HYG-WC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Herren-WC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC-Raeume fuer Maenner.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Male Toilet Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet spaces designated for male use</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-HYG-WC-MIX</td>
+<td>S-HYG-WC</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Allgemeine WC-Raeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC-Raeume fuer gemischte oder geschlechtsneutrale Nutzung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Mixed Toilet Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet spaces for mixed or unisex use</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -345,6 +459,36 @@ n_S_VOI <|-- n_S_VOI_VRT
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Service Vehicle Spaces</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Specialized parking for service vehicles</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-STO</td>
+<td>S</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Lager- und Abstellflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer lager- und abstellflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Storage Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for storing materials, equipment, and personal belongings</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-STO-GEN</td>
+<td>S-STO</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Allgemeine Lagerraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer allgemeine lagerraeume im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">General Storage Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for materials, archives, and general building storage</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>S-STO-LCK</td>
+<td>S-STO</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Schliessfach- und Garderobenflaechen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kategorie fuer schliessfach- und garderobenflaechen im Klassifikationssystem.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Locker Storage Spaces</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Spaces for personal lockers and assigned storage</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>

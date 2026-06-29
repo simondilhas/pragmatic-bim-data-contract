@@ -10,6 +10,13 @@
       "scheme_iri": "https://example.org/abstract/building-space-activity-classification/scheme"
     },
     {
+      "slug": "room-name",
+      "title": "Building space name classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/room-name.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/room-name.html",
+      "scheme_iri": "https://example.org/abstract/building-space-name-classification/scheme"
+    },
+    {
       "slug": "separator-wall-role",
       "title": "Separator wall role classification",
       "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/separator-wall-role.ttl",
@@ -87,6 +94,20 @@
       "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-room-activity-to-sia416.ttl",
       "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-room-activity-to-sia416.html",
       "dataset_iri": "https://example.org/mapping/abstractToSia416Mapping"
+    },
+    {
+      "slug": "room-name-to-activity",
+      "title": "Room name to space activity mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-room-name-to-activity.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-room-name-to-activity.html",
+      "dataset_iri": "https://example.org/mapping/roomNameToSpaceActivityMapping"
+    },
+    {
+      "slug": "armasuisse-room-name-to-room-name",
+      "title": "armasuisse room name to abstract room name mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-armasuisse-room-name-to-room-name.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-armasuisse-room-name-to-room-name.html",
+      "dataset_iri": "https://example.org/mapping/armasuisseRoomNameToAbstractRoomNameMapping"
     },
     {
       "slug": "roles-to-bkp",

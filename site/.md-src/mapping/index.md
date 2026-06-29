@@ -149,7 +149,8 @@ Defined in `ifc_mapping.yaml` under `conventions.ifc_contract_link`.
 | `contract` | Contracts | `Contract` |
 | `decision` | Decisions | `Decision` |
 | `task` | Tasks | `Task` |
-| `agent` | Agents | `Person`, `Company` |
+| `process` | BPMN process instances | `Process` |
+| `agent` | Agents | `Person`, `Company`, `SoftwareAgent` |
 | `message` | Messages | `Message` |
 
 **Change records** (`PropertyChange`, `GeometryChange`, etc.) are not entities and have no `content_kind`. Adapters or validation pipelines create them directly in a separate change store. Use the concrete change class together with `change_type` where applicable.
@@ -213,6 +214,8 @@ Each `entities.Ifc*` entry defines:
 | `ifc_relation` | Resolve value through an IFC relationship |
 | `ifc_attribute_heuristic` | Map attribute value through keyword rules with a default |
 | `ifc_relation_heuristic` | Infer value from related entities (e.g. system discipline) |
+| `vocabulary_lookup` | Map IFC PropertySet or attribute values through SKOS bridge TTL files and/or vocabulary prefLabels |
+| `vocabulary_derived_classification` | Derive a `Classification` entry from a resolved enum/slot via a mapping bridge |
 | `constant` | Fixed PBS enum or string value |
 | `predefined_type_map` | Branch on IFC `PredefinedType` |
 

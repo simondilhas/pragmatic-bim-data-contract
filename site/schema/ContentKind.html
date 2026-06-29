@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -506,9 +506,15 @@
 <td>Title: Task<br></td>
 </tr>
 <tr>
+<td>process</td>
+<td>pbs:content_kind_process</td>
+<td>Running BPMN process instance for workflow orchestration.</td>
+<td>Title: Process<br></td>
+</tr>
+<tr>
 <td>agent</td>
 <td>pbs:content_kind_agent</td>
-<td>Person or organization acting in the project.</td>
+<td>Person, organization, or software actor in the project.</td>
 <td>Title: Agent<br></td>
 </tr>
 <tr>
@@ -642,9 +648,18 @@
 <span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 <span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aufgabe</span>
 <span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Task</span>
+<span class="w">  </span><span class="nt">process</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">process</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Running BPMN process instance for workflow orchestration.</span>
+<span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:content_kind_process</span>
+<span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">de</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
+<span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prozess</span>
+<span class="w">    </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Process</span>
 <span class="w">  </span><span class="nt">agent</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person or organization acting in the project.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person, organization, or software actor in the project.</span>
 <span class="w">    </span><span class="nt">meaning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:content_kind_agent</span>
 <span class="w">    </span><span class="nt">alt_descriptions</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">de</span><span class="p">:</span>

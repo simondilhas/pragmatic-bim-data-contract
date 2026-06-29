@@ -23,7 +23,19 @@ abs:M_CIR ex:mapsToSia416 sia:VF, sia:HNF .
 abs:S ex:mapsToSia416 sia:NNF, sia:FF, sia:VF, sia:KF .
 abs:S_CIR ex:mapsToSia416 sia:VF .
 abs:S_CIR_HOR ex:mapsToSia416 sia:VF .
-abs:S_CIR_VRT ex:mapsToSia416 sia:VF .
+abs:S_CIR_VRT_MAN ex:mapsToSia416 sia:VF .
+abs:S_CIR_VRT_MEC ex:mapsToSia416 sia:VF .
+abs:S_HYG ex:mapsToSia416 sia:NNF .
+abs:S_HYG_GRD ex:mapsToSia416 sia:NNF .
+abs:S_HYG_WC ex:mapsToSia416 sia:NNF .
+abs:S_HYG_WC_F ex:mapsToSia416 sia:NNF .
+abs:S_HYG_WC_IV ex:mapsToSia416 sia:NNF .
+abs:S_HYG_WC_M ex:mapsToSia416 sia:NNF .
+abs:S_HYG_WC_MIX ex:mapsToSia416 sia:NNF .
+abs:S_HYG_SHW ex:mapsToSia416 sia:NNF .
+abs:S_STO ex:mapsToSia416 sia:NNF .
+abs:S_STO_GEN ex:mapsToSia416 sia:NNF .
+abs:S_STO_LCK ex:mapsToSia416 sia:NNF .
 abs:S_TEC ex:mapsToSia416 sia:FF .
 
 abs:S_PRK ex:mapsToSia416 sia:NNF, sia:BUF, sia:AVF .

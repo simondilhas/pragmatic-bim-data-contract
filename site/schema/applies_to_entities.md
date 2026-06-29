@@ -28,11 +28,13 @@ URI: [pbs:applies_to_entities](https://schema.pragmaticbim.ch/applies_to_entitie
 | [Entity](Entity.md) | Common base class for everything in the project graph. Has identity, lifecycle, and status. |  no  |
 | [TimeRecord](TimeRecord.md) | Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container. |  no  |
 | [CostRecord](CostRecord.md) | Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price). |  no  |
-| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Agent](Agent.md) | Abstract base class for human and software actors in workflow and communication roles. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
+| [SoftwareAgent](SoftwareAgent.md) | Automated actor (integration, bot, or pipeline) acting in workflow roles. |  no  |
 | [Decision](Decision.md) | Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs. |  no  |
 | [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
+| [Process](Process.md) | Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record. |  no  |
 | [Message](Message.md) | Message entity for coordination and traceability. Links to related entities via applies_to_entities. |  no  |
 | [Artifact](Artifact.md) | External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element. |  no  |
 | [Contract](Contract.md) | Commercial agreement entity for project scope, parties, and governance. Links to a signed artifact and related model entities via applies_to_entities. Entity.status covers record lifecycle; contract_status uses workflow vocabulary URIs. |  no  |

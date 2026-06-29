@@ -35,7 +35,8 @@ URI: [pbs:ContentKind](https://schema.pragmaticbim.ch/ContentKind)
 | contract | pbs:content_kind_contract | Commercial agreement entity linking parties, scope, and signed artifacts. | Title: Contract<br>|
 | decision | pbs:content_kind_decision | Decision entity for workflow and governance traceability. | Title: Decision<br>|
 | task | pbs:content_kind_task | Task or action entity for implementation workflows. | Title: Task<br>|
-| agent | pbs:content_kind_agent | Person or organization acting in the project. | Title: Agent<br>|
+| process | pbs:content_kind_process | Running BPMN process instance for workflow orchestration. | Title: Process<br>|
+| agent | pbs:content_kind_agent | Person, organization, or software actor in the project. | Title: Agent<br>|
 | message | pbs:content_kind_message | Message or communication entity for coordination. | Title: Message<br>|
 
 
@@ -186,9 +187,18 @@ permissible_values:
         source: de
         description: Aufgabe
     title: Task
+  process:
+    text: process
+    description: Running BPMN process instance for workflow orchestration.
+    meaning: pbs:content_kind_process
+    alt_descriptions:
+      de:
+        source: de
+        description: Prozess
+    title: Process
   agent:
     text: agent
-    description: Person or organization acting in the project.
+    description: Person, organization, or software actor in the project.
     meaning: pbs:content_kind_agent
     alt_descriptions:
       de:

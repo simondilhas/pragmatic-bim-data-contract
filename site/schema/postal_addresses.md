@@ -25,8 +25,7 @@ URI: [pbs:postal_addresses](https://schema.pragmaticbim.ch/postal_addresses)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Agent](Agent.md) | Abstract base class for people or organizations acting in workflow and communication roles. |  no  |
-| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. |  no  |
+| [Person](Person.md) | Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction. |  no  |
 | [Company](Company.md) | Organization, company, or legal entity participating in the project or asset lifecycle. |  no  |
 
 
@@ -41,7 +40,7 @@ URI: [pbs:postal_addresses](https://schema.pragmaticbim.ch/postal_addresses)
 | Property | Value |
 | --- | --- |
 | Range | [PostalAddress](PostalAddress.md) |
-| Domain Of | [Agent](Agent.md) |
+| Domain Of | [Person](Person.md), [Company](Company.md) |
 
 ### Cardinality and Requirements
 
@@ -91,7 +90,8 @@ description: Structured postal or physical addresses associated with this agent.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:
-- Agent
+- Person
+- Company
 range: PostalAddress
 multivalued: true
 inlined: true

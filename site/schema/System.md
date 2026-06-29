@@ -226,6 +226,7 @@ attributes:
     rank: 1000
     owner: System
     domain_of:
+    - Process
     - Deliverable
     - SpatialContext
     - System

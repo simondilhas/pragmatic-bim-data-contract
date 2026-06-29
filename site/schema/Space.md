@@ -42,6 +42,7 @@ click LevelContext href "./LevelContext.html" _blank
 click ZoneContext href "./ZoneContext.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
+click SpaceNameType href "./SpaceNameType.html" _blank
 click SpaceType href "./SpaceType.html" _blank
 click StatusType href "./StatusType.html" _blank
 click TimeRecord href "./TimeRecord.html" _blank
@@ -69,6 +70,7 @@ click TimeRecord href "./TimeRecord.html" _blank
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [space_type](space_type.md) | 1 <br/> [SpaceType](SpaceType.md) | Classification of space (void, circulation, usable, service). | direct |
+| [space_name_type](space_name_type.md) | 0..1 <br/> [SpaceNameType](SpaceNameType.md) | Normalized abstract room name type (for example office, kitchen, corridor). Project-specific labels remain on name. When set, adapters may derive a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity mapping bridge. | direct |
 | [parent_building](parent_building.md) | 0..1 <br/> [BuiltAssetContext](BuiltAssetContext.md) | Parent building context reference. | direct |
 | [parent_level](parent_level.md) | 0..1 <br/> [LevelContext](LevelContext.md) | Parent level/storey context reference. | direct |
 | [parent_zone](parent_zone.md) | 0..1 <br/> [ZoneContext](ZoneContext.md) | Parent zone context reference. | direct |
@@ -165,6 +167,7 @@ exact_mappings:
 is_a: VirtualEntity
 slots:
 - space_type
+- space_name_type
 - parent_building
 - parent_level
 - parent_zone
@@ -211,6 +214,18 @@ attributes:
     - Space
     range: SpaceType
     required: true
+  space_name_type:
+    name: space_name_type
+    description: Normalized abstract room name type (for example office, kitchen,
+      corridor). Project-specific labels remain on name. When set, adapters may derive
+      a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity
+      mapping bridge.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Space
+    domain_of:
+    - Space
+    range: SpaceNameType
   parent_building:
     name: parent_building
     description: Parent building context reference.
