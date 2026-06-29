@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -484,7 +484,7 @@
 <tbody>
 <tr>
 <td><a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
-<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).</td>
+<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). Boolean targets use target_value_boolean with requirement_property_key aligned to entity slot names where applicable (for example is_heated on Space). Application pipelines compare the subject entity slot to the requirement target and record the outcome as MatchChange (match_status met, unmet, or unknown).</td>
 <td>no</td>
 </tr>
 </tbody>

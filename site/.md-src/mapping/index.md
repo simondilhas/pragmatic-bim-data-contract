@@ -216,6 +216,7 @@ Each `entities.Ifc*` entry defines:
 | `ifc_relation_heuristic` | Infer value from related entities (e.g. system discipline) |
 | `vocabulary_lookup` | Map IFC PropertySet or attribute values through SKOS bridge TTL files and/or vocabulary prefLabels |
 | `vocabulary_derived_classification` | Derive a `Classification` entry from a resolved enum/slot via a mapping bridge |
+| `attribute_derivation` | Derive a typed attribute when unset (e.g. `is_above_ground` from `parent_level.elevation`) |
 | `constant` | Fixed PBS enum or string value |
 | `predefined_type_map` | Branch on IFC `PredefinedType` |
 
@@ -380,6 +381,49 @@ geometry:
 relations:
   - IfcRelConnectsPathElements
   - IfcRelAssignsToSystem
+```
+
+### IfcSpace → Space (conditioning and above-ground)
+
+Space carries optional design-state booleans as typed PBS slots (not requirements):
+
+| PBS slot | IFC source | Notes |
+|----------|------------|-------|
+| `is_heated` | `Pset_SpaceCommon.IsHeated` | As-designed heating flag |
+| `is_cooled` | `Pset_SpaceCommon.IsAirConditioned` | As-designed cooling / AC flag |
+| `is_above_ground` | — (no standard IFC pset) | Explicit override; see derivation below |
+
+`IfcBuildingStorey.Elevation` maps to `LevelContext.elevation` (unit `m`). When `is_above_ground` is unset on a Space, adapters apply the `attribute_derivation` rule in `conventions.space_above_ground_from_level`:
+
+```
+if space.is_above_ground is null and parent_level.elevation is known:
+  is_above_ground := parent_level.elevation >= 0
+```
+
+Explicit `is_above_ground` on Space always wins over the derived value.
+
+**Prescriptive validation (application layer):** when a brief requires a space to be heated, cooled, or above ground, create a `PerformanceRequirement` with `requirement_property_key` matching the Space slot name (`is_heated`, `is_cooled`, or `is_above_ground`), `target_value_boolean: true`, and link via `applies_to_entities`. Compare the Space slot (or derived `is_above_ground`) to the requirement target and record the outcome as `MatchChange` with `match_status` `met`, `unmet`, or `unknown`.
+
+Example requirement entity:
+
+```yaml
+content_kind: requirement
+canonical_type: PerformanceRequirement
+name: Office heating requirement
+requirement_property_key: is_heated
+target_value_boolean: true
+applies_to_entities: [<Space id>]
+```
+
+Example match change when validation runs between revisions:
+
+```yaml
+change_type: match
+related_requirement: <PerformanceRequirement id>
+affected_subject: <Space id>
+match_status: met   # or unmet / unknown
+from_revision: ...
+to_revision: ...
 ```
 
 ### IfcSlab PredefinedType split

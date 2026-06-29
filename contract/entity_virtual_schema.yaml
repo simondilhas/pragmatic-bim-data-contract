@@ -89,6 +89,9 @@ classes:
     is_a: SpatialContext
     class_uri: pbs:LevelContext
     description: Spatial context node constrained to level/storey semantics.
+    slots:
+    - elevation
+    - elevation_unit
   ZoneContext:
     is_a: SpatialContext
     class_uri: pbs:ZoneContext
@@ -103,6 +106,9 @@ classes:
     slots:
     - space_type
     - space_name_type
+    - is_heated
+    - is_cooled
+    - is_above_ground
     - parent_building
     - parent_level
     - parent_zone
@@ -253,6 +259,23 @@ slots:
       Project-specific labels remain on name. When set, adapters may derive a
       BuildingSpaceActivityClassification entry in classifications[] via the
       room-name-to-activity mapping bridge.
+  is_heated:
+    range: boolean
+    description: Whether the space is designed to receive heating.
+  is_cooled:
+    range: boolean
+    description: Whether the space is designed to receive cooling (air conditioning).
+  is_above_ground:
+    range: boolean
+    description: >-
+      Whether the space is above ground level. When unset, consumers may derive
+      from parent_level elevation relative to project datum.
+  elevation:
+    range: double
+    description: Storey elevation relative to project datum (metres).
+  elevation_unit:
+    range: string
+    description: Unit for elevation (default m).
   system_type:
     range: SystemType
     required: true

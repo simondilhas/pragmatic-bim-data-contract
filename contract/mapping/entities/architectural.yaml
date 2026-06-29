@@ -347,6 +347,7 @@
       classifications: *classifications_mapping
     derivations:
       - *space_activity_from_name_type
+      - *space_above_ground_from_level
     attributes:
       <<: *attributes_entity_base
       space_type:
@@ -365,6 +366,8 @@
           - match: [volume, gross volume]
             value: modeled_gross_volume
       space_name_type: *space_name_type_lookup
+      is_heated: *space_is_heated
+      is_cooled: *space_is_cooled
     geometry: *geometry_footprint_body
     relations:
       - IfcRelContainedInSpatialStructure
@@ -430,6 +433,12 @@
       context_type:
         source: constant
         value: level
+      elevation:
+        source: ifc_attribute
+        attribute: Elevation
+      elevation_unit:
+        source: constant
+        value: m
     geometry:
       primary: footprint_2d
       secondary: point

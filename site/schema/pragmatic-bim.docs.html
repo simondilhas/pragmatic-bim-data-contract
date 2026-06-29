@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -770,7 +770,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PerformanceRequirement.html">PerformanceRequirement</a></td>
-<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).</td>
+<td>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). Boolean targets use target_value_boolean with requirement_property_key aligned to entity slot names where applicable (for example is_heated on Space). Application pipelines compare the subject entity slot to the requirement target and record the outcome as MatchChange (match_status met, unmet, or unknown).</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="SpatialRequirement.html">SpatialRequirement</a></td>
@@ -1246,6 +1246,14 @@
 <td>End of contractual validity when applicable.</td>
 </tr>
 <tr>
+<td><a href="elevation.html">elevation</a></td>
+<td>Storey elevation relative to project datum (metres).</td>
+</tr>
+<tr>
+<td><a href="elevation_unit.html">elevation_unit</a></td>
+<td>Unit for elevation (default m).</td>
+</tr>
+<tr>
 <td><a href="equipment_type.html">equipment_type</a></td>
 <td>Classification of equipment (for example HVAC, electrical, plumbing).</td>
 </tr>
@@ -1308,6 +1316,18 @@
 <tr>
 <td><a href="intent_verdict.html">intent_verdict</a></td>
 <td>Intent stability verdict from an automated judge (for example iterthink STABLE/NEW).</td>
+</tr>
+<tr>
+<td><a href="is_above_ground.html">is_above_ground</a></td>
+<td>Whether the space is above ground level. When unset, consumers may derive from parent_level elevation relative to project datum.</td>
+</tr>
+<tr>
+<td><a href="is_cooled.html">is_cooled</a></td>
+<td>Whether the space is designed to receive cooling (air conditioning).</td>
+</tr>
+<tr>
+<td><a href="is_heated.html">is_heated</a></td>
+<td>Whether the space is designed to receive heating.</td>
 </tr>
 <tr>
 <td><a href="is_preferred.html">is_preferred</a></td>

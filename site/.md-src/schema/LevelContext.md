@@ -72,6 +72,8 @@ click ZoneType href "./ZoneType.html" _blank
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
+| [elevation](elevation.md) | 0..1 <br/> [Double](Double.md) | Storey elevation relative to project datum (metres). | direct |
+| [elevation_unit](elevation_unit.md) | 0..1 <br/> [String](String.md) | Unit for elevation (default m). | direct |
 | [context_type](context_type.md) | 1 <br/> [ContextType](ContextType.md) | Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone). | [SpatialContext](SpatialContext.md) |
 | [zone_type](zone_type.md) | 0..1 <br/> [ZoneType](ZoneType.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. | [SpatialContext](SpatialContext.md) |
 | [parent_project](parent_project.md) | 0..1 <br/> [Project](Project.md) | Parent project reference. | [SpatialContext](SpatialContext.md) |
@@ -178,6 +180,9 @@ name: LevelContext
 description: Spatial context node constrained to level/storey semantics.
 from_schema: https://schema.pragmaticbim.ch
 is_a: SpatialContext
+slots:
+- elevation
+- elevation_unit
 class_uri: pbs:LevelContext
 
 ```
@@ -192,6 +197,24 @@ description: Spatial context node constrained to level/storey semantics.
 from_schema: https://schema.pragmaticbim.ch
 is_a: SpatialContext
 attributes:
+  elevation:
+    name: elevation
+    description: Storey elevation relative to project datum (metres).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: LevelContext
+    domain_of:
+    - LevelContext
+    range: double
+  elevation_unit:
+    name: elevation_unit
+    description: Unit for elevation (default m).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: LevelContext
+    domain_of:
+    - LevelContext
+    range: string
   context_type:
     name: context_type
     description: Classification of context entity (perimeter, legal_site, building,

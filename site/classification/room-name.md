@@ -4,8 +4,8 @@ Source: [`building-space-name-classification.skos.ttl`](sources/room-name.ttl)
 
 ## Scheme
 
-- **definition (de):** Normalisierte abstrakte Raumbezeichnungen fuer IfcSpace, abgeleitet von der armasuisse Raumliste und fuer allgemeinen Gebaeudegebrauch reduziert.
-- **definition (en):** Normalized abstract room name types for IfcSpace, derived from armasuisse Raumliste and reduced for general building use.
+- **definition (de):** Normalisierte abstrakte Raumbezeichnungen fuer allgemeinen Gebaeudegebrauch auf IfcSpace.
+- **definition (en):** Normalized abstract room name types for general building use on IfcSpace.
 - **prefLabel (de):** Gebaeude-Raumbezeichnungsklassifikation
 - **prefLabel (en):** Building Space Name Classification
 - **title (en):** Building Space Name Classification

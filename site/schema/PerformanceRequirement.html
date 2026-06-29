@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -479,7 +479,7 @@
 
 
 <h1 id="class-performancerequirement">Class: PerformanceRequirement<a class="headerlink" href="#class-performancerequirement" title="Permanent link">&para;</a></h1>
-<p><em>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).</em></p>
+<p><em>Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). Boolean targets use target_value_boolean with requirement_property_key aligned to entity slot names where applicable (for example is_heated on Space). Application pipelines compare the subject entity slot to the requirement target and record the outcome as MatchChange (match_status met, unmet, or unknown).</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/PerformanceRequirement">pbs:PerformanceRequirement</a></p>
 <div class="panzoom-box" data-key="alt" id="panzoom0" oncontextmenu="return false;">
@@ -748,7 +748,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceRequirement</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Performance target requirement (U-value, fire rating, airflow, acoustic,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">etc.).</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">etc.). Boolean targets use target_value_boolean with requirement_property_key aligned</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to entity slot names where applicable (for example is_heated on Space). Application</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">pipelines compare the subject entity slot to the requirement target and record the</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">outcome as MatchChange (match_status met, unmet, or unknown).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="nt">slots</span><span class="p">:</span>
@@ -766,7 +769,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PerformanceRequirement</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Performance target requirement (U-value, fire rating, airflow, acoustic,</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">etc.).</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">etc.). Boolean targets use target_value_boolean with requirement_property_key aligned</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">to entity slot names where applicable (for example is_heated on Space). Application</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">pipelines compare the subject entity slot to the requirement target and record the</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">outcome as MatchChange (match_status met, unmet, or unknown).</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Requirement</span>
 <span class="nt">attributes</span><span class="p">:</span>

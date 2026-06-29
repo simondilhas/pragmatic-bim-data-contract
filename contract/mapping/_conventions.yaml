@@ -127,3 +127,29 @@ conventions:
     classification_source: derived-from-space-name-type
     append_if_scheme_missing: true
 
+  space_is_heated: &space_is_heated
+    source: ifc_pset_fallback
+    fallbacks:
+      - pset: Pset_SpaceCommon
+        property: IsHeated
+
+  space_is_cooled: &space_is_cooled
+    source: ifc_pset_fallback
+    fallbacks:
+      - pset: Pset_SpaceCommon
+        property: IsAirConditioned
+
+  space_above_ground_from_level: &space_above_ground_from_level
+    source: attribute_derivation
+    description: >
+      When is_above_ground is unset on Space, derive from parent_level.elevation
+      (IfcBuildingStorey.Elevation): elevation >= 0 means above ground, elevation < 0
+      means below ground. An explicit is_above_ground value on Space takes precedence.
+    target_attribute: is_above_ground
+    when_target_unset: true
+    from_relation: parent_level
+    from_attribute: elevation
+    rule:
+      operator: gte
+      threshold: 0
+
