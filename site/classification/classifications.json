@@ -113,6 +113,20 @@
       "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/slab-separator-product.ttl",
       "docs_html": "https://schema.pragmaticbim.ch/classification/slab-separator-product.html",
       "scheme_iri": "https://example.org/abstract/slab-separator-product/scheme"
+    },
+    {
+      "slug": "door-connector-product",
+      "title": "Abstract door connector products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/door-connector-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/door-connector-product.html",
+      "scheme_iri": "https://example.org/abstract/door-connector-product/scheme"
+    },
+    {
+      "slug": "window-connector-product",
+      "title": "Abstract window connector products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/window-connector-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/window-connector-product.html",
+      "scheme_iri": "https://example.org/abstract/window-connector-product/scheme"
     }
   ],
   "mappings": [
@@ -255,6 +269,20 @@
       "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-separator-products-to-bkp.ttl",
       "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-separator-products-to-bkp.html",
       "dataset_iri": "https://example.org/mapping/abstractSeparatorProductsToBkpMapping"
+    },
+    {
+      "slug": "connector-products-to-material",
+      "title": "Abstract connector products to material mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-connector-products-to-material.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-material.html",
+      "dataset_iri": "https://example.org/mapping/abstractConnectorProductsToMaterialMapping"
+    },
+    {
+      "slug": "connector-products-to-bkp",
+      "title": "Abstract connector products to BKP mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-connector-products-to-bkp.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-bkp.html",
+      "dataset_iri": "https://example.org/mapping/abstractConnectorProductsToBkpMapping"
     }
   ]
 }

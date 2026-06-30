@@ -1,0 +1,65 @@
+@prefix dcp: <https://example.org/abstract/door-connector-product/> .
+@prefix wicp: <https://example.org/abstract/window-connector-product/> .
+@prefix mat: <https://example.org/abstract/material-classification/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractConnectorProductsToMaterialMapping a dcterms:Dataset ;
+  dcterms:title "Abstract connector products to material mapping"@en ;
+  dcterms:title "Mapping abstrakter Verbindungsprodukte nach Material"@de ;
+  dcterms:references dcp:scheme, wicp:scheme, mat:scheme ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:description "Maps abstract door and window connector product concepts to dominant-substance material classes for frame and infill. Uses skos:closeMatch for primary frame substance; skos:relatedMatch for glazing, composite, or variable infill."@en ;
+  dcterms:description "Ordnet abstrakte Tuer- und Fenster-Verbindungsprodukte dominanten Materialklassen fuer Rahmen und Fuellung zu. skos:closeMatch fuer primaere Rahmensubstanz; skos:relatedMatch fuer Verglasung, Verbund oder variable Fuellung."@de .
+
+# --- Door connector products ---
+
+dcp:DCP-WOOD skos:closeMatch mat:MAT-WOD .
+
+dcp:DCP-METAL skos:closeMatch mat:MAT-MET-STL ;
+  skos:relatedMatch mat:MAT-MET-ALU .
+
+dcp:DCP-WOOD-METAL skos:closeMatch mat:MAT-WOD ;
+  skos:relatedMatch mat:MAT-MET-ALU, mat:MAT-CMP .
+
+dcp:DCP-PVC skos:closeMatch mat:MAT-PLA .
+
+dcp:DCP-GLASS skos:closeMatch mat:MAT-GLS ;
+  skos:relatedMatch mat:MAT-MET-ALU, mat:MAT-MET-STL .
+
+dcp:DCP-GATE skos:closeMatch mat:MAT-MET-STL ;
+  skos:relatedMatch mat:MAT-MET-ALU, mat:MAT-WOD, mat:MAT-PLA .
+
+dcp:DCP-SPECIAL skos:closeMatch mat:MAT-CMP ;
+  skos:relatedMatch mat:MAT-MET-STL, mat:MAT-GLS, mat:MAT-WOD .
+
+dcp:DCP-OTH skos:closeMatch mat:MAT-OTH .
+
+# --- Window connector products ---
+
+wicp:WICP-WOOD skos:closeMatch mat:MAT-WOD ;
+  skos:relatedMatch mat:MAT-GLS .
+
+wicp:WICP-WOOD-METAL skos:closeMatch mat:MAT-WOD ;
+  skos:relatedMatch mat:MAT-MET-ALU, mat:MAT-GLS .
+
+wicp:WICP-PVC skos:closeMatch mat:MAT-PLA ;
+  skos:relatedMatch mat:MAT-GLS .
+
+wicp:WICP-STEEL skos:closeMatch mat:MAT-MET-STL ;
+  skos:relatedMatch mat:MAT-GLS .
+
+wicp:WICP-ALUMINIUM skos:closeMatch mat:MAT-MET-ALU ;
+  skos:relatedMatch mat:MAT-GLS .
+
+wicp:WICP-SPECIAL skos:closeMatch mat:MAT-GLS ;
+  skos:relatedMatch mat:MAT-MET-ALU, mat:MAT-CMP .
+
+wicp:WICP-SKYLIGHT skos:closeMatch mat:MAT-GLS ;
+  skos:relatedMatch mat:MAT-MET-ALU, mat:MAT-WOD, mat:MAT-PLA .
+
+wicp:WICP-FACADE-UNIT skos:closeMatch mat:MAT-GLS ;
+  skos:relatedMatch mat:MAT-MET-ALU, mat:MAT-MET-STL .
+
+wicp:WICP-OTH skos:closeMatch mat:MAT-OTH .

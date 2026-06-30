@@ -66,6 +66,14 @@ vocabularies:
     path: abstract-separator-product-classification/slab-separator-products.skos.ttl
     title: Abstract slab separator products
 
+  - slug: door-connector-product
+    path: abstract-connector-product-classification/door-connector-products.skos.ttl
+    title: Abstract door connector products
+
+  - slug: window-connector-product
+    path: abstract-connector-product-classification/window-connector-products.skos.ttl
+    title: Abstract window connector products
+
 mappings:
   - slug: separator-role-to-space-activity
     path: mapping/separator-role-to-space-activity.mapping.ttl
@@ -146,3 +154,11 @@ mappings:
   - slug: separator-products-to-bkp
     path: mapping/abstract-separator-products-to-bkp.mapping.ttl
     title: Abstract separator products to BKP mapping
+
+  - slug: connector-products-to-material
+    path: mapping/abstract-connector-products-to-material.mapping.ttl
+    title: Abstract connector products to material mapping
+
+  - slug: connector-products-to-bkp
+    path: mapping/abstract-connector-products-to-bkp.mapping.ttl
+    title: Abstract connector products to BKP mapping

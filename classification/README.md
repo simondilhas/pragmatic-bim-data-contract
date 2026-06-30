@@ -23,6 +23,7 @@ classification/
 ├── abstract-material-classification/   # SKOS
 ├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling covering products
 ├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
+├── abstract-connector-product-classification/  # SKOS — door and window connector products
 ├── abstract-usecase-classification/    # SKOS — project lifecycle use cases
 └── mapping/                            # bridge TTL files
 ```
@@ -39,6 +40,7 @@ classification/
 | `abstract-material-classification/` | Abstract material categories |
 | `abstract-covering-product-classification/` | Floor, wall, and ceiling covering product types |
 | `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
+| `abstract-connector-product-classification/` | Door and window connector product types (interior/exterior via BKP context) |
 | `abstract-usecase-classification/` | Project lifecycle use cases (ordering, design, QA, construction, handover, operation, deconstruction) |
 | `mapping/` | Crosswalks from abstract concepts to external code lists (SIA, D0165, BKP, …) |
 
@@ -65,6 +67,8 @@ classification/
 | `mapping/abstract-covering-products-to-bkp.mapping.ttl` | Abstract covering products → BKP 281/282/283 cost lines |
 | `mapping/abstract-separator-products-to-material.mapping.ttl` | Abstract separator products → dominant material classes |
 | `mapping/abstract-separator-products-to-bkp.mapping.ttl` | Abstract separator products → BKP 211–215 / 277 cost lines |
+| `mapping/abstract-connector-products-to-material.mapping.ttl` | Abstract door and window connector products → dominant material classes |
+| `mapping/abstract-connector-products-to-bkp.mapping.ttl` | Abstract door and window connector products → BKP 221.x / 272 / 273 / 224 cost lines |
 
 Bridge files reference external IRIs by code. Full proprietary vocabularies are not shipped in this repository.
 

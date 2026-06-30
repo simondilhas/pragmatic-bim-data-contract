@@ -1,0 +1,132 @@
+@prefix : <https://example.org/abstract/window-connector-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract window connector products"@en ;
+  skos:prefLabel "Abstrakte Fenster-Verbindungsprodukte"@de ;
+  dcterms:title "Abstract window connector products"@en ;
+  dcterms:identifier "AbstractWindowConnectorProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for window connectors (ConnectionPhysical with connection_physical_type window). For catalog, specification, and cost workflows; pair with abstract material classification for frame and glazing substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer Fenster-Verbindungen (ConnectionPhysical mit connection_physical_type window). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Verglasungssubstanz kombinieren."@de ;
+  skos:scopeNote "Default PBS entity is ConnectionPhysical. Interior vs exterior position is not encoded here; BKP bridges use closeMatch for Rohbau 221.x (exterior) and relatedMatch for Ausbau 272/273 (interior) where applicable."@en ;
+  skos:scopeNote "Standard-PBS-Entitaet ist ConnectionPhysical. Innen- vs Aussenlage ist hier nicht kodiert; BKP-Mappings mit closeMatch fuer Rohbau 221.x (aussen) und relatedMatch fuer Ausbau 272/273 (innen) wo zutreffend."@de ;
+  skos:hasTopConcept
+    :WICP-WOOD,
+    :WICP-WOOD-METAL,
+    :WICP-PVC,
+    :WICP-STEEL,
+    :WICP-ALUMINIUM,
+    :WICP-SPECIAL,
+    :WICP-SKYLIGHT,
+    :WICP-FACADE-UNIT,
+    :WICP-OTH .
+
+:WICP-WOOD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-WOOD" ;
+  skos:prefLabel "Wood window system"@en ;
+  skos:prefLabel "Holzfenster"@de ;
+  skos:definition "Window with primary wood frame and sash, including traditional timber windows."@en ;
+  skos:definition "Fenster mit primaerem Holzrahmen und -fluegel, einschliesslich traditioneller Holzfenster."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "wood-window" .
+
+:WICP-WOOD-METAL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-WOOD-METAL" ;
+  skos:prefLabel "Wood–metal composite window"@en ;
+  skos:prefLabel "Holz-Metall-Fenster"@de ;
+  skos:definition "Window with wood interior and metal exterior frame or wood-aluminium composite system."@en ;
+  skos:definition "Fenster mit Holzinnenseite und Metall-Aussenrahmen oder Holz-Aluminium-Verbundsystem."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "wood-metal-window" .
+
+:WICP-PVC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-PVC" ;
+  skos:prefLabel "Plastic / PVC window system"@en ;
+  skos:prefLabel "Kunststoff- / PVC-Fenster"@de ;
+  skos:definition "Window with primary PVC or uPVC frame and sash system."@en ;
+  skos:definition "Fenster mit primaerem PVC- oder uPVC-Rahmen und -fluegelsystem."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "pvc-window" .
+
+:WICP-STEEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-STEEL" ;
+  skos:prefLabel "Steel window system"@en ;
+  skos:prefLabel "Stahlfenster"@de ;
+  skos:definition "Window with primary steel frame and sash, including historic and industrial steel windows."@en ;
+  skos:definition "Fenster mit primaerem Stahlrahmen und -fluegel, einschliesslich historischer und industrieller Stahlfenster."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "steel-window" .
+
+:WICP-ALUMINIUM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-ALUMINIUM" ;
+  skos:prefLabel "Aluminium window system"@en ;
+  skos:prefLabel "Aluminiumfenster"@de ;
+  skos:definition "Window with primary aluminium or light-metal frame and sash system."@en ;
+  skos:definition "Fenster mit primaerem Aluminium- oder Leichtmetall-Rahmen und -fluegelsystem."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "aluminium-window" .
+
+:WICP-SPECIAL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-SPECIAL" ;
+  skos:prefLabel "Special transparent opening"@en ;
+  skos:prefLabel "Spezielles lichtdurchlaessiges Bauteil"@de ;
+  skos:definition "Special transparent or light-transmitting opening product not covered by standard window frame types."@en ;
+  skos:definition "Spezielles lichtdurchlaessiges Oeffnungsprodukt ausserhalb ueblicher Fensterrahmentypen."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "special-window" .
+
+:WICP-SKYLIGHT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-SKYLIGHT" ;
+  skos:prefLabel "Roof window / skylight"@en ;
+  skos:prefLabel "Dachfenster / Oberlicht"@de ;
+  skos:definition "Roof-mounted window, skylight, or rooflight product."@en ;
+  skos:definition "Dachmontiertes Fenster, Oberlicht oder Dachflaechenfenster-Produkt."@de ;
+  skos:scopeNote "Often costed under BKP 224 (Bedachungsarbeiten) for roof integration; see BKP mapping bridge."@en ;
+  skos:scopeNote "Wird oft unter BKP 224 (Bedachungsarbeiten) bei Dachintegration kalkuliert; siehe BKP-Mapping."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "skylight" .
+
+:WICP-FACADE-UNIT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-FACADE-UNIT" ;
+  skos:prefLabel "Facade glazing unit"@en ;
+  skos:prefLabel "Fassaden-Verglasungselement"@de ;
+  skos:definition "Unitised or stick-system facade glazing panel integrated as a window-type connector opening."@en ;
+  skos:definition "Element- oder Pfosten-Riegel-Fassaden-Verglasungspaneel als fensterartige Verbindungs-Oeffnung."@de ;
+  skos:scopeNote "Distinct from SWP-CURTAIN-WALL separator product; tags the operable or fixed glazing unit as ConnectionPhysical."@en ;
+  skos:scopeNote "Unterscheidet sich vom SWP-CURTAIN-WALL-Trennelementprodukt; kennzeichnet das feste oder oeffnende Verglasungselement als ConnectionPhysical."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "facade-glazing-unit" .
+
+:WICP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WICP-OTH" ;
+  skos:prefLabel "Other / unknown window"@en ;
+  skos:prefLabel "Sonstiges / unbekanntes Fenster"@de ;
+  skos:definition "Window connector product not classified or not yet known."@en ;
+  skos:definition "Fenster-Verbindungsprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "other" .

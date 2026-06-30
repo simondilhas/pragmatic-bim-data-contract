@@ -24,6 +24,8 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract ceiling covering products](ceiling-covering-product.md) | `abstract-covering-product-classification/ceiling-covering-products.skos.ttl` |
 | [Abstract wall separator products](wall-separator-product.md) | `abstract-separator-product-classification/wall-separator-products.skos.ttl` |
 | [Abstract slab separator products](slab-separator-product.md) | `abstract-separator-product-classification/slab-separator-products.skos.ttl` |
+| [Abstract door connector products](door-connector-product.md) | `abstract-connector-product-classification/door-connector-products.skos.ttl` |
+| [Abstract window connector products](window-connector-product.md) | `abstract-connector-product-classification/window-connector-products.skos.ttl` |
 
 ## Mappings
 
@@ -49,3 +51,5 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract covering products to BKP mapping](mapping-covering-products-to-bkp.md) | `mapping/abstract-covering-products-to-bkp.mapping.ttl` |
 | [Abstract separator products to material mapping](mapping-separator-products-to-material.md) | `mapping/abstract-separator-products-to-material.mapping.ttl` |
 | [Abstract separator products to BKP mapping](mapping-separator-products-to-bkp.md) | `mapping/abstract-separator-products-to-bkp.mapping.ttl` |
+| [Abstract connector products to material mapping](mapping-connector-products-to-material.md) | `mapping/abstract-connector-products-to-material.mapping.ttl` |
+| [Abstract connector products to BKP mapping](mapping-connector-products-to-bkp.md) | `mapping/abstract-connector-products-to-bkp.mapping.ttl` |
