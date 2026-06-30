@@ -29,11 +29,23 @@
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/door-connector-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/floor-covering-product.html</loc>
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/classification/mapping-armasuisse-room-name-to-room-name.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-bkp.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-material.html</loc>
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
@@ -150,6 +162,10 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/classification/wall-separator-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/window-connector-product.html</loc>
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>

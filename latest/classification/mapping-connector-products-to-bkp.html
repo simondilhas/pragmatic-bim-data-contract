@@ -8,10 +8,8 @@
       
       
       
-        <link rel="canonical" href="https://schema.pragmaticbim.ch/classification/index.html">
+        <link rel="canonical" href="https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-bkp.html">
       
-      
-        <link rel="prev" href="../mapping/index.html">
       
       
       
@@ -23,7 +21,7 @@
     
     
       
-        <title>Classifications - Pragmatic BIM Data Contract</title>
+        <title>Abstract connector products to BKP mapping - Pragmatic BIM Data Contract</title>
       
     
     
@@ -79,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pragmatic-bim-classifications" class="md-skip">
+        <a href="#abstract-connector-products-to-bkp-mapping" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Classifications
+              Abstract connector products to BKP mapping
             
           </span>
         </div>
@@ -303,37 +301,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Classifications
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         
   
   
@@ -349,48 +320,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vocabularies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vocabularies
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mappings
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -422,10 +351,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vocabularies" class="md-nav__link">
+  <a href="#dataset" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vocabularies
+        Dataset
       
     </span>
   </a>
@@ -433,10 +362,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mappings" class="md-nav__link">
+  <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mappings
+        Links
       
     </span>
   </a>
@@ -460,188 +389,215 @@
 
 
 
-<h1 id="pragmatic-bim-classifications">Pragmatic BIM Classifications<a class="headerlink" href="#pragmatic-bim-classifications" title="Permanent link">&para;</a></h1>
-<p>SKOS vocabularies and mapping bridges for the data contract <code>Classification</code> slot.</p>
-<p>License: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a> — sourced from <a href="https://github.com/simondilhas/pragmatic-bim-public-rules">pragmatic-bim-public-rules</a>.</p>
-<h2 id="vocabularies">Vocabularies<a class="headerlink" href="#vocabularies" title="Permanent link">&para;</a></h2>
+<h1 id="abstract-connector-products-to-bkp-mapping">Abstract connector products to BKP mapping<a class="headerlink" href="#abstract-connector-products-to-bkp-mapping" title="Permanent link">&para;</a></h1>
+<p>Source: <a href="sources/mapping-connector-products-to-bkp.ttl"><code>abstract-connector-products-to-bkp.mapping.ttl</code></a></p>
+<p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
+<h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>description (de):</strong> Ordnet abstrakte Tuer- und Fenster-Verbindungsprodukte BKP-Rohbau-221.x (Aussenfenster und -tueren) und Ausbau-272/273 (innere Metall- und Holz-Oeffnungen) zu. BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern.</li>
+<li><strong>description (en):</strong> Maps abstract door and window connector product concepts to BKP Rohbau 221.x (exterior windows and doors) and Ausbau 272/273 (interior metal and wood openings). BKP subcodes use underscore notation (e.g. bkp:221_0 for BKP 221.0). Full BKP vocabulary is external.</li>
+<li><strong>title (de):</strong> Mapping abstrakter Verbindungsprodukte nach BKP</li>
+<li><strong>title (en):</strong> Abstract connector products to BKP mapping</li>
+</ul>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Vocabulary</th>
-<th>Description</th>
+<th>Source</th>
+<th>Relation</th>
+<th>Targets</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="room-activity.html">Building space activity classification</a></td>
-<td><code>abstract-room-classification/building_space-activity-classification-en.skos.ttl</code></td>
+<td><code>dcp:DCP-GATE</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-6</code></td>
 </tr>
 <tr>
-<td><a href="room-name.html">Building space name classification</a></td>
-<td><code>abstract-room-name-classification/building-space-name-classification.skos.ttl</code></td>
+<td><code>dcp:DCP-GATE</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-9</code></td>
 </tr>
 <tr>
-<td><a href="separator-wall-role.html">Separator wall role classification</a></td>
-<td><code>abstract-separator-classification/separator-wall-role-classification-en.skos.ttl</code></td>
+<td><code>dcp:DCP-GATE</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="separator-slab-role.html">Separator slab role classification</a></td>
-<td><code>abstract-separator-classification/separator-slab-role-classification-en.skos.ttl</code></td>
+<td><code>dcp:DCP-GLASS</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-6</code></td>
 </tr>
 <tr>
-<td><a href="connection-physical-type.html">Connection physical type classification</a></td>
-<td><code>abstract-separator-classification/connection-physical-type-en.skos.ttl</code></td>
+<td><code>dcp:DCP-GLASS</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-8</code></td>
 </tr>
 <tr>
-<td><a href="roles.html">Abstract workflow participant roles</a></td>
-<td><code>abstract-roles/roles.skos.ttl</code></td>
+<td><code>dcp:DCP-GLASS</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="document-function.html">Document function classification</a></td>
-<td><code>abstract-document-function/document-function.skos.ttl</code></td>
+<td><code>dcp:DCP-METAL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-6</code></td>
 </tr>
 <tr>
-<td><a href="usecase.html">Abstract use case classification</a></td>
-<td><code>abstract-usecase-classification/usecase-classification.skos.ttl</code></td>
+<td><code>dcp:DCP-METAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="material.html">Abstract material classification</a></td>
-<td><code>abstract-material-classification/material-classification.skos.ttl</code></td>
+<td><code>dcp:DCP-PVC</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-6</code></td>
 </tr>
 <tr>
-<td><a href="building-metric.html">Abstract building metrics</a></td>
-<td><code>abstract-metric-definition/building-metrics.skos.ttl</code></td>
+<td><code>dcp:DCP-PVC</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="building-ratio.html">Abstract building ratios</a></td>
-<td><code>abstract-ratio-definition/building-ratios.skos.ttl</code></td>
+<td><code>dcp:DCP-SPECIAL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-8</code></td>
 </tr>
 <tr>
-<td><a href="floor-covering-product.html">Abstract floor covering products</a></td>
-<td><code>abstract-covering-product-classification/floor-covering-products.skos.ttl</code></td>
+<td><code>dcp:DCP-SPECIAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-6</code></td>
 </tr>
 <tr>
-<td><a href="wall-covering-product.html">Abstract wall covering products</a></td>
-<td><code>abstract-covering-product-classification/wall-covering-products.skos.ttl</code></td>
+<td><code>dcp:DCP-SPECIAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="ceiling-covering-product.html">Abstract ceiling covering products</a></td>
-<td><code>abstract-covering-product-classification/ceiling-covering-products.skos.ttl</code></td>
+<td><code>dcp:DCP-WOOD</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-5</code></td>
 </tr>
 <tr>
-<td><a href="wall-separator-product.html">Abstract wall separator products</a></td>
-<td><code>abstract-separator-product-classification/wall-separator-products.skos.ttl</code></td>
+<td><code>dcp:DCP-WOOD</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:273</code></td>
 </tr>
 <tr>
-<td><a href="slab-separator-product.html">Abstract slab separator products</a></td>
-<td><code>abstract-separator-product-classification/slab-separator-products.skos.ttl</code></td>
+<td><code>dcp:DCP-WOOD-METAL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-5</code></td>
 </tr>
 <tr>
-<td><a href="door-connector-product.html">Abstract door connector products</a></td>
-<td><code>abstract-connector-product-classification/door-connector-products.skos.ttl</code></td>
+<td><code>dcp:DCP-WOOD-METAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="window-connector-product.html">Abstract window connector products</a></td>
-<td><code>abstract-connector-product-classification/window-connector-products.skos.ttl</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="mappings">Mappings<a class="headerlink" href="#mappings" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Mapping</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="mapping-separator-role-to-space-activity.html">Separator role to space activity mapping</a></td>
-<td><code>mapping/separator-role-to-space-activity.mapping.ttl</code></td>
+<td><code>dcp:DCP-WOOD-METAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:273</code></td>
 </tr>
 <tr>
-<td><a href="mapping-room-activity-to-d0165.html">Room activity to D0165 mapping</a></td>
-<td><code>mapping/abstract-room-classification-to-d0165.mapping.ttl</code></td>
+<td><code>wicp:WICP-ALUMINIUM</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-4</code></td>
 </tr>
 <tr>
-<td><a href="mapping-d0165-to-room-activity.html">D0165 to room activity mapping</a></td>
-<td><code>mapping/d0165-to-abstract-room-classification.mapping.ttl</code></td>
+<td><code>wicp:WICP-ALUMINIUM</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="mapping-room-activity-to-sia416.html">Room activity to SIA 416 mapping</a></td>
-<td><code>mapping/abstract-room-classification-to-sia416.mapping.ttl</code></td>
+<td><code>wicp:WICP-FACADE-UNIT</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-8</code></td>
 </tr>
 <tr>
-<td><a href="mapping-room-name-to-activity.html">Room name to space activity mapping</a></td>
-<td><code>mapping/abstract-room-name-to-space-activity.mapping.ttl</code></td>
+<td><code>wicp:WICP-FACADE-UNIT</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-4</code></td>
 </tr>
 <tr>
-<td><a href="mapping-armasuisse-room-name-to-room-name.html">armasuisse room name to abstract room name mapping</a></td>
-<td><code>mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl</code></td>
+<td><code>wicp:WICP-FACADE-UNIT</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-9</code></td>
 </tr>
 <tr>
-<td><a href="mapping-roles-to-bkp.html">Abstract roles to BKP mapping</a></td>
-<td><code>mapping/abstract-roles-to-bkp.mapping.ttl</code></td>
+<td><code>wicp:WICP-PVC</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-2</code></td>
 </tr>
 <tr>
-<td><a href="mapping-material-to-uniclass-ma.html">Abstract material to Uniclass Ma mapping</a></td>
-<td><code>mapping/abstract-material-to-uniclass-ma.mapping.ttl</code></td>
+<td><code>wicp:WICP-PVC</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="mapping-kbob-document-types-to-document-function.html">KBOB document types to document function mapping</a></td>
-<td><code>mapping/kbob-document-types-to-document-function.mapping.ttl</code></td>
+<td><code>wicp:WICP-SKYLIGHT</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-0</code></td>
 </tr>
 <tr>
-<td><a href="mapping-metric-to-sia416.html">Abstract building metrics to SIA 416 mapping</a></td>
-<td><code>mapping/abstract-metric-to-sia416.mapping.ttl</code></td>
+<td><code>wicp:WICP-SKYLIGHT</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-4</code></td>
 </tr>
 <tr>
-<td><a href="mapping-metric-to-din277.html">Abstract building metrics to DIN 277 mapping</a></td>
-<td><code>mapping/abstract-metric-to-din277.mapping.ttl</code></td>
+<td><code>wicp:WICP-SKYLIGHT</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:224</code></td>
 </tr>
 <tr>
-<td><a href="mapping-metric-to-iso9836.html">Abstract building metrics to ISO 9836 mapping</a></td>
-<td><code>mapping/abstract-metric-to-iso9836.mapping.ttl</code></td>
+<td><code>wicp:WICP-SPECIAL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-8</code></td>
 </tr>
 <tr>
-<td><a href="mapping-metric-to-rics-ipms.html">Abstract building metrics to RICS IPMS mapping</a></td>
-<td><code>mapping/abstract-metric-to-rics-ipms.mapping.ttl</code></td>
+<td><code>wicp:WICP-SPECIAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:221-4</code></td>
 </tr>
 <tr>
-<td><a href="mapping-ratio-to-sia416.html">Abstract building ratios to SIA 416 mapping</a></td>
-<td><code>mapping/abstract-ratio-to-sia416.mapping.ttl</code></td>
+<td><code>wicp:WICP-SPECIAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="mapping-qto-buccaneer-to-metric.html">qto_buccaneer to abstract building metrics mapping</a></td>
-<td><code>mapping/qto-buccaneer-to-abstract-metric.mapping.ttl</code></td>
+<td><code>wicp:WICP-STEEL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-3</code></td>
 </tr>
 <tr>
-<td><a href="mapping-qto-buccaneer-to-ratio.html">qto_buccaneer to abstract building ratios mapping</a></td>
-<td><code>mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl</code></td>
+<td><code>wicp:WICP-STEEL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="mapping-covering-products-to-material.html">Abstract covering products to material mapping</a></td>
-<td><code>mapping/abstract-covering-products-to-material.mapping.ttl</code></td>
+<td><code>wicp:WICP-WOOD</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-0</code></td>
 </tr>
 <tr>
-<td><a href="mapping-covering-products-to-bkp.html">Abstract covering products to BKP mapping</a></td>
-<td><code>mapping/abstract-covering-products-to-bkp.mapping.ttl</code></td>
+<td><code>wicp:WICP-WOOD</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:273</code></td>
 </tr>
 <tr>
-<td><a href="mapping-separator-products-to-material.html">Abstract separator products to material mapping</a></td>
-<td><code>mapping/abstract-separator-products-to-material.mapping.ttl</code></td>
+<td><code>wicp:WICP-WOOD-METAL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-1</code></td>
 </tr>
 <tr>
-<td><a href="mapping-separator-products-to-bkp.html">Abstract separator products to BKP mapping</a></td>
-<td><code>mapping/abstract-separator-products-to-bkp.mapping.ttl</code></td>
+<td><code>wicp:WICP-WOOD-METAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:272</code></td>
 </tr>
 <tr>
-<td><a href="mapping-connector-products-to-material.html">Abstract connector products to material mapping</a></td>
-<td><code>mapping/abstract-connector-products-to-material.mapping.ttl</code></td>
-</tr>
-<tr>
-<td><a href="mapping-connector-products-to-bkp.html">Abstract connector products to BKP mapping</a></td>
-<td><code>mapping/abstract-connector-products-to-bkp.mapping.ttl</code></td>
+<td><code>wicp:WICP-WOOD-METAL</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:273</code></td>
 </tr>
 </tbody>
 </table>
