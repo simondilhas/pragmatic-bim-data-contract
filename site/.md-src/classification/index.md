@@ -22,6 +22,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract floor covering products](floor-covering-product.md) | `abstract-covering-product-classification/floor-covering-products.skos.ttl` |
 | [Abstract wall covering products](wall-covering-product.md) | `abstract-covering-product-classification/wall-covering-products.skos.ttl` |
 | [Abstract ceiling covering products](ceiling-covering-product.md) | `abstract-covering-product-classification/ceiling-covering-products.skos.ttl` |
+| [Abstract facade covering products](facade-covering-product.md) | `abstract-covering-product-classification/facade-covering-products.skos.ttl` |
 | [Abstract wall separator products](wall-separator-product.md) | `abstract-separator-product-classification/wall-separator-products.skos.ttl` |
 | [Abstract slab separator products](slab-separator-product.md) | `abstract-separator-product-classification/slab-separator-products.skos.ttl` |
 | [Abstract door connector products](door-connector-product.md) | `abstract-connector-product-classification/door-connector-products.skos.ttl` |

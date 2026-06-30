@@ -58,6 +58,10 @@ vocabularies:
     path: abstract-covering-product-classification/ceiling-covering-products.skos.ttl
     title: Abstract ceiling covering products
 
+  - slug: facade-covering-product
+    path: abstract-covering-product-classification/facade-covering-products.skos.ttl
+    title: Abstract facade covering products
+
   - slug: wall-separator-product
     path: abstract-separator-product-classification/wall-separator-products.skos.ttl
     title: Abstract wall separator products

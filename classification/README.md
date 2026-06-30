@@ -21,7 +21,7 @@ classification/
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
 ├── abstract-material-classification/   # SKOS
-├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling covering products
+├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling, facade covering products
 ├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
 ├── abstract-connector-product-classification/  # SKOS — door and window connector products
 ├── abstract-usecase-classification/    # SKOS — project lifecycle use cases
@@ -38,7 +38,7 @@ classification/
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
 | `abstract-material-classification/` | Abstract material categories |
-| `abstract-covering-product-classification/` | Floor, wall, and ceiling covering product types |
+| `abstract-covering-product-classification/` | Floor, wall, ceiling, and facade covering product types |
 | `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
 | `abstract-connector-product-classification/` | Door and window connector product types (interior/exterior via BKP context) |
 | `abstract-usecase-classification/` | Project lifecycle use cases (ordering, design, QA, construction, handover, operation, deconstruction) |
@@ -65,7 +65,7 @@ classification/
 | `mapping/qto-buccaneer-to-abstract-metric.mapping.ttl` | qto_buccaneer metric keys → abstract metrics (guideline) |
 | `mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl` | qto_buccaneer ratio keys → abstract ratios (guideline) |
 | `mapping/abstract-covering-products-to-material.mapping.ttl` | Abstract covering products → dominant material classes |
-| `mapping/abstract-covering-products-to-bkp.mapping.ttl` | Abstract covering products → BKP 281/282/283 cost lines |
+| `mapping/abstract-covering-products-to-bkp.mapping.ttl` | Abstract covering products → BKP 281/282/283 (Ausbau 2) and 215.5/226/227 (facade, Rohbau 2) |
 | `mapping/abstract-separator-products-to-material.mapping.ttl` | Abstract separator products → dominant material classes |
 | `mapping/abstract-separator-products-to-bkp.mapping.ttl` | Abstract separator products → BKP 211–215 / 277 cost lines |
 | `mapping/abstract-connector-products-to-material.mapping.ttl` | Abstract door and window connector products → dominant material classes |

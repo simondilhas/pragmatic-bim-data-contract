@@ -1,0 +1,417 @@
+@prefix : <https://example.org/abstract/facade-covering-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "European facade covering products"@en ;
+  skos:prefLabel "Europäische Fassadenbekleidungsprodukte"@de ;
+  dcterms:title "European facade covering products"@en ;
+  dcterms:title "Europäische Fassadenbekleidungsprodukte"@de ;
+  dcterms:identifier "EuropeanFacadeCoveringProduct" ;
+  dcterms:creator "abstract.foundation" ;
+  dcterms:issued "2026-06-30"^^xsd:date ;
+  dcterms:modified "2026-06-30"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:description "Enhanced product-type classification for European exterior facade claddings and ventilated facade systems, incorporating fire safety (EN 13501-1), thermal performance requirements (EPBD 2024), renovation/retrofit solutions (Fit-for-55), and emerging technologies (BIPV, prefabricated modular systems)."@en ;
+  dcterms:description "Erweiterte Produkttyp-Klassifikation für europäische Aussenfassadenbekleidungen und vorgehängte Fassadensysteme, mit Brandschutz (EN 13501-1), Wärmeleistungsanforderungen (EPBD 2024), Renovierungs-/Sanierungslösungen (Fit-for-55) und neuartige Technologien (BIPV, vorgefertigte modulare Systeme)."@de ;
+  skos:definition "Product-type classification for exterior facade claddings, ventilated facade systems, and retrofit solutions. Designed for European construction workflows incorporating fire performance (A1/A2-s1,d0 compliance), thermal insulation (EN ISO 6946, EN ISO 10077), energy retrofit, circular economy, and digital BIM-enabled processes. For catalog, specification, cost, and retrofit planning; pair with abstract material classification for dominant substance and regional building codes."@en ;
+  skos:definition "Produkttyp-Klassifikation für Außenfassadenbekleidungen, vorgehängte Fassadensysteme und Sanierungslösungen. Konzipiert für europäische Bauprozesse mit Brandschutz (A1/A2-s1,d0-Konformität), Wärmeleistung (EN ISO 6946, EN ISO 10077), Energiesanierung, Kreislaufwirtschaft und BIM-gestützte digitale Prozesse. Für Katalog-, Spezifikations-, Kosten- und Sanierungsplanung; mit abstrakter Materialklassifikation für dominante Substanz und regionale Bauvorschriften kombinieren."@de ;
+  skos:scopeNote "Scope conforms to EN 13501-1 fire classification and EPBD 2024/1275 energy performance requirements. Covers both new construction and deep renovation workflows (Energiesprong, Fit-for-55 targets). Supports prefabricated modular systems per Construction Product Regulation (CPR) 2024. Default PBS entity is Boundary with boundary_type=cladding (IfcCovering CLADDING) on exterior envelope walls (W-EXT) at building envelope. Tags product or system type, application context (new/retrofit), fire rating, thermal class, and modularity. Distinct from interior wall covering products (WCP), structural separator products (SWP), and non-structural ovoid/curved facade elements."@en ;
+  skos:scopeNote "Umfang entspricht EN 13501-1-Brandschutzklassifizierung und EPBD-2024/1275-Anforderungen an die Energieeffizienz. Abdeckung neuer Konstruktion und Tiefensanierungsprozesse (Energiesprong, Fit-for-55-Ziele). Unterstützt vorgefertigte modulare Systeme gemäss Bauproduktenverordnung (BPR) 2024. Standard-PBS-Entität ist Boundary mit boundary_type=cladding (IfcCovering CLADDING) an Aussenhüllenwaenden (W-EXT) an Gebäudehülle. Kennzeichnet Produkttyp oder Systemtyp, Anwendungskontext (Neubau/Sanierung), Brandschutzklasse, Wärmeklasse und Modularität. Unterscheidet sich von inneren Wandbelagsprodukten (WCP), tragenden Trennelementprodukten (SWP) und nicht-tragenden gewölbten/gekrümmten Fassadenelementen."@de ;
+  skos:hasTopConcept
+    :FaCP-CERAMIC-VENTILATED,
+    :FaCP-NATURAL-STONE-VENTILATED,
+    :FaCP-METAL-SHEET-STANDING-SEAM,
+    :FaCP-METAL-COMPOSITE-PANEL,
+    :FaCP-TIMBER-VENTILATED,
+    :FaCP-FIBER-CEMENT-BOARD,
+    :FaCP-RENDER-ETICS-WDVS,
+    :FaCP-SYNTHETIC-VENTILATED,
+    :FaCP-BIPV-INTEGRATED,
+    :FaCP-PREFAB-MODULAR-TIMBER,
+    :FaCP-PREFAB-MODULAR-METAL,
+    :FaCP-EXTERIOR-PAINT-COATING,
+    :FaCP-RETROFIT-OVERCLADDING,
+    :FaCP-OTHER .
+
+# PRIMARY EUROPEAN CLADDING SYSTEMS
+
+:FaCP-CERAMIC-VENTILATED a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-CERAMIC-VENTILATED" ;
+  skos:prefLabel "Ventilated ceramic tile system"@en ;
+  skos:prefLabel "Vorgehängte Keramikfliesenfassade"@de ;
+  skos:definition "Ceramic, porcelain, or stoneware ventilated facade tile or panel system with rear-ventilated cavity. Dominant product type in European market (33.9% by value, 2023). Integrates insulation layer, air cavity, and mechanical fixings."@en ;
+  skos:definition "Keramik-, Feinsteinzeug- oder Steingut-Fliesensystem für vorgehängte Fassaden mit Belüftungshohlraum. Dominierender Produkttyp im europäischen Markt (33,9% Wertanteil, 2023). Integriert Isolationsschicht, Belüftungshohlraum und mechanische Befestigungen."@de ;
+  skos:scopeNote "Fire rating: typically A1 or A2-s1,d0 (EN 13501-1). Thermal performance: compatible with U-values 0.24-0.15 W/m²K in ventilated configuration. Regional dominance: Italy, Spain, Portugal, Central Europe. Suitable for retrofit applications (non-structural overlay on existing facade). Growing market CAGR 6.1% 2024-2030."@en ;
+  skos:scopeNote "Brandschutz: typischerweise A1 oder A2-s1,d0 (EN 13501-1). Wärmeleistung: kompatibel mit U-Werten 0,24-0,15 W/m²K in vorgehängter Konfiguration. Regionale Dominanz: Italien, Spanien, Portugal, Mitteleuropa. Geeignet für Sanierungsanwendungen (nicht-tragende Überlagerung auf bestehender Fassade). Wachsender Markt CAGR 6,1% 2024-2030."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:subject "Rainscreen" ;
+  dcterms:subject "Ventilated" ;
+  dcterms:identifier "ceramic-ventilated-facade" ;
+  skos:related :FaCP-NATURAL-STONE-VENTILATED ;
+  :fireRating "A1"@en ;
+  :thermalClass "Medium-High" ;
+  :systemType "Ventilated Rainscreen" ;
+  :applicationContext "New construction, Deep renovation" ;
+  :marketShare "33.9%" .
+
+:FaCP-NATURAL-STONE-VENTILATED a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-NATURAL-STONE-VENTILATED" ;
+  skos:prefLabel "Ventilated natural stone cladding"@en ;
+  skos:prefLabel "Vorgehängte Natursteinfassade"@de ;
+  skos:definition "Natural stone slab, tile, or panel ventilated facade system (granite, limestone, slate, marble). Includes stone-faced metal cassettes and sub-frame support systems with thermal breaks."@en ;
+  skos:definition "Natursteinplatten-, -fliesen- oder Paneelsystem für vorgehängte Fassaden (Granit, Kalkstein, Schiefer, Marmor). Einschliesslich steinkaschierter Metallkassetten und Unterkonstruktionssysteme mit Wärmebrechern."@de ;
+  skos:scopeNote "Fire rating: A1 (natural stone inherently non-combustible). Thermal performance: requires integrated insulation layer; U-values 0.20-0.12 W/m²K achievable. Weight consideration: structural frame design critical. Regional: Northern Europe (Nordic stone), Mediterranean (limestone/marble), Central Europe (slate). High durability (>60 years). Retrofit suitability: good for facade replacement on load-bearing walls."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:subject "Ventilated" ;
+  dcterms:identifier "natural-stone-ventilated" ;
+  skos:related :FaCP-CERAMIC-VENTILATED ;
+  :fireRating "A1" ;
+  :thermalClass "Medium" ;
+  :systemType "Ventilated Rainscreen" ;
+  :applicationContext "New construction, Prestige renovation" ;
+  :durability "High (60+ years)" .
+
+:FaCP-METAL-SHEET-STANDING-SEAM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-METAL-SHEET-STANDING-SEAM" ;
+  skos:prefLabel "Metal sheet standing-seam facade"@en ;
+  skos:prefLabel "Stehfalz-Metallblechfassade"@de ;
+  skos:definition "Profiled metal sheet (aluminium, steel, copper, zinc) or standing-seam facade cladding with locked/interlocking seams. Includes weathertight metal cassette systems."@en ;
+  skos:definition "Profiliertes Metallblech (Aluminium, Stahl, Kupfer, Zink) oder Stehfalz-Fassadenbekleidung mit verschlossenen/verschränkten Nähten. Einschliesslich dichter Metallkassettensysteme."@de ;
+  skos:scopeNote "Fire rating: A2-s1,d0 (aluminium composite core requires verification; pure metal A1). Thermal break requirement: integrated in frame to achieve U <0.20 W/m²K. Market growth: 6.4% CAGR 2024-2030 (fastest growing segment). Regional strength: Scandinavia, Germany, Alpine region. Advantages: watertightness, long spans, architectural expression. Retrofit: excellent for non-structural overlay, minimal weight."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:subject "Metal" ;
+  dcterms:identifier "metal-standing-seam" ;
+  :fireRating "A2-s1,d0 / A1" ;
+  :thermalClass "High" ;
+  :systemType "Ventilated/Semi-Ventilated" ;
+  :applicationContext "New construction, Retrofit-friendly" ;
+  :marketGrowth "6.4% CAGR" .
+
+:FaCP-METAL-COMPOSITE-PANEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-METAL-COMPOSITE-PANEL" ;
+  skos:prefLabel "Metal composite facade panel (ACP)"@en ;
+  skos:prefLabel "Metallverbund-Fassadenpaneel (AVP)"@de ;
+  skos:definition "Aluminium composite panel (ACP), metal cassette, or other metal-faced composite panel system. Pre-fabricated sandwich panels with aluminium faces and core (polyethylene, mineral wool, or fire-rated core)."@en ;
+  skos:definition "Aluminium-Verbundplatte (AVP), Metallkassette oder anderes metallkaschiertes Verbundpaneelsystem. Vorgefertigte Sandwichpaneele mit Aluminium-Deckschichten und Kern (Polyethylen, Mineralwolle oder brandgeschützter Kern)."@de ;
+  skos:scopeNote "CRITICAL: Fire rating heavily depends on core material. PE-core panels: Class E or D (restricted/banned in many EU countries post-Grenfell). Mineral-wool-core panels: A2-s1,d0 compliant (preferred for high-rise). Modularity: high; fast assembly (1-2m²/hour on-site). Thermal performance: good integration with insulation layer; achieves U-values 0.15 W/m²K. Retrofit application: excellent; non-structural overlay. Ban status: UK, France, Germany, Netherlands restrict combustible cores on buildings >11-18m."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:subject "Prefabricated" ;
+  dcterms:identifier "metal-composite-panel" ;
+  skos:scopeNote "WARNUNG: Brandschutzklasse hängt stark vom Kernmaterial ab. PE-Kern-Paneele: Klasse E oder D (in vielen EU-Ländern nach Grenfell eingeschränkt/verboten). Mineralwolle-Kern-Paneele: A2-s1,d0-konform (bevorzugt für Hochhäuser). Modularität: hoch; schnelle Montage (1-2 m²/Stunde vor Ort). Wärmeleistung: gute Integration mit Isolationsschicht; erreicht U-Werte 0,15 W/m²K. Sanierungsanwendung: ausgezeichnet; nicht-tragende Überlagerung. Verbotsstatus: UK, Frankreich, Deutschland, Niederlande beschränken brennbare Kerne auf Gebäuden >11-18m."@de ;
+  :fireRating "A2-s1,d0 (mineral-core) | E/D (PE-core - restricted)" ;
+  :thermalClass "High" ;
+  :systemType "Prefabricated Composite" ;
+  :applicationContext "New construction, Fast-track retrofit" ;
+  :prefabrication "High" ;
+  :modularity "High" .
+
+:FaCP-TIMBER-VENTILATED a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-TIMBER-VENTILATED" ;
+  skos:prefLabel "Timber ventilated facade system"@en ;
+  skos:prefLabel "Holz-Vorgehängte Fassade"@de ;
+  skos:definition "Wood, solid timber, engineered wood, or wood-composite ventilated facade cladding, slats, boards, or panel system. Includes solid timber boards, larch, cedar, thermally-modified wood (TMW), and cross-laminated timber (CLT) facings."@en ;
+  skos:definition "Holz-, Massivholz-, Konstruktionsholz- oder Holzwerkstoff-Fassadensystem mit Belüftung, Lamellen, Bretter oder Paneelsystem. Einschliesslich Massivholzbretter, Lärche, Zeder, thermisch modifiziertes Holz (TMH) und Kreuzschichtholz (KVH) -Verkleidungen."@de ;
+  skos:scopeNote "Fire rating: typically D-s2,d0 or E class (flame-retardant treatment required for multi-story residential, A2-s1,d0 achievable with charring layer design). Timber-based multifunctional prefab systems emerging (4RinEU, Energiesprong projects). Regional strength: Scandinavia (Nordic tradition), Austria, Bavaria. Sustainability advantage: renewable material, circular economy aligned, embodied carbon lower than mineral alternatives. Retrofit application: excellent for modular prefab systems; quick on-site installation (reduces labor disruption). EU policy support: timber construction incentivized under 2024 Green Building Directive."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:subject "Renewable" ;
+  dcterms:subject "Prefabricated" ;
+  dcterms:identifier "timber-ventilated" ;
+  skos:scopeNote "Brandschutz: typischerweise D-s2,d0 oder Klasse E (Flammschutzbehandlung erforderlich für mehrgeschossige Wohngebäude; A2-s1,d0 erreichbar mit Verkoolungsschicht-Design). Holzbasierte multifunktionale Fertigsysteme entstehend (4RinEU-, Energiesprong-Projekte). Regionale Stärke: Skandinavien (nordische Tradition), Österreich, Bayern. Nachhaltigkeitsvorteil: erneuerbarer Werkstoff, Kreislaufwirtschaft-ausgerichtet, graue Energie geringer als mineralische Alternativen. Sanierungsanwendung: ausgezeichnet für modulare Fertigsysteme; schnelle Vor-Ort-Montage (reduziert Arbeitsstörungen). EU-Politische Unterstützung: Holzbauten unter der 2024-Grünen-Gebäude-Richtlinie angeregt."@de ;
+  :fireRating "D-s2,d0 / E (standard) | A2-s1,d0 (flame-retardant)" ;
+  :thermalClass "Medium-High" ;
+  :systemType "Ventilated + Prefabricated Modular" ;
+  :applicationContext "New construction, Retrofit-optimized" ;
+  :sustainability "High (renewable, low embodied carbon)" ;
+  :prefabrication "Very High" ;
+  :modularity "Very High" .
+
+:FaCP-FIBER-CEMENT-BOARD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-FIBER-CEMENT-BOARD" ;
+  skos:prefLabel "Fibre-cement board facade"@en ;
+  skos:prefLabel "Faserzement-Fassadensystem"@de ;
+  skos:definition "Fibre-cement, reinforced cement board, or artificial stone facade board/panel system. Includes flat boards, profiled boards, and engineered fiber-reinforced panels."@en ;
+  skos:definition "Faserzement-, verstärktes Zementbrett oder Kunststein-Fassadenbrett/-Paneelsystem. Einschliesslich flacher Bretter, profilierter Bretter und konstruierter faserverstärkter Paneele."@de ;
+  skos:scopeNote "Fire rating: A1 or A2-s1,d0 (mineral-based, non-combustible). Thermal: moderate; requires integrated insulation layer for U <0.20. Regional: common in Central Europe (Germany, Austria, Poland), France. Advantages: durability (30-50 years), low maintenance, weather-resistant. Disadvantages: brittleness, weight, installation skill sensitivity. Retrofit: moderate suitability (weight consideration on support structure). Market share: declining slightly as ceramic and wood options grow."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:identifier "fiber-cement-facade" ;
+  :fireRating "A1 / A2-s1,d0" ;
+  :thermalClass "Medium" ;
+  :systemType "Ventilated Panel" ;
+  :applicationContext "New construction, Long-life renovation" ;
+  :durability "Medium-High (30-50 years)" .
+
+:FaCP-RENDER-ETICS-WDVS a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-RENDER-ETICS-WDVS" ;
+  skos:prefLabel "Render / ETICS facade system"@en ;
+  skos:prefLabel "Putzsystem / WDVS-Fassade"@de ;
+  skos:definition "Mineral render, plaster, external thermal insulation composite system (ETICS / WDVS, EPS, mineral wool, PIR), or cement/acrylic facade finish. Bonded to substrate with adhesive and mechanical fixing."@en ;
+  skos:definition "Mineralputz, Aussenputz, Waermedaemmverbundsystem (WDVS/ETICS, EPS, Mineralwolle, PIR) oder Zement-/Kunstharzfassadenoberfläche. Mit Klebstoff und mechanischer Verankerung am Untergrund befestigt."@de ;
+  skos:scopeNote "Fire rating: depends on insulation core. EPS (traditional): typically D-s2,d0 or E (banned high-rise). Mineral wool / PIR core: A2-s1,d0 compliant. Thermal performance: excellent (U-values 0.12-0.08 W/m²K achievable). Retrofit dominance: 60-70% of EU deep energy retrofits use ETICS (Fit-for-55 policy driver). Sustainability concern: EPS waste; mineral wool alternatives growing. Installation: moderate skill; weather-dependent. Regional: universal application across all EU climates. Lifecycle: 20-40 years (finishing coat renewal needed)."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:subject "Thermal-Insulation" ;
+  dcterms:subject "Retrofit" ;
+  dcterms:identifier "etics-wdvs-facade" ;
+  skos:scopeNote "Brandschutz: hängt vom Isolierungskern ab. EPS (traditionell): typischerweise D-s2,d0 oder E (Hochhaus verboten). Mineralwolle/PIR-Kern: A2-s1,d0-konform. Wärmeleistung: ausgezeichnet (U-Werte 0,12-0,08 W/m²K erreichbar). Sanierungsdominanz: 60-70% der EU-Tiefenenergetischen Sanierungen verwenden ETICS (Fit-for-55-Treiber). Nachhaltigkeitsbedenken: EPS-Abfall; Mineralwollealternativen wachsen. Montage: gemässigte Fachkompetenz; wetterabhängig. Regional: universelle Anwendung über alle EU-Klimazonen. Lebenszyklus: 20-40 Jahre (Deckschicht-Erneuerung erforderlich)."@de ;
+  :fireRating "A2-s1,d0 (mineral core) | D-s2,d0 / E (EPS - restricted)" ;
+  :thermalClass "Very High" ;
+  :systemType "Bonded Composite + Insulation" ;
+  :applicationContext "Deep energy retrofit (Fit-for-55)" ;
+  :retrofitMarketShare "60-70% of EU deep retrofits" ;
+  :thermalBridge "Good (when properly detailed)" .
+
+:FaCP-SYNTHETIC-VENTILATED a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-SYNTHETIC-VENTILATED" ;
+  skos:prefLabel "Synthetic ventilated facade panel"@en ;
+  skos:prefLabel "Kunststoff-Vorgehängte Fassade"@de ;
+  skos:definition "HPL (high-pressure laminate), plastic, acrylic, composite laminate, or other synthetic ventilated facade panel cladding. Includes fibre-reinforced plastic (FRP) and polycarbonate systems."@en ;
+  skos:definition "HPL (Hochdrucklaminat), Kunststoff-, Acryl-, Verbundlaminat oder andere synthetische vorgehängte Fassadenpaneele. Einschliesslich glasfaserverstärkter Kunststoff (GFK) und Polykarbonat-Systemen."@de ;
+  skos:scopeNote "Fire rating: typically D-s2,d0 or E (combustibility concern; restricted on high-rise residential). Thermal: insulation layer required; moderate U-values 0.15-0.20 W/m²K. Maintenance: low; weather resistant. Durability: 20-30 years (UV degradation concern). Regional: niche market; used for industrial, commercial, or low-rise applications. Circular economy: limited end-of-life recycling. Growth: slower than other systems (environmental concerns, regulatory tightening)."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:identifier "synthetic-ventilated" ;
+  :fireRating "D-s2,d0 / E (restricted high-rise)" ;
+  :thermalClass "Medium" ;
+  :systemType "Ventilated Composite" ;
+  :applicationContext "Commercial, Low-rise applications" ;
+  :sustainability "Low (limited recyclability, synthetic material)" ;
+  :marketTrend "Declining" .
+
+# EMERGING EUROPEAN TECHNOLOGIES
+
+:FaCP-BIPV-INTEGRATED a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-BIPV-INTEGRATED" ;
+  skos:prefLabel "Building-integrated photovoltaic facade"@en ;
+  skos:prefLabel "Gebäudeintegrierte Photovoltaik-Fassade"@de ;
+  skos:definition "Facade cladding system with integrated crystalline silicon, thin-film, or perovskite photovoltaic cells. Can be applied to metal, ceramic, or glass substrates for aesthetic and energy-generating dual function."@en ;
+  skos:definition "Fassadenbekleidungssystem mit integrierten kristallinen Silizium-, Dünnschicht- oder Perowskit-Photovoltaikzellen. Kann auf Metall-, Keramik- oder Glasunterlagen für ästhetische und energieerzetgende Dualfunktion angewendet werden."@de ;
+  skos:scopeNote "Emerging technology; market penetration <5% (2025). Fire rating: substrate-dependent (typically A2-s1,d0 capable). Thermal: varies; integration with ventilated cavity improves performance. Regulatory support: EU directive incentivizes BIPV on new construction and major renovations (EPBD 2024). Cost premium: 20-40% over conventional facade (decreasing). Electrical performance: 150-200 W/m² output typical. Integration challenges: cell temperature management, maintenance access, wiring concealment. Regional drivers: Southern EU (higher insolation), new commercial buildings, flagship retrofits."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "EN 13501-1" ;
+  dcterms:subject "Renewable" ;
+  dcterms:subject "Emerging-Technology" ;
+  dcterms:identifier "bipv-integrated" ;
+  :fireRating "A2-s1,d0 (achievable)" ;
+  :thermalClass "Medium" ;
+  :systemType "Active Energy-Generating" ;
+  :applicationContext "New construction, Prestige retrofit" ;
+  :energyGeneration "150-200 W/m²" ;
+  :marketPenetration "<5% (emerging)" ;
+  :regulatorySupport "EPBD 2024 incentives" .
+
+:FaCP-PREFAB-MODULAR-TIMBER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-PREFAB-MODULAR-TIMBER" ;
+  skos:prefLabel "Prefabricated modular timber facade system"@en ;
+  skos:prefLabel "Vorgefertigtes modulares Holzfassaden-System"@de ;
+  skos:definition "Factory-manufactured modular timber-based facade exoskeleton or wrapper system. Typically includes structural timber frame, integrated insulation, ventilated cavity, finishing layer (wood, plaster, or composite), and pre-integrated MEP rough-ins (windows, ventilation, solar fittings)."@en ;
+  skos:definition "Fabrikmässig gefertigtes modulares holzbasiertes Fassadensystem oder Umhüllung. Typischerweise mit Holztragrahmen, integrierter Isolation, Belüftungshohlraum, Fertigungsschicht (Holz, Putz oder Verbundstoff) und vorintegrierten TGA-Rohbauten (Fenster, Lüftung, Solaranlagen)."@de ;
+  skos:scopeNote "Innovation focus: multifunctional facade integrating thermal, acoustic, and MEP functions off-site. Retrofit application (4RinEU, Energiesprong projects): rapid deployment on existing load-bearing structure; on-site assembly time 1-2 weeks for residential. Fire rating: A2-s1,d0 achievable with mineral wool integration. Assembly advantage: reduces on-site labor by 70%, improves precision, minimizes occupant disruption. Regional pilots: Netherlands, Norway, Spain, Italy (social housing retrofits). Regulatory support: CPR 2024 facilitates prefab module trading across EU borders. Cost: 10-15% premium amortized over energy savings and reduced labor. Supply chain: growing capacity (Blokable, prefabrication consortia)."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "Prefabricated" ;
+  dcterms:subject "Retrofit" ;
+  dcterms:subject "Renewable" ;
+  dcterms:identifier "prefab-timber-modular" ;
+  skos:scopeNote "Innovationsschwerpunkt: Multifunktionale Fassade mit thermischen, akustischen und TGA-Funktionen werkseitig. Sanierungsanwendung (4RinEU-, Energiesprong-Projekte): schnelle Einsatzbarkeit auf bestehendem Tragwerk; Vor-Ort-Montagezeit 1-2 Wochen für Wohngebäude. Brandschutz: A2-s1,d0 erreichbar mit Mineralwollintegration. Montage-Vorteil: reduziert Vor-Ort-Arbeit um 70%, verbessert Präzision, minimiert Bewohnerstörung. Regionale Piloten: Niederlande, Norwegen, Spanien, Italien (sozialer Wohnungsbau-Sanierungen). Regulatorische Unterstützung: BPR 2024 erleichtert Fertigteilmodul-Handel über EU-Grenzen. Kosten: 10-15% Prämie durch Energieeinsparungen und reduzierte Arbeit amortisiert. Lieferkette: wachsende Kapazität (Blokable, Fertigungskonsortien)."@de ;
+  :fireRating "A2-s1,d0 (integrated mineral wool)" ;
+  :thermalClass "Very High" ;
+  :systemType "Prefabricated Modular + Active Retrofit" ;
+  :applicationContext "Deep energy retrofit, Rapid deployment" ;
+  :prefabrication "Very High" ;
+  :modularity "Very High" ;
+  :laborReduction "70%" ;
+  :assemblyTime "1-2 weeks (residential)" ;
+  :retrofitInnovation "Multifunctional exoskeleton" .
+
+:FaCP-PREFAB-MODULAR-METAL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-PREFAB-MODULAR-METAL" ;
+  skos:prefLabel "Prefabricated modular metal facade system"@en ;
+  skos:prefLabel "Vorgefertigtes modulares Metallfassaden-System"@de ;
+  skos:definition "Factory-assembled modular facade system using aluminium, steel, or composite metal frames with integrated insulation layers, cladding panels (metal composite, natural stone veneer, or ceramic facing), and mechanically-fixed sub-structure."@en ;
+  skos:definition "Werkseitig montiertes modulares Fassadensystem mit Aluminium-, Stahl- oder Verbundmetallrahmen, integrierten Isolationsschichten, Verkleidungspaneelen (Metallverbund, Natursteinfurnier oder Keramikoberfläche) und mechanisch befestigter Unterkonstruktion."@de ;
+  skos:scopeNote "Applications: high-rise commercial, data centers, industrial facilities. Fire rating: A2-s1,d0 (metal frame + non-combustible insulation core). Thermal break: mandatory; achieved via composite frame or inserted strips. Modularity: dimensions typically 1.5m x 5-7m height. Assembly: fast; anchored to building structure at discrete points. Quality control: factory-built precision reduces site defects. Thermal performance: U-values 0.12-0.15 W/m²K achievable. Regional strength: Germany, Switzerland, Nordic countries (commercial sector). Sustainability: modular design allows future upgrade/replacement without full facade demolition."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "Prefabricated" ;
+  dcterms:subject "Commercial" ;
+  dcterms:identifier "prefab-metal-modular" ;
+  :fireRating "A2-s1,d0" ;
+  :thermalClass "Very High" ;
+  :systemType "Prefabricated Modular (Metal)" ;
+  :applicationContext "High-rise commercial, Industrial, Data centers" ;
+  :prefabrication "Very High" ;
+  :modularity "High" ;
+  :thermalBridge "Excellent (composite frame)" ;
+  :sustainability "Modular upgrade/replacement capable" .
+
+# FINISHES & SPECIAL APPLICATIONS
+
+:FaCP-EXTERIOR-PAINT-COATING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-EXTERIOR-PAINT-COATING" ;
+  skos:prefLabel "Exterior paint / protective coating finish"@en ;
+  skos:prefLabel "Aussenanstrich / Schutzanstrichsystem"@de ;
+  skos:definition "Applied exterior paint, coating, or finish layer on facade surfaces (mineral paint, silicate paint, acrylic, polyurethane, or epoxy). Can be primary finish or secondary protective layer over substrate."@en ;
+  skos:definition "Aufgetragener Aussenanstrich, Beschichtung oder Oberflächenschicht auf Fassadenflaechen (Minerallack, Silikatfarbe, Acryl, Polyurethan oder Epoxid). Kann primäre Fertigungsschicht oder sekundäre Schutzschicht über Untergrund sein."@de ;
+  skos:scopeNote "Fire rating: typically D-s2,d0 or E (thin organic layer). Thermal: minimal direct contribution (surface emissivity property). Maintenance: critical for long-term facade durability; repainting cycle 10-15 years typical. Regional: used universally; quality/formulation varies (climate adaptation). Sustainability: organic solvent content (VOC) regulated by EU Directive 2004/42/EC. Innovation: self-cleaning coatings (TiO₂), phase-change materials (PCM) for thermal regulation emerging."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "Finish-Layer" ;
+  dcterms:identifier "exterior-paint" ;
+  :fireRating "D-s2,d0 / E" ;
+  :thermalClass "Minimal" ;
+  :systemType "Applied Finish" ;
+  :applicationContext "New construction, Ongoing maintenance" ;
+  :maintenanceCycle "10-15 years (recoating)" .
+
+:FaCP-RETROFIT-OVERCLADDING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-RETROFIT-OVERCLADDING" ;
+  skos:prefLabel "Retrofit overcladding system (composite)"@en ;
+  skos:prefLabel "Sanierungsüberkleidungssystem (Verbund)"@de ;
+  skos:definition "Non-structural facade overlay or wrapper applied over existing facade on retrofit/renovation projects. Combines cladding layer (typically ETICS, ventilated panel, or prefab module) anchored to existing substrate with mechanical fixings and/or adhesive. Primary application: EU Fit-for-55 deep energy retrofits on residential/commercial stock."@en ;
+  skos:definition "Nicht-tragende Fassadenüberlagerung oder Umhüllung über bestehende Fassade bei Sanierungs-/Renovierungsprojekten. Kombiniert Verkleidungsschicht (typischerweise ETICS, Lüftungspaneel oder Fertigmodul) mit mechanischen Befestigungen und/oder Klebstoff auf bestehendem Untergrund. Primäre Anwendung: EU Fit-for-55-Tiefensanierungen im Wohn-/Gewerbebebestand."@de ;
+  skos:scopeNote "Key advantage: non-destructive; avoids facade demolition/disposal waste. Thermal improvement: typical retrofit adds 80-120mm insulation, achieving U-value reduction from >0.5 W/m²K (pre-1980s) to <0.15 W/m²K (nZEB standard). Installation: requires initial facade inspection, moisture assessment, support frame design. Labor intensive but lower on-site disruption vs. traditional facade replacement. Regulatory drivers: EPBD 2024 requires building renovation within 2050 timeline; EU funds (REPowerEU) support retrofit projects. Market volume: 60-70% of European facade work (2024-2030). Regional variation: retrofit intensity highest in Northern/Central Europe (older building stock, climate drivers)."@en ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "Retrofit" ;
+  dcterms:subject "Energy-Renovation" ;
+  dcterms:subject "Fit-for-55" ;
+  dcterms:identifier "retrofit-overcladding" ;
+  skos:scopeNote "Schlüsselvorteil: nicht-destruktiv; vermeidet Fassadenabriss/Entsorgungsabfall. Wärmeverbesserung: typische Sanierung fügt 80-120mm Isolation hinzu, reduziert U-Wert von >0,5 W/m²K (vor 1980ern) auf <0,15 W/m²K (nZEB-Standard). Montage: erfordert anfängliche Fassadenprüfung, Feuchte-Bewertung, Stützkonstruktionsplanung. Arbeitsintensiv aber geringere Vor-Ort-Störung vs. traditioneller Fassadenaustausch. Regulative Treiber: EPBD 2024 verlangt Gebäudesanierung bis 2050; EU-Mittel (REPowerEU) unterstützen Sanierungsprojekte. Marktvolumen: 60-70% europäischer Fassadenarbeit (2024-2030). Regionale Variation: Sanierungsintensität höchste in Nord-/Mitteleuropa (älterer Gebäudebestand, Klimatreiber)."@de ;
+  :fireRating "A2-s1,d0 (required for multi-story residential)" ;
+  :thermalImprovement "U-value reduction: 0.5+ to <0.15 W/m²K" ;
+  :systemType "Composite Retrofit Overlay" ;
+  :applicationContext "Deep energy retrofit (Fit-for-55), Mandatory renovation" ;
+  :retrofitMarketShare "60-70% of EU facade work" ;
+  :marketGrowth "CAGR 4.9% (2025-2030)" .
+
+# FALLBACK & UNCLASSIFIED
+
+:FaCP-OTHER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FaCP-OTH" ;
+  skos:prefLabel "Other / unknown facade covering"@en ;
+  skos:prefLabel "Sonstige / unbekannte Fassadenbekleidung"@de ;
+  skos:definition "Facade covering product not classified or not yet known; emerging materials or experimental systems not listed in primary taxonomy."@en ;
+  skos:definition "Fassadenbekleidungsprodukt nicht klassifiziert oder noch unbekannt; neuartige Materialien oder Versuchssysteme nicht in primärer Taxonomie aufgeführt."@de ;
+  skos:scopeNote "Fallback for early design stages, missing data, or novel facade systems (e.g., smart coatings, bio-based composites, graphene-enhanced materials). Should be resolved to specific type before detailed specification."@en ;
+  skos:scopeNote "Fallback für frühe Entwurfsstufen, fehlende Daten oder neuartige Fassadensysteme (z.B. intelligente Beschichtungen, biobasierte Verbundstoffe, graphen-verstärkte Materialien). Sollte vor detaillierter Spezifikation auf spezifischen Typ aufgelöst werden."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "other" .
+
+# CUSTOM PROPERTIES (extending SKOS for European context)
+
+:fireRating a skos:Concept ;
+  skos:prefLabel "Fire classification rating"@en ;
+  skos:definition "European fire performance classification per EN 13501-1 (A1, A2-s1,d0, B-s1,d0, C-s2,d1, D-s2,d0, E, F)"@en .
+
+:thermalClass a skos:Concept ;
+  skos:prefLabel "Thermal performance class"@en ;
+  skos:definition "Qualitative thermal insulation capability (Very High: <0.12 W/m²K, High: 0.12-0.15, Medium-High: 0.15-0.20, Medium: 0.20-0.30, Low: >0.30)"@en .
+
+:systemType a skos:Concept ;
+  skos:prefLabel "Facade system type"@en ;
+  skos:definition "Structural/functional classification (Ventilated Rainscreen, Bonded Composite, Prefabricated Modular, Active Energy-Generating, etc.)"@en .
+
+:applicationContext a skos:Concept ;
+  skos:prefLabel "Application context"@en ;
+  skos:definition "Primary use case (New construction, Deep energy retrofit, Prestige renovation, Commercial, Industrial, etc.)"@en .
+
+:modularity a skos:Concept ;
+  skos:prefLabel "Modularity level"@en ;
+  skos:definition "Degree of prefabrication and on-site assembly standardization (Very High, High, Medium, Low)"@en .
+
+:prefabrication a skos:Concept ;
+  skos:prefLabel "Prefabrication level"@en ;
+  skos:definition "Factory manufacturing extent (Very High: >90% pre-assembly, High: 70-90%, Medium: 40-70%, Low: <40%)"@en .
+
+:sustainability a skos:Concept ;
+  skos:prefLabel "Sustainability profile"@en ;
+  skos:definition "Environmental and circular economy alignment (renewable materials, recyclability, embodied carbon, REACH compliance, lifecycle)"@en .
+
+:retrofitMarketShare a skos:Concept ;
+  skos:prefLabel "Retrofit market share"@en ;
+  skos:definition "Estimated percentage of retrofit/renovation facade applications in European market"@en .
+
+:marketGrowth a skos:Concept ;
+  skos:prefLabel "Market growth rate"@en ;
+  skos:definition "Compound annual growth rate (CAGR) forecast for European market segment"@en .
+
+:laborReduction a skos:Concept ;
+  skos:prefLabel "Labor hour reduction"@en ;
+  skos:definition "Estimated reduction in on-site labor hours vs. conventional methods"@en .
+
+:energyGeneration a skos:Concept ;
+  skos:prefLabel "Energy output"@en ;
+  skos:definition "Typical electrical power generation per unit area (for active facades like BIPV)"@en .
+
+:durability a skos:Concept ;
+  skos:prefLabel "Expected service life"@en ;
+  skos:definition "Typical lifecycle duration before major maintenance or replacement"@en .
+
+:thermalBridge a skos:Concept ;
+  skos:prefLabel "Thermal bridging mitigation"@en ;
+  skos:definition "Effectiveness at reducing thermal bridge heat loss (Excellent: <0.04 W/mK, Good: 0.04-0.08, Moderate: 0.08-0.15, Poor: >0.15)"@en .
+
+:regulatorySupport a skos:Concept ;
+  skos:prefLabel "Regulatory support"@en ;
+  skos:definition "EU/national policy drivers or incentives (EPBD 2024, Fit-for-55, Green Building Directive, CPR 2024, etc.)"@en .
+
+:retrofitInnovation a skos:Concept ;
+  skos:prefLabel "Retrofit innovation category"@en ;
+  skos:definition "Emerging retrofit technologies or approaches (Multifunctional exoskeleton, Modular retrofit wrapper, Adaptive systems, etc.)"@en .
+
+# RELATIONSHIPS & CROSS-REFERENCES
+
+:FaCP-CERAMIC-VENTILATED skos:related :FaCP-RETROFIT-OVERCLADDING ;
+:FaCP-TIMBER-VENTILATED skos:related :FaCP-PREFAB-MODULAR-TIMBER ;
+:FaCP-RENDER-ETICS-WDVS skos:related :FaCP-RETROFIT-OVERCLADDING ;
+:FaCP-PREFAB-MODULAR-TIMBER skos:related :FaCP-RETROFIT-OVERCLADDING ;
+:FaCP-BIPV-INTEGRATED skos:related :FaCP-PREFAB-MODULAR-METAL ;
+
+# METADATA & VERSION CONTROL
+
+:scheme dcterms:description "Version 2.0: European-focused enhancement incorporating post-Grenfell fire safety requirements (EN 13501-1), EU energy performance standards (EPBD 2024), retrofit/renovation workflows (Fit-for-55, Energiesprong), prefabricated modular systems (CPR 2024), and emerging technologies (BIPV, timber-based multifunctional facades). Supports BIM classification (IfcCovering), cost estimation, and digital renovation chains (DigiFab, 4RinEU projects)."@en ;
+dcterms:description "Version 2.0: Europäisch-fokussierte Verbesserung, die Post-Grenfell-Brandschutzerfordernisse (EN 13501-1), EU-Energieleistungsstandards (EPBD 2024), Sanierungs-/Renovierungs-Workflows (Fit-for-55, Energiesprong), vorgefertigte modulare Systeme (BPR 2024) und neuartige Technologien (BIPV, holzbasierte multifunktionale Fassaden) einbeziehen. Unterstützt BIM-Klassifizierung (IfcCovering), Kostenschätzung und digitale Sanierungsketten (DigiFab, 4RinEU-Projekte)."@de .
+
+# SOURCES & REFERENCES
+
+:scheme dcterms:source <https://www.mordorintelligence.com/industry-reports/europe-facade-market> ;
+dcterms:source <https://www.grandviewresearch.com/industry-analysis/europe-rainscreen-cladding-market-report> ;
+dcterms:source <https://www.marketdataforecast.com/market-reports/europe-building-thermal-insulation-market> ;
+dcterms:source <https://www.researchandmarkets.com/report/europe-cladding-market> ;
+dcterms:source <https://build-up.ec.europa.eu/en/resources-and-tools/articles/sustainable-retrofitting-buildings-through-lens-industrialised> ;
+dcterms:source <https://www.tib-op.org/ojs/index.php/isec/article/view/3385> ;
+dcterms:description "Market data sourced from: Mordor Intelligence (2025), Grand View Research (2023-2025), Market Data Forecast (2024-2026), Research & Markets (2024), European Commission BUILD UP initiative, International Sustainable Energy Conference (2025). Fire classification references: EN 13501-1, BS 8414, Approved Document B. Thermal standards: EN ISO 6946, EN ISO 10077, EN ISO 7345. Energy directives: EPBD 2024/1275, Directive 2024/1275/EU, Construction Products Regulation (CPR) 2024. Retrofit programs: Energiesprong, 4RinEU, INFINITE project, Life Giga Regio Factory, DigiFab (Horizon Europe)."@en .
