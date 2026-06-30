@@ -95,6 +95,10 @@ mappings:
     path: mapping/abstract-room-name-to-space-activity.mapping.ttl
     title: Room name to space activity mapping
 
+  - slug: room-name-notation-v1-to-v2
+    path: mapping/room-name-notation-v1-to-v2.mapping.ttl
+    title: Room name notation v1 to v2 mapping
+
   - slug: armasuisse-room-name-to-room-name
     path: mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl
     title: armasuisse room name to abstract room name mapping

@@ -2,9 +2,15 @@
 
 A pragmatic, graph-first LinkML data contract for BIM integration, querying, costing, and analysis workflows.
 
-URI: https://schema.pragmaticbim.ch
+<div class="pbs-doc-meta" markdown="1">
 
-Repository: [github.com/simondilhas/pragmatic-bim-data-contract](https://github.com/simondilhas/pragmatic-bim-data-contract)
+| | |
+|---|---|
+| **Schema URI** | [schema.pragmaticbim.ch](https://schema.pragmaticbim.ch/) |
+| **Version** | [v0.0.7](https://github.com/simondilhas/pragmatic-bim-data-contract/releases/tag/v0.0.7) |
+| **Source** | [github.com/simondilhas/pragmatic-bim-data-contract](https://github.com/simondilhas/pragmatic-bim-data-contract) |
+
+</div>
 
 ## Why this exists
 
@@ -141,3 +147,27 @@ Without having to:
 1. Browse the [Schema](schema/pragmatic-bim.docs.md) reference and download artifacts (JSON Schema, SHACL, CSV, Pydantic).
 2. Read [Mappings to IFC](mapping/index.md) for declarative ingestion from IFC.
 3. Explore [Classifications](classification/index.md) for SKOS vocabularies and mapping bridges.
+
+## Governance
+
+This contract is maintained by the Pragmatic BIM team. It is not governed by a formal standards body.
+
+| | |
+|---|---|
+| **Maintainer** | Pragmatic BIM maintainers ([GitHub](https://github.com/simondilhas/pragmatic-bim-data-contract)) |
+| **Change process** | [GitHub issues](https://github.com/simondilhas/pragmatic-bim-data-contract/issues) for proposals; focused pull requests for changes |
+| **Release cadence** | Semantic version tags (`v*`) publish schema releases to [schema.pragmaticbim.ch](https://schema.pragmaticbim.ch/) |
+
+**How to participate**
+
+- **Proposals:** Open a [GitHub issue](https://github.com/simondilhas/pragmatic-bim-data-contract/issues) — bugs, gaps, new entities, classification requests.
+- **Contributions:** Pull requests welcome; keep changes focused and include documentation updates.
+- **Classifications:** Abstract vocabularies live in [pragmatic-bim-public-rules](https://github.com/simondilhas/pragmatic-bim-public-rules); project-specific schemes live in this repository.
+
+**Versioning**
+
+- Releases are tagged `vMAJOR.MINOR.PATCH` on GitHub.
+- Each tag publishes versioned snapshots at `schema.pragmaticbim.ch/<version>/` (for example `/v0.0.7/`).
+- Breaking schema changes bump the major or minor version; patch releases are fixes and non-breaking additions.
+
+There is no separate steering committee or public RFC process at this stage. Input via GitHub issues is the primary channel for community feedback.

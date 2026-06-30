@@ -14,7 +14,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
 
-from room_name_data import CONCEPTS, RN_NS, ttl_escape  # noqa: E402
+from room_name_data import CONCEPTS, NOTATION_TO_LOCAL, NOTATION_V1_TO_V2, RN_NS, ttl_escape  # noqa: E402
 
 DEFAULT_INNEN = Path("/home/simondilhas/Programming/elementplan/arma-elementplan-data/values/raumliste-innen.yaml")
 DEFAULT_AUSSEN = Path("/home/simondilhas/Programming/elementplan/arma-elementplan-data/values/raumliste-aussen.yaml")
@@ -164,8 +164,15 @@ def is_military_specific(label: str) -> bool:
     return any(re.search(pattern, label, re.IGNORECASE) for pattern in MILITARY_PATTERNS)
 
 
+def resolve_notation(notation: str) -> str:
+    return NOTATION_V1_TO_V2.get(notation, notation)
+
+
 def notation_to_local(notation: str) -> str:
-    return notation.replace("-", "_")
+    resolved = resolve_notation(notation)
+    if resolved not in NOTATION_TO_LOCAL:
+        raise KeyError(f"Unknown room name notation: {notation} (resolved: {resolved})")
+    return NOTATION_TO_LOCAL[resolved]
 
 
 def load_labels(path: Path) -> list[str]:
@@ -216,7 +223,11 @@ def render_ttl(innen_path: Path, aussen_path: Path) -> str:
             if notation is None:
                 unmapped.append(label)
                 continue
-            local = notation_to_local(notation)
+            try:
+                local = notation_to_local(notation)
+            except KeyError:
+                unmapped.append(label)
+                continue
             if local not in known_locals:
                 unmapped.append(label)
                 continue

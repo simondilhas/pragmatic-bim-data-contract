@@ -17,6 +17,10 @@
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/ceiling-covering-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/connection-physical-type.html</loc>
          <lastmod>2026-06-30</lastmod>
     </url>
@@ -25,7 +29,31 @@
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/door-connector-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/floor-covering-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/mapping-armasuisse-room-name-to-room-name.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-bkp.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-material.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-covering-products-to-bkp.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-covering-products-to-material.html</loc>
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
@@ -81,7 +109,19 @@
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-room-name-notation-v1-to-v2.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/mapping-room-name-to-activity.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-separator-products-to-bkp.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-separator-products-to-material.html</loc>
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
@@ -113,7 +153,23 @@
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/slab-separator-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/usecase.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/wall-covering-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/wall-separator-product.html</loc>
+         <lastmod>2026-06-30</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/window-connector-product.html</loc>
          <lastmod>2026-06-30</lastmod>
     </url>
     <url>

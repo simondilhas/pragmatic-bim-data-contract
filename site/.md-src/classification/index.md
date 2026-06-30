@@ -36,6 +36,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [D0165 to room activity mapping](mapping-d0165-to-room-activity.md) | `mapping/d0165-to-abstract-room-classification.mapping.ttl` |
 | [Room activity to SIA 416 mapping](mapping-room-activity-to-sia416.md) | `mapping/abstract-room-classification-to-sia416.mapping.ttl` |
 | [Room name to space activity mapping](mapping-room-name-to-activity.md) | `mapping/abstract-room-name-to-space-activity.mapping.ttl` |
+| [Room name notation v1 to v2 mapping](mapping-room-name-notation-v1-to-v2.md) | `mapping/room-name-notation-v1-to-v2.mapping.ttl` |
 | [armasuisse room name to abstract room name mapping](mapping-armasuisse-room-name-to-room-name.md) | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` |
 | [Abstract roles to BKP mapping](mapping-roles-to-bkp.md) | `mapping/abstract-roles-to-bkp.mapping.ttl` |
 | [Abstract material to Uniclass Ma mapping](mapping-material-to-uniclass-ma.md) | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` |

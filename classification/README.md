@@ -53,6 +53,7 @@ classification/
 | `mapping/d0165-to-abstract-room-classification.mapping.ttl` | D0165 → space activity (reverse) |
 | `mapping/abstract-room-classification-to-sia416.mapping.ttl` | Space activity → SIA 416 area classes |
 | `mapping/abstract-room-name-to-space-activity.mapping.ttl` | Room name → space activity |
+| `mapping/room-name-notation-v1-to-v2.mapping.ttl` | Mnemonic v1 room name codes → numeric v2 codes |
 | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` | armasuisse Raumliste → abstract room names |
 | `mapping/abstract-roles-to-bkp.mapping.ttl` | Workflow roles → BKP cost lines |
 | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` | Abstract material → Uniclass Ma |
@@ -71,6 +72,21 @@ classification/
 | `mapping/abstract-connector-products-to-bkp.mapping.ttl` | Abstract door and window connector products → BKP 221.x / 272 / 273 / 224 cost lines |
 
 Bridge files reference external IRIs by code. Full proprietary vocabularies are not shipped in this repository.
+
+## Room name notation (v2)
+
+Building space name classification uses a three-level numeric code (similar to D0165 / Uniclass):
+
+| Level | Pattern | Example | Assignable on `IfcSpace` |
+|-------|---------|---------|--------------------------|
+| Category | `RN-{CC}` | `RN-03` Circulation | No |
+| Subgroup | `RN-{CC}-{GG}` | `RN-03-10` Horizontal circulation | No |
+| Leaf | `RN-{CC}-{GG}-{LL}` | `RN-03-10-01` Corridor | Yes (`SpaceNameType`) |
+
+- Source of truth: [`scripts/room_name_data.py`](../scripts/room_name_data.py)
+- Regenerate SKOS, enum, and mappings: `python scripts/generate_room_name_vocabulary.py`
+- v1 mnemonic codes (`RN-CIR-COR`, …) map to v2 via [`mapping/room-name-notation-v1-to-v2.mapping.ttl`](mapping/room-name-notation-v1-to-v2.mapping.ttl)
+- Concept IRIs (`RN_CIR_COR`, …) are stable; only notation and enum keys changed
 
 ## Published documentation
 

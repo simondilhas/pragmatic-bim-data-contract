@@ -788,7 +788,7 @@ enums:
     enum_uri: pbs:SpaceNameType
     description: Normalized abstract room name type for IfcSpace; finer-grained than space activity classification.
     permissible_values:
-      rn_res_bed:
+      rn_01_10_01:
         description: "Room primarily used for sleeping."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_BED
         title: Bedroom
@@ -796,7 +796,7 @@ enums:
           de:
             source: de
             description: Schlafzimmer
-      rn_res_liv:
+      rn_01_10_02:
         description: "Room for daily living and relaxation."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_LIV
         title: Living Room
@@ -804,7 +804,7 @@ enums:
           de:
             source: de
             description: Wohnzimmer
-      rn_res_din:
+      rn_01_10_03:
         description: "Room for eating meals."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_DIN
         title: Dining Room
@@ -812,31 +812,7 @@ enums:
           de:
             source: de
             description: Esszimmer
-      rn_res_kit:
-        description: "Room for food preparation."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_KIT
-        title: Kitchen
-        alt_descriptions:
-          de:
-            source: de
-            description: Kueche
-      rn_res_bth:
-        description: "Room with bath, shower, or personal hygiene fixtures."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_BTH
-        title: Bathroom
-        alt_descriptions:
-          de:
-            source: de
-            description: Badezimmer
-      rn_res_lau:
-        description: "Room for washing and drying clothes."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_LAU
-        title: Laundry Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Waschkueche
-      rn_res_stu:
+      rn_01_10_04:
         description: "Residential room for study or home office work."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_STU
         title: Home Study
@@ -844,23 +820,7 @@ enums:
           de:
             source: de
             description: Arbeitszimmer
-      rn_res_ent:
-        description: "Entry space within a dwelling unit."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_ENT
-        title: Residential Entry
-        alt_descriptions:
-          de:
-            source: de
-            description: Wohnungseingang
-      rn_res_clo:
-        description: "Small storage within a dwelling unit."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_CLO
-        title: Residential Closet
-        alt_descriptions:
-          de:
-            source: de
-            description: Abstellraum Wohnen
-      rn_res_gst:
+      rn_01_10_05:
         description: "Room for overnight guests."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_GST
         title: Guest Room
@@ -868,7 +828,31 @@ enums:
           de:
             source: de
             description: Gaestezimmer
-      rn_res_utl:
+      rn_01_20_01:
+        description: "Room for food preparation."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_KIT
+        title: Kitchen
+        alt_descriptions:
+          de:
+            source: de
+            description: Kueche
+      rn_01_20_02:
+        description: "Room with bath, shower, or personal hygiene fixtures."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_BTH
+        title: Bathroom
+        alt_descriptions:
+          de:
+            source: de
+            description: Badezimmer
+      rn_01_20_03:
+        description: "Room for washing and drying clothes."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_LAU
+        title: Laundry Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Waschkueche
+      rn_01_20_04:
         description: "Room for domestic utilities and equipment."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_UTL
         title: Utility Room
@@ -876,7 +860,23 @@ enums:
           de:
             source: de
             description: Hauswirtschaftsraum
-      rn_res_apt:
+      rn_01_30_01:
+        description: "Entry space within a dwelling unit."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_ENT
+        title: Residential Entry
+        alt_descriptions:
+          de:
+            source: de
+            description: Wohnungseingang
+      rn_01_30_02:
+        description: "Small storage within a dwelling unit."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_CLO
+        title: Residential Closet
+        alt_descriptions:
+          de:
+            source: de
+            description: Abstellraum Wohnen
+      rn_01_30_03:
         description: "Generic residential unit space when not subdivided further."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_APT
         title: Apartment Unit
@@ -884,7 +884,7 @@ enums:
           de:
             source: de
             description: Wohneinheit
-      rn_wrk_off:
+      rn_02_10_01:
         description: "Enclosed office for individual or shared desk work."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_OFF
         title: Office
@@ -892,7 +892,7 @@ enums:
           de:
             source: de
             description: Buero
-      rn_wrk_opn:
+      rn_02_10_02:
         description: "Open office landscape without full-height partitions."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_OPN
         title: Open-Plan Office
@@ -900,23 +900,7 @@ enums:
           de:
             source: de
             description: Grossraumbuero
-      rn_wrk_mtg:
-        description: "Room for small group meetings."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MTG
-        title: Meeting Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Besprechungsraum
-      rn_wrk_cnf:
-        description: "Room for formal meetings and presentations."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_CNF
-        title: Conference Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Konferenzraum
-      rn_wrk_fcs:
+      rn_02_10_03:
         description: "Small room for concentrated individual work."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_FCS
         title: Focus Room
@@ -924,7 +908,7 @@ enums:
           de:
             source: de
             description: Fokusraum
-      rn_wrk_phn:
+      rn_02_10_04:
         description: "Small enclosure for private calls."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_PHN
         title: Phone Booth
@@ -932,39 +916,7 @@ enums:
           de:
             source: de
             description: Telefonbox
-      rn_wrk_brk:
-        description: "Informal staff rest and refreshment space."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_BRK
-        title: Break Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Pausenraum
-      rn_wrk_rec:
-        description: "Visitor reception and waiting area."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_REC
-        title: Reception
-        alt_descriptions:
-          de:
-            source: de
-            description: Empfang
-      rn_wrk_adm:
-        description: "Office for administrative staff."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_ADM
-        title: Administrative Office
-        alt_descriptions:
-          de:
-            source: de
-            description: Verwaltungsbuero
-      rn_wrk_mng:
-        description: "Office for management roles."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MNG
-        title: Manager Office
-        alt_descriptions:
-          de:
-            source: de
-            description: Fuehrungsbuero
-      rn_wrk_cow:
+      rn_02_10_05:
         description: "Shared flexible workspace."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_COW
         title: Coworking Space
@@ -972,7 +924,55 @@ enums:
           de:
             source: de
             description: Coworking-Flaeche
-      rn_wrk_oad:
+      rn_02_20_01:
+        description: "Room for small group meetings."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MTG
+        title: Meeting Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Besprechungsraum
+      rn_02_20_02:
+        description: "Room for formal meetings and presentations."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_CNF
+        title: Conference Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Konferenzraum
+      rn_02_20_03:
+        description: "Informal staff rest and refreshment space."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_BRK
+        title: Break Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Pausenraum
+      rn_02_30_01:
+        description: "Visitor reception and waiting area."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_REC
+        title: Reception
+        alt_descriptions:
+          de:
+            source: de
+            description: Empfang
+      rn_02_30_02:
+        description: "Office for administrative staff."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_ADM
+        title: Administrative Office
+        alt_descriptions:
+          de:
+            source: de
+            description: Verwaltungsbuero
+      rn_02_30_03:
+        description: "Office for management roles."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MNG
+        title: Manager Office
+        alt_descriptions:
+          de:
+            source: de
+            description: Fuehrungsbuero
+      rn_02_30_04:
         description: "Open administrative work area."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_OAD
         title: Open Administrative Area
@@ -980,15 +980,15 @@ enums:
           de:
             source: de
             description: Offene Verwaltungsflaeche
-      rn_cir_cor:
-        description: "Horizontal circulation passage."
+      rn_03_10_01:
+        description: "Horizontal circulation passage, including narrow aisles between rows or functions."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_COR
         title: Corridor
         alt_descriptions:
           de:
             source: de
-            description: Korridor
-      rn_cir_lob:
+            description: Flur
+      rn_03_10_02:
         description: "Main entrance lobby or reception hall."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_LOB
         title: Lobby
@@ -996,7 +996,7 @@ enums:
           de:
             source: de
             description: Eingangshalle
-      rn_cir_ent:
+      rn_03_10_03:
         description: "Building entrance transition space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_ENT
         title: Entrance Hall
@@ -1004,47 +1004,7 @@ enums:
           de:
             source: de
             description: Entree
-      rn_cir_str:
-        description: "Enclosed stair and landing volume."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_STR
-        title: Stairwell
-        alt_descriptions:
-          de:
-            source: de
-            description: Treppenhaus
-      rn_cir_elv:
-        description: "Waiting area at elevator stops."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_ELV
-        title: Elevator Lobby
-        alt_descriptions:
-          de:
-            source: de
-            description: Aufzugszone
-      rn_cir_ram:
-        description: "Inclined accessible circulation route."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_RAM
-        title: Ramp
-        alt_descriptions:
-          de:
-            source: de
-            description: Rampe
-      rn_cir_lnd:
-        description: "Stair or ramp landing platform."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_LND
-        title: Landing
-        alt_descriptions:
-          de:
-            source: de
-            description: Podest
-      rn_cir_ais:
-        description: "Narrow passage between rows or functions."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_AIS
-        title: Aisle
-        alt_descriptions:
-          de:
-            source: de
-            description: Gang
-      rn_cir_ves:
+      rn_03_10_04:
         description: "Transition space between exterior and interior."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_VES
         title: Vestibule
@@ -1052,7 +1012,39 @@ enums:
           de:
             source: de
             description: Vorraum
-      rn_cir_gal:
+      rn_03_20_01:
+        description: "Enclosed stair and landing volume."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_STR
+        title: Stairwell
+        alt_descriptions:
+          de:
+            source: de
+            description: Treppenhaus
+      rn_03_20_02:
+        description: "Waiting area at elevator stops."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_ELV
+        title: Elevator Lobby
+        alt_descriptions:
+          de:
+            source: de
+            description: Aufzugszone
+      rn_03_20_03:
+        description: "Inclined accessible circulation route."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_RAM
+        title: Ramp
+        alt_descriptions:
+          de:
+            source: de
+            description: Rampe
+      rn_03_20_04:
+        description: "Stair or ramp landing platform."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_LND
+        title: Landing
+        alt_descriptions:
+          de:
+            source: de
+            description: Podest
+      rn_03_30_01:
         description: "Circulation gallery integral to main activity."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_GAL
         title: Gallery
@@ -1060,7 +1052,7 @@ enums:
           de:
             source: de
             description: Galerie
-      rn_hyg_wc_m:
+      rn_04_10_01:
         description: "Toilet room for male use."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_WC_M
         title: Male Toilet
@@ -1068,7 +1060,7 @@ enums:
           de:
             source: de
             description: Herren-WC
-      rn_hyg_wc_f:
+      rn_04_10_02:
         description: "Toilet room for female use."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_WC_F
         title: Female Toilet
@@ -1076,7 +1068,7 @@ enums:
           de:
             source: de
             description: Damen-WC
-      rn_hyg_wc_iv:
+      rn_04_10_03:
         description: "Wheelchair-accessible toilet room."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_WC_IV
         title: Accessible Toilet
@@ -1084,7 +1076,7 @@ enums:
           de:
             source: de
             description: Barrierefreies WC
-      rn_hyg_wc_mix:
+      rn_04_10_04:
         description: "Toilet room for mixed or all-gender use."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_WC_MIX
         title: Unisex Toilet
@@ -1092,7 +1084,7 @@ enums:
           de:
             source: de
             description: Allgemeines WC
-      rn_hyg_shw:
+      rn_04_20_01:
         description: "Room with shower facilities."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_SHW
         title: Shower Room
@@ -1100,7 +1092,7 @@ enums:
           de:
             source: de
             description: Duschraum
-      rn_hyg_chg:
+      rn_04_20_02:
         description: "Room for changing clothes."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_CHG
         title: Changing Room
@@ -1108,7 +1100,7 @@ enums:
           de:
             source: de
             description: Umkleideraum
-      rn_hyg_lck:
+      rn_04_20_03:
         description: "Room with personal lockers."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_LCK
         title: Locker Room
@@ -1116,7 +1108,7 @@ enums:
           de:
             source: de
             description: Schliessfachraum
-      rn_hyg_grd:
+      rn_04_30_01:
         description: "Staffed or unstaffed coat check at entry."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_GRD
         title: Cloakroom
@@ -1124,7 +1116,7 @@ enums:
           de:
             source: de
             description: Garderobe
-      rn_hlc_pat:
+      rn_05_10_01:
         description: "Room for inpatient care and recovery."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_PAT
         title: Patient Room
@@ -1132,23 +1124,7 @@ enums:
           de:
             source: de
             description: Patientenzimmer
-      rn_hlc_trt:
-        description: "Room for outpatient treatment."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_TRT
-        title: Treatment Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Behandlungsraum
-      rn_hlc_or:
-        description: "Room for surgical procedures."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_OR
-        title: Operating Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Operationssaal
-      rn_hlc_rcv:
+      rn_05_10_02:
         description: "Room for post-procedure recovery."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_RCV
         title: Recovery Room
@@ -1156,47 +1132,23 @@ enums:
           de:
             source: de
             description: Aufwachraum
-      rn_hlc_img:
-        description: "Room for diagnostic imaging."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_IMG
-        title: Imaging Room
+      rn_05_20_01:
+        description: "Room for outpatient treatment."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_TRT
+        title: Treatment Room
         alt_descriptions:
           de:
             source: de
-            description: Bildgebungsraum
-      rn_hlc_lab:
-        description: "Laboratory for medical analysis."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_LAB
-        title: Medical Laboratory
+            description: Behandlungsraum
+      rn_05_20_02:
+        description: "Room for surgical procedures."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_OR
+        title: Operating Room
         alt_descriptions:
           de:
             source: de
-            description: Medizinisches Labor
-      rn_hlc_exm:
-        description: "Room for clinical examination."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_EXM
-        title: Examination Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Untersuchungsraum
-      rn_hlc_wtr:
-        description: "Room for patients and visitors to wait."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_WTR
-        title: Waiting Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Wartezimmer
-      rn_hlc_nrs:
-        description: "Central nursing and monitoring workspace."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_NRS
-        title: Nurses Station
-        alt_descriptions:
-          de:
-            source: de
-            description: Pflegestationszimmer
-      rn_hlc_prm:
+            description: Operationssaal
+      rn_05_20_03:
         description: "Room for minor medical procedures."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_PRM
         title: Procedure Room
@@ -1204,7 +1156,47 @@ enums:
           de:
             source: de
             description: Eingriffsraum
-      rn_lrn_cls:
+      rn_05_20_04:
+        description: "Room for clinical examination."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_EXM
+        title: Examination Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Untersuchungsraum
+      rn_05_30_01:
+        description: "Room for diagnostic imaging."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_IMG
+        title: Imaging Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Bildgebungsraum
+      rn_05_30_02:
+        description: "Laboratory for medical analysis."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_LAB
+        title: Medical Laboratory
+        alt_descriptions:
+          de:
+            source: de
+            description: Medizinisches Labor
+      rn_05_30_03:
+        description: "Room for patients and visitors to wait."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_WTR
+        title: Waiting Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Wartezimmer
+      rn_05_30_04:
+        description: "Central nursing and monitoring workspace."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_NRS
+        title: Nurses Station
+        alt_descriptions:
+          de:
+            source: de
+            description: Pflegestationszimmer
+      rn_06_10_01:
         description: "Room for school or group instruction."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_CLS
         title: Classroom
@@ -1212,7 +1204,7 @@ enums:
           de:
             source: de
             description: Klassenzimmer
-      rn_lrn_lct:
+      rn_06_10_02:
         description: "Room with fixed seating for lectures."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_LCT
         title: Lecture Hall
@@ -1220,7 +1212,7 @@ enums:
           de:
             source: de
             description: Hoersaal
-      rn_lrn_sem:
+      rn_06_10_03:
         description: "Room for seminars and workshops."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_SEM
         title: Seminar Room
@@ -1228,15 +1220,7 @@ enums:
           de:
             source: de
             description: Seminarraum
-      rn_lrn_lib:
-        description: "Room for reading and library use."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_LIB
-        title: Library Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Bibliotheksraum
-      rn_lrn_cmp:
+      rn_06_10_04:
         description: "Room with computer workstations for teaching."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_CMP
         title: Computer Lab
@@ -1244,7 +1228,15 @@ enums:
           de:
             source: de
             description: Computerraum
-      rn_lrn_stu:
+      rn_06_20_01:
+        description: "Room for reading and library use."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_LIB
+        title: Library Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Bibliotheksraum
+      rn_06_20_02:
         description: "Room for self-directed study."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_STU
         title: Study Room
@@ -1252,7 +1244,7 @@ enums:
           de:
             source: de
             description: Lernraum
-      rn_lrn_wrk:
+      rn_06_20_03:
         description: "Room for practical skills training."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_WRK
         title: Training Workshop
@@ -1260,7 +1252,7 @@ enums:
           de:
             source: de
             description: Ausbildungswerkstatt
-      rn_lrn_aus:
+      rn_06_30_01:
         description: "Large assembly hall for events."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_AUS
         title: Auditorium
@@ -1268,7 +1260,7 @@ enums:
           de:
             source: de
             description: Aula
-      rn_lrn_art:
+      rn_06_30_02:
         description: "Room for visual arts instruction and practice."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_ART
         title: Art Studio
@@ -1276,7 +1268,7 @@ enums:
           de:
             source: de
             description: Kunstatelier
-      rn_lrn_sci:
+      rn_06_30_03:
         description: "Laboratory for science teaching."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_SCI
         title: Science Lab
@@ -1284,7 +1276,7 @@ enums:
           de:
             source: de
             description: Naturwissenschaftslabor
-      rn_com_caf:
+      rn_07_10_01:
         description: "Self-service dining space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_COM_CAF
         title: Cafeteria
@@ -1292,7 +1284,7 @@ enums:
           de:
             source: de
             description: Cafeteria
-      rn_com_rst:
+      rn_07_10_02:
         description: "Full-service dining space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_COM_RST
         title: Restaurant
@@ -1300,23 +1292,7 @@ enums:
           de:
             source: de
             description: Restaurant
-      rn_com_ret:
-        description: "Room for displaying and selling goods."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_RET
-        title: Retail Space
-        alt_descriptions:
-          de:
-            source: de
-            description: Verkaufsraum
-      rn_com_htl:
-        description: "Guest accommodation room."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_HTL
-        title: Hotel Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Hotelzimmer
-      rn_com_bar:
+      rn_07_10_03:
         description: "Room for beverage service."
         meaning: https://example.org/abstract/building-space-name-classification/RN_COM_BAR
         title: Bar
@@ -1324,39 +1300,7 @@ enums:
           de:
             source: de
             description: Bar
-      rn_com_ksk:
-        description: "Small retail or service counter space."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_KSK
-        title: Kiosk
-        alt_descriptions:
-          de:
-            source: de
-            description: Kiosk
-      rn_com_exh:
-        description: "Room for displays and exhibitions."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_EXH
-        title: Exhibition Space
-        alt_descriptions:
-          de:
-            source: de
-            description: Ausstellungsraum
-      rn_com_sal:
-        description: "Open retail sales area."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_SAL
-        title: Sales Floor
-        alt_descriptions:
-          de:
-            source: de
-            description: Verkaufsflaeche
-      rn_com_cus:
-        description: "Area for customer assistance and service."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_CUS
-        title: Customer Service Area
-        alt_descriptions:
-          de:
-            source: de
-            description: Kundenbetreuungsbereich
-      rn_com_fod:
+      rn_07_10_04:
         description: "Shared dining area with multiple vendors."
         meaning: https://example.org/abstract/building-space-name-classification/RN_COM_FOD
         title: Food Court
@@ -1364,7 +1308,55 @@ enums:
           de:
             source: de
             description: Food-Court
-      rn_ind_wrk:
+      rn_07_20_01:
+        description: "Room for displaying and selling goods."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_RET
+        title: Retail Space
+        alt_descriptions:
+          de:
+            source: de
+            description: Verkaufsraum
+      rn_07_20_02:
+        description: "Open retail sales area."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_SAL
+        title: Sales Floor
+        alt_descriptions:
+          de:
+            source: de
+            description: Verkaufsflaeche
+      rn_07_20_03:
+        description: "Small retail or service counter space."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_KSK
+        title: Kiosk
+        alt_descriptions:
+          de:
+            source: de
+            description: Kiosk
+      rn_07_20_04:
+        description: "Area for customer assistance and service."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_CUS
+        title: Customer Service Area
+        alt_descriptions:
+          de:
+            source: de
+            description: Kundenbetreuungsbereich
+      rn_07_20_05:
+        description: "Room for displays and exhibitions."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_EXH
+        title: Exhibition Space
+        alt_descriptions:
+          de:
+            source: de
+            description: Ausstellungsraum
+      rn_07_30_01:
+        description: "Guest accommodation room."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_COM_HTL
+        title: Hotel Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Hotelzimmer
+      rn_08_10_01:
         description: "Room for manual fabrication and repair."
         meaning: https://example.org/abstract/building-space-name-classification/RN_IND_WRK
         title: Workshop
@@ -1372,23 +1364,7 @@ enums:
           de:
             source: de
             description: Werkstatt
-      rn_ind_whs:
-        description: "Room or hall for goods storage."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_WHS
-        title: Warehouse
-        alt_descriptions:
-          de:
-            source: de
-            description: Lagerhalle
-      rn_ind_ldk:
-        description: "Area for loading and unloading goods."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_LDK
-        title: Loading Dock
-        alt_descriptions:
-          de:
-            source: de
-            description: Laderampe
-      rn_ind_prd:
+      rn_08_10_02:
         description: "Hall for manufacturing processes."
         meaning: https://example.org/abstract/building-space-name-classification/RN_IND_PRD
         title: Production Hall
@@ -1396,7 +1372,7 @@ enums:
           de:
             source: de
             description: Produktionshalle
-      rn_ind_asm:
+      rn_08_10_03:
         description: "Area for product assembly."
         meaning: https://example.org/abstract/building-space-name-classification/RN_IND_ASM
         title: Assembly Area
@@ -1404,15 +1380,7 @@ enums:
           de:
             source: de
             description: Montagebereich
-      rn_ind_qc:
-        description: "Room for inspection and quality testing."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_QC
-        title: Quality Control Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Qualitaetskontrollraum
-      rn_ind_pkg:
+      rn_08_10_04:
         description: "Area for packaging goods."
         meaning: https://example.org/abstract/building-space-name-classification/RN_IND_PKG
         title: Packaging Area
@@ -1420,15 +1388,7 @@ enums:
           de:
             source: de
             description: Verpackungsbereich
-      rn_ind_mnt:
-        description: "Bay for equipment maintenance."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_MNT
-        title: Maintenance Bay
-        alt_descriptions:
-          de:
-            source: de
-            description: Wartungsbucht
-      rn_ind_cln:
+      rn_08_10_05:
         description: "Controlled-environment production room."
         meaning: https://example.org/abstract/building-space-name-classification/RN_IND_CLN
         title: Clean Room
@@ -1436,7 +1396,39 @@ enums:
           de:
             source: de
             description: Reinraum
-      rn_ind_yrd:
+      rn_08_20_01:
+        description: "Room or hall for goods storage."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_WHS
+        title: Warehouse
+        alt_descriptions:
+          de:
+            source: de
+            description: Lagerhalle
+      rn_08_20_02:
+        description: "Area for loading and unloading goods."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_LDK
+        title: Loading Dock
+        alt_descriptions:
+          de:
+            source: de
+            description: Laderampe
+      rn_08_20_03:
+        description: "Room for inspection and quality testing."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_QC
+        title: Quality Control Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Qualitaetskontrollraum
+      rn_08_20_04:
+        description: "Bay for equipment maintenance."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_IND_MNT
+        title: Maintenance Bay
+        alt_descriptions:
+          de:
+            source: de
+            description: Wartungsbucht
+      rn_08_30_01:
         description: "Covered exterior work or storage yard modeled as space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_IND_YRD
         title: Covered Yard
@@ -1444,15 +1436,7 @@ enums:
           de:
             source: de
             description: Ueberdachter Hof
-      rn_tec_elc:
-        description: "Room for electrical distribution equipment."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_ELC
-        title: Electrical Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Elektroraum
-      rn_tec_hvc:
+      rn_09_10_01:
         description: "Room for heating, ventilation, and cooling plant."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_HVC
         title: HVAC Plant Room
@@ -1460,23 +1444,7 @@ enums:
           de:
             source: de
             description: HLK-Zentralraum
-      rn_tec_srv:
-        description: "Room for IT and network equipment."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_SRV
-        title: Server Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Serverraum
-      rn_tec_spr:
-        description: "Room for fire suppression equipment."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_SPR
-        title: Sprinkler Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Sprinklerraum
-      rn_tec_pmp:
+      rn_09_10_02:
         description: "Room for pumps and fluid handling."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_PMP
         title: Pump Room
@@ -1484,7 +1452,7 @@ enums:
           de:
             source: de
             description: Pumpenraum
-      rn_tec_boi:
+      rn_09_10_03:
         description: "Room for boilers and heat generation."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_BOI
         title: Boiler Room
@@ -1492,7 +1460,7 @@ enums:
           de:
             source: de
             description: Heizungsraum
-      rn_tec_chl:
+      rn_09_10_04:
         description: "Room for chillers and cooling plant."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_CHL
         title: Chiller Room
@@ -1500,7 +1468,31 @@ enums:
           de:
             source: de
             description: Kaelteraum
-      rn_tec_gen:
+      rn_09_10_05:
+        description: "Room for fire suppression equipment."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_SPR
+        title: Sprinkler Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Sprinklerraum
+      rn_09_20_01:
+        description: "Room for electrical distribution equipment."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_ELC
+        title: Electrical Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Elektroraum
+      rn_09_20_02:
+        description: "Room for IT and network equipment."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_SRV
+        title: Server Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Serverraum
+      rn_09_20_03:
         description: "Room for backup power generation."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_GEN
         title: Generator Room
@@ -1508,15 +1500,7 @@ enums:
           de:
             source: de
             description: Generatorraum
-      rn_tec_mmr:
-        description: "Room for utility metering equipment."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_MMR
-        title: Meter Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Zaehlerraum
-      rn_tec_tra:
+      rn_09_20_04:
         description: "Room for electrical transformers."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_TRA
         title: Transformer Room
@@ -1524,15 +1508,7 @@ enums:
           de:
             source: de
             description: Transformatorenraum
-      rn_tec_wst:
-        description: "Room for waste collection and handling."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_WST
-        title: Waste Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Abfallraum
-      rn_tec_com:
+      rn_09_20_05:
         description: "Room for telecom and low-voltage systems."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_COM
         title: Communications Room
@@ -1540,7 +1516,23 @@ enums:
           de:
             source: de
             description: Kommunikationsraum
-      rn_sto_gen:
+      rn_09_30_01:
+        description: "Room for utility metering equipment."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_MMR
+        title: Meter Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Zaehlerraum
+      rn_09_30_02:
+        description: "Room for waste collection and handling."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_WST
+        title: Waste Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Abfallraum
+      rn_10_10_01:
         description: "Room for general material storage."
         meaning: https://example.org/abstract/building-space-name-classification/RN_STO_GEN
         title: General Storage
@@ -1548,31 +1540,7 @@ enums:
           de:
             source: de
             description: Allgemeiner Lagerraum
-      rn_sto_arc:
-        description: "Room for document and record archives."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_ARC
-        title: Archive Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Archivraum
-      rn_sto_jan:
-        description: "Small room for cleaning supplies and equipment."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_JAN
-        title: Janitor Closet
-        alt_descriptions:
-          de:
-            source: de
-            description: Hauswarteschrank
-      rn_sto_mal:
-        description: "Room for incoming and outgoing mail."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_MAL
-        title: Mail Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Postraum
-      rn_sto_sup:
+      rn_10_10_02:
         description: "Room for consumable supplies."
         meaning: https://example.org/abstract/building-space-name-classification/RN_STO_SUP
         title: Supply Room
@@ -1580,15 +1548,7 @@ enums:
           de:
             source: de
             description: Materialraum
-      rn_sto_col:
-        description: "Refrigerated storage room."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_COL
-        title: Cold Storage
-        alt_descriptions:
-          de:
-            source: de
-            description: Kuehlraum
-      rn_sto_eqp:
+      rn_10_10_03:
         description: "Storage for tools and equipment."
         meaning: https://example.org/abstract/building-space-name-classification/RN_STO_EQP
         title: Equipment Storage
@@ -1596,7 +1556,7 @@ enums:
           de:
             source: de
             description: Geraetelager
-      rn_sto_uld:
+      rn_10_10_04:
         description: "Temporary storage at delivery point."
         meaning: https://example.org/abstract/building-space-name-classification/RN_STO_ULD
         title: Unloading Storage
@@ -1604,7 +1564,39 @@ enums:
           de:
             source: de
             description: Annahmelager
-      rn_out_bln:
+      rn_10_10_05:
+        description: "Small room for cleaning supplies and equipment."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_JAN
+        title: Janitor Closet
+        alt_descriptions:
+          de:
+            source: de
+            description: Hauswarteschrank
+      rn_10_20_01:
+        description: "Room for document and record archives."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_ARC
+        title: Archive Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Archivraum
+      rn_10_20_02:
+        description: "Room for incoming and outgoing mail."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_MAL
+        title: Mail Room
+        alt_descriptions:
+          de:
+            source: de
+            description: Postraum
+      rn_10_20_03:
+        description: "Refrigerated storage room."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_COL
+        title: Cold Storage
+        alt_descriptions:
+          de:
+            source: de
+            description: Kuehlraum
+      rn_11_10_01:
         description: "Exterior projecting platform accessed from inside."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_BLN
         title: Balcony
@@ -1612,7 +1604,7 @@ enums:
           de:
             source: de
             description: Balkon
-      rn_out_trr:
+      rn_11_10_02:
         description: "Exterior paved or decked platform."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_TRR
         title: Terrace
@@ -1620,7 +1612,7 @@ enums:
           de:
             source: de
             description: Terrasse
-      rn_out_pat:
+      rn_11_10_03:
         description: "Enclosed or semi-enclosed outdoor sitting area."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_PAT
         title: Patio
@@ -1628,15 +1620,7 @@ enums:
           de:
             source: de
             description: Innenhof
-      rn_out_cwk:
-        description: "Covered exterior pedestrian route."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_CWK
-        title: Covered Walkway
-        alt_descriptions:
-          de:
-            source: de
-            description: Ueberdachter Gang
-      rn_out_gdn:
+      rn_11_20_01:
         description: "Landscaped outdoor area as space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_GDN
         title: Garden Area
@@ -1644,7 +1628,7 @@ enums:
           de:
             source: de
             description: Gartenflaeche
-      rn_out_ply:
+      rn_11_20_02:
         description: "Outdoor play area."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_PLY
         title: Playground
@@ -1652,7 +1636,7 @@ enums:
           de:
             source: de
             description: Spielplatz
-      rn_out_spl:
+      rn_11_20_03:
         description: "Outdoor pool or water feature area."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_SPL
         title: Pool Area
@@ -1660,7 +1644,15 @@ enums:
           de:
             source: de
             description: Beckenflaeche
-      rn_out_prt:
+      rn_11_30_01:
+        description: "Covered exterior pedestrian route."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_CWK
+        title: Covered Walkway
+        alt_descriptions:
+          de:
+            source: de
+            description: Ueberdachter Fussweg
+      rn_11_30_02:
         description: "Covered exterior entrance structure."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_PRT
         title: Portico
@@ -1668,7 +1660,7 @@ enums:
           de:
             source: de
             description: Portikus
-      rn_voi_sha:
+      rn_12_10_01:
         description: "Vertical service or circulation shaft."
         meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_SHA
         title: Shaft
@@ -1676,47 +1668,7 @@ enums:
           de:
             source: de
             description: Schacht
-      rn_voi_pln:
-        description: "Ceiling or floor service void."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_PLN
-        title: Plenum
-        alt_descriptions:
-          de:
-            source: de
-            description: Installationszwischenraum
-      rn_voi_atr:
-        description: "Multistory open interior volume."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_ATR
-        title: Atrium Void
-        alt_descriptions:
-          de:
-            source: de
-            description: Atrium
-      rn_voi_str:
-        description: "Void within structural elements."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_STR
-        title: Structural Void
-        alt_descriptions:
-          de:
-            source: de
-            description: Konstruktionshohlraum
-      rn_voi_prk:
-        description: "Individual parking space within a structure."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_PRK
-        title: Interior Parking Stall
-        alt_descriptions:
-          de:
-            source: de
-            description: Innenparkierplatz
-      rn_voi_mch:
-        description: "Non-accessible mechanical void."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_MCH
-        title: Mechanical Void
-        alt_descriptions:
-          de:
-            source: de
-            description: Technikhohlraum
-      rn_voi_ris:
+      rn_12_10_02:
         description: "Vertical building services riser."
         meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_RIS
         title: Riser
@@ -1724,7 +1676,23 @@ enums:
           de:
             source: de
             description: Steigzone
-      rn_voi_air:
+      rn_12_20_01:
+        description: "Ceiling or floor service void."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_PLN
+        title: Plenum
+        alt_descriptions:
+          de:
+            source: de
+            description: Installationszwischenraum
+      rn_12_20_02:
+        description: "Non-accessible mechanical void."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_MCH
+        title: Mechanical Void
+        alt_descriptions:
+          de:
+            source: de
+            description: Technikhohlraum
+      rn_12_20_03:
         description: "Non-occupiable air volume in the model."
         meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_AIR
         title: Air Space
@@ -1732,6 +1700,30 @@ enums:
           de:
             source: de
             description: Luftraum
+      rn_12_30_01:
+        description: "Multistory open interior volume."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_ATR
+        title: Atrium Void
+        alt_descriptions:
+          de:
+            source: de
+            description: Atrium
+      rn_12_30_02:
+        description: "Void within structural elements."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_STR
+        title: Structural Void
+        alt_descriptions:
+          de:
+            source: de
+            description: Konstruktionshohlraum
+      rn_12_30_03:
+        description: "Individual parking space within a structure."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_PRK
+        title: Interior Parking Stall
+        alt_descriptions:
+          de:
+            source: de
+            description: Innenparkierplatz
   SystemDiscipline:
     enum_uri: pbs:SystemDiscipline
     description: Discipline of a building service system.

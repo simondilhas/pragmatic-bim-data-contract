@@ -19,6 +19,13 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract material classification](material.md) | `abstract-material-classification/material-classification.skos.ttl` |
 | [Abstract building metrics](building-metric.md) | `abstract-metric-definition/building-metrics.skos.ttl` |
 | [Abstract building ratios](building-ratio.md) | `abstract-ratio-definition/building-ratios.skos.ttl` |
+| [Abstract floor covering products](floor-covering-product.md) | `abstract-covering-product-classification/floor-covering-products.skos.ttl` |
+| [Abstract wall covering products](wall-covering-product.md) | `abstract-covering-product-classification/wall-covering-products.skos.ttl` |
+| [Abstract ceiling covering products](ceiling-covering-product.md) | `abstract-covering-product-classification/ceiling-covering-products.skos.ttl` |
+| [Abstract wall separator products](wall-separator-product.md) | `abstract-separator-product-classification/wall-separator-products.skos.ttl` |
+| [Abstract slab separator products](slab-separator-product.md) | `abstract-separator-product-classification/slab-separator-products.skos.ttl` |
+| [Abstract door connector products](door-connector-product.md) | `abstract-connector-product-classification/door-connector-products.skos.ttl` |
+| [Abstract window connector products](window-connector-product.md) | `abstract-connector-product-classification/window-connector-products.skos.ttl` |
 
 ## Mappings
 
@@ -29,6 +36,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [D0165 to room activity mapping](mapping-d0165-to-room-activity.md) | `mapping/d0165-to-abstract-room-classification.mapping.ttl` |
 | [Room activity to SIA 416 mapping](mapping-room-activity-to-sia416.md) | `mapping/abstract-room-classification-to-sia416.mapping.ttl` |
 | [Room name to space activity mapping](mapping-room-name-to-activity.md) | `mapping/abstract-room-name-to-space-activity.mapping.ttl` |
+| [Room name notation v1 to v2 mapping](mapping-room-name-notation-v1-to-v2.md) | `mapping/room-name-notation-v1-to-v2.mapping.ttl` |
 | [armasuisse room name to abstract room name mapping](mapping-armasuisse-room-name-to-room-name.md) | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` |
 | [Abstract roles to BKP mapping](mapping-roles-to-bkp.md) | `mapping/abstract-roles-to-bkp.mapping.ttl` |
 | [Abstract material to Uniclass Ma mapping](mapping-material-to-uniclass-ma.md) | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` |
@@ -40,3 +48,9 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract building ratios to SIA 416 mapping](mapping-ratio-to-sia416.md) | `mapping/abstract-ratio-to-sia416.mapping.ttl` |
 | [qto_buccaneer to abstract building metrics mapping](mapping-qto-buccaneer-to-metric.md) | `mapping/qto-buccaneer-to-abstract-metric.mapping.ttl` |
 | [qto_buccaneer to abstract building ratios mapping](mapping-qto-buccaneer-to-ratio.md) | `mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl` |
+| [Abstract covering products to material mapping](mapping-covering-products-to-material.md) | `mapping/abstract-covering-products-to-material.mapping.ttl` |
+| [Abstract covering products to BKP mapping](mapping-covering-products-to-bkp.md) | `mapping/abstract-covering-products-to-bkp.mapping.ttl` |
+| [Abstract separator products to material mapping](mapping-separator-products-to-material.md) | `mapping/abstract-separator-products-to-material.mapping.ttl` |
+| [Abstract separator products to BKP mapping](mapping-separator-products-to-bkp.md) | `mapping/abstract-separator-products-to-bkp.mapping.ttl` |
+| [Abstract connector products to material mapping](mapping-connector-products-to-material.md) | `mapping/abstract-connector-products-to-material.mapping.ttl` |
+| [Abstract connector products to BKP mapping](mapping-connector-products-to-bkp.md) | `mapping/abstract-connector-products-to-bkp.mapping.ttl` |

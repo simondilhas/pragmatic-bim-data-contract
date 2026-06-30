@@ -15,7 +15,6 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 | Source | Relation | Targets |
 | --- | --- | --- |
-| `rn:RN-CIR-AIS` | `mapsToActivity` | `abs:S-CIR-HOR` |
 | `rn:RN-CIR-COR` | `mapsToActivity` | `abs:S-CIR-HOR` |
 | `rn:RN-CIR-ELV` | `mapsToActivity` | `abs:S-CIR-VRT-MEC` |
 | `rn:RN-CIR-ENT` | `mapsToActivity` | `abs:S-CIR-HOR` |

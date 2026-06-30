@@ -1,5 +1,7 @@
 site_name: Pragmatic BIM Data Contract
 site_url: https://schema.pragmaticbim.ch/
+repo_url: https://github.com/simondilhas/pragmatic-bim-data-contract
+repo_name: simondilhas/pragmatic-bim-data-contract
 use_directory_urls: false
 
 extra_css:
@@ -9,12 +11,18 @@ extra_javascript:
   - https://unpkg.com/mermaid@11/dist/mermaid.min.js
   - javascripts/mermaid-init.js
   - javascripts/classification-lang-switch.js
+  - javascripts/version-selector.js
+
+extra:
+  generator: false
 
 docs_dir: site/.md-src
 site_dir: site/.html-build
 
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
   palette:
     - scheme: default
       primary: custom

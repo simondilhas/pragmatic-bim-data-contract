@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import subprocess
@@ -37,6 +38,15 @@ MERMAID_INIT_JAVASCRIPT = (
     / "javascripts"
     / "mermaid-init.js"
 )
+VERSION_SELECTOR_JAVASCRIPT = (
+    REPO_ROOT
+    / "docs-assets"
+    / "material"
+    / "assets"
+    / "javascripts"
+    / "version-selector.js"
+)
+GITHUB_REPO = "https://github.com/simondilhas/pragmatic-bim-data-contract"
 
 SITE_ROOT_PRESERVE = {
     ".md-src",
@@ -86,14 +96,54 @@ def run_linkml_artifacts(schema_root: Path, out_dir: Path) -> None:
     write_cmd_output("pragmatic-bim.pydantic.py", [pydantic_cmd, str(schema_root)])
 
 
-def render_root_index_markdown() -> str:
-    return """# Pragmatic BIM Data Contract
+def resolve_release_version(site_dir: Path) -> str:
+    env_version = os.environ.get("RELEASE_VERSION")
+    if env_version:
+        return env_version
+
+    versions_file = site_dir / "versions.json"
+    if versions_file.is_file():
+        try:
+            data = json.loads(versions_file.read_text(encoding="utf-8"))
+            latest = data.get("latest")
+            if isinstance(latest, str) and latest:
+                return latest
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    result = subprocess.run(
+        ["git", "tag", "-l", "v*", "--sort=-v:refname"],
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+    )
+    if result.returncode == 0:
+        tags = [tag for tag in result.stdout.splitlines() if tag.strip()]
+        if tags:
+            return tags[0]
+    return "dev"
+
+
+def render_root_index_markdown(version: str) -> str:
+    version_label = version if version != "dev" else "development"
+    version_href = (
+        f"{GITHUB_REPO}/releases/tag/{version}"
+        if version != "dev"
+        else GITHUB_REPO
+    )
+    return f"""# Pragmatic BIM Data Contract
 
 A pragmatic, graph-first LinkML data contract for BIM integration, querying, costing, and analysis workflows.
 
-URI: https://schema.pragmaticbim.ch
+<div class="pbs-doc-meta" markdown="1">
 
-Repository: [github.com/simondilhas/pragmatic-bim-data-contract](https://github.com/simondilhas/pragmatic-bim-data-contract)
+| | |
+|---|---|
+| **Schema URI** | [schema.pragmaticbim.ch](https://schema.pragmaticbim.ch/) |
+| **Version** | [{version_label}]({version_href}) |
+| **Source** | [github.com/simondilhas/pragmatic-bim-data-contract]({GITHUB_REPO}) |
+
+</div>
 
 ## Why this exists
 
@@ -223,13 +273,37 @@ Without having to:
 
 - [iterthink](https://www.iterthink.com/)
 - [abstractBIM](https://www.abstractbim.com/)
-- [{yourcompany}os](https://yourcompanyos.io/)
+- [{{yourcompany}}os](https://yourcompanyos.io/)
 
 ## Getting started
 
 1. Browse the [Schema](schema/pragmatic-bim.docs.md) reference and download artifacts (JSON Schema, SHACL, CSV, Pydantic).
 2. Read [Mappings to IFC](mapping/index.md) for declarative ingestion from IFC.
 3. Explore [Classifications](classification/index.md) for SKOS vocabularies and mapping bridges.
+
+## Governance
+
+This contract is maintained by the Pragmatic BIM team. It is not governed by a formal standards body.
+
+| | |
+|---|---|
+| **Maintainer** | Pragmatic BIM maintainers ([GitHub]({GITHUB_REPO})) |
+| **Change process** | [GitHub issues]({GITHUB_REPO}/issues) for proposals; focused pull requests for changes |
+| **Release cadence** | Semantic version tags (`v*`) publish schema releases to [schema.pragmaticbim.ch](https://schema.pragmaticbim.ch/) |
+
+**How to participate**
+
+- **Proposals:** Open a [GitHub issue]({GITHUB_REPO}/issues) — bugs, gaps, new entities, classification requests.
+- **Contributions:** Pull requests welcome; keep changes focused and include documentation updates.
+- **Classifications:** Abstract vocabularies live in [pragmatic-bim-public-rules](https://github.com/simondilhas/pragmatic-bim-public-rules); project-specific schemes live in this repository.
+
+**Versioning**
+
+- Releases are tagged `vMAJOR.MINOR.PATCH` on GitHub.
+- Each tag publishes versioned snapshots at `schema.pragmaticbim.ch/<version>/` (for example `/v0.0.7/`).
+- Breaking schema changes bump the major or minor version; patch releases are fixes and non-breaking additions.
+
+There is no separate steering committee or public RFC process at this stage. Input via GitHub issues is the primary channel for community feedback.
 """
 
 
@@ -241,8 +315,8 @@ def write_mapping_index(md_src: Path) -> None:
     shutil.copy2(MAPPING_README, mapping_dir / "index.md")
 
 
-def write_root_index(md_src: Path) -> None:
-    (md_src / "index.md").write_text(render_root_index_markdown(), encoding="utf-8")
+def write_root_index(md_src: Path, *, version: str) -> None:
+    (md_src / "index.md").write_text(render_root_index_markdown(version), encoding="utf-8")
 
 
 def stage_brand_assets(md_src: Path) -> None:
@@ -254,6 +328,7 @@ def stage_brand_assets(md_src: Path) -> None:
     javascript_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(BRAND_JAVASCRIPT, javascript_dir / "classification-lang-switch.js")
     shutil.copy2(MERMAID_INIT_JAVASCRIPT, javascript_dir / "mermaid-init.js")
+    shutil.copy2(VERSION_SELECTOR_JAVASCRIPT, javascript_dir / "version-selector.js")
 
 
 def publish_schema_markdown(md_src: Path, site_schema_dir: Path) -> None:
@@ -358,7 +433,7 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
         cwd=REPO_ROOT,
     )
 
-    write_root_index(md_src)
+    write_root_index(md_src, version=resolve_release_version(site_dir))
     write_mapping_index(md_src)
     stage_brand_assets(md_src)
     run_mkdocs_build(html_build=html_build)
