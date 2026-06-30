@@ -28,6 +28,8 @@ URI: [pbs:QuantityType](https://schema.pragmaticbim.ch/QuantityType)
 | width | ifcowl:IfcQuantityLength | Width dimension of an element, opening, or space proxy. |
 | height | ifcowl:IfcQuantityLength | Height dimension of an element, opening, or space proxy. |
 | perimeter | ifcowl:IfcQuantityLength | Boundary length around a 2D shape or footprint. |
+| count | pbs:quantity_type_count | Discrete count of items, storeys, or occurrences. |
+| ratio | pbs:quantity_type_ratio | Dimensionless quotient of two measured quantities. |
 
 
 
@@ -115,6 +117,14 @@ permissible_values:
     text: perimeter
     description: Boundary length around a 2D shape or footprint.
     meaning: ifcowl:IfcQuantityLength
+  count:
+    text: count
+    description: Discrete count of items, storeys, or occurrences.
+    meaning: pbs:quantity_type_count
+  ratio:
+    text: ratio
+    description: Dimensionless quotient of two measured quantities.
+    meaning: pbs:quantity_type_ratio
 
 ```
 </details>

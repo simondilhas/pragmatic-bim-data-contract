@@ -48,6 +48,9 @@ click QuantityType href "./QuantityType.html" _blank
 | [quantity_value](quantity_value.md) | 1 <br/> [Double](Double.md) | Numeric quantity value. | direct |
 | [quantity_unit](quantity_unit.md) | 1 <br/> [String](String.md) | Unit of the quantity value. | direct |
 | [quantity_unit_uri](quantity_unit_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Optional URI that identifies the quantity unit in an external vocabulary such as QUDT. | direct |
+| [metric_scheme](metric_scheme.md) | 0..1 <br/> [String](String.md) | Vocabulary scheme identifier for the measured concept: AbstractBuildingMetric or AbstractBuildingRatio. | direct |
+| [metric_code](metric_code.md) | 0..1 <br/> [String](String.md) | skos:notation of the concept in the matching abstract metric or ratio scheme. | direct |
+| [metric_uri](metric_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Concept URI from building-metrics.skos.ttl or building-ratios.skos.ttl. | direct |
 
 
 
@@ -157,6 +160,9 @@ slots:
 - quantity_value
 - quantity_unit
 - quantity_unit_uri
+- metric_scheme
+- metric_code
+- metric_uri
 class_uri: pbs:QuantityValue
 
 ```
@@ -205,6 +211,35 @@ attributes:
     name: quantity_unit_uri
     description: Optional URI that identifies the quantity unit in an external vocabulary
       such as QUDT.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: QuantityValue
+    domain_of:
+    - QuantityValue
+    range: uriorcurie
+  metric_scheme:
+    name: metric_scheme
+    description: 'Vocabulary scheme identifier for the measured concept: AbstractBuildingMetric
+      or AbstractBuildingRatio.'
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: QuantityValue
+    domain_of:
+    - QuantityValue
+    range: string
+  metric_code:
+    name: metric_code
+    description: skos:notation of the concept in the matching abstract metric or ratio
+      scheme.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: QuantityValue
+    domain_of:
+    - QuantityValue
+    range: string
+  metric_uri:
+    name: metric_uri
+    description: Concept URI from building-metrics.skos.ttl or building-ratios.skos.ttl.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: QuantityValue

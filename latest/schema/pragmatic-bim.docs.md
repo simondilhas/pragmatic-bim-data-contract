@@ -229,6 +229,9 @@ Name: pragmatic_bim_data_contract
 | [metadata](metadata.md) | Generic metadata container for IFC attributes/properties and project-specific extensions. |
 | [metadata_key](metadata_key.md) | Metadata key, for example IfcWall.FireRating or Pset_WallCommon.Reference. |
 | [metadata_value](metadata_value.md) | Metadata value serialized as text. |
+| [metric_code](metric_code.md) | skos:notation of the concept in the matching abstract metric or ratio scheme. |
+| [metric_scheme](metric_scheme.md) | Vocabulary scheme identifier for the measured concept: AbstractBuildingMetric or AbstractBuildingRatio. |
+| [metric_uri](metric_uri.md) | Concept URI from building-metrics.skos.ttl or building-ratios.skos.ttl. |
 | [milestone_at](milestone_at.md) | Target timestamp for a zero-duration milestone checkpoint. |
 | [min_area](min_area.md) | Minimum required area in square metres. |
 | [min_clear_distance](min_clear_distance.md) | Minimum clear distance in metres when adjacency_kind is min_clear_distance. |
