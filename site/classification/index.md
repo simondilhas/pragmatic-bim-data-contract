@@ -17,6 +17,8 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Document function classification](document-function.md) | `abstract-document-function/document-function.skos.ttl` |
 | [Abstract use case classification](usecase.md) | `abstract-usecase-classification/usecase-classification.skos.ttl` |
 | [Abstract material classification](material.md) | `abstract-material-classification/material-classification.skos.ttl` |
+| [Abstract building metrics](building-metric.md) | `abstract-metric-definition/building-metrics.skos.ttl` |
+| [Abstract building ratios](building-ratio.md) | `abstract-ratio-definition/building-ratios.skos.ttl` |
 
 ## Mappings
 
@@ -31,3 +33,10 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract roles to BKP mapping](mapping-roles-to-bkp.md) | `mapping/abstract-roles-to-bkp.mapping.ttl` |
 | [Abstract material to Uniclass Ma mapping](mapping-material-to-uniclass-ma.md) | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` |
 | [KBOB document types to document function mapping](mapping-kbob-document-types-to-document-function.md) | `mapping/kbob-document-types-to-document-function.mapping.ttl` |
+| [Abstract building metrics to SIA 416 mapping](mapping-metric-to-sia416.md) | `mapping/abstract-metric-to-sia416.mapping.ttl` |
+| [Abstract building metrics to DIN 277 mapping](mapping-metric-to-din277.md) | `mapping/abstract-metric-to-din277.mapping.ttl` |
+| [Abstract building metrics to ISO 9836 mapping](mapping-metric-to-iso9836.md) | `mapping/abstract-metric-to-iso9836.mapping.ttl` |
+| [Abstract building metrics to RICS IPMS mapping](mapping-metric-to-rics-ipms.md) | `mapping/abstract-metric-to-rics-ipms.mapping.ttl` |
+| [Abstract building ratios to SIA 416 mapping](mapping-ratio-to-sia416.md) | `mapping/abstract-ratio-to-sia416.mapping.ttl` |
+| [qto_buccaneer to abstract building metrics mapping](mapping-qto-buccaneer-to-metric.md) | `mapping/qto-buccaneer-to-abstract-metric.mapping.ttl` |
+| [qto_buccaneer to abstract building ratios mapping](mapping-qto-buccaneer-to-ratio.md) | `mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl` |

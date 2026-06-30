@@ -15,10 +15,14 @@ SKOS vocabularies, mapping bridges, and reference diagrams for the data contract
 classification/
 ├── abstract-room-classification/       # SKOS + JSON — space activity (area) vocabulary
 ├── abstract-room-name-classification/  # SKOS — normalized room name types
+├── abstract-metric-definition/         # SKOS — building-level area, volume, count metrics
+├── abstract-ratio-definition/          # SKOS — dimensionless building KPIs
 ├── abstract-separator-classification/  # SKOS
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
 ├── abstract-material-classification/   # SKOS
+├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling covering products
+├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
 ├── abstract-usecase-classification/    # SKOS — project lifecycle use cases
 └── mapping/                            # bridge TTL files
 ```
@@ -27,10 +31,14 @@ classification/
 |------|------|
 | `abstract-room-classification/` | Building space and activity vocabulary |
 | `abstract-room-name-classification/` | Normalized abstract room name types |
+| `abstract-metric-definition/` | Building-level area, volume, and count metrics |
+| `abstract-ratio-definition/` | Dimensionless building KPIs (quotients of metrics) |
 | `abstract-separator-classification/` | Wall/slab separator roles and connection types |
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
 | `abstract-material-classification/` | Abstract material categories |
+| `abstract-covering-product-classification/` | Floor, wall, and ceiling covering product types |
+| `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
 | `abstract-usecase-classification/` | Project lifecycle use cases (ordering, design, QA, construction, handover, operation, deconstruction) |
 | `mapping/` | Crosswalks from abstract concepts to external code lists (SIA, D0165, BKP, …) |
 
@@ -46,6 +54,17 @@ classification/
 | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` | armasuisse Raumliste → abstract room names |
 | `mapping/abstract-roles-to-bkp.mapping.ttl` | Workflow roles → BKP cost lines |
 | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` | Abstract material → Uniclass Ma |
+| `mapping/abstract-metric-to-sia416.mapping.ttl` | Abstract building metrics → SIA 416 |
+| `mapping/abstract-metric-to-din277.mapping.ttl` | Abstract building metrics → DIN 277 |
+| `mapping/abstract-metric-to-iso9836.mapping.ttl` | Abstract building metrics → ISO 9836 |
+| `mapping/abstract-metric-to-rics-ipms.mapping.ttl` | Abstract building metrics → RICS IPMS |
+| `mapping/abstract-ratio-to-sia416.mapping.ttl` | Abstract building ratios → SIA 416 quotients |
+| `mapping/qto-buccaneer-to-abstract-metric.mapping.ttl` | qto_buccaneer metric keys → abstract metrics (guideline) |
+| `mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl` | qto_buccaneer ratio keys → abstract ratios (guideline) |
+| `mapping/abstract-covering-products-to-material.mapping.ttl` | Abstract covering products → dominant material classes |
+| `mapping/abstract-covering-products-to-bkp.mapping.ttl` | Abstract covering products → BKP 281/282/283 cost lines |
+| `mapping/abstract-separator-products-to-material.mapping.ttl` | Abstract separator products → dominant material classes |
+| `mapping/abstract-separator-products-to-bkp.mapping.ttl` | Abstract separator products → BKP 211–215 / 277 cost lines |
 
 Bridge files reference external IRIs by code. Full proprietary vocabularies are not shipped in this repository.
 

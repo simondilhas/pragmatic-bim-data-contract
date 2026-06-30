@@ -1,0 +1,53 @@
+@prefix swp: <https://example.org/abstract/wall-separator-product/> .
+@prefix ssp: <https://example.org/abstract/slab-separator-product/> .
+@prefix bkp: <https://example.org/ch/bkp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractSeparatorProductsToBkpMapping a dcterms:Dataset ;
+  dcterms:title "Abstract separator products to BKP mapping"@en ;
+  dcterms:title "Mapping abstrakter Trennelementprodukte nach BKP"@de ;
+  dcterms:references swp:scheme, ssp:scheme, bkp:scheme ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:description "Maps abstract separator product concepts to BKP Rohbau 1 cost lines (211 Baumeisterarbeiten through 215 Leichtkonstruktionen; 277 Elementwaende for drywall partitions). Full BKP vocabulary is external; only referenced IRIs are used."@en ;
+  dcterms:description "Ordnet abstrakte Trennelementprodukte BKP-Rohbau-1-Positionen zu (211 Baumeisterarbeiten bis 215 Leichtkonstruktionen; 277 Elementwaende fuer Trockenbau-Trennwaende). Vollstaendiges BKP-Vokabular extern."@de .
+
+# --- Wall separator products (BKP 211–215, 277) ---
+
+swp:SWP-ORTBETON skos:closeMatch bkp:211 .
+
+swp:SWP-MASONRY skos:closeMatch bkp:211 .
+
+swp:SWP-RAMMED-EARTH skos:closeMatch bkp:211 .
+
+swp:SWP-BLT skos:closeMatch bkp:212 .
+
+swp:SWP-PREFAB-CONC skos:closeMatch bkp:212 .
+
+swp:SWP-STEEL skos:closeMatch bkp:213 .
+
+swp:SWP-TIMBER skos:closeMatch bkp:214 .
+
+swp:SWP-LEICHTBAU skos:closeMatch bkp:215 .
+
+swp:SWP-CURTAIN-WALL skos:closeMatch bkp:215 .
+
+swp:SWP-ELEMENT-WALL skos:closeMatch bkp:277 .
+
+# --- Slab separator products (BKP 211–215) ---
+
+ssp:SSP-INSITU skos:closeMatch bkp:211 .
+
+ssp:SSP-PREFAB-CONC skos:closeMatch bkp:212 .
+
+ssp:SSP-STEEL-COMPOSITE skos:closeMatch bkp:213 .
+
+ssp:SSP-TIMBER skos:closeMatch bkp:214 .
+
+ssp:SSP-HBV skos:closeMatch bkp:214 ;
+  skos:relatedMatch bkp:211 .
+
+ssp:SSP-HOLZ-LEHM skos:closeMatch bkp:214 .
+
+ssp:SSP-LIGHTWEIGHT skos:closeMatch bkp:215 .

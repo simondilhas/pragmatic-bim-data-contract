@@ -1,0 +1,164 @@
+@prefix : <https://example.org/abstract/floor-covering-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract floor covering products"@en ;
+  skos:prefLabel "Abstrakte Bodenbelagsprodukte"@de ;
+  dcterms:title "Abstract floor covering products"@en ;
+  dcterms:identifier "AbstractFloorCoveringProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for installed floor coverings and related floor finish systems. For catalog, specification, and cost workflows; pair with abstract material classification for dominant substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer eingebaute Bodenbelaege und zugehoerige Bodenaufbauten. Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer dominante Substanz kombinieren."@de ;
+  skos:scopeNote "Default PBS entity is Boundary with boundary_type flooring (IfcCovering FLOORING). Tags product or system type, not dominant substance alone."@en ;
+  skos:scopeNote "Standard-PBS-Entitaet ist Boundary mit boundary_type flooring (IfcCovering FLOORING). Kennzeichnet Produkt- oder Systemtyp, nicht allein dominante Substanz."@de ;
+  skos:hasTopConcept
+    :FCP-SUBFLOOR,
+    :FCP-SEAMLESS-RESIN,
+    :FCP-CARPET,
+    :FCP-LVT,
+    :FCP-LINOLIUM,
+    :FCP-NATURAL-STONE,
+    :FCP-ARTIFICIAL-STONE,
+    :FCP-CERAMIC-TILE,
+    :FCP-PARQUET,
+    :FCP-LAMINATE,
+    :FCP-RAISED-FLOOR,
+    :FCP-OTH .
+
+:FCP-SUBFLOOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-SUBFLOOR" ;
+  skos:prefLabel "Subfloor / leveling layer"@en ;
+  skos:prefLabel "Unterlagsboden / Ausgleichsschicht"@de ;
+  skos:definition "Subfloor preparation or leveling screed layer beneath the visible floor finish."@en ;
+  skos:definition "Unterlagsvorbereitung oder Ausgleichsestrich unter dem sichtbaren Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "subfloor" .
+
+:FCP-SEAMLESS-RESIN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-SEAMLESS-RESIN" ;
+  skos:prefLabel "Seamless resin floor"@en ;
+  skos:prefLabel "Fugenloser Kunstharzboden"@de ;
+  skos:definition "Poured or troweled seamless resin, epoxy, or polyurethane floor finish."@en ;
+  skos:definition "Gegossener oder gezogener fugenloser Kunstharz-, Epoxid- oder Polyurethan-Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "seamless-resin-floor" .
+
+:FCP-CARPET a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-CARPET" ;
+  skos:prefLabel "Textile carpet"@en ;
+  skos:prefLabel "Textiler Teppichbelag"@de ;
+  skos:definition "Installed textile carpet, carpet tile, or broadloom floor covering."@en ;
+  skos:definition "Eingebauter textiler Teppich, Teppichplatte oder Bahnenware als Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "carpet" .
+
+:FCP-LVT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-LVT" ;
+  skos:prefLabel "Vinyl / LVT floor"@en ;
+  skos:prefLabel "Vinyl- / LVT-Bodenbelag"@de ;
+  skos:definition "Vinyl sheet, luxury vinyl tile (LVT), or PVC-based resilient floor covering."@en ;
+  skos:definition "Vinylbahnen, Luxury-Vinyl-Fliesen (LVT) oder PVC-basierter elastischer Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "lvt" .
+
+:FCP-LINOLIUM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-LINOLIUM" ;
+  skos:prefLabel "Linoleum"@en ;
+  skos:prefLabel "Linoleum"@de ;
+  skos:definition "Linoleum or linoleum-composite resilient floor covering."@en ;
+  skos:definition "Linoleum oder Linoleum-Verbund als elastischer Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "linoleum" .
+
+:FCP-NATURAL-STONE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-NATURAL-STONE" ;
+  skos:prefLabel "Natural stone flooring"@en ;
+  skos:prefLabel "Naturstein-Bodenbelag"@de ;
+  skos:definition "Installed natural stone slab, tile, or flag floor finish."@en ;
+  skos:definition "Eingebauter Naturstein als Platte, Fliese oder Plattenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "natural-stone-floor" .
+
+:FCP-ARTIFICIAL-STONE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-ARTIFICIAL-STONE" ;
+  skos:prefLabel "Artificial stone flooring"@en ;
+  skos:prefLabel "Kunststein-Bodenbelag"@de ;
+  skos:definition "Installed artificial or agglomerate stone floor finish."@en ;
+  skos:definition "Eingebauter Kunst- oder Agglomeratstein als Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "artificial-stone-floor" .
+
+:FCP-CERAMIC-TILE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-CERAMIC-TILE" ;
+  skos:prefLabel "Ceramic / porcelain tile floor"@en ;
+  skos:prefLabel "Keramik- / Feinsteinzeug-Bodenbelag"@de ;
+  skos:definition "Installed ceramic, porcelain, or stoneware tile floor finish."@en ;
+  skos:definition "Eingebauter Keramik-, Feinsteinzeug- oder Steingutfliesen-Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "ceramic-tile-floor" .
+
+:FCP-PARQUET a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-PARQUET" ;
+  skos:prefLabel "Parquet / engineered wood floor"@en ;
+  skos:prefLabel "Parkett / Mehrschicht-Holzboden"@de ;
+  skos:definition "Solid parquet, engineered wood, or wood-strip floor finish."@en ;
+  skos:definition "Massivparkett, Mehrschicht-Holzboden oder Stabholz als Bodenbelag."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "parquet" .
+
+:FCP-LAMINATE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-LAMINATE" ;
+  skos:prefLabel "Laminate flooring"@en ;
+  skos:prefLabel "Laminatboden"@de ;
+  skos:definition "Laminate floor board with decorative surface layer."@en ;
+  skos:definition "Laminatboden mit dekorativer Deckschicht."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "laminate-floor" .
+
+:FCP-RAISED-FLOOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-RAISED-FLOOR" ;
+  skos:prefLabel "Raised / access floor"@en ;
+  skos:prefLabel "Doppelboden / Hohlraumboden"@de ;
+  skos:definition "Raised access floor system with pedestals and removable panels."@en ;
+  skos:definition "Hohlraumboden- oder Doppelbodensystem mit Stuetzen und abnehmbaren Paneelen."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "raised-floor" .
+
+:FCP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FCP-OTH" ;
+  skos:prefLabel "Other / unknown floor covering"@en ;
+  skos:prefLabel "Sonstiger / unbekannter Bodenbelag"@de ;
+  skos:definition "Floor covering product not classified or not yet known."@en ;
+  skos:definition "Bodenbelagsprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "other" .

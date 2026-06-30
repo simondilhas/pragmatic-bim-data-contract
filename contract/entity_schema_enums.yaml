@@ -237,6 +237,12 @@ enums:
       perimeter:
         description: Boundary length around a 2D shape or footprint.
         meaning: ifcowl:IfcQuantityLength
+      count:
+        description: Discrete count of items, storeys, or occurrences.
+        meaning: pbs:quantity_type_count
+      ratio:
+        description: Dimensionless quotient of two measured quantities.
+        meaning: pbs:quantity_type_ratio
   StatusType:
     enum_uri: pbs:StatusType
     description: Lifecycle or QA gate status used for model progression and approvals.

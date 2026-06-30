@@ -131,6 +131,9 @@ classes:
     - quantity_value
     - quantity_unit
     - quantity_unit_uri
+    - metric_scheme
+    - metric_code
+    - metric_uri
   MetadataEntry:
     class_uri: pbs:MetadataEntry
     description: Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data.
@@ -728,6 +731,16 @@ slots:
   quantity_unit_uri:
     range: uriorcurie
     description: Optional URI that identifies the quantity unit in an external vocabulary such as QUDT.
+  metric_scheme:
+    range: string
+    description: >-
+      Vocabulary scheme identifier for the measured concept: AbstractBuildingMetric or AbstractBuildingRatio.
+  metric_code:
+    range: string
+    description: skos:notation of the concept in the matching abstract metric or ratio scheme.
+  metric_uri:
+    range: uriorcurie
+    description: Concept URI from building-metrics.skos.ttl or building-ratios.skos.ttl.
   metadata_key:
     range: string
     required: true

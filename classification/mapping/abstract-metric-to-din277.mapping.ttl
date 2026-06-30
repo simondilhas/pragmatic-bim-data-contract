@@ -1,0 +1,16 @@
+@prefix met: <https://example.org/abstract/building-metric-definition/> .
+@prefix din277: <https://example.org/din/277/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/mapping/> .
+
+ex:abstractMetricToDin277Mapping a dcterms:Dataset ;
+  dcterms:title "Abstract building metrics to DIN 277 mapping"@en ;
+  dcterms:references met:scheme, din277:scheme ;
+  dcterms:description "Close match between abstract building metrics and DIN 277 floor area and volume codes."@en .
+
+met:total_gross_floor_area skos:closeMatch din277:BGF .
+met:total_net_floor_area skos:closeMatch din277:NRF .
+met:total_construction_floor_area skos:closeMatch din277:KGF .
+met:total_gross_building_volume skos:closeMatch din277:BRI .
+met:total_net_building_volume skos:closeMatch din277:NRI .

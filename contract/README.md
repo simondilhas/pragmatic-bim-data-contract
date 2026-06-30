@@ -60,6 +60,7 @@ Business scope hierarchy: `Program` (`content_kind: program`) groups `Project` r
 
 - Entity-to-entity relationships are modeled as ID references (`inlined: false`).
 - Value objects that belong inside a record are embedded (`inlined: true`).
+- Building metric and ratio results link to SKOS vocabularies via `QuantityValue.metric_scheme`, `metric_code`, and `metric_uri` (`AbstractBuildingMetric` or `AbstractBuildingRatio`). See [`classification/abstract-metric-definition/`](../classification/abstract-metric-definition/) and [`classification/abstract-ratio-definition/`](../classification/abstract-ratio-definition/).
 - `cost_category` and `material_category` are intentionally open text for now and can later be aligned with stronger classification systems.
 - Units can be carried as plain strings for operational compatibility and optionally accompanied by unit URIs (for example QUDT) for stronger semantic alignment.
 
