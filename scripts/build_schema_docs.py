@@ -68,7 +68,7 @@ def generate_schema_markdown(
 def collect_doc_tree(root: Path) -> list[Path]:
     if not root.exists():
         return []
-    return sorted(p for p in root.rglob("*") if p.is_file())
+    return sorted(p for p in root.rglob("*.md") if p.is_file())
 
 
 def compare_doc_trees(expected_dir: Path, actual_dir: Path) -> list[str]:

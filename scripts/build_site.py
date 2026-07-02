@@ -335,16 +335,6 @@ def write_root_index(md_src: Path, *, version: str) -> None:
     (md_src / "index.md").write_text(render_root_index_markdown(version), encoding="utf-8")
 
 
-def stage_linkml_artifacts(md_src_dir: Path, artifact_dir: Path, *, artifacts: set[str]) -> None:
-    md_src_dir.mkdir(parents=True, exist_ok=True)
-    for name in artifacts:
-        if not name.endswith((".ttl", ".json", ".csv", ".py")):
-            continue
-        src = artifact_dir / name
-        if src.is_file():
-            shutil.copy2(src, md_src_dir / name)
-
-
 def stage_brand_assets(md_src: Path) -> None:
     stylesheet_dir = md_src / "stylesheets"
     stylesheet_dir.mkdir(parents=True, exist_ok=True)
@@ -480,12 +470,10 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
     write_root_index(md_src, version=resolve_release_version(site_dir))
     write_mapping_index(md_src)
     stage_brand_assets(md_src)
-    run_linkml_artifacts(schema_root, schema_out)
-    run_linkml_artifacts(cost_schema_root, cost_out, prefix="baseline-cost")
-    stage_linkml_artifacts(md_src / "schema", schema_out, artifacts=SCHEMA_ARTIFACTS)
-    stage_linkml_artifacts(md_src / "cost", cost_out, artifacts=COST_SCHEMA_ARTIFACTS)
     run_mkdocs_build(html_build=html_build)
     merge_html_build(html_build, site_dir)
+    run_linkml_artifacts(schema_root, schema_out)
+    run_linkml_artifacts(cost_schema_root, cost_out, prefix="baseline-cost")
     publish_schema_markdown(md_src / "schema", schema_out)
     publish_schema_markdown(md_src / "cost", cost_out)
     publish_classification_markdown(md_src / "classification", classification_out)
