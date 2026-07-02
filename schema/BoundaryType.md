@@ -21,6 +21,7 @@ URI: [pbs:BoundaryType](https://schema.pragmaticbim.ch/BoundaryType)
 | flooring | ifcowl:IfcCoveringTypeEnum.FLOORING |  | Title: Flooring<br>|
 | ceiling | ifcowl:IfcCoveringTypeEnum.CEILING |  | Title: Ceiling<br>|
 | cladding | ifcowl:IfcCoveringTypeEnum.CLADDING |  | Title: Cladding<br>|
+| roofing | ifcowl:IfcCoveringTypeEnum.ROOFING |  | Title: Roofing<br>|
 
 
 
@@ -89,6 +90,14 @@ permissible_values:
         source: de
         description: Verkleidung
     title: Cladding
+  roofing:
+    text: roofing
+    meaning: ifcowl:IfcCoveringTypeEnum.ROOFING
+    alt_descriptions:
+      de:
+        source: de
+        description: Dachbekleidung
+    title: Roofing
 
 ```
 </details>

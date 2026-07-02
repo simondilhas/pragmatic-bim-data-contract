@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <h1 id="class-task">Class: Task</h1>
+<p><em>Action/task record linked to an entity for implementation and follow-up workflows.</em></p>
+<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/Task">pbs:Task</a></p>
+<div class="mermaid">
+ classDiagram
+    class Task
+    click Task href "./Task.html"
+      Task : assignee
+        Task --> "0..1" Agent : assignee
+        click Agent href "./Agent.html"
+      Task : due_at
+      Task : related_decision
+        Task --> "0..1" Decision : related_decision
+        click Decision href "./Decision.html"
+      Task : task_notes
+      Task : task_status
+      Task : task_type
+
+</div>
+<!-- no inheritance hierarchy -->
+
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://example.org/pragmatic-bim-data-contract/Task">pbs:Task</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="task_type.html">task_type</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Task type expressed as a URI/CURIE from a controlled vocabulary</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="task_status.html">task_status</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Task status URI/CURIE aligned with action status vocabularies</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="assignee.html">assignee</a></td>
+<td>0..1 <br/> <a href="Agent.html">Agent</a></td>
+<td>Responsible agent</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="due_at.html">due_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Due timestamp for task completion</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="related_decision.html">related_decision</a></td>
+<td>0..1 <br/> <a href="Decision.html">Decision</a></td>
+<td>Optional reference to a decision that informs or drives this task</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="task_notes.html">task_notes</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Additional notes or implementation details for the task</td>
+<td>direct</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Entity.html">Entity</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Agent.html">Agent</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Person.html">Person</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Company.html">Company</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Message.html">Message</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="PhysicalElement.html">PhysicalElement</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Separator.html">Separator</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorWall.html">SeparatorWall</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="SeparatorSlab.html">SeparatorSlab</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionPhysical.html">ConnectionPhysical</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Boundary.html">Boundary</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Equipment.html">Equipment</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="SpatialContext.html">SpatialContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ProjectContext.html">ProjectContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="PerimeterContext.html">PerimeterContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="LegalSiteContext.html">LegalSiteContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="BuiltAssetContext.html">BuiltAssetContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="BuildingContext.html">BuildingContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="CivilStructureContext.html">CivilStructureContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="LevelContext.html">LevelContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ZoneContext.html">ZoneContext</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Space.html">Space</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="System.html">System</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="ConnectionVirtual.html">ConnectionVirtual</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="AbstractCostRecord.html">AbstractCostRecord</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="CostItem.html">CostItem</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="CostAssembly.html">CostAssembly</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+<tr>
+<td><a href="Material.html">Material</a></td>
+<td><a href="tasks.html">tasks</a></td>
+<td>range</td>
+<td><a href="Task.html">Task</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:Task</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:Task</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>schema:Action, prov:Activity</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
+<details>
+
+<pre><code class="language-yaml">name: Task
+description: Action/task record linked to an entity for implementation and follow-up
+  workflows.
+from_schema: https://example.org/pragmatic-bim-data-contract
+exact_mappings:
+- schema:Action
+- prov:Activity
+slots:
+- task_type
+- task_status
+- assignee
+- due_at
+- related_decision
+- task_notes
+class_uri: pbs:Task
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: Task
+description: Action/task record linked to an entity for implementation and follow-up
+  workflows.
+from_schema: https://example.org/pragmatic-bim-data-contract
+exact_mappings:
+- schema:Action
+- prov:Activity
+attributes:
+  task_type:
+    name: task_type
+    description: Task type expressed as a URI/CURIE from a controlled vocabulary.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    slot_uri: dcterms:type
+    alias: task_type
+    owner: Task
+    domain_of:
+    - Task
+    range: uriorcurie
+  task_status:
+    name: task_status
+    description: Task status URI/CURIE aligned with action status vocabularies.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    slot_uri: schema:actionStatus
+    alias: task_status
+    owner: Task
+    domain_of:
+    - Task
+    range: uriorcurie
+  assignee:
+    name: assignee
+    description: Responsible agent.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    slot_uri: schema:agent
+    alias: assignee
+    owner: Task
+    domain_of:
+    - Task
+    range: Agent
+    inlined: false
+  due_at:
+    name: due_at
+    description: Due timestamp for task completion.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    slot_uri: schema:deadline
+    alias: due_at
+    owner: Task
+    domain_of:
+    - Task
+    range: datetime
+  related_decision:
+    name: related_decision
+    description: Optional reference to a decision that informs or drives this task.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    slot_uri: prov:used
+    alias: related_decision
+    owner: Task
+    domain_of:
+    - Task
+    range: Decision
+  task_notes:
+    name: task_notes
+    description: Additional notes or implementation details for the task.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    slot_uri: rdfs:comment
+    alias: task_notes
+    owner: Task
+    domain_of:
+    - Task
+    range: string
+class_uri: pbs:Task
+
+</code></pre>
+
+</details>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

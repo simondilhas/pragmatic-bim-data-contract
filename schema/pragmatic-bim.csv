@@ -1,0 +1,71 @@
+id,mappings,description
+AcousticProperty,,Normalized acoustic-related property.
+AdditionChange,,New entity introduced in to_revision.
+Agent,,Abstract base class for human and software actors in workflow and communication roles.
+Artifact,,"External project artifact (text document, model, or plan) at storage_link. Used for provenance (Requirement.source_artifact). Not a modeled building element."
+Boundary,,Physical element acting as a boundary treatment (for example covering).
+BriefRequirement,,"Client or programme requirement, including free-standing brief items."
+BuildingContext,,Spatial context node constrained to building semantics.
+BuiltAssetContext,,Abstract spatial context for built assets such as buildings and civil structures.
+Change,,Audit record observing the project graph moving between revisions. Not an Entity and not a graph node — it watches the graph. Use change_type together with the concrete subclass for interpretation.
+CivilStructureContext,,Spatial context node constrained to civil structure semantics.
+Classification,,"Generic classification entry from any scheme (for example IFC, Uniclass, OmniClass, custom)."
+Company,,"Organization, company, or legal entity participating in the project or asset lifecycle."
+ConnectionPhysical,,"Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable)."
+ConnectionVirtual,,Logical or topological connection between spaces and/or physical elements.
+ConsentRecord,,"Record of lawful basis, scope, and lifecycle for processing personal data on a Person."
+ContactPoint,,Structured communication endpoint or profile for an agent.
+Contract,,"Commercial agreement entity for project scope, parties, and governance. Links to a signed artifact and related model entities via applies_to_entities. Entity.status covers record lifecycle; contract_status uses workflow vocabulary URIs."
+CostRecord,,"Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price)."
+CostRequirement,,"Cost or budget requirement (unit-cost cap, total budget limit, etc.)."
+Decision,,Decision entity for workflow traceability and governance. Entity.status covers lifecycle; decision_status uses workflow vocabulary URIs.
+DeletionChange,,Entity removed in to_revision.
+Deliverable,,Outcome or handover item produced within a project.
+DeliverableRequirement,,"Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.)."
+Entity,,"Common base class for everything in the project graph. Has identity, lifecycle, and status."
+Equipment,,"Endpoint or device element (for example terminal, unit, control device, sensor) located in a space and assigned to a system."
+FireProperty,,Normalized fire-related property.
+GeometryChange,,Geometry or representation change for a subject.
+GeometryRepresentation,,"Minimal geometry reference for an entity, separating representation from encoding format."
+LegalSiteContext,,Spatial context node constrained to legal site semantics.
+LevelContext,,Spatial context node constrained to level/storey semantics.
+LocalizedText,,Localized text value for a specific language tag.
+MatchChange,,Entity match status against a requirement changed (previously met / no longer meets).
+Material,,Material definition that can be associated with one or more entities.
+MaterialProperty,,Normalized material-related property.
+MaterialRequirement,,Material or product specification requirement for matching against assigned materials.
+Message,,Message entity for coordination and traceability. Links to related entities via applies_to_entities.
+MetadataEntry,,"Generic metadata entry for storing IFC attributes, PropertySet fields, or project-specific key-value data."
+PerformanceProperty,,Normalized performance/property record derived from raw IFC PropertySet values with source traceability and strong typing through domain-specific subclasses.
+PerformanceRequirement,,"Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). Boolean targets use target_value_boolean with requirement_property_key aligned to entity slot names where applicable (for example is_heated on Space). Application pipelines compare the subject entity slot to the requirement target and record the outcome as MatchChange (match_status met, unmet, or unknown)."
+PerimeterContext,,Spatial context node constrained to perimeter semantics.
+Person,,"Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction."
+PhysicalElement,,Base class for physical elements that can be placed in built asset/level context.
+PostalAddress,,Structured postal or physical address for an agent.
+Process,,"Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record."
+Product,,Commercial product or service offering sold by a company.
+Program,,Portfolio or capital program scope grouping related projects.
+Project,,"Business delivery scope for spatial context, systems, and workflow entities."
+PropertyChange,,"Attribute, PropertySet, schema slot, or document field change."
+QuantityValue,,Minimal quantity record for costing and analysis.
+RegulatoryRequirement,,"Regulatory reference requirement (building code, norm, standard)."
+Requirement,,"Prescriptive requirement entity (content_kind requirement). Applies to model entities via applies_to_entities. Domain is discriminated by concrete subclass (PerformanceRequirement, SpatialRequirement, DeliverableRequirement, etc.), not a separate slot."
+RequirementChange,,Change to a requirement entity or its fields.
+ScheduleRequirement,,"Schedule obligation requirement (deadline, milestone, or start/finish window)."
+SecurityProperty,,Normalized security-related property.
+Separator,,Abstract base class for elements that separate spaces or zones.
+SeparatorSlab,,Slab-based separating element (for example floor/roof/base slab separators).
+SeparatorWall,,Wall-based separating element.
+SoftwareAgent,,"Automated actor (integration, bot, or pipeline) acting in workflow roles."
+Space,,"Spatial container used for occupancy, circulation, service, or analysis."
+SpatialContext,,"Context node used to represent perimeter, legal site, built asset, level, or zone."
+SpatialRequirement,,"Spatial constraint requirement (min area, min height, adjacency, etc.)."
+StructuralProperty,,Normalized structural-related property.
+System,,Building service system grouping that serves spaces or zones.
+Task,,Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities.
+ThermalProperty,,Normalized thermal-related property.
+TimeLink,,"Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record."
+TimeRecord,,"Planned work record with baseline and actual dates, optionally linked to model entities and a time plan. — Set milestone_at to mark as a zero-duration checkpoint. — Populate component_time_items to act as a plan container."
+VirtualEntity,,"Abstract base class for non-physical, conceptual, or informational entities."
+ZoneContext,,Spatial context node constrained to zone semantics.
+

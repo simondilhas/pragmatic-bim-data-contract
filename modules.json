@@ -10,6 +10,12 @@
       "descriptor": "https://schema.pragmaticbim.ch/changes/descriptor.json"
     },
     {
+      "slug": "cost/baseline-cost",
+      "id": "https://schema.pragmaticbim.ch/cost/baseline-cost",
+      "title": "Baseline unit prices and regional cost benchmarks",
+      "descriptor": "https://schema.pragmaticbim.ch/cost/baseline-cost/descriptor.json"
+    },
+    {
       "slug": "entity/core",
       "id": "https://schema.pragmaticbim.ch/entity/core",
       "title": "Pragmatic BIM Data Contract - Entity Core",

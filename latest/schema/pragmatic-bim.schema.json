@@ -176,7 +176,7 @@
                     "type": "integer"
                 },
                 "triggered_process": {
-                    "description": "External workflow process URI (for example yourcompanyos process instance).",
+                    "description": "BPMN process instance that this change triggered or should trigger.",
                     "type": [
                         "string",
                         "null"
@@ -203,7 +203,7 @@
         },
         "Agent": {
             "additionalProperties": false,
-            "description": "Abstract base class for people or organizations acting in workflow and communication roles.",
+            "description": "Abstract base class for human and software actors in workflow and communication roles.",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -219,16 +219,6 @@
                     "description": "Classification entries from IFC and other schemes.",
                     "items": {
                         "$ref": "#/$defs/Classification"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "contact_points": {
-                    "description": "Structured communication channels and profiles associated with this agent.",
-                    "items": {
-                        "$ref": "#/$defs/ContactPoint"
                     },
                     "type": [
                         "array",
@@ -330,16 +320,6 @@
                     "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
                     "items": {
                         "$ref": "#/$defs/PerformanceProperty"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "postal_addresses": {
-                    "description": "Structured postal or physical addresses associated with this agent.",
-                    "items": {
-                        "$ref": "#/$defs/PostalAddress"
                     },
                     "type": [
                         "array",
@@ -747,7 +727,8 @@
             "enum": [
                 "flooring",
                 "ceiling",
-                "cladding"
+                "cladding",
+                "roofing"
             ],
             "title": "BoundaryType",
             "type": "string"
@@ -960,7 +941,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -1107,7 +1088,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -1207,7 +1188,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -1354,7 +1335,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -1506,7 +1487,7 @@
                     "type": "integer"
                 },
                 "triggered_process": {
-                    "description": "External workflow process URI (for example yourcompanyos process instance).",
+                    "description": "BPMN process instance that this change triggered or should trigger.",
                     "type": [
                         "string",
                         "null"
@@ -1595,7 +1576,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -1742,7 +1723,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -2500,6 +2481,62 @@
             "title": "ConnectionVirtualType",
             "type": "string"
         },
+        "ConsentRecord": {
+            "additionalProperties": false,
+            "description": "Record of lawful basis, scope, and lifecycle for processing personal data on a Person.",
+            "properties": {
+                "consent_notes": {
+                    "description": "Optional notes about how or where consent was captured.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "data_categories": {
+                    "description": "Personal data categories covered by this consent or processing record.",
+                    "items": {
+                        "$ref": "#/$defs/PersonalDataCategory"
+                    },
+                    "type": "array"
+                },
+                "granted_at": {
+                    "description": "Timestamp when consent was given. Required when lawful_basis is consent.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "lawful_basis": {
+                    "$ref": "#/$defs/LawfulBasis",
+                    "description": "Lawful basis for processing the scoped personal data categories."
+                },
+                "privacy_policy_uri": {
+                    "description": "URI of the current or default privacy policy or notice applicable to this person record.",
+                    "type": "string"
+                },
+                "processing_purpose": {
+                    "description": "Human-readable purpose for which the personal data categories are processed.",
+                    "type": "string"
+                },
+                "withdrawn_at": {
+                    "description": "Timestamp when consent was withdrawn, if applicable.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "lawful_basis",
+                "processing_purpose",
+                "data_categories",
+                "privacy_policy_uri"
+            ],
+            "title": "ConsentRecord",
+            "type": "object"
+        },
         "ContactPoint": {
             "additionalProperties": false,
             "description": "Structured communication endpoint or profile for an agent.",
@@ -2556,10 +2593,16 @@
                 "physical",
                 "virtual",
                 "context",
+                "project",
+                "program",
+                "product",
+                "deliverable",
                 "requirement",
                 "artifact",
+                "contract",
                 "decision",
                 "task",
+                "process",
                 "agent",
                 "message"
             ],
@@ -2569,7 +2612,6 @@
         "ContextType": {
             "description": "",
             "enum": [
-                "project",
                 "perimeter",
                 "legal_site",
                 "building",
@@ -2580,9 +2622,227 @@
             "title": "ContextType",
             "type": "string"
         },
+        "Contract": {
+            "additionalProperties": false,
+            "description": "Commercial agreement entity for project scope, parties, and governance. Links to a signed artifact and related model entities via applies_to_entities. Entity.status covers record lifecycle; contract_status uses workflow vocabulary URIs.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "contract",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "contract_parties": {
+                    "description": "Agents party to the contract (for example client, contractor, consultant).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "contract_reference": {
+                    "description": "Human-readable contract number or external reference.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "contract_status": {
+                    "description": "Contract status expressed as a URI/CURIE (for example draft, signed, active, terminated, superseded).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "contract_type": {
+                    "description": "Contract type expressed as a URI/CURIE from a controlled vocabulary (for example design, construction, supply).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "effective_from": {
+                    "description": "Start of contractual validity.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "effective_until": {
+                    "description": "End of contractual validity when applicable.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "signed_artifact": {
+                    "description": "Optional signed contract artifact at storage_link.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "signed_at": {
+                    "description": "Timestamp when the contract was signed.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "Contract",
+            "type": "object"
+        },
         "CostRecord": {
             "additionalProperties": false,
-            "description": "Cost record for estimation and calculation, optionally linked to entities. Populate component_cost_items to act as an assembly (aggregated unit price).",
+            "description": "Cost record for estimation, catalog pricing, and calculation. Use cost_record_role to distinguish catalog cost/price (on Product) from project estimate/actual lines. Populate component_cost_items to act as an assembly (aggregated unit price).",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -2644,6 +2904,10 @@
                         "number",
                         "null"
                     ]
+                },
+                "cost_record_role": {
+                    "$ref": "#/$defs/CostRecordRole",
+                    "description": "Role of this cost record (catalog cost, catalog price, project estimate, or actual)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -2766,6 +3030,13 @@
                         "null"
                     ]
                 },
+                "priced_for_customer": {
+                    "description": "Optional customer for a customer-specific catalog price when cost_record_role is price.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "quantity_values": {
                     "description": "Quantities associated with the entity.",
                     "items": {
@@ -2773,6 +3044,13 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "related_product": {
+                    "description": "Optional catalog product this deliverable implements or this cost record is priced from.",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -2805,6 +3083,7 @@
                 }
             },
             "required": [
+                "cost_record_role",
                 "unit_cost",
                 "currency",
                 "id",
@@ -2813,6 +3092,17 @@
             ],
             "title": "CostRecord",
             "type": "object"
+        },
+        "CostRecordRole": {
+            "description": "",
+            "enum": [
+                "cost",
+                "price",
+                "estimate",
+                "actual"
+            ],
+            "title": "CostRecordRole",
+            "type": "string"
         },
         "CostRequirement": {
             "additionalProperties": false,
@@ -3280,7 +3570,7 @@
                     "type": "integer"
                 },
                 "triggered_process": {
-                    "description": "External workflow process URI (for example yourcompanyos process instance).",
+                    "description": "BPMN process instance that this change triggered or should trigger.",
                     "type": [
                         "string",
                         "null"
@@ -3303,6 +3593,183 @@
                 "to_revision"
             ],
             "title": "DeletionChange",
+            "type": "object"
+        },
+        "Deliverable": {
+            "additionalProperties": false,
+            "description": "Outcome or handover item produced within a project.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "deliverable",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "deliverable_code": {
+                    "description": "External or internal deliverable identifier within a project.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "parent_project": {
+                    "description": "Parent project reference.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "related_product": {
+                    "description": "Optional catalog product this deliverable implements or this cost record is priced from.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "Deliverable",
             "type": "object"
         },
         "DeliverableRequirement": {
@@ -4049,7 +4516,7 @@
                     "type": "integer"
                 },
                 "triggered_process": {
-                    "description": "External workflow process URI (for example yourcompanyos process instance).",
+                    "description": "BPMN process instance that this change triggered or should trigger.",
                     "type": [
                         "string",
                         "null"
@@ -4112,6 +4579,19 @@
             "title": "GeometryRepresentationType",
             "type": "string"
         },
+        "LawfulBasis": {
+            "description": "Lawful basis for processing personal data, aligned with GDPR Article 6 and similar regimes.",
+            "enum": [
+                "consent",
+                "contract",
+                "legal_obligation",
+                "vital_interest",
+                "public_task",
+                "legitimate_interest"
+            ],
+            "title": "LawfulBasis",
+            "type": "string"
+        },
         "LegalSiteContext": {
             "additionalProperties": false,
             "description": "Spatial context node constrained to legal site semantics.",
@@ -4143,7 +4623,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -4290,7 +4770,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -4390,7 +4870,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -4412,6 +4892,20 @@
                 },
                 "description": {
                     "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "elevation": {
+                    "description": "Storey elevation relative to project datum (metres).",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "elevation_unit": {
+                    "description": "Unit for elevation (default m).",
                     "type": [
                         "string",
                         "null"
@@ -4537,7 +5031,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -4717,7 +5211,7 @@
                     "type": "integer"
                 },
                 "triggered_process": {
-                    "description": "External workflow process URI (for example yourcompanyos process instance).",
+                    "description": "BPMN process instance that this change triggered or should trigger.",
                     "type": [
                         "string",
                         "null"
@@ -5558,7 +6052,7 @@
         },
         "PerformanceRequirement": {
             "additionalProperties": false,
-            "description": "Performance target requirement (U-value, fire rating, airflow, acoustic, etc.).",
+            "description": "Performance target requirement (U-value, fire rating, airflow, acoustic, etc.). Boolean targets use target_value_boolean with requirement_property_key aligned to entity slot names where applicable (for example is_heated on Space). Application pipelines compare the subject entity slot to the requirement target and record the outcome as MatchChange (match_status met, unmet, or unknown).",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -5794,7 +6288,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -5941,7 +6435,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -6012,7 +6506,7 @@
         },
         "Person": {
             "additionalProperties": false,
-            "description": "Individual stakeholder, contributor, assignee, or responsible party represented in the schema.",
+            "description": "Individual stakeholder, contributor, assignee, or responsible party represented in the schema. Instances may contain personal data; privacy slots govern lawful processing, consent, retention, and redaction.",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -6041,6 +6535,16 @@
                         "null"
                     ]
                 },
+                "consent_records": {
+                    "description": "Audit trail of lawful basis and consent for processing personal data. When lawful_basis is consent and state is active, at least one non-withdrawn record should be present.\n",
+                    "items": {
+                        "$ref": "#/$defs/ConsentRecord"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "contact_points": {
                     "description": "Structured communication channels and profiles associated with this agent.",
                     "items": {
@@ -6059,6 +6563,13 @@
                 "created_at": {
                     "description": "Creation timestamp for this entity record.",
                     "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "data_controller": {
+                    "description": "Organization accountable as data controller for this person record.",
                     "type": [
                         "string",
                         "null"
@@ -6152,10 +6663,31 @@
                         "null"
                     ]
                 },
+                "personal_data_processing_state": {
+                    "$ref": "#/$defs/PersonalDataProcessingState",
+                    "description": "Privacy handling state for personal data on this person, orthogonal to workflow QA status."
+                },
                 "postal_addresses": {
                     "description": "Structured postal or physical addresses associated with this agent.",
                     "items": {
                         "$ref": "#/$defs/PostalAddress"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "privacy_policy_uri": {
+                    "description": "URI of the current or default privacy policy or notice applicable to this person record.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "processing_purposes": {
+                    "description": "High-level purposes for processing personal data (for example project coordination, contract administration).",
+                    "items": {
+                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -6169,6 +6701,29 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "redacted_at": {
+                    "description": "Timestamp when identifying personal data was redacted on this record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "redaction_reason": {
+                    "description": "Reason for redaction (for example external model export, erasure request, retention expired).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "retain_until": {
+                    "description": "Storage-limit deadline after which personal data should be deleted or redacted.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -6192,6 +6747,30 @@
             ],
             "title": "Person",
             "type": "object"
+        },
+        "PersonalDataCategory": {
+            "description": "Category of personal data covered by consent or processing scope.",
+            "enum": [
+                "identity",
+                "contact",
+                "address",
+                "affiliation"
+            ],
+            "title": "PersonalDataCategory",
+            "type": "string"
+        },
+        "PersonalDataProcessingState": {
+            "description": "Privacy handling state for personal data on a Person record, orthogonal to workflow QA status.",
+            "enum": [
+                "active",
+                "redacted",
+                "pseudonymized",
+                "anonymized",
+                "erasure_pending",
+                "erased"
+            ],
+            "title": "PersonalDataProcessingState",
+            "type": "string"
         },
         "PhysicalElement": {
             "additionalProperties": false,
@@ -6420,9 +6999,9 @@
             "title": "PostalAddress",
             "type": "object"
         },
-        "ProjectContext": {
+        "Process": {
             "additionalProperties": false,
-            "description": "Spatial context node constrained to project semantics.",
+            "description": "Running BPMN process instance in the project graph. Use process_definition_uri for the BPMN definition key or artifact. When orchestration state lives in an external engine, set external_instance_uri to that system of record.",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -6444,24 +7023,18 @@
                         "null"
                     ]
                 },
-                "content_kind": {
-                    "const": "context",
-                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
-                    "type": "string"
-                },
-                "context_type": {
-                    "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
-                },
-                "cost_records": {
-                    "description": "Cost records associated with this entity.",
-                    "items": {
-                        "type": "string"
-                    },
+                "completed_at": {
+                    "description": "Timestamp when the process instance completed or terminated, when applicable.",
+                    "format": "date-time",
                     "type": [
-                        "array",
+                        "string",
                         "null"
                     ]
+                },
+                "content_kind": {
+                    "const": "process",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
                 },
                 "created_at": {
                     "description": "Creation timestamp for this entity record.",
@@ -6478,20 +7051,17 @@
                         "null"
                     ]
                 },
+                "external_instance_uri": {
+                    "description": "URI of the corresponding process instance in an external workflow engine when applicable.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "geometry_representations": {
                     "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
                     "items": {
                         "$ref": "#/$defs/GeometryRepresentation"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "group_members": {
-                    "description": "Zone members; may include spaces, separations, systems, etc.",
-                    "items": {
-                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -6530,10 +7100,203 @@
                         "null"
                     ]
                 },
-                "materials": {
-                    "description": "Material definitions associated with this entity.",
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "parent_project": {
+                    "description": "Parent project reference.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "process_definition_uri": {
+                    "description": "URI identifying the BPMN process definition (for example engine definition key or BPMN artifact URI).",
+                    "type": "string"
+                },
+                "process_participants": {
+                    "description": "Agents participating in this BPMN process instance (for example assignees mapped from lane roles).",
                     "items": {
                         "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "process_status": {
+                    "description": "Process instance status expressed as a URI/CURIE (for example active, suspended, completed, terminated).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "started_at": {
+                    "description": "Timestamp when the process instance started.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                }
+            },
+            "required": [
+                "process_definition_uri",
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "Process",
+            "type": "object"
+        },
+        "Product": {
+            "additionalProperties": false,
+            "description": "Commercial product or service offering sold by a company.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "catalog_cost_records": {
+                    "description": "Catalog cost and price records for this product (cost_record_role cost or price).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "product",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
                     },
                     "type": [
                         "array",
@@ -6569,48 +7332,6 @@
                     "description": "Default display name.",
                     "type": "string"
                 },
-                "parent_building": {
-                    "description": "Parent building context reference.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "parent_legal_site": {
-                    "description": "Parent legal site context reference.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "parent_level": {
-                    "description": "Parent level/storey context reference.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "parent_perimeter": {
-                    "description": "Parent perimeter context reference.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "parent_project": {
-                    "description": "Parent project context reference.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "parent_zone": {
-                    "description": "Parent zone context reference.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "performance_properties": {
                     "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
                     "items": {
@@ -6618,6 +7339,13 @@
                     },
                     "type": [
                         "array",
+                        "null"
+                    ]
+                },
+                "product_code": {
+                    "description": "External or internal product catalog identifier.",
+                    "type": [
+                        "string",
                         "null"
                     ]
                 },
@@ -6643,8 +7371,28 @@
                     "$ref": "#/$defs/StatusType",
                     "description": "Lifecycle or QA status."
                 },
-                "time_records": {
-                    "description": "Time records associated with this entity.",
+                "vendor": {
+                    "description": "Company that sells or offers this product.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "Product",
+            "type": "object"
+        },
+        "Program": {
+            "additionalProperties": false,
+            "description": "Portfolio or capital program scope grouping related projects.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
                     "items": {
                         "type": "string"
                     },
@@ -6653,18 +7401,337 @@
                         "null"
                     ]
                 },
-                "zone_type": {
-                    "$ref": "#/$defs/ZoneType",
-                    "description": "Optional zone classification; intended for SpatialContext nodes where context_type is zone."
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "client": {
+                    "description": "Owning client organization.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "program",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "program_code": {
+                    "description": "External or internal program identifier.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
                 }
             },
             "required": [
-                "context_type",
                 "id",
                 "content_kind",
                 "name"
             ],
-            "title": "ProjectContext",
+            "title": "Program",
+            "type": "object"
+        },
+        "Project": {
+            "additionalProperties": false,
+            "description": "Business delivery scope for spatial context, systems, and workflow entities.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "client": {
+                    "description": "Owning client organization.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "project",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "parent_program": {
+                    "description": "Parent program reference.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "project_code": {
+                    "description": "External or internal project identifier.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "Project",
             "type": "object"
         },
         "PropertyChange": {
@@ -6793,7 +7860,7 @@
                     ]
                 },
                 "triggered_process": {
-                    "description": "External workflow process URI (for example yourcompanyos process instance).",
+                    "description": "BPMN process instance that this change triggered or should trigger.",
                     "type": [
                         "string",
                         "null"
@@ -6844,7 +7911,9 @@
                 "length",
                 "width",
                 "height",
-                "perimeter"
+                "perimeter",
+                "count",
+                "ratio"
             ],
             "title": "QuantityType",
             "type": "string"
@@ -6853,6 +7922,27 @@
             "additionalProperties": false,
             "description": "Minimal quantity record for costing and analysis.",
             "properties": {
+                "metric_code": {
+                    "description": "skos:notation of the concept in the matching abstract metric or ratio scheme.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metric_scheme": {
+                    "description": "Vocabulary scheme identifier for the measured concept: AbstractBuildingMetric or AbstractBuildingRatio.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metric_uri": {
+                    "description": "Concept URI from building-metrics.skos.ttl or building-ratios.skos.ttl.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "quantity_type": {
                     "$ref": "#/$defs/QuantityType",
                     "description": "Controlled quantity type."
@@ -7341,7 +8431,7 @@
                     ]
                 },
                 "triggered_process": {
-                    "description": "External workflow process URI (for example yourcompanyos process instance).",
+                    "description": "BPMN process instance that this change triggered or should trigger.",
                     "type": [
                         "string",
                         "null"
@@ -8262,6 +9352,183 @@
             "title": "SeparatorWallType",
             "type": "string"
         },
+        "SoftwareAgent": {
+            "additionalProperties": false,
+            "description": "Automated actor (integration, bot, or pipeline) acting in workflow roles.",
+            "properties": {
+                "applies_to_entities": {
+                    "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "classifications": {
+                    "description": "Classification entries from IFC and other schemes.",
+                    "items": {
+                        "$ref": "#/$defs/Classification"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "content_kind": {
+                    "const": "agent",
+                    "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "Creation timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "Default description text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geometry_representations": {
+                    "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
+                    "items": {
+                        "$ref": "#/$defs/GeometryRepresentation"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "Unique local identifier.",
+                    "type": "string"
+                },
+                "ifc_global_id": {
+                    "description": "IFC GlobalId of the mapped entity.",
+                    "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "localized_descriptions": {
+                    "description": "Localized variants of description.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "localized_names": {
+                    "description": "Localized variants of name.",
+                    "items": {
+                        "$ref": "#/$defs/LocalizedText"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "meaning_uri": {
+                    "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "metadata": {
+                    "description": "Generic metadata container for IFC attributes/properties and project-specific extensions.",
+                    "items": {
+                        "$ref": "#/$defs/MetadataEntry"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "modified_at": {
+                    "description": "Last modification timestamp for this entity record.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Default display name.",
+                    "type": "string"
+                },
+                "operated_by": {
+                    "description": "Organization accountable for this software agent.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "performance_properties": {
+                    "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
+                    "items": {
+                        "$ref": "#/$defs/PerformanceProperty"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "quantity_values": {
+                    "description": "Quantities associated with the entity.",
+                    "items": {
+                        "$ref": "#/$defs/QuantityValue"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "revision": {
+                    "description": "Integer revision counter for change tracking.",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "service_endpoint": {
+                    "description": "Optional URI of the running service or integration endpoint.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "software_version": {
+                    "description": "Optional deployed version label for the software agent.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "status": {
+                    "$ref": "#/$defs/StatusType",
+                    "description": "Lifecycle or QA status."
+                }
+            },
+            "required": [
+                "id",
+                "content_kind",
+                "name"
+            ],
+            "title": "SoftwareAgent",
+            "type": "object"
+        },
         "Space": {
             "additionalProperties": false,
             "description": "Spatial container used for occupancy, circulation, service, or analysis.",
@@ -8355,6 +9622,27 @@
                     "pattern": "^[0-3][0-9A-Za-z_$]{21}$",
                     "type": [
                         "string",
+                        "null"
+                    ]
+                },
+                "is_above_ground": {
+                    "description": "Whether the space is above ground level. When unset, consumers may derive from parent_level elevation relative to project datum.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "is_cooled": {
+                    "description": "Whether the space is designed to receive cooling (air conditioning).",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "is_heated": {
+                    "description": "Whether the space is designed to receive heating.",
+                    "type": [
+                        "boolean",
                         "null"
                     ]
                 },
@@ -8466,6 +9754,10 @@
                         "null"
                     ]
                 },
+                "space_name_type": {
+                    "$ref": "#/$defs/SpaceNameType",
+                    "description": "Normalized abstract room name type (for example office, kitchen, corridor). Project-specific labels remain on name. When set, adapters may derive a BuildingSpaceActivityClassification entry in classifications[] via the room-name-to-activity mapping bridge."
+                },
                 "space_type": {
                     "$ref": "#/$defs/SpaceType",
                     "description": "Classification of space (void, circulation, usable, service)."
@@ -8494,6 +9786,130 @@
             "title": "Space",
             "type": "object"
         },
+        "SpaceNameType": {
+            "description": "Normalized abstract room name type for IfcSpace; finer-grained than space activity classification.",
+            "enum": [
+                "rn_01_10_01",
+                "rn_01_10_02",
+                "rn_01_10_03",
+                "rn_01_10_04",
+                "rn_01_10_05",
+                "rn_01_20_01",
+                "rn_01_20_02",
+                "rn_01_20_03",
+                "rn_01_20_04",
+                "rn_01_30_01",
+                "rn_01_30_02",
+                "rn_01_30_03",
+                "rn_02_10_01",
+                "rn_02_10_02",
+                "rn_02_10_03",
+                "rn_02_10_04",
+                "rn_02_10_05",
+                "rn_02_20_01",
+                "rn_02_20_02",
+                "rn_02_20_03",
+                "rn_02_30_01",
+                "rn_02_30_02",
+                "rn_02_30_03",
+                "rn_02_30_04",
+                "rn_03_10_01",
+                "rn_03_10_02",
+                "rn_03_10_03",
+                "rn_03_10_04",
+                "rn_03_20_01",
+                "rn_03_20_02",
+                "rn_03_20_03",
+                "rn_03_20_04",
+                "rn_03_30_01",
+                "rn_04_10_01",
+                "rn_04_10_02",
+                "rn_04_10_03",
+                "rn_04_10_04",
+                "rn_04_20_01",
+                "rn_04_20_02",
+                "rn_04_20_03",
+                "rn_04_30_01",
+                "rn_05_10_01",
+                "rn_05_10_02",
+                "rn_05_20_01",
+                "rn_05_20_02",
+                "rn_05_20_03",
+                "rn_05_20_04",
+                "rn_05_30_01",
+                "rn_05_30_02",
+                "rn_05_30_03",
+                "rn_05_30_04",
+                "rn_06_10_01",
+                "rn_06_10_02",
+                "rn_06_10_03",
+                "rn_06_10_04",
+                "rn_06_20_01",
+                "rn_06_20_02",
+                "rn_06_20_03",
+                "rn_06_30_01",
+                "rn_06_30_02",
+                "rn_06_30_03",
+                "rn_07_10_01",
+                "rn_07_10_02",
+                "rn_07_10_03",
+                "rn_07_10_04",
+                "rn_07_20_01",
+                "rn_07_20_02",
+                "rn_07_20_03",
+                "rn_07_20_04",
+                "rn_07_20_05",
+                "rn_07_30_01",
+                "rn_08_10_01",
+                "rn_08_10_02",
+                "rn_08_10_03",
+                "rn_08_10_04",
+                "rn_08_10_05",
+                "rn_08_20_01",
+                "rn_08_20_02",
+                "rn_08_20_03",
+                "rn_08_20_04",
+                "rn_08_30_01",
+                "rn_09_10_01",
+                "rn_09_10_02",
+                "rn_09_10_03",
+                "rn_09_10_04",
+                "rn_09_10_05",
+                "rn_09_20_01",
+                "rn_09_20_02",
+                "rn_09_20_03",
+                "rn_09_20_04",
+                "rn_09_20_05",
+                "rn_09_30_01",
+                "rn_09_30_02",
+                "rn_10_10_01",
+                "rn_10_10_02",
+                "rn_10_10_03",
+                "rn_10_10_04",
+                "rn_10_10_05",
+                "rn_10_20_01",
+                "rn_10_20_02",
+                "rn_10_20_03",
+                "rn_11_10_01",
+                "rn_11_10_02",
+                "rn_11_10_03",
+                "rn_11_20_01",
+                "rn_11_20_02",
+                "rn_11_20_03",
+                "rn_11_30_01",
+                "rn_11_30_02",
+                "rn_12_10_01",
+                "rn_12_10_02",
+                "rn_12_20_01",
+                "rn_12_20_02",
+                "rn_12_20_03",
+                "rn_12_30_01",
+                "rn_12_30_02",
+                "rn_12_30_03"
+            ],
+            "title": "SpaceNameType",
+            "type": "string"
+        },
         "SpaceType": {
             "description": "Classification of space semantics used by modeling and downstream conversion.",
             "enum": [
@@ -8519,7 +9935,7 @@
         },
         "SpatialContext": {
             "additionalProperties": false,
-            "description": "Context node used to represent project, perimeter, legal site, built asset, level, or zone.",
+            "description": "Context node used to represent perimeter, legal site, built asset, level, or zone.",
             "properties": {
                 "applies_to_entities": {
                     "description": "Model entities this record applies to (requirements, cost items, schedule items, etc.).",
@@ -8548,7 +9964,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -8695,7 +10111,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -9221,7 +10637,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -9458,6 +10874,13 @@
                 "name": {
                     "description": "Default display name.",
                     "type": "string"
+                },
+                "parent_process": {
+                    "description": "Optional BPMN process instance that owns or spawned this task.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "performance_properties": {
                     "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
@@ -10130,7 +11553,7 @@
                 },
                 "context_type": {
                     "$ref": "#/$defs/ContextType",
-                    "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
+                    "description": "Classification of context entity (perimeter, legal_site, building, civil_structure, level, zone)."
                 },
                 "cost_records": {
                     "description": "Cost records associated with this entity.",
@@ -10277,7 +11700,7 @@
                     ]
                 },
                 "parent_project": {
-                    "description": "Parent project context reference.",
+                    "description": "Parent project reference.",
                     "type": [
                         "string",
                         "null"
@@ -10363,7 +11786,7 @@
     "$id": "https://schema.pragmaticbim.ch",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "description": "Context node used to represent project, perimeter, legal site, built asset, level, or zone.",
+    "description": "Portfolio or capital program scope grouping related projects.",
     "metamodel_version": "1.11.0",
     "properties": {
         "applies_to_entities": {
@@ -10386,24 +11809,17 @@
                 "null"
             ]
         },
-        "content_kind": {
-            "const": "context",
-            "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
-            "type": "string"
-        },
-        "context_type": {
-            "$ref": "#/$defs/ContextType",
-            "description": "Classification of context entity (project, perimeter, legal_site, building, civil_structure, level, zone)."
-        },
-        "cost_records": {
-            "description": "Cost records associated with this entity.",
-            "items": {
-                "type": "string"
-            },
+        "client": {
+            "description": "Owning client organization.",
             "type": [
-                "array",
+                "string",
                 "null"
             ]
+        },
+        "content_kind": {
+            "const": "program",
+            "description": "Entity type discriminator for adapter projection and querying. Must be a ContentKind value.",
+            "type": "string"
         },
         "created_at": {
             "description": "Creation timestamp for this entity record.",
@@ -10424,16 +11840,6 @@
             "description": "Geometry references associated with the entity. A single element may link to multiple geometry representations to serve different intents (authoring, coordination, analysis, visualization) without duplicating the element itself.\n",
             "items": {
                 "$ref": "#/$defs/GeometryRepresentation"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "group_members": {
-            "description": "Zone members; may include spaces, separations, systems, etc.",
-            "items": {
-                "type": "string"
             },
             "type": [
                 "array",
@@ -10472,16 +11878,6 @@
                 "null"
             ]
         },
-        "materials": {
-            "description": "Material definitions associated with this entity.",
-            "items": {
-                "type": "string"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
         "meaning_uri": {
             "description": "Optional semantic URI for linking the entity instance to an external ontology concept.",
             "type": [
@@ -10511,48 +11907,6 @@
             "description": "Default display name.",
             "type": "string"
         },
-        "parent_building": {
-            "description": "Parent building context reference.",
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "parent_legal_site": {
-            "description": "Parent legal site context reference.",
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "parent_level": {
-            "description": "Parent level/storey context reference.",
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "parent_perimeter": {
-            "description": "Parent perimeter context reference.",
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "parent_project": {
-            "description": "Parent project context reference.",
-            "type": [
-                "string",
-                "null"
-            ]
-        },
-        "parent_zone": {
-            "description": "Parent zone context reference.",
-            "type": [
-                "string",
-                "null"
-            ]
-        },
         "performance_properties": {
             "description": "Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.\n",
             "items": {
@@ -10560,6 +11914,13 @@
             },
             "type": [
                 "array",
+                "null"
+            ]
+        },
+        "program_code": {
+            "description": "External or internal program identifier.",
+            "type": [
+                "string",
                 "null"
             ]
         },
@@ -10584,24 +11945,9 @@
         "status": {
             "$ref": "#/$defs/StatusType",
             "description": "Lifecycle or QA status."
-        },
-        "time_records": {
-            "description": "Time records associated with this entity.",
-            "items": {
-                "type": "string"
-            },
-            "type": [
-                "array",
-                "null"
-            ]
-        },
-        "zone_type": {
-            "$ref": "#/$defs/ZoneType",
-            "description": "Optional zone classification; intended for SpatialContext nodes where context_type is zone."
         }
     },
     "required": [
-        "context_type",
         "id",
         "content_kind",
         "name"

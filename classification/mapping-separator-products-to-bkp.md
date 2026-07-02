@@ -15,6 +15,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 | Source | Relation | Targets |
 | --- | --- | --- |
+| `ssp:SSP-CLT` | `closeMatch` | `bkp:214` |
 | `ssp:SSP-HBV` | `closeMatch` | `bkp:214` |
 | `ssp:SSP-HBV` | `relatedMatch` | `bkp:211` |
 | `ssp:SSP-HOLZ-LEHM` | `closeMatch` | `bkp:214` |
