@@ -506,7 +506,7 @@
 
 
 <h1 id="class-unitpriceentry">Class: UnitPriceEntry<a class="headerlink" href="#class-unitpriceentry" title="Permanent link">&para;</a></h1>
-<p><em>One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded).</em></p>
+<p><em>One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours, etc.) are the resolved benchmark used for installed-cost calculation; optional observations record contributor inputs and reference sources used to derive or challenge those canonical values.</em></p>
 <div>
 <p>URI: <a href="https://schema.pragmaticbim.ch/cost/UnitPriceEntry">cost:UnitPriceEntry</a></p>
 <div class="panzoom-box" data-key="alt" id="panzoom0" oncontextmenu="return false;">
@@ -537,6 +537,7 @@ click UnitPriceEntry href "./UnitPriceEntry.html" _blank
 click CarbonEstimate href "./CarbonEstimate.html" _blank
 click DemolitionCost href "./DemolitionCost.html" _blank
 click KbobCarbonReference href "./KbobCarbonReference.html" _blank
+click PriceObservation href "./PriceObservation.html" _blank
 click PriceUnitEnum href "./PriceUnitEnum.html" _blank
 click ProvenanceStatusEnum href "./ProvenanceStatusEnum.html" _blank
 click PriceUncertainty href "./PriceUncertainty.html" _blank</code></pre> 
@@ -655,6 +656,12 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td>How the unit-price point estimate was sourced and validated.</td>
 <td>direct</td>
 </tr>
+<tr>
+<td><a href="observations.html">observations</a></td>
+<td>* <br/> <a href="PriceObservation.html">PriceObservation</a></td>
+<td>Optional contributor or reference observations for canonical slot values. Parent entry scalars remain the resolved benchmark for costing.</td>
+<td>direct</td>
+</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h2>
@@ -706,7 +713,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitPriceEntry</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">One baseline unit price for one abstract SKOS product concept. All monetary</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">amounts are net (VAT excluded).</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">etc.) are the resolved benchmark used for installed-cost calculation; optional observations</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">record contributor inputs and reference sources used to derive or challenge those</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">canonical values.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch/cost/baseline-cost</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product</span>
@@ -723,6 +733,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carbon_per_price_unit</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">uncertainty</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provenance_status</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">observations</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">product</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product</span>
@@ -761,6 +772,11 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provenance_status</span>
 <span class="w">    </span><span class="nt">ifabsent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">estimated</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProvenanceStatusEnum</span>
+<span class="w">  </span><span class="nt">observations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">observations</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PriceObservation</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost:UnitPriceEntry</span>
 </code></pre></div>
 </details>
@@ -768,7 +784,10 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <details>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitPriceEntry</span>
 <span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">One baseline unit price for one abstract SKOS product concept. All monetary</span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">amounts are net (VAT excluded).</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours,</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">etc.) are the resolved benchmark used for installed-cost calculation; optional observations</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">record contributor inputs and reference sources used to derive or challenge those</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">canonical values.</span>
 <span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch/cost/baseline-cost</span>
 <span class="nt">slot_usage</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">product</span><span class="p">:</span>
@@ -808,6 +827,11 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">provenance_status</span>
 <span class="w">    </span><span class="nt">ifabsent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">estimated</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProvenanceStatusEnum</span>
+<span class="w">  </span><span class="nt">observations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">observations</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PriceObservation</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">product</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">product</span>
@@ -954,7 +978,20 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitPriceEntry</span>
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitPriceEntry</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PriceObservation</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ProvenanceStatusEnum</span>
+<span class="w">  </span><span class="nt">observations</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">observations</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional contributor or reference observations for canonical slot</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">values. Parent entry scalars remain the resolved benchmark for costing.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch/cost/baseline-cost</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitPriceEntry</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UnitPriceEntry</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PriceObservation</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cost:UnitPriceEntry</span>
 </code></pre></div>
 </details>

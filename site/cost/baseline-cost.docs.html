@@ -483,6 +483,10 @@
 <td>Reference to KBOB ecobilans benchmark concept IRIs. Indicator values are resolved from kbob-ecobilans-lca-factors.json, not stored here.</td>
 </tr>
 <tr>
+<td><a href="PriceObservation.html">PriceObservation</a></td>
+<td>One contributed or reference value for a canonical UnitPriceEntry slot. Observations support multi-party authoring and audit; they do not replace the canonical scalar fields on the parent entry.</td>
+</tr>
+<tr>
 <td><a href="PriceUncertainty.html">PriceUncertainty</a></td>
 <td>Relative uncertainty band around point material cost and labor hours. Percent slots are signed fractions relative to the point estimate (for example material_low_pct -0.12 → low = point × 0.88). Derived EUR and hour bounds are optional generator output for convenience.</td>
 </tr>
@@ -496,7 +500,7 @@
 </tr>
 <tr>
 <td><a href="UnitPriceEntry.html">UnitPriceEntry</a></td>
-<td>One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded).</td>
+<td>One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours, etc.) are the resolved benchmark used for installed-cost calculation; optional observations record contributor inputs and reference sources used to derive or challenge those canonical values.</td>
 </tr>
 </tbody>
 </table>
@@ -516,6 +520,10 @@
 <tr>
 <td><a href="area_per_piece_m2.html">area_per_piece_m2</a></td>
 <td>Area per piece (m²/pcs) used when method is piece_area (price pcs, KBOB m²).</td>
+</tr>
+<tr>
+<td><a href="aspect.html">aspect</a></td>
+<td>Canonical slot this observation applies to.</td>
 </tr>
 <tr>
 <td><a href="assumptions.html">assumptions</a></td>
@@ -548,6 +556,14 @@
 <tr>
 <td><a href="components.html">components</a></td>
 <td>Layer components for layer_recipe_sum carbon totals.</td>
+</tr>
+<tr>
+<td><a href="contributed_at.html">contributed_at</a></td>
+<td>Date the observation was recorded or published.</td>
+</tr>
+<tr>
+<td><a href="contributor.html">contributor</a></td>
+<td>Person or team that supplied the observation.</td>
 </tr>
 <tr>
 <td><a href="currency.html">currency</a></td>
@@ -666,6 +682,14 @@
 <td>SKOS notation of a layer component product.</td>
 </tr>
 <tr>
+<td><a href="notes.html">notes</a></td>
+<td>Free-text context for the observation.</td>
+</tr>
+<tr>
+<td><a href="observations.html">observations</a></td>
+<td>Optional contributor or reference observations for canonical slot values. Parent entry scalars remain the resolved benchmark for costing.</td>
+</tr>
+<tr>
 <td><a href="offsite_labor_hours_high.html">offsite_labor_hours_high</a></td>
 <td>Derived upper offsite labor hours per price unit.</td>
 </tr>
@@ -722,8 +746,16 @@
 <td>Unit of the layer quantity.</td>
 </tr>
 <tr>
+<td><a href="reference_source.html">reference_source</a></td>
+<td>Reference dataset, organisation, or document for this observation.</td>
+</tr>
+<tr>
 <td><a href="regions.html">regions</a></td>
 <td>Regional benchmarks keyed by region code.</td>
+</tr>
+<tr>
+<td><a href="selects_canonical.html">selects_canonical</a></td>
+<td>Whether this observation was selected for the parent canonical value.</td>
 </tr>
 <tr>
 <td><a href="source.html">source</a></td>
@@ -744,6 +776,10 @@
 <tr>
 <td><a href="unit.html">unit</a></td>
 <td>Unit for demolition quantities.</td>
+</tr>
+<tr>
+<td><a href="value.html">value</a></td>
+<td>Observed numeric value in the same unit as the parent aspect.</td>
 </tr>
 <tr>
 <td><a href="version.html">version</a></td>
@@ -775,6 +811,10 @@
 <tr>
 <td><a href="KbobMatchTypeEnum.html">KbobMatchTypeEnum</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="PriceObservationAspectEnum.html">PriceObservationAspectEnum</a></td>
+<td>Which canonical UnitPriceEntry slot an observation records. Monetary aspects are EUR net (VAT excluded); labor aspects are person-hours per price_unit; waste_pct and transport_pct are fractions (0–1).</td>
 </tr>
 <tr>
 <td><a href="PriceUnitEnum.html">PriceUnitEnum</a></td>

@@ -2090,7 +2090,12 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <td><code>flooring</code></td>
 </tr>
 <tr>
-<td><code>CLADDING</code>, <code>ROOFING</code>, <code>INSULATION</code>, …</td>
+<td><code>ROOFING</code></td>
+<td><code>Boundary.roofing</code></td>
+<td><code>roofing</code></td>
+</tr>
+<tr>
+<td><code>CLADDING</code>, <code>INSULATION</code>, …</td>
 <td><code>Boundary.cladding</code></td>
 <td><code>cladding</code></td>
 </tr>
@@ -2147,8 +2152,8 @@ ifc_mapping.merged.yaml   ← single file for adapters
 </thead>
 <tbody>
 <tr>
-<td><code>BoundaryType</code> has only <code>flooring</code>, <code>ceiling</code>, <code>cladding</code></td>
-<td>Other <code>IfcCoveringTypeEnum</code> values (e.g. <code>ROOFING</code>, <code>INSULATION</code>) map to nearest boundary type</td>
+<td><code>INSULATION</code>, <code>MEMBRANE</code>, and other non-roof <code>IfcCoveringTypeEnum</code> values</td>
+<td>Map to nearest <code>BoundaryType</code> (<code>cladding</code> or <code>flooring</code>); insulation substance uses optional <code>MAT-INS*</code> or subsystem parent product</td>
 </tr>
 <tr>
 <td>No fitting enum on <code>ConnectionPhysicalType</code></td>

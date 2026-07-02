@@ -15,6 +15,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 | Source | Relation | Targets |
 | --- | --- | --- |
+| `ssp:SSP-CLT` | `closeMatch` | `kbobbm:07-023` |
+| `ssp:SSP-CLT` | `relatedMatch` | `kbobbm:07-003` |
 | `ssp:SSP-HBV` | `relatedMatch` | `kbobbm:01-002` |
 | `ssp:SSP-HBV` | `relatedMatch` | `kbobbm:07-003` |
 | `ssp:SSP-HBV-CONC` | `closeMatch` | `kbobbm:01-002` |

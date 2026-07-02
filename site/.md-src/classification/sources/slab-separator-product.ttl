@@ -1,0 +1,212 @@
+@prefix : <https://example.org/abstract/slab-separator-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract slab separator products"@en ;
+  skos:prefLabel "Abstrakte Deckenplatten-Trennelementprodukte"@de ;
+  dcterms:title "Abstract slab separator products"@en ;
+  dcterms:identifier "AbstractSlabSeparatorProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for slab-based separating elements including floor slabs, base slabs, and roof slabs. For catalog, specification, and cost workflows; pair with abstract material classification for dominant substance and separator slab role classification for topological role."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer deckenplattenbasierte Trennelemente einschliesslich Geschossdecken, Bodenplatten und Dachdecken. Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer dominante Substanz und Trenndeckenrollen-Klassifikation fuer topologische Rolle kombinieren."@de ;
+  skos:scopeNote "Default PBS entity is SeparatorSlab. Tags construction or system product type, not dominant substance or topological role alone."@en ;
+  skos:scopeNote "Standard-PBS-Entitaet ist SeparatorSlab. Kennzeichnet Bau- oder Systemprodukttyp, nicht allein dominante Substanz oder topologische Rolle."@de ;
+  skos:hasTopConcept
+    :SSP-INSITU,
+    :SSP-PREFAB-CONC,
+    :SSP-STEEL-COMPOSITE,
+    :SSP-TIMBER,
+    :SSP-CLT,
+    :SSP-HBV,
+    :SSP-HOLZ-LEHM,
+    :SSP-LIGHTWEIGHT,
+    :SSP-OTH .
+
+:SSP-INSITU a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-INSITU" ;
+  skos:prefLabel "In-situ concrete slab"@en ;
+  skos:prefLabel "Ortbeton-Decke / -Platte"@de ;
+  skos:definition "Slab cast in place from reinforced or plain concrete."@en ;
+  skos:definition "Decke oder Platte in Ortbeton oder Stahlbeton ausgefuehrt."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "insitu-slab" .
+
+:SSP-PREFAB-CONC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-PREFAB-CONC" ;
+  skos:prefLabel "Prefabricated concrete slab"@en ;
+  skos:prefLabel "Elementdecke / -platte Beton"@de ;
+  skos:definition "Slab from prefabricated concrete elements such as hollow-core, double-tee, or flat slabs."@en ;
+  skos:definition "Decke oder Platte aus vorgefertigten Betonelementen wie Hohldiele, Doppel-T-Traeger oder Flachdeckelementen."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "prefab-conc-slab" .
+
+:SSP-STEEL-COMPOSITE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-STEEL-COMPOSITE" ;
+  skos:prefLabel "Steel deck / composite slab"@en ;
+  skos:prefLabel "Stahlverbunddecke"@de ;
+  skos:definition "Slab with primary steel deck, beams, or composite steel-concrete system."@en ;
+  skos:definition "Decke mit primaerer Stahltrapezprofil-, Traeger- oder Stahl-Beton-Verbundkonstruktion."@de ;
+  skos:narrower :SSP-STEEL-COMPOSITE-STL, :SSP-STEEL-COMPOSITE-CONC ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "steel-composite-slab" .
+
+:SSP-STEEL-COMPOSITE-STL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "SSP-STEEL-COMPOSITE-STL" ;
+  skos:prefLabel "Steel deck layer"@en ;
+  skos:prefLabel "Stahltrapezprofil-Schicht"@de ;
+  skos:definition "Steel deck or profile layer of a steel-composite slab."@en ;
+  skos:definition "Stahltrapezprofil- oder Traeger-Schicht einer Stahlverbunddecke."@de ;
+  skos:broader :SSP-STEEL-COMPOSITE ;
+  skos:scopeNote "LCA layer component of SSP-STEEL-COMPOSITE. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von SSP-STEEL-COMPOSITE. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "steel-composite-slab-steel-layer" .
+
+:SSP-STEEL-COMPOSITE-CONC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "SSP-STEEL-COMPOSITE-CONC" ;
+  skos:prefLabel "Composite slab concrete topping layer"@en ;
+  skos:prefLabel "Stahlverbunddecke Betonauflage-Schicht"@de ;
+  skos:definition "Concrete topping layer of a steel-composite slab."@en ;
+  skos:definition "Betonauflage-Schicht einer Stahlverbunddecke."@de ;
+  skos:broader :SSP-STEEL-COMPOSITE ;
+  skos:scopeNote "LCA layer component of SSP-STEEL-COMPOSITE. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von SSP-STEEL-COMPOSITE. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "steel-composite-slab-concrete-layer" .
+
+:SSP-TIMBER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-TIMBER" ;
+  skos:prefLabel "Timber slab / deck"@en ;
+  skos:prefLabel "Holzdecke / -platte"@de ;
+  skos:definition "Slab or deck with primary timber joists, panels, or rib-deck structure, excluding cross-laminated timber (CLT) plate slabs."@en ;
+  skos:definition "Decke oder Platte mit primaerer Holz- oder Holzwerkstoff-Konstruktion aus Traegern, Paneelen oder Rippendecke, ohne Brettsperrholz- (CLT-) Platten."@de ;
+  skos:scopeNote "For cross-laminated timber (CLT) plate slabs use SSP-CLT."@en ;
+  skos:scopeNote "Fuer Brettsperrholz- (CLT-) Platten SSP-CLT verwenden."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "timber-slab" .
+
+:SSP-CLT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-CLT" ;
+  skos:prefLabel "Cross-laminated timber (CLT) slab"@en ;
+  skos:prefLabel "Brettsperrholz-Decke / -Platte (CLT)"@de ;
+  skos:definition "Slab or deck with primary cross-laminated timber (CLT) or glulam plate structure, including factory-prefabricated mass-timber floor and roof decks."@en ;
+  skos:definition "Decke oder Platte mit primaerer Brettsperrholz- (CLT-) oder Brettschichtholz-Plattenkonstruktion, einschliesslich werkseitig vorgefertigter Holz-Massivdecken."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "clt-slab" .
+
+:SSP-HBV a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-HBV" ;
+  skos:prefLabel "Timber–concrete composite slab (HBV)"@en ;
+  skos:prefLabel "Holz-Beton-Verbunddecke (HBV)"@de ;
+  skos:altLabel "Holbetonverbund"@de ;
+  skos:definition "Hybrid slab with timber base (for example block timber, CLT, or rib deck) and a shear-connected concrete topping cast on site or prefabricated as a composite element."@en ;
+  skos:definition "Hybride Decke mit Holztragwerk (z. B. Blockholzplatte, Brettsperrholz oder Rippendecke) und schubfest verbundener Ortbeton- oder Fertigbetonauflage."@de ;
+  skos:narrower :SSP-HBV-WOD, :SSP-HBV-CONC ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "hbv-slab" .
+
+:SSP-HBV-WOD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "SSP-HBV-WOD" ;
+  skos:prefLabel "HBV timber base layer"@en ;
+  skos:prefLabel "HBV Holztragwerk-Schicht"@de ;
+  skos:definition "Timber base layer of an HBV slab (block timber, CLT, rib deck, or similar engineered-wood structure)."@en ;
+  skos:definition "Holztragwerk-Schicht einer HBV-Decke (Blockholz, Brettsperrholz, Rippendecke oder aehnliche Holzwerkstoff-Konstruktion)."@de ;
+  skos:broader :SSP-HBV ;
+  skos:scopeNote "LCA layer component of SSP-HBV. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von SSP-HBV. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "hbv-slab-timber-layer" .
+
+:SSP-HBV-CONC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "SSP-HBV-CONC" ;
+  skos:prefLabel "HBV concrete topping layer"@en ;
+  skos:prefLabel "HBV Betonauflage-Schicht"@de ;
+  skos:definition "Concrete topping layer of an HBV slab, cast in situ or prefabricated, shear-connected to the timber base."@en ;
+  skos:definition "Betonauflage-Schicht einer HBV-Decke, in Ortbeton oder als Fertigteil, schubfest mit dem Holztragwerk verbunden."@de ;
+  skos:broader :SSP-HBV ;
+  skos:scopeNote "LCA layer component of SSP-HBV. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von SSP-HBV. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "hbv-slab-concrete-layer" .
+
+:SSP-HOLZ-LEHM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-HOLZ-LEHM" ;
+  skos:prefLabel "Timber–clay slab / deck"@en ;
+  skos:prefLabel "Holz-Lehm-Decke"@de ;
+  skos:definition "Slab or deck with timber joists or frame and rammed-clay (Stampflehm) infill or topping, including prefabricated timber–clay panel systems."@en ;
+  skos:definition "Decke mit Holztraegern oder -rahmen und Stampflehm-Ausfachung oder -auflage, einschliesslich vorgefertigter Holz-Lehm-Deckenelemente."@de ;
+  skos:narrower :SSP-HOLZ-LEHM-WOD, :SSP-HOLZ-LEHM-MSN ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "holz-lehm-slab" .
+
+:SSP-HOLZ-LEHM-WOD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "SSP-HOLZ-LEHM-WOD" ;
+  skos:prefLabel "Timber–clay slab timber layer"@en ;
+  skos:prefLabel "Holz-Lehm-Decke Holzschicht"@de ;
+  skos:definition "Timber joist or frame layer of a timber–clay slab."@en ;
+  skos:definition "Holztraeger- oder -rahmen-Schicht einer Holz-Lehm-Decke."@de ;
+  skos:broader :SSP-HOLZ-LEHM ;
+  skos:scopeNote "LCA layer component of SSP-HOLZ-LEHM. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von SSP-HOLZ-LEHM. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "holz-lehm-slab-timber-layer" .
+
+:SSP-HOLZ-LEHM-MSN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "SSP-HOLZ-LEHM-MSN" ;
+  skos:prefLabel "Timber–clay slab clay infill layer"@en ;
+  skos:prefLabel "Holz-Lehm-Decke Lehmschicht"@de ;
+  skos:definition "Rammed-clay (Stampflehm) infill or topping layer of a timber–clay slab."@en ;
+  skos:definition "Stampflehm-Ausfachungs- oder -auflage-Schicht einer Holz-Lehm-Decke."@de ;
+  skos:broader :SSP-HOLZ-LEHM ;
+  skos:scopeNote "LCA layer component of SSP-HOLZ-LEHM. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von SSP-HOLZ-LEHM. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "holz-lehm-slab-clay-layer" .
+
+:SSP-LIGHTWEIGHT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-LIGHTWEIGHT" ;
+  skos:prefLabel "Lightweight slab system"@en ;
+  skos:prefLabel "Leichtbau-Decke / -Platte"@de ;
+  skos:definition "Lightweight slab system with non-monolithic primary structure."@en ;
+  skos:definition "Leichtbau-Decken- oder Plattensystem mit nicht-monolithischer Primaerkonstruktion."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "lightweight-slab" .
+
+:SSP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SSP-OTH" ;
+  skos:prefLabel "Other / unknown slab separator"@en ;
+  skos:prefLabel "Sonstige / unbekannte Decke / Platte"@de ;
+  skos:definition "Slab separator product not classified or not yet known."@en ;
+  skos:definition "Deckenplatten-Trennelementprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "other" .

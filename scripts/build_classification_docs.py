@@ -146,6 +146,7 @@ def generate_classification_markdown(
     )
 
     write_sources(site_dir, vocab_docs, mapping_docs)
+    write_sources(md_src, vocab_docs, mapping_docs)
     write_classifications_json(site_dir, vocab_docs, mapping_docs, base_url=base_url)
 
 

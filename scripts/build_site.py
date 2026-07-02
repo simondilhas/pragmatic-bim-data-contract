@@ -89,19 +89,27 @@ def find_cmd(*names: str) -> str:
     raise SystemExit(f"No command found (tried: {', '.join(names)})")
 
 
+def resolve_repo_path(path: Path) -> Path:
+    if not path.is_absolute():
+        path = REPO_ROOT / path
+    return path.resolve()
+
+
 def run_linkml_artifacts(schema_root: Path, out_dir: Path, *, prefix: str = "pragmatic-bim") -> None:
+    schema_root = resolve_repo_path(schema_root)
     out_dir.mkdir(parents=True, exist_ok=True)
     csv_cmd = find_cmd("gen-csv", "csvgen")
     pydantic_cmd = find_cmd("gen-pydantic", "pydanticgen")
 
     def write_cmd_output(filename: str, cmd: list[str]) -> None:
-        result = subprocess.run(cmd, check=True, cwd=schema_root.parent, capture_output=True, text=True)
+        result = subprocess.run(cmd, check=True, cwd=REPO_ROOT, capture_output=True, text=True)
         (out_dir / filename).write_text(result.stdout, encoding="utf-8")
 
-    write_cmd_output(f"{prefix}.shacl.ttl", ["gen-shacl", str(schema_root)])
-    write_cmd_output(f"{prefix}.schema.json", ["gen-json-schema", str(schema_root)])
-    write_cmd_output(f"{prefix}.csv", [csv_cmd, str(schema_root)])
-    write_cmd_output(f"{prefix}.pydantic.py", [pydantic_cmd, str(schema_root)])
+    schema_arg = schema_root.relative_to(REPO_ROOT).as_posix()
+    write_cmd_output(f"{prefix}.shacl.ttl", ["gen-shacl", schema_arg])
+    write_cmd_output(f"{prefix}.schema.json", ["gen-json-schema", schema_arg])
+    write_cmd_output(f"{prefix}.csv", [csv_cmd, schema_arg])
+    write_cmd_output(f"{prefix}.pydantic.py", [pydantic_cmd, schema_arg])
 
 
 def resolve_release_version(site_dir: Path) -> str:
@@ -327,6 +335,16 @@ def write_root_index(md_src: Path, *, version: str) -> None:
     (md_src / "index.md").write_text(render_root_index_markdown(version), encoding="utf-8")
 
 
+def stage_linkml_artifacts(md_src_dir: Path, artifact_dir: Path, *, artifacts: set[str]) -> None:
+    md_src_dir.mkdir(parents=True, exist_ok=True)
+    for name in artifacts:
+        if not name.endswith((".ttl", ".json", ".csv", ".py")):
+            continue
+        src = artifact_dir / name
+        if src.is_file():
+            shutil.copy2(src, md_src_dir / name)
+
+
 def stage_brand_assets(md_src: Path) -> None:
     stylesheet_dir = md_src / "stylesheets"
     stylesheet_dir.mkdir(parents=True, exist_ok=True)
@@ -462,10 +480,12 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
     write_root_index(md_src, version=resolve_release_version(site_dir))
     write_mapping_index(md_src)
     stage_brand_assets(md_src)
-    run_mkdocs_build(html_build=html_build)
-    merge_html_build(html_build, site_dir)
     run_linkml_artifacts(schema_root, schema_out)
     run_linkml_artifacts(cost_schema_root, cost_out, prefix="baseline-cost")
+    stage_linkml_artifacts(md_src / "schema", schema_out, artifacts=SCHEMA_ARTIFACTS)
+    stage_linkml_artifacts(md_src / "cost", cost_out, artifacts=COST_SCHEMA_ARTIFACTS)
+    run_mkdocs_build(html_build=html_build)
+    merge_html_build(html_build, site_dir)
     publish_schema_markdown(md_src / "schema", schema_out)
     publish_schema_markdown(md_src / "cost", cost_out)
     publish_classification_markdown(md_src / "classification", classification_out)
@@ -557,6 +577,7 @@ def main() -> None:
         default=os.environ.get("SCHEMA_BASE_URL", "https://schema.pragmaticbim.ch"),
     )
     args = parser.parse_args()
+    args.schema_root = resolve_repo_path(args.schema_root)
 
     if args.command == "check":
         check_site(schema_root=args.schema_root)

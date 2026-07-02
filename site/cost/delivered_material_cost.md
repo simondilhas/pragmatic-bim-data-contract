@@ -25,7 +25,7 @@ URI: [cost:delivered_material_cost](https://schema.pragmaticbim.ch/cost/delivere
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UnitPriceEntry](UnitPriceEntry.md) | One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). |  no  |
+| [UnitPriceEntry](UnitPriceEntry.md) | One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours, etc.) are the resolved benchmark used for installed-cost calculation; optional observations record contributor inputs and reference sources used to derive or challenge those canonical values. |  no  |
 
 
 

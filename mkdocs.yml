@@ -45,7 +45,9 @@ plugins:
       full_screen: true
 
 validation:
-  unrecognized_links: ignore
+  links:
+    not_found: ignore
+    unrecognized_links: ignore
 
 markdown_extensions:
   - tables

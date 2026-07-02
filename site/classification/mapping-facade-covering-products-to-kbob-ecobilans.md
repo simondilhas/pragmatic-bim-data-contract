@@ -18,11 +18,15 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `facp:FaCP-BIPV-INTEGRATED` | `closeMatch` | `kbobbm:05-008` |
 | `facp:FaCP-BIPV-INTEGRATED` | `relatedMatch` | `kbobbm:05-022` |
 | `facp:FaCP-BIPV-INTEGRATED` | `relatedMatch` | `kbobbm:06-001` |
+| `facp:FaCP-BRICK-SLIP` | `closeMatch` | `kbobbm:02-001` |
+| `facp:FaCP-BRICK-SLIP` | `relatedMatch` | `kbobbm:03-010` |
 | `facp:FaCP-CERAMIC-VENTILATED` | `closeMatch` | `kbobbm:03-010` |
 | `facp:FaCP-CERAMIC-VENTILATED` | `relatedMatch` | `kbobbm:11-008` |
 | `facp:FaCP-EXTERIOR-PAINT-COATING` | `closeMatch` | `kbobbm:14-001` |
 | `facp:FaCP-FIBER-CEMENT-BOARD` | `closeMatch` | `kbobbm:03-003` |
 | `facp:FaCP-FIBER-CEMENT-BOARD` | `relatedMatch` | `kbobbm:05-028` |
+| `facp:FaCP-HPL-PANEL` | `closeMatch` | `kbobbm:05-020` |
+| `facp:FaCP-HPL-PANEL` | `relatedMatch` | `kbobbm:05-022` |
 | `facp:FaCP-METAL-COMPOSITE-PANEL` | `closeMatch` | `kbobbm:05-022` |
 | `facp:FaCP-METAL-SHEET-STANDING-SEAM` | `closeMatch` | `kbobbm:06-001` |
 | `facp:FaCP-METAL-SHEET-STANDING-SEAM` | `relatedMatch` | `kbobbm:06-002` |

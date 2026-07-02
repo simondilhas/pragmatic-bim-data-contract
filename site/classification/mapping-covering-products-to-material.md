@@ -60,11 +60,15 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `facp:FaCP-BIPV-INTEGRATED` | `closeMatch` | `mat:MAT-MET` |
 | `facp:FaCP-BIPV-INTEGRATED` | `relatedMatch` | `mat:MAT-CMP` |
 | `facp:FaCP-BIPV-INTEGRATED` | `relatedMatch` | `mat:MAT-GLS` |
+| `facp:FaCP-BRICK-SLIP` | `closeMatch` | `mat:MAT-MSN` |
+| `facp:FaCP-BRICK-SLIP` | `relatedMatch` | `mat:MAT-MSN-CLY` |
 | `facp:FaCP-CERAMIC-VENTILATED` | `closeMatch` | `mat:MAT-MSN-CLY` |
 | `facp:FaCP-EXTERIOR-PAINT-COATING` | `closeMatch` | `mat:MAT-PLA` |
 | `facp:FaCP-EXTERIOR-PAINT-COATING` | `relatedMatch` | `mat:MAT-CMP` |
 | `facp:FaCP-FIBER-CEMENT-BOARD` | `closeMatch` | `mat:MAT-CONC` |
 | `facp:FaCP-FIBER-CEMENT-BOARD` | `relatedMatch` | `mat:MAT-CMP` |
+| `facp:FaCP-HPL-PANEL` | `closeMatch` | `mat:MAT-PLA` |
+| `facp:FaCP-HPL-PANEL` | `relatedMatch` | `mat:MAT-CMP` |
 | `facp:FaCP-METAL-COMPOSITE-PANEL` | `closeMatch` | `mat:MAT-MET` |
 | `facp:FaCP-METAL-COMPOSITE-PANEL` | `relatedMatch` | `mat:MAT-CMP` |
 | `facp:FaCP-METAL-SHEET-STANDING-SEAM` | `closeMatch` | `mat:MAT-MET` |

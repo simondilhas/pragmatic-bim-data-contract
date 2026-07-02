@@ -6,7 +6,7 @@ search:
 # Class: UnitPriceEntry 
 
 
-_One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded)._
+_One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours, etc.) are the resolved benchmark used for installed-cost calculation; optional observations record contributor inputs and reference sources used to derive or challenge those canonical values._
 
 
 
@@ -28,6 +28,7 @@ click UnitPriceEntry href "./UnitPriceEntry.html" _blank
 click CarbonEstimate href "./CarbonEstimate.html" _blank
 click DemolitionCost href "./DemolitionCost.html" _blank
 click KbobCarbonReference href "./KbobCarbonReference.html" _blank
+click PriceObservation href "./PriceObservation.html" _blank
 click PriceUnitEnum href "./PriceUnitEnum.html" _blank
 click ProvenanceStatusEnum href "./ProvenanceStatusEnum.html" _blank
 click PriceUncertainty href "./PriceUncertainty.html" _blank
@@ -63,6 +64,7 @@ click PriceUncertainty href "./PriceUncertainty.html" _blank
 | [carbon_per_price_unit](carbon_per_price_unit.md) | 0..1 <br/> [CarbonEstimate](CarbonEstimate.md) | Generated embodied-carbon estimate; not authored. | direct |
 | [uncertainty](uncertainty.md) | 0..1 <br/> [PriceUncertainty](PriceUncertainty.md) | Relative uncertainty band for material cost and labor hours. Derived low/high amounts are computed from point estimates at generation time. | direct |
 | [provenance_status](provenance_status.md) | 0..1 <br/> [ProvenanceStatusEnum](ProvenanceStatusEnum.md) | How the unit-price point estimate was sourced and validated. | direct |
+| [observations](observations.md) | * <br/> [PriceObservation](PriceObservation.md) | Optional contributor or reference observations for canonical slot values. Parent entry scalars remain the resolved benchmark for costing. | direct |
 
 
 
@@ -121,7 +123,10 @@ click PriceUncertainty href "./PriceUncertainty.html" _blank
 ```yaml
 name: UnitPriceEntry
 description: One baseline unit price for one abstract SKOS product concept. All monetary
-  amounts are net (VAT excluded).
+  amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours,
+  etc.) are the resolved benchmark used for installed-cost calculation; optional observations
+  record contributor inputs and reference sources used to derive or challenge those
+  canonical values.
 from_schema: https://schema.pragmaticbim.ch/cost/baseline-cost
 slots:
 - product
@@ -138,6 +143,7 @@ slots:
 - carbon_per_price_unit
 - uncertainty
 - provenance_status
+- observations
 slot_usage:
   product:
     name: product
@@ -176,6 +182,11 @@ slot_usage:
     name: provenance_status
     ifabsent: estimated
     range: ProvenanceStatusEnum
+  observations:
+    name: observations
+    range: PriceObservation
+    multivalued: true
+    inlined: true
 class_uri: cost:UnitPriceEntry
 
 ```
@@ -187,7 +198,10 @@ class_uri: cost:UnitPriceEntry
 ```yaml
 name: UnitPriceEntry
 description: One baseline unit price for one abstract SKOS product concept. All monetary
-  amounts are net (VAT excluded).
+  amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours,
+  etc.) are the resolved benchmark used for installed-cost calculation; optional observations
+  record contributor inputs and reference sources used to derive or challenge those
+  canonical values.
 from_schema: https://schema.pragmaticbim.ch/cost/baseline-cost
 slot_usage:
   product:
@@ -227,6 +241,11 @@ slot_usage:
     name: provenance_status
     ifabsent: estimated
     range: ProvenanceStatusEnum
+  observations:
+    name: observations
+    range: PriceObservation
+    multivalued: true
+    inlined: true
 attributes:
   product:
     name: product
@@ -373,7 +392,20 @@ attributes:
     owner: UnitPriceEntry
     domain_of:
     - UnitPriceEntry
+    - PriceObservation
     range: ProvenanceStatusEnum
+  observations:
+    name: observations
+    description: Optional contributor or reference observations for canonical slot
+      values. Parent entry scalars remain the resolved benchmark for costing.
+    from_schema: https://schema.pragmaticbim.ch/cost/baseline-cost
+    rank: 1000
+    owner: UnitPriceEntry
+    domain_of:
+    - UnitPriceEntry
+    range: PriceObservation
+    multivalued: true
+    inlined: true
 class_uri: cost:UnitPriceEntry
 
 ```

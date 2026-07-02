@@ -15,6 +15,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 | Source | Relation | Targets |
 | --- | --- | --- |
+| `ssp:SSP-CLT` | `closeMatch` | `mat:MAT-WOD` |
+| `ssp:SSP-CLT` | `relatedMatch` | `mat:MAT-CMP` |
 | `ssp:SSP-HBV` | `closeMatch` | `mat:MAT-CMP` |
 | `ssp:SSP-HBV` | `relatedMatch` | `mat:MAT-CONC` |
 | `ssp:SSP-HBV` | `relatedMatch` | `mat:MAT-WOD` |

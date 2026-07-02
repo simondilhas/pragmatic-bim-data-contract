@@ -37,6 +37,7 @@ URI: [cost:ProvenanceStatusEnum](https://schema.pragmaticbim.ch/cost/ProvenanceS
 | ---  | --- |
 | [provenance_status](provenance_status.md) | How the unit-price point estimate was sourced and validated. |
 | [provenance_status](provenance_status.md) |  |
+| [provenance_status](provenance_status.md) |  |
 
 
 

@@ -17,10 +17,11 @@ Name: baseline_cost_schema
 | [CarbonEstimate](CarbonEstimate.md) | Generated embodied-carbon estimate per price unit (optional output). Unit-conversion geometry is stored in typed slots — not in assumptions. density_kg_m3 for method density; mass_per_area_kg_m2 for area_yield; area_per_piece_m2 for piece_area. Optional thickness_m documents derived mass_per_area when thickness × density was used. |
 | [DemolitionCost](DemolitionCost.md) | Disassembly/demolition labor and disposal per price unit (EUR, net, VAT excluded). |
 | [KbobCarbonReference](KbobCarbonReference.md) | Reference to KBOB ecobilans benchmark concept IRIs. Indicator values are resolved from kbob-ecobilans-lca-factors.json, not stored here. |
+| [PriceObservation](PriceObservation.md) | One contributed or reference value for a canonical UnitPriceEntry slot. Observations support multi-party authoring and audit; they do not replace the canonical scalar fields on the parent entry. |
 | [PriceUncertainty](PriceUncertainty.md) | Relative uncertainty band around point material cost and labor hours. Percent slots are signed fractions relative to the point estimate (for example material_low_pct -0.12 → low = point × 0.88). Derived EUR and hour bounds are optional generator output for convenience. |
 | [RegionalBenchmark](RegionalBenchmark.md) | Material and labor factors for one region. |
 | [RegionalCostBenchmarkBook](RegionalCostBenchmarkBook.md) | Regional material and labor benchmarks paired with a BaselinePriceBook. Installed cost in regional currency uses fx_to_eur for material EUR→local and labor_unit_price in local currency. All monetary rates are net (VAT excluded). |
-| [UnitPriceEntry](UnitPriceEntry.md) | One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). |
+| [UnitPriceEntry](UnitPriceEntry.md) | One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours, etc.) are the resolved benchmark used for installed-cost calculation; optional observations record contributor inputs and reference sources used to derive or challenge those canonical values. |
 
 
 
@@ -30,6 +31,7 @@ Name: baseline_cost_schema
 | --- | --- |
 | [anchor_region](anchor_region.md) | Region code where material_factor and labor_factor are 1.0 (for example DE_MU). |
 | [area_per_piece_m2](area_per_piece_m2.md) | Area per piece (m²/pcs) used when method is piece_area (price pcs, KBOB m²). |
+| [aspect](aspect.md) | Canonical slot this observation applies to. |
 | [assumptions](assumptions.md) | Human-readable notes only (for example layer_recipe quantity_basis). Not used for unit conversion. |
 | [benchmark_uris](benchmark_uris.md) | KBOB ecobilans concept IRIs for carbon lookup. |
 | [carbon_method](carbon_method.md) | Method used to normalize carbon to the price unit. |
@@ -38,6 +40,8 @@ Name: baseline_cost_schema
 | [carbon_source_version](carbon_source_version.md) | Version of the carbon reference database (for example 8.02). |
 | [code](code.md) | Region code (for example CH_ZH, DE_MU). |
 | [components](components.md) | Layer components for layer_recipe_sum carbon totals. |
+| [contributed_at](contributed_at.md) | Date the observation was recorded or published. |
+| [contributor](contributor.md) | Person or team that supplied the observation. |
 | [currency](currency.md) | Local currency for labor rates and installed-cost total. |
 | [delivered_material_cost](delivered_material_cost.md) | Derived delivered material cost in EUR (material_cost × (1 + waste_pct) × (1 + transport_pct)). Net, VAT excluded. Optional in authored input. |
 | [delivered_material_cost_high](delivered_material_cost_high.md) | Derived upper delivered_material_cost in EUR. |
@@ -67,6 +71,8 @@ Name: baseline_cost_schema
 | [material_low_pct](material_low_pct.md) | Lower material bound as signed fraction of material_cost (≤ 0). |
 | [method](method.md) | Carbon conversion method. |
 | [notation](notation.md) | SKOS notation of a layer component product. |
+| [notes](notes.md) | Free-text context for the observation. |
+| [observations](observations.md) | Optional contributor or reference observations for canonical slot values. Parent entry scalars remain the resolved benchmark for costing. |
 | [offsite_labor_hours_high](offsite_labor_hours_high.md) | Derived upper offsite labor hours per price unit. |
 | [offsite_labor_hours_low](offsite_labor_hours_low.md) | Derived lower offsite labor hours per price unit. |
 | [offsite_labor_hours_per_unit](offsite_labor_hours_per_unit.md) | Factory/offsite labor in person-hours per price_unit. |
@@ -81,12 +87,15 @@ Name: baseline_cost_schema
 | [provenance_status](provenance_status.md) | How the unit-price point estimate was sourced and validated. |
 | [quantity_per_price_unit](quantity_per_price_unit.md) | Layer quantity per one parent price unit. |
 | [quantity_unit](quantity_unit.md) | Unit of the layer quantity. |
+| [reference_source](reference_source.md) | Reference dataset, organisation, or document for this observation. |
 | [regions](regions.md) | Regional benchmarks keyed by region code. |
+| [selects_canonical](selects_canonical.md) | Whether this observation was selected for the parent canonical value. |
 | [source](source.md) | Path or URI of the editorial source workbook. |
 | [thickness_m](thickness_m.md) | Optional layer thickness (m) when mass_per_area_kg_m2 was derived as thickness_m × density_kg_m3. |
 | [transport_pct](transport_pct.md) | Transport-to-site (A4) allowance as a fraction of material cost (0–1). |
 | [uncertainty](uncertainty.md) | Relative uncertainty band for material cost and labor hours. Derived low/high amounts are computed from point estimates at generation time. |
 | [unit](unit.md) | Unit for demolition quantities. |
+| [value](value.md) | Observed numeric value in the same unit as the parent aspect. |
 | [version](version.md) | Edition label (for example v12). |
 | [waste_pct](waste_pct.md) | Waste allowance as a fraction of material cost (0–1). |
 
@@ -98,6 +107,7 @@ Name: baseline_cost_schema
 | [CarbonMethodEnum](CarbonMethodEnum.md) |  |
 | [CurrencyEnum](CurrencyEnum.md) | ISO 4217 currency for regional labor rates. Price-book material is always EUR. |
 | [KbobMatchTypeEnum](KbobMatchTypeEnum.md) |  |
+| [PriceObservationAspectEnum](PriceObservationAspectEnum.md) | Which canonical UnitPriceEntry slot an observation records. Monetary aspects are EUR net (VAT excluded); labor aspects are person-hours per price_unit; waste_pct and transport_pct are fractions (0–1). |
 | [PriceUnitEnum](PriceUnitEnum.md) | Native trade unit for a baseline unit price. |
 | [ProvenanceStatusEnum](ProvenanceStatusEnum.md) | How the unit-price point estimate was sourced and validated. |
 

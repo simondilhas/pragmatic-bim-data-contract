@@ -25,7 +25,8 @@ URI: [cost:provenance_status](https://schema.pragmaticbim.ch/cost/provenance_sta
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UnitPriceEntry](UnitPriceEntry.md) | One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). |  yes  |
+| [UnitPriceEntry](UnitPriceEntry.md) | One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded). Canonical scalar slots (material_cost, labor hours, etc.) are the resolved benchmark used for installed-cost calculation; optional observations record contributor inputs and reference sources used to derive or challenge those canonical values. |  yes  |
+| [PriceObservation](PriceObservation.md) | One contributed or reference value for a canonical UnitPriceEntry slot. Observations support multi-party authoring and audit; they do not replace the canonical scalar fields on the parent entry. |  yes  |
 
 
 
@@ -39,7 +40,7 @@ URI: [cost:provenance_status](https://schema.pragmaticbim.ch/cost/provenance_sta
 | Property | Value |
 | --- | --- |
 | Range | [ProvenanceStatusEnum](ProvenanceStatusEnum.md) |
-| Domain Of | [UnitPriceEntry](UnitPriceEntry.md) |
+| Domain Of | [UnitPriceEntry](UnitPriceEntry.md), [PriceObservation](PriceObservation.md) |
 
 ### Cardinality and Requirements
 
@@ -89,6 +90,7 @@ from_schema: https://schema.pragmaticbim.ch/cost/baseline-cost
 rank: 1000
 domain_of:
 - UnitPriceEntry
+- PriceObservation
 range: ProvenanceStatusEnum
 
 ```

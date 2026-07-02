@@ -1,0 +1,42 @@
+@prefix rcp: <https://example.org/abstract/roof-covering-product/> .
+@prefix bkp: <https://example.org/ch/bkp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractRoofCoveringProductsToBkpMapping a dcterms:Dataset ;
+  dcterms:title "Abstract roof covering products to BKP mapping"@en ;
+  dcterms:title "Mapping abstrakter Dachbekleidungsprodukte nach BKP"@de ;
+  dcterms:references rcp:scheme, bkp:scheme ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:description "Maps abstract roof covering product concepts to BKP Rohbau 2 cost lines (224 Bedachungsarbeiten). BKP subcodes use underscore notation (e.g. bkp:224_0 for BKP 224.0). Full BKP vocabulary is external; only referenced IRIs are used."@en ;
+  dcterms:description "Ordnet abstrakte Dachbekleidungsprodukte BKP-Rohbau-2-Positionen zu (224 Bedachungsarbeiten). BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern."@de .
+
+# --- Roof covering products (BKP 224.x) ---
+
+rcp:RCP-FLAT-BITUMEN skos:closeMatch bkp:224_0 .
+
+rcp:RCP-FLAT-SINGLE-PLY skos:closeMatch bkp:224_0 .
+
+rcp:RCP-FLAT-LIQUID skos:closeMatch bkp:224_0 ;
+  skos:relatedMatch bkp:224_1 .
+
+rcp:RCP-METAL-SHEET skos:closeMatch bkp:224_2 .
+
+rcp:RCP-TILE-CLAY skos:closeMatch bkp:224_3 ;
+  skos:relatedMatch bkp:224_4 .
+
+rcp:RCP-TILE-CONCRETE skos:closeMatch bkp:224_4 ;
+  skos:relatedMatch bkp:224_3 .
+
+rcp:RCP-SLATE skos:closeMatch bkp:224_3 .
+
+rcp:RCP-WOOD-SHINGLE skos:closeMatch bkp:224_5 ;
+  skos:relatedMatch bkp:214 .
+
+rcp:RCP-GREEN-EXTENSIVE skos:closeMatch bkp:224_6 .
+
+rcp:RCP-GREEN-INTENSIVE skos:closeMatch bkp:224_6 ;
+  skos:relatedMatch bkp:224_0 .
+
+rcp:RCP-PV-ROOF skos:relatedMatch bkp:224_7, bkp:244 .

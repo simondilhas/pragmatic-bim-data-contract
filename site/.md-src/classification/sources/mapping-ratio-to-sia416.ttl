@@ -1,0 +1,13 @@
+@prefix rat: <https://example.org/abstract/building-ratio-definition/> .
+@prefix sia416: <https://example.org/sia/416/flaechen/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/mapping/> .
+
+ex:abstractRatioToSia416Mapping a dcterms:Dataset ;
+  dcterms:title "Abstract building ratios to SIA 416 mapping"@en ;
+  dcterms:references rat:scheme, sia416:scheme ;
+  dcterms:description "Close match between abstract dimensionless KPIs and SIA 416 quotient codes. GNF, NVF, NFF are out of scope for v1."@en .
+
+rat:ratio_building_volume_to_gross_floor_area skos:closeMatch sia416:QV .
+rat:ratio_window_area_to_gross_floor_area skos:closeMatch sia416:QF .

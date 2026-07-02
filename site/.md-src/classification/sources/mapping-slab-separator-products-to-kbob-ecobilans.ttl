@@ -1,0 +1,57 @@
+@prefix ssp: <https://example.org/abstract/slab-separator-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractSlabSeparatorProductsToKbobEcobilansMapping a dcterms:Dataset ;
+  dcterms:title "Abstract slab separator products to KBOB ecobilans mapping"@en ;
+  dcterms:title "Mapping abstrakter Deckenplatten-Trennelementprodukte nach KBOB Oekobilanz"@de ;
+  dcterms:references ssp:scheme, kbobbm:scheme ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:description "Maps abstract slab separator product concepts to KBOB ecobilans Baumaterialien rows for estimated embodied carbon. Composite products use skos:narrower layer concepts mapped with skos:closeMatch; parent products use skos:relatedMatch to document the full LCA recipe. Simple products map directly with skos:closeMatch. LCA factors in kbob-ecobilans-lca-factors.json; default layer quantities in kbob-ecobilans-layer-recipes.json. Regenerate KBOB vocabulary with scripts/generate_kbob_ecobilans_vocabulary.py."@en ;
+  dcterms:description "Ordnet abstrakte Deckenplatten-Trennelementprodukte KBOB-Oekobilanz-Baumaterialien-Zeilen fuer geschaetzte graue Emissionen zu. Verbundprodukte nutzen skos:narrower-Schichtkonzepte mit skos:closeMatch; Elternprodukte skos:relatedMatch fuer das volle LCA-Rezept. Einfache Produkte direkt per skos:closeMatch. LCA-Faktoren in kbob-ecobilans-lca-factors.json; Standard-Schichtmengen in kbob-ecobilans-layer-recipes.json."@de .
+
+# --- Simple slab products ---
+
+ssp:SSP-INSITU skos:closeMatch kbobbm:01_002 .
+
+ssp:SSP-PREFAB-CONC skos:closeMatch kbobbm:01_042 .
+
+ssp:SSP-TIMBER skos:closeMatch kbobbm:07_023 ;
+  skos:relatedMatch kbobbm:07_003 .
+
+ssp:SSP-CLT skos:closeMatch kbobbm:07_023 ;
+  skos:relatedMatch kbobbm:07_003 .
+
+ssp:SSP-LIGHTWEIGHT skos:closeMatch kbobbm:07_005 ;
+  skos:relatedMatch kbobbm:10_008 .
+
+# --- HBV composite (layer decomposition) ---
+
+ssp:SSP-HBV-WOD skos:closeMatch kbobbm:07_003 .
+
+ssp:SSP-HBV-CONC skos:closeMatch kbobbm:01_002 .
+
+ssp:SSP-HBV skos:relatedMatch kbobbm:07_003, kbobbm:01_002 .
+
+# --- Steel composite (layer decomposition) ---
+
+ssp:SSP-STEEL-COMPOSITE-STL skos:closeMatch kbobbm:06_012 .
+
+ssp:SSP-STEEL-COMPOSITE-CONC skos:closeMatch kbobbm:01_002 .
+
+ssp:SSP-STEEL-COMPOSITE skos:relatedMatch kbobbm:06_012, kbobbm:01_002 .
+
+# --- Timber–clay composite (layer decomposition) ---
+
+ssp:SSP-HOLZ-LEHM-WOD skos:closeMatch kbobbm:07_003 .
+
+ssp:SSP-HOLZ-LEHM-MSN skos:closeMatch kbobbm:03_020 .
+
+ssp:SSP-HOLZ-LEHM skos:relatedMatch kbobbm:07_003, kbobbm:03_020 .
+
+# --- Fallback ---
+
+ssp:SSP-OTH skos:closeMatch kbobbm:01_002 ;
+  skos:relatedMatch kbobbm:07_005 .

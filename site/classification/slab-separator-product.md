@@ -54,6 +54,16 @@ n_SSP_STEEL_COMPOSITE <|-- n_SSP_STEEL_COMPOSITE_STL
 </thead>
 <tbody>
 <tr>
+<td>SSP-CLT</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Brettsperrholz-Decke / -Platte (CLT)</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke oder Platte mit primaerer Brettsperrholz- (CLT-) oder Brettschichtholz-Plattenkonstruktion, einschliesslich werkseitig vorgefertigter Holz-Massivdecken.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Cross-laminated timber (CLT) slab</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab or deck with primary cross-laminated timber (CLT) or glulam plate structure, including factory-prefabricated mass-timber floor and roof decks.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>SSP-HBV</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Holz-Beton-Verbunddecke (HBV)</td>
@@ -187,11 +197,11 @@ n_SSP_STEEL_COMPOSITE <|-- n_SSP_STEEL_COMPOSITE_STL
 <td>SSP-TIMBER</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Holzdecke / -platte</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke oder Platte mit primaerer Holz- oder Holzwerkstoff-Konstruktion.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Decke oder Platte mit primaerer Holz- oder Holzwerkstoff-Konstruktion aus Traegern, Paneelen oder Rippendecke, ohne Brettsperrholz- (CLT-) Platten.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Fuer Brettsperrholz- (CLT-) Platten SSP-CLT verwenden.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Timber slab / deck</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab or deck with primary timber joists, panels, or engineered-wood structure.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Slab or deck with primary timber joists, panels, or rib-deck structure, excluding cross-laminated timber (CLT) plate slabs.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">For cross-laminated timber (CLT) plate slabs use SSP-CLT.</td>
 </tr>
 </tbody>
 </table>

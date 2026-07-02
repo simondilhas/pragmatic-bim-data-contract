@@ -1,0 +1,520 @@
+@prefix : <https://example.org/ch/document-function/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Document Function Classification"@en ;
+  skos:prefLabel "Klassifikation der Dokumentfunktion"@de ;
+  skos:prefLabel "Classification de la fonction du document"@fr ;
+  skos:prefLabel "Classificazione della funzione del documento"@it ;
+  dcterms:title "Document Function Classification"@en ;
+  dcterms:identifier "DocumentFunctionClassification" ;
+  dcterms:creator "pragmatic-bim-public-rules" ;
+  dcterms:issued "2026-03-22" ;
+  skos:definition "Functional classification for business, corporate, and legal documents."@en ;
+  skos:definition "Funktionale Klassifikation fuer Geschaefts-, Unternehmens- und Rechtsdokumente."@de ;
+  skos:definition "Classification fonctionnelle pour les documents d'entreprise, administratifs et juridiques."@fr ;
+  skos:definition "Classificazione funzionale per documenti aziendali, amministrativi e legali."@it ;
+  skos:hasTopConcept :administrative, :financial, :legal_contractual, :regulatory_normative, :marketing_sales, :technical, :requirements_briefs .
+
+:administrative a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ADM" ;
+  skos:prefLabel "Administrative"@en ;
+  skos:prefLabel "Administrativ"@de ;
+  skos:prefLabel "Administratif"@fr ;
+  skos:prefLabel "Amministrativo"@it ;
+  skos:definition "Documents supporting internal administration, coordination, and organizational governance."@en ;
+  skos:definition "Dokumente zur internen Administration, Koordination und organisatorischen Steuerung."@de ;
+  skos:definition "Documents soutenant l'administration interne, la coordination et la gouvernance organisationnelle."@fr ;
+  skos:definition "Documenti di supporto all'amministrazione interna, al coordinamento e alla governance organizzativa."@it ;
+  skos:narrower :adm_meeting_minutes, :adm_memos, :adm_internal_policies, :adm_recaps .
+
+:adm_meeting_minutes a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "ADM-MIN" ;
+  skos:prefLabel "Meeting minutes"@en ;
+  skos:prefLabel "Sitzungsprotokolle"@de ;
+  skos:prefLabel "Proces-verbaux"@fr ;
+  skos:prefLabel "Verbali di riunione"@it ;
+  skos:definition "Records of discussions, decisions, and actions from meetings."@en ;
+  skos:definition "Aufzeichnungen von Diskussionen, Entscheidungen und Massnahmen aus Sitzungen."@de ;
+  skos:definition "Comptes rendus de discussions, decisions et actions prises en reunion."@fr ;
+  skos:definition "Resoconti di discussioni, decisioni e azioni emerse dalle riunioni."@it ;
+  skos:broader :administrative .
+
+:adm_memos a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "ADM-MEM" ;
+  skos:prefLabel "Memos"@en ;
+  skos:prefLabel "Memos"@de ;
+  skos:prefLabel "Notes internes"@fr ;
+  skos:prefLabel "Promemoria"@it ;
+  skos:definition "Short internal messages for coordination or information."@en ;
+  skos:definition "Kurze interne Mitteilungen zur Koordination oder Information."@de ;
+  skos:definition "Courts messages internes pour coordination ou information."@fr ;
+  skos:definition "Brevi messaggi interni per coordinamento o informazione."@it ;
+  skos:broader :administrative .
+
+:adm_internal_policies a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "ADM-POL" ;
+  skos:prefLabel "Internal policies"@en ;
+  skos:prefLabel "Interne Richtlinien"@de ;
+  skos:prefLabel "Politiques internes"@fr ;
+  skos:prefLabel "Politiche interne"@it ;
+  skos:definition "Organizational rules and guidance for internal operations."@en ;
+  skos:definition "Organisatorische Regeln und Leitlinien fuer interne Ablaeufe."@de ;
+  skos:definition "Regles et directives organisationnelles pour les operations internes."@fr ;
+  skos:definition "Regole e linee guida organizzative per le operazioni interne."@it ;
+  skos:broader :administrative .
+
+:adm_recaps a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "ADM-REC" ;
+  skos:prefLabel "Recaps"@en ;
+  skos:prefLabel "Zusammenfassungen"@de ;
+  skos:prefLabel "Comptes rendus"@fr ;
+  skos:prefLabel "Riepiloghi"@it ;
+  skos:definition "Summaries of events, discussions, or status for internal circulation."@en ;
+  skos:definition "Zusammenfassungen von Ereignissen, Diskussionen oder Status fuer interne Verbreitung."@de ;
+  skos:definition "Syntheses d'evenements, de discussions ou de statuts pour diffusion interne."@fr ;
+  skos:definition "Sintesi di eventi, discussioni o stati per circolazione interna."@it ;
+  skos:broader :administrative .
+
+:financial a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FIN" ;
+  skos:prefLabel "Financial"@en ;
+  skos:prefLabel "Finanzen"@de ;
+  skos:prefLabel "Financier"@fr ;
+  skos:prefLabel "Finanziario"@it ;
+  skos:definition "Documents used for accounting, reporting, payments, and financial control."@en ;
+  skos:definition "Dokumente fuer Buchhaltung, Berichterstattung, Zahlungen und finanzielle Steuerung."@de ;
+  skos:definition "Documents utilises pour la comptabilite, le reporting, les paiements et le controle financier."@fr ;
+  skos:definition "Documenti usati per contabilita, reporting, pagamenti e controllo finanziario."@it ;
+  skos:narrower :fin_invoices, :fin_receipts, :fin_balance_sheets, :fin_payroll_records .
+
+:fin_invoices a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "FIN-INV" ;
+  skos:prefLabel "Invoices"@en ;
+  skos:prefLabel "Rechnungen"@de ;
+  skos:prefLabel "Factures"@fr ;
+  skos:prefLabel "Fatture"@it ;
+  skos:definition "Documents requesting or recording payment for goods or services."@en ;
+  skos:definition "Dokumente zur Anforderung oder Erfassung von Zahlungen fuer Waren oder Dienstleistungen."@de ;
+  skos:definition "Documents demandant ou enregistrant le paiement de biens ou services."@fr ;
+  skos:definition "Documenti che richiedono o registrano pagamenti per beni o servizi."@it ;
+  skos:broader :financial .
+
+:fin_receipts a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "FIN-RCP" ;
+  skos:prefLabel "Receipts"@en ;
+  skos:prefLabel "Quittungen"@de ;
+  skos:prefLabel "Recus"@fr ;
+  skos:prefLabel "Ricevute"@it ;
+  skos:definition "Documents confirming that payment was received or made."@en ;
+  skos:definition "Dokumente, die den Erhalt oder die Leistung einer Zahlung bestaetigen."@de ;
+  skos:definition "Documents confirmant qu'un paiement a ete recu ou effectue."@fr ;
+  skos:definition "Documenti che confermano la ricezione o l'effettuazione di un pagamento."@it ;
+  skos:broader :financial .
+
+:fin_balance_sheets a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "FIN-BAL" ;
+  skos:prefLabel "Balance sheets"@en ;
+  skos:prefLabel "Bilanzen"@de ;
+  skos:prefLabel "Bilans"@fr ;
+  skos:prefLabel "Bilanci"@it ;
+  skos:definition "Statements of assets, liabilities, and equity at a reporting date."@en ;
+  skos:definition "Aufstellungen von Aktiva, Passiva und Eigenkapital zu einem Stichtag."@de ;
+  skos:definition "Etats des actifs, passifs et capitaux propres a une date de reporting."@fr ;
+  skos:definition "Prospetti di attivita, passivita e patrimonio netto a una data di riferimento."@it ;
+  skos:broader :financial .
+
+:fin_payroll_records a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "FIN-PAY" ;
+  skos:prefLabel "Payroll records"@en ;
+  skos:prefLabel "Lohndokumente"@de ;
+  skos:prefLabel "Documents de paie"@fr ;
+  skos:prefLabel "Documenti salariali"@it ;
+  skos:definition "Documents relating to employee compensation and payroll processing."@en ;
+  skos:definition "Dokumente zu Mitarbeiterverguetung und Lohnabrechnung."@de ;
+  skos:definition "Documents relatifs a la remuneration des employes et au traitement de la paie."@fr ;
+  skos:definition "Documenti relativi alla retribuzione dei dipendenti e all'elaborazione paghe."@it ;
+  skos:broader :financial .
+
+:legal_contractual a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "LEG" ;
+  skos:prefLabel "Legal and contractual"@en ;
+  skos:prefLabel "Rechtlich und vertraglich"@de ;
+  skos:prefLabel "Juridique et contractuel"@fr ;
+  skos:prefLabel "Legale e contrattuale"@it ;
+  skos:definition "Documents used for legal obligations, intellectual property, and formal agreements between parties."@en ;
+  skos:definition "Dokumente fuer rechtliche Verpflichtungen, geistiges Eigentum und formelle Vereinbarungen zwischen Parteien."@de ;
+  skos:definition "Documents utilises pour les obligations juridiques, la propriete intellectuelle et les accords formels entre parties."@fr ;
+  skos:definition "Documenti usati per obblighi legali, proprieta intellettuale e accordi formali tra le parti."@it ;
+  skos:narrower :leg_contracts, :leg_ndas, :leg_patents, :leg_settlement_agreements .
+
+:leg_contracts a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "LEG-CON" ;
+  skos:prefLabel "Contracts"@en ;
+  skos:prefLabel "Vertraege"@de ;
+  skos:prefLabel "Contrats"@fr ;
+  skos:prefLabel "Contratti"@it ;
+  skos:definition "Formal agreements defining rights and obligations between parties."@en ;
+  skos:definition "Formelle Vereinbarungen, die Rechte und Pflichten zwischen Parteien definieren."@de ;
+  skos:definition "Accords formels definissant droits et obligations entre parties."@fr ;
+  skos:definition "Accordi formali che definiscono diritti e obblighi tra le parti."@it ;
+  skos:broader :legal_contractual .
+
+:leg_ndas a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "LEG-NDA" ;
+  skos:prefLabel "NDAs"@en ;
+  skos:prefLabel "Geheimhaltungsvereinbarungen"@de ;
+  skos:prefLabel "Accords de confidentialite"@fr ;
+  skos:prefLabel "Accordi di riservatezza"@it ;
+  skos:definition "Agreements restricting disclosure of confidential information."@en ;
+  skos:definition "Vereinbarungen zur Beschraenkung der Offenlegung vertraulicher Informationen."@de ;
+  skos:definition "Accords limitant la divulgation d'informations confidentielles."@fr ;
+  skos:definition "Accordi che limitano la divulgazione di informazioni riservate."@it ;
+  skos:broader :legal_contractual .
+
+:leg_patents a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "LEG-PAT" ;
+  skos:prefLabel "Patents"@en ;
+  skos:prefLabel "Patente"@de ;
+  skos:prefLabel "Brevets"@fr ;
+  skos:prefLabel "Brevetti"@it ;
+  skos:definition "Documents establishing or describing intellectual property rights."@en ;
+  skos:definition "Dokumente zur Begruendung oder Beschreibung von Rechten an geistigem Eigentum."@de ;
+  skos:definition "Documents etablissant ou decrivant des droits de propriete intellectuelle."@fr ;
+  skos:definition "Documenti che stabiliscono o descrivono diritti di proprieta intellettuale."@it ;
+  skos:broader :legal_contractual .
+
+:leg_settlement_agreements a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "LEG-SET" ;
+  skos:prefLabel "Settlement agreements"@en ;
+  skos:prefLabel "Vergleichsvereinbarungen"@de ;
+  skos:prefLabel "Accords transactionnels"@fr ;
+  skos:prefLabel "Accordi transattivi"@it ;
+  skos:definition "Agreements resolving disputes or claims without full litigation."@en ;
+  skos:definition "Vereinbarungen zur Beilegung von Streitigkeiten oder Anspruechen ohne vollstaendiges Verfahren."@de ;
+  skos:definition "Accords resolvant des litiges ou reclamations sans procedure complete."@fr ;
+  skos:definition "Accordi che risolvono controversie o reclami senza procedimento completo."@it ;
+  skos:broader :legal_contractual .
+
+:regulatory_normative a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "REG" ;
+  skos:prefLabel "Regulatory and normative"@en ;
+  skos:prefLabel "Regulatorisch und normativ"@de ;
+  skos:prefLabel "Reglementaire et normatif"@fr ;
+  skos:prefLabel "Regolamentare e normativo"@it ;
+  skos:definition "Documents representing external rules, official standards, and compliance obligations."@en ;
+  skos:definition "Dokumente, die externe Regeln, offizielle Normen und Compliance-Verpflichtungen abbilden."@de ;
+  skos:definition "Documents representant des regles externes, des normes officielles et des obligations de conformite."@fr ;
+  skos:definition "Documenti che rappresentano regole esterne, norme ufficiali e obblighi di conformita."@it ;
+  skos:narrower :reg_norms, :reg_laws, :reg_standards, :reg_compliance_reports .
+
+:reg_norms a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REG-NOR" ;
+  skos:prefLabel "Norms"@en ;
+  skos:prefLabel "Normen"@de ;
+  skos:prefLabel "Normes"@fr ;
+  skos:prefLabel "Norme"@it ;
+  skos:definition "Official normative documents codifying requirements or accepted practice."@en ;
+  skos:definition "Offizielle normative Dokumente, die Anforderungen oder anerkannte Praxis kodifizieren."@de ;
+  skos:definition "Documents normatifs officiels codifiant des exigences ou des pratiques reconnues."@fr ;
+  skos:definition "Documenti normativi ufficiali che codificano requisiti o prassi riconosciute."@it ;
+  skos:broader :regulatory_normative .
+
+:reg_laws a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REG-LAW" ;
+  skos:prefLabel "Laws"@en ;
+  skos:prefLabel "Gesetze"@de ;
+  skos:prefLabel "Lois"@fr ;
+  skos:prefLabel "Leggi"@it ;
+  skos:definition "Statutory and regulatory instruments issued by legislative or government authority."@en ;
+  skos:definition "Gesetzliche und regulatorische Instrumente, die von legislativen oder staatlichen Behoerden erlassen werden."@de ;
+  skos:definition "Instruments legislatifs et reglementaires emis par une autorite legislative ou gouvernementale."@fr ;
+  skos:definition "Strumenti legislativi e regolamentari emanati da autorita legislative o governative."@it ;
+  skos:broader :regulatory_normative .
+
+:reg_standards a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REG-STD" ;
+  skos:prefLabel "Standards"@en ;
+  skos:prefLabel "Standards"@de ;
+  skos:prefLabel "Standards"@fr ;
+  skos:prefLabel "Standard"@it ;
+  skos:definition "Published consensus standards from recognized standards bodies."@en ;
+  skos:definition "Veroeffentlichte Konsensstandards anerkannter Normungsorganisationen."@de ;
+  skos:definition "Standards consensuels publies par des organismes de normalisation reconnus."@fr ;
+  skos:definition "Standard di consenso pubblicati da organismi di normazione riconosciuti."@it ;
+  skos:broader :regulatory_normative .
+
+:reg_compliance_reports a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REG-CMP" ;
+  skos:prefLabel "Compliance reports"@en ;
+  skos:prefLabel "Compliance-Berichte"@de ;
+  skos:prefLabel "Rapports de conformite"@fr ;
+  skos:prefLabel "Rapporti di conformita"@it ;
+  skos:definition "Documents demonstrating or reporting conformity with external rules and obligations."@en ;
+  skos:definition "Dokumente, die die Einhaltung externer Regeln und Verpflichtungen nachweisen oder berichten."@de ;
+  skos:definition "Documents demonstrant ou rapportant la conformite aux regles et obligations externes."@fr ;
+  skos:definition "Documenti che dimostrano o riportano la conformita a regole e obblighi esterni."@it ;
+  skos:narrower :reg_cmp_audits, :reg_cmp_declarations, :reg_cmp_filings ;
+  skos:broader :regulatory_normative .
+
+:reg_cmp_audits a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REG-CMP-AUD" ;
+  skos:prefLabel "Compliance audits"@en ;
+  skos:prefLabel "Compliance-Audits"@de ;
+  skos:prefLabel "Audits de conformite"@fr ;
+  skos:prefLabel "Audit di conformita"@it ;
+  skos:definition "Reports from audits assessing conformity with rules and obligations."@en ;
+  skos:definition "Berichte aus Audits zur Bewertung der Einhaltung von Regeln und Verpflichtungen."@de ;
+  skos:definition "Rapports d'audits evaluant la conformite aux regles et obligations."@fr ;
+  skos:definition "Rapporti di audit che valutano la conformita a regole e obblighi."@it ;
+  skos:broader :reg_compliance_reports .
+
+:reg_cmp_declarations a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REG-CMP-DCL" ;
+  skos:prefLabel "Conformity declarations"@en ;
+  skos:prefLabel "Konformitaetserklaerungen"@de ;
+  skos:prefLabel "Declarations de conformite"@fr ;
+  skos:prefLabel "Dichiarazioni di conformita"@it ;
+  skos:definition "Formal statements attesting conformity to specified requirements."@en ;
+  skos:definition "Formelle Erklaerungen zur Bestaetigung der Einhaltung festgelegter Anforderungen."@de ;
+  skos:definition "Declarations formelles attestant la conformite a des exigences specifiees."@fr ;
+  skos:definition "Dichiarazioni formali che attestano la conformita a requisiti specificati."@it ;
+  skos:broader :reg_compliance_reports .
+
+:reg_cmp_filings a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REG-CMP-FIL" ;
+  skos:prefLabel "Regulatory filings"@en ;
+  skos:prefLabel "Behoerdliche Einreichungen"@de ;
+  skos:prefLabel "Depots reglementaires"@fr ;
+  skos:prefLabel "Depositi regolamentari"@it ;
+  skos:definition "Documents submitted to authorities to meet regulatory obligations."@en ;
+  skos:definition "Dokumente, die Behoerden zur Erfuellung regulatorischer Pflichten eingereicht werden."@de ;
+  skos:definition "Documents soumis aux autorites pour satisfaire des obligations reglementaires."@fr ;
+  skos:definition "Documenti presentati alle autorita per adempiere obblighi regolamentari."@it ;
+  skos:broader :reg_compliance_reports .
+
+:marketing_sales a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MKS" ;
+  skos:prefLabel "Marketing and Sales"@en ;
+  skos:prefLabel "Marketing und Vertrieb"@de ;
+  skos:prefLabel "Marketing et ventes"@fr ;
+  skos:prefLabel "Marketing e vendite"@it ;
+  skos:definition "Documents used for market communication, promotion, customer acquisition, and sales support."@en ;
+  skos:definition "Dokumente fuer Marktkommunikation, Promotion, Kundengewinnung und Vertriebsunterstuetzung."@de ;
+  skos:definition "Documents utilises pour la communication de marche, la promotion, l'acquisition de clients et le support commercial."@fr ;
+  skos:definition "Documenti usati per comunicazione di mercato, promozione, acquisizione clienti e supporto alle vendite."@it ;
+  skos:narrower :mks_case_studies, :mks_brochures, :mks_white_papers, :mks_lead_lists .
+
+:mks_case_studies a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MKS-CAS" ;
+  skos:prefLabel "Case studies"@en ;
+  skos:prefLabel "Fallstudien"@de ;
+  skos:prefLabel "Etudes de cas"@fr ;
+  skos:prefLabel "Casi studio"@it ;
+  skos:definition "Documents describing completed projects or customer success stories."@en ;
+  skos:definition "Dokumente, die abgeschlossene Projekte oder Kundenerfolgsgeschichten beschreiben."@de ;
+  skos:definition "Documents decrivant des projets realises ou des reussites clients."@fr ;
+  skos:definition "Documenti che descrivono progetti completati o storie di successo dei clienti."@it ;
+  skos:broader :marketing_sales .
+
+:mks_brochures a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MKS-BRO" ;
+  skos:prefLabel "Brochures"@en ;
+  skos:prefLabel "Broschueren"@de ;
+  skos:prefLabel "Brochures"@fr ;
+  skos:prefLabel "Brochure"@it ;
+  skos:definition "Promotional documents presenting products, services, or offerings."@en ;
+  skos:definition "Werbematerialien zur Praesentation von Produkten, Dienstleistungen oder Angeboten."@de ;
+  skos:definition "Documents promotionnels presentant produits, services ou offres."@fr ;
+  skos:definition "Documenti promozionali che presentano prodotti, servizi o offerte."@it ;
+  skos:broader :marketing_sales .
+
+:mks_white_papers a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MKS-WHP" ;
+  skos:prefLabel "White papers"@en ;
+  skos:prefLabel "White Papers"@de ;
+  skos:prefLabel "Livres blancs"@fr ;
+  skos:prefLabel "White paper"@it ;
+  skos:definition "Authoritative documents explaining solutions, methods, or market perspectives."@en ;
+  skos:definition "Autoritative Dokumente zur Erklaerung von Loesungen, Methoden oder Marktperspektiven."@de ;
+  skos:definition "Documents faisant autorite expliquant solutions, methodes ou perspectives de marche."@fr ;
+  skos:definition "Documenti autorevoli che spiegano soluzioni, metodi o prospettive di mercato."@it ;
+  skos:broader :marketing_sales .
+
+:mks_lead_lists a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "MKS-LDL" ;
+  skos:prefLabel "Lead lists"@en ;
+  skos:prefLabel "Lead-Listen"@de ;
+  skos:prefLabel "Listes de prospects"@fr ;
+  skos:prefLabel "Liste di lead"@it ;
+  skos:definition "Lists of potential customers or sales opportunities."@en ;
+  skos:definition "Listen potenzieller Kunden oder Vertriebschancen."@de ;
+  skos:definition "Listes de clients potentiels ou d'opportunites commerciales."@fr ;
+  skos:definition "Elenchi di clienti potenziali o opportunita commerciali."@it ;
+  skos:broader :marketing_sales .
+
+:technical a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "TEC" ;
+  skos:prefLabel "Technical"@en ;
+  skos:prefLabel "Technisch"@de ;
+  skos:prefLabel "Technique"@fr ;
+  skos:prefLabel "Tecnico"@it ;
+  skos:definition "Documents used for technical instruction, implementation, operation, and engineering communication."@en ;
+  skos:definition "Dokumente fuer technische Anleitung, Umsetzung, Betrieb und ingenieurbezogene Kommunikation."@de ;
+  skos:definition "Documents utilises pour l'instruction technique, la mise en oeuvre, l'exploitation et la communication d'ingenierie."@fr ;
+  skos:definition "Documenti usati per istruzioni tecniche, implementazione, esercizio e comunicazione ingegneristica."@it ;
+  skos:narrower :tec_schematics, :tec_plans, :tec_documents, :tec_manuals .
+
+:tec_schematics a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "TEC-SCH" ;
+  skos:prefLabel "Schematics"@en ;
+  skos:prefLabel "Schemata"@de ;
+  skos:prefLabel "Schemas"@fr ;
+  skos:prefLabel "Schemi"@it ;
+  skos:definition "Diagrams showing structure, connections, or technical layout."@en ;
+  skos:definition "Diagramme zur Darstellung von Struktur, Verbindungen oder technischer Anordnung."@de ;
+  skos:definition "Diagrammes montrant structure, connexions ou disposition technique."@fr ;
+  skos:definition "Diagrammi che mostrano struttura, connessioni o disposizione tecnica."@it ;
+  skos:broader :technical .
+
+:tec_plans a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "TEC-PLN" ;
+  skos:prefLabel "Plans"@en ;
+  skos:prefLabel "Plaene"@de ;
+  skos:prefLabel "Plans"@fr ;
+  skos:prefLabel "Piani"@it ;
+  skos:definition "Drawings or documents defining spatial layout, dimensions, or construction intent."@en ;
+  skos:definition "Zeichnungen oder Dokumente zur Definition von raeumlicher Anordnung, Massen oder Bauabsicht."@de ;
+  skos:definition "Dessins ou documents definissant disposition spatiale, dimensions ou intention de construction."@fr ;
+  skos:definition "Disegni o documenti che definiscono disposizione spaziale, dimensioni o intento costruttivo."@it ;
+  skos:broader :technical .
+
+:tec_documents a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "TEC-DOC" ;
+  skos:prefLabel "Documents"@en ;
+  skos:prefLabel "Dokumente"@de ;
+  skos:prefLabel "Documents"@fr ;
+  skos:prefLabel "Documenti"@it ;
+  skos:definition "Technical documentation such as reports, specifications, and reference material."@en ;
+  skos:definition "Technische Dokumentation wie Berichte, Spezifikationen und Referenzmaterial."@de ;
+  skos:definition "Documentation technique telle que rapports, specifications et materiel de reference."@fr ;
+  skos:definition "Documentazione tecnica come report, specifiche e materiale di riferimento."@it ;
+  skos:broader :technical .
+
+:tec_manuals a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "TEC-MAN" ;
+  skos:prefLabel "Manuals"@en ;
+  skos:prefLabel "Handbuecher"@de ;
+  skos:prefLabel "Manuels"@fr ;
+  skos:prefLabel "Manuali"@it ;
+  skos:definition "Instructional documents for installation, operation, maintenance, troubleshooting, and facility use during the building lifecycle."@en ;
+  skos:definition "Anleitungsdokumente fuer Installation, Betrieb, Wartung, Stoerungsbehebung und Nutzung waehrend des Bauwerkslebenszyklus."@de ;
+  skos:definition "Documents d'instruction pour l'installation, l'exploitation, la maintenance, le depannage et l'utilisation du batiment tout au long de son cycle de vie."@fr ;
+  skos:definition "Documenti di istruzione per installazione, esercizio, manutenzione, risoluzione guasti e utilizzo dell'edificio durante il ciclo di vita."@it ;
+  skos:broader :technical .
+
+:requirements_briefs a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "REQ" ;
+  skos:prefLabel "Requirements and briefs"@en ;
+  skos:prefLabel "Anforderungen und Briefings"@de ;
+  skos:prefLabel "Exigences et cahiers des charges"@fr ;
+  skos:prefLabel "Requisiti e brief"@it ;
+  skos:definition "Documents that specify needs, scope, constraints, and acceptance criteria for projects, products, or services."@en ;
+  skos:definition "Dokumente, die Beduerfnisse, Umfang, Randbedingungen und Abnahmekriterien fuer Projekte, Produkte oder Dienstleistungen festlegen."@de ;
+  skos:definition "Documents qui definissent les besoins, le perimetre, les contraintes et les criteres d'acceptation pour des projets, produits ou services."@fr ;
+  skos:definition "Documenti che specificano esigenze, ambito, vincoli e criteri di accettazione per progetti, prodotti o servizi."@it ;
+  skos:narrower :req_functional_specifications, :req_project_briefs, :req_tender_documents, :req_user_stories .
+
+:req_functional_specifications a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REQ-FSP" ;
+  skos:prefLabel "Functional specifications"@en ;
+  skos:prefLabel "Fachliche Spezifikationen"@de ;
+  skos:prefLabel "Specifications fonctionnelles"@fr ;
+  skos:prefLabel "Specifiche funzionali"@it ;
+  skos:definition "Detailed specifications of expected system or product behavior."@en ;
+  skos:definition "Detaillierte Spezifikationen des erwarteten System- oder Produktverhaltens."@de ;
+  skos:definition "Specifications detaillees du comportement attendu d'un systeme ou produit."@fr ;
+  skos:definition "Specifiche dettagliate del comportamento atteso di un sistema o prodotto."@it ;
+  skos:broader :requirements_briefs .
+
+:req_project_briefs a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REQ-BRF" ;
+  skos:prefLabel "Project briefs"@en ;
+  skos:prefLabel "Projektbriefings"@de ;
+  skos:prefLabel "Briefs de projet"@fr ;
+  skos:prefLabel "Brief di progetto"@it ;
+  skos:definition "Documents defining project goals, scope, and constraints at the outset."@en ;
+  skos:definition "Dokumente, die Projektziele, Umfang und Randbedingungen zu Beginn definieren."@de ;
+  skos:definition "Documents definissant objectifs, perimetre et contraintes d'un projet au depart."@fr ;
+  skos:definition "Documenti che definiscono obiettivi, ambito e vincoli di un progetto all'avvio."@it ;
+  skos:broader :requirements_briefs .
+
+:req_tender_documents a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REQ-TND" ;
+  skos:prefLabel "Tender documents"@en ;
+  skos:prefLabel "Ausschreibungsunterlagen"@de ;
+  skos:prefLabel "Documents d'appel d'offres"@fr ;
+  skos:prefLabel "Documenti di gara"@it ;
+  skos:definition "Documents issued to invite, instruct, and evaluate competitive bids for projects, works, or services."@en ;
+  skos:definition "Unterlagen zur Einladung, Anleitung und Bewertung von Wettbewerbsangeboten fuer Projekte, Leistungen oder Dienstleistungen."@de ;
+  skos:definition "Documents emis pour inviter, instruire et evaluer des offres concurrentielles pour des projets, travaux ou services."@fr ;
+  skos:definition "Documenti emessi per invitare, istruire e valutare offerte competitive per progetti, lavori o servizi."@it ;
+  skos:broader :requirements_briefs .
+
+:req_user_stories a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "REQ-UST" ;
+  skos:prefLabel "User stories"@en ;
+  skos:prefLabel "User Stories"@de ;
+  skos:prefLabel "User stories"@fr ;
+  skos:prefLabel "User story"@it ;
+  skos:definition "Short statements of user needs used to capture product requirements."@en ;
+  skos:definition "Kurze Formulierungen von Nutzerbeduerfnissen zur Erfassung von Produktanforderungen."@de ;
+  skos:definition "Enonces courts de besoins utilisateurs pour capturer des exigences produit."@fr ;
+  skos:definition "Breve descrizioni dei bisogni utente per catturare requisiti di prodotto."@it ;
+  skos:broader :requirements_briefs .
