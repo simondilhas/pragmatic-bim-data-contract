@@ -62,9 +62,21 @@ vocabularies:
     path: abstract-covering-product-classification/facade-covering-products.skos.ttl
     title: Abstract facade covering products
 
+  - slug: roof-covering-product
+    path: abstract-covering-product-classification/roof-covering-products.skos.ttl
+    title: Abstract roof covering products
+
+  - slug: foundation-product
+    path: abstract-foundation-product-classification/foundation-products.skos.ttl
+    title: Abstract foundation products
+
   - slug: wall-separator-product
     path: abstract-separator-product-classification/wall-separator-products.skos.ttl
     title: Abstract wall separator products
+
+  - slug: kbob-ecobilans-baumat
+    path: mapping/kbob-ecobilans-baumat.skos.ttl
+    title: KBOB ecobilans construction materials
 
   - slug: slab-separator-product
     path: abstract-separator-product-classification/slab-separator-products.skos.ttl
@@ -155,6 +167,14 @@ mappings:
     path: mapping/abstract-covering-products-to-bkp.mapping.ttl
     title: Abstract covering products to BKP mapping
 
+  - slug: foundation-products-to-bkp
+    path: mapping/abstract-foundation-products-to-bkp.mapping.ttl
+    title: Abstract foundation products to BKP mapping
+
+  - slug: roof-covering-products-to-bkp
+    path: mapping/abstract-roof-covering-products-to-bkp.mapping.ttl
+    title: Abstract roof covering products to BKP mapping
+
   - slug: separator-products-to-material
     path: mapping/abstract-separator-products-to-material.mapping.ttl
     title: Abstract separator products to material mapping
@@ -170,3 +190,39 @@ mappings:
   - slug: connector-products-to-bkp
     path: mapping/abstract-connector-products-to-bkp.mapping.ttl
     title: Abstract connector products to BKP mapping
+
+  - slug: slab-separator-products-to-kbob-ecobilans
+    path: mapping/abstract-slab-separator-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract slab separator products to KBOB ecobilans mapping
+
+  - slug: window-connector-products-to-kbob-ecobilans
+    path: mapping/abstract-window-connector-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract window connector products to KBOB ecobilans mapping
+
+  - slug: facade-covering-products-to-kbob-ecobilans
+    path: mapping/abstract-facade-covering-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract facade covering products to KBOB ecobilans mapping
+
+  - slug: roof-covering-products-to-kbob-ecobilans
+    path: mapping/abstract-roof-covering-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract roof covering products to KBOB ecobilans mapping
+
+  - slug: floor-covering-products-to-kbob-ecobilans
+    path: mapping/abstract-floor-covering-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract floor covering products to KBOB ecobilans mapping
+
+  - slug: wall-covering-products-to-kbob-ecobilans
+    path: mapping/abstract-wall-covering-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract wall covering products to KBOB ecobilans mapping
+
+  - slug: ceiling-covering-products-to-kbob-ecobilans
+    path: mapping/abstract-ceiling-covering-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract ceiling covering products to KBOB ecobilans mapping
+
+  - slug: wall-separator-products-to-kbob-ecobilans
+    path: mapping/abstract-wall-separator-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract wall separator products to KBOB ecobilans mapping
+
+  - slug: door-connector-products-to-kbob-ecobilans
+    path: mapping/abstract-door-connector-products-to-kbob-ecobilans.mapping.ttl
+    title: Abstract door connector products to KBOB ecobilans mapping

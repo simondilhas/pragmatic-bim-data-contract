@@ -36,13 +36,13 @@ def clear_markdown_source(md_src: Path) -> None:
     md_src.mkdir(parents=True, exist_ok=True)
 
 
-def run_gen_doc(md_src: Path, schema_root: Path) -> None:
+def run_gen_doc(md_src: Path, schema_root: Path, *, index_name: str = "pragmatic-bim.docs") -> None:
     clear_markdown_source(md_src)
     cmd = find_gen_doc()
     args = [
         cmd,
         "--index-name",
-        "pragmatic-bim.docs",
+        index_name,
         "--hierarchical-class-view",
         "--truncate-descriptions",
         "false",
@@ -50,13 +50,18 @@ def run_gen_doc(md_src: Path, schema_root: Path) -> None:
         "mermaid_class_diagram",
         "-d",
         str(md_src),
-        str(schema_root),
+        str(schema_root.name),
     ]
-    subprocess.run(args, check=True, cwd=REPO_ROOT)
+    subprocess.run(args, check=True, cwd=schema_root.parent)
 
 
-def generate_schema_markdown(*, md_src: Path, schema_root: Path) -> None:
-    run_gen_doc(md_src, schema_root)
+def generate_schema_markdown(
+    *,
+    md_src: Path,
+    schema_root: Path,
+    index_name: str = "pragmatic-bim.docs",
+) -> None:
+    run_gen_doc(md_src, schema_root, index_name=index_name)
     postprocess_md_dir(md_src, schema_root=schema_root)
 
 
@@ -97,11 +102,12 @@ def verify_schema_docs(
     *,
     md_src: Path,
     schema_root: Path,
+    index_name: str = "pragmatic-bim.docs",
 ) -> None:
     with tempfile.TemporaryDirectory() as tmp:
         tmp_root = Path(tmp)
-        tmp_md_src = tmp_root / "schema"
-        generate_schema_markdown(md_src=tmp_md_src, schema_root=schema_root)
+        tmp_md_src = tmp_root / md_src.name
+        generate_schema_markdown(md_src=tmp_md_src, schema_root=schema_root, index_name=index_name)
         errors = compare_doc_trees(md_src, tmp_md_src)
         if errors:
             print(
@@ -128,13 +134,26 @@ def main() -> None:
         action="store_true",
         help="Verify committed schema docs match a fresh build from contract/*.yaml.",
     )
+    parser.add_argument(
+        "--index-name",
+        default="pragmatic-bim.docs",
+        help="Index document base name for gen-doc (default: pragmatic-bim.docs).",
+    )
     args = parser.parse_args()
 
     if args.check:
-        verify_schema_docs(md_src=args.md_src, schema_root=args.schema_root)
+        verify_schema_docs(
+            md_src=args.md_src,
+            schema_root=args.schema_root,
+            index_name=args.index_name,
+        )
         return
 
-    generate_schema_markdown(md_src=args.md_src, schema_root=args.schema_root)
+    generate_schema_markdown(
+        md_src=args.md_src,
+        schema_root=args.schema_root,
+        index_name=args.index_name,
+    )
     print(f"Generated schema markdown in {args.md_src}")
 
 

@@ -429,6 +429,13 @@ enums:
           de:
             source: de
             description: Verkleidung
+      roofing:
+        meaning: ifcowl:IfcCoveringTypeEnum.ROOFING
+        title: Roofing
+        alt_descriptions:
+          de:
+            source: de
+            description: Dachbekleidung
   ConnectionPhysicalType:
     enum_uri: pbs:ConnectionPhysicalType
     description: Classification of physical connector elements that connect spaces.

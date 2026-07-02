@@ -1,0 +1,37 @@
+@prefix dcp: <https://example.org/abstract/door-connector-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractDoorConnectorProductsToKbobEcobilansMapping a dcterms:Dataset ;
+  dcterms:title "Abstract door connector products to KBOB ecobilans mapping"@en ;
+  dcterms:title "Mapping abstrakter Tuer-Verbindungsprodukte nach KBOB Oekobilanz"@de ;
+  dcterms:references dcp:scheme, kbobbm:scheme ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:description "Maps abstract door connector products to KBOB ecobilans group 12 door assembly rows (m2 reference unit). pcs-priced doors use default door leaf area in kbob-ecobilans-price-unit-defaults.json."@en ;
+  dcterms:description "Ordnet abstrakte Tuer-Verbindungsprodukte KBOB-Oekobilanz-Gruppe-12-Tuerbaugruppen (m2-Bezugseinheit) zu. pcs-bewertete Tueren nutzen Standard-Tuerblattflaeche in kbob-ecobilans-price-unit-defaults.json."@de .
+
+dcp:DCP-WOOD skos:closeMatch kbobbm:12_003 ;
+  skos:relatedMatch kbobbm:12_008, kbobbm:12_010 .
+
+dcp:DCP-METAL skos:closeMatch kbobbm:12_009 ;
+  skos:relatedMatch kbobbm:12_012, kbobbm:12_007 .
+
+dcp:DCP-WOOD-METAL skos:closeMatch kbobbm:12_001 ;
+  skos:relatedMatch kbobbm:12_002 .
+
+dcp:DCP-PVC skos:closeMatch kbobbm:12_003 ;
+  skos:relatedMatch kbobbm:13_004 .
+
+dcp:DCP-GLASS skos:closeMatch kbobbm:12_002 ;
+  skos:relatedMatch kbobbm:12_007, kbobbm:05_001 .
+
+dcp:DCP-GATE skos:closeMatch kbobbm:12_009 ;
+  skos:relatedMatch kbobbm:12_006, kbobbm:06_012 .
+
+dcp:DCP-SPECIAL skos:closeMatch kbobbm:12_009 ;
+  skos:relatedMatch kbobbm:12_005, kbobbm:05_016 .
+
+dcp:DCP-OTH skos:closeMatch kbobbm:12_003 ;
+  skos:relatedMatch kbobbm:12_010 .

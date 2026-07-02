@@ -18,9 +18,13 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `ssp:SSP-HBV` | `closeMatch` | `mat:MAT-CMP` |
 | `ssp:SSP-HBV` | `relatedMatch` | `mat:MAT-CONC` |
 | `ssp:SSP-HBV` | `relatedMatch` | `mat:MAT-WOD` |
+| `ssp:SSP-HBV-CONC` | `closeMatch` | `mat:MAT-CONC` |
+| `ssp:SSP-HBV-WOD` | `closeMatch` | `mat:MAT-WOD` |
 | `ssp:SSP-HOLZ-LEHM` | `closeMatch` | `mat:MAT-WOD` |
 | `ssp:SSP-HOLZ-LEHM` | `relatedMatch` | `mat:MAT-CMP` |
 | `ssp:SSP-HOLZ-LEHM` | `relatedMatch` | `mat:MAT-MSN` |
+| `ssp:SSP-HOLZ-LEHM-MSN` | `closeMatch` | `mat:MAT-MSN` |
+| `ssp:SSP-HOLZ-LEHM-WOD` | `closeMatch` | `mat:MAT-WOD` |
 | `ssp:SSP-INSITU` | `closeMatch` | `mat:MAT-CONC` |
 | `ssp:SSP-LIGHTWEIGHT` | `closeMatch` | `mat:MAT-CMP` |
 | `ssp:SSP-LIGHTWEIGHT` | `relatedMatch` | `mat:MAT-INS` |
@@ -29,6 +33,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `ssp:SSP-PREFAB-CONC` | `relatedMatch` | `mat:MAT-CMP` |
 | `ssp:SSP-STEEL-COMPOSITE` | `closeMatch` | `mat:MAT-MET-STL` |
 | `ssp:SSP-STEEL-COMPOSITE` | `relatedMatch` | `mat:MAT-CONC` |
+| `ssp:SSP-STEEL-COMPOSITE-CONC` | `closeMatch` | `mat:MAT-CONC` |
+| `ssp:SSP-STEEL-COMPOSITE-STL` | `closeMatch` | `mat:MAT-MET-STL` |
 | `ssp:SSP-TIMBER` | `closeMatch` | `mat:MAT-WOD` |
 | `ssp:SSP-TIMBER` | `relatedMatch` | `mat:MAT-CMP` |
 | `swp:SWP-BLT` | `closeMatch` | `mat:MAT-CONC` |

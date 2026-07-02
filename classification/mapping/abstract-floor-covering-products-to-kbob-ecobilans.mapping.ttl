@@ -1,0 +1,45 @@
+@prefix fcp: <https://example.org/abstract/floor-covering-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractFloorCoveringProductsToKbobEcobilansMapping a dcterms:Dataset ;
+  dcterms:title "Abstract floor covering products to KBOB ecobilans mapping"@en ;
+  dcterms:title "Mapping abstrakter Bodenbelagsprodukte nach KBOB Oekobilanz"@de ;
+  dcterms:references fcp:scheme, kbobbm:scheme ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:description "Maps abstract floor covering products to KBOB ecobilans group 11 floor-finish rows (m2 reference units). FCP-RAISED-FLOOR uses screed row 11.005 as closest proxy; verify raised-access panel mass separately if needed."@en ;
+  dcterms:description "Ordnet abstrakte Bodenbelagsprodukte KBOB-Oekobilanz-Gruppe-11-Bodenbelagszeilen (m2-Bezugseinheit) zu. FCP-RAISED-FLOOR nutzt Estrichzeile 11.005 als naechste Naeherung."@de .
+
+fcp:FCP-SUBFLOOR skos:closeMatch kbobbm:11_005 .
+
+fcp:FCP-SEAMLESS-RESIN skos:closeMatch kbobbm:11_002 ;
+  skos:relatedMatch kbobbm:11_001 .
+
+fcp:FCP-CARPET skos:closeMatch kbobbm:11_024 ;
+  skos:relatedMatch kbobbm:11_025, kbobbm:11_026 .
+
+fcp:FCP-LVT skos:closeMatch kbobbm:11_021 ;
+  skos:relatedMatch kbobbm:11_023 .
+
+fcp:FCP-LINOLIUM skos:closeMatch kbobbm:11_014 .
+
+fcp:FCP-NATURAL-STONE skos:closeMatch kbobbm:11_015 ;
+  skos:relatedMatch kbobbm:11_016, kbobbm:11_017 .
+
+fcp:FCP-ARTIFICIAL-STONE skos:closeMatch kbobbm:11_012 ;
+  skos:relatedMatch kbobbm:11_027 .
+
+fcp:FCP-CERAMIC-TILE skos:closeMatch kbobbm:11_008 .
+
+fcp:FCP-PARQUET skos:closeMatch kbobbm:11_018 ;
+  skos:relatedMatch kbobbm:11_019, kbobbm:11_020 .
+
+fcp:FCP-LAMINATE skos:closeMatch kbobbm:11_013 .
+
+fcp:FCP-RAISED-FLOOR skos:closeMatch kbobbm:11_005 ;
+  skos:relatedMatch kbobbm:07_014 .
+
+fcp:FCP-OTH skos:closeMatch kbobbm:11_002 ;
+  skos:relatedMatch kbobbm:11_007 .

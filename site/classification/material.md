@@ -131,10 +131,10 @@ n_MAT_MSN <|-- n_MAT_MSN_CLY
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Daemmung</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Dominantes Material ist Waerme- oder Schalldaemmung wie Mineralwolle, Glaswolle oder Daemmplatten.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Kennzeichnet die dominante Substanz eines Elements oder einer Schicht, nicht den Elementtyp.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Kennzeichnet die dominante Substanz eines Elements oder einer Schicht, nicht den Elementtyp. Kein Hüllen-Produkttyp; kein Ersatz fuer FaCP-*, RCP-* oder FDP-* als primaere classification_code. Verwenden wenn Material neben Subsystem-Eltern bekannt ist, oder als Fruehplanungs-Fallback wenn nur Substanz bekannt ist.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Insulation</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Dominant material is thermal or acoustic insulation such as mineral wool, glass wool, or foam boards.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Tags dominant substance of an element or layer, not element type.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Tags dominant substance of an element or layer, not element type. Not an envelope product type; not a substitute for FaCP-*, RCP-*, or FDP-* as primary classification_code. Use when material is known alongside a subsystem parent, or as early-design fallback when only substance is known.</td>
 </tr>
 <tr>
 <td>MAT-INS-MWO</td>

@@ -13,6 +13,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_SCHEMA_ROOT = REPO_ROOT / "contract" / "00_pragmatic_bim_data_contract.yaml"
+DEFAULT_COST_SCHEMA_ROOT = REPO_ROOT / "contract" / "cost" / "baseline_cost_schema.yaml"
 DEFAULT_SITE_DIR = REPO_ROOT / "site"
 DEFAULT_MD_SRC = DEFAULT_SITE_DIR / ".md-src"
 DEFAULT_HTML_BUILD = DEFAULT_SITE_DIR / ".html-build"
@@ -62,6 +63,13 @@ SCHEMA_ARTIFACTS = {
     "pragmatic-bim.pydantic.py",
     "pragmatic-bim.docs.md",
 }
+COST_SCHEMA_ARTIFACTS = {
+    "baseline-cost.shacl.ttl",
+    "baseline-cost.schema.json",
+    "baseline-cost.csv",
+    "baseline-cost.pydantic.py",
+    "baseline-cost.docs.md",
+}
 CLASSIFICATION_PRESERVE = {"sources", "classifications.json"}
 MKDOCS_OUTPUT_NAMES = {
     "assets",
@@ -81,19 +89,19 @@ def find_cmd(*names: str) -> str:
     raise SystemExit(f"No command found (tried: {', '.join(names)})")
 
 
-def run_linkml_artifacts(schema_root: Path, out_dir: Path) -> None:
+def run_linkml_artifacts(schema_root: Path, out_dir: Path, *, prefix: str = "pragmatic-bim") -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     csv_cmd = find_cmd("gen-csv", "csvgen")
     pydantic_cmd = find_cmd("gen-pydantic", "pydanticgen")
 
     def write_cmd_output(filename: str, cmd: list[str]) -> None:
-        result = subprocess.run(cmd, check=True, cwd=REPO_ROOT, capture_output=True, text=True)
+        result = subprocess.run(cmd, check=True, cwd=schema_root.parent, capture_output=True, text=True)
         (out_dir / filename).write_text(result.stdout, encoding="utf-8")
 
-    write_cmd_output("pragmatic-bim.shacl.ttl", ["gen-shacl", str(schema_root)])
-    write_cmd_output("pragmatic-bim.schema.json", ["gen-json-schema", str(schema_root)])
-    write_cmd_output("pragmatic-bim.csv", [csv_cmd, str(schema_root)])
-    write_cmd_output("pragmatic-bim.pydantic.py", [pydantic_cmd, str(schema_root)])
+    write_cmd_output(f"{prefix}.shacl.ttl", ["gen-shacl", str(schema_root)])
+    write_cmd_output(f"{prefix}.schema.json", ["gen-json-schema", str(schema_root)])
+    write_cmd_output(f"{prefix}.csv", [csv_cmd, str(schema_root)])
+    write_cmd_output(f"{prefix}.pydantic.py", [pydantic_cmd, str(schema_root)])
 
 
 def resolve_release_version(site_dir: Path) -> str:
@@ -333,8 +341,10 @@ def stage_brand_assets(md_src: Path) -> None:
 
 def publish_schema_markdown(md_src: Path, site_schema_dir: Path) -> None:
     site_schema_dir.mkdir(parents=True, exist_ok=True)
-    for md_file in md_src.glob("*.md"):
-        shutil.copy2(md_file, site_schema_dir / md_file.name)
+    for md_file in md_src.rglob("*.md"):
+        target = site_schema_dir / md_file.relative_to(md_src)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(md_file, target)
 
 
 def publish_classification_markdown(md_src: Path, site_classification_dir: Path) -> None:
@@ -354,6 +364,8 @@ def clear_section_html(section_dir: Path) -> None:
     if not section_dir.is_dir():
         return
     preserve = SCHEMA_ARTIFACTS if section_dir.name == "schema" else CLASSIFICATION_PRESERVE
+    if section_dir.name == "cost":
+        preserve = COST_SCHEMA_ARTIFACTS
     for item in section_dir.iterdir():
         if item.name in preserve:
             continue
@@ -369,7 +381,7 @@ def clear_mkdocs_outputs(site_dir: Path) -> None:
             continue
         if item.name in MKDOCS_OUTPUT_NAMES or item.suffix == ".html":
             _remove_path(item)
-        elif item.is_dir() and item.name in {"schema", "classification", "mapping"}:
+        elif item.is_dir() and item.name in {"schema", "classification", "mapping", "cost"}:
             clear_section_html(item)
 
 
@@ -402,8 +414,8 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
     html_build = site_dir / ".html-build"
     schema_out = site_dir / "schema"
     classification_out = site_dir / "classification"
-
-    run_linkml_artifacts(schema_root, schema_out)
+    cost_schema_root = REPO_ROOT / "contract" / "cost" / "baseline_cost_schema.yaml"
+    cost_out = site_dir / "cost"
 
     subprocess.run(
         [
@@ -413,6 +425,20 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
             str(schema_root),
             "--md-src",
             str(md_src / "schema"),
+        ],
+        check=True,
+        cwd=REPO_ROOT,
+    )
+    subprocess.run(
+        [
+            sys.executable,
+            str(REPO_ROOT / "scripts" / "build_schema_docs.py"),
+            "--schema-root",
+            str(cost_schema_root),
+            "--md-src",
+            str(md_src / "cost"),
+            "--index-name",
+            "baseline-cost.docs",
         ],
         check=True,
         cwd=REPO_ROOT,
@@ -438,7 +464,10 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
     stage_brand_assets(md_src)
     run_mkdocs_build(html_build=html_build)
     merge_html_build(html_build, site_dir)
+    run_linkml_artifacts(schema_root, schema_out)
+    run_linkml_artifacts(cost_schema_root, cost_out, prefix="baseline-cost")
     publish_schema_markdown(md_src / "schema", schema_out)
+    publish_schema_markdown(md_src / "cost", cost_out)
     publish_classification_markdown(md_src / "classification", classification_out)
 
     subprocess.run(
@@ -461,6 +490,7 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
 
 
 def check_site(*, schema_root: Path) -> None:
+    cost_schema_root = REPO_ROOT / "contract" / "cost" / "baseline_cost_schema.yaml"
     subprocess.run(
         [
             sys.executable,
@@ -470,6 +500,21 @@ def check_site(*, schema_root: Path) -> None:
             str(schema_root),
             "--md-src",
             str(DEFAULT_MD_SRC / "schema"),
+        ],
+        check=True,
+        cwd=REPO_ROOT,
+    )
+    subprocess.run(
+        [
+            sys.executable,
+            str(REPO_ROOT / "scripts" / "build_schema_docs.py"),
+            "--check",
+            "--schema-root",
+            str(cost_schema_root),
+            "--md-src",
+            str(DEFAULT_MD_SRC / "cost"),
+            "--index-name",
+            "baseline-cost.docs",
         ],
         check=True,
         cwd=REPO_ROOT,

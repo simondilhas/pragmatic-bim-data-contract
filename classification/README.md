@@ -70,8 +70,54 @@ classification/
 | `mapping/abstract-separator-products-to-bkp.mapping.ttl` | Abstract separator products → BKP 211–215 / 277 cost lines |
 | `mapping/abstract-connector-products-to-material.mapping.ttl` | Abstract door and window connector products → dominant material classes |
 | `mapping/abstract-connector-products-to-bkp.mapping.ttl` | Abstract door and window connector products → BKP 221.x / 272 / 273 / 224 cost lines |
+| `mapping/kbob-ecobilans-baumat.skos.ttl` | KBOB ecobilans Baumaterialien vocabulary (generated from Excel) |
+| `mapping/kbob-ecobilans-lca-factors.json` | LCA indicator values keyed by KBOB ecobilans concept IRI |
+| `mapping/kbob-ecobilans-layer-recipes.json` | Default layer quantity rules for composite product carbon decomposition |
+| `mapping/abstract-slab-separator-products-to-kbob-ecobilans.mapping.ttl` | Abstract slab separator products → KBOB ecobilans rows |
+| `mapping/abstract-window-connector-products-to-kbob-ecobilans.mapping.ttl` | Abstract window connector products → KBOB ecobilans rows |
+| `mapping/abstract-facade-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract facade covering products → KBOB ecobilans rows |
+| `mapping/abstract-roof-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract roof covering products → KBOB ecobilans rows |
 
 Bridge files reference external IRIs by code. Full proprietary vocabularies are not shipped in this repository.
+
+## Subsystem product classification
+
+Envelope products (facade `FaCP-*`, roof `RCP-*`, foundation `FDP-*`) follow a **subsystem model**: assign **one parent topConcept** per element. That code drives baseline cost as a bundled installation. Internal layer narrowers (`*-INS`, `*-SUB`, `*-FIN`, and legacy suffixes such as `*-RENDER`, `*-MEM`, `*-FRAME`) are **LCA decomposition only** — not user-assignable product classifications.
+
+| Slot | Scheme | Required? | Drives cost? | Example |
+|------|--------|-----------|--------------|---------|
+| `classification_code` (primary) | Envelope product | Yes | Yes — whole subsystem | `FaCP-PREFAB-MODULAR-METAL` |
+| LCA layer narrowers | Same envelope scheme | No | No — carbon only | `FaCP-RENDER-ETICS-WDVS-INS` |
+| `material_category` or 2nd `classifications[]` | `abstract-material-classification` | Optional | No alone | `MAT-INS-MWO` |
+
+**Carbon patterns:**
+
+- **Bundled** — single KBOB row on the parent (e.g. `FaCP-PREFAB-MODULAR-METAL`, pitched roof tiles).
+- **Layer recipe sum** — parent + [`kbob-ecobilans-layer-recipes.json`](mapping/kbob-ecobilans-layer-recipes.json) decomposes into internal layers (e.g. `FaCP-RENDER-ETICS-WDVS`, `RCP-FLAT-BITUMEN`).
+
+**Generic internal layer roles** (new systems): `-INS` (insulation), `-SUB` (substructure/frame), `-FIN` (finish/cladding/membrane). Legacy suffixes remain unchanged.
+
+**`MAT-INS*` usage:** tags dominant **substance**, not envelope product type. Pair with a parent subsystem code when material is known. Use alone only as an early-design fallback when the system type is not yet known — resolve to a parent product before cost sign-off. Layer `-INS` narrowers map to `MAT-INS*` via [`abstract-covering-products-to-material.mapping.ttl`](mapping/abstract-covering-products-to-material.mapping.ttl).
+
+**Assignment decision tree:**
+
+```
+Known subsystem type (ETICS, prefab metal, bitumen flat roof, raft foundation)?
+  YES → classification_code = parent FaCP-* / RCP-* / FDP-*
+        cost = parent baseline entry
+        carbon = direct (bundled) OR layer_recipe_sum (composite)
+        optional: material_category = MAT-INS* if substance known
+
+Only material known, no system?
+  YES → material_category = MAT-INS* (early design fallback)
+        resolve to parent product before cost sign-off
+
+BIM models separate insulation layer element?
+  Prefer inherit parent subsystem from assembly/context;
+  do NOT assign layer notation as primary classification_code
+```
+
+Do **not** use `MAT-INS` as primary `classification_code` on boundary elements when a subsystem parent exists. Do **not** add standalone assignable insulation topConcepts (e.g. generic roof insulation) — insulation belongs under the parent subsystem or as optional material metadata.
 
 ## Room name notation (v2)
 
@@ -95,6 +141,8 @@ Human-readable reference docs are generated from the SKOS and mapping TTL files:
 - **Live site:** [schema.pragmaticbim.ch/classification](https://schema.pragmaticbim.ch/classification/)
 - **Regenerate locally:** `python scripts/build_classification_docs.py` (or `python scripts/build_site.py` for schema + classifications)
 - **Catalog:** [`catalog.yaml`](catalog.yaml) lists vocabularies and mappings included in the docs
+
+Abstract product **unit prices** are a separate cost enrichment layer: [`contract/cost/`](../contract/cost/) (JSON in [`baseline-unit-prices/`](../baseline-unit-prices/)), keyed by SKOS product notation from the vocabularies above.
 
 CI validates that committed `site/.md-src/classification/` matches the TTL sources (`schema-generation.yml`).
 

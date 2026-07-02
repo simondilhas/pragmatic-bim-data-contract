@@ -1,0 +1,117 @@
+id: https://schema.pragmaticbim.ch/cost/baseline-cost/enums
+name: baseline_cost_schema_enums
+title: Baseline cost schema enums
+description: Enumerations for baseline unit prices and regional cost benchmarks.
+license: MIT
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cost: https://schema.pragmaticbim.ch/cost/
+default_prefix: cost
+default_range: string
+imports:
+  - linkml:types
+
+types:
+  ConceptNotation:
+    typeof: string
+    description: A SKOS notation from the abstract product vocabularies.
+    pattern: "^[A-Za-z]+(-[A-Za-z0-9]+)+$"
+
+enums:
+  CurrencyEnum:
+    enum_uri: cost:CurrencyEnum
+    description: ISO 4217 currency for regional labor rates. Price-book material is always EUR.
+    permissible_values:
+      EUR:
+        title: Euro
+      CHF:
+        title: Swiss franc
+      GBP:
+        title: Pound sterling
+      USD:
+        title: US dollar
+
+  PriceUnitEnum:
+    enum_uri: cost:PriceUnitEnum
+    description: Native trade unit for a baseline unit price.
+    permissible_values:
+      m2:
+        title: Square metre
+      m3:
+        title: Cubic metre
+      pcs:
+        title: Piece
+
+  KbobMatchTypeEnum:
+    enum_uri: cost:KbobMatchTypeEnum
+    permissible_values:
+      closeMatch:
+        title: closeMatch
+      relatedMatch:
+        title: relatedMatch
+      layer_recipe:
+        title: layer_recipe
+
+  CarbonMethodEnum:
+    enum_uri: cost:CarbonMethodEnum
+    permissible_values:
+      direct:
+        title: direct
+      density:
+        title: density
+      area_yield:
+        title: area_yield
+      piece_area:
+        title: piece_area
+      layer_recipe_sum:
+        title: layer_recipe_sum
+      unmapped:
+        title: unmapped
+      unconverted:
+        title: unconverted
+
+  ProvenanceStatusEnum:
+    enum_uri: cost:ProvenanceStatusEnum
+    description: How the unit-price point estimate was sourced and validated.
+    permissible_values:
+      estimated:
+        title: Estimated
+        description: First fill — not yet checked against anything.
+      expert_reviewed:
+        title: Expert reviewed
+        description: A person with domain knowledge sanity-checked the value.
+      reference_calibrated:
+        title: Reference calibrated
+        description: Cross-checked against KBOB, CWICR, ÖKOBAUDAT, or similar reference data.
+      project_validated:
+        title: Project validated
+        description: Held up against realised cost on a real project.
+
+  PriceObservationAspectEnum:
+    enum_uri: cost:PriceObservationAspectEnum
+    description: >-
+      Which canonical UnitPriceEntry slot an observation records. Monetary aspects
+      are EUR net (VAT excluded); labor aspects are person-hours per price_unit;
+      waste_pct and transport_pct are fractions (0–1).
+    permissible_values:
+      material_cost:
+        title: Material cost
+        description: Ex-works material cost per price_unit in EUR.
+      waste_pct:
+        title: Waste allowance
+        description: Waste allowance as a fraction of material cost.
+      transport_pct:
+        title: Transport allowance
+        description: Transport-to-site allowance as a fraction of material cost.
+      onsite_labor_hours_per_unit:
+        title: Onsite labor hours
+        description: Onsite installation labor in person-hours per price_unit.
+      offsite_labor_hours_per_unit:
+        title: Offsite labor hours
+        description: Factory/offsite labor in person-hours per price_unit.
+      demolition_hours_per_unit:
+        title: Demolition labor hours
+        description: Demolition labor hours per price unit.
+      demolition_disposal_cost:
+        title: Demolition disposal cost
+        description: Disposal cost per price unit in EUR.

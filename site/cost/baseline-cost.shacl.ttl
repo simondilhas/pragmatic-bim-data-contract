@@ -1,0 +1,489 @@
+@prefix cost: <https://schema.pragmaticbim.ch/cost/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cost:BaselinePriceBook a sh:NodeShape ;
+    rdfs:comment "Container for baseline unit-price entries. Monetary values on entries are always EUR and net (VAT excluded; schema invariant). Labor on entries is hours only; labor money lives on RegionalBenchmark." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Version of the carbon reference database (for example 8.02)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path cost:carbon_source_version ],
+        [ sh:description "License URI for the dataset (CC BY 4.0 for benchmark data)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path cost:license ],
+        [ sh:datatype xsd:string ;
+            sh:description "Edition label (for example v12)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cost:version ],
+        [ sh:datatype xsd:string ;
+            sh:description "Region code where material_factor and labor_factor are 1.0 (for example DE_MU)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cost:anchor_region ],
+        [ sh:class cost:UnitPriceEntry ;
+            sh:description "Baseline unit-price entries keyed by product notation." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path cost:entries ],
+        [ sh:datatype xsd:string ;
+            sh:description "Pointer to notice/disclaimer text." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cost:disclaimer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Human-readable name of the carbon reference database." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path cost:carbon_source ],
+        [ sh:datatype xsd:date ;
+            sh:description "Publication date of this dataset edition." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cost:issued ],
+        [ sh:datatype xsd:string ;
+            sh:description "Path or URI of the editorial source workbook." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cost:source ] ;
+    sh:targetClass cost:BaselinePriceBook .
+
+cost:RegionalCostBenchmarkBook a sh:NodeShape ;
+    rdfs:comment "Regional material and labor benchmarks paired with a BaselinePriceBook. Installed cost in regional currency uses fx_to_eur for material EUR→local and labor_unit_price in local currency. All monetary rates are net (VAT excluded)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Path or URI of the editorial source workbook." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cost:source ],
+        [ sh:class cost:RegionalBenchmark ;
+            sh:description "Regional benchmarks keyed by region code." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path cost:regions ],
+        [ sh:datatype xsd:string ;
+            sh:description "Pointer to notice/disclaimer text." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cost:disclaimer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Edition label (for example v12)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cost:version ],
+        [ sh:datatype xsd:date ;
+            sh:description "Publication date of this dataset edition." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cost:issued ],
+        [ sh:datatype xsd:string ;
+            sh:description "Region code where material_factor and labor_factor are 1.0 (for example DE_MU)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cost:anchor_region ],
+        [ sh:description "License URI for the dataset (CC BY 4.0 for benchmark data)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path cost:license ] ;
+    sh:targetClass cost:RegionalCostBenchmarkBook .
+
+cost:CarbonComponent a sh:NodeShape ;
+    rdfs:comment "One layer or row contributing to a layer_recipe_sum carbon total." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "KBOB ecobilans row id (for example 05.005)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cost:kbob_id ],
+        [ sh:description "SKOS notation of a layer component product." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path cost:notation ],
+        [ sh:datatype xsd:string ;
+            sh:description "Unit of the layer quantity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cost:quantity_unit ],
+        [ sh:datatype xsd:float ;
+            sh:description "Global warming potential in kg CO2eq per price unit." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cost:gwp_kg_co2eq ],
+        [ sh:datatype xsd:float ;
+            sh:description "Layer quantity per one parent price unit." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cost:quantity_per_price_unit ] ;
+    sh:targetClass cost:CarbonComponent .
+
+cost:CarbonEstimate a sh:NodeShape ;
+    rdfs:comment "Generated embodied-carbon estimate per price unit (optional output). Unit-conversion geometry is stored in typed slots — not in assumptions. density_kg_m3 for method density; mass_per_area_kg_m2 for area_yield; area_per_piece_m2 for piece_area. Optional thickness_m documents derived mass_per_area when thickness × density was used." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Carbon conversion method." ;
+            sh:in ( "direct" "density" "area_yield" "piece_area" "layer_recipe_sum" "unmapped" "unconverted" ) ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path cost:method ],
+        [ sh:datatype xsd:string ;
+            sh:description "Human-readable notes only (for example layer_recipe quantity_basis). Not used for unit conversion." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path cost:assumptions ],
+        [ sh:datatype xsd:float ;
+            sh:description "Global warming potential in kg CO2eq per price unit." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cost:gwp_kg_co2eq ],
+        [ sh:class cost:CarbonComponent ;
+            sh:description "Layer components for layer_recipe_sum carbon totals." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path cost:components ],
+        [ sh:datatype xsd:float ;
+            sh:description "Area per piece (m²/pcs) used when method is piece_area (price pcs, KBOB m²)." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cost:area_per_piece_m2 ],
+        [ sh:datatype xsd:float ;
+            sh:description "Optional layer thickness (m) when mass_per_area_kg_m2 was derived as thickness_m × density_kg_m3." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cost:thickness_m ],
+        [ sh:datatype xsd:float ;
+            sh:description "Material density (kg/m³) used when method is density (price m³, KBOB kg)." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cost:density_kg_m3 ],
+        [ sh:datatype xsd:float ;
+            sh:description "Mass per m² (kg/m²) used when method is area_yield (price m², KBOB kg)." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cost:mass_per_area_kg_m2 ] ;
+    sh:targetClass cost:CarbonEstimate .
+
+cost:DemolitionCost a sh:NodeShape ;
+    rdfs:comment "Disassembly/demolition labor and disposal per price unit (EUR, net, VAT excluded)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:description "Demolition labor hours per price unit." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cost:hours_per_unit ],
+        [ sh:description "Unit for demolition quantities." ;
+            sh:in ( "m2" "m3" "pcs" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path cost:unit ],
+        [ sh:datatype xsd:decimal ;
+            sh:description "Disposal cost per price unit in EUR (net, VAT excluded)." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cost:disposal_cost ] ;
+    sh:targetClass cost:DemolitionCost .
+
+cost:KbobCarbonReference a sh:NodeShape ;
+    rdfs:comment "Reference to KBOB ecobilans benchmark concept IRIs. Indicator values are resolved from kbob-ecobilans-lca-factors.json, not stored here." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "SKOS mapping match type used for the primary carbon reference." ;
+            sh:in ( "closeMatch" "relatedMatch" "layer_recipe" ) ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path cost:primary_match_type ],
+        [ sh:description "Method used to normalize carbon to the price unit." ;
+            sh:in ( "direct" "density" "area_yield" "piece_area" "layer_recipe_sum" "unmapped" "unconverted" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path cost:carbon_method ],
+        [ sh:description "KBOB ecobilans concept IRIs for carbon lookup." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cost:benchmark_uris ] ;
+    sh:targetClass cost:KbobCarbonReference .
+
+cost:PriceUncertainty a sh:NodeShape ;
+    rdfs:comment "Relative uncertainty band around point material cost and labor hours. Percent slots are signed fractions relative to the point estimate (for example material_low_pct -0.12 → low = point × 0.88). Derived EUR and hour bounds are optional generator output for convenience." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:description "Derived upper material_cost in EUR (net, VAT excluded)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cost:material_cost_high ],
+        [ sh:datatype xsd:decimal ;
+            sh:description "Derived lower delivered_material_cost in EUR." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path cost:delivered_material_cost_low ],
+        [ sh:datatype xsd:float ;
+            sh:description "Derived upper onsite labor hours per price unit." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path cost:onsite_labor_hours_high ],
+        [ sh:datatype xsd:float ;
+            sh:description "Upper material bound as signed fraction of material_cost (≥ 0)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cost:material_high_pct ],
+        [ sh:datatype xsd:float ;
+            sh:description "Lower labor bound as signed fraction of labor hours (≤ 0)." ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 0 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cost:labor_low_pct ],
+        [ sh:datatype xsd:float ;
+            sh:description "Derived upper offsite labor hours per price unit." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path cost:offsite_labor_hours_high ],
+        [ sh:datatype xsd:float ;
+            sh:description "Derived lower offsite labor hours per price unit." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path cost:offsite_labor_hours_low ],
+        [ sh:datatype xsd:decimal ;
+            sh:description "Derived upper delivered_material_cost in EUR." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path cost:delivered_material_cost_high ],
+        [ sh:datatype xsd:float ;
+            sh:description "Upper labor bound as signed fraction of labor hours (≥ 0)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cost:labor_high_pct ],
+        [ sh:datatype xsd:decimal ;
+            sh:description "Derived lower material_cost in EUR (net, VAT excluded)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cost:material_cost_low ],
+        [ sh:datatype xsd:float ;
+            sh:description "Lower material bound as signed fraction of material_cost (≤ 0)." ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 0 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cost:material_low_pct ],
+        [ sh:datatype xsd:float ;
+            sh:description "Derived lower onsite labor hours per price unit." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path cost:onsite_labor_hours_low ] ;
+    sh:targetClass cost:PriceUncertainty .
+
+cost:RegionalBenchmark a sh:NodeShape ;
+    rdfs:comment "Material and labor factors for one region." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:description "Factory/offsite labor rate per hour in currency (net, VAT excluded)." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path cost:offsite_labor_unit_price ],
+        [ sh:datatype xsd:decimal ;
+            sh:description "Onsite installation labor rate per hour in currency (net, VAT excluded)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cost:labor_unit_price ],
+        [ sh:datatype xsd:float ;
+            sh:description "Regional material price level vs anchor region (DE_MU = 1.0)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cost:material_factor ],
+        [ sh:description "Local currency for labor rates and installed-cost total." ;
+            sh:in ( "EUR" "CHF" "GBP" "USD" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path cost:currency ],
+        [ sh:datatype xsd:float ;
+            sh:defaultValue "1.0"^^xsd:float ;
+            sh:description "Regional labor cost multiplier (default 1.0)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cost:labor_factor ],
+        [ sh:datatype xsd:float ;
+            sh:description "Material FX only. Multiply local currency → EUR (for example 1 CHF × 0.95). EUR book → local uses delivered_eur / fx_to_eur." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cost:fx_to_eur ],
+        [ sh:datatype xsd:string ;
+            sh:description "Region code (for example CH_ZH, DE_MU)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cost:code ] ;
+    sh:targetClass cost:RegionalBenchmark .
+
+cost:UnitPriceEntry a sh:NodeShape ;
+    rdfs:comment "One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class cost:KbobCarbonReference ;
+            sh:description "KBOB ecobilans carbon reference for this product." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path cost:kbob ],
+        [ sh:datatype xsd:float ;
+            sh:description "Factory/offsite labor in person-hours per price_unit." ;
+            sh:maxCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path cost:offsite_labor_hours_per_unit ],
+        [ sh:description "Derived SKOS concept IRI for the product notation." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cost:product_uri ],
+        [ sh:description "Abstract product SKOS notation (for example WICP-WOOD). Foreign key into classification vocabularies." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path cost:product ],
+        [ sh:description "Quantity unit the material cost refers to." ;
+            sh:in ( "m2" "m3" "pcs" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path cost:price_unit ],
+        [ sh:datatype xsd:float ;
+            sh:description "Onsite installation labor in person-hours per price_unit." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path cost:onsite_labor_hours_per_unit ],
+        [ sh:class cost:DemolitionCost ;
+            sh:description "Disassembly/demolition benchmark for this product." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 9 ;
+            sh:path cost:demolition ],
+        [ sh:datatype xsd:decimal ;
+            sh:description "Derived delivered material cost in EUR (material_cost × (1 + waste_pct) × (1 + transport_pct)). Net, VAT excluded. Optional in authored input." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path cost:delivered_material_cost ],
+        [ sh:class cost:PriceUncertainty ;
+            sh:description "Relative uncertainty band for material cost and labor hours. Derived low/high amounts are computed from point estimates at generation time." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 12 ;
+            sh:path cost:uncertainty ],
+        [ sh:class cost:CarbonEstimate ;
+            sh:description "Generated embodied-carbon estimate; not authored." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path cost:carbon_per_price_unit ],
+        [ sh:defaultValue "estimated" ;
+            sh:description "How the unit-price point estimate was sourced and validated." ;
+            sh:in ( "estimated" "expert_reviewed" "reference_calibrated" "project_validated" ) ;
+            sh:maxCount 1 ;
+            sh:order 13 ;
+            sh:path cost:provenance_status ],
+        [ sh:datatype xsd:float ;
+            sh:description "Transport-to-site (A4) allowance as a fraction of material cost (0–1)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cost:transport_pct ],
+        [ sh:datatype xsd:float ;
+            sh:description "Waste allowance as a fraction of material cost (0–1)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cost:waste_pct ],
+        [ sh:datatype xsd:decimal ;
+            sh:description "Ex-works material cost per price_unit in EUR (net, VAT excluded)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cost:material_cost ] ;
+    sh:targetClass cost:UnitPriceEntry .
+
+

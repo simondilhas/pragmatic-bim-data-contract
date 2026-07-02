@@ -62,7 +62,9 @@ def pick_primary_doc(doc: dict) -> str | None:
 
 def load_modules(schema_dir: Path, base_url: str) -> list[dict]:
     modules: list[dict] = []
-    for schema_file in sorted(schema_dir.glob("*_schema.yaml")):
+    for schema_file in sorted(schema_dir.rglob("*_schema.yaml")):
+        if schema_file.name.endswith("_schema_enums.yaml"):
+            continue
         doc = yaml.safe_load(schema_file.read_text(encoding="utf-8")) or {}
         module_id = doc.get("id")
         if not isinstance(module_id, str) or not module_id.strip():
@@ -77,27 +79,34 @@ def load_modules(schema_dir: Path, base_url: str) -> list[dict]:
                 "id": module_id.strip(),
                 "title": doc.get("title") or slug,
                 "description": normalize_description(doc.get("description")),
-                "source_file": schema_file.name,
+                "source_file": str(schema_file.relative_to(schema_dir)),
                 "primary_doc": primary,
             }
         )
     return modules
 
 
-def artifact_urls(base_url: str) -> dict[str, str]:
+def artifact_urls(base_url: str, slug: str) -> dict[str, str]:
     base = base_url.rstrip("/")
+    if slug.startswith("cost/"):
+        artifact_base = f"{base}/cost"
+        prefix = "baseline-cost"
+    else:
+        artifact_base = f"{base}/schema"
+        prefix = "pragmatic-bim"
     schema_base = f"{base}/schema"
     urls = {
         "docs_index": f"{base}/index.html",
         "schema_docs": f"{schema_base}/pragmatic-bim.docs.html",
     }
     for key, _, filename, _ in ARTIFACTS:
-        urls[key] = f"{schema_base}/{filename}"
+        urls[key] = f"{artifact_base}/{filename.replace('pragmatic-bim', prefix)}"
     return urls
 
 
 def build_descriptor(module: dict, base_url: str) -> dict:
-    urls = artifact_urls(base_url)
+    slug = module["slug"]
+    urls = artifact_urls(base_url, slug)
     descriptor = {
         "id": module["id"],
         "title": module["title"],
@@ -112,8 +121,11 @@ def build_descriptor(module: dict, base_url: str) -> dict:
     }
     primary = module.get("primary_doc")
     if primary:
-        schema_base = urls["schema_docs"].rsplit("/", 1)[0]
-        descriptor["html"] = f"{schema_base}/{primary}.html"
+        if slug.startswith("cost/"):
+            descriptor["html"] = f"{base_url.rstrip('/')}/cost/{primary}.html"
+        else:
+            schema_base = urls["schema_docs"].rsplit("/", 1)[0]
+            descriptor["html"] = f"{schema_base}/{primary}.html"
         descriptor["primary_doc"] = primary
     return descriptor
 

@@ -1,0 +1,233 @@
+@prefix : <https://example.org/abstract/roof-covering-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract roof covering products"@en ;
+  skos:prefLabel "Abstrakte Dachbekleidungsprodukte"@de ;
+  dcterms:title "Abstract roof covering products"@en ;
+  dcterms:identifier "AbstractRoofCoveringProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for roof weatherproofing, cladding, and build-up systems above the structural roof slab. For catalog, specification, and cost workflows; pair with separator slab role L-ROF for structural context, slab separator products for the load-bearing deck, and abstract material classification for dominant substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer Dachabdichtungen, -bekleidungen und Aufbauten oberhalb der tragenden Dachdecke. Fuer Katalog-, Spezifikations- und Kostenworkflows; mit Trenndeckenrolle L-ROF fuer tragenden Kontext, Trenndeckenprodukten fuer die Tragplatte und abstrakter Materialklassifikation fuer dominante Substanz kombinieren."@de ;
+  skos:scopeNote "Default PBS entity is Boundary with boundary_type roofing (IfcCovering ROOFING, IfcRoof where used). Tags weatherproofing and finish system, not the structural roof slab alone."@en ;
+  skos:scopeNote "Standard-PBS-Entitaet ist Boundary mit boundary_type roofing (IfcCovering ROOFING, IfcRoof wo verwendet). Kennzeichnet Abdichtungs- und Fertigungssystem, nicht allein die tragende Dachplatte."@de ;
+  skos:scopeNote "Subsystem assignment: assign one topConcept per roof covering element. Baseline cost uses the parent bundled price. Narrower layer concepts (*-INS, *-MEM, etc.) are LCA-only decomposition; do not use as primary classification_code."@en ;
+  skos:scopeNote "Subsystem-Zuordnung: ein topConcept pro Dachbekleidungselement. Baseline-Kosten ueber gebündelten Elternpreis. Engere Schichtkonzepte (*-INS, *-MEM usw.) nur fuer Oekobilanz-Zerlegung; nicht als primaere classification_code verwenden."@de ;
+  skos:hasTopConcept
+    :RCP-FLAT-BITUMEN,
+    :RCP-FLAT-SINGLE-PLY,
+    :RCP-FLAT-LIQUID,
+    :RCP-METAL-SHEET,
+    :RCP-TILE-CLAY,
+    :RCP-TILE-CONCRETE,
+    :RCP-SLATE,
+    :RCP-WOOD-SHINGLE,
+    :RCP-GREEN-EXTENSIVE,
+    :RCP-GREEN-INTENSIVE,
+    :RCP-PV-ROOF,
+    :RCP-OTH .
+
+:RCP-FLAT-BITUMEN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-FLAT-BITUMEN" ;
+  skos:prefLabel "Built-up / bitumen flat roof"@en ;
+  skos:prefLabel "Mehrlagen- / Bitumen-Flachdach"@de ;
+  skos:definition "Multi-layer built-up or modified bitumen flat roof waterproofing system with insulation and protection layers."@en ;
+  skos:definition "Mehrlagen- oder Polymerbitumen-Flachdachabdichtung mit Daemm- und Schutzschichten."@de ;
+  skos:narrower :RCP-FLAT-BITUMEN-INS, :RCP-FLAT-BITUMEN-MEM ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "bitumen-flat-roof" .
+
+:RCP-FLAT-BITUMEN-INS a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RCP-FLAT-BITUMEN-INS" ;
+  skos:prefLabel "Bitumen flat roof insulation layer"@en ;
+  skos:prefLabel "Bitumen-Flachdach Daemmschicht"@de ;
+  skos:definition "Insulation board or layer of a built-up bitumen flat roof system."@en ;
+  skos:definition "Daemmplatten- oder -schicht eines mehrlagigen Bitumen-Flachdachs."@de ;
+  skos:broader :RCP-FLAT-BITUMEN ;
+  skos:scopeNote "LCA layer component of RCP-FLAT-BITUMEN. Used for ecobilans decomposition and carbon calculation; not a standalone roof product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von RCP-FLAT-BITUMEN. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Dachprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "bitumen-flat-roof-insulation-layer" .
+
+:RCP-FLAT-BITUMEN-MEM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RCP-FLAT-BITUMEN-MEM" ;
+  skos:prefLabel "Bitumen flat roof membrane layer"@en ;
+  skos:prefLabel "Bitumen-Flachdach Abdichtungsschicht"@de ;
+  skos:definition "Primary waterproofing membrane layer of a built-up bitumen flat roof system."@en ;
+  skos:definition "Primaere Abdichtungsschicht eines mehrlagigen Bitumen-Flachdachs."@de ;
+  skos:broader :RCP-FLAT-BITUMEN ;
+  skos:scopeNote "LCA layer component of RCP-FLAT-BITUMEN. Used for ecobilans decomposition and carbon calculation; not a standalone roof product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von RCP-FLAT-BITUMEN. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Dachprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "bitumen-flat-roof-membrane-layer" .
+
+:RCP-FLAT-SINGLE-PLY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-FLAT-SINGLE-PLY" ;
+  skos:prefLabel "Single-ply membrane flat roof"@en ;
+  skos:prefLabel "Einfachlagen-Flachdach (EPDM / TPO / PVC)"@de ;
+  skos:definition "Single-ply synthetic membrane flat roof system such as EPDM, TPO, or PVC with insulation and ballast or adhesive fixing."@en ;
+  skos:definition "Einfachlagen-Kunststoffdach (EPDM, TPO oder PVC) mit Daemmung und Ballast oder Klebefixierung."@de ;
+  skos:narrower :RCP-FLAT-SINGLE-PLY-INS, :RCP-FLAT-SINGLE-PLY-MEM ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "single-ply-flat-roof" .
+
+:RCP-FLAT-SINGLE-PLY-INS a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RCP-FLAT-SINGLE-PLY-INS" ;
+  skos:prefLabel "Single-ply flat roof insulation layer"@en ;
+  skos:prefLabel "Einfachlagen-Flachdach Daemmschicht"@de ;
+  skos:definition "Insulation board or layer of a single-ply membrane flat roof system."@en ;
+  skos:definition "Daemmplatten- oder -schicht eines Einfachlagen-Flachdachs."@de ;
+  skos:broader :RCP-FLAT-SINGLE-PLY ;
+  skos:scopeNote "LCA layer component of RCP-FLAT-SINGLE-PLY. Used for ecobilans decomposition and carbon calculation; not a standalone roof product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von RCP-FLAT-SINGLE-PLY. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Dachprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "single-ply-flat-roof-insulation-layer" .
+
+:RCP-FLAT-SINGLE-PLY-MEM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RCP-FLAT-SINGLE-PLY-MEM" ;
+  skos:prefLabel "Single-ply flat roof membrane layer"@en ;
+  skos:prefLabel "Einfachlagen-Flachdach Folien-Schicht"@de ;
+  skos:definition "Primary single-ply waterproofing membrane layer of a flat roof system."@en ;
+  skos:definition "Primaere Einfachlagen-Abdichtungsfolie eines Flachdachs."@de ;
+  skos:broader :RCP-FLAT-SINGLE-PLY ;
+  skos:scopeNote "LCA layer component of RCP-FLAT-SINGLE-PLY. Used for ecobilans decomposition and carbon calculation; not a standalone roof product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von RCP-FLAT-SINGLE-PLY. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Dachprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "single-ply-flat-roof-membrane-layer" .
+
+:RCP-FLAT-LIQUID a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-FLAT-LIQUID" ;
+  skos:prefLabel "Liquid-applied flat roof"@en ;
+  skos:prefLabel "Fluessigkunststoff-Flachdach"@de ;
+  skos:definition "Liquid-applied or cold-fluid-applied seamless flat roof waterproofing membrane."@en ;
+  skos:definition "Fluessig- oder kaltverarbeitete fugenlose Flachdachabdichtung."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "liquid-flat-roof" .
+
+:RCP-METAL-SHEET a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-METAL-SHEET" ;
+  skos:prefLabel "Metal sheet roof"@en ;
+  skos:prefLabel "Metallblech-Dach"@de ;
+  skos:definition "Profiled metal sheet or standing-seam roof cladding on pitched or low-slope roofs."@en ;
+  skos:definition "Profiliertes Metallblech- oder Stehfalzdach auf geneigten oder flachen Daechern."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "metal-sheet-roof" .
+
+:RCP-TILE-CLAY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-TILE-CLAY" ;
+  skos:prefLabel "Clay tile roof"@en ;
+  skos:prefLabel "Tonziegel-Dach"@de ;
+  skos:definition "Clay or ceramic tile pitched roof covering with battens and underlay."@en ;
+  skos:definition "Ton- oder Keramikziegel-Steildach mit Lattung und Unterspannbahn."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "clay-tile-roof" .
+
+:RCP-TILE-CONCRETE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-TILE-CONCRETE" ;
+  skos:prefLabel "Concrete tile roof"@en ;
+  skos:prefLabel "Betonziegel-Dach"@de ;
+  skos:definition "Concrete or fibre-cement tile pitched roof covering system."@en ;
+  skos:definition "Beton- oder Faserzementziegel-Steildach."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "concrete-tile-roof" .
+
+:RCP-SLATE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-SLATE" ;
+  skos:prefLabel "Natural slate roof"@en ;
+  skos:prefLabel "Naturschiefer-Dach"@de ;
+  skos:definition "Natural slate tile pitched roof covering."@en ;
+  skos:definition "Naturschiefer-Steildacheindeckung."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "slate-roof" .
+
+:RCP-WOOD-SHINGLE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-WOOD-SHINGLE" ;
+  skos:prefLabel "Wood shingle / shake roof"@en ;
+  skos:prefLabel "Holzschindel- / -schindeldach"@de ;
+  skos:definition "Wood shingle, shake, or board pitched roof covering."@en ;
+  skos:definition "Holzschindel-, Schindel- oder Brett-Steildach."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "wood-shingle-roof" .
+
+:RCP-GREEN-EXTENSIVE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-GREEN-EXTENSIVE" ;
+  skos:prefLabel "Extensive green roof"@en ;
+  skos:prefLabel "Extensives Gruendach"@de ;
+  skos:definition "Low-maintenance extensive sedum or lightweight green roof build-up on a waterproofed deck."@en ;
+  skos:definition "Pflegearmes extensives Sedum- oder Leichtbau-Gruendach auf abgedichteter Decke."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "extensive-green-roof" .
+
+:RCP-GREEN-INTENSIVE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-GREEN-INTENSIVE" ;
+  skos:prefLabel "Intensive green roof"@en ;
+  skos:prefLabel "Intensives Gruendach"@de ;
+  skos:definition "Intensive accessible green roof or roof garden with deeper substrate and higher structural demand."@en ;
+  skos:definition "Intensives begehbares Gruendach oder Dachgarten mit tieferem Substrat und hoeherer Traglast."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "intensive-green-roof" .
+
+:RCP-PV-ROOF a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-PV-ROOF" ;
+  skos:prefLabel "Roof-mounted photovoltaic system"@en ;
+  skos:prefLabel "Aufgestaendigtes Photovoltaik-Dach"@de ;
+  skos:definition "Photovoltaic module array mounted on or integrated with the roof covering system."@en ;
+  skos:definition "Photovoltaik-Modulanordnung auf oder integriert in das Dachbekleidungssystem."@de ;
+  skos:scopeNote "Distinct from facade-integrated BIPV (FaCP-BIPV-INTEGRATED); roof skylights remain window connector products (WICP-SKYLIGHT)."@en ;
+  skos:scopeNote "Unterscheidet sich von fassadenintegrierter BIPV (FaCP-BIPV-INTEGRATED); Dachfenster bleiben Fensterverbindungsprodukte (WICP-SKYLIGHT)."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcSolarDevice" ;
+  dcterms:identifier "pv-roof" .
+
+:RCP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RCP-OTH" ;
+  skos:prefLabel "Other / unknown roof covering"@en ;
+  skos:prefLabel "Sonstige / unbekannte Dachbekleidung"@de ;
+  skos:definition "Roof covering product not classified or not yet known."@en ;
+  skos:definition "Dachbekleidungsprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "other" .

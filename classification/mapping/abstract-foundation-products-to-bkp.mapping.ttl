@@ -1,0 +1,39 @@
+@prefix fdp: <https://example.org/abstract/foundation-product/> .
+@prefix bkp: <https://example.org/ch/bkp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractFoundationProductsToBkpMapping a dcterms:Dataset ;
+  dcterms:title "Abstract foundation products to BKP mapping"@en ;
+  dcterms:title "Mapping abstrakter Fundamentprodukte nach BKP"@de ;
+  dcterms:references fdp:scheme, bkp:scheme ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:description "Maps abstract foundation product concepts to BKP Rohbau 1 cost lines (216 Fundamente; 211 Baumeisterarbeiten where structural concrete dominates). BKP subcodes use underscore notation (e.g. bkp:216_0 for BKP 216.0). Full BKP vocabulary is external; only referenced IRIs are used."@en ;
+  dcterms:description "Ordnet abstrakte Fundamentprodukte BKP-Rohbau-1-Positionen zu (216 Fundamente; 211 Baumeisterarbeiten wo Beton tragend dominiert). BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern."@de .
+
+# --- Foundation products (BKP 216.x, 211) ---
+
+fdp:FDP-RAFT skos:closeMatch bkp:216_0 ;
+  skos:relatedMatch bkp:211 .
+
+fdp:FDP-STRIP skos:closeMatch bkp:216_1 ;
+  skos:relatedMatch bkp:211 .
+
+fdp:FDP-PAD skos:closeMatch bkp:216_1 ;
+  skos:relatedMatch bkp:211 .
+
+fdp:FDP-PILE skos:closeMatch bkp:216_2 ;
+  skos:relatedMatch bkp:211 .
+
+fdp:FDP-MICRO-PILE skos:closeMatch bkp:216_2 ;
+  skos:relatedMatch bkp:216_3 .
+
+fdp:FDP-RETAINING skos:closeMatch bkp:216_0 ;
+  skos:relatedMatch bkp:211 .
+
+fdp:FDP-WATERPROOF skos:closeMatch bkp:216_4 ;
+  skos:relatedMatch bkp:216_0 .
+
+fdp:FDP-DRAINAGE skos:closeMatch bkp:216_5 ;
+  skos:relatedMatch bkp:216_0 .

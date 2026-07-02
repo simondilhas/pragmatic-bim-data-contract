@@ -1,0 +1,554 @@
+id: https://schema.pragmaticbim.ch/cost/baseline-cost
+name: baseline_cost_schema
+title: Baseline unit prices and regional cost benchmarks
+description: >-
+  Cost enrichment layer for the pragmatic BIM data contract. BaselinePriceBook
+  entries are bound to abstract SKOS product notations from classification
+  vocabularies. All price-book monetary values are EUR and net (VAT excluded).
+  RegionalCostBenchmarkBook supplies material_factor, fx_to_eur, labor_unit_price,
+  and labor_factor for installed-cost calculation in regional currency.
+license: MIT
+see_also:
+  - https://schema.pragmaticbim.ch/cost/baseline-cost
+prefixes:
+  linkml: https://w3id.org/linkml/
+  cost: https://schema.pragmaticbim.ch/cost/
+default_prefix: cost
+default_range: string
+imports:
+  - linkml:types
+  - baseline_cost_schema_enums
+
+classes:
+  BaselinePriceBook:
+    tree_root: true
+    class_uri: cost:BaselinePriceBook
+    description: >-
+      Container for baseline unit-price entries. Monetary values on entries are
+      always EUR and net (VAT excluded; schema invariant). Labor on entries is
+      hours only; labor money lives on RegionalBenchmark.
+    slots:
+      - version
+      - issued
+      - anchor_region
+      - source
+      - license
+      - disclaimer
+      - carbon_source
+      - carbon_source_version
+      - entries
+    slot_usage:
+      issued:
+        required: true
+      anchor_region:
+        required: true
+      entries:
+        range: UnitPriceEntry
+        multivalued: true
+        inlined: true
+
+  UnitPriceEntry:
+    class_uri: cost:UnitPriceEntry
+    description: >-
+      One baseline unit price for one abstract SKOS product concept. All monetary
+      amounts are net (VAT excluded). Canonical scalar slots (material_cost,
+      labor hours, etc.) are the resolved benchmark used for installed-cost
+      calculation; optional observations record contributor inputs and reference
+      sources used to derive or challenge those canonical values.
+    slots:
+      - product
+      - product_uri
+      - material_cost
+      - price_unit
+      - waste_pct
+      - transport_pct
+      - delivered_material_cost
+      - onsite_labor_hours_per_unit
+      - offsite_labor_hours_per_unit
+      - demolition
+      - kbob
+      - carbon_per_price_unit
+      - uncertainty
+      - provenance_status
+      - observations
+    slot_usage:
+      product:
+        identifier: true
+        required: true
+        range: ConceptNotation
+      material_cost:
+        required: true
+        range: decimal
+      price_unit:
+        required: true
+        range: PriceUnitEnum
+      waste_pct:
+        required: true
+        range: float
+        minimum_value: 0
+      transport_pct:
+        required: true
+        range: float
+        minimum_value: 0
+      onsite_labor_hours_per_unit:
+        required: true
+        range: float
+        minimum_value: 0
+      offsite_labor_hours_per_unit:
+        range: float
+        minimum_value: 0
+        ifabsent: 0.0
+      provenance_status:
+        range: ProvenanceStatusEnum
+        ifabsent: estimated
+      observations:
+        range: PriceObservation
+        multivalued: true
+        inlined: true
+
+  PriceObservation:
+    class_uri: cost:PriceObservation
+    description: >-
+      One contributed or reference value for a canonical UnitPriceEntry slot.
+      Observations support multi-party authoring and audit; they do not replace
+      the canonical scalar fields on the parent entry.
+    slots:
+      - aspect
+      - value
+      - reference_source
+      - contributor
+      - contributed_at
+      - provenance_status
+      - notes
+      - selects_canonical
+    slot_usage:
+      aspect:
+        required: true
+        range: PriceObservationAspectEnum
+      value:
+        required: true
+        range: decimal
+      reference_source:
+        required: true
+        description: Reference dataset, organisation, or document identifier.
+      contributor:
+        description: Person or team that supplied the observation (optional display name or id).
+      contributed_at:
+        range: date
+      provenance_status:
+        range: ProvenanceStatusEnum
+      notes:
+        description: Free-text context (edition, region, scope, assumptions).
+      selects_canonical:
+        range: boolean
+        description: >-
+          When true, marks this observation as the chosen source for the parent
+          entry's canonical value for the given aspect.
+
+  DemolitionCost:
+    class_uri: cost:DemolitionCost
+    description: >-
+      Disassembly/demolition labor and disposal per price unit (EUR, net, VAT
+      excluded).
+    slots:
+      - hours_per_unit
+      - disposal_cost
+      - unit
+    slot_usage:
+      hours_per_unit:
+        range: float
+        minimum_value: 0
+      disposal_cost:
+        range: decimal
+        minimum_value: 0
+      unit:
+        range: PriceUnitEnum
+
+  KbobCarbonReference:
+    class_uri: cost:KbobCarbonReference
+    description: >-
+      Reference to KBOB ecobilans benchmark concept IRIs. Indicator values are
+      resolved from kbob-ecobilans-lca-factors.json, not stored here.
+    slots:
+      - primary_match_type
+      - benchmark_uris
+      - carbon_method
+    slot_usage:
+      benchmark_uris:
+        multivalued: true
+        range: uriorcurie
+
+  CarbonEstimate:
+    class_uri: cost:CarbonEstimate
+    description: >-
+      Generated embodied-carbon estimate per price unit (optional output).
+      Unit-conversion geometry is stored in typed slots — not in assumptions.
+      density_kg_m3 for method density; mass_per_area_kg_m2 for area_yield;
+      area_per_piece_m2 for piece_area. Optional thickness_m documents derived
+      mass_per_area when thickness × density was used.
+    slots:
+      - gwp_kg_co2eq
+      - method
+      - density_kg_m3
+      - mass_per_area_kg_m2
+      - area_per_piece_m2
+      - thickness_m
+      - assumptions
+      - components
+    slot_usage:
+      method:
+        range: CarbonMethodEnum
+      density_kg_m3:
+        range: float
+        minimum_value: 0
+      mass_per_area_kg_m2:
+        range: float
+        minimum_value: 0
+      area_per_piece_m2:
+        range: float
+        minimum_value: 0
+      thickness_m:
+        range: float
+        minimum_value: 0
+      components:
+        range: CarbonComponent
+        multivalued: true
+        inlined: true
+
+  PriceUncertainty:
+    class_uri: cost:PriceUncertainty
+    description: >-
+      Relative uncertainty band around point material cost and labor hours.
+      Percent slots are signed fractions relative to the point estimate (for
+      example material_low_pct -0.12 → low = point × 0.88). Derived EUR and
+      hour bounds are optional generator output for convenience.
+    slots:
+      - material_low_pct
+      - material_high_pct
+      - labor_low_pct
+      - labor_high_pct
+      - material_cost_low
+      - material_cost_high
+      - delivered_material_cost_low
+      - delivered_material_cost_high
+      - onsite_labor_hours_low
+      - onsite_labor_hours_high
+      - offsite_labor_hours_low
+      - offsite_labor_hours_high
+    slot_usage:
+      material_low_pct:
+        required: true
+        range: float
+        maximum_value: 0
+      material_high_pct:
+        required: true
+        range: float
+        minimum_value: 0
+      labor_low_pct:
+        required: true
+        range: float
+        maximum_value: 0
+      labor_high_pct:
+        required: true
+        range: float
+        minimum_value: 0
+
+  CarbonComponent:
+    class_uri: cost:CarbonComponent
+    description: One layer or row contributing to a layer_recipe_sum carbon total.
+    slots:
+      - notation
+      - kbob_id
+      - quantity_per_price_unit
+      - quantity_unit
+      - gwp_kg_co2eq
+    slot_usage:
+      notation:
+        range: ConceptNotation
+
+  RegionalCostBenchmarkBook:
+    tree_root: true
+    class_uri: cost:RegionalCostBenchmarkBook
+    description: >-
+      Regional material and labor benchmarks paired with a BaselinePriceBook.
+      Installed cost in regional currency uses fx_to_eur for material EUR→local
+      and labor_unit_price in local currency. All monetary rates are net (VAT
+      excluded).
+    slots:
+      - version
+      - issued
+      - anchor_region
+      - source
+      - license
+      - disclaimer
+      - regions
+    slot_usage:
+      issued:
+        required: true
+      anchor_region:
+        required: true
+      regions:
+        range: RegionalBenchmark
+        multivalued: true
+        inlined: true
+
+  RegionalBenchmark:
+    class_uri: cost:RegionalBenchmark
+    description: Material and labor factors for one region.
+    slots:
+      - code
+      - currency
+      - material_factor
+      - fx_to_eur
+      - labor_factor
+      - labor_unit_price
+      - offsite_labor_unit_price
+    slot_usage:
+      code:
+        identifier: true
+        required: true
+      currency:
+        required: true
+        range: CurrencyEnum
+      material_factor:
+        required: true
+        range: float
+        minimum_value: 0
+      fx_to_eur:
+        required: true
+        range: float
+        minimum_value: 0
+      labor_factor:
+        required: true
+        range: float
+        minimum_value: 0
+        ifabsent: 1.0
+      labor_unit_price:
+        required: true
+        range: decimal
+        minimum_value: 0
+      offsite_labor_unit_price:
+        range: decimal
+        minimum_value: 0
+
+slots:
+  version:
+    range: string
+    description: Edition label (for example v12).
+  issued:
+    range: date
+    description: Publication date of this dataset edition.
+  anchor_region:
+    range: string
+    description: Region code where material_factor and labor_factor are 1.0 (for example DE_MU).
+  source:
+    range: string
+    description: Path or URI of the editorial source workbook.
+  license:
+    range: uriorcurie
+    description: License URI for the dataset (CC BY 4.0 for benchmark data).
+  disclaimer:
+    range: string
+    description: Pointer to notice/disclaimer text.
+  carbon_source:
+    range: string
+    description: Human-readable name of the carbon reference database.
+  carbon_source_version:
+    range: string
+    description: Version of the carbon reference database (for example 8.02).
+  entries:
+    description: Baseline unit-price entries keyed by product notation.
+  product:
+    description: >-
+      Abstract product SKOS notation (for example WICP-WOOD). Foreign key into
+      classification vocabularies.
+  product_uri:
+    range: uriorcurie
+    description: Derived SKOS concept IRI for the product notation.
+  material_cost:
+    range: decimal
+    description: Ex-works material cost per price_unit in EUR (net, VAT excluded).
+  price_unit:
+    range: PriceUnitEnum
+    description: Quantity unit the material cost refers to.
+  waste_pct:
+    range: float
+    description: Waste allowance as a fraction of material cost (0–1).
+  transport_pct:
+    range: float
+    description: Transport-to-site (A4) allowance as a fraction of material cost (0–1).
+  delivered_material_cost:
+    range: decimal
+    description: >-
+      Derived delivered material cost in EUR (material_cost × (1 + waste_pct) ×
+      (1 + transport_pct)). Net, VAT excluded. Optional in authored input.
+  onsite_labor_hours_per_unit:
+    range: float
+    description: Onsite installation labor in person-hours per price_unit.
+  offsite_labor_hours_per_unit:
+    range: float
+    description: Factory/offsite labor in person-hours per price_unit.
+  demolition:
+    range: DemolitionCost
+    inlined: true
+    description: Disassembly/demolition benchmark for this product.
+  kbob:
+    range: KbobCarbonReference
+    inlined: true
+    description: KBOB ecobilans carbon reference for this product.
+  carbon_per_price_unit:
+    range: CarbonEstimate
+    inlined: true
+    description: Generated embodied-carbon estimate; not authored.
+  uncertainty:
+    range: PriceUncertainty
+    inlined: true
+    description: >-
+      Relative uncertainty band for material cost and labor hours. Derived low/high
+      amounts are computed from point estimates at generation time.
+  material_low_pct:
+    range: float
+    description: Lower material bound as signed fraction of material_cost (≤ 0).
+  material_high_pct:
+    range: float
+    description: Upper material bound as signed fraction of material_cost (≥ 0).
+  labor_low_pct:
+    range: float
+    description: Lower labor bound as signed fraction of labor hours (≤ 0).
+  labor_high_pct:
+    range: float
+    description: Upper labor bound as signed fraction of labor hours (≥ 0).
+  provenance_status:
+    range: ProvenanceStatusEnum
+    description: How the unit-price point estimate was sourced and validated.
+  observations:
+    description: >-
+      Optional contributor or reference observations for canonical slot values.
+      Parent entry scalars remain the resolved benchmark for costing.
+  aspect:
+    range: PriceObservationAspectEnum
+    description: Canonical slot this observation applies to.
+  value:
+    range: decimal
+    description: Observed numeric value in the same unit as the parent aspect.
+  reference_source:
+    description: Reference dataset, organisation, or document for this observation.
+  contributor:
+    description: Person or team that supplied the observation.
+  contributed_at:
+    range: date
+    description: Date the observation was recorded or published.
+  notes:
+    description: Free-text context for the observation.
+  selects_canonical:
+    range: boolean
+    description: Whether this observation was selected for the parent canonical value.
+  material_cost_low:
+    range: decimal
+    description: Derived lower material_cost in EUR (net, VAT excluded).
+  material_cost_high:
+    range: decimal
+    description: Derived upper material_cost in EUR (net, VAT excluded).
+  delivered_material_cost_low:
+    range: decimal
+    description: Derived lower delivered_material_cost in EUR.
+  delivered_material_cost_high:
+    range: decimal
+    description: Derived upper delivered_material_cost in EUR.
+  onsite_labor_hours_low:
+    range: float
+    description: Derived lower onsite labor hours per price unit.
+  onsite_labor_hours_high:
+    range: float
+    description: Derived upper onsite labor hours per price unit.
+  offsite_labor_hours_low:
+    range: float
+    description: Derived lower offsite labor hours per price unit.
+  offsite_labor_hours_high:
+    range: float
+    description: Derived upper offsite labor hours per price unit.
+  hours_per_unit:
+    range: float
+    description: Demolition labor hours per price unit.
+  disposal_cost:
+    range: decimal
+    description: Disposal cost per price unit in EUR (net, VAT excluded).
+  unit:
+    range: PriceUnitEnum
+    description: Unit for demolition quantities.
+  primary_match_type:
+    range: KbobMatchTypeEnum
+    description: SKOS mapping match type used for the primary carbon reference.
+  benchmark_uris:
+    range: uriorcurie
+    description: KBOB ecobilans concept IRIs for carbon lookup.
+  carbon_method:
+    range: CarbonMethodEnum
+    description: Method used to normalize carbon to the price unit.
+  gwp_kg_co2eq:
+    range: float
+    description: Global warming potential in kg CO2eq per price unit.
+  method:
+    range: CarbonMethodEnum
+    description: Carbon conversion method.
+  density_kg_m3:
+    range: float
+    description: >-
+      Material density (kg/m³) used when method is density (price m³, KBOB kg).
+  mass_per_area_kg_m2:
+    range: float
+    description: >-
+      Mass per m² (kg/m²) used when method is area_yield (price m², KBOB kg).
+  area_per_piece_m2:
+    range: float
+    description: >-
+      Area per piece (m²/pcs) used when method is piece_area (price pcs, KBOB m²).
+  thickness_m:
+    range: float
+    description: >-
+      Optional layer thickness (m) when mass_per_area_kg_m2 was derived as
+      thickness_m × density_kg_m3.
+  assumptions:
+    range: string
+    description: >-
+      Human-readable notes only (for example layer_recipe quantity_basis).
+      Not used for unit conversion.
+  components:
+    description: Layer components for layer_recipe_sum carbon totals.
+  notation:
+    range: ConceptNotation
+    description: SKOS notation of a layer component product.
+  kbob_id:
+    range: string
+    description: KBOB ecobilans row id (for example 05.005).
+  quantity_per_price_unit:
+    range: float
+    description: Layer quantity per one parent price unit.
+  quantity_unit:
+    range: string
+    description: Unit of the layer quantity.
+  regions:
+    description: Regional benchmarks keyed by region code.
+  code:
+    range: string
+    description: Region code (for example CH_ZH, DE_MU).
+  currency:
+    range: CurrencyEnum
+    description: Local currency for labor rates and installed-cost total.
+  material_factor:
+    range: float
+    description: Regional material price level vs anchor region (DE_MU = 1.0).
+  fx_to_eur:
+    range: float
+    description: >-
+      Material FX only. Multiply local currency → EUR (for example 1 CHF × 0.95).
+      EUR book → local uses delivered_eur / fx_to_eur.
+  labor_factor:
+    range: float
+    description: Regional labor cost multiplier (default 1.0).
+  labor_unit_price:
+    range: decimal
+    description: Onsite installation labor rate per hour in currency (net, VAT excluded).
+  offsite_labor_unit_price:
+    range: decimal
+    description: Factory/offsite labor rate per hour in currency (net, VAT excluded).

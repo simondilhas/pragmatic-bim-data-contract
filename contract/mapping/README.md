@@ -445,7 +445,8 @@ Per **IfcCoveringTypeEnum**. Maps to PBS `Boundary` (`schema` exact mapping: `if
 |----------------------|------------------|----------------------------|
 | `CEILING` | `Boundary.ceiling` | `ceiling` |
 | `FLOORING`, `SKIRTINGBOARD`, `TOPPING` | `Boundary.flooring` | `flooring` |
-| `CLADDING`, `ROOFING`, `INSULATION`, … | `Boundary.cladding` | `cladding` |
+| `ROOFING` | `Boundary.roofing` | `roofing` |
+| `CLADDING`, `INSULATION`, … | `Boundary.cladding` | `cladding` |
 
 ---
 
@@ -469,7 +470,7 @@ Documented limitations where IFC semantics exceed current PBS schema coverage:
 
 | Gap | Mapping approach |
 |-----|------------------|
-| `BoundaryType` has only `flooring`, `ceiling`, `cladding` | Other `IfcCoveringTypeEnum` values (e.g. `ROOFING`, `INSULATION`) map to nearest boundary type |
+| `INSULATION`, `MEMBRANE`, and other non-roof `IfcCoveringTypeEnum` values | Map to nearest `BoundaryType` (`cladding` or `flooring`); insulation substance uses optional `MAT-INS*` or subsystem parent product |
 | No fitting enum on `ConnectionPhysicalType` | `IfcDuctFitting`, `IfcPipeFitting` → `network_other` |
 | No structural member class | `IfcBeam`, `IfcColumn` → `ConnectionVirtual` with `connection_virtual_type: structural_joint` |
 | No stair/ramp class | `IfcStair`, `IfcRamp` → abstract `PhysicalElement`; enrich via `classifications[]` |

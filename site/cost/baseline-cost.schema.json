@@ -1,0 +1,854 @@
+{
+    "$defs": {
+        "BaselinePriceBook": {
+            "additionalProperties": false,
+            "description": "Container for baseline unit-price entries. Monetary values on entries are always EUR and net (VAT excluded; schema invariant). Labor on entries is hours only; labor money lives on RegionalBenchmark.",
+            "properties": {
+                "anchor_region": {
+                    "description": "Region code where material_factor and labor_factor are 1.0 (for example DE_MU).",
+                    "type": "string"
+                },
+                "carbon_source": {
+                    "description": "Human-readable name of the carbon reference database.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "carbon_source_version": {
+                    "description": "Version of the carbon reference database (for example 8.02).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "disclaimer": {
+                    "description": "Pointer to notice/disclaimer text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "entries": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/UnitPriceEntry__identifier_optional"
+                    },
+                    "description": "Baseline unit-price entries keyed by product notation.",
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "issued": {
+                    "description": "Publication date of this dataset edition.",
+                    "format": "date",
+                    "type": "string"
+                },
+                "license": {
+                    "description": "License URI for the dataset (CC BY 4.0 for benchmark data).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "source": {
+                    "description": "Path or URI of the editorial source workbook.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "version": {
+                    "description": "Edition label (for example v12).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "issued",
+                "anchor_region"
+            ],
+            "title": "BaselinePriceBook",
+            "type": "object"
+        },
+        "CarbonComponent": {
+            "additionalProperties": false,
+            "description": "One layer or row contributing to a layer_recipe_sum carbon total.",
+            "properties": {
+                "gwp_kg_co2eq": {
+                    "description": "Global warming potential in kg CO2eq per price unit.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "kbob_id": {
+                    "description": "KBOB ecobilans row id (for example 05.005).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "notation": {
+                    "description": "SKOS notation of a layer component product.",
+                    "pattern": "^[A-Za-z]+(-[A-Za-z0-9]+)+$",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "quantity_per_price_unit": {
+                    "description": "Layer quantity per one parent price unit.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "quantity_unit": {
+                    "description": "Unit of the layer quantity.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "CarbonComponent",
+            "type": "object"
+        },
+        "CarbonEstimate": {
+            "additionalProperties": false,
+            "description": "Generated embodied-carbon estimate per price unit (optional output). Unit-conversion geometry is stored in typed slots \u2014 not in assumptions. density_kg_m3 for method density; mass_per_area_kg_m2 for area_yield; area_per_piece_m2 for piece_area. Optional thickness_m documents derived mass_per_area when thickness \u00d7 density was used.",
+            "properties": {
+                "area_per_piece_m2": {
+                    "description": "Area per piece (m\u00b2/pcs) used when method is piece_area (price pcs, KBOB m\u00b2).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "assumptions": {
+                    "description": "Human-readable notes only (for example layer_recipe quantity_basis). Not used for unit conversion.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "components": {
+                    "description": "Layer components for layer_recipe_sum carbon totals.",
+                    "items": {
+                        "$ref": "#/$defs/CarbonComponent"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "density_kg_m3": {
+                    "description": "Material density (kg/m\u00b3) used when method is density (price m\u00b3, KBOB kg).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "gwp_kg_co2eq": {
+                    "description": "Global warming potential in kg CO2eq per price unit.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "mass_per_area_kg_m2": {
+                    "description": "Mass per m\u00b2 (kg/m\u00b2) used when method is area_yield (price m\u00b2, KBOB kg).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "method": {
+                    "$ref": "#/$defs/CarbonMethodEnum",
+                    "description": "Carbon conversion method."
+                },
+                "thickness_m": {
+                    "description": "Optional layer thickness (m) when mass_per_area_kg_m2 was derived as thickness_m \u00d7 density_kg_m3.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "title": "CarbonEstimate",
+            "type": "object"
+        },
+        "CarbonMethodEnum": {
+            "description": "",
+            "enum": [
+                "direct",
+                "density",
+                "area_yield",
+                "piece_area",
+                "layer_recipe_sum",
+                "unmapped",
+                "unconverted"
+            ],
+            "title": "CarbonMethodEnum",
+            "type": "string"
+        },
+        "CurrencyEnum": {
+            "description": "ISO 4217 currency for regional labor rates. Price-book material is always EUR.",
+            "enum": [
+                "EUR",
+                "CHF",
+                "GBP",
+                "USD"
+            ],
+            "title": "CurrencyEnum",
+            "type": "string"
+        },
+        "DemolitionCost": {
+            "additionalProperties": false,
+            "description": "Disassembly/demolition labor and disposal per price unit (EUR, net, VAT excluded).",
+            "properties": {
+                "disposal_cost": {
+                    "description": "Disposal cost per price unit in EUR (net, VAT excluded).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "hours_per_unit": {
+                    "description": "Demolition labor hours per price unit.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "unit": {
+                    "$ref": "#/$defs/PriceUnitEnum",
+                    "description": "Unit for demolition quantities."
+                }
+            },
+            "title": "DemolitionCost",
+            "type": "object"
+        },
+        "KbobCarbonReference": {
+            "additionalProperties": false,
+            "description": "Reference to KBOB ecobilans benchmark concept IRIs. Indicator values are resolved from kbob-ecobilans-lca-factors.json, not stored here.",
+            "properties": {
+                "benchmark_uris": {
+                    "description": "KBOB ecobilans concept IRIs for carbon lookup.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "carbon_method": {
+                    "$ref": "#/$defs/CarbonMethodEnum",
+                    "description": "Method used to normalize carbon to the price unit."
+                },
+                "primary_match_type": {
+                    "$ref": "#/$defs/KbobMatchTypeEnum",
+                    "description": "SKOS mapping match type used for the primary carbon reference."
+                }
+            },
+            "title": "KbobCarbonReference",
+            "type": "object"
+        },
+        "KbobMatchTypeEnum": {
+            "description": "",
+            "enum": [
+                "closeMatch",
+                "relatedMatch",
+                "layer_recipe"
+            ],
+            "title": "KbobMatchTypeEnum",
+            "type": "string"
+        },
+        "PriceUncertainty": {
+            "additionalProperties": false,
+            "description": "Relative uncertainty band around point material cost and labor hours. Percent slots are signed fractions relative to the point estimate (for example material_low_pct -0.12 \u2192 low = point \u00d7 0.88). Derived EUR and hour bounds are optional generator output for convenience.",
+            "properties": {
+                "delivered_material_cost_high": {
+                    "description": "Derived upper delivered_material_cost in EUR.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "delivered_material_cost_low": {
+                    "description": "Derived lower delivered_material_cost in EUR.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "labor_high_pct": {
+                    "description": "Upper labor bound as signed fraction of labor hours (\u2265 0).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "labor_low_pct": {
+                    "description": "Lower labor bound as signed fraction of labor hours (\u2264 0).",
+                    "maximum": 0,
+                    "type": "number"
+                },
+                "material_cost_high": {
+                    "description": "Derived upper material_cost in EUR (net, VAT excluded).",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "material_cost_low": {
+                    "description": "Derived lower material_cost in EUR (net, VAT excluded).",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "material_high_pct": {
+                    "description": "Upper material bound as signed fraction of material_cost (\u2265 0).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "material_low_pct": {
+                    "description": "Lower material bound as signed fraction of material_cost (\u2264 0).",
+                    "maximum": 0,
+                    "type": "number"
+                },
+                "offsite_labor_hours_high": {
+                    "description": "Derived upper offsite labor hours per price unit.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "offsite_labor_hours_low": {
+                    "description": "Derived lower offsite labor hours per price unit.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "onsite_labor_hours_high": {
+                    "description": "Derived upper onsite labor hours per price unit.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "onsite_labor_hours_low": {
+                    "description": "Derived lower onsite labor hours per price unit.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "material_low_pct",
+                "material_high_pct",
+                "labor_low_pct",
+                "labor_high_pct"
+            ],
+            "title": "PriceUncertainty",
+            "type": "object"
+        },
+        "PriceUnitEnum": {
+            "description": "Native trade unit for a baseline unit price.",
+            "enum": [
+                "m2",
+                "m3",
+                "pcs"
+            ],
+            "title": "PriceUnitEnum",
+            "type": "string"
+        },
+        "ProvenanceStatusEnum": {
+            "description": "How the unit-price point estimate was sourced and validated.",
+            "enum": [
+                "estimated",
+                "expert_reviewed",
+                "reference_calibrated",
+                "project_validated"
+            ],
+            "title": "ProvenanceStatusEnum",
+            "type": "string"
+        },
+        "RegionalBenchmark": {
+            "additionalProperties": false,
+            "description": "Material and labor factors for one region.",
+            "properties": {
+                "code": {
+                    "description": "Region code (for example CH_ZH, DE_MU).",
+                    "type": "string"
+                },
+                "currency": {
+                    "$ref": "#/$defs/CurrencyEnum",
+                    "description": "Local currency for labor rates and installed-cost total."
+                },
+                "fx_to_eur": {
+                    "description": "Material FX only. Multiply local currency \u2192 EUR (for example 1 CHF \u00d7 0.95). EUR book \u2192 local uses delivered_eur / fx_to_eur.",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "labor_factor": {
+                    "description": "Regional labor cost multiplier (default 1.0).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "labor_unit_price": {
+                    "description": "Onsite installation labor rate per hour in currency (net, VAT excluded).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "material_factor": {
+                    "description": "Regional material price level vs anchor region (DE_MU = 1.0).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "offsite_labor_unit_price": {
+                    "description": "Factory/offsite labor rate per hour in currency (net, VAT excluded).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "code",
+                "currency",
+                "material_factor",
+                "fx_to_eur",
+                "labor_factor",
+                "labor_unit_price"
+            ],
+            "title": "RegionalBenchmark",
+            "type": "object"
+        },
+        "RegionalBenchmark__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Material and labor factors for one region.",
+            "properties": {
+                "code": {
+                    "description": "Region code (for example CH_ZH, DE_MU).",
+                    "type": "string"
+                },
+                "currency": {
+                    "$ref": "#/$defs/CurrencyEnum",
+                    "description": "Local currency for labor rates and installed-cost total."
+                },
+                "fx_to_eur": {
+                    "description": "Material FX only. Multiply local currency \u2192 EUR (for example 1 CHF \u00d7 0.95). EUR book \u2192 local uses delivered_eur / fx_to_eur.",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "labor_factor": {
+                    "description": "Regional labor cost multiplier (default 1.0).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "labor_unit_price": {
+                    "description": "Onsite installation labor rate per hour in currency (net, VAT excluded).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "material_factor": {
+                    "description": "Regional material price level vs anchor region (DE_MU = 1.0).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "offsite_labor_unit_price": {
+                    "description": "Factory/offsite labor rate per hour in currency (net, VAT excluded).",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "currency",
+                "material_factor",
+                "fx_to_eur",
+                "labor_factor",
+                "labor_unit_price"
+            ],
+            "title": "RegionalBenchmark",
+            "type": "object"
+        },
+        "RegionalCostBenchmarkBook": {
+            "additionalProperties": false,
+            "description": "Regional material and labor benchmarks paired with a BaselinePriceBook. Installed cost in regional currency uses fx_to_eur for material EUR\u2192local and labor_unit_price in local currency. All monetary rates are net (VAT excluded).",
+            "properties": {
+                "anchor_region": {
+                    "description": "Region code where material_factor and labor_factor are 1.0 (for example DE_MU).",
+                    "type": "string"
+                },
+                "disclaimer": {
+                    "description": "Pointer to notice/disclaimer text.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "issued": {
+                    "description": "Publication date of this dataset edition.",
+                    "format": "date",
+                    "type": "string"
+                },
+                "license": {
+                    "description": "License URI for the dataset (CC BY 4.0 for benchmark data).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "regions": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/RegionalBenchmark__identifier_optional"
+                    },
+                    "description": "Regional benchmarks keyed by region code.",
+                    "type": [
+                        "object",
+                        "null"
+                    ]
+                },
+                "source": {
+                    "description": "Path or URI of the editorial source workbook.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "version": {
+                    "description": "Edition label (for example v12).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "issued",
+                "anchor_region"
+            ],
+            "title": "RegionalCostBenchmarkBook",
+            "type": "object"
+        },
+        "UnitPriceEntry": {
+            "additionalProperties": false,
+            "description": "One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded).",
+            "properties": {
+                "carbon_per_price_unit": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CarbonEstimate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generated embodied-carbon estimate; not authored."
+                },
+                "delivered_material_cost": {
+                    "description": "Derived delivered material cost in EUR (material_cost \u00d7 (1 + waste_pct) \u00d7 (1 + transport_pct)). Net, VAT excluded. Optional in authored input.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "demolition": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DemolitionCost"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Disassembly/demolition benchmark for this product."
+                },
+                "kbob": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/KbobCarbonReference"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "KBOB ecobilans carbon reference for this product."
+                },
+                "material_cost": {
+                    "description": "Ex-works material cost per price_unit in EUR (net, VAT excluded).",
+                    "type": "number"
+                },
+                "offsite_labor_hours_per_unit": {
+                    "description": "Factory/offsite labor in person-hours per price_unit.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "onsite_labor_hours_per_unit": {
+                    "description": "Onsite installation labor in person-hours per price_unit.",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "price_unit": {
+                    "$ref": "#/$defs/PriceUnitEnum",
+                    "description": "Quantity unit the material cost refers to."
+                },
+                "product": {
+                    "description": "Abstract product SKOS notation (for example WICP-WOOD). Foreign key into classification vocabularies.",
+                    "pattern": "^[A-Za-z]+(-[A-Za-z0-9]+)+$",
+                    "type": "string"
+                },
+                "product_uri": {
+                    "description": "Derived SKOS concept IRI for the product notation.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provenance_status": {
+                    "$ref": "#/$defs/ProvenanceStatusEnum",
+                    "description": "How the unit-price point estimate was sourced and validated."
+                },
+                "transport_pct": {
+                    "description": "Transport-to-site (A4) allowance as a fraction of material cost (0\u20131).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "uncertainty": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PriceUncertainty"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Relative uncertainty band for material cost and labor hours. Derived low/high amounts are computed from point estimates at generation time."
+                },
+                "waste_pct": {
+                    "description": "Waste allowance as a fraction of material cost (0\u20131).",
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "product",
+                "material_cost",
+                "price_unit",
+                "waste_pct",
+                "transport_pct",
+                "onsite_labor_hours_per_unit"
+            ],
+            "title": "UnitPriceEntry",
+            "type": "object"
+        },
+        "UnitPriceEntry__identifier_optional": {
+            "additionalProperties": false,
+            "description": "One baseline unit price for one abstract SKOS product concept. All monetary amounts are net (VAT excluded).",
+            "properties": {
+                "carbon_per_price_unit": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CarbonEstimate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Generated embodied-carbon estimate; not authored."
+                },
+                "delivered_material_cost": {
+                    "description": "Derived delivered material cost in EUR (material_cost \u00d7 (1 + waste_pct) \u00d7 (1 + transport_pct)). Net, VAT excluded. Optional in authored input.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "demolition": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DemolitionCost"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Disassembly/demolition benchmark for this product."
+                },
+                "kbob": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/KbobCarbonReference"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "KBOB ecobilans carbon reference for this product."
+                },
+                "material_cost": {
+                    "description": "Ex-works material cost per price_unit in EUR (net, VAT excluded).",
+                    "type": "number"
+                },
+                "offsite_labor_hours_per_unit": {
+                    "description": "Factory/offsite labor in person-hours per price_unit.",
+                    "minimum": 0,
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "onsite_labor_hours_per_unit": {
+                    "description": "Onsite installation labor in person-hours per price_unit.",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "price_unit": {
+                    "$ref": "#/$defs/PriceUnitEnum",
+                    "description": "Quantity unit the material cost refers to."
+                },
+                "product": {
+                    "description": "Abstract product SKOS notation (for example WICP-WOOD). Foreign key into classification vocabularies.",
+                    "pattern": "^[A-Za-z]+(-[A-Za-z0-9]+)+$",
+                    "type": "string"
+                },
+                "product_uri": {
+                    "description": "Derived SKOS concept IRI for the product notation.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "provenance_status": {
+                    "$ref": "#/$defs/ProvenanceStatusEnum",
+                    "description": "How the unit-price point estimate was sourced and validated."
+                },
+                "transport_pct": {
+                    "description": "Transport-to-site (A4) allowance as a fraction of material cost (0\u20131).",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "uncertainty": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PriceUncertainty"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Relative uncertainty band for material cost and labor hours. Derived low/high amounts are computed from point estimates at generation time."
+                },
+                "waste_pct": {
+                    "description": "Waste allowance as a fraction of material cost (0\u20131).",
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "material_cost",
+                "price_unit",
+                "waste_pct",
+                "transport_pct",
+                "onsite_labor_hours_per_unit"
+            ],
+            "title": "UnitPriceEntry",
+            "type": "object"
+        }
+    },
+    "$id": "https://schema.pragmaticbim.ch/cost/baseline-cost",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "Container for baseline unit-price entries. Monetary values on entries are always EUR and net (VAT excluded; schema invariant). Labor on entries is hours only; labor money lives on RegionalBenchmark.",
+    "metamodel_version": "1.11.0",
+    "properties": {
+        "anchor_region": {
+            "description": "Region code where material_factor and labor_factor are 1.0 (for example DE_MU).",
+            "type": "string"
+        },
+        "carbon_source": {
+            "description": "Human-readable name of the carbon reference database.",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "carbon_source_version": {
+            "description": "Version of the carbon reference database (for example 8.02).",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "disclaimer": {
+            "description": "Pointer to notice/disclaimer text.",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "entries": {
+            "additionalProperties": {
+                "$ref": "#/$defs/UnitPriceEntry__identifier_optional"
+            },
+            "description": "Baseline unit-price entries keyed by product notation.",
+            "type": [
+                "object",
+                "null"
+            ]
+        },
+        "issued": {
+            "description": "Publication date of this dataset edition.",
+            "format": "date",
+            "type": "string"
+        },
+        "license": {
+            "description": "License URI for the dataset (CC BY 4.0 for benchmark data).",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "source": {
+            "description": "Path or URI of the editorial source workbook.",
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "version": {
+            "description": "Edition label (for example v12).",
+            "type": [
+                "string",
+                "null"
+            ]
+        }
+    },
+    "required": [
+        "issued",
+        "anchor_region"
+    ],
+    "title": "baseline_cost_schema",
+    "type": "object",
+    "version": null
+}
+

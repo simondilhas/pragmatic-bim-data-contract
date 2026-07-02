@@ -9,7 +9,15 @@ on:
     branches: ["main"]
     paths:
       - "contract/*.yaml"
+      - "contract/cost/*.yaml"
       - "contract/00_pragmatic_bim_data_contract.yaml"
+      - "baseline-unit-prices/**"
+      - "scripts/baseline_prices_common.py"
+      - "scripts/list_baseline_products.py"
+      - "scripts/build_baseline_products.py"
+      - "scripts/generate_baseline_unit_prices.py"
+      - "scripts/validate_baseline_prices.py"
+      - "scripts/export_baseline_prices_csv.py"
       - "classification/**"
       - "scripts/build_site.py"
       - "scripts/build_schema_docs.py"
@@ -24,7 +32,15 @@ on:
   pull_request:
     paths:
       - "contract/*.yaml"
+      - "contract/cost/*.yaml"
       - "contract/00_pragmatic_bim_data_contract.yaml"
+      - "baseline-unit-prices/**"
+      - "scripts/baseline_prices_common.py"
+      - "scripts/list_baseline_products.py"
+      - "scripts/build_baseline_products.py"
+      - "scripts/generate_baseline_unit_prices.py"
+      - "scripts/validate_baseline_prices.py"
+      - "scripts/export_baseline_prices_csv.py"
       - "classification/**"
       - "scripts/build_site.py"
       - "scripts/build_schema_docs.py"
@@ -59,6 +75,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-docs.txt
           python scripts/build_site.py check
+
+      - name: Build and validate baseline unit prices
+        run: |
+          pip install linkml rdflib
+          python scripts/list_baseline_products.py --check
+          python scripts/build_baseline_products.py
+          python scripts/export_baseline_prices_csv.py
+          python scripts/validate_baseline_prices.py
 
       - name: Install LinkML
         run: |

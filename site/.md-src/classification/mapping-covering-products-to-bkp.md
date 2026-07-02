@@ -33,9 +33,13 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `fcp:FCP-RAISED-FLOOR` | `closeMatch` | `bkp:281-8` |
 | `fcp:FCP-SEAMLESS-RESIN` | `closeMatch` | `bkp:281-1` |
 | `fcp:FCP-SUBFLOOR` | `closeMatch` | `bkp:281-0` |
+| `facp:FaCP-BRICK-SLIP` | `closeMatch` | `bkp:215-5` |
+| `facp:FaCP-BRICK-SLIP` | `relatedMatch` | `bkp:211` |
 | `facp:FaCP-CERAMIC-TILE` | `closeMatch` | `bkp:215-5` |
 | `facp:FaCP-EXTERIOR-PAINT` | `closeMatch` | `bkp:227-1` |
 | `facp:FaCP-FIBRE-CEMENT` | `closeMatch` | `bkp:215-5` |
+| `facp:FaCP-HPL-PANEL` | `closeMatch` | `bkp:215-5` |
+| `facp:FaCP-HPL-PANEL` | `relatedMatch` | `bkp:215-2` |
 | `facp:FaCP-METAL-PANEL` | `closeMatch` | `bkp:215-5` |
 | `facp:FaCP-METAL-PANEL` | `relatedMatch` | `bkp:215-2` |
 | `facp:FaCP-METAL-SHEET` | `closeMatch` | `bkp:215-5` |

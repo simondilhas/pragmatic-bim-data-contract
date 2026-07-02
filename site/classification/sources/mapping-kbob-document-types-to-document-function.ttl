@@ -1,0 +1,691 @@
+@prefix kbob: <https://example.org/ch/kbob/document-types/2016/> .
+@prefix docfn: <https://example.org/ch/document-function/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:kbobDocumentTypesToDocumentFunctionMapping a dcterms:Dataset ;
+  dcterms:title "KBOB document types to document function mapping"@en ;
+  dcterms:title "Mapping KBOB-Dokumenttypen zur Dokumentfunktion"@de ;
+  dcterms:title "Mapping types de documents KBOB vers fonction documentaire"@fr ;
+  dcterms:references kbob:scheme, docfn:scheme ;
+  dcterms:issued "2026-06-09" ;
+  dcterms:description "Maps leaf concepts in the KBOB/IPB document type catalogue (BDM15, Annex C, 2016) to abstract document function classes. Category-prefix rules assign each leaf via longest-prefix match; skos:closeMatch denotes primary functional fit, skos:relatedMatch weaker association. Regenerate with scripts/generate_kbob_to_document_function_mapping.py."@en ;
+  dcterms:description "Ordnet Blattkonzepte des KBOB/IPB-Dokumenttypenkatalogs (BDM15, Anhang C, 2016) abstrakten Dokumentfunktionsklassen zu. Kategorie-Praefixregeln weisen jedes Blatt per laengstem Praefix zu; skos:closeMatch fuer primaere Funktion, skos:relatedMatch fuer schwaechere Zuordnung. Regenerieren mit scripts/generate_kbob_to_document_function_mapping.py."@de .
+
+# O01001 … (11 leaves) → adm_internal_policies
+kbob:O01001 skos:closeMatch docfn:adm_internal_policies .
+kbob:O01002 skos:closeMatch docfn:adm_internal_policies .
+kbob:O01003 skos:closeMatch docfn:adm_internal_policies .
+kbob:O03002 skos:closeMatch docfn:adm_internal_policies .
+kbob:O03003 skos:closeMatch docfn:adm_internal_policies .
+kbob:O05001 skos:closeMatch docfn:adm_internal_policies .
+kbob:O05002 skos:closeMatch docfn:adm_internal_policies .
+kbob:O05003 skos:closeMatch docfn:adm_internal_policies .
+kbob:O05004 skos:closeMatch docfn:adm_internal_policies .
+kbob:O05005 skos:closeMatch docfn:adm_internal_policies .
+kbob:O05006 skos:closeMatch docfn:adm_internal_policies .
+
+# O10001 … (1 leaves) → adm_meeting_minutes
+kbob:O10001 skos:closeMatch docfn:adm_meeting_minutes .
+
+# O10002 … (10 leaves) → adm_meeting_minutes, adm_memos
+kbob:O10002 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10003 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10005 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10006 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10007 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10014 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10015 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10016 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10017 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+kbob:O10018 skos:closeMatch docfn:adm_meeting_minutes, docfn:adm_memos .
+
+# O10004 … (6 leaves) → adm_memos
+kbob:O10004 skos:closeMatch docfn:adm_memos .
+kbob:O10008 skos:closeMatch docfn:adm_memos .
+kbob:O10009 skos:closeMatch docfn:adm_memos .
+kbob:O10010 skos:closeMatch docfn:adm_memos .
+kbob:O10011 skos:closeMatch docfn:adm_memos .
+kbob:O10020 skos:closeMatch docfn:adm_memos .
+
+# O16001 … (7 leaves) → adm_recaps
+kbob:O16001 skos:closeMatch docfn:adm_recaps .
+kbob:O16002 skos:closeMatch docfn:adm_recaps .
+kbob:O16003 skos:closeMatch docfn:adm_recaps .
+kbob:O16004 skos:closeMatch docfn:adm_recaps .
+kbob:O16005 skos:closeMatch docfn:adm_recaps .
+kbob:O16006 skos:closeMatch docfn:adm_recaps .
+kbob:O16007 skos:closeMatch docfn:adm_recaps .
+
+# O02001 … (10 leaves) → adm_recaps, adm_meeting_minutes
+kbob:O02001 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02002 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02003 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02004 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02005 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02006 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02007 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02008 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02009 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+kbob:O02010 skos:closeMatch docfn:adm_recaps, docfn:adm_meeting_minutes .
+
+# O06001 … (6 leaves) → administrative
+kbob:O06001 skos:relatedMatch docfn:administrative .
+kbob:O06002 skos:relatedMatch docfn:administrative .
+kbob:O08001 skos:relatedMatch docfn:administrative .
+kbob:O08002 skos:relatedMatch docfn:administrative .
+kbob:O09001 skos:relatedMatch docfn:administrative .
+kbob:O09002 skos:relatedMatch docfn:administrative .
+
+# K01001 … (27 leaves) → fin_balance_sheets
+kbob:K01001 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01002 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01003 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01004 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01005 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01006 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01007 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01008 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01009 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01012 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01013 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01014 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01015 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01016 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01017 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01018 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01019 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01020 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01021 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01050 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01051 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01052 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01053 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K01081 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K04001 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K04002 skos:closeMatch docfn:fin_balance_sheets .
+kbob:K04003 skos:closeMatch docfn:fin_balance_sheets .
+
+# B14000 … (15 leaves) → fin_balance_sheets, tec_documents
+kbob:B14000 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14001 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14002 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14003 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14004 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14005 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14006 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14100 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14101 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14102 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14103 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14104 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14105 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:B14106 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+kbob:K08001 skos:closeMatch docfn:fin_balance_sheets, docfn:tec_documents .
+
+# K05001 … (6 leaves) → fin_invoices
+kbob:K05001 skos:closeMatch docfn:fin_invoices .
+kbob:K05002 skos:closeMatch docfn:fin_invoices .
+kbob:K05003 skos:closeMatch docfn:fin_invoices .
+kbob:K05004 skos:closeMatch docfn:fin_invoices .
+kbob:K05005 skos:closeMatch docfn:fin_invoices .
+kbob:K05006 skos:closeMatch docfn:fin_invoices .
+
+# K06001 … (9 leaves) → fin_invoices, fin_balance_sheets
+kbob:K06001 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06002 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06003 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06004 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06005 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06006 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06007 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06008 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+kbob:K06009 skos:closeMatch docfn:fin_invoices, docfn:fin_balance_sheets .
+
+# O11001 … (1 leaves) → fin_receipts
+kbob:O11001 skos:closeMatch docfn:fin_receipts .
+
+# K03001 … (27 leaves) → leg_contracts
+kbob:K03001 skos:closeMatch docfn:leg_contracts .
+kbob:K03002 skos:closeMatch docfn:leg_contracts .
+kbob:K03003 skos:closeMatch docfn:leg_contracts .
+kbob:K03004 skos:closeMatch docfn:leg_contracts .
+kbob:K03005 skos:closeMatch docfn:leg_contracts .
+kbob:K03006 skos:closeMatch docfn:leg_contracts .
+kbob:K03007 skos:closeMatch docfn:leg_contracts .
+kbob:K03008 skos:closeMatch docfn:leg_contracts .
+kbob:K03009 skos:closeMatch docfn:leg_contracts .
+kbob:K03010 skos:closeMatch docfn:leg_contracts .
+kbob:K03011 skos:closeMatch docfn:leg_contracts .
+kbob:K03012 skos:closeMatch docfn:leg_contracts .
+kbob:K03013 skos:closeMatch docfn:leg_contracts .
+kbob:K03014 skos:closeMatch docfn:leg_contracts .
+kbob:K03015 skos:closeMatch docfn:leg_contracts .
+kbob:K03016 skos:closeMatch docfn:leg_contracts .
+kbob:K03017 skos:closeMatch docfn:leg_contracts .
+kbob:K03018 skos:closeMatch docfn:leg_contracts .
+kbob:K07001 skos:closeMatch docfn:leg_contracts .
+kbob:K07002 skos:closeMatch docfn:leg_contracts .
+kbob:K07003 skos:closeMatch docfn:leg_contracts .
+kbob:K07004 skos:closeMatch docfn:leg_contracts .
+kbob:K09001 skos:closeMatch docfn:leg_contracts .
+kbob:K09002 skos:closeMatch docfn:leg_contracts .
+kbob:K09003 skos:closeMatch docfn:leg_contracts .
+kbob:K09004 skos:closeMatch docfn:leg_contracts .
+kbob:O10019 skos:closeMatch docfn:leg_contracts .
+
+# O10013 … (1 leaves) → leg_contracts
+kbob:O10013 skos:relatedMatch docfn:leg_contracts .
+
+# B13001 … (3 leaves) → leg_contracts, reg_cmp_declarations
+kbob:B13001 skos:closeMatch docfn:leg_contracts, docfn:reg_cmp_declarations .
+kbob:B13002 skos:closeMatch docfn:leg_contracts, docfn:reg_cmp_declarations .
+kbob:B13003 skos:closeMatch docfn:leg_contracts, docfn:reg_cmp_declarations .
+
+# O10012 … (1 leaves) → leg_settlement_agreements
+kbob:O10012 skos:relatedMatch docfn:leg_settlement_agreements .
+
+# O12001 … (2 leaves) → mks_brochures
+kbob:O12001 skos:closeMatch docfn:mks_brochures .
+kbob:O12002 skos:closeMatch docfn:mks_brochures .
+
+# O13001 … (48 leaves) → reg_cmp_filings
+kbob:O13001 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13002 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13003 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13004 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13005 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13006 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13007 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13008 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13009 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13010 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13011 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13012 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13013 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13014 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13015 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13016 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13017 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13018 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13019 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13020 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O13101 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14001 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14002 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14003 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14004 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14005 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14006 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14007 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14008 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14009 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14010 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14011 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14012 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14013 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14014 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14015 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14016 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14017 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14018 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14019 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14020 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14021 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14022 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14023 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14024 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14050 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14101 skos:closeMatch docfn:reg_cmp_filings .
+kbob:O14102 skos:closeMatch docfn:reg_cmp_filings .
+
+# O04001 … (9 leaves) → reg_compliance_reports, adm_internal_policies
+kbob:O04001 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04002 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04003 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04004 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04005 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04006 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04051 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04052 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+kbob:O04101 skos:closeMatch docfn:reg_compliance_reports, docfn:adm_internal_policies .
+
+# B07001 … (8 leaves) → reg_compliance_reports, tec_documents
+kbob:B07001 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+kbob:B07002 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+kbob:B07003 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+kbob:B07004 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+kbob:B07005 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+kbob:B07006 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+kbob:B07007 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+kbob:B07008 skos:closeMatch docfn:reg_compliance_reports, docfn:tec_documents .
+
+# B01011 … (1 leaves) → reg_laws
+kbob:B01011 skos:closeMatch docfn:reg_laws .
+
+# B01012 … (3 leaves) → reg_norms
+kbob:B01012 skos:closeMatch docfn:reg_norms .
+kbob:B01013 skos:closeMatch docfn:reg_norms .
+kbob:B01014 skos:closeMatch docfn:reg_norms .
+
+# B03001 … (7 leaves) → req_functional_specifications
+kbob:B03001 skos:closeMatch docfn:req_functional_specifications .
+kbob:B03002 skos:closeMatch docfn:req_functional_specifications .
+kbob:B03003 skos:closeMatch docfn:req_functional_specifications .
+kbob:B03004 skos:closeMatch docfn:req_functional_specifications .
+kbob:B10001 skos:closeMatch docfn:req_functional_specifications .
+kbob:B10002 skos:closeMatch docfn:req_functional_specifications .
+kbob:B10003 skos:closeMatch docfn:req_functional_specifications .
+
+# B11001 … (110 leaves) → req_functional_specifications, tec_documents
+kbob:B11001 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11002 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11003 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11004 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11101 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11102 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11103 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11104 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11105 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11106 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11107 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11108 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11109 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11110 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11111 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11112 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11113 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11114 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11115 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11116 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11117 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11118 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11119 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11120 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11121 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11122 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11123 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11124 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11125 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11126 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11127 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11128 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11129 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11130 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11131 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11132 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11133 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11201 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11202 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11203 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11204 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11205 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11206 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11207 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11301 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11302 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11303 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11304 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11305 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11306 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11307 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B11308 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12001 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12002 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12003 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12004 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12005 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12006 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12007 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12008 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12009 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12010 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12011 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12012 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12013 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12101 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12201 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12202 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12203 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12204 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12205 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12208 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12209 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12210 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12301 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12302 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12303 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12304 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12401 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12402 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12403 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12404 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12405 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12406 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12407 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12408 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12409 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12410 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12501 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12502 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12601 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12602 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12603 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12604 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12605 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12606 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12607 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12608 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12609 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12610 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12611 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12612 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12701 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12702 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12703 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12801 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12803 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12804 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12805 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+kbob:B12806 skos:closeMatch docfn:req_functional_specifications, docfn:tec_documents .
+
+# B01001 … (10 leaves) → req_project_briefs
+kbob:B01001 skos:closeMatch docfn:req_project_briefs .
+kbob:B01002 skos:closeMatch docfn:req_project_briefs .
+kbob:B01003 skos:closeMatch docfn:req_project_briefs .
+kbob:B04001 skos:closeMatch docfn:req_project_briefs .
+kbob:B04002 skos:closeMatch docfn:req_project_briefs .
+kbob:B04003 skos:closeMatch docfn:req_project_briefs .
+kbob:B04004 skos:closeMatch docfn:req_project_briefs .
+kbob:B04005 skos:closeMatch docfn:req_project_briefs .
+kbob:B04006 skos:closeMatch docfn:req_project_briefs .
+kbob:B04007 skos:closeMatch docfn:req_project_briefs .
+
+# B02101 … (6 leaves) → req_project_briefs, tec_documents
+kbob:B02101 skos:closeMatch docfn:req_project_briefs, docfn:tec_documents .
+kbob:B02102 skos:closeMatch docfn:req_project_briefs, docfn:tec_documents .
+kbob:B02103 skos:closeMatch docfn:req_project_briefs, docfn:tec_documents .
+kbob:B02104 skos:closeMatch docfn:req_project_briefs, docfn:tec_documents .
+kbob:B02201 skos:closeMatch docfn:req_project_briefs, docfn:tec_documents .
+kbob:B02202 skos:closeMatch docfn:req_project_briefs, docfn:tec_documents .
+
+# K02001 … (11 leaves) → req_tender_documents
+kbob:K02001 skos:closeMatch docfn:req_tender_documents .
+kbob:K02002 skos:closeMatch docfn:req_tender_documents .
+kbob:K02003 skos:closeMatch docfn:req_tender_documents .
+kbob:K02004 skos:closeMatch docfn:req_tender_documents .
+kbob:K02005 skos:closeMatch docfn:req_tender_documents .
+kbob:K02006 skos:closeMatch docfn:req_tender_documents .
+kbob:K02007 skos:closeMatch docfn:req_tender_documents .
+kbob:K02008 skos:closeMatch docfn:req_tender_documents .
+kbob:K02009 skos:closeMatch docfn:req_tender_documents .
+kbob:K02010 skos:closeMatch docfn:req_tender_documents .
+kbob:K02011 skos:closeMatch docfn:req_tender_documents .
+
+# B05001 … (44 leaves) → tec_documents
+kbob:B05001 skos:closeMatch docfn:tec_documents .
+kbob:B05002 skos:closeMatch docfn:tec_documents .
+kbob:B05003 skos:closeMatch docfn:tec_documents .
+kbob:B05004 skos:closeMatch docfn:tec_documents .
+kbob:B05005 skos:closeMatch docfn:tec_documents .
+kbob:B05006 skos:closeMatch docfn:tec_documents .
+kbob:B05007 skos:closeMatch docfn:tec_documents .
+kbob:B05008 skos:closeMatch docfn:tec_documents .
+kbob:B05009 skos:closeMatch docfn:tec_documents .
+kbob:B05011 skos:closeMatch docfn:tec_documents .
+kbob:B05050 skos:closeMatch docfn:tec_documents .
+kbob:B05101 skos:closeMatch docfn:tec_documents .
+kbob:B05102 skos:closeMatch docfn:tec_documents .
+kbob:B06000 skos:closeMatch docfn:tec_documents .
+kbob:B06001 skos:closeMatch docfn:tec_documents .
+kbob:B06002 skos:closeMatch docfn:tec_documents .
+kbob:B06003 skos:closeMatch docfn:tec_documents .
+kbob:B06004 skos:closeMatch docfn:tec_documents .
+kbob:B06005 skos:closeMatch docfn:tec_documents .
+kbob:B06006 skos:closeMatch docfn:tec_documents .
+kbob:B06007 skos:closeMatch docfn:tec_documents .
+kbob:B15000 skos:closeMatch docfn:tec_documents .
+kbob:B15002 skos:closeMatch docfn:tec_documents .
+kbob:B15003 skos:closeMatch docfn:tec_documents .
+kbob:B15006 skos:closeMatch docfn:tec_documents .
+kbob:B15007 skos:closeMatch docfn:tec_documents .
+kbob:B15100 skos:closeMatch docfn:tec_documents .
+kbob:B19001 skos:closeMatch docfn:tec_documents .
+kbob:B19002 skos:closeMatch docfn:tec_documents .
+kbob:B19003 skos:closeMatch docfn:tec_documents .
+kbob:B19004 skos:closeMatch docfn:tec_documents .
+kbob:B19005 skos:closeMatch docfn:tec_documents .
+kbob:B19006 skos:closeMatch docfn:tec_documents .
+kbob:B19007 skos:closeMatch docfn:tec_documents .
+kbob:B19008 skos:closeMatch docfn:tec_documents .
+kbob:B19009 skos:closeMatch docfn:tec_documents .
+kbob:B19010 skos:closeMatch docfn:tec_documents .
+kbob:B19011 skos:closeMatch docfn:tec_documents .
+kbob:B19012 skos:closeMatch docfn:tec_documents .
+kbob:B19013 skos:closeMatch docfn:tec_documents .
+kbob:B19014 skos:closeMatch docfn:tec_documents .
+kbob:B19015 skos:closeMatch docfn:tec_documents .
+kbob:B19016 skos:closeMatch docfn:tec_documents .
+kbob:B20001 skos:closeMatch docfn:tec_documents .
+
+# O15001 … (12 leaves) → tec_documents, adm_meeting_minutes
+kbob:O15001 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15002 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15003 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15004 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15005 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15006 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15008 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15009 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15010 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15011 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15012 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+kbob:O15013 skos:closeMatch docfn:tec_documents, docfn:adm_meeting_minutes .
+
+# B17003 … (17 leaves) → tec_documents, adm_recaps
+kbob:B17003 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17004 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17005 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17006 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17007 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17008 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17009 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17011 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17012 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17013 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17014 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17015 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17016 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17017 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17018 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17019 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+kbob:B17101 skos:closeMatch docfn:tec_documents, docfn:adm_recaps .
+
+# B18001 … (14 leaves) → tec_manuals
+kbob:B18001 skos:closeMatch docfn:tec_manuals .
+kbob:B18002 skos:closeMatch docfn:tec_manuals .
+kbob:B18003 skos:closeMatch docfn:tec_manuals .
+kbob:B18004 skos:closeMatch docfn:tec_manuals .
+kbob:B18005 skos:closeMatch docfn:tec_manuals .
+kbob:B18006 skos:closeMatch docfn:tec_manuals .
+kbob:B18007 skos:closeMatch docfn:tec_manuals .
+kbob:B18008 skos:closeMatch docfn:tec_manuals .
+kbob:B18009 skos:closeMatch docfn:tec_manuals .
+kbob:B18010 skos:closeMatch docfn:tec_manuals .
+kbob:B18011 skos:closeMatch docfn:tec_manuals .
+kbob:B18051 skos:closeMatch docfn:tec_manuals .
+kbob:B18071 skos:closeMatch docfn:tec_manuals .
+kbob:O03001 skos:closeMatch docfn:tec_manuals .
+
+# O07001 … (111 leaves) → tec_plans
+kbob:O07001 skos:closeMatch docfn:tec_plans .
+kbob:O07002 skos:closeMatch docfn:tec_plans .
+kbob:O07003 skos:closeMatch docfn:tec_plans .
+kbob:V01001 skos:closeMatch docfn:tec_plans .
+kbob:V01002 skos:closeMatch docfn:tec_plans .
+kbob:V01003 skos:closeMatch docfn:tec_plans .
+kbob:V01004 skos:closeMatch docfn:tec_plans .
+kbob:V01005 skos:closeMatch docfn:tec_plans .
+kbob:V01006 skos:closeMatch docfn:tec_plans .
+kbob:V01007 skos:closeMatch docfn:tec_plans .
+kbob:V02001 skos:closeMatch docfn:tec_plans .
+kbob:V02002 skos:closeMatch docfn:tec_plans .
+kbob:V02003 skos:closeMatch docfn:tec_plans .
+kbob:V02004 skos:closeMatch docfn:tec_plans .
+kbob:V02005 skos:closeMatch docfn:tec_plans .
+kbob:V02006 skos:closeMatch docfn:tec_plans .
+kbob:V02007 skos:closeMatch docfn:tec_plans .
+kbob:V03001 skos:closeMatch docfn:tec_plans .
+kbob:V03002 skos:closeMatch docfn:tec_plans .
+kbob:V04001 skos:closeMatch docfn:tec_plans .
+kbob:V04002 skos:closeMatch docfn:tec_plans .
+kbob:V04003 skos:closeMatch docfn:tec_plans .
+kbob:V04004 skos:closeMatch docfn:tec_plans .
+kbob:V04005 skos:closeMatch docfn:tec_plans .
+kbob:V04006 skos:closeMatch docfn:tec_plans .
+kbob:V05001 skos:closeMatch docfn:tec_plans .
+kbob:V05002 skos:closeMatch docfn:tec_plans .
+kbob:V05003 skos:closeMatch docfn:tec_plans .
+kbob:V05004 skos:closeMatch docfn:tec_plans .
+kbob:V05005 skos:closeMatch docfn:tec_plans .
+kbob:V05008 skos:closeMatch docfn:tec_plans .
+kbob:V05009 skos:closeMatch docfn:tec_plans .
+kbob:V06001 skos:closeMatch docfn:tec_plans .
+kbob:V06002 skos:closeMatch docfn:tec_plans .
+kbob:V06003 skos:closeMatch docfn:tec_plans .
+kbob:V06004 skos:closeMatch docfn:tec_plans .
+kbob:V06005 skos:closeMatch docfn:tec_plans .
+kbob:V07001 skos:closeMatch docfn:tec_plans .
+kbob:V07002 skos:closeMatch docfn:tec_plans .
+kbob:V07003 skos:closeMatch docfn:tec_plans .
+kbob:V07100 skos:closeMatch docfn:tec_plans .
+kbob:V07102 skos:closeMatch docfn:tec_plans .
+kbob:V07103 skos:closeMatch docfn:tec_plans .
+kbob:V07104 skos:closeMatch docfn:tec_plans .
+kbob:V07105 skos:closeMatch docfn:tec_plans .
+kbob:V07106 skos:closeMatch docfn:tec_plans .
+kbob:V07107 skos:closeMatch docfn:tec_plans .
+kbob:V07108 skos:closeMatch docfn:tec_plans .
+kbob:V07109 skos:closeMatch docfn:tec_plans .
+kbob:V07110 skos:closeMatch docfn:tec_plans .
+kbob:V07111 skos:closeMatch docfn:tec_plans .
+kbob:V07112 skos:closeMatch docfn:tec_plans .
+kbob:V07113 skos:closeMatch docfn:tec_plans .
+kbob:V07200 skos:closeMatch docfn:tec_plans .
+kbob:V07201 skos:closeMatch docfn:tec_plans .
+kbob:V07202 skos:closeMatch docfn:tec_plans .
+kbob:V07203 skos:closeMatch docfn:tec_plans .
+kbob:V07204 skos:closeMatch docfn:tec_plans .
+kbob:V07205 skos:closeMatch docfn:tec_plans .
+kbob:V07206 skos:closeMatch docfn:tec_plans .
+kbob:V07207 skos:closeMatch docfn:tec_plans .
+kbob:V07208 skos:closeMatch docfn:tec_plans .
+kbob:V07209 skos:closeMatch docfn:tec_plans .
+kbob:V07210 skos:closeMatch docfn:tec_plans .
+kbob:V07211 skos:closeMatch docfn:tec_plans .
+kbob:V07212 skos:closeMatch docfn:tec_plans .
+kbob:V07213 skos:closeMatch docfn:tec_plans .
+kbob:V09001 skos:closeMatch docfn:tec_plans .
+kbob:V09002 skos:closeMatch docfn:tec_plans .
+kbob:V09003 skos:closeMatch docfn:tec_plans .
+kbob:V09004 skos:closeMatch docfn:tec_plans .
+kbob:V09005 skos:closeMatch docfn:tec_plans .
+kbob:V09006 skos:closeMatch docfn:tec_plans .
+kbob:V09007 skos:closeMatch docfn:tec_plans .
+kbob:V09008 skos:closeMatch docfn:tec_plans .
+kbob:V09009 skos:closeMatch docfn:tec_plans .
+kbob:V09010 skos:closeMatch docfn:tec_plans .
+kbob:V09101 skos:closeMatch docfn:tec_plans .
+kbob:V09102 skos:closeMatch docfn:tec_plans .
+kbob:V09104 skos:closeMatch docfn:tec_plans .
+kbob:V09201 skos:closeMatch docfn:tec_plans .
+kbob:V09202 skos:closeMatch docfn:tec_plans .
+kbob:V10101 skos:closeMatch docfn:tec_plans .
+kbob:V10102 skos:closeMatch docfn:tec_plans .
+kbob:V10201 skos:closeMatch docfn:tec_plans .
+kbob:V10202 skos:closeMatch docfn:tec_plans .
+kbob:V11001 skos:closeMatch docfn:tec_plans .
+kbob:V11002 skos:closeMatch docfn:tec_plans .
+kbob:V11101 skos:closeMatch docfn:tec_plans .
+kbob:V11102 skos:closeMatch docfn:tec_plans .
+kbob:V11103 skos:closeMatch docfn:tec_plans .
+kbob:V11201 skos:closeMatch docfn:tec_plans .
+kbob:V11202 skos:closeMatch docfn:tec_plans .
+kbob:V11203 skos:closeMatch docfn:tec_plans .
+kbob:V11204 skos:closeMatch docfn:tec_plans .
+kbob:V11205 skos:closeMatch docfn:tec_plans .
+kbob:V11206 skos:closeMatch docfn:tec_plans .
+kbob:V11207 skos:closeMatch docfn:tec_plans .
+kbob:V11208 skos:closeMatch docfn:tec_plans .
+kbob:V11301 skos:closeMatch docfn:tec_plans .
+kbob:V11302 skos:closeMatch docfn:tec_plans .
+kbob:V11303 skos:closeMatch docfn:tec_plans .
+kbob:V11304 skos:closeMatch docfn:tec_plans .
+kbob:V11305 skos:closeMatch docfn:tec_plans .
+kbob:V11306 skos:closeMatch docfn:tec_plans .
+kbob:V11307 skos:closeMatch docfn:tec_plans .
+kbob:V11308 skos:closeMatch docfn:tec_plans .
+kbob:V11403 skos:closeMatch docfn:tec_plans .
+kbob:V11404 skos:closeMatch docfn:tec_plans .
+kbob:V11405 skos:closeMatch docfn:tec_plans .
+kbob:V11406 skos:closeMatch docfn:tec_plans .
+
+# V08001 … (53 leaves) → tec_plans, tec_schematics
+kbob:V08001 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08002 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08003 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08004 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08005 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08006 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08007 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08008 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08011 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08021 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08022 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08023 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08025 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08026 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08027 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08101 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08102 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08103 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08104 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08105 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08106 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08201 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08202 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08203 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08204 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08205 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08301 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08302 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08303 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08304 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08305 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08401 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08402 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08403 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08404 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08405 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08406 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08501 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08502 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08503 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08504 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08601 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08602 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08603 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08604 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08605 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08606 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08607 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08701 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08702 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08703 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08801 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+kbob:V08802 skos:closeMatch docfn:tec_plans, docfn:tec_schematics .
+
+# V02011 … (2 leaves) → tec_schematics
+kbob:V02011 skos:closeMatch docfn:tec_schematics .
+kbob:V08024 skos:closeMatch docfn:tec_schematics .

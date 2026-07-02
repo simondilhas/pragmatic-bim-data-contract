@@ -2,5 +2,6 @@ linkml
 mkdocs
 mkdocs-material
 mkdocs-panzoom-plugin
+openpyxl
 pyyaml
 rdflib
