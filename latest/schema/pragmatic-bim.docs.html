@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -926,6 +926,10 @@
 <td>Record of lawful basis, scope, and lifecycle for processing personal data on a Person.</td>
 </tr>
 <tr>
+<td><a href="PersonRelationship.html">PersonRelationship</a></td>
+<td>Typed link from a person to another agent or to a topic concept. The predicate is expressed as a Classification referencing AbstractPersonRelationshipType. Exactly one of related_person, related_company, or related_topic must be set; see the target-kind mapping for predicate-to-slot rules.</td>
+</tr>
+<tr>
 <td><a href="LocalizedText.html">LocalizedText</a></td>
 <td>Localized text value for a specific language tag.</td>
 </tr>
@@ -1101,12 +1105,16 @@
 <td>Time records contained in this plan; set milestone_at on a record to mark it as a checkpoint.</td>
 </tr>
 <tr>
+<td><a href="connection_functional_types.html">connection_functional_types</a></td>
+<td>Functional connection role(s) between spaces (for example access, visual, ventilation, heating). Multiple values allowed (for example glazed door as access plus visual).</td>
+</tr>
+<tr>
 <td><a href="connection_physical_requirement_drivers.html">connection_physical_requirement_drivers</a></td>
 <td>Performance requirement drivers for this physical connection element. Multiple values are allowed because one connection may need to satisfy several requirements.</td>
 </tr>
 <tr>
 <td><a href="connection_physical_type.html">connection_physical_type</a></td>
-<td>Classification of physical connector type (for example door, window, duct, pipe, cable).</td>
+<td>IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types.</td>
 </tr>
 <tr>
 <td><a href="connection_virtual_requirement_drivers.html">connection_virtual_requirement_drivers</a></td>
@@ -1525,6 +1533,10 @@
 <td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values.</td>
 </tr>
 <tr>
+<td><a href="person_relationships.html">person_relationships</a></td>
+<td>Typed social, professional, commercial, and interest relationships to other agents or topic concepts. May be populated manually or extracted from CRM stories via LLM; use relationship_source for provenance (for example a Message id). May constitute personal data; governed by personal_data_processing_state, consent_records, retain_until, and related privacy slots on this Person.</td>
+</tr>
+<tr>
 <td><a href="personal_data_processing_state.html">personal_data_processing_state</a></td>
 <td>Privacy handling state for personal data on this person, orthogonal to workflow QA status.</td>
 </tr>
@@ -1665,6 +1677,10 @@
 <td>Reason for redaction (for example external model export, erasure request, retention expired).</td>
 </tr>
 <tr>
+<td><a href="related_company.html">related_company</a></td>
+<td>Target organization for org and commercial predicates such as works_at, worked_at, is_key_account_manager_for, client_of, or vendor_of.</td>
+</tr>
+<tr>
 <td><a href="related_decision.html">related_decision</a></td>
 <td>Optional reference to a decision that informs or drives this task.</td>
 </tr>
@@ -1677,6 +1693,10 @@
 <td>Optional Material entity template this requirement must match or satisfy.</td>
 </tr>
 <tr>
+<td><a href="related_person.html">related_person</a></td>
+<td>Target person for social and professional predicates such as knows, was_colleague_of, reports_to, or has_key_account_manager.</td>
+</tr>
+<tr>
 <td><a href="related_product.html">related_product</a></td>
 <td>Optional catalog product this deliverable implements or this cost record is priced from.</td>
 </tr>
@@ -1687,6 +1707,22 @@
 <tr>
 <td><a href="related_time_record.html">related_time_record</a></td>
 <td>Optional TimeRecord plan item this schedule requirement aligns with or must satisfy.</td>
+</tr>
+<tr>
+<td><a href="related_topic.html">related_topic</a></td>
+<td>Topic of interest. classification_scheme must be AbstractTopicClassification; classification_uri references the SKOS topic concept.</td>
+</tr>
+<tr>
+<td><a href="relationship_notes.html">relationship_notes</a></td>
+<td>Optional free-text context for this relationship record.</td>
+</tr>
+<tr>
+<td><a href="relationship_source.html">relationship_source</a></td>
+<td>Optional provenance label (for example manual, crm:manual, llm:story-msg-0042, LinkedIn).</td>
+</tr>
+<tr>
+<td><a href="relationship_type.html">relationship_type</a></td>
+<td>Relationship predicate. classification_scheme must be AbstractPersonRelationshipType; classification_code and classification_uri reference the SKOS concept.</td>
 </tr>
 <tr>
 <td><a href="requirement_property_key.html">requirement_property_key</a></td>
@@ -1897,6 +1933,14 @@
 <td>Optional usage context such as work, personal, support, billing, or emergency.</td>
 </tr>
 <tr>
+<td><a href="valid_from.html">valid_from</a></td>
+<td>Optional start of the relationship period (for example employment start for worked_at).</td>
+</tr>
+<tr>
+<td><a href="valid_to.html">valid_to</a></td>
+<td>Optional end of the relationship period (for example employment end for worked_at).</td>
+</tr>
+<tr>
 <td><a href="vendor.html">vendor</a></td>
 <td>Company that sells or offers this product.</td>
 </tr>
@@ -1942,6 +1986,10 @@
 <tr>
 <td><a href="ChangeType.html">ChangeType</a></td>
 <td>Category of change detected between two revisions.</td>
+</tr>
+<tr>
+<td><a href="ConnectionFunctionalType.html">ConnectionFunctionalType</a></td>
+<td>Functional classification of physical connections between spaces by transported medium or passage role.</td>
 </tr>
 <tr>
 <td><a href="ConnectionPhysicalType.html">ConnectionPhysicalType</a></td>

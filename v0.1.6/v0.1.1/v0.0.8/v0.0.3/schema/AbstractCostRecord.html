@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AbstractCostRecord - Pragmatic BIM Schema</title>
+    <style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; margin: 2rem auto; max-width: 980px; padding: 0 1rem; line-height: 1.55; color: #1f2328; }
+.top-nav { position: sticky; top: 0; z-index: 10; background: #ffffff; border-bottom: 1px solid #d0d7de; padding: 0.6rem 0; margin-bottom: 1rem; }
+.top-nav a { margin-right: 0.9rem; font-weight: 600; }
+.mermaid { border: 1px solid #d0d7de; border-radius: 8px; padding: 0.6rem; background: #fff; margin: 1rem 0; overflow: auto; position: relative; cursor: zoom-in; }
+.diagram-open-btn { position: absolute; top: 0.45rem; right: 0.45rem; font-size: 0.78rem; border: 1px solid #d0d7de; background: #f6f8fa; padding: 0.2rem 0.45rem; border-radius: 4px; cursor: pointer; }
+#diagram-modal[hidden] { display: none; }
+#diagram-modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.55); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.diagram-modal-panel { width: min(96vw, 1500px); height: min(92vh, 1100px); background: #fff; border-radius: 10px; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.diagram-modal-header { display: flex; gap: 0.4rem; align-items: center; border-bottom: 1px solid #d0d7de; padding: 0.55rem 0.7rem; }
+.diagram-modal-header button { border: 1px solid #d0d7de; background: #f6f8fa; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; }
+.diagram-modal-title { font-weight: 600; margin-right: auto; }
+.diagram-modal-body { overflow: auto; padding: 0.7rem; flex: 1; }
+.modal-diagram { min-width: max-content; transform-origin: top left; cursor: default; }
+h1, h2, h3, h4 { line-height: 1.25; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border: 1px solid #d0d7de; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: #f6f8fa; }
+code { background: #f6f8fa; padding: 0.15rem 0.35rem; border-radius: 4px; }
+pre { background: #f6f8fa; padding: 0.8rem; border-radius: 6px; overflow-x: auto; }
+a { color: #0969da; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <a href="../index.html">Home</a>
+      <a href="./pragmatic-bim.docs.html">Schema Index</a>
+    </nav>
+    <h1 id="class-abstractcostrecord">Class: AbstractCostRecord</h1>
+<p><em>Abstract base for reusable cost record fields shared by atomic and aggregated cost records.</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
+<p>URI: <a href="https://example.org/pragmatic-bim-data-contract/AbstractCostRecord">pbs:AbstractCostRecord</a></p>
+<div class="mermaid">
+ classDiagram
+    class AbstractCostRecord
+    click AbstractCostRecord href "./AbstractCostRecord.html"
+      VirtualEntity <|-- AbstractCostRecord
+        click VirtualEntity href "./VirtualEntity.html"
+      AbstractCostRecord <|-- CostItem
+        click CostItem href "./CostItem.html"
+      AbstractCostRecord <|-- CostAssembly
+        click CostAssembly href "./CostAssembly.html"
+      AbstractCostRecord : applies_to_entities
+        AbstractCostRecord --> "*" Entity : applies_to_entities
+        click Entity href "./Entity.html"
+      AbstractCostRecord : classifications
+        AbstractCostRecord --> "*" Classification : classifications
+        click Classification href "./Classification.html"
+      AbstractCostRecord : cost_assemblies
+        AbstractCostRecord --> "*" CostAssembly : cost_assemblies
+        click CostAssembly href "./CostAssembly.html"
+      AbstractCostRecord : cost_category
+      AbstractCostRecord : cost_items
+        AbstractCostRecord --> "*" CostItem : cost_items
+        click CostItem href "./CostItem.html"
+      AbstractCostRecord : cost_quantity_type
+        AbstractCostRecord --> "0..1" QuantityType : cost_quantity_type
+        click QuantityType href "./QuantityType.html"
+      AbstractCostRecord : cost_quantity_unit
+      AbstractCostRecord : cost_quantity_value
+      AbstractCostRecord : created_at
+      AbstractCostRecord : currency
+      AbstractCostRecord : decisions
+        AbstractCostRecord --> "*" Decision : decisions
+        click Decision href "./Decision.html"
+      AbstractCostRecord : description
+      AbstractCostRecord : documents
+        AbstractCostRecord --> "*" Document : documents
+        click Document href "./Document.html"
+      AbstractCostRecord : geometry_representations
+        AbstractCostRecord --> "*" GeometryRepresentation : geometry_representations
+        click GeometryRepresentation href "./GeometryRepresentation.html"
+      AbstractCostRecord : id
+      AbstractCostRecord : ifc_global_id
+      AbstractCostRecord : localized_descriptions
+        AbstractCostRecord --> "*" LocalizedText : localized_descriptions
+        click LocalizedText href "./LocalizedText.html"
+      AbstractCostRecord : localized_names
+        AbstractCostRecord --> "*" LocalizedText : localized_names
+        click LocalizedText href "./LocalizedText.html"
+      AbstractCostRecord : materials
+        AbstractCostRecord --> "*" Material : materials
+        click Material href "./Material.html"
+      AbstractCostRecord : meaning_uri
+      AbstractCostRecord : messages
+        AbstractCostRecord --> "*" Message : messages
+        click Message href "./Message.html"
+      AbstractCostRecord : metadata
+        AbstractCostRecord --> "*" MetadataEntry : metadata
+        click MetadataEntry href "./MetadataEntry.html"
+      AbstractCostRecord : modified_at
+      AbstractCostRecord : name
+      AbstractCostRecord : performance_properties
+        AbstractCostRecord --> "*" PerformanceProperty : performance_properties
+        click PerformanceProperty href "./PerformanceProperty.html"
+      AbstractCostRecord : quantity_values
+        AbstractCostRecord --> "*" QuantityValue : quantity_values
+        click QuantityValue href "./QuantityValue.html"
+      AbstractCostRecord : revision
+      AbstractCostRecord : status
+        AbstractCostRecord --> "0..1" StatusType : status
+        click StatusType href "./StatusType.html"
+      AbstractCostRecord : tasks
+        AbstractCostRecord --> "*" Task : tasks
+        click Task href "./Task.html"
+      AbstractCostRecord : unit_cost
+
+</div>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="Entity.html">Entity</a><ul>
+<li><a href="VirtualEntity.html">VirtualEntity</a><ul>
+<li><strong>AbstractCostRecord</strong><ul>
+<li><a href="CostItem.html">CostItem</a></li>
+<li><a href="CostAssembly.html">CostAssembly</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="class-properties">Class Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Class URI</td>
+<td><a href="https://example.org/pragmatic-bim-data-contract/AbstractCostRecord">pbs:AbstractCostRecord</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="cost_category.html">cost_category</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Cost category label kept intentionally open pending classification-backed mod...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="unit_cost.html">unit_cost</a></td>
+<td>1 <br/> <a href="Double.html">Double</a></td>
+<td>Unit cost for this cost item</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="currency.html">currency</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>ISO 4217 currency code (for example EUR, USD)</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_type.html">cost_quantity_type</a></td>
+<td>0..1 <br/> <a href="QuantityType.html">QuantityType</a></td>
+<td>Quantity type used as basis for this cost calculation</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_value.html">cost_quantity_value</a></td>
+<td>0..1 <br/> <a href="Double.html">Double</a></td>
+<td>Quantity magnitude used as basis for this cost calculation</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="cost_quantity_unit.html">cost_quantity_unit</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Unit of the cost quantity value</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="applies_to_entities.html">applies_to_entities</a></td>
+<td>* <br/> <a href="Entity.html">Entity</a></td>
+<td>Entities this cost item applies to</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="cost_items.html">cost_items</a></td>
+<td>* <br/> <a href="CostItem.html">CostItem</a></td>
+<td>Cost items associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="cost_assemblies.html">cost_assemblies</a></td>
+<td>* <br/> <a href="CostAssembly.html">CostAssembly</a></td>
+<td>Aggregated unit prices associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="materials.html">materials</a></td>
+<td>* <br/> <a href="Material.html">Material</a></td>
+<td>Material definitions associated with this entity</td>
+<td><a href="VirtualEntity.html">VirtualEntity</a></td>
+</tr>
+<tr>
+<td><a href="id.html">id</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Unique local identifier</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="name.html">name</a></td>
+<td>1 <br/> <a href="String.html">String</a></td>
+<td>Default display name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_names.html">localized_names</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of name</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="description.html">description</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>Default description text</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="meaning_uri.html">meaning_uri</a></td>
+<td>0..1 <br/> <a href="Uriorcurie.html">Uriorcurie</a></td>
+<td>Optional semantic URI for linking the entity instance to an external ontology...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="localized_descriptions.html">localized_descriptions</a></td>
+<td>* <br/> <a href="LocalizedText.html">LocalizedText</a></td>
+<td>Localized variants of description</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="ifc_global_id.html">ifc_global_id</a></td>
+<td>0..1 <br/> <a href="String.html">String</a></td>
+<td>IFC GlobalId of the mapped entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="classifications.html">classifications</a></td>
+<td>* <br/> <a href="Classification.html">Classification</a></td>
+<td>Classification entries from IFC and other schemes</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="geometry_representations.html">geometry_representations</a></td>
+<td>* <br/> <a href="GeometryRepresentation.html">GeometryRepresentation</a></td>
+<td>Geometry references associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="quantity_values.html">quantity_values</a></td>
+<td>* <br/> <a href="QuantityValue.html">QuantityValue</a></td>
+<td>Quantities associated with the entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="documents.html">documents</a></td>
+<td>* <br/> <a href="Document.html">Document</a></td>
+<td>Linked documents associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="metadata.html">metadata</a></td>
+<td>* <br/> <a href="MetadataEntry.html">MetadataEntry</a></td>
+<td>Generic metadata container for IFC attributes/properties and project-specific...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="performance_properties.html">performance_properties</a></td>
+<td>* <br/> <a href="PerformanceProperty.html">PerformanceProperty</a></td>
+<td>Normalized, strongly typed domain properties (fire/acoustic/thermal/structura...</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="decisions.html">decisions</a></td>
+<td>* <br/> <a href="Decision.html">Decision</a></td>
+<td>Decision records associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="tasks.html">tasks</a></td>
+<td>* <br/> <a href="Task.html">Task</a></td>
+<td>Tasks associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="messages.html">messages</a></td>
+<td>* <br/> <a href="Message.html">Message</a></td>
+<td>Messages associated with this entity</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="created_at.html">created_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Creation timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="modified_at.html">modified_at</a></td>
+<td>0..1 <br/> <a href="Datetime.html">Datetime</a></td>
+<td>Last modification timestamp for this entity record</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="revision.html">revision</a></td>
+<td>0..1 <br/> <a href="Integer.html">Integer</a></td>
+<td>Integer revision counter for change tracking</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+<tr>
+<td><a href="status.html">status</a></td>
+<td>0..1 <br/> <a href="StatusType.html">StatusType</a></td>
+<td>Lifecycle or QA status</td>
+<td><a href="Entity.html">Entity</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="schema-source">Schema Source</h3>
+<ul>
+<li>from schema: https://example.org/pragmatic-bim-data-contract</li>
+</ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>pbs:AbstractCostRecord</td>
+</tr>
+<tr>
+<td>native</td>
+<td>pbs:AbstractCostRecord</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkml-source">LinkML Source</h2>
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+<h3 id="direct">Direct</h3>
+<details>
+
+<pre><code class="language-yaml">name: AbstractCostRecord
+description: Abstract base for reusable cost record fields shared by atomic and aggregated
+  cost records.
+from_schema: https://example.org/pragmatic-bim-data-contract
+is_a: VirtualEntity
+abstract: true
+slots:
+- cost_category
+- unit_cost
+- currency
+- cost_quantity_type
+- cost_quantity_value
+- cost_quantity_unit
+- applies_to_entities
+class_uri: pbs:AbstractCostRecord
+
+</code></pre>
+
+</details>
+
+<h3 id="induced">Induced</h3>
+<details>
+
+<pre><code class="language-yaml">name: AbstractCostRecord
+description: Abstract base for reusable cost record fields shared by atomic and aggregated
+  cost records.
+from_schema: https://example.org/pragmatic-bim-data-contract
+is_a: VirtualEntity
+abstract: true
+attributes:
+  cost_category:
+    name: cost_category
+    description: Cost category label kept intentionally open pending classification-backed
+      modeling.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: cost_category
+    owner: AbstractCostRecord
+    domain_of:
+    - AbstractCostRecord
+    range: string
+  unit_cost:
+    name: unit_cost
+    description: Unit cost for this cost item.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: unit_cost
+    owner: AbstractCostRecord
+    domain_of:
+    - AbstractCostRecord
+    range: double
+    required: true
+    minimum_value: 0
+  currency:
+    name: currency
+    description: ISO 4217 currency code (for example EUR, USD).
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: currency
+    owner: AbstractCostRecord
+    domain_of:
+    - AbstractCostRecord
+    range: string
+    required: true
+    pattern: ^[A-Z]{3}$
+  cost_quantity_type:
+    name: cost_quantity_type
+    description: Quantity type used as basis for this cost calculation.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: cost_quantity_type
+    owner: AbstractCostRecord
+    domain_of:
+    - AbstractCostRecord
+    range: QuantityType
+  cost_quantity_value:
+    name: cost_quantity_value
+    description: Quantity magnitude used as basis for this cost calculation.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: cost_quantity_value
+    owner: AbstractCostRecord
+    domain_of:
+    - AbstractCostRecord
+    range: double
+    minimum_value: 0
+  cost_quantity_unit:
+    name: cost_quantity_unit
+    description: Unit of the cost quantity value.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: cost_quantity_unit
+    owner: AbstractCostRecord
+    domain_of:
+    - AbstractCostRecord
+    range: string
+  applies_to_entities:
+    name: applies_to_entities
+    description: Entities this cost item applies to.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: applies_to_entities
+    owner: AbstractCostRecord
+    domain_of:
+    - AbstractCostRecord
+    range: Entity
+    multivalued: true
+  cost_items:
+    name: cost_items
+    description: Cost items associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: cost_items
+    owner: AbstractCostRecord
+    domain_of:
+    - VirtualEntity
+    range: CostItem
+    multivalued: true
+    inlined: false
+  cost_assemblies:
+    name: cost_assemblies
+    description: Aggregated unit prices associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: cost_assemblies
+    owner: AbstractCostRecord
+    domain_of:
+    - VirtualEntity
+    range: CostAssembly
+    multivalued: true
+    inlined: false
+  materials:
+    name: materials
+    description: Material definitions associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: materials
+    owner: AbstractCostRecord
+    domain_of:
+    - VirtualEntity
+    range: Material
+    multivalued: true
+    inlined: false
+  id:
+    name: id
+    description: Unique local identifier.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: string
+    required: true
+  name:
+    name: name
+    description: Default display name.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: name
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: string
+    required: true
+  localized_names:
+    name: localized_names
+    description: Localized variants of name.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: localized_names
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  description:
+    name: description
+    description: Default description text.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: description
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: string
+  meaning_uri:
+    name: meaning_uri
+    description: Optional semantic URI for linking the entity instance to an external
+      ontology concept.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: meaning_uri
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: uriorcurie
+  localized_descriptions:
+    name: localized_descriptions
+    description: Localized variants of description.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: localized_descriptions
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: LocalizedText
+    multivalued: true
+    inlined: true
+  ifc_global_id:
+    name: ifc_global_id
+    description: IFC GlobalId of the mapped entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: ifc_global_id
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: string
+    pattern: ^[0-3][0-9A-Za-z_$]{21}$
+  classifications:
+    name: classifications
+    description: Classification entries from IFC and other schemes.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: classifications
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    - Document
+    range: Classification
+    multivalued: true
+    inlined: true
+  geometry_representations:
+    name: geometry_representations
+    description: 'Geometry references associated with the entity. A single element
+      may link to multiple geometry representations to serve different intents (authoring,
+      coordination, analysis, visualization) without duplicating the element itself.
+
+      '
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: geometry_representations
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: GeometryRepresentation
+    multivalued: true
+    inlined: true
+  quantity_values:
+    name: quantity_values
+    description: Quantities associated with the entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: quantity_values
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: QuantityValue
+    multivalued: true
+    inlined: true
+  documents:
+    name: documents
+    description: Linked documents associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: documents
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: Document
+    multivalued: true
+    inlined: true
+  metadata:
+    name: metadata
+    description: Generic metadata container for IFC attributes/properties and project-specific
+      extensions.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: metadata
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: MetadataEntry
+    multivalued: true
+    inlined: true
+  performance_properties:
+    name: performance_properties
+    description: 'Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/
+      security/material) extracted from raw IFC PropertySet values.
+
+      '
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: performance_properties
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: PerformanceProperty
+    multivalued: true
+    inlined: true
+  decisions:
+    name: decisions
+    description: Decision records associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: decisions
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: Decision
+    multivalued: true
+    inlined: true
+  tasks:
+    name: tasks
+    description: Tasks associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: tasks
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: Task
+    multivalued: true
+    inlined: true
+  messages:
+    name: messages
+    description: Messages associated with this entity.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: messages
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: Message
+    multivalued: true
+    inlined: true
+  created_at:
+    name: created_at
+    description: Creation timestamp for this entity record.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: created_at
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: datetime
+  modified_at:
+    name: modified_at
+    description: Last modification timestamp for this entity record.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: modified_at
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: datetime
+  revision:
+    name: revision
+    description: Integer revision counter for change tracking.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: revision
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: integer
+    minimum_value: 0
+  status:
+    name: status
+    description: Lifecycle or QA status.
+    from_schema: https://example.org/pragmatic-bim-data-contract
+    rank: 1000
+    alias: status
+    owner: AbstractCostRecord
+    domain_of:
+    - Entity
+    range: StatusType
+class_uri: pbs:AbstractCostRecord
+
+</code></pre>
+
+</details>
+    <div id="diagram-modal" hidden>
+      <div class="diagram-modal-panel">
+        <div class="diagram-modal-header">
+          <span class="diagram-modal-title">Diagram</span>
+          <button type="button" id="diagram-zoom-in">+</button>
+          <button type="button" id="diagram-zoom-out">-</button>
+          <button type="button" id="diagram-zoom-reset">Reset</button>
+          <button type="button" id="diagram-close">Close</button>
+        </div>
+        <div class="diagram-modal-body">
+          <div id="diagram-modal-content"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: false, securityLevel: "loose" });
+      await mermaid.run({ querySelector: ".mermaid" });
+
+      const modal = document.getElementById("diagram-modal");
+      const modalContent = document.getElementById("diagram-modal-content");
+      const closeBtn = document.getElementById("diagram-close");
+      const zoomInBtn = document.getElementById("diagram-zoom-in");
+      const zoomOutBtn = document.getElementById("diagram-zoom-out");
+      const zoomResetBtn = document.getElementById("diagram-zoom-reset");
+      let scale = 1;
+
+      const applyScale = () => {
+        const el = modalContent.querySelector(".modal-diagram");
+        if (!el) return;
+        el.style.transform = "scale(" + scale + ")";
+      };
+
+      const openModal = (sourceDiagram) => {
+        const clone = sourceDiagram.cloneNode(true);
+        clone.classList.add("modal-diagram");
+        clone.querySelectorAll(".diagram-open-btn").forEach((btn) => btn.remove());
+        modalContent.innerHTML = "";
+        modalContent.appendChild(clone);
+        scale = 1;
+        applyScale();
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+        modalContent.innerHTML = "";
+      };
+
+      document.querySelectorAll(".mermaid").forEach((diagram) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "diagram-open-btn";
+        btn.textContent = "Open large diagram";
+        btn.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          openModal(diagram);
+        });
+        diagram.appendChild(btn);
+
+        diagram.addEventListener("click", (event) => {
+          if (event.target.closest("a")) return;
+          openModal(diagram);
+        });
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      zoomInBtn.addEventListener("click", () => { scale = Math.min(scale + 0.15, 4); applyScale(); });
+      zoomOutBtn.addEventListener("click", () => { scale = Math.max(scale - 0.15, 0.35); applyScale(); });
+      zoomResetBtn.addEventListener("click", () => { scale = 1; applyScale(); });
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+    </script>
+  </body>
+</html>

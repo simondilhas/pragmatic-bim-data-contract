@@ -1,0 +1,213 @@
+@prefix : <https://example.org/ch/abstract-roles/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract workflow participant roles"@en ;
+  skos:prefLabel "Abstrakte Workflow-Teilnehmerrollen"@de ;
+  dcterms:title "Abstract workflow participant roles"@en ;
+  dcterms:identifier "AbstractRoles" ;
+  dcterms:creator "pragmatic-bim-public-rules" ;
+  dcterms:issued "2026-03-31" ;
+  skos:definition "Workflow participant roles for org templates; stable ids for BPMN or process variables."@en ;
+  skos:definition "Workflow-Teilnehmerrollen für Organisationsvorlagen; stabile IDs für BPMN oder Prozessvariablen."@de ;
+  skos:hasTopConcept :group.owner, :group.tenant, :group.planner, :group.contractor .
+
+# --- Stakeholder groups (top concepts) ---
+
+:group.owner a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "aec.group.owner" ;
+  skos:prefLabel "Owner side"@en ;
+  skos:prefLabel "Bauherr / Eigentümerseite"@de ;
+  skos:definition "Client, asset owner, developer, and owner-side operations roles."@en ;
+  skos:definition "Auftraggeber, Eigentümer, Projektentwickler und betreibende Rollen auf Eigentümerseite."@de ;
+  skos:narrower :aec.client, :aec.owner, :aec.developer, :aec.facility_manager .
+
+:group.tenant a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "aec.group.tenant" ;
+  skos:prefLabel "Tenant side"@en ;
+  skos:prefLabel "Mieter / Nutzerseite"@de ;
+  skos:definition "Occupier and tenant-side roles (extend with leaf concepts when needed)."@en ;
+  skos:definition "Mieter- und Nutzerrollen (Blattkonzepte bei Bedarf ergänzen)."@de .
+
+:group.planner a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "aec.group.planner" ;
+  skos:prefLabel "Planner"@en ;
+  skos:prefLabel "Planer"@de ;
+  skos:definition "Design, engineering, coordination, project-management, and site supervision roles on the planning side."@en ;
+  skos:definition "Planungs-, Ingenieur-, Koordinations-, Projektleitungs- und Bauüberwachungsrollen."@de ;
+  skos:narrower
+    :aec.project_lead, :aec.project_manager, :aec.bim_coordinator, :aec.bim_manager,
+    :aec.sustainability_consultant, :aec.structural_engineer, :aec.architect,
+    :aec.electrical_engineer, :aec.plumbing_engineer, :aec.ventilation_engineer, :aec.heating_engineer,
+    :aec.site_manager .
+
+:group.contractor a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "aec.group.contractor" ;
+  skos:prefLabel "Contractor side"@en ;
+  skos:prefLabel "Ausführung / Unternehmerseite"@de ;
+  skos:definition "Construction execution and supply-chain roles."@en ;
+  skos:definition "Ausführung und Lieferkette auf Unternehmerseite."@de ;
+  skos:narrower :aec.contractor, :aec.supplier .
+
+# --- Leaf roles: owner side ---
+
+:aec.client a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.owner ;
+  skos:notation "aec.client" ;
+  skos:prefLabel "Client"@en ;
+  skos:prefLabel "Kunde"@de .
+
+:aec.owner a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.owner ;
+  skos:notation "aec.owner" ;
+  skos:prefLabel "Owner"@en ;
+  skos:prefLabel "Eigentuemer"@de .
+
+:aec.developer a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.owner ;
+  skos:notation "aec.developer" ;
+  skos:prefLabel "Developer"@en ;
+  skos:prefLabel "Entwickler"@de .
+
+:aec.facility_manager a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.owner ;
+  skos:notation "aec.facility_manager" ;
+  skos:prefLabel "Facility manager"@en ;
+  skos:prefLabel "Facility Management"@de .
+
+# --- Leaf roles: planner side ---
+
+:aec.project_lead a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.project_lead" ;
+  skos:prefLabel "Project lead"@en ;
+  skos:prefLabel "Projektleitung"@de ;
+  skos:definition "The project lead is responsible for the project within the organization."@en ;
+  skos:definition "Der Projektleitung ist verantwortlich für das Projekt innerhalb der Organisation."@de .
+
+:aec.project_manager a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.project_manager" ;
+  skos:prefLabel "Project manager"@en ;
+  skos:prefLabel "Gesamtprojektleitung"@de ;
+  skos:definition "The project manager is responsible for the overall project."@en ;
+  skos:definition "Die Gesamtprojektleitung ist verantwortlich für das Gesamtprojekt."@de .
+
+:aec.bim_coordinator a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.bim_coordinator" ;
+  skos:prefLabel "BIM coordinator"@en ;
+  skos:prefLabel "BIM-Koordination"@de ;
+  skos:definition "The BIM coordinator is responsible for the BIM model."@en ;
+  skos:definition "Der BIM-Koordinator ist verantwortlich für das BIM-Modell."@de .
+
+:aec.bim_manager a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.bim_manager" ;
+  skos:prefLabel "BIM manager"@en ;
+  skos:prefLabel "BIM-Manager"@de ;
+  skos:definition "The BIM manager to support the ."@en ;
+  skos:definition "Der BIM-Manager ist verantwortlich für das BIM-Modell."@de .
+
+:aec.sustainability_consultant a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.sustainability_consultant" ;
+  skos:prefLabel "Sustainability consultant"@en ;
+  skos:prefLabel "Nachhaltigkeitsberater"@de .
+
+:aec.structural_engineer a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.structural_engineer" ;
+  skos:prefLabel "Structural engineer"@en ;
+  skos:prefLabel "Tragwerksplaner"@de ;
+  skos:definition "The structural engineer is responsible for the structural design of the project."@en ;
+  skos:definition "Der Tragwerksplaner ist verantwortlich für die Tragwerksplanung des Projekts."@de .
+
+:aec.architect a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.architect" ;
+  skos:prefLabel "Architect"@en ;
+  skos:prefLabel "Architekt"@de ;
+  skos:definition "The architect is responsible for the architecture of the project."@en ;
+  skos:definition "Der Architekt ist verantwortlich für die Architektur des Projekts."@de .
+
+:aec.electrical_engineer a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.electrical_engineer" ;
+  skos:prefLabel "Electrical engineer"@en ;
+  skos:prefLabel "Elektroingenieur"@de ;
+  skos:definition "The electrical engineer is responsible for the electrical design of the project."@en ;
+  skos:definition "Der Elektroingenieur ist verantwortlich für die Elektroplanung des Projekts."@de .
+
+:aec.plumbing_engineer a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.plumbing_engineer" ;
+  skos:prefLabel "Plumbing engineer"@en ;
+  skos:prefLabel "Sanitärplaner"@de ;
+  skos:definition "The plumbing engineer is responsible for the plumbing design of the project."@en ;
+  skos:definition "Der Sanitärplaner ist verantwortlich für die Sanitärplanung des Projekts."@de .
+
+:aec.ventilation_engineer a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.ventilation_engineer" ;
+  skos:prefLabel "Ventilation engineer"@en ;
+  skos:prefLabel "Lüftungsplaner"@de ;
+  skos:definition "The ventilation engineer is responsible for the ventilation design of the project."@en ;
+  skos:definition "Der Lüftungsplaner ist verantwortlich für die Lüftungplanung des Projekts."@de .
+
+:aec.heating_engineer a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.heating_engineer" ;
+  skos:prefLabel "Heating engineer"@en ;
+  skos:prefLabel "Heizungplaner"@de ;
+  skos:definition "The heating engineer is responsible for the heating design of the project."@en ;
+  skos:definition "Der Heizungplaner ist verantwortlich für die Heizungplanung des Projekts."@de .
+
+:aec.site_manager a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.planner ;
+  skos:notation "aec.site_manager" ;
+  skos:prefLabel "Site manager"@en ;
+  skos:prefLabel "Bauleiter"@de .
+
+# --- Leaf roles: contractor side ---
+
+:aec.contractor a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.contractor ;
+  skos:notation "aec.contractor" ;
+  skos:prefLabel "Contractor"@en ;
+  skos:prefLabel "Bauunternehmer"@de ;
+  skos:definition "The contractor is responsible for the construction of the project."@en ;
+  skos:definition "Der Bauunternehmer ist verantwortlich für die Bauarbeiten des Projekts."@de .
+
+:aec.supplier a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group.contractor ;
+  skos:notation "aec.supplier" ;
+  skos:prefLabel "Supplier"@en ;
+  skos:prefLabel "Lieferant"@de .

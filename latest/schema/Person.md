@@ -40,6 +40,7 @@ click LocalizedText href "./LocalizedText.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
+click PersonRelationship href "./PersonRelationship.html" _blank
 click PersonalDataProcessingState href "./PersonalDataProcessingState.html" _blank
 click PostalAddress href "./PostalAddress.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
@@ -78,6 +79,7 @@ click StatusType href "./StatusType.html" _blank
 | [privacy_policy_uri](privacy_policy_uri.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI of the current or default privacy policy or notice applicable to this person record. | direct |
 | [redacted_at](redacted_at.md) | 0..1 <br/> [Datetime](Datetime.md) | Timestamp when identifying personal data was redacted on this record. | direct |
 | [redaction_reason](redaction_reason.md) | 0..1 <br/> [String](String.md) | Reason for redaction (for example external model export, erasure request, retention expired). | direct |
+| [person_relationships](person_relationships.md) | * <br/> [PersonRelationship](PersonRelationship.md) | Typed social, professional, commercial, and interest relationships to other agents or topic concepts. May be populated manually or extracted from CRM stories via LLM; use relationship_source for provenance (for example a Message id). May constitute personal data; governed by personal_data_processing_state, consent_records, retain_until, and related privacy slots on this Person. | direct |
 | [id](id.md) | 1 <br/> [String](String.md) | Unique local identifier. | [Entity](Entity.md) |
 | [content_kind](content_kind.md) | 1 <br/> [String](String.md) | Entity type discriminator for adapter projection and querying. Must be a ContentKind value. | [Entity](Entity.md) |
 | [name](name.md) | 1 <br/> [String](String.md) | Default display name. | [Entity](Entity.md) |
@@ -99,6 +101,13 @@ click StatusType href "./StatusType.html" _blank
 
 
 
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [PersonRelationship](PersonRelationship.md) | [related_person](related_person.md) | range | [Person](Person.md) |
 
 
 
@@ -169,6 +178,7 @@ slots:
 - privacy_policy_uri
 - redacted_at
 - redaction_reason
+- person_relationships
 class_uri: pbs:Person
 
 ```
@@ -311,6 +321,23 @@ attributes:
     domain_of:
     - Person
     range: string
+  person_relationships:
+    name: person_relationships
+    description: 'Typed social, professional, commercial, and interest relationships
+      to other agents or topic concepts. May be populated manually or extracted from
+      CRM stories via LLM; use relationship_source for provenance (for example a Message
+      id). May constitute personal data; governed by personal_data_processing_state,
+      consent_records, retain_until, and related privacy slots on this Person.
+
+      '
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: PersonRelationship
+    multivalued: true
+    inlined: true
   id:
     name: id
     description: Unique local identifier.

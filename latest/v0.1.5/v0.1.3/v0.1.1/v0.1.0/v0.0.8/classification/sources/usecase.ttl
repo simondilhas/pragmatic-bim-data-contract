@@ -1,0 +1,141 @@
+@prefix : <https://example.org/ch/abstract-usecase/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract use case classification"@en ;
+  skos:prefLabel "Abstrakte Anwendungsfall-Klassifikation"@de ;
+  skos:prefLabel "Classification abstraite des cas d'usage"@fr ;
+  skos:prefLabel "Classificazione astratta dei casi d'uso"@it ;
+  dcterms:title "Abstract use case classification"@en ;
+  dcterms:identifier "AbstractUsecaseClassification" ;
+  dcterms:creator "pragmatic-bim-public-rules" ;
+  dcterms:issued "2026-06-02" ;
+  dcterms:description "Project lifecycle use cases for tagging deliverables, requirements, and BIM scope."@en ;
+  dcterms:description "Projektphasen-Anwendungsfälle zur Kennzeichnung von Liefergegenständen, Anforderungen und BIM-Umfang."@de ;
+  dcterms:description "Cas d'usage du cycle de vie du projet pour étiqueter livrables, exigences et périmètre BIM."@fr ;
+  dcterms:description "Casi d'uso del ciclo di vita del progetto per etichettare deliverable, requisiti e ambito BIM."@it ;
+  skos:hasTopConcept :ordering, :design, :quality_assurance, :construction, :handover, :operation, :deconstruction .
+
+:ordering a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BES" ;
+  skos:prefLabel "Ordering"@en ;
+  skos:prefLabel "Bestellen"@de ;
+  skos:prefLabel "Commande"@fr ;
+  skos:prefLabel "Commessa"@it ;
+  skos:definition "Client commissioning, procurement, and placement of planning and construction services."@en ;
+  skos:definition "Auftraggeberseitige Vergabe, Beschaffung und Beauftragung von Planungs- und Bauleistungen."@de ;
+  skos:definition "Mise en concours, passation de marchés et commande des prestations de planification et de construction."@fr ;
+  skos:definition "Affidamento, approvvigionamento e incarico delle prestazioni di progettazione e costruzione."@it ;
+  skos:scopeNote "Examples: tender documents, employer requirements, contract award."@en ;
+  skos:scopeNote "Beispiele: Ausschreibungsunterlagen, Bauherrnanforderungen, Zuschlag."@de ;
+  skos:scopeNote "Exemples: dossiers d'appel d'offres, programme du maître d'ouvrage, adjudication."@fr ;
+  skos:scopeNote "Esempi: documenti di gara, capitolato committente, aggiudicazione."@it .
+
+:design a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DES" ;
+  skos:prefLabel "Design"@en ;
+  skos:prefLabel "Entwurf"@de ;
+  skos:prefLabel "Conception"@fr ;
+  skos:prefLabel "Progettazione"@it ;
+  skos:definition "Planning and design development of the built asset and its systems."@en ;
+  skos:definition "Planung und Ausarbeitung des Bauwerks und seiner Anlagen."@de ;
+  skos:definition "Études et développement du projet du bâtiment et de ses installations."@fr ;
+  skos:definition "Progettazione e sviluppo dell'edificio e dei suoi impianti."@it ;
+  skos:scopeNote "Examples: concept design, detailed design, coordination models."@en ;
+  skos:scopeNote "Beispiele: Vorprojekt, Ausführungsplanung, Koordinationsmodelle."@de ;
+  skos:scopeNote "Exemples: avant-projet, projet d'exécution, maquettes de coordination."@fr ;
+  skos:scopeNote "Esempi: studio di fattibilità, progetto esecutivo, modelli di coordinamento."@it .
+
+:quality_assurance a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "QAS" ;
+  skos:prefLabel "Quality assurance"@en ;
+  skos:prefLabel "Qualitätssicherung"@de ;
+  skos:prefLabel "Assurance qualité"@fr ;
+  skos:prefLabel "Assicurazione qualità"@it ;
+  skos:definition "Verification, inspection, and compliance checking of design data, models, and execution."@en ;
+  skos:definition "Prüfung, Kontrolle und Nachweis der Einhaltung von Planungsdaten, Modellen und Ausführung."@de ;
+  skos:definition "Vérification, contrôle et conformité des données de conception, modèles et exécution."@fr ;
+  skos:definition "Verifica, ispezione e controllo di conformità di dati, modelli ed esecuzione."@it ;
+  skos:scopeNote "Cross-phase use case: applies during design, construction, handover, operation, and deconstruction—not a sequential project phase."@en ;
+  skos:scopeNote "Phasenübergreifender Anwendungsfall: gilt in Entwurf, Ausführung, Übergabe, Betrieb und Rückbau — keine sequenzielle Projektphase."@de ;
+  skos:scopeNote "Cas d'usage transversal: s'applique en conception, réalisation, réception, exploitation et démolition — pas une phase séquentielle."@fr ;
+  skos:scopeNote "Caso d'uso trasversale: si applica in progettazione, costruzione, consegna, esercizio e demolizione — non una fase sequenziale."@it ;
+  skos:scopeNote "Examples: model checks, clash detection, test protocols, audit reports."@en ;
+  skos:scopeNote "Beispiele: Modellprüfungen, Kollisionsprüfung, Prüfprotokolle, Auditberichte."@de ;
+  skos:scopeNote "Exemples: contrôle de maquettes, détection de conflits, protocoles d'essai, rapports d'audit."@fr ;
+  skos:scopeNote "Esempi: verifica modelli, clash detection, protocolli di prova, rapporti di audit."@it .
+
+:construction a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "CON" ;
+  skos:prefLabel "Construction"@en ;
+  skos:prefLabel "Ausführung"@de ;
+  skos:prefLabel "Réalisation"@fr ;
+  skos:prefLabel "Costruzione"@it ;
+  skos:definition "Physical execution, fabrication, and installation on site or in the supply chain."@en ;
+  skos:definition "Physische Ausführung, Fertigung und Montage auf der Baustelle oder in der Lieferkette."@de ;
+  skos:definition "Exécution physique, fabrication et pose sur chantier ou dans la chaîne d'approvisionnement."@fr ;
+  skos:definition "Esecuzione fisica, produzione e installazione in cantiere o nella supply chain."@it ;
+  skos:scopeNote "Examples: shop drawings, as-built models, site logistics, installation records."@en ;
+  skos:scopeNote "Beispiele: Werkplanung, Bestandsmodelle, Baustellenlogistik, Montagedokumentation."@de ;
+  skos:scopeNote "Exemples: plans d'atelier, modèles conformes à l'exécution, logistique chantier, fiches de pose."@fr ;
+  skos:scopeNote "Esempi: disegni di officina, modelli as-built, logistica cantiere, registri di posa."@it .
+
+:handover a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "HOV" ;
+  skos:prefLabel "Handover"@en ;
+  skos:prefLabel "Übergabe"@de ;
+  skos:prefLabel "Réception"@fr ;
+  skos:prefLabel "Consegna"@it ;
+  skos:definition "Completion, acceptance, and transfer of the asset and documentation to the owner or operator."@en ;
+  skos:definition "Fertigstellung, Abnahme und Übergabe des Bauwerks und der Dokumentation an Eigentümer oder Betreiber."@de ;
+  skos:definition "Achèvement, réception et transfert de l'ouvrage et de la documentation au maître d'ouvrage ou exploitant."@fr ;
+  skos:definition "Completamento, collaudo e consegna dell'opera e della documentazione al committente o gestore."@it ;
+  skos:scopeNote "Examples: commissioning, O&M manuals, warranty handover, facility takeover."@en ;
+  skos:scopeNote "Beispiele: Inbetriebnahme, Betriebs- und Wartungsunterlagen, Gewährleistungsübergabe, Betriebsübernahme."@de ;
+  skos:scopeNote "Exemples: mise en service, manuels d'exploitation, réception avec garanties, reprise par l'exploitant."@fr ;
+  skos:scopeNote "Esempi: messa in servizio, manuali O&M, consegna in garanzia, presa in carico dell'impianto."@it .
+
+:operation a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "OPR" ;
+  skos:prefLabel "Operation"@en ;
+  skos:prefLabel "Betrieb"@de ;
+  skos:prefLabel "Exploitation"@fr ;
+  skos:prefLabel "Esercizio"@it ;
+  skos:definition "Use, maintenance, and ongoing management of the built asset during its operational life."@en ;
+  skos:definition "Nutzung, Unterhalt und laufendes Management des Bauwerks während der Betriebsphase."@de ;
+  skos:definition "Utilisation, maintenance et gestion courante de l'ouvrage pendant sa phase d'exploitation."@fr ;
+  skos:definition "Utilizzo, manutenzione e gestione corrente dell'opera durante la fase di esercizio."@it ;
+  skos:scopeNote "Examples: FM data, maintenance plans, energy monitoring, space management."@en ;
+  skos:scopeNote "Beispiele: FM-Daten, Unterhaltspläne, Energiemonitoring, Flächenmanagement."@de ;
+  skos:scopeNote "Exemples: données FM, plans de maintenance, suivi énergétique, gestion des espaces."@fr ;
+  skos:scopeNote "Esempi: dati FM, piani di manutenzione, monitoraggio energetico, gestione spazi."@it .
+
+:deconstruction a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DEC" ;
+  skos:prefLabel "Deconstruction"@en ;
+  skos:prefLabel "Rückbau"@de ;
+  skos:prefLabel "Démolition"@fr ;
+  skos:prefLabel "Demolizione"@it ;
+  skos:definition "Selective dismantling, demolition, and end-of-life recovery of the built asset and its materials."@en ;
+  skos:definition "Selektiver Rückbau, Abbruch und End-of-Life-Rückgewinnung des Bauwerks und seiner Materialien."@de ;
+  skos:definition "Démontage sélectif, démolition et valorisation en fin de vie de l'ouvrage et de ses matériaux."@fr ;
+  skos:definition "Smontaggio selettivo, demolizione e recupero a fine vita dell'opera e dei suoi materiali."@it ;
+  skos:scopeNote "Examples: demolition plans, material passports, recycling logistics, hazardous substance records."@en ;
+  skos:scopeNote "Beispiele: Rückbaupläne, Materialpässe, Recyclinglogistik, Schadstoffnachweise."@de ;
+  skos:scopeNote "Exemples: plans de démolition, passeports matériaux, logistique de recyclage, registres de substances."@fr ;
+  skos:scopeNote "Esempi: piani di demolizione, passaporti materiali, logistica di riciclo, registri sostanze."@it .

@@ -2016,6 +2016,23 @@
             "title": "Company",
             "type": "object"
         },
+        "ConnectionFunctionalType": {
+            "description": "Functional classification of physical connections between spaces by transported medium or passage role.",
+            "enum": [
+                "electrical",
+                "data",
+                "ventilation",
+                "heating",
+                "cooling",
+                "fresh_water",
+                "waste_water",
+                "special_media",
+                "access",
+                "visual"
+            ],
+            "title": "ConnectionFunctionalType",
+            "type": "string"
+        },
         "ConnectionPhysical": {
             "additionalProperties": false,
             "description": "Physical connector providing functional connection between spaces (for example door, window, duct, pipe, cable).",
@@ -2040,6 +2057,13 @@
                         "null"
                     ]
                 },
+                "connection_functional_types": {
+                    "description": "Functional connection role(s) between spaces (for example access, visual, ventilation, heating). Multiple values allowed (for example glazed door as access plus visual).",
+                    "items": {
+                        "$ref": "#/$defs/ConnectionFunctionalType"
+                    },
+                    "type": "array"
+                },
                 "connection_physical_requirement_drivers": {
                     "description": "Performance requirement drivers for this physical connection element. Multiple values are allowed because one connection may need to satisfy several requirements.\n",
                     "items": {
@@ -2052,7 +2076,7 @@
                 },
                 "connection_physical_type": {
                     "$ref": "#/$defs/ConnectionPhysicalType",
-                    "description": "Classification of physical connector type (for example door, window, duct, pipe, cable)."
+                    "description": "IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types."
                 },
                 "content_kind": {
                     "const": "physical",
@@ -2212,6 +2236,7 @@
             },
             "required": [
                 "connection_physical_type",
+                "connection_functional_types",
                 "transport_medium",
                 "id",
                 "content_kind",
@@ -6663,6 +6688,16 @@
                         "null"
                     ]
                 },
+                "person_relationships": {
+                    "description": "Typed social, professional, commercial, and interest relationships to other agents or topic concepts. May be populated manually or extracted from CRM stories via LLM; use relationship_source for provenance (for example a Message id). May constitute personal data; governed by personal_data_processing_state, consent_records, retain_until, and related privacy slots on this Person.\n",
+                    "items": {
+                        "$ref": "#/$defs/PersonRelationship"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "personal_data_processing_state": {
                     "$ref": "#/$defs/PersonalDataProcessingState",
                     "description": "Privacy handling state for personal data on this person, orthogonal to workflow QA status."
@@ -6746,6 +6781,76 @@
                 "name"
             ],
             "title": "Person",
+            "type": "object"
+        },
+        "PersonRelationship": {
+            "additionalProperties": false,
+            "description": "Typed link from a person to another agent or to a topic concept. The predicate is expressed as a Classification referencing AbstractPersonRelationshipType. Exactly one of related_person, related_company, or related_topic must be set; see the target-kind mapping for predicate-to-slot rules.",
+            "properties": {
+                "related_company": {
+                    "description": "Target organization for org and commercial predicates such as works_at, worked_at, is_key_account_manager_for, client_of, or vendor_of.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "related_person": {
+                    "description": "Target person for social and professional predicates such as knows, was_colleague_of, reports_to, or has_key_account_manager.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "related_topic": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Classification"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Topic of interest. classification_scheme must be AbstractTopicClassification; classification_uri references the SKOS topic concept.\n"
+                },
+                "relationship_notes": {
+                    "description": "Optional free-text context for this relationship record.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "relationship_source": {
+                    "description": "Optional provenance label (for example manual, crm:manual, llm:story-msg-0042, LinkedIn).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "relationship_type": {
+                    "$ref": "#/$defs/Classification",
+                    "description": "Relationship predicate. classification_scheme must be AbstractPersonRelationshipType; classification_code and classification_uri reference the SKOS concept.\n"
+                },
+                "valid_from": {
+                    "description": "Optional start of the relationship period (for example employment start for worked_at).",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "valid_to": {
+                    "description": "Optional end of the relationship period (for example employment end for worked_at).",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "relationship_type"
+            ],
+            "title": "PersonRelationship",
             "type": "object"
         },
         "PersonalDataCategory": {
@@ -9803,16 +9908,10 @@
                 "rn_01_30_03",
                 "rn_02_10_01",
                 "rn_02_10_02",
-                "rn_02_10_03",
-                "rn_02_10_04",
-                "rn_02_10_05",
                 "rn_02_20_01",
                 "rn_02_20_02",
                 "rn_02_20_03",
                 "rn_02_30_01",
-                "rn_02_30_02",
-                "rn_02_30_03",
-                "rn_02_30_04",
                 "rn_03_10_01",
                 "rn_03_10_02",
                 "rn_03_10_03",
@@ -9820,8 +9919,6 @@
                 "rn_03_20_01",
                 "rn_03_20_02",
                 "rn_03_20_03",
-                "rn_03_20_04",
-                "rn_03_30_01",
                 "rn_04_10_01",
                 "rn_04_10_02",
                 "rn_04_10_03",
@@ -9829,7 +9926,6 @@
                 "rn_04_20_01",
                 "rn_04_20_02",
                 "rn_04_20_03",
-                "rn_04_30_01",
                 "rn_05_10_01",
                 "rn_05_10_02",
                 "rn_05_20_01",
@@ -9904,7 +10000,6 @@
                 "rn_12_20_02",
                 "rn_12_20_03",
                 "rn_12_30_01",
-                "rn_12_30_02",
                 "rn_12_30_03"
             ],
             "title": "SpaceNameType",

@@ -1,0 +1,48 @@
+@prefix abs: <https://example.org/abstract/building-space-activity-classification/> .
+@prefix sia: <https://example.org/sia/d0165/flaechenbaum/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/mapping/> .
+
+ex:abstractToSia416Mapping a dcterms:Dataset ;
+  dcterms:title "Abstract Building Classification to SIA D0165 mapping"@en ;
+  dcterms:references abs:scheme, sia:scheme ;
+  dcterms:description "Operational 1:n mapping between activity-based abstract classes and SIA area classes."@en .
+
+# Main activity domain
+abs:M ex:mapsToSia416 sia:HNF .
+abs:M_RES ex:mapsToSia416 sia:HNF .
+abs:M_WRK ex:mapsToSia416 sia:HNF .
+abs:M_WRK_KNW ex:mapsToSia416 sia:HNF .
+abs:M_WRK_PRD ex:mapsToSia416 sia:HNF .
+abs:M_LRN ex:mapsToSia416 sia:HNF .
+abs:M_COM ex:mapsToSia416 sia:HNF .
+abs:M_HEL ex:mapsToSia416 sia:HNF .
+abs:M_CIR ex:mapsToSia416 sia:VF, sia:HNF .
+
+# Support domain
+abs:S ex:mapsToSia416 sia:NNF, sia:FF, sia:VF, sia:KF .
+abs:S_CIR ex:mapsToSia416 sia:VF .
+abs:S_CIR_HOR ex:mapsToSia416 sia:VF .
+abs:S_CIR_VRT ex:mapsToSia416 sia:VF .
+abs:S_TEC ex:mapsToSia416 sia:FF .
+
+abs:S_PRK ex:mapsToSia416 sia:NNF, sia:BUF, sia:AVF .
+abs:S_PRK_INT ex:mapsToSia416 sia:NNF .
+abs:S_PRK_EXT ex:mapsToSia416 sia:BUF, sia:AVF .
+abs:S_PRK_SVC ex:mapsToSia416 sia:NNF, sia:BUF .
+
+abs:S_VOI_VRT ex:mapsToSia416 sia:FF, sia:VF .
+abs:S_VOI_PLN ex:mapsToSia416 sia:FF .
+abs:S_VOI_STR ex:mapsToSia416 sia:KF .
+abs:S_VOI_MLT ex:mapsToSia416 sia:VF, sia:KF .
+
+# Outdoor domain
+abs:O ex:mapsToSia416 sia:UF, sia:AGF .
+abs:O_GRN ex:mapsToSia416 sia:UUF .
+abs:O_GRN_REC ex:mapsToSia416 sia:UUF, sia:BUF .
+abs:O_GRN_SPT ex:mapsToSia416 sia:BUF, sia:UUF .
+abs:O_GRN_GDN ex:mapsToSia416 sia:UUF, sia:BUF .
+
+abs:O_CIR ex:mapsToSia416 sia:AVF, sia:BUF .
+abs:O_CIR_RD ex:mapsToSia416 sia:AVF, sia:BUF .
+abs:O_CIR_PED ex:mapsToSia416 sia:AVF, sia:BUF .

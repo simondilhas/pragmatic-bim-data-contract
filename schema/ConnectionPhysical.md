@@ -29,6 +29,7 @@ PhysicalElement <|-- ConnectionPhysical
 click PhysicalElement href "./PhysicalElement.html" _blank
 click Entity href "./Entity.html" _blank
 click Classification href "./Classification.html" _blank
+click ConnectionFunctionalType href "./ConnectionFunctionalType.html" _blank
 click ConnectionRequirementDriver href "./ConnectionRequirementDriver.html" _blank
 click ConnectionPhysicalType href "./ConnectionPhysicalType.html" _blank
 click Material href "./Material.html" _blank
@@ -66,7 +67,8 @@ click TransportMedium href "./TransportMedium.html" _blank
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [connection_physical_type](connection_physical_type.md) | 1 <br/> [ConnectionPhysicalType](ConnectionPhysicalType.md) | Classification of physical connector type (for example door, window, duct, pipe, cable). | direct |
+| [connection_physical_type](connection_physical_type.md) | 1 <br/> [ConnectionPhysicalType](ConnectionPhysicalType.md) | IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types. | direct |
+| [connection_functional_types](connection_functional_types.md) | 1..* <br/> [ConnectionFunctionalType](ConnectionFunctionalType.md) | Functional connection role(s) between spaces (for example access, visual, ventilation, heating). Multiple values allowed (for example glazed door as access plus visual). | direct |
 | [transport_medium](transport_medium.md) | 1 <br/> [TransportMedium](TransportMedium.md) | Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity). | direct |
 | [frame_material](frame_material.md) | 0..1 <br/> [Material](Material.md) | Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window). | direct |
 | [infill_material](infill_material.md) | 0..1 <br/> [Material](Material.md) | Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window). | direct |
@@ -153,6 +155,7 @@ exact_mappings:
 is_a: PhysicalElement
 slots:
 - connection_physical_type
+- connection_functional_types
 - transport_medium
 - frame_material
 - infill_material
@@ -179,8 +182,8 @@ is_a: PhysicalElement
 attributes:
   connection_physical_type:
     name: connection_physical_type
-    description: Classification of physical connector type (for example door, window,
-      duct, pipe, cable).
+    description: IFC-derived physical connector form (for example door, window, duct,
+      pipe, cable). Semantic role is expressed via connection_functional_types.
     from_schema: https://schema.pragmaticbim.ch
     rank: 1000
     owner: ConnectionPhysical
@@ -188,6 +191,19 @@ attributes:
     - ConnectionPhysical
     range: ConnectionPhysicalType
     required: true
+  connection_functional_types:
+    name: connection_functional_types
+    description: Functional connection role(s) between spaces (for example access,
+      visual, ventilation, heating). Multiple values allowed (for example glazed door
+      as access plus visual).
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: ConnectionPhysical
+    domain_of:
+    - ConnectionPhysical
+    range: ConnectionFunctionalType
+    required: true
+    multivalued: true
   transport_medium:
     name: transport_medium
     description: Primary transport medium carried or enabled by the connector (for

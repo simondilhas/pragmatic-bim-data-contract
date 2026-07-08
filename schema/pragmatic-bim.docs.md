@@ -96,6 +96,7 @@ Name: pragmatic_bim_data_contract
 | [PostalAddress](PostalAddress.md) | Structured postal or physical address for an agent. |
 | [ContactPoint](ContactPoint.md) | Structured communication endpoint or profile for an agent. |
 | [ConsentRecord](ConsentRecord.md) | Record of lawful basis, scope, and lifecycle for processing personal data on a Person. |
+| [PersonRelationship](PersonRelationship.md) | Typed link from a person to another agent or to a topic concept. The predicate is expressed as a Classification referencing AbstractPersonRelationshipType. Exactly one of related_person, related_company, or related_topic must be set; see the target-kind mapping for predicate-to-slot rules. |
 | [LocalizedText](LocalizedText.md) | Localized text value for a specific language tag. |
 | [TimeLink](TimeLink.md) | Inline typed precedence link from a TimeRecord to one successor. Not a VirtualEntity — no id, no mixin. Owned by the predecessor record. |
 
@@ -145,8 +146,9 @@ Name: pragmatic_bim_data_contract
 | [completed_at](completed_at.md) | Timestamp when the process instance completed or terminated, when applicable. |
 | [component_cost_items](component_cost_items.md) | Cost records aggregated into this assembly record. |
 | [component_time_items](component_time_items.md) | Time records contained in this plan; set milestone_at on a record to mark it as a checkpoint. |
+| [connection_functional_types](connection_functional_types.md) | Functional connection role(s) between spaces (for example access, visual, ventilation, heating). Multiple values allowed (for example glazed door as access plus visual). |
 | [connection_physical_requirement_drivers](connection_physical_requirement_drivers.md) | Performance requirement drivers for this physical connection element. Multiple values are allowed because one connection may need to satisfy several requirements. |
-| [connection_physical_type](connection_physical_type.md) | Classification of physical connector type (for example door, window, duct, pipe, cable). |
+| [connection_physical_type](connection_physical_type.md) | IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types. |
 | [connection_virtual_requirement_drivers](connection_virtual_requirement_drivers.md) | Main requirement drivers for this virtual connection. |
 | [connection_virtual_type](connection_virtual_type.md) | Classification of virtual connection semantics (for example structural_joint, adjacency, access). |
 | [connects_physical_elements](connects_physical_elements.md) | Physical elements connected by this virtual connection (for example wall-wall, wall-slab). |
@@ -251,6 +253,7 @@ Name: pragmatic_bim_data_contract
 | [parent_system](parent_system.md) | Parent systems that the equipment belongs to. |
 | [parent_zone](parent_zone.md) | Parent zone context reference. |
 | [performance_properties](performance_properties.md) | Normalized, strongly typed domain properties (fire/acoustic/thermal/structural/ security/material) extracted from raw IFC PropertySet values. |
+| [person_relationships](person_relationships.md) | Typed social, professional, commercial, and interest relationships to other agents or topic concepts. May be populated manually or extracted from CRM stories via LLM; use relationship_source for provenance (for example a Message id). May constitute personal data; governed by personal_data_processing_state, consent_records, retain_until, and related privacy slots on this Person. |
 | [personal_data_processing_state](personal_data_processing_state.md) | Privacy handling state for personal data on this person, orthogonal to workflow QA status. |
 | [planned_finish_at](planned_finish_at.md) | Planned finish timestamp for the time record. |
 | [planned_start_at](planned_start_at.md) | Planned start timestamp for the time record. |
@@ -286,12 +289,18 @@ Name: pragmatic_bim_data_contract
 | [recipients](recipients.md) | Agents that received the message. |
 | [redacted_at](redacted_at.md) | Timestamp when identifying personal data was redacted on this record. |
 | [redaction_reason](redaction_reason.md) | Reason for redaction (for example external model export, erasure request, retention expired). |
+| [related_company](related_company.md) | Target organization for org and commercial predicates such as works_at, worked_at, is_key_account_manager_for, client_of, or vendor_of. |
 | [related_decision](related_decision.md) | Optional reference to a decision that informs or drives this task. |
 | [related_entity](related_entity.md) | Entity or space subject for adjacency or distance constraints. |
 | [related_material](related_material.md) | Optional Material entity template this requirement must match or satisfy. |
+| [related_person](related_person.md) | Target person for social and professional predicates such as knows, was_colleague_of, reports_to, or has_key_account_manager. |
 | [related_product](related_product.md) | Optional catalog product this deliverable implements or this cost record is priced from. |
 | [related_requirement](related_requirement.md) | Requirement entity for match_change records. |
 | [related_time_record](related_time_record.md) | Optional TimeRecord plan item this schedule requirement aligns with or must satisfy. |
+| [related_topic](related_topic.md) | Topic of interest. classification_scheme must be AbstractTopicClassification; classification_uri references the SKOS topic concept. |
+| [relationship_notes](relationship_notes.md) | Optional free-text context for this relationship record. |
+| [relationship_source](relationship_source.md) | Optional provenance label (for example manual, crm:manual, llm:story-msg-0042, LinkedIn). |
+| [relationship_type](relationship_type.md) | Relationship predicate. classification_scheme must be AbstractPersonRelationshipType; classification_code and classification_uri reference the SKOS concept. |
 | [requirement_property_key](requirement_property_key.md) | Canonical performance key for the target (for example u_value, resistance_rating). Aligns with performance property keys where applicable. |
 | [retain_until](retain_until.md) | Storage-limit deadline after which personal data should be deleted or redacted. |
 | [revision](revision.md) | Integer revision counter for change tracking. |
@@ -344,6 +353,8 @@ Name: pragmatic_bim_data_contract
 | [triggered_task](triggered_task.md) | Task entity that this change triggered or should trigger. |
 | [unit_cost](unit_cost.md) | Unit cost for this cost item. |
 | [usage_context](usage_context.md) | Optional usage context such as work, personal, support, billing, or emergency. |
+| [valid_from](valid_from.md) | Optional start of the relationship period (for example employment start for worked_at). |
+| [valid_to](valid_to.md) | Optional end of the relationship period (for example employment end for worked_at). |
 | [vendor](vendor.md) | Company that sells or offers this product. |
 | [withdrawn_at](withdrawn_at.md) | Timestamp when consent was withdrawn, if applicable. |
 | [zone_type](zone_type.md) | Optional zone classification; intended for SpatialContext nodes where context_type is zone. |
@@ -359,6 +370,7 @@ Name: pragmatic_bim_data_contract
 | [ChangeIntentVerdict](ChangeIntentVerdict.md) | Intent stability verdict from an automated judge (for example iterthink STABLE/NEW). |
 | [ChangeSeverity](ChangeSeverity.md) | Optional severity of a change independent of change type. |
 | [ChangeType](ChangeType.md) | Category of change detected between two revisions. |
+| [ConnectionFunctionalType](ConnectionFunctionalType.md) | Functional classification of physical connections between spaces by transported medium or passage role. |
 | [ConnectionPhysicalType](ConnectionPhysicalType.md) | Classification of physical connector elements that connect spaces. |
 | [ConnectionRequirementDriver](ConnectionRequirementDriver.md) | Main requirement drivers for connection element performance. |
 | [ConnectionVirtualType](ConnectionVirtualType.md) | Classification of virtual connection semantics using schema-internal meanings because no stable 1:1 IFC mapping exists for these concepts. |

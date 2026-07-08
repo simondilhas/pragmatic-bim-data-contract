@@ -6,8 +6,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 ## Dataset
 
-- **description (de):** Ordnet mnemonische v1-Notation (RN-RES-BED) numerischen v2-Blattcodes (RN-01-10-01) zu. RN-CIR-AIS wird durch RN-03-10-01 (Flur) ersetzt. Regenerieren mit scripts/generate_room_name_vocabulary.py.
-- **description (en):** Maps mnemonic v1 notation codes (RN-RES-BED) to numeric v2 leaf codes (RN-01-10-01). RN-CIR-AIS is superseded by RN-03-10-01 (Corridor). Regenerate with scripts/generate_room_name_vocabulary.py.
+- **description (de):** Ordnet mnemonische v1-Notation (RN-RES-BED) numerischen v2-Blattcodes (RN-01-10-01) zu. Ersetzte Codes u.a. RN-CIR-AIS (Flur), RN-WRK-FCS/PHN (Buero), RN-WRK-COW/OAD (Grossraumbuero), RN-WRK-ADM/MNG (Buero), RN-CIR-LND (Treppenhaus), RN-CIR-GAL (Eingangshalle), RN-HYG-GRD (Entree) und RN-VOI-STR (Technikhohlraum). Regenerieren mit scripts/generate_room_name_vocabulary.py.
+- **description (en):** Maps mnemonic v1 notation codes (RN-RES-BED) to numeric v2 leaf codes (RN-01-10-01). Superseded codes include RN-CIR-AIS (Corridor), RN-WRK-FCS/PHN (Office), RN-WRK-COW/OAD (Open-Plan Office), RN-WRK-ADM/MNG (Office), RN-CIR-LND (Stairwell), RN-CIR-GAL (Lobby), RN-HYG-GRD (Entrance Hall), and RN-VOI-STR (Mechanical Void). Regenerate with scripts/generate_room_name_vocabulary.py.
 - **title (de):** Mapping Raumnamen-Notation v1 nach v2
 - **title (en):** Room name notation v1 to v2 mapping
 
@@ -19,8 +19,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-cir-cor` | `exactMatch` | `rn:RN-CIR-COR` |
 | `v1:rn-cir-elv` | `exactMatch` | `rn:RN-CIR-ELV` |
 | `v1:rn-cir-ent` | `exactMatch` | `rn:RN-CIR-ENT` |
-| `v1:rn-cir-gal` | `exactMatch` | `rn:RN-CIR-GAL` |
-| `v1:rn-cir-lnd` | `exactMatch` | `rn:RN-CIR-LND` |
+| `v1:rn-cir-gal` | `exactMatch` | `rn:RN-CIR-LOB` |
+| `v1:rn-cir-lnd` | `exactMatch` | `rn:RN-CIR-STR` |
 | `v1:rn-cir-lob` | `exactMatch` | `rn:RN-CIR-LOB` |
 | `v1:rn-cir-ram` | `exactMatch` | `rn:RN-CIR-RAM` |
 | `v1:rn-cir-str` | `exactMatch` | `rn:RN-CIR-STR` |
@@ -46,7 +46,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-hlc-trt` | `exactMatch` | `rn:RN-HLC-TRT` |
 | `v1:rn-hlc-wtr` | `exactMatch` | `rn:RN-HLC-WTR` |
 | `v1:rn-hyg-chg` | `exactMatch` | `rn:RN-HYG-CHG` |
-| `v1:rn-hyg-grd` | `exactMatch` | `rn:RN-HYG-GRD` |
+| `v1:rn-hyg-grd` | `exactMatch` | `rn:RN-CIR-ENT` |
 | `v1:rn-hyg-lck` | `exactMatch` | `rn:RN-HYG-LCK` |
 | `v1:rn-hyg-shw` | `exactMatch` | `rn:RN-HYG-SHW` |
 | `v1:rn-hyg-wc-f` | `exactMatch` | `rn:RN-HYG-WC-F` |
@@ -120,16 +120,16 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-voi-prk` | `exactMatch` | `rn:RN-VOI-PRK` |
 | `v1:rn-voi-ris` | `exactMatch` | `rn:RN-VOI-RIS` |
 | `v1:rn-voi-sha` | `exactMatch` | `rn:RN-VOI-SHA` |
-| `v1:rn-voi-str` | `exactMatch` | `rn:RN-VOI-STR` |
-| `v1:rn-wrk-adm` | `exactMatch` | `rn:RN-WRK-ADM` |
+| `v1:rn-voi-str` | `exactMatch` | `rn:RN-VOI-MCH` |
+| `v1:rn-wrk-adm` | `exactMatch` | `rn:RN-WRK-OFF` |
 | `v1:rn-wrk-brk` | `exactMatch` | `rn:RN-WRK-BRK` |
 | `v1:rn-wrk-cnf` | `exactMatch` | `rn:RN-WRK-CNF` |
-| `v1:rn-wrk-cow` | `exactMatch` | `rn:RN-WRK-COW` |
-| `v1:rn-wrk-fcs` | `exactMatch` | `rn:RN-WRK-FCS` |
-| `v1:rn-wrk-mng` | `exactMatch` | `rn:RN-WRK-MNG` |
+| `v1:rn-wrk-cow` | `exactMatch` | `rn:RN-WRK-OPN` |
+| `v1:rn-wrk-fcs` | `exactMatch` | `rn:RN-WRK-OFF` |
+| `v1:rn-wrk-mng` | `exactMatch` | `rn:RN-WRK-OFF` |
 | `v1:rn-wrk-mtg` | `exactMatch` | `rn:RN-WRK-MTG` |
-| `v1:rn-wrk-oad` | `exactMatch` | `rn:RN-WRK-OAD` |
+| `v1:rn-wrk-oad` | `exactMatch` | `rn:RN-WRK-OPN` |
 | `v1:rn-wrk-off` | `exactMatch` | `rn:RN-WRK-OFF` |
 | `v1:rn-wrk-opn` | `exactMatch` | `rn:RN-WRK-OPN` |
-| `v1:rn-wrk-phn` | `exactMatch` | `rn:RN-WRK-PHN` |
+| `v1:rn-wrk-phn` | `exactMatch` | `rn:RN-WRK-OFF` |
 | `v1:rn-wrk-rec` | `exactMatch` | `rn:RN-WRK-REC` |

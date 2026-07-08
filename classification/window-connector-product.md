@@ -4,8 +4,8 @@ Source: [`window-connector-products.skos.ttl`](sources/window-connector-product.
 
 ## Scheme
 
-- **definition (de):** Produkttyp-Klassifikation fuer Fenster-Verbindungen (ConnectionPhysical mit connection_physical_type window). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Verglasungssubstanz kombinieren.
-- **definition (en):** Product-type classification for window connectors (ConnectionPhysical with connection_physical_type window). For catalog, specification, and cost workflows; pair with abstract material classification for frame and glazing substance.
+- **definition (de):** Produkttyp-Klassifikation fuer Fenster-Verbindungen (ConnectionPhysical mit funktionalem Typ visual; IFC-physischer Typ window). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Verglasungssubstanz kombinieren.
+- **definition (en):** Product-type classification for window connectors (ConnectionPhysical with functional type visual; IFC physical type window). For catalog, specification, and cost workflows; pair with abstract material classification for frame and glazing substance.
 - **prefLabel (de):** Abstrakte Fenster-Verbindungsprodukte
 - **prefLabel (en):** Abstract window connector products
 - **title (en):** Abstract window connector products

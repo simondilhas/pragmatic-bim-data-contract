@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -671,6 +671,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#connection-functional-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection functional types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ifcspace-space-conditioning-and-above-ground" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1124,6 +1135,17 @@
     <span class="md-ellipsis">
       
         IfcDuctSegment → ConnectionPhysical
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-functional-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection functional types
       
     </span>
   </a>
@@ -1977,6 +1999,7 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <span class="nt">canonical_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical.duct</span>
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">connection_physical_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duct</span>
+<span class="w">  </span><span class="nt">connection_functional_types</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ventilation</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">transport_medium</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">air</span>
 <span class="nt">geometry</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">primary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">axis</span><span class="w">        </span><span class="c1"># centerline</span>
@@ -1985,6 +2008,39 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IfcRelConnectsPathElements</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IfcRelAssignsToSystem</span>
 </code></pre></div>
+<h3 id="connection-functional-types">Connection functional types<a class="headerlink" href="#connection-functional-types" title="Permanent link">&para;</a></h3>
+<p><code>ConnectionPhysical.connection_functional_types</code> is a <strong>multivalued</strong> semantic assignment (SKOS vocabulary <code>ConnectionFunctionalType</code>). IFC ingestion sets a default where unambiguous; assign additional values when needed (for example glazed door → <code>[access, visual]</code>).</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-type</td>
+<td>One connection may carry multiple functional types</td>
+</tr>
+<tr>
+<td><code>opening_other</code></td>
+<td>Physical enum stays ambiguous; assign <code>access</code> and/or <code>visual</code> at functional-type stage</td>
+</tr>
+<tr>
+<td><code>IfcPipeSegment</code></td>
+<td>Functional type inferred from <code>IfcDistributionSystem.PredefinedType</code> (heating, cooling, fresh_water, waste_water, special_media)</td>
+</tr>
+<tr>
+<td><code>IfcOpeningElement</code></td>
+<td>No default functional types — assign per case</td>
+</tr>
+<tr>
+<td><code>transport_medium</code></td>
+<td>Coarser bootstrap medium kept alongside functional types for ingestion</td>
+</tr>
+</tbody>
+</table>
+<p>Physical type (<code>connection_physical_type</code>) remains IFC-derived and single-valued. See <code>classification/mapping/connection-functional-to-physical-type.mapping.ttl</code> for compatible physical forms per functional type.</p>
 <h3 id="ifcspace-space-conditioning-and-above-ground">IfcSpace → Space (conditioning and above-ground)<a class="headerlink" href="#ifcspace-space-conditioning-and-above-ground" title="Permanent link">&para;</a></h3>
 <p>Space carries optional design-state booleans as typed PBS slots (not requirements):</p>
 <table>

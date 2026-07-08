@@ -6,8 +6,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 ## Dataset
 
-- **description (de):** Ordnet abstrakte Dachbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. Flachdach-Verbundsysteme nutzen Schicht-narrower fuer Daemmung und Abdichtung; geneigte und gebündelte Typen naechste Baugruppen- oder Materialzeile.
-- **description (en):** Maps abstract roof covering products to KBOB ecobilans rows. Flat roof composites use layer narrowers for insulation and membrane; pitched and bundled types map to closest assembly or material row where available.
+- **description (de):** Ordnet abstrakte Dachbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. Flachdach-Verbundsysteme nutzen Schicht-narrower fuer Daemmung und Abdichtung; geneigte und gebündelte Typen naechste Baugruppen- oder Materialzeile. RCP-SLATE ohne KBOB-Schieferzeile; 03.009 Hartsandsteinplatte als naechste Naturstein-Naeherung.
+- **description (en):** Maps abstract roof covering products to KBOB ecobilans rows. Flat roof composites use layer narrowers for insulation and membrane; pitched and bundled types map to closest assembly or material row where available. RCP-SLATE has no KBOB slate row; 03.009 hard sandstone slab used as closest natural-stone proxy.
 - **title (de):** Mapping abstrakter Dachbekleidungsprodukte nach KBOB Oekobilanz
 - **title (en):** Abstract roof covering products to KBOB ecobilans mapping
 
@@ -46,11 +46,12 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `rcp:RCP-PV-ROOF` | `closeMatch` | `kbobbm:05-008` |
 | `rcp:RCP-PV-ROOF` | `relatedMatch` | `kbobbm:06-001` |
 | `rcp:RCP-PV-ROOF` | `relatedMatch` | `kbobbm:09-003` |
-| `rcp:RCP-SLATE` | `closeMatch` | `kbobbm:05-025` |
-| `rcp:RCP-SLATE` | `relatedMatch` | `kbobbm:03-010` |
+| `rcp:RCP-SLATE` | `closeMatch` | `kbobbm:03-009` |
+| `rcp:RCP-SLATE` | `relatedMatch` | `kbobbm:11-016` |
 | `rcp:RCP-TILE-CLAY` | `closeMatch` | `kbobbm:03-010` |
 | `rcp:RCP-TILE-CLAY` | `relatedMatch` | `kbobbm:11-008` |
-| `rcp:RCP-TILE-CONCRETE` | `closeMatch` | `kbobbm:03-003` |
+| `rcp:RCP-TILE-CONCRETE` | `closeMatch` | `kbobbm:03-001` |
 | `rcp:RCP-TILE-CONCRETE` | `relatedMatch` | `kbobbm:01-042` |
+| `rcp:RCP-TILE-CONCRETE` | `relatedMatch` | `kbobbm:03-002` |
 | `rcp:RCP-WOOD-SHINGLE` | `closeMatch` | `kbobbm:07-014` |
 | `rcp:RCP-WOOD-SHINGLE` | `relatedMatch` | `kbobbm:07-003` |

@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -538,6 +538,7 @@ PhysicalElement &lt;|-- ConnectionPhysical
 click PhysicalElement href "./PhysicalElement.html" _blank
 click Entity href "./Entity.html" _blank
 click Classification href "./Classification.html" _blank
+click ConnectionFunctionalType href "./ConnectionFunctionalType.html" _blank
 click ConnectionRequirementDriver href "./ConnectionRequirementDriver.html" _blank
 click ConnectionPhysicalType href "./ConnectionPhysicalType.html" _blank
 click Material href "./Material.html" _blank
@@ -595,7 +596,13 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <tr>
 <td><a href="connection_physical_type.html">connection_physical_type</a></td>
 <td>1 <br/> <a href="ConnectionPhysicalType.html">ConnectionPhysicalType</a></td>
-<td>Classification of physical connector type (for example door, window, duct, pipe, cable).</td>
+<td>IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="connection_functional_types.html">connection_functional_types</a></td>
+<td>1..* <br/> <a href="ConnectionFunctionalType.html">ConnectionFunctionalType</a></td>
+<td>Functional connection role(s) between spaces (for example access, visual, ventilation, heating). Multiple values allowed (for example glazed door as access plus visual).</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -788,6 +795,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="nt">is_a</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PhysicalElement</span>
 <span class="nt">slots</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection_physical_type</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection_functional_types</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">transport_medium</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frame_material</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">infill_material</span>
@@ -810,8 +818,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="nt">attributes</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">connection_physical_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection_physical_type</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Classification of physical connector type (for example door, window,</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">duct, pipe, cable).</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IFC-derived physical connector form (for example door, window, duct,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">pipe, cable). Semantic role is expressed via connection_functional_types.</span>
 <span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
 <span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
 <span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
@@ -819,6 +827,19 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysicalType</span>
 <span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">connection_functional_types</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">connection_functional_types</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Functional connection role(s) between spaces (for example access,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">visual, ventilation, heating). Multiple values allowed (for example glazed door</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">as access plus visual).</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionPhysical</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConnectionFunctionalType</span>
+<span class="w">    </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">transport_medium</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">transport_medium</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Primary transport medium carried or enabled by the connector (for</span>

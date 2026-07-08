@@ -410,6 +410,52 @@ class ConnectionPhysicalType(str, Enum):
     """
 
 
+class ConnectionFunctionalType(str, Enum):
+    """
+    Functional classification of physical connections between spaces by transported medium or passage role.
+    """
+    Electrical = "electrical"
+    """
+    Power distribution connection.
+    """
+    Data_SOLIDUS_ICT = "data"
+    """
+    Data, telecom, or building-automation connection.
+    """
+    Ventilation = "ventilation"
+    """
+    Air supply, extract, or transfer connection.
+    """
+    Heating = "heating"
+    """
+    Heating-medium supply or return connection.
+    """
+    Cooling = "cooling"
+    """
+    Cooling-medium supply or return connection.
+    """
+    Fresh_Water = "fresh_water"
+    """
+    Potable or domestic water supply connection.
+    """
+    Waste_Water = "waste_water"
+    """
+    Drainage, sewage, or rainwater connection.
+    """
+    Special_Media = "special_media"
+    """
+    Gas, compressed air, fire suppression, vacuum, or other process-media connection.
+    """
+    Access_SOLIDUS_Circulation = "access"
+    """
+    Physical passage of people or goods between spaces.
+    """
+    Visual_SOLIDUS_Daylight = "visual"
+    """
+    Sightline or daylight connection without physical passage.
+    """
+
+
 class ConnectionVirtualType(str, Enum):
     """
     Classification of virtual connection semantics using schema-internal meanings because no stable 1:1 IFC mapping exists for these concepts.
@@ -615,18 +661,6 @@ class SpaceNameType(str, Enum):
     """
     Open office landscape without full-height partitions.
     """
-    Focus_Room = "rn_02_10_03"
-    """
-    Small room for concentrated individual work.
-    """
-    Phone_Booth = "rn_02_10_04"
-    """
-    Small enclosure for private calls.
-    """
-    Coworking_Space = "rn_02_10_05"
-    """
-    Shared flexible workspace.
-    """
     Meeting_Room = "rn_02_20_01"
     """
     Room for small group meetings.
@@ -642,18 +676,6 @@ class SpaceNameType(str, Enum):
     Reception = "rn_02_30_01"
     """
     Visitor reception and waiting area.
-    """
-    Administrative_Office = "rn_02_30_02"
-    """
-    Office for administrative staff.
-    """
-    Manager_Office = "rn_02_30_03"
-    """
-    Office for management roles.
-    """
-    Open_Administrative_Area = "rn_02_30_04"
-    """
-    Open administrative work area.
     """
     Corridor = "rn_03_10_01"
     """
@@ -683,14 +705,6 @@ class SpaceNameType(str, Enum):
     """
     Inclined accessible circulation route.
     """
-    Landing = "rn_03_20_04"
-    """
-    Stair or ramp landing platform.
-    """
-    Gallery = "rn_03_30_01"
-    """
-    Circulation gallery integral to main activity.
-    """
     Male_Toilet = "rn_04_10_01"
     """
     Toilet room for male use.
@@ -718,10 +732,6 @@ class SpaceNameType(str, Enum):
     Locker_Room = "rn_04_20_03"
     """
     Room with personal lockers.
-    """
-    Cloakroom = "rn_04_30_01"
-    """
-    Staffed or unstaffed coat check at entry.
     """
     Patient_Room = "rn_05_10_01"
     """
@@ -1018,10 +1028,6 @@ class SpaceNameType(str, Enum):
     Atrium_Void = "rn_12_30_01"
     """
     Multistory open interior volume.
-    """
-    Structural_Void = "rn_12_30_02"
-    """
-    Void within structural elements.
     """
     Interior_Parking_Stall = "rn_12_30_03"
     """
@@ -1495,6 +1501,8 @@ class Person(Agent):
     privacy_policy_uri: Optional[str] = Field(default=None, description="""URI of the current or default privacy policy or notice applicable to this person record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person', 'ConsentRecord']} })
     redacted_at: Optional[datetime ] = Field(default=None, description="""Timestamp when identifying personal data was redacted on this record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
     redaction_reason: Optional[str] = Field(default=None, description="""Reason for redaction (for example external model export, erasure request, retention expired).""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
+    person_relationships: Optional[list[PersonRelationship]] = Field(default=None, description="""Typed social, professional, commercial, and interest relationships to other agents or topic concepts. May be populated manually or extracted from CRM stories via LLM; use relationship_source for provenance (for example a Message id). May constitute personal data; governed by personal_data_processing_state, consent_records, retain_until, and related privacy slots on this Person.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
     id: str = Field(default=..., description="""Unique local identifier.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity', 'Change']} })
     content_kind: Literal["agent"] = Field(default=..., description="""Entity type discriminator for adapter projection and querying. Must be a ContentKind value.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity'], 'equals_string': 'agent'} })
     name: str = Field(default=..., description="""Default display name.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Entity']} })
@@ -2262,6 +2270,28 @@ class ConsentRecord(ConfiguredBaseModel):
     withdrawn_at: Optional[datetime ] = Field(default=None, description="""Timestamp when consent was withdrawn, if applicable.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConsentRecord']} })
     privacy_policy_uri: str = Field(default=..., description="""URI of the current or default privacy policy or notice applicable to this person record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person', 'ConsentRecord']} })
     consent_notes: Optional[str] = Field(default=None, description="""Optional notes about how or where consent was captured.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConsentRecord']} })
+
+
+class PersonRelationship(ConfiguredBaseModel):
+    """
+    Typed link from a person to another agent or to a topic concept. The predicate is expressed as a Classification referencing AbstractPersonRelationshipType. Exactly one of related_person, related_company, or related_topic must be set; see the target-kind mapping for predicate-to-slot rules.
+
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'pbs:PersonRelationship',
+         'from_schema': 'https://schema.pragmaticbim.ch/entity/core',
+         'slot_usage': {'relationship_type': {'name': 'relationship_type',
+                                              'required': True}}})
+
+    relationship_type: Classification = Field(default=..., description="""Relationship predicate. classification_scheme must be AbstractPersonRelationshipType; classification_code and classification_uri reference the SKOS concept.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
+    related_person: Optional[str] = Field(default=None, description="""Target person for social and professional predicates such as knows, was_colleague_of, reports_to, or has_key_account_manager.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
+    related_company: Optional[str] = Field(default=None, description="""Target organization for org and commercial predicates such as works_at, worked_at, is_key_account_manager_for, client_of, or vendor_of.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
+    related_topic: Optional[Classification] = Field(default=None, description="""Topic of interest. classification_scheme must be AbstractTopicClassification; classification_uri references the SKOS topic concept.
+""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
+    valid_from: Optional[datetime ] = Field(default=None, description="""Optional start of the relationship period (for example employment start for worked_at).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
+    valid_to: Optional[datetime ] = Field(default=None, description="""Optional end of the relationship period (for example employment end for worked_at).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
+    relationship_notes: Optional[str] = Field(default=None, description="""Optional free-text context for this relationship record.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
+    relationship_source: Optional[str] = Field(default=None, description="""Optional provenance label (for example manual, crm:manual, llm:story-msg-0042, LinkedIn).""", json_schema_extra = { "linkml_meta": {'domain_of': ['PersonRelationship']} })
 
 
 class LocalizedText(ConfiguredBaseModel):
@@ -3056,7 +3086,8 @@ class ConnectionPhysical(PhysicalElement):
                             'ifcowl:IfcCableCarrierSegment'],
          'from_schema': 'https://schema.pragmaticbim.ch/entity/physical'})
 
-    connection_physical_type: ConnectionPhysicalType = Field(default=..., description="""Classification of physical connector type (for example door, window, duct, pipe, cable).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
+    connection_physical_type: ConnectionPhysicalType = Field(default=..., description="""IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
+    connection_functional_types: list[ConnectionFunctionalType] = Field(default=..., description="""Functional connection role(s) between spaces (for example access, visual, ventilation, heating). Multiple values allowed (for example glazed door as access plus visual).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
     transport_medium: TransportMedium = Field(default=..., description="""Primary transport medium carried or enabled by the connector (for example human_access, air, liquid, electricity).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
     frame_material: Optional[str] = Field(default=None, description="""Material of the frame or casing surrounding the opening. Applies to opening-type connectors (door, window).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
     infill_material: Optional[str] = Field(default=None, description="""Material of the opening infill within the frame (for example glazing for windows, door leaf or panel for doors). Applies to opening-type connectors (door, window).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ConnectionPhysical']} })
@@ -4395,6 +4426,7 @@ Deliverable.model_rebuild()
 PostalAddress.model_rebuild()
 ContactPoint.model_rebuild()
 ConsentRecord.model_rebuild()
+PersonRelationship.model_rebuild()
 LocalizedText.model_rebuild()
 FireProperty.model_rebuild()
 AcousticProperty.model_rebuild()

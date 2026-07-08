@@ -18,8 +18,6 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `rn:RN-CIR-COR` | `mapsToActivity` | `abs:S-CIR-HOR` |
 | `rn:RN-CIR-ELV` | `mapsToActivity` | `abs:S-CIR-VRT-MEC` |
 | `rn:RN-CIR-ENT` | `mapsToActivity` | `abs:S-CIR-HOR` |
-| `rn:RN-CIR-GAL` | `mapsToActivity` | `abs:M-CIR` |
-| `rn:RN-CIR-LND` | `mapsToActivity` | `abs:S-CIR-VRT-MAN` |
 | `rn:RN-CIR-LOB` | `mapsToActivity` | `abs:M-CIR` |
 | `rn:RN-CIR-LOB` | `mapsToActivity` | `abs:S-CIR-HOR` |
 | `rn:RN-CIR-RAM` | `mapsToActivity` | `abs:S-CIR-VRT-MAN` |
@@ -46,7 +44,6 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `rn:RN-HLC-TRT` | `mapsToActivity` | `abs:M-HEL` |
 | `rn:RN-HLC-WTR` | `mapsToActivity` | `abs:M-HEL` |
 | `rn:RN-HYG-CHG` | `mapsToActivity` | `abs:S-HYG-SHW` |
-| `rn:RN-HYG-GRD` | `mapsToActivity` | `abs:S-HYG-GRD` |
 | `rn:RN-HYG-LCK` | `mapsToActivity` | `abs:S-STO-LCK` |
 | `rn:RN-HYG-SHW` | `mapsToActivity` | `abs:S-HYG-SHW` |
 | `rn:RN-HYG-WC-F` | `mapsToActivity` | `abs:S-HYG-WC-F` |
@@ -120,16 +117,9 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `rn:RN-VOI-PRK` | `mapsToActivity` | `abs:S-PRK-INT` |
 | `rn:RN-VOI-RIS` | `mapsToActivity` | `abs:S-VOI-VRT` |
 | `rn:RN-VOI-SHA` | `mapsToActivity` | `abs:S-VOI-VRT` |
-| `rn:RN-VOI-STR` | `mapsToActivity` | `abs:S-VOI-STR` |
-| `rn:RN-WRK-ADM` | `mapsToActivity` | `abs:M-WRK-KNW` |
 | `rn:RN-WRK-BRK` | `mapsToActivity` | `abs:M-WRK-KNW` |
 | `rn:RN-WRK-CNF` | `mapsToActivity` | `abs:M-WRK-KNW` |
-| `rn:RN-WRK-COW` | `mapsToActivity` | `abs:M-WRK-KNW` |
-| `rn:RN-WRK-FCS` | `mapsToActivity` | `abs:M-WRK-KNW` |
-| `rn:RN-WRK-MNG` | `mapsToActivity` | `abs:M-WRK-KNW` |
 | `rn:RN-WRK-MTG` | `mapsToActivity` | `abs:M-WRK-KNW` |
-| `rn:RN-WRK-OAD` | `mapsToActivity` | `abs:M-WRK-KNW` |
 | `rn:RN-WRK-OFF` | `mapsToActivity` | `abs:M-WRK-KNW` |
 | `rn:RN-WRK-OPN` | `mapsToActivity` | `abs:M-WRK-KNW` |
-| `rn:RN-WRK-PHN` | `mapsToActivity` | `abs:M-WRK-KNW` |
 | `rn:RN-WRK-REC` | `mapsToActivity` | `abs:M-WRK-KNW` |

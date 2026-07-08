@@ -1,0 +1,42 @@
+{
+  "base_url": "https://schema.pragmaticbim.ch/v0.0.8",
+  "docs_index": "https://schema.pragmaticbim.ch/v0.0.8/schema/pragmatic-bim.docs.html",
+  "modules": [
+    {
+      "slug": "changes",
+      "id": "https://schema.pragmaticbim.ch/changes",
+      "title": "Pragmatic BIM Data Contract - Changes",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.0.8/changes/descriptor.json"
+    },
+    {
+      "slug": "entity/core",
+      "id": "https://schema.pragmaticbim.ch/entity/core",
+      "title": "Pragmatic BIM Data Contract - Entity Core",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.0.8/entity/core/descriptor.json"
+    },
+    {
+      "slug": "entity/performance",
+      "id": "https://schema.pragmaticbim.ch/entity/performance",
+      "title": "Pragmatic BIM Data Contract - Entity Performance",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.0.8/entity/performance/descriptor.json"
+    },
+    {
+      "slug": "entity/physical",
+      "id": "https://schema.pragmaticbim.ch/entity/physical",
+      "title": "Pragmatic BIM Data Contract - Entity Physical",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.0.8/entity/physical/descriptor.json"
+    },
+    {
+      "slug": "entity/requirements",
+      "id": "https://schema.pragmaticbim.ch/entity/requirements",
+      "title": "Pragmatic BIM Data Contract - Entity Requirements",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.0.8/entity/requirements/descriptor.json"
+    },
+    {
+      "slug": "entity/virtual",
+      "id": "https://schema.pragmaticbim.ch/entity/virtual",
+      "title": "Pragmatic BIM Data Contract - Entity Virtual",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.0.8/entity/virtual/descriptor.json"
+    }
+  ]
+}

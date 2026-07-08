@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,8 +421,8 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> Ordnet abstrakte Tuer-Verbindungsprodukte KBOB-Oekobilanz-Gruppe-12-Tuerbaugruppen (m2-Bezugseinheit) zu. pcs-bewertete Tueren nutzen Standard-Tuerblattflaeche in kbob-ecobilans-price-unit-defaults.json.</li>
-<li><strong>description (en):</strong> Maps abstract door connector products to KBOB ecobilans group 12 door assembly rows (m2 reference unit). pcs-priced doors use default door leaf area in kbob-ecobilans-price-unit-defaults.json.</li>
+<li><strong>description (de):</strong> Ordnet abstrakte Tuer-Verbindungsprodukte KBOB-Oekobilanz-Gruppe-12-Tuerbaugruppen (m2-Bezugseinheit) zu. DCP-PVC ohne Gruppe-12-Zeile; closeMatch PVC-Material 13.004 (kg) mit Flaechenertrag. DCP-GATE ohne Industrietor-Zeile; 12.006 als naechste Grossformat-Tuer-Naeherung. pcs-bewertete Tueren nutzen Standard-Tuerblattflaeche in kbob-ecobilans-price-unit-defaults.json.</li>
+<li><strong>description (en):</strong> Maps abstract door connector products to KBOB ecobilans group 12 door assembly rows (m2 reference unit). DCP-PVC has no group-12 row; closeMatch uses PVC material 13.004 (kg) with area yield defaults. DCP-GATE has no industrial-gate row; 12.006 used as closest large-format door proxy. pcs-priced doors use default door leaf area in kbob-ecobilans-price-unit-defaults.json.</li>
 <li><strong>title (de):</strong> Mapping abstrakter Tuer-Verbindungsprodukte nach KBOB Oekobilanz</li>
 <li><strong>title (en):</strong> Abstract door connector products to KBOB ecobilans mapping</li>
 </ul>
@@ -439,7 +439,7 @@
 <tr>
 <td><code>dcp:DCP-GATE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>kbobbm:12-009</code></td>
+<td><code>kbobbm:12-006</code></td>
 </tr>
 <tr>
 <td><code>dcp:DCP-GATE</code></td>
@@ -449,7 +449,7 @@
 <tr>
 <td><code>dcp:DCP-GATE</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>kbobbm:12-006</code></td>
+<td><code>kbobbm:12-009</code></td>
 </tr>
 <tr>
 <td><code>dcp:DCP-GLASS</code></td>
@@ -469,7 +469,7 @@
 <tr>
 <td><code>dcp:DCP-METAL</code></td>
 <td><code>closeMatch</code></td>
-<td><code>kbobbm:12-009</code></td>
+<td><code>kbobbm:12-012</code></td>
 </tr>
 <tr>
 <td><code>dcp:DCP-METAL</code></td>
@@ -479,7 +479,7 @@
 <tr>
 <td><code>dcp:DCP-METAL</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>kbobbm:12-012</code></td>
+<td><code>kbobbm:12-009</code></td>
 </tr>
 <tr>
 <td><code>dcp:DCP-OTH</code></td>
@@ -494,12 +494,12 @@
 <tr>
 <td><code>dcp:DCP-PVC</code></td>
 <td><code>closeMatch</code></td>
-<td><code>kbobbm:12-003</code></td>
+<td><code>kbobbm:13-004</code></td>
 </tr>
 <tr>
 <td><code>dcp:DCP-PVC</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>kbobbm:13-004</code></td>
+<td><code>kbobbm:12-003</code></td>
 </tr>
 <tr>
 <td><code>dcp:DCP-SPECIAL</code></td>

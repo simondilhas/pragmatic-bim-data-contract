@@ -37,16 +37,10 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_01_30_03 | https://example.org/abstract/building-space-name-classification/RN_RES_APT | Generic residential unit space when not subdivided further. | Title: Apartment Unit<br>|
 | rn_02_10_01 | https://example.org/abstract/building-space-name-classification/RN_WRK_OFF | Enclosed office for individual or shared desk work. | Title: Office<br>|
 | rn_02_10_02 | https://example.org/abstract/building-space-name-classification/RN_WRK_OPN | Open office landscape without full-height partitions. | Title: Open-Plan Office<br>|
-| rn_02_10_03 | https://example.org/abstract/building-space-name-classification/RN_WRK_FCS | Small room for concentrated individual work. | Title: Focus Room<br>|
-| rn_02_10_04 | https://example.org/abstract/building-space-name-classification/RN_WRK_PHN | Small enclosure for private calls. | Title: Phone Booth<br>|
-| rn_02_10_05 | https://example.org/abstract/building-space-name-classification/RN_WRK_COW | Shared flexible workspace. | Title: Coworking Space<br>|
 | rn_02_20_01 | https://example.org/abstract/building-space-name-classification/RN_WRK_MTG | Room for small group meetings. | Title: Meeting Room<br>|
 | rn_02_20_02 | https://example.org/abstract/building-space-name-classification/RN_WRK_CNF | Room for formal meetings and presentations. | Title: Conference Room<br>|
 | rn_02_20_03 | https://example.org/abstract/building-space-name-classification/RN_WRK_BRK | Informal staff rest and refreshment space. | Title: Break Room<br>|
 | rn_02_30_01 | https://example.org/abstract/building-space-name-classification/RN_WRK_REC | Visitor reception and waiting area. | Title: Reception<br>|
-| rn_02_30_02 | https://example.org/abstract/building-space-name-classification/RN_WRK_ADM | Office for administrative staff. | Title: Administrative Office<br>|
-| rn_02_30_03 | https://example.org/abstract/building-space-name-classification/RN_WRK_MNG | Office for management roles. | Title: Manager Office<br>|
-| rn_02_30_04 | https://example.org/abstract/building-space-name-classification/RN_WRK_OAD | Open administrative work area. | Title: Open Administrative Area<br>|
 | rn_03_10_01 | https://example.org/abstract/building-space-name-classification/RN_CIR_COR | Horizontal circulation passage, including narrow aisles between rows or functions. | Title: Corridor<br>|
 | rn_03_10_02 | https://example.org/abstract/building-space-name-classification/RN_CIR_LOB | Main entrance lobby or reception hall. | Title: Lobby<br>|
 | rn_03_10_03 | https://example.org/abstract/building-space-name-classification/RN_CIR_ENT | Building entrance transition space. | Title: Entrance Hall<br>|
@@ -54,8 +48,6 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_03_20_01 | https://example.org/abstract/building-space-name-classification/RN_CIR_STR | Enclosed stair and landing volume. | Title: Stairwell<br>|
 | rn_03_20_02 | https://example.org/abstract/building-space-name-classification/RN_CIR_ELV | Waiting area at elevator stops. | Title: Elevator Lobby<br>|
 | rn_03_20_03 | https://example.org/abstract/building-space-name-classification/RN_CIR_RAM | Inclined accessible circulation route. | Title: Ramp<br>|
-| rn_03_20_04 | https://example.org/abstract/building-space-name-classification/RN_CIR_LND | Stair or ramp landing platform. | Title: Landing<br>|
-| rn_03_30_01 | https://example.org/abstract/building-space-name-classification/RN_CIR_GAL | Circulation gallery integral to main activity. | Title: Gallery<br>|
 | rn_04_10_01 | https://example.org/abstract/building-space-name-classification/RN_HYG_WC_M | Toilet room for male use. | Title: Male Toilet<br>|
 | rn_04_10_02 | https://example.org/abstract/building-space-name-classification/RN_HYG_WC_F | Toilet room for female use. | Title: Female Toilet<br>|
 | rn_04_10_03 | https://example.org/abstract/building-space-name-classification/RN_HYG_WC_IV | Wheelchair-accessible toilet room. | Title: Accessible Toilet<br>|
@@ -63,7 +55,6 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_04_20_01 | https://example.org/abstract/building-space-name-classification/RN_HYG_SHW | Room with shower facilities. | Title: Shower Room<br>|
 | rn_04_20_02 | https://example.org/abstract/building-space-name-classification/RN_HYG_CHG | Room for changing clothes. | Title: Changing Room<br>|
 | rn_04_20_03 | https://example.org/abstract/building-space-name-classification/RN_HYG_LCK | Room with personal lockers. | Title: Locker Room<br>|
-| rn_04_30_01 | https://example.org/abstract/building-space-name-classification/RN_HYG_GRD | Staffed or unstaffed coat check at entry. | Title: Cloakroom<br>|
 | rn_05_10_01 | https://example.org/abstract/building-space-name-classification/RN_HLC_PAT | Room for inpatient care and recovery. | Title: Patient Room<br>|
 | rn_05_10_02 | https://example.org/abstract/building-space-name-classification/RN_HLC_RCV | Room for post-procedure recovery. | Title: Recovery Room<br>|
 | rn_05_20_01 | https://example.org/abstract/building-space-name-classification/RN_HLC_TRT | Room for outpatient treatment. | Title: Treatment Room<br>|
@@ -138,7 +129,6 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_12_20_02 | https://example.org/abstract/building-space-name-classification/RN_VOI_MCH | Non-accessible mechanical void. | Title: Mechanical Void<br>|
 | rn_12_20_03 | https://example.org/abstract/building-space-name-classification/RN_VOI_AIR | Non-occupiable air volume in the model. | Title: Air Space<br>|
 | rn_12_30_01 | https://example.org/abstract/building-space-name-classification/RN_VOI_ATR | Multistory open interior volume. | Title: Atrium Void<br>|
-| rn_12_30_02 | https://example.org/abstract/building-space-name-classification/RN_VOI_STR | Void within structural elements. | Title: Structural Void<br>|
 | rn_12_30_03 | https://example.org/abstract/building-space-name-classification/RN_VOI_PRK | Individual parking space within a structure. | Title: Interior Parking Stall<br>|
 
 
@@ -312,33 +302,6 @@ permissible_values:
         source: de
         description: Grossraumbuero
     title: Open-Plan Office
-  rn_02_10_03:
-    text: rn_02_10_03
-    description: Small room for concentrated individual work.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_FCS
-    alt_descriptions:
-      de:
-        source: de
-        description: Fokusraum
-    title: Focus Room
-  rn_02_10_04:
-    text: rn_02_10_04
-    description: Small enclosure for private calls.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_PHN
-    alt_descriptions:
-      de:
-        source: de
-        description: Telefonbox
-    title: Phone Booth
-  rn_02_10_05:
-    text: rn_02_10_05
-    description: Shared flexible workspace.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_COW
-    alt_descriptions:
-      de:
-        source: de
-        description: Coworking-Flaeche
-    title: Coworking Space
   rn_02_20_01:
     text: rn_02_20_01
     description: Room for small group meetings.
@@ -375,33 +338,6 @@ permissible_values:
         source: de
         description: Empfang
     title: Reception
-  rn_02_30_02:
-    text: rn_02_30_02
-    description: Office for administrative staff.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_ADM
-    alt_descriptions:
-      de:
-        source: de
-        description: Verwaltungsbuero
-    title: Administrative Office
-  rn_02_30_03:
-    text: rn_02_30_03
-    description: Office for management roles.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MNG
-    alt_descriptions:
-      de:
-        source: de
-        description: Fuehrungsbuero
-    title: Manager Office
-  rn_02_30_04:
-    text: rn_02_30_04
-    description: Open administrative work area.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_OAD
-    alt_descriptions:
-      de:
-        source: de
-        description: Offene Verwaltungsflaeche
-    title: Open Administrative Area
   rn_03_10_01:
     text: rn_03_10_01
     description: Horizontal circulation passage, including narrow aisles between rows
@@ -466,24 +402,6 @@ permissible_values:
         source: de
         description: Rampe
     title: Ramp
-  rn_03_20_04:
-    text: rn_03_20_04
-    description: Stair or ramp landing platform.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_LND
-    alt_descriptions:
-      de:
-        source: de
-        description: Podest
-    title: Landing
-  rn_03_30_01:
-    text: rn_03_30_01
-    description: Circulation gallery integral to main activity.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_GAL
-    alt_descriptions:
-      de:
-        source: de
-        description: Galerie
-    title: Gallery
   rn_04_10_01:
     text: rn_04_10_01
     description: Toilet room for male use.
@@ -547,15 +465,6 @@ permissible_values:
         source: de
         description: Schliessfachraum
     title: Locker Room
-  rn_04_30_01:
-    text: rn_04_30_01
-    description: Staffed or unstaffed coat check at entry.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_GRD
-    alt_descriptions:
-      de:
-        source: de
-        description: Garderobe
-    title: Cloakroom
   rn_05_10_01:
     text: rn_05_10_01
     description: Room for inpatient care and recovery.
@@ -1222,15 +1131,6 @@ permissible_values:
         source: de
         description: Atrium
     title: Atrium Void
-  rn_12_30_02:
-    text: rn_12_30_02
-    description: Void within structural elements.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_STR
-    alt_descriptions:
-      de:
-        source: de
-        description: Konstruktionshohlraum
-    title: Structural Void
   rn_12_30_03:
     text: rn_12_30_03
     description: Individual parking space within a structure.

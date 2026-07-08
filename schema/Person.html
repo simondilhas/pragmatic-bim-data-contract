@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -408,6 +408,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#usages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -548,6 +559,7 @@ click LocalizedText href "./LocalizedText.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
 click PerformanceProperty href "./PerformanceProperty.html" _blank
+click PersonRelationship href "./PersonRelationship.html" _blank
 click PersonalDataProcessingState href "./PersonalDataProcessingState.html" _blank
 click PostalAddress href "./PostalAddress.html" _blank
 click QuantityValue href "./QuantityValue.html" _blank
@@ -656,6 +668,12 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td><a href="redaction_reason.html">redaction_reason</a></td>
 <td>0..1 <br/> <a href="String.html">String</a></td>
 <td>Reason for redaction (for example external model export, erasure request, retention expired).</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="person_relationships.html">person_relationships</a></td>
+<td>* <br/> <a href="PersonRelationship.html">PersonRelationship</a></td>
+<td>Typed social, professional, commercial, and interest relationships to other agents or topic concepts. May be populated manually or extracted from CRM stories via LLM; use relationship_source for provenance (for example a Message id). May constitute personal data; governed by personal_data_processing_state, consent_records, retain_until, and related privacy slots on this Person.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -768,6 +786,25 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </tr>
 </tbody>
 </table>
+<h2 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="PersonRelationship.html">PersonRelationship</a></td>
+<td><a href="related_person.html">related_person</a></td>
+<td>range</td>
+<td><a href="Person.html">Person</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information<a class="headerlink" href="#identifier-and-mapping-information" title="Permanent link">&para;</a></h2>
 <h3 id="schema-source">Schema Source<a class="headerlink" href="#schema-source" title="Permanent link">&para;</a></h3>
 <ul>
@@ -823,6 +860,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">privacy_policy_uri</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redacted_at</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redaction_reason</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person_relationships</span>
 <span class="nt">class_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pbs:Person</span>
 </code></pre></div>
 </details>
@@ -961,6 +999,23 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">person_relationships</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person_relationships</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Typed</span><span class="nv"> </span><span class="s">social,</span><span class="nv"> </span><span class="s">professional,</span><span class="nv"> </span><span class="s">commercial,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">interest</span><span class="nv"> </span><span class="s">relationships</span>
+<span class="w">      </span><span class="s">to</span><span class="nv"> </span><span class="s">other</span><span class="nv"> </span><span class="s">agents</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">topic</span><span class="nv"> </span><span class="s">concepts.</span><span class="nv"> </span><span class="s">May</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">populated</span><span class="nv"> </span><span class="s">manually</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">extracted</span><span class="nv"> </span><span class="s">from</span>
+<span class="w">      </span><span class="s">CRM</span><span class="nv"> </span><span class="s">stories</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">LLM;</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">relationship_source</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">provenance</span><span class="nv"> </span><span class="s">(for</span><span class="nv"> </span><span class="s">example</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Message</span>
+<span class="w">      </span><span class="s">id).</span><span class="nv"> </span><span class="s">May</span><span class="nv"> </span><span class="s">constitute</span><span class="nv"> </span><span class="s">personal</span><span class="nv"> </span><span class="s">data;</span><span class="nv"> </span><span class="s">governed</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">personal_data_processing_state,</span>
+<span class="w">      </span><span class="s">consent_records,</span><span class="nv"> </span><span class="s">retain_until,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">related</span><span class="nv"> </span><span class="s">privacy</span><span class="nv"> </span><span class="s">slots</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">Person.</span>
+
+<span class="w">      </span><span class="s">&#39;</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersonRelationship</span>
+<span class="w">    </span><span class="nt">multivalued</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unique local identifier.</span>

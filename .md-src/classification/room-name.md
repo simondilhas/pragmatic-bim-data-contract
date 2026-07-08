@@ -35,18 +35,12 @@ class n_RN_02["RN-02: Work"]
 class n_RN_02_10["RN-02-10: Individual work"]
 class n_RN_02_10_01["RN-02-10-01: Office"]
 class n_RN_02_10_02["RN-02-10-02: Open-Plan Office"]
-class n_RN_02_10_03["RN-02-10-03: Focus Room"]
-class n_RN_02_10_04["RN-02-10-04: Phone Booth"]
-class n_RN_02_10_05["RN-02-10-05: Coworking Space"]
 class n_RN_02_20["RN-02-20: Collaboration"]
 class n_RN_02_20_01["RN-02-20-01: Meeting Room"]
 class n_RN_02_20_02["RN-02-20-02: Conference Room"]
 class n_RN_02_20_03["RN-02-20-03: Break Room"]
-class n_RN_02_30["RN-02-30: Reception and administration"]
+class n_RN_02_30["RN-02-30: Reception"]
 class n_RN_02_30_01["RN-02-30-01: Reception"]
-class n_RN_02_30_02["RN-02-30-02: Administrative Office"]
-class n_RN_02_30_03["RN-02-30-03: Manager Office"]
-class n_RN_02_30_04["RN-02-30-04: Open Administrative Area"]
 class n_RN_03["RN-03: Circulation"]
 class n_RN_03_10["RN-03-10: Horizontal circulation"]
 class n_RN_03_10_01["RN-03-10-01: Corridor"]
@@ -57,9 +51,6 @@ class n_RN_03_20["RN-03-20: Vertical circulation"]
 class n_RN_03_20_01["RN-03-20-01: Stairwell"]
 class n_RN_03_20_02["RN-03-20-02: Elevator Lobby"]
 class n_RN_03_20_03["RN-03-20-03: Ramp"]
-class n_RN_03_20_04["RN-03-20-04: Landing"]
-class n_RN_03_30["RN-03-30: Activity-integral circulation"]
-class n_RN_03_30_01["RN-03-30-01: Gallery"]
 class n_RN_04["RN-04: Hygiene"]
 class n_RN_04_10["RN-04-10: Toilets"]
 class n_RN_04_10_01["RN-04-10-01: Male Toilet"]
@@ -70,8 +61,6 @@ class n_RN_04_20["RN-04-20: Wash and change"]
 class n_RN_04_20_01["RN-04-20-01: Shower Room"]
 class n_RN_04_20_02["RN-04-20-02: Changing Room"]
 class n_RN_04_20_03["RN-04-20-03: Locker Room"]
-class n_RN_04_30["RN-04-30: Coat check"]
-class n_RN_04_30_01["RN-04-30-01: Cloakroom"]
 class n_RN_05["RN-05: Healthcare"]
 class n_RN_05_10["RN-05-10: Inpatient care"]
 class n_RN_05_10_01["RN-05-10-01: Patient Room"]
@@ -177,7 +166,6 @@ class n_RN_12_20_02["RN-12-20-02: Mechanical Void"]
 class n_RN_12_20_03["RN-12-20-03: Air Space"]
 class n_RN_12_30["RN-12-30: Structural and special voids"]
 class n_RN_12_30_01["RN-12-30-01: Atrium Void"]
-class n_RN_12_30_02["RN-12-30-02: Structural Void"]
 class n_RN_12_30_03["RN-12-30-03: Interior Parking Stall"]
 n_RN_01 <|-- n_RN_01_10
 n_RN_01 <|-- n_RN_01_20
@@ -199,19 +187,12 @@ n_RN_02 <|-- n_RN_02_20
 n_RN_02 <|-- n_RN_02_30
 n_RN_02_10 <|-- n_RN_02_10_01
 n_RN_02_10 <|-- n_RN_02_10_02
-n_RN_02_10 <|-- n_RN_02_10_03
-n_RN_02_10 <|-- n_RN_02_10_04
-n_RN_02_10 <|-- n_RN_02_10_05
 n_RN_02_20 <|-- n_RN_02_20_01
 n_RN_02_20 <|-- n_RN_02_20_02
 n_RN_02_20 <|-- n_RN_02_20_03
 n_RN_02_30 <|-- n_RN_02_30_01
-n_RN_02_30 <|-- n_RN_02_30_02
-n_RN_02_30 <|-- n_RN_02_30_03
-n_RN_02_30 <|-- n_RN_02_30_04
 n_RN_03 <|-- n_RN_03_10
 n_RN_03 <|-- n_RN_03_20
-n_RN_03 <|-- n_RN_03_30
 n_RN_03_10 <|-- n_RN_03_10_01
 n_RN_03_10 <|-- n_RN_03_10_02
 n_RN_03_10 <|-- n_RN_03_10_03
@@ -219,11 +200,8 @@ n_RN_03_10 <|-- n_RN_03_10_04
 n_RN_03_20 <|-- n_RN_03_20_01
 n_RN_03_20 <|-- n_RN_03_20_02
 n_RN_03_20 <|-- n_RN_03_20_03
-n_RN_03_20 <|-- n_RN_03_20_04
-n_RN_03_30 <|-- n_RN_03_30_01
 n_RN_04 <|-- n_RN_04_10
 n_RN_04 <|-- n_RN_04_20
-n_RN_04 <|-- n_RN_04_30
 n_RN_04_10 <|-- n_RN_04_10_01
 n_RN_04_10 <|-- n_RN_04_10_02
 n_RN_04_10 <|-- n_RN_04_10_03
@@ -231,7 +209,6 @@ n_RN_04_10 <|-- n_RN_04_10_04
 n_RN_04_20 <|-- n_RN_04_20_01
 n_RN_04_20 <|-- n_RN_04_20_02
 n_RN_04_20 <|-- n_RN_04_20_03
-n_RN_04_30 <|-- n_RN_04_30_01
 n_RN_05 <|-- n_RN_05_10
 n_RN_05 <|-- n_RN_05_20
 n_RN_05 <|-- n_RN_05_30
@@ -329,7 +306,6 @@ n_RN_12_20 <|-- n_RN_12_20_01
 n_RN_12_20 <|-- n_RN_12_20_02
 n_RN_12_20 <|-- n_RN_12_20_03
 n_RN_12_30 <|-- n_RN_12_30_01
-n_RN_12_30 <|-- n_RN_12_30_02
 n_RN_12_30 <|-- n_RN_12_30_03
 ```
 
@@ -528,10 +504,10 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02-10</td>
 <td>RN-02</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Einzelarbeit</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Geschlossene und Fokus-Arbeitsplaetze.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Einzel- und Grossraumbueros.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Individual work</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Enclosed and focus workspaces.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Enclosed and open-plan workspaces.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -552,36 +528,6 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Open-Plan Office</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Open office landscape without full-height partitions.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-02-10-03</td>
-<td>RN-02-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Fokusraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Kleiner Raum fuer konzentrierte Einzelarbeit.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Focus Room</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Small room for concentrated individual work.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-02-10-04</td>
-<td>RN-02-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Telefonbox</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Kleine Kabine fuer Telefongespraeche.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Phone Booth</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Small enclosure for private calls.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-02-10-05</td>
-<td>RN-02-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Coworking-Flaeche</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Gemeinschaftlich genutzter flexibler Arbeitsraum.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Coworking Space</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Shared flexible workspace.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -627,11 +573,11 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-02-30</td>
 <td>RN-02</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Empfang und Verwaltung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Empfang, Fuehrung und offene Verwaltungsflaechen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Empfang</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Empfang und Wartebereich fuer Besucher.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Reception and administration</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Reception, management, and open administrative areas.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Reception</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Visitor reception and waiting area.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -642,36 +588,6 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Reception</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Visitor reception and waiting area.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-02-30-02</td>
-<td>RN-02-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Verwaltungsbuero</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Buero fuer Verwaltungspersonal.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Administrative Office</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Office for administrative staff.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-02-30-03</td>
-<td>RN-02-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Fuehrungsbuero</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Buero fuer Fuehrungsfunktionen.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Manager Office</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Office for management roles.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-02-30-04</td>
-<td>RN-02-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Offene Verwaltungsflaeche</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Offene Verwaltungsarbeitsflaeche.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Open Administrative Area</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Open administrative work area.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -738,10 +654,10 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-03-20</td>
 <td>RN-03</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Vertikale Erschliessung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Treppen, Rampen, Aufzuege und Podeste.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Treppen, Rampen und Aufzuege.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Vertical circulation</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Stairs, ramps, lifts, and landings.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Stairs, ramps, and lifts.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -772,36 +688,6 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Ramp</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Inclined accessible circulation route.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-03-20-04</td>
-<td>RN-03-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Podest</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Treppen- oder Rampenpodest.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Landing</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Stair or ramp landing platform.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-03-30</td>
-<td>RN-03</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Hauptnutzungserschliessung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Erschliessung als Teil der Hauptnutzung.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Activity-integral circulation</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Circulation spaces integral to the main building activity.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-03-30-01</td>
-<td>RN-03-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Galerie</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Erschliessungsgalerie als Teil der Hauptnutzung.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Gallery</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Circulation gallery integral to main activity.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -902,26 +788,6 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Locker Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room with personal lockers.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-04-30</td>
-<td>RN-04</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Mantelablage</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Garderobe und Mantelablage am Eingang.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Coat check</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Coat check and entry cloakroom spaces.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-04-30-01</td>
-<td>RN-04-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Garderobe</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Garderobe mit oder ohne Bedienung am Eingang.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Cloakroom</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Staffed or unstaffed coat check at entry.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1957,11 +1823,11 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-12-30</td>
 <td>RN-12</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Konstruktions- und Sonderraeume</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Atrien, Konstruktionshohlraeume und Innenparkierung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Sonderraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Atrien und Innenparkierung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Structural and special voids</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Atria, structural voids, and interior parking stalls.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Atria and interior parking stalls.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1972,16 +1838,6 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Atrium Void</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Multistory open interior volume.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>RN-12-30-02</td>
-<td>RN-12-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Konstruktionshohlraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Hohlraum in tragenden Bauteilen.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Structural Void</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Void within structural elements.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>

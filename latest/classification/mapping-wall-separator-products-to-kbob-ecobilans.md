@@ -27,8 +27,9 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `swp:SWP-MASONRY` | `relatedMatch` | `kbobbm:02-002` |
 | `swp:SWP-MASONRY` | `relatedMatch` | `kbobbm:02-006` |
 | `swp:SWP-ORTBETON` | `closeMatch` | `kbobbm:01-002` |
-| `swp:SWP-OTH` | `closeMatch` | `kbobbm:03-008` |
-| `swp:SWP-OTH` | `relatedMatch` | `kbobbm:01-002` |
+| `swp:SWP-OTH` | `closeMatch` | `kbobbm:01-002` |
+| `swp:SWP-OTH` | `relatedMatch` | `kbobbm:02-001` |
+| `swp:SWP-OTH` | `relatedMatch` | `kbobbm:07-005` |
 | `swp:SWP-PREFAB-CONC` | `closeMatch` | `kbobbm:01-042` |
 | `swp:SWP-PREFAB-CONC` | `relatedMatch` | `kbobbm:01-041` |
 | `swp:SWP-RAMMED-EARTH` | `closeMatch` | `kbobbm:03-020` |

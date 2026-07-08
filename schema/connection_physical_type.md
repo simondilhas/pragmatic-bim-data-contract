@@ -6,7 +6,7 @@ search:
 # Slot: connection_physical_type 
 
 
-_Classification of physical connector type (for example door, window, duct, pipe, cable)._
+_IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types._
 
 
 
@@ -85,8 +85,8 @@ URI: [pbs:connection_physical_type](https://schema.pragmaticbim.ch/connection_ph
 <details>
 ```yaml
 name: connection_physical_type
-description: Classification of physical connector type (for example door, window,
-  duct, pipe, cable).
+description: IFC-derived physical connector form (for example door, window, duct,
+  pipe, cable). Semantic role is expressed via connection_functional_types.
 from_schema: https://schema.pragmaticbim.ch
 rank: 1000
 domain_of:

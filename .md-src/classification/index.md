@@ -12,7 +12,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Building space name classification](room-name.md) | `abstract-room-name-classification/building-space-name-classification.skos.ttl` |
 | [Separator wall role classification](separator-wall-role.md) | `abstract-separator-classification/separator-wall-role-classification-en.skos.ttl` |
 | [Separator slab role classification](separator-slab-role.md) | `abstract-separator-classification/separator-slab-role-classification-en.skos.ttl` |
-| [Connection physical type classification](connection-physical-type.md) | `abstract-separator-classification/connection-physical-type-en.skos.ttl` |
+| [Connection functional type classification](connection-functional-type.md) | `abstract-connector-classification/connection-functional-type-en.skos.ttl` |
 | [Abstract workflow participant roles](roles.md) | `abstract-roles/roles.skos.ttl` |
 | [Document function classification](document-function.md) | `abstract-document-function/document-function.skos.ttl` |
 | [Abstract use case classification](usecase.md) | `abstract-usecase-classification/usecase-classification.skos.ttl` |
@@ -30,11 +30,19 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract slab separator products](slab-separator-product.md) | `abstract-separator-product-classification/slab-separator-products.skos.ttl` |
 | [Abstract door connector products](door-connector-product.md) | `abstract-connector-product-classification/door-connector-products.skos.ttl` |
 | [Abstract window connector products](window-connector-product.md) | `abstract-connector-product-classification/window-connector-products.skos.ttl` |
+| [Abstract MEP unit products](mep-unit-product.md) | `abstract-mep-product-classification/mep-unit-products.skos.ttl` |
+| [Abstract MEP terminal products](mep-terminal-product.md) | `abstract-mep-product-classification/mep-terminal-products.skos.ttl` |
+| [Abstract person relationship types](person-relationship-type.md) | `abstract-person-relationship-classification/person-relationship-type.skos.ttl` |
+| [Abstract topic classification](topic.md) | `abstract-topic-classification/topic-classification.skos.ttl` |
 
 ## Mappings
 
 | Mapping | Description |
 | --- | --- |
+| [Person relationship type to target kind mapping](mapping-person-relationship-type-to-target-kind.md) | `mapping/person-relationship-type-to-target-kind.mapping.ttl` |
+| [Connection functional type to physical type mapping](mapping-connection-functional-to-physical-type.md) | `mapping/connection-functional-to-physical-type.mapping.ttl` |
+| [MEP product to connection functional type mapping](mapping-mep-product-to-connection-functional-type.md) | `mapping/mep-product-to-connection-functional-type.mapping.ttl` |
+| [MEP product to IFC class mapping](mapping-mep-product-to-ifc-class.md) | `mapping/mep-product-to-ifc-class.mapping.ttl` |
 | [Separator role to space activity mapping](mapping-separator-role-to-space-activity.md) | `mapping/separator-role-to-space-activity.mapping.ttl` |
 | [Room activity to D0165 mapping](mapping-room-activity-to-d0165.md) | `mapping/abstract-room-classification-to-d0165.mapping.ttl` |
 | [D0165 to room activity mapping](mapping-d0165-to-room-activity.md) | `mapping/d0165-to-abstract-room-classification.mapping.ttl` |

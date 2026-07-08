@@ -17,10 +17,12 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | --- | --- | --- |
 | `ccp:CCP-GYPSUM-BOARD` | `closeMatch` | `kbobbm:05-021` |
 | `ccp:CCP-GYPSUM-BOARD` | `relatedMatch` | `kbobbm:03-008` |
-| `ccp:CCP-METAL-GRID` | `closeMatch` | `kbobbm:06-003` |
+| `ccp:CCP-METAL-GRID` | `closeMatch` | `kbobbm:06-012` |
 | `ccp:CCP-METAL-GRID` | `relatedMatch` | `kbobbm:06-001` |
+| `ccp:CCP-METAL-GRID` | `relatedMatch` | `kbobbm:06-002` |
 | `ccp:CCP-METAL-PANEL` | `closeMatch` | `kbobbm:06-002` |
-| `ccp:CCP-METAL-PANEL` | `relatedMatch` | `kbobbm:06-003` |
+| `ccp:CCP-METAL-PANEL` | `relatedMatch` | `kbobbm:06-001` |
+| `ccp:CCP-METAL-PANEL` | `relatedMatch` | `kbobbm:06-012` |
 | `ccp:CCP-METAL-SHEET` | `closeMatch` | `kbobbm:06-001` |
 | `ccp:CCP-METAL-SHEET` | `relatedMatch` | `kbobbm:06-002` |
 | `ccp:CCP-MINERAL-FIBRE` | `closeMatch` | `kbobbm:10-008` |

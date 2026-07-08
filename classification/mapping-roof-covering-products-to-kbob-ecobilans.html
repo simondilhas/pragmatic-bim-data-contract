@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,8 +421,8 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> Ordnet abstrakte Dachbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. Flachdach-Verbundsysteme nutzen Schicht-narrower fuer Daemmung und Abdichtung; geneigte und gebündelte Typen naechste Baugruppen- oder Materialzeile.</li>
-<li><strong>description (en):</strong> Maps abstract roof covering products to KBOB ecobilans rows. Flat roof composites use layer narrowers for insulation and membrane; pitched and bundled types map to closest assembly or material row where available.</li>
+<li><strong>description (de):</strong> Ordnet abstrakte Dachbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. Flachdach-Verbundsysteme nutzen Schicht-narrower fuer Daemmung und Abdichtung; geneigte und gebündelte Typen naechste Baugruppen- oder Materialzeile. RCP-SLATE ohne KBOB-Schieferzeile; 03.009 Hartsandsteinplatte als naechste Naturstein-Naeherung.</li>
+<li><strong>description (en):</strong> Maps abstract roof covering products to KBOB ecobilans rows. Flat roof composites use layer narrowers for insulation and membrane; pitched and bundled types map to closest assembly or material row where available. RCP-SLATE has no KBOB slate row; 03.009 hard sandstone slab used as closest natural-stone proxy.</li>
 <li><strong>title (de):</strong> Mapping abstrakter Dachbekleidungsprodukte nach KBOB Oekobilanz</li>
 <li><strong>title (en):</strong> Abstract roof covering products to KBOB ecobilans mapping</li>
 </ul>
@@ -594,12 +594,12 @@
 <tr>
 <td><code>rcp:RCP-SLATE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>kbobbm:05-025</code></td>
+<td><code>kbobbm:03-009</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-SLATE</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>kbobbm:03-010</code></td>
+<td><code>kbobbm:11-016</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-TILE-CLAY</code></td>
@@ -614,12 +614,17 @@
 <tr>
 <td><code>rcp:RCP-TILE-CONCRETE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>kbobbm:03-003</code></td>
+<td><code>kbobbm:03-001</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-TILE-CONCRETE</code></td>
 <td><code>relatedMatch</code></td>
 <td><code>kbobbm:01-042</code></td>
+</tr>
+<tr>
+<td><code>rcp:RCP-TILE-CONCRETE</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>kbobbm:03-002</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-WOOD-SHINGLE</code></td>

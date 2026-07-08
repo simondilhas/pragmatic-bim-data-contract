@@ -1,0 +1,49 @@
+{
+  "base_url": "https://schema.pragmaticbim.ch/v0.1.6",
+  "docs_index": "https://schema.pragmaticbim.ch/v0.1.6/index.html",
+  "schema_docs": "https://schema.pragmaticbim.ch/v0.1.6/schema/pragmatic-bim.docs.html",
+  "modules": [
+    {
+      "slug": "changes",
+      "id": "https://schema.pragmaticbim.ch/changes",
+      "title": "Pragmatic BIM Data Contract - Changes",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.1.6/changes/descriptor.json"
+    },
+    {
+      "slug": "cost/baseline-cost",
+      "id": "https://schema.pragmaticbim.ch/cost/baseline-cost",
+      "title": "Baseline unit prices and regional cost benchmarks",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.1.6/cost/baseline-cost/descriptor.json"
+    },
+    {
+      "slug": "entity/core",
+      "id": "https://schema.pragmaticbim.ch/entity/core",
+      "title": "Pragmatic BIM Data Contract - Entity Core",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.1.6/entity/core/descriptor.json"
+    },
+    {
+      "slug": "entity/performance",
+      "id": "https://schema.pragmaticbim.ch/entity/performance",
+      "title": "Pragmatic BIM Data Contract - Entity Performance",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.1.6/entity/performance/descriptor.json"
+    },
+    {
+      "slug": "entity/physical",
+      "id": "https://schema.pragmaticbim.ch/entity/physical",
+      "title": "Pragmatic BIM Data Contract - Entity Physical",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.1.6/entity/physical/descriptor.json"
+    },
+    {
+      "slug": "entity/requirements",
+      "id": "https://schema.pragmaticbim.ch/entity/requirements",
+      "title": "Pragmatic BIM Data Contract - Entity Requirements",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.1.6/entity/requirements/descriptor.json"
+    },
+    {
+      "slug": "entity/virtual",
+      "id": "https://schema.pragmaticbim.ch/entity/virtual",
+      "title": "Pragmatic BIM Data Contract - Entity Virtual",
+      "descriptor": "https://schema.pragmaticbim.ch/v0.1.6/entity/virtual/descriptor.json"
+    }
+  ]
+}
