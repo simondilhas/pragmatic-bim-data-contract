@@ -52,6 +52,12 @@ jobs:
             echo "No $CACHE_BRANCH branch found yet; starting fresh."
           fi
 
+          # Remove version directories nested inside version snapshots (legacy rsync bug).
+          for top in site/v*/; do
+            [ -d "$top" ] || continue
+            find "$top" -mindepth 1 -type d -name 'v*' -exec rm -rf {} +
+          done
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -78,21 +84,17 @@ jobs:
         run: |
           mkdir -p "site/latest" "site/$RELEASE_VERSION"
 
-          rsync -a \
-            --exclude '.md-src' \
-            --exclude '.html-build' \
-            --exclude 'latest' \
-            --exclude "$RELEASE_VERSION" \
-            --exclude 'versions.json' \
-            site/ "site/latest/"
+          RSYNC_EXCLUDES=(
+            --exclude '.md-src'
+            --exclude '.html-build'
+            --exclude 'latest'
+            --exclude "$RELEASE_VERSION"
+            --exclude 'versions.json'
+            --exclude 'v*/'
+          )
 
-          rsync -a \
-            --exclude '.md-src' \
-            --exclude '.html-build' \
-            --exclude 'latest' \
-            --exclude "$RELEASE_VERSION" \
-            --exclude 'versions.json' \
-            site/ "site/$RELEASE_VERSION/"
+          rsync -a "${RSYNC_EXCLUDES[@]}" site/ "site/latest/"
+          rsync -a "${RSYNC_EXCLUDES[@]}" site/ "site/$RELEASE_VERSION/"
 
           python scripts/generate_module_pages.py \
             --site-dir "site/$RELEASE_VERSION" \
@@ -154,6 +156,11 @@ jobs:
           else
             git worktree add -b "$CACHE_BRANCH" "$CACHE_DIR"
           fi
+
+          for top in site/v*/; do
+            [ -d "$top" ] || continue
+            find "$top" -mindepth 1 -type d -name 'v*' -exec rm -rf {} +
+          done
 
           rsync -a --delete --exclude '.git' site/ "$CACHE_DIR"/
           touch "$CACHE_DIR/.nojekyll"
