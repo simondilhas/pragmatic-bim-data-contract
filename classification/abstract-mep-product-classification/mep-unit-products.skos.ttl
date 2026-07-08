@@ -1,0 +1,298 @@
+@prefix : <https://example.org/abstract/mep-unit-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract MEP unit products"@en ;
+  skos:prefLabel "Abstrakte TGA-Erzeuger-/Wandlerprodukte"@de ;
+  dcterms:title "Abstract MEP unit products"@en ;
+  dcterms:identifier "AbstractMepUnitProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-07-02" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for MEP generating or converting units (producer/converter role; aligns with SystemType.unit). For catalog, specification, and cost workflows on Equipment and grouped IfcSystem plant."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer TGA-Erzeuger- oder Wandlereinheiten (Erzeuger-/Wandlerrolle; entspricht SystemType.unit). Fuer Katalog-, Spezifikations- und Kostenworkflows auf Equipment und gruppierten IfcSystem-Anlagen."@de ;
+  skos:scopeNote "Default PBS entity is Equipment. When the IFC model groups plant as IfcSystem, pair with System.system_type = unit. Discipline token in notation must be compatible with parent system ConnectionFunctionalType via mapping bridge."@en ;
+  skos:scopeNote "Standard-PBS-Entitaet ist Equipment. Bei Gruppierung als IfcSystem mit System.system_type = unit kombinieren. Disziplin-Token in der Notation muss ueber Mapping-Bruecke mit ConnectionFunctionalType des Elternsystems kompatibel sein."@de ;
+  skos:hasTopConcept
+    :MUP-ELEC-TRANSFORMER,
+    :MUP-ELEC-MAIN-DIST-BOARD,
+    :MUP-ELEC-SUB-DIST-BOARD,
+    :MUP-ELEC-UPS,
+    :MUP-ELEC-GENERATOR,
+    :MUP-DATA-PATCH-PANEL,
+    :MUP-DATA-NETWORK-SWITCH,
+    :MUP-DATA-SERVER,
+    :MUP-VENT-AHU,
+    :MUP-VENT-FAN,
+    :MUP-HEAT-BOILER,
+    :MUP-HEAT-HEAT-PUMP,
+    :MUP-HEAT-DISTRICT-HEAT-SUBSTATION,
+    :MUP-COOL-CHILLER,
+    :MUP-COOL-FREE-COOLER,
+    :MUP-FW-PRESSURE-BOOSTER,
+    :MUP-FW-WATER-HEATER,
+    :MUP-WW-LIFTING-STATION,
+    :MUP-WW-GREASE-SEPARATOR,
+    :MUP-SM-COMPRESSOR,
+    :MUP-SM-GAS-REGULATOR,
+    :MUP-SM-FIRE-PUMP .
+
+# --- Electrical (ELEC) ---
+
+:MUP-ELEC-TRANSFORMER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-ELEC-TRANSFORMER" ;
+  skos:prefLabel "Transformer"@en ;
+  skos:prefLabel "Transformator"@de ;
+  skos:definition "Power transformer converting voltage for building distribution."@en ;
+  skos:definition "Leistungstransformator zur Spannungswandlung fuer die Gebaeudeverteilung."@de ;
+  dcterms:subject "IfcTransformer" ;
+  dcterms:identifier "transformer" .
+
+:MUP-ELEC-MAIN-DIST-BOARD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-ELEC-MAIN-DIST-BOARD" ;
+  skos:prefLabel "Main distribution board"@en ;
+  skos:prefLabel "Hauptverteilung"@de ;
+  skos:definition "Main electrical distribution board (Hauptverteilung) at building or site entry."@en ;
+  skos:definition "Hauptverteilung (HV) am Gebaeude- oder Anschlusseingang."@de ;
+  dcterms:subject "IfcElectricDistributionBoard" ;
+  dcterms:identifier "main-distribution-board" .
+
+:MUP-ELEC-SUB-DIST-BOARD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-ELEC-SUB-DIST-BOARD" ;
+  skos:prefLabel "Sub-distribution board"@en ;
+  skos:prefLabel "Unterverteilung"@de ;
+  skos:definition "Sub-distribution board (Unterverteilung) serving a floor, zone, or tenant."@en ;
+  skos:definition "Unterverteilung (UV) fuer Etage, Zone oder Mietbereich."@de ;
+  dcterms:subject "IfcElectricDistributionBoard" ;
+  dcterms:identifier "sub-distribution-board" .
+
+:MUP-ELEC-UPS a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-ELEC-UPS" ;
+  skos:prefLabel "Uninterruptible power supply"@en ;
+  skos:prefLabel "USV-Anlage"@de ;
+  skos:definition "Uninterruptible power supply (UPS) unit for critical loads."@en ;
+  skos:definition "Unterbrechungsfreie Stromversorgung (USV) fuer kritische Verbraucher."@de ;
+  dcterms:subject "IfcElectricFlowStorageDevice" ;
+  dcterms:identifier "ups" .
+
+:MUP-ELEC-GENERATOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-ELEC-GENERATOR" ;
+  skos:prefLabel "Backup generator"@en ;
+  skos:prefLabel "Notstromaggregat"@de ;
+  skos:definition "Standby or emergency electrical generator set."@en ;
+  skos:definition "Reserve- oder Notstromaggregat."@de ;
+  dcterms:subject "IfcElectricGenerator" ;
+  dcterms:identifier "generator" .
+
+# --- Data / ICT (DATA) ---
+
+:MUP-DATA-PATCH-PANEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-DATA-PATCH-PANEL" ;
+  skos:prefLabel "Patch panel"@en ;
+  skos:prefLabel "Patchpanel"@de ;
+  skos:definition "Structured cabling patch panel or cross-connect frame."@en ;
+  skos:definition "Patchpanel oder Kreuzschiene der strukturierten Verkabelung."@de ;
+  dcterms:subject "IfcCommunicationsAppliance" ;
+  dcterms:identifier "patch-panel" .
+
+:MUP-DATA-NETWORK-SWITCH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-DATA-NETWORK-SWITCH" ;
+  skos:prefLabel "Network switch / rack"@en ;
+  skos:prefLabel "Netzwerk-Switch / Rack"@de ;
+  skos:definition "Active network switch, router, or rack-mounted ICT distribution unit."@en ;
+  skos:definition "Aktiver Netzwerk-Switch, Router oder rackmontierte ICT-Verteilungseinheit."@de ;
+  dcterms:subject "IfcCommunicationsAppliance" ;
+  dcterms:identifier "network-switch" .
+
+:MUP-DATA-SERVER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-DATA-SERVER" ;
+  skos:prefLabel "Server"@en ;
+  skos:prefLabel "Server"@de ;
+  skos:definition "Server or edge compute appliance in building ICT infrastructure."@en ;
+  skos:definition "Server oder Edge-Compute-Appliance in der Gebaeude-ICT-Infrastruktur."@de ;
+  dcterms:subject "IfcCommunicationsAppliance" ;
+  dcterms:identifier "server" .
+
+# --- Ventilation (VENT) ---
+
+:MUP-VENT-AHU a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-VENT-AHU" ;
+  skos:prefLabel "Air handling unit / monoblock"@en ;
+  skos:prefLabel "Lueftungsgeraet / Monoblock"@de ;
+  skos:definition "Packaged air handling unit (AHU) or monoblock ventilation plant."@en ;
+  skos:definition "Packagiertes Lueftungsgeraet (RLT) oder Monoblock-Lueftungsanlage."@de ;
+  dcterms:subject "IfcUnitaryEquipment" ;
+  dcterms:identifier "ahu" .
+
+:MUP-VENT-FAN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-VENT-FAN" ;
+  skos:prefLabel "Fan"@en ;
+  skos:prefLabel "Ventilator"@de ;
+  skos:definition "Standalone supply, extract, or transfer fan unit."@en ;
+  skos:definition "Eigenstaendiger Zuluft-, Abluft- oder Umluft-Ventilator."@de ;
+  dcterms:subject "IfcFan" ;
+  dcterms:identifier "fan" .
+
+# --- Heating (HEAT) ---
+
+:MUP-HEAT-BOILER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-HEAT-BOILER" ;
+  skos:prefLabel "Boiler"@en ;
+  skos:prefLabel "Heizkessel"@de ;
+  skos:definition "Heat generator boiler for space or process heating."@en ;
+  skos:definition "Waermeerzeuger-Heizkessel fuer Raum- oder Prozesswaerme."@de ;
+  dcterms:subject "IfcBoiler" ;
+  dcterms:identifier "boiler" .
+
+:MUP-HEAT-HEAT-PUMP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-HEAT-HEAT-PUMP" ;
+  skos:prefLabel "Heat pump"@en ;
+  skos:prefLabel "Waermepumpe"@de ;
+  skos:definition "Heat pump unit for heating (and optionally cooling) operation."@en ;
+  skos:definition "Waermepumpenanlage fuer Heizbetrieb (optional auch Kuehlbetrieb)."@de ;
+  dcterms:subject "IfcUnitaryEquipment" ;
+  dcterms:identifier "heat-pump" .
+
+:MUP-HEAT-DISTRICT-HEAT-SUBSTATION a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-HEAT-DISTRICT-HEAT-SUBSTATION" ;
+  skos:prefLabel "District heat substation"@en ;
+  skos:prefLabel "Waermeuebergabestation"@de ;
+  skos:definition "District heating substation or heat interface unit (Waermeuebergabestation)."@en ;
+  skos:definition "Fernwaermeuebergabestation oder Waermeuebergabestation."@de ;
+  dcterms:subject "IfcHeatExchanger" ;
+  dcterms:identifier "district-heat-substation" .
+
+# --- Cooling (COOL) ---
+
+:MUP-COOL-CHILLER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-COOL-CHILLER" ;
+  skos:prefLabel "Chiller"@en ;
+  skos:prefLabel "Kaelteanlage / Kaeltemaschine"@de ;
+  skos:definition "Chiller plant producing chilled water or direct expansion cooling."@en ;
+  skos:definition "Kaelteanlage zur Erzeugung von Kaltwasser oder Direktverdampfungskuehlung."@de ;
+  dcterms:subject "IfcChiller" ;
+  dcterms:identifier "chiller" .
+
+:MUP-COOL-FREE-COOLER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-COOL-FREE-COOLER" ;
+  skos:prefLabel "Free cooler"@en ;
+  skos:prefLabel "Freecooler"@de ;
+  skos:definition "Dry cooler, cooling tower, or free-cooling heat rejection unit."@en ;
+  skos:definition "Trockenkuehler, Kuehlturm oder Freecooling-Waermeabgabeeinheit."@de ;
+  dcterms:subject "IfcCoolingTower" ;
+  dcterms:identifier "free-cooler" .
+
+# --- Fresh water (FW) ---
+
+:MUP-FW-PRESSURE-BOOSTER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-FW-PRESSURE-BOOSTER" ;
+  skos:prefLabel "Pressure booster"@en ;
+  skos:prefLabel "Druckerhoehungsanlage"@de ;
+  skos:definition "Potable water pressure booster pump set (Druckerhoehung)."@en ;
+  skos:definition "Trinkwasser-Druckerhoehungsanlage."@de ;
+  dcterms:subject "IfcPump" ;
+  dcterms:identifier "pressure-booster" .
+
+:MUP-FW-WATER-HEATER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-FW-WATER-HEATER" ;
+  skos:prefLabel "Water heater / DHW boiler"@en ;
+  skos:prefLabel "Warmwasserbereiter"@de ;
+  skos:definition "Domestic hot water heater or boiler (Warmwasserbereiter)."@en ;
+  skos:definition "Warmwasserbereiter oder Brauchwassererwaermer."@de ;
+  dcterms:subject "IfcBoiler" ;
+  dcterms:identifier "water-heater" .
+
+# --- Waste water (WW) ---
+
+:MUP-WW-LIFTING-STATION a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-WW-LIFTING-STATION" ;
+  skos:prefLabel "Lifting station"@en ;
+  skos:prefLabel "Hebeanlage"@de ;
+  skos:definition "Wastewater lifting or pumping station (Hebeanlage)."@en ;
+  skos:definition "Abwasser-Hebeanlage oder Foerderstation."@de ;
+  dcterms:subject "IfcPump" ;
+  dcterms:identifier "lifting-station" .
+
+:MUP-WW-GREASE-SEPARATOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-WW-GREASE-SEPARATOR" ;
+  skos:prefLabel "Grease separator"@en ;
+  skos:prefLabel "Fettabscheider"@de ;
+  skos:definition "Grease or oil separator for kitchen or process wastewater."@en ;
+  skos:definition "Fett- oder Oelabscheider fuer Kuechen- oder Prozessabwasser."@de ;
+  dcterms:subject "IfcTank" ;
+  dcterms:identifier "grease-separator" .
+
+# --- Special media (SM) ---
+
+:MUP-SM-COMPRESSOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-SM-COMPRESSOR" ;
+  skos:prefLabel "Compressed air compressor"@en ;
+  skos:prefLabel "Druckluftkompressor"@de ;
+  skos:definition "Compressed air generation compressor unit."@en ;
+  skos:definition "Drucklufterzeugungs-Kompressor."@de ;
+  dcterms:subject "IfcCompressor" ;
+  dcterms:identifier "compressor" .
+
+:MUP-SM-GAS-REGULATOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-SM-GAS-REGULATOR" ;
+  skos:prefLabel "Gas pressure regulator"@en ;
+  skos:prefLabel "Gasdruckregler"@de ;
+  skos:definition "Gas pressure regulation or metering station."@en ;
+  skos:definition "Gasdruckregel- oder Messstation."@de ;
+  dcterms:subject "IfcFlowMeter" ;
+  dcterms:identifier "gas-regulator" .
+
+:MUP-SM-FIRE-PUMP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MUP-SM-FIRE-PUMP" ;
+  skos:prefLabel "Fire pump"@en ;
+  skos:prefLabel "Sprinklerpumpe / Loeschwasserpumpe"@de ;
+  skos:definition "Fire suppression or sprinkler pump set."@en ;
+  skos:definition "Sprinkler- oder Loeschwasserpumpenanlage."@de ;
+  dcterms:subject "IfcPump" ;
+  dcterms:identifier "fire-pump" .

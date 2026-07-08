@@ -29,8 +29,8 @@ SANITARY_SUFFIXES = (
 # Manual overrides: armasuisse label (base, after sanitary strip) -> abstract notation.
 MANUAL_OVERRIDES: dict[str, str] = {
     "Büroräume": "RN-WRK-OFF",
-    "Büroräume Verwaltung": "RN-WRK-ADM",
-    "Büroräume Profi (Kdo)": "RN-WRK-MNG",
+    "Büroräume Verwaltung": "RN-WRK-OFF",
+    "Büroräume Profi (Kdo)": "RN-WRK-OFF",
     "Büroräume Miliz (Kp)": "RN-WRK-OFF",
     "Grossraumbüro": "RN-WRK-OPN",
     "Besprechungsraum": "RN-WRK-MTG",
@@ -80,7 +80,7 @@ MANUAL_OVERRIDES: dict[str, str] = {
     "Bürotechnik": "RN-TEC-COM",
     "Fahrzeugabstellfläche": "RN-VOI-PRK",
     "Fahrzeugverkehrsfläche": "RN-VOI-PRK",
-    "Konstruktionsraum": "RN-VOI-STR",
+    "Konstruktionsraum": "RN-VOI-MCH",
     "Luftraum": "RN-VOI-AIR",
     "Raum für operative Eingriffe": "RN-HLC-OR",
     "Raum mit allgemeiner medizinischer Ausstattung": "RN-HLC-TRT",
@@ -98,13 +98,13 @@ MANUAL_OVERRIDES: dict[str, str] = {
     "Aussenanlagen Sport": "RN-OUT-PLY",
     "Wasserbecken": "RN-OUT-SPL",
     "Strasse/Weg": "RN-OUT-CWK",
-    "Sonstige Nutzung allgemein": "RN-WRK-OAD",
+    "Sonstige Nutzung allgemein": "RN-WRK-OPN",
 }
 
 KEYWORD_RULES: list[tuple[str, str]] = [
     (r"\bwc\b|toilette|sanitär|klosett", "RN-HYG-WC-MIX"),
     (r"dusch|umkleid", "RN-HYG-SHW"),
-    (r"garderobe|cloak", "RN-HYG-GRD"),
+    (r"garderobe|cloak", "RN-CIR-ENT"),
     (r"schliessfach|locker", "RN-HYG-LCK"),
     (r"büro|office", "RN-WRK-OFF"),
     (r"besprech|meeting", "RN-WRK-MTG"),

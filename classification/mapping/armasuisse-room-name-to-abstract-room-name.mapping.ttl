@@ -25,7 +25,7 @@ arma:raumliste_innen_aufzugs_und_f_rderanlagen skos:closeMatch rn:RN_CIR_ELV ;
   skos:prefLabel "Aufzugs- und Förderanlagen"@de .
 arma:raumliste_innen_werkst_tten skos:closeMatch rn:RN_IND_WRK ;
   skos:prefLabel "Werkstätten"@de .
-arma:raumliste_innen_sonstige_nutzung_allgemein skos:closeMatch rn:RN_WRK_OAD ;
+arma:raumliste_innen_sonstige_nutzung_allgemein skos:closeMatch rn:RN_WRK_OPN ;
   skos:prefLabel "Sonstige Nutzung allgemein"@de .
 arma:raumliste_innen_bibliotheksr_ume skos:closeMatch rn:RN_LRN_LIB ;
   skos:prefLabel "Bibliotheksräume"@de .
@@ -37,9 +37,9 @@ arma:raumliste_innen_b_rotechnik_rechenzentrum skos:closeMatch rn:RN_TEC_SRV ;
   skos:prefLabel "Bürotechnik/Rechenzentrum"@de .
 arma:raumliste_innen_b_ror_ume skos:closeMatch rn:RN_WRK_OFF ;
   skos:prefLabel "Büroräume"@de .
-arma:raumliste_innen_b_ror_ume_profi_kdo skos:closeMatch rn:RN_WRK_MNG ;
+arma:raumliste_innen_b_ror_ume_profi_kdo skos:closeMatch rn:RN_WRK_OFF ;
   skos:prefLabel "Büroräume Profi (Kdo)"@de .
-arma:raumliste_innen_b_ror_ume_verwaltung skos:closeMatch rn:RN_WRK_ADM ;
+arma:raumliste_innen_b_ror_ume_verwaltung skos:closeMatch rn:RN_WRK_OFF ;
   skos:prefLabel "Büroräume Verwaltung"@de .
 arma:raumliste_innen_b_roarbeit_allgemein skos:closeMatch rn:RN_WRK_OFF ;
   skos:prefLabel "Büroarbeit allgemein"@de .
@@ -85,7 +85,7 @@ arma:raumliste_innen_betriebstechnische_anlagen skos:closeMatch rn:RN_TEC_HVC ;
   skos:prefLabel "Betriebstechnische Anlagen"@de .
 arma:raumliste_innen_treppen skos:closeMatch rn:RN_CIR_STR ;
   skos:prefLabel "Treppen"@de .
-arma:raumliste_innen_konstruktionsraum skos:closeMatch rn:RN_VOI_STR ;
+arma:raumliste_innen_konstruktionsraum skos:closeMatch rn:RN_VOI_MCH ;
   skos:prefLabel "Konstruktionsraum"@de .
 arma:raumliste_innen_gemeinschaftsr_ume skos:closeMatch rn:RN_WRK_BRK ;
   skos:prefLabel "Gemeinschaftsräume"@de .
@@ -185,7 +185,7 @@ arma:raumliste_innen_umkleideraum skos:closeMatch rn:RN_HYG_SHW ;
   skos:prefLabel "Umkleideraum"@de .
 arma:raumliste_innen_garderoben_zu_duschen skos:closeMatch rn:RN_HYG_SHW ;
   skos:prefLabel "Garderoben zu Duschen"@de .
-arma:raumliste_innen_garderoben skos:closeMatch rn:RN_HYG_GRD ;
+arma:raumliste_innen_garderoben skos:closeMatch rn:RN_CIR_ENT ;
   skos:prefLabel "Garderoben"@de .
 arma:raumliste_innen_garderoben_zu_duschen_mit_sanit_reinrichtung_z_t2 skos:closeMatch rn:RN_HYG_WC_MIX ;
   skos:prefLabel "Garderoben zu Duschen mit Sanitäreinrichtung Z T2"@de .

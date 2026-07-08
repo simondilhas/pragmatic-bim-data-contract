@@ -86,6 +86,7 @@ classes:
     - privacy_policy_uri
     - redacted_at
     - redaction_reason
+    - person_relationships
   Company:
     is_a: Agent
     class_uri: pbs:Company
@@ -376,6 +377,25 @@ classes:
         required: true
       privacy_policy_uri:
         required: true
+  PersonRelationship:
+    class_uri: pbs:PersonRelationship
+    description: 'Typed link from a person to another agent or to a topic concept. The predicate is expressed as a
+      Classification referencing AbstractPersonRelationshipType. Exactly one of related_person, related_company, or
+      related_topic must be set; see the target-kind mapping for predicate-to-slot rules.
+
+      '
+    slots:
+    - relationship_type
+    - related_person
+    - related_company
+    - related_topic
+    - valid_from
+    - valid_to
+    - relationship_notes
+    - relationship_source
+    slot_usage:
+      relationship_type:
+        required: true
   LocalizedText:
     class_uri: pbs:LocalizedText
     description: Localized text value for a specific language tag.
@@ -529,6 +549,50 @@ slots:
   consent_notes:
     range: string
     description: Optional notes about how or where consent was captured.
+  person_relationships:
+    multivalued: true
+    range: PersonRelationship
+    inlined: true
+    description: 'Typed social, professional, commercial, and interest relationships to other agents or topic concepts.
+      May be populated manually or extracted from CRM stories via LLM; use relationship_source for provenance (for example
+      a Message id). May constitute personal data; governed by personal_data_processing_state, consent_records,
+      retain_until, and related privacy slots on this Person.
+
+      '
+  relationship_type:
+    range: Classification
+    inlined: true
+    description: 'Relationship predicate. classification_scheme must be AbstractPersonRelationshipType; classification_code
+      and classification_uri reference the SKOS concept.
+
+      '
+  related_person:
+    range: Person
+    inlined: false
+    description: Target person for social and professional predicates such as knows, was_colleague_of, reports_to, or has_key_account_manager.
+  related_company:
+    range: Company
+    inlined: false
+    description: Target organization for org and commercial predicates such as works_at, worked_at, is_key_account_manager_for, client_of, or vendor_of.
+  related_topic:
+    range: Classification
+    inlined: true
+    description: 'Topic of interest. classification_scheme must be AbstractTopicClassification; classification_uri
+      references the SKOS topic concept.
+
+      '
+  valid_from:
+    range: datetime
+    description: Optional start of the relationship period (for example employment start for worked_at).
+  valid_to:
+    range: datetime
+    description: Optional end of the relationship period (for example employment end for worked_at).
+  relationship_notes:
+    range: string
+    description: Optional free-text context for this relationship record.
+  relationship_source:
+    range: string
+    description: Optional provenance label (for example manual, crm:manual, llm:story-msg-0042, LinkedIn).
   operated_by:
     range: Company
     inlined: false

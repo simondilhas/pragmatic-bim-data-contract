@@ -182,8 +182,8 @@ def render_notation_migration() -> str:
         '  dcterms:title "Room name notation v1 to v2 mapping"@en ;',
         '  dcterms:title "Mapping Raumnamen-Notation v1 nach v2"@de ;',
         "  dcterms:references rn:scheme ;",
-        '  dcterms:description "Maps mnemonic v1 notation codes (RN-RES-BED) to numeric v2 leaf codes (RN-01-10-01). RN-CIR-AIS is superseded by RN-03-10-01 (Corridor). Regenerate with scripts/generate_room_name_vocabulary.py."@en ;',
-        '  dcterms:description "Ordnet mnemonische v1-Notation (RN-RES-BED) numerischen v2-Blattcodes (RN-01-10-01) zu. RN-CIR-AIS wird durch RN-03-10-01 (Flur) ersetzt. Regenerieren mit scripts/generate_room_name_vocabulary.py."@de .',
+        '  dcterms:description "Maps mnemonic v1 notation codes (RN-RES-BED) to numeric v2 leaf codes (RN-01-10-01). Superseded codes include RN-CIR-AIS (Corridor), RN-WRK-FCS/PHN (Office), RN-WRK-COW/OAD (Open-Plan Office), RN-WRK-ADM/MNG (Office), RN-CIR-LND (Stairwell), RN-CIR-GAL (Lobby), RN-HYG-GRD (Entrance Hall), and RN-VOI-STR (Mechanical Void). Regenerate with scripts/generate_room_name_vocabulary.py."@en ;',
+        '  dcterms:description "Ordnet mnemonische v1-Notation (RN-RES-BED) numerischen v2-Blattcodes (RN-01-10-01) zu. Ersetzte Codes u.a. RN-CIR-AIS (Flur), RN-WRK-FCS/PHN (Buero), RN-WRK-COW/OAD (Grossraumbuero), RN-WRK-ADM/MNG (Buero), RN-CIR-LND (Treppenhaus), RN-CIR-GAL (Eingangshalle), RN-HYG-GRD (Entree) und RN-VOI-STR (Technikhohlraum). Regenerieren mit scripts/generate_room_name_vocabulary.py."@de .',
         "",
     ]
 

@@ -24,16 +24,10 @@ rn:RN_RES_CLO ex:mapsToActivity abs:M_RES .
 rn:RN_RES_APT ex:mapsToActivity abs:M_RES .
 rn:RN_WRK_OFF ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_OPN ex:mapsToActivity abs:M_WRK_KNW .
-rn:RN_WRK_FCS ex:mapsToActivity abs:M_WRK_KNW .
-rn:RN_WRK_PHN ex:mapsToActivity abs:M_WRK_KNW .
-rn:RN_WRK_COW ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_MTG ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_CNF ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_BRK ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_REC ex:mapsToActivity abs:M_WRK_KNW .
-rn:RN_WRK_ADM ex:mapsToActivity abs:M_WRK_KNW .
-rn:RN_WRK_MNG ex:mapsToActivity abs:M_WRK_KNW .
-rn:RN_WRK_OAD ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_CIR_COR ex:mapsToActivity abs:S_CIR_HOR .
 rn:RN_CIR_LOB ex:mapsToActivity abs:S_CIR_HOR, abs:M_CIR .
 rn:RN_CIR_ENT ex:mapsToActivity abs:S_CIR_HOR .
@@ -41,8 +35,6 @@ rn:RN_CIR_VES ex:mapsToActivity abs:S_CIR_HOR .
 rn:RN_CIR_STR ex:mapsToActivity abs:S_CIR_VRT_MAN .
 rn:RN_CIR_ELV ex:mapsToActivity abs:S_CIR_VRT_MEC .
 rn:RN_CIR_RAM ex:mapsToActivity abs:S_CIR_VRT_MAN .
-rn:RN_CIR_LND ex:mapsToActivity abs:S_CIR_VRT_MAN .
-rn:RN_CIR_GAL ex:mapsToActivity abs:M_CIR .
 rn:RN_HYG_WC_M ex:mapsToActivity abs:S_HYG_WC_M .
 rn:RN_HYG_WC_F ex:mapsToActivity abs:S_HYG_WC_F .
 rn:RN_HYG_WC_IV ex:mapsToActivity abs:S_HYG_WC_IV .
@@ -50,7 +42,6 @@ rn:RN_HYG_WC_MIX ex:mapsToActivity abs:S_HYG_WC_MIX .
 rn:RN_HYG_SHW ex:mapsToActivity abs:S_HYG_SHW .
 rn:RN_HYG_CHG ex:mapsToActivity abs:S_HYG_SHW .
 rn:RN_HYG_LCK ex:mapsToActivity abs:S_STO_LCK .
-rn:RN_HYG_GRD ex:mapsToActivity abs:S_HYG_GRD .
 rn:RN_HLC_PAT ex:mapsToActivity abs:M_HEL .
 rn:RN_HLC_RCV ex:mapsToActivity abs:M_HEL .
 rn:RN_HLC_TRT ex:mapsToActivity abs:M_HEL .
@@ -125,5 +116,4 @@ rn:RN_VOI_PLN ex:mapsToActivity abs:S_VOI_PLN .
 rn:RN_VOI_MCH ex:mapsToActivity abs:S_VOI_PLN .
 rn:RN_VOI_AIR ex:mapsToActivity abs:S_VOI .
 rn:RN_VOI_ATR ex:mapsToActivity abs:S_VOI_MLT .
-rn:RN_VOI_STR ex:mapsToActivity abs:S_VOI_STR .
 rn:RN_VOI_PRK ex:mapsToActivity abs:S_PRK_INT .

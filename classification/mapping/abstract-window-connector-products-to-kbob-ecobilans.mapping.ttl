@@ -9,8 +9,8 @@ map:abstractWindowConnectorProductsToKbobEcobilansMapping a dcterms:Dataset ;
   dcterms:title "Mapping abstrakter Fenster-Verbindungsprodukte nach KBOB Oekobilanz"@de ;
   dcterms:references wicp:scheme, kbobbm:scheme ;
   dcterms:issued "2026-07-01" ;
-  dcterms:description "Maps abstract window connector products to KBOB ecobilans rows. Frame and glazing layers use skos:closeMatch on narrower concepts; parent window types use skos:relatedMatch for the default 2-pane recipe. Facade glazing units map to the full curtain-wall assembly row."@en ;
-  dcterms:description "Ordnet abstrakte Fenster-Verbindungsprodukte KBOB-Oekobilanz-Zeilen zu. Rahmen- und Verglasungsschichten per skos:closeMatch auf narrower-Konzepte; Eltern-Fenstertypen skos:relatedMatch fuer Standard-2-fach-Rezept."@de .
+  dcterms:description "Maps abstract window connector products to KBOB ecobilans rows. Frame and glazing layers use skos:closeMatch on narrower concepts; parent window types use skos:relatedMatch for the default 2-pane recipe. Facade glazing units map to the full curtain-wall assembly row. WICP-STEEL-FRAME has no KBOB steel window-frame row; 05.004 aluminium frame used as structural proxy with 06.012 steel profile as material fallback."@en ;
+  dcterms:description "Ordnet abstrakte Fenster-Verbindungsprodukte KBOB-Oekobilanz-Zeilen zu. Rahmen- und Verglasungsschichten per skos:closeMatch auf narrower-Konzepte; Eltern-Fenstertypen skos:relatedMatch fuer Standard-2-fach-Rezept. WICP-STEEL-FRAME ohne KBOB-Stahl-Fensterrahmen-Zeile; 05.004 Aluminiumrahmen als strukturelle Naeherung mit 06.012 Stahlprofil als Material-Fallback."@de .
 
 # --- Wood window ---
 

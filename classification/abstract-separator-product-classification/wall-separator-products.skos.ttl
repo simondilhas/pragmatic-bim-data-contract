@@ -1,4 +1,6 @@
 @prefix : <https://example.org/abstract/wall-separator-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix map: <https://example.org/mapping/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -11,6 +13,9 @@
   dcterms:issued "2026-06-30" ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractWallSeparatorProductsToKbobEcobilansMapping, kbobbm:scheme ;
+  skos:scopeNote "Embodied carbon: resolve product notation via the referenced KBOB ecobilans mapping bridge (skos:closeMatch on layer narrowers where present; skos:relatedMatch on parent composites). Links KBOB Baumaterialien row notations only; obtain indicator values from the official KBOB ecobilans dataset."@en ;
+  skos:scopeNote "Graue Emissionen: Produktnotation ueber referenzierte KBOB-Oekobilanz-Mapping-Bruecke aufloesen (skos:closeMatch auf Schicht-narrower; skos:relatedMatch auf Eltern-Verbundprodukte). Verknuepft nur KBOB-Baumaterialien-Zeilennotationen; Kennwerte aus offiziellem KBOB-Oekobilanzdatensatz beziehen."@de ;
   skos:definition "Product-type classification for wall-based separating elements (SeparatorWall). Tags construction or system product type for catalog, specification, and cost workflows. Pair with separator wall role classification (W-EXT, W-INT, …) for topological position and with abstract material classification for dominant substance."@en ;
   skos:definition "Produkttyp-Klassifikation fuer wandbasierte Trennelemente (SeparatorWall). Kennzeichnet Bau- oder Systemprodukttyp fuer Katalog-, Spezifikations- und Kostenworkflows. Mit Trennwandrollen-Klassifikation (W-EXT, W-INT, …) fuer topologische Lage und mit abstrakter Materialklassifikation fuer dominante Substanz kombinieren."@de ;
   skos:scopeNote "Interior vs exterior position is not encoded here; use Building Separator Wall Role Classification (W-EXT, W-INT, W-PRT, …) on the SeparatorWall entity."@en ;

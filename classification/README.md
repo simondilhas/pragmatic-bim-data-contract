@@ -17,14 +17,18 @@ classification/
 ├── abstract-room-name-classification/  # SKOS — normalized room name types
 ├── abstract-metric-definition/         # SKOS — building-level area, volume, count metrics
 ├── abstract-ratio-definition/          # SKOS — dimensionless building KPIs
-├── abstract-separator-classification/  # SKOS
+├── abstract-separator-classification/  # SKOS — wall and slab separator roles
+├── abstract-connector-classification/  # SKOS — physical connection types (door, window, duct, …)
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
 ├── abstract-material-classification/   # SKOS
 ├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling, facade covering products
 ├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
 ├── abstract-connector-product-classification/  # SKOS — door and window connector products
+├── abstract-mep-product-classification/  # SKOS — MEP unit and terminal products
 ├── abstract-usecase-classification/    # SKOS — project lifecycle use cases
+├── abstract-person-relationship-classification/  # SKOS — CRM person relationship predicates
+├── abstract-topic-classification/      # SKOS — general person interests for CRM/LLM extraction
 └── mapping/                            # bridge TTL files
 ```
 
@@ -34,20 +38,27 @@ classification/
 | `abstract-room-name-classification/` | Normalized abstract room name types |
 | `abstract-metric-definition/` | Building-level area, volume, and count metrics |
 | `abstract-ratio-definition/` | Dimensionless building KPIs (quotients of metrics) |
-| `abstract-separator-classification/` | Wall/slab separator roles and connection types |
+| `abstract-separator-classification/` | Wall and slab separator roles |
+| `abstract-connector-classification/` | Functional connection types (electrical, access, ventilation, …) |
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
 | `abstract-material-classification/` | Abstract material categories |
 | `abstract-covering-product-classification/` | Floor, wall, ceiling, and facade covering product types |
 | `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
 | `abstract-connector-product-classification/` | Door and window connector product types (interior/exterior via BKP context) |
+| `abstract-mep-product-classification/` | MEP unit (producer/converter) and terminal (end device) product types |
 | `abstract-usecase-classification/` | Project lifecycle use cases (ordering, design, QA, construction, handover, operation, deconstruction) |
+| `abstract-person-relationship-classification/` | CRM person relationship predicates (knows, works_at, key account manager, has_interest, …) |
+| `abstract-topic-classification/` | General person interests (music, sport, travel, …) for CRM stories and LLM extraction |
 | `mapping/` | Crosswalks from abstract concepts to external code lists (SIA, D0165, BKP, …) |
 
 ## Mapping bridges
 
 | File | Links |
 |------|-------|
+| `mapping/connection-functional-to-physical-type.mapping.ttl` | Connection functional types → ConnectionPhysicalType enum values |
+| `mapping/mep-product-to-connection-functional-type.mapping.ttl` | MEP unit and terminal products → ConnectionFunctionalType disciplines |
+| `mapping/mep-product-to-ifc-class.mapping.ttl` | MEP unit and terminal products → IFC entity class hints |
 | `mapping/separator-role-to-space-activity.mapping.ttl` | Abstract separator roles → space activity |
 | `mapping/abstract-room-classification-to-d0165.mapping.ttl` | Space activity → SIA D0165 area codes |
 | `mapping/d0165-to-abstract-room-classification.mapping.ttl` | D0165 → space activity (reverse) |
@@ -70,15 +81,22 @@ classification/
 | `mapping/abstract-separator-products-to-bkp.mapping.ttl` | Abstract separator products → BKP 211–215 / 277 cost lines |
 | `mapping/abstract-connector-products-to-material.mapping.ttl` | Abstract door and window connector products → dominant material classes |
 | `mapping/abstract-connector-products-to-bkp.mapping.ttl` | Abstract door and window connector products → BKP 221.x / 272 / 273 / 224 cost lines |
-| `mapping/kbob-ecobilans-baumat.skos.ttl` | KBOB ecobilans Baumaterialien vocabulary (generated from Excel) |
-| `mapping/kbob-ecobilans-lca-factors.json` | LCA indicator values keyed by KBOB ecobilans concept IRI |
+| `mapping/kbob-ecobilans-baumat.skos.ttl` | KBOB ecobilans Baumaterialien vocabulary (row notations and IRIs; generated from Excel) |
 | `mapping/kbob-ecobilans-layer-recipes.json` | Default layer quantity rules for composite product carbon decomposition |
-| `mapping/abstract-slab-separator-products-to-kbob-ecobilans.mapping.ttl` | Abstract slab separator products → KBOB ecobilans rows |
-| `mapping/abstract-window-connector-products-to-kbob-ecobilans.mapping.ttl` | Abstract window connector products → KBOB ecobilans rows |
-| `mapping/abstract-facade-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract facade covering products → KBOB ecobilans rows |
-| `mapping/abstract-roof-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract roof covering products → KBOB ecobilans rows |
+| `mapping/abstract-floor-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract floor covering products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-wall-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract wall covering products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-ceiling-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract ceiling covering products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-facade-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract facade covering products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-roof-covering-products-to-kbob-ecobilans.mapping.ttl` | Abstract roof covering products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-wall-separator-products-to-kbob-ecobilans.mapping.ttl` | Abstract wall separator products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-slab-separator-products-to-kbob-ecobilans.mapping.ttl` | Abstract slab separator products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-window-connector-products-to-kbob-ecobilans.mapping.ttl` | Abstract window connector products → KBOB ecobilans Baumaterialien rows |
+| `mapping/abstract-door-connector-products-to-kbob-ecobilans.mapping.ttl` | Abstract door connector products → KBOB ecobilans Baumaterialien rows |
+| `mapping/person-relationship-type-to-target-kind.mapping.ttl` | Person relationship predicates → PersonRelationship target slot (related_person, related_company, related_topic) |
 
-Bridge files reference external IRIs by code. Full proprietary vocabularies are not shipped in this repository.
+Bridge files reference external IRIs by code. Full proprietary KBOB vocabularies and LCA indicator values are **not** redistributed in this repository — only row notations, concept IRIs, and mapping links. Obtain indicator values from the official KBOB ecobilans dataset. Product scheme nodes declare the mapping bridge via `dcterms:references` (see covering, separator, and window connector product vocabularies).
+
+Local authoring may use a gitignored JSON extract under `temp/` to validate mapping notations; do not commit KBOB workbook or JSON extracts.
 
 ## Subsystem product classification
 
@@ -118,6 +136,23 @@ BIM models separate insulation layer element?
 ```
 
 Do **not** use `MAT-INS` as primary `classification_code` on boundary elements when a subsystem parent exists. Do **not** add standalone assignable insulation topConcepts (e.g. generic roof insulation) — insulation belongs under the parent subsystem or as optional material metadata.
+
+## MEP product classification
+
+MEP unit (`MUP-*`) and terminal (`MTP-*`) products classify generating/converting plant and end devices on `Equipment`. They align with `SystemType.unit` and `SystemType.terminal` when elements are grouped in `IfcSystem`.
+
+| Slot | Scheme | Required? | Example |
+|------|--------|-----------|---------|
+| `classifications[].classification_code` | `AbstractMepUnitProduct` or `AbstractMepTerminalProduct` | When product type is known | `MUP-VENT-AHU` |
+| `equipment_type` | PBS enum | Yes (IFC-derived) | `hvac`, `electrical`, `plumbing`, `fire_safety`, `controls` |
+| Parent `System.system_type` | PBS enum | When grouped in `IfcSystem` | `unit` vs `terminal` |
+| Parent system functional context | Via system assignment | Validates discipline | ventilation system → `MUP-VENT-*` / `MTP-VENT-*` |
+
+**Validation rule (documented, not enforced in schema yet):** the discipline token in `MUP-*` / `MTP-*` notation must be compatible with the parent system's `ConnectionFunctionalType` (via [`mep-product-to-connection-functional-type.mapping.ttl`](mapping/mep-product-to-connection-functional-type.mapping.ttl)). `MTP-FIRE-*` cross-cutting terminals are exempt — discipline is inherited from the inline host system.
+
+**Notation:** `{PREFIX}-{DISC}-{PRODUCT}` where `PREFIX` is `MUP` or `MTP`, and `DISC` is `ELEC`, `DATA`, `VENT`, `HEAT`, `COOL`, `FW`, `WW`, `SM`, or `FIRE` (terminals only, cross-cutting).
+
+IFC ingestion hints: [`mep-product-to-ifc-class.mapping.ttl`](mapping/mep-product-to-ifc-class.mapping.ttl).
 
 ## Room name notation (v2)
 

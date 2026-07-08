@@ -1,4 +1,6 @@
 @prefix : <https://example.org/abstract/window-connector-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix map: <https://example.org/mapping/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -11,8 +13,11 @@
   dcterms:issued "2026-06-30" ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
-  skos:definition "Product-type classification for window connectors (ConnectionPhysical with connection_physical_type window). For catalog, specification, and cost workflows; pair with abstract material classification for frame and glazing substance."@en ;
-  skos:definition "Produkttyp-Klassifikation fuer Fenster-Verbindungen (ConnectionPhysical mit connection_physical_type window). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Verglasungssubstanz kombinieren."@de ;
+  dcterms:references map:abstractWindowConnectorProductsToKbobEcobilansMapping, kbobbm:scheme ;
+  skos:scopeNote "Embodied carbon: resolve product notation via the referenced KBOB ecobilans mapping bridge (skos:closeMatch on layer narrowers where present; skos:relatedMatch on parent composites). Links KBOB Baumaterialien row notations only; obtain indicator values from the official KBOB ecobilans dataset."@en ;
+  skos:scopeNote "Graue Emissionen: Produktnotation ueber referenzierte KBOB-Oekobilanz-Mapping-Bruecke aufloesen (skos:closeMatch auf Schicht-narrower; skos:relatedMatch auf Eltern-Verbundprodukte). Verknuepft nur KBOB-Baumaterialien-Zeilennotationen; Kennwerte aus offiziellem KBOB-Oekobilanzdatensatz beziehen."@de ;
+  skos:definition "Product-type classification for window connectors (ConnectionPhysical with functional type visual; IFC physical type window). For catalog, specification, and cost workflows; pair with abstract material classification for frame and glazing substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer Fenster-Verbindungen (ConnectionPhysical mit funktionalem Typ visual; IFC-physischer Typ window). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Verglasungssubstanz kombinieren."@de ;
   skos:scopeNote "Default PBS entity is ConnectionPhysical. Interior vs exterior position is not encoded here; BKP bridges use closeMatch for Rohbau 221.x (exterior) and relatedMatch for Ausbau 272/273 (interior) where applicable."@en ;
   skos:scopeNote "Standard-PBS-Entitaet ist ConnectionPhysical. Innen- vs Aussenlage ist hier nicht kodiert; BKP-Mappings mit closeMatch fuer Rohbau 221.x (aussen) und relatedMatch fuer Ausbau 272/273 (innen) wo zutreffend."@de ;
   skos:hasTopConcept

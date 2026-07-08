@@ -4,8 +4,8 @@ Source: [`door-connector-products.skos.ttl`](sources/door-connector-product.ttl)
 
 ## Scheme
 
-- **definition (de):** Produkttyp-Klassifikation fuer Tuer-Verbindungen (ConnectionPhysical mit connection_physical_type door). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Fuellsubstanz kombinieren.
-- **definition (en):** Product-type classification for door connectors (ConnectionPhysical with connection_physical_type door). For catalog, specification, and cost workflows; pair with abstract material classification for frame and infill substance.
+- **definition (de):** Produkttyp-Klassifikation fuer Tuer-Verbindungen (ConnectionPhysical mit funktionalem Typ access; IFC-physischer Typ door). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Fuellsubstanz kombinieren.
+- **definition (en):** Product-type classification for door connectors (ConnectionPhysical with functional type access; IFC physical type door). For catalog, specification, and cost workflows; pair with abstract material classification for frame and infill substance.
 - **prefLabel (de):** Abstrakte Tuer-Verbindungsprodukte
 - **prefLabel (en):** Abstract door connector products
 - **title (en):** Abstract door connector products

@@ -1,4 +1,6 @@
 @prefix : <https://example.org/abstract/facade-covering-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix map: <https://example.org/mapping/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
@@ -15,6 +17,9 @@
   dcterms:modified "2026-06-30"^^xsd:date ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractFacadeCoveringProductsToKbobEcobilansMapping, kbobbm:scheme ;
+  skos:scopeNote "Embodied carbon: resolve product notation via the referenced KBOB ecobilans mapping bridge (skos:closeMatch on layer narrowers where present; skos:relatedMatch on parent composites). Links KBOB Baumaterialien row notations only; obtain indicator values from the official KBOB ecobilans dataset."@en ;
+  skos:scopeNote "Graue Emissionen: Produktnotation ueber referenzierte KBOB-Oekobilanz-Mapping-Bruecke aufloesen (skos:closeMatch auf Schicht-narrower; skos:relatedMatch auf Eltern-Verbundprodukte). Verknuepft nur KBOB-Baumaterialien-Zeilennotationen; Kennwerte aus offiziellem KBOB-Oekobilanzdatensatz beziehen."@de ;
   dcterms:description "Enhanced product-type classification for European exterior facade claddings and ventilated facade systems, incorporating fire safety (EN 13501-1), thermal performance requirements (EPBD 2024), renovation/retrofit solutions (Fit-for-55), and emerging technologies (BIPV, prefabricated modular systems)."@en ;
   dcterms:description "Erweiterte Produkttyp-Klassifikation für europäische Aussenfassadenbekleidungen und vorgehängte Fassadensysteme, mit Brandschutz (EN 13501-1), Wärmeleistungsanforderungen (EPBD 2024), Renovierungs-/Sanierungslösungen (Fit-for-55) und neuartige Technologien (BIPV, vorgefertigte modulare Systeme)."@de ;
   skos:definition "Product-type classification for exterior facade claddings, ventilated facade systems, and retrofit solutions. Designed for European construction workflows incorporating fire performance (A1/A2-s1,d0 compliance), thermal insulation (EN ISO 6946, EN ISO 10077), energy retrofit, circular economy, and digital BIM-enabled processes. For catalog, specification, cost, and retrofit planning; pair with abstract material classification for dominant substance and regional building codes."@en ;

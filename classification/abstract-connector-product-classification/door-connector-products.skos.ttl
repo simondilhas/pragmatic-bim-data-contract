@@ -11,8 +11,8 @@
   dcterms:issued "2026-06-30" ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
-  skos:definition "Product-type classification for door connectors (ConnectionPhysical with connection_physical_type door). For catalog, specification, and cost workflows; pair with abstract material classification for frame and infill substance."@en ;
-  skos:definition "Produkttyp-Klassifikation fuer Tuer-Verbindungen (ConnectionPhysical mit connection_physical_type door). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Fuellsubstanz kombinieren."@de ;
+  skos:definition "Product-type classification for door connectors (ConnectionPhysical with functional type access; IFC physical type door). For catalog, specification, and cost workflows; pair with abstract material classification for frame and infill substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer Tuer-Verbindungen (ConnectionPhysical mit funktionalem Typ access; IFC-physischer Typ door). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Fuellsubstanz kombinieren."@de ;
   skos:scopeNote "Default PBS entity is ConnectionPhysical. Interior vs exterior position is not encoded here; BKP bridges use closeMatch for Rohbau 221.x (exterior) and relatedMatch for Ausbau 272/273 (interior) where applicable."@en ;
   skos:scopeNote "Standard-PBS-Entitaet ist ConnectionPhysical. Innen- vs Aussenlage ist hier nicht kodiert; BKP-Mappings mit closeMatch fuer Rohbau 221.x (aussen) und relatedMatch fuer Ausbau 272/273 (innen) wo zutreffend."@de ;
   skos:hasTopConcept

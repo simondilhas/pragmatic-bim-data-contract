@@ -28,10 +28,10 @@ ccp:CCP-SYNTHETIC skos:closeMatch kbobbm:05_023 ;
   skos:relatedMatch kbobbm:05_020 .
 
 ccp:CCP-METAL-PANEL skos:closeMatch kbobbm:06_002 ;
-  skos:relatedMatch kbobbm:06_003 .
+  skos:relatedMatch kbobbm:06_001, kbobbm:06_012 .
 
-ccp:CCP-METAL-GRID skos:closeMatch kbobbm:06_003 ;
-  skos:relatedMatch kbobbm:06_001 .
+ccp:CCP-METAL-GRID skos:closeMatch kbobbm:06_012 ;
+  skos:relatedMatch kbobbm:06_002, kbobbm:06_001 .
 
 ccp:CCP-OTH skos:closeMatch kbobbm:05_021 ;
   skos:relatedMatch kbobbm:06_002 .

@@ -374,6 +374,7 @@ content_kind: physical
 canonical_type: ConnectionPhysical.duct
 attributes:
   connection_physical_type: duct
+  connection_functional_types: [ventilation]
   transport_medium: air
 geometry:
   primary: axis        # centerline
@@ -382,6 +383,20 @@ relations:
   - IfcRelConnectsPathElements
   - IfcRelAssignsToSystem
 ```
+
+### Connection functional types
+
+`ConnectionPhysical.connection_functional_types` is a **multivalued** semantic assignment (SKOS vocabulary `ConnectionFunctionalType`). IFC ingestion sets a default where unambiguous; assign additional values when needed (for example glazed door → `[access, visual]`).
+
+| Rule | Behavior |
+|------|----------|
+| Multi-type | One connection may carry multiple functional types |
+| `opening_other` | Physical enum stays ambiguous; assign `access` and/or `visual` at functional-type stage |
+| `IfcPipeSegment` | Functional type inferred from `IfcDistributionSystem.PredefinedType` (heating, cooling, fresh_water, waste_water, special_media) |
+| `IfcOpeningElement` | No default functional types — assign per case |
+| `transport_medium` | Coarser bootstrap medium kept alongside functional types for ingestion |
+
+Physical type (`connection_physical_type`) remains IFC-derived and single-valued. See `classification/mapping/connection-functional-to-physical-type.mapping.ttl` for compatible physical forms per functional type.
 
 ### IfcSpace → Space (conditioning and above-ground)
 

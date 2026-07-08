@@ -218,6 +218,9 @@
       connection_physical_type:
         source: constant
         value: door
+      connection_functional_types:
+        source: constant
+        value: [access]
       transport_medium:
         source: constant
         value: human_access
@@ -243,9 +246,40 @@
       connection_physical_type:
         source: constant
         value: window
+      connection_functional_types:
+        source: constant
+        value: [visual]
       transport_medium:
         source: constant
         value: daylight_view
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelFillsElement
+      - IfcRelConnectsElements
+      - IfcRelAssociatesClassification
+
+  IfcOpeningElement:
+    content_kind: physical
+    canonical_type: ConnectionPhysical
+    notes: >
+      Physical type is opening_other. Assign connection_functional_types as access
+      and/or visual per case; no IFC default (same disambiguation as pipe segments).
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_door
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: opening_other
+      transport_medium:
+        source: constant
+        value: human_access
     geometry: *geometry_body_footprint
     relations:
       - IfcRelContainedInSpatialStructure

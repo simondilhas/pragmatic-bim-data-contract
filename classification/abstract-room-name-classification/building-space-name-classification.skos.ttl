@@ -47,7 +47,7 @@
   skos:prefLabel "Erschliessung"@de ;
   skos:definition "Normalized room names for circulation and access spaces."@en ;
   skos:definition "Normalisierte Raumbezeichnungen fuer Erschliessungsraeume."@de ;
-  skos:narrower :RN_CIR_HOR_GRP, :RN_CIR_VRT_GRP, :RN_CIR_INT_GRP ;
+  skos:narrower :RN_CIR_HOR_GRP, :RN_CIR_VRT_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03" .
 
@@ -59,7 +59,7 @@
   skos:prefLabel "Hygiene"@de ;
   skos:definition "Normalized room names for sanitary and changing spaces."@en ;
   skos:definition "Normalisierte Raumbezeichnungen fuer Hygiene- und Sanitaerraeume."@de ;
-  skos:narrower :RN_HYG_WC_GRP, :RN_HYG_WSH_GRP, :RN_HYG_CLK_GRP ;
+  skos:narrower :RN_HYG_WC_GRP, :RN_HYG_WSH_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04" .
 
@@ -200,10 +200,10 @@
   skos:notation "RN-02-10" ;
   skos:prefLabel "Individual work"@en ;
   skos:prefLabel "Einzelarbeit"@de ;
-  skos:definition "Enclosed and focus workspaces."@en ;
-  skos:definition "Geschlossene und Fokus-Arbeitsplaetze."@de ;
+  skos:definition "Enclosed and open-plan workspaces."@en ;
+  skos:definition "Einzel- und Grossraumbueros."@de ;
   skos:broader :RN_WRK ;
-  skos:narrower :RN_WRK_OFF, :RN_WRK_OPN, :RN_WRK_FCS, :RN_WRK_PHN, :RN_WRK_COW ;
+  skos:narrower :RN_WRK_OFF, :RN_WRK_OPN ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-10" .
 
@@ -222,12 +222,12 @@
 :RN_WRK_ADM_GRP a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-02-30" ;
-  skos:prefLabel "Reception and administration"@en ;
-  skos:prefLabel "Empfang und Verwaltung"@de ;
-  skos:definition "Reception, management, and open administrative areas."@en ;
-  skos:definition "Empfang, Fuehrung und offene Verwaltungsflaechen."@de ;
+  skos:prefLabel "Reception"@en ;
+  skos:prefLabel "Empfang"@de ;
+  skos:definition "Visitor reception and waiting area."@en ;
+  skos:definition "Empfang und Wartebereich fuer Besucher."@de ;
   skos:broader :RN_WRK ;
-  skos:narrower :RN_WRK_REC, :RN_WRK_ADM, :RN_WRK_MNG, :RN_WRK_OAD ;
+  skos:narrower :RN_WRK_REC ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-30" .
 
@@ -248,24 +248,12 @@
   skos:notation "RN-03-20" ;
   skos:prefLabel "Vertical circulation"@en ;
   skos:prefLabel "Vertikale Erschliessung"@de ;
-  skos:definition "Stairs, ramps, lifts, and landings."@en ;
-  skos:definition "Treppen, Rampen, Aufzuege und Podeste."@de ;
+  skos:definition "Stairs, ramps, and lifts."@en ;
+  skos:definition "Treppen, Rampen und Aufzuege."@de ;
   skos:broader :RN_CIR ;
-  skos:narrower :RN_CIR_STR, :RN_CIR_ELV, :RN_CIR_RAM, :RN_CIR_LND ;
+  skos:narrower :RN_CIR_STR, :RN_CIR_ELV, :RN_CIR_RAM ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03-20" .
-
-:RN_CIR_INT_GRP a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-03-30" ;
-  skos:prefLabel "Activity-integral circulation"@en ;
-  skos:prefLabel "Hauptnutzungserschliessung"@de ;
-  skos:definition "Circulation spaces integral to the main building activity."@en ;
-  skos:definition "Erschliessung als Teil der Hauptnutzung."@de ;
-  skos:broader :RN_CIR ;
-  skos:narrower :RN_CIR_GAL ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-03-30" .
 
 :RN_HYG_WC_GRP a skos:Concept ;
   skos:inScheme :scheme ;
@@ -290,18 +278,6 @@
   skos:narrower :RN_HYG_SHW, :RN_HYG_CHG, :RN_HYG_LCK ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04-20" .
-
-:RN_HYG_CLK_GRP a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-04-30" ;
-  skos:prefLabel "Coat check"@en ;
-  skos:prefLabel "Mantelablage"@de ;
-  skos:definition "Coat check and entry cloakroom spaces."@en ;
-  skos:definition "Garderobe und Mantelablage am Eingang."@de ;
-  skos:broader :RN_HYG ;
-  skos:narrower :RN_HYG_GRD ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-04-30" .
 
 :RN_HLC_INP_GRP a skos:Concept ;
   skos:inScheme :scheme ;
@@ -571,11 +547,11 @@
   skos:inScheme :scheme ;
   skos:notation "RN-12-30" ;
   skos:prefLabel "Structural and special voids"@en ;
-  skos:prefLabel "Konstruktions- und Sonderraeume"@de ;
-  skos:definition "Atria, structural voids, and interior parking stalls."@en ;
-  skos:definition "Atrien, Konstruktionshohlraeume und Innenparkierung."@de ;
+  skos:prefLabel "Sonderraeume"@de ;
+  skos:definition "Atria and interior parking stalls."@en ;
+  skos:definition "Atrien und Innenparkierung."@de ;
   skos:broader :RN_VOI ;
-  skos:narrower :RN_VOI_ATR, :RN_VOI_STR, :RN_VOI_PRK ;
+  skos:narrower :RN_VOI_ATR, :RN_VOI_PRK ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-12-30" .
 
@@ -733,39 +709,6 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-10-02" .
 
-:RN_WRK_FCS a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-02-10-03" ;
-  skos:prefLabel "Focus Room"@en ;
-  skos:prefLabel "Fokusraum"@de ;
-  skos:definition "Small room for concentrated individual work."@en ;
-  skos:definition "Kleiner Raum fuer konzentrierte Einzelarbeit."@de ;
-  skos:broader :RN_WRK_IND_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-02-10-03" .
-
-:RN_WRK_PHN a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-02-10-04" ;
-  skos:prefLabel "Phone Booth"@en ;
-  skos:prefLabel "Telefonbox"@de ;
-  skos:definition "Small enclosure for private calls."@en ;
-  skos:definition "Kleine Kabine fuer Telefongespraeche."@de ;
-  skos:broader :RN_WRK_IND_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-02-10-04" .
-
-:RN_WRK_COW a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-02-10-05" ;
-  skos:prefLabel "Coworking Space"@en ;
-  skos:prefLabel "Coworking-Flaeche"@de ;
-  skos:definition "Shared flexible workspace."@en ;
-  skos:definition "Gemeinschaftlich genutzter flexibler Arbeitsraum."@de ;
-  skos:broader :RN_WRK_IND_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-02-10-05" .
-
 :RN_WRK_MTG a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-02-20-01" ;
@@ -809,39 +752,6 @@
   skos:broader :RN_WRK_ADM_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-30-01" .
-
-:RN_WRK_ADM a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-02-30-02" ;
-  skos:prefLabel "Administrative Office"@en ;
-  skos:prefLabel "Verwaltungsbuero"@de ;
-  skos:definition "Office for administrative staff."@en ;
-  skos:definition "Buero fuer Verwaltungspersonal."@de ;
-  skos:broader :RN_WRK_ADM_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-02-30-02" .
-
-:RN_WRK_MNG a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-02-30-03" ;
-  skos:prefLabel "Manager Office"@en ;
-  skos:prefLabel "Fuehrungsbuero"@de ;
-  skos:definition "Office for management roles."@en ;
-  skos:definition "Buero fuer Fuehrungsfunktionen."@de ;
-  skos:broader :RN_WRK_ADM_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-02-30-03" .
-
-:RN_WRK_OAD a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-02-30-04" ;
-  skos:prefLabel "Open Administrative Area"@en ;
-  skos:prefLabel "Offene Verwaltungsflaeche"@de ;
-  skos:definition "Open administrative work area."@en ;
-  skos:definition "Offene Verwaltungsarbeitsflaeche."@de ;
-  skos:broader :RN_WRK_ADM_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-02-30-04" .
 
 :RN_CIR_COR a skos:Concept ;
   skos:inScheme :scheme ;
@@ -923,28 +833,6 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03-20-03" .
 
-:RN_CIR_LND a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-03-20-04" ;
-  skos:prefLabel "Landing"@en ;
-  skos:prefLabel "Podest"@de ;
-  skos:definition "Stair or ramp landing platform."@en ;
-  skos:definition "Treppen- oder Rampenpodest."@de ;
-  skos:broader :RN_CIR_VRT_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-03-20-04" .
-
-:RN_CIR_GAL a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-03-30-01" ;
-  skos:prefLabel "Gallery"@en ;
-  skos:prefLabel "Galerie"@de ;
-  skos:definition "Circulation gallery integral to main activity."@en ;
-  skos:definition "Erschliessungsgalerie als Teil der Hauptnutzung."@de ;
-  skos:broader :RN_CIR_INT_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-03-30-01" .
-
 :RN_HYG_WC_M a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-04-10-01" ;
@@ -1021,17 +909,6 @@
   skos:broader :RN_HYG_WSH_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04-20-03" .
-
-:RN_HYG_GRD a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-04-30-01" ;
-  skos:prefLabel "Cloakroom"@en ;
-  skos:prefLabel "Garderobe"@de ;
-  skos:definition "Staffed or unstaffed coat check at entry."@en ;
-  skos:definition "Garderobe mit oder ohne Bedienung am Eingang."@de ;
-  skos:broader :RN_HYG_CLK_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-04-30-01" .
 
 :RN_HLC_PAT a skos:Concept ;
   skos:inScheme :scheme ;
@@ -1846,17 +1723,6 @@
   skos:broader :RN_VOI_STR_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-12-30-01" .
-
-:RN_VOI_STR a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-12-30-02" ;
-  skos:prefLabel "Structural Void"@en ;
-  skos:prefLabel "Konstruktionshohlraum"@de ;
-  skos:definition "Void within structural elements."@en ;
-  skos:definition "Hohlraum in tragenden Bauteilen."@de ;
-  skos:broader :RN_VOI_STR_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-12-30-02" .
 
 :RN_VOI_PRK a skos:Concept ;
   skos:inScheme :scheme ;

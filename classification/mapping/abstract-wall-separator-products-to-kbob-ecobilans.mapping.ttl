@@ -40,5 +40,5 @@ swp:SWP-CURTAIN-WALL skos:closeMatch kbobbm:05_008 .
 swp:SWP-ELEMENT-WALL skos:closeMatch kbobbm:05_021 ;
   skos:relatedMatch kbobbm:03_008, kbobbm:07_014 .
 
-swp:SWP-OTH skos:closeMatch kbobbm:03_008 ;
-  skos:relatedMatch kbobbm:01_002 .
+swp:SWP-OTH skos:closeMatch kbobbm:01_002 ;
+  skos:relatedMatch kbobbm:02_001, kbobbm:07_005 .

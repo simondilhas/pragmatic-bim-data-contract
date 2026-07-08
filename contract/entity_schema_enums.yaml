@@ -504,6 +504,90 @@ enums:
           de:
             source: de
             description: Sonstiges Netz
+  ConnectionFunctionalType:
+    enum_uri: pbs:ConnectionFunctionalType
+    description: Functional classification of physical connections between spaces by transported medium or passage role.
+    permissible_values:
+      electrical:
+        description: Power distribution connection.
+        meaning: https://example.org/abstract/connection-functional-type/electrical
+        title: Electrical
+        alt_descriptions:
+          de:
+            source: de
+            description: Elektro
+      data:
+        description: Data, telecom, or building-automation connection.
+        meaning: https://example.org/abstract/connection-functional-type/data
+        title: Data / ICT
+        alt_descriptions:
+          de:
+            source: de
+            description: Daten / ICT
+      ventilation:
+        description: Air supply, extract, or transfer connection.
+        meaning: https://example.org/abstract/connection-functional-type/ventilation
+        title: Ventilation
+        alt_descriptions:
+          de:
+            source: de
+            description: Lueftung
+      heating:
+        description: Heating-medium supply or return connection.
+        meaning: https://example.org/abstract/connection-functional-type/heating
+        title: Heating
+        alt_descriptions:
+          de:
+            source: de
+            description: Heizung
+      cooling:
+        description: Cooling-medium supply or return connection.
+        meaning: https://example.org/abstract/connection-functional-type/cooling
+        title: Cooling
+        alt_descriptions:
+          de:
+            source: de
+            description: Kuehlung
+      fresh_water:
+        description: Potable or domestic water supply connection.
+        meaning: https://example.org/abstract/connection-functional-type/fresh_water
+        title: Fresh Water
+        alt_descriptions:
+          de:
+            source: de
+            description: Frischwasser
+      waste_water:
+        description: Drainage, sewage, or rainwater connection.
+        meaning: https://example.org/abstract/connection-functional-type/waste_water
+        title: Waste Water
+        alt_descriptions:
+          de:
+            source: de
+            description: Abwasser
+      special_media:
+        description: Gas, compressed air, fire suppression, vacuum, or other process-media connection.
+        meaning: https://example.org/abstract/connection-functional-type/special_media
+        title: Special Media
+        alt_descriptions:
+          de:
+            source: de
+            description: Sondermedien
+      access:
+        description: Physical passage of people or goods between spaces.
+        meaning: https://example.org/abstract/connection-functional-type/access
+        title: Access / Circulation
+        alt_descriptions:
+          de:
+            source: de
+            description: Erschliessung
+      visual:
+        description: Sightline or daylight connection without physical passage.
+        meaning: https://example.org/abstract/connection-functional-type/visual
+        title: Visual / Daylight
+        alt_descriptions:
+          de:
+            source: de
+            description: Sicht / Tageslicht
   ConnectionVirtualType:
     enum_uri: pbs:ConnectionVirtualType
     description: Classification of virtual connection semantics using schema-internal meanings because no stable 1:1 IFC mapping exists for these concepts.
@@ -907,30 +991,6 @@ enums:
           de:
             source: de
             description: Grossraumbuero
-      rn_02_10_03:
-        description: "Small room for concentrated individual work."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_FCS
-        title: Focus Room
-        alt_descriptions:
-          de:
-            source: de
-            description: Fokusraum
-      rn_02_10_04:
-        description: "Small enclosure for private calls."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_PHN
-        title: Phone Booth
-        alt_descriptions:
-          de:
-            source: de
-            description: Telefonbox
-      rn_02_10_05:
-        description: "Shared flexible workspace."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_COW
-        title: Coworking Space
-        alt_descriptions:
-          de:
-            source: de
-            description: Coworking-Flaeche
       rn_02_20_01:
         description: "Room for small group meetings."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MTG
@@ -963,30 +1023,6 @@ enums:
           de:
             source: de
             description: Empfang
-      rn_02_30_02:
-        description: "Office for administrative staff."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_ADM
-        title: Administrative Office
-        alt_descriptions:
-          de:
-            source: de
-            description: Verwaltungsbuero
-      rn_02_30_03:
-        description: "Office for management roles."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MNG
-        title: Manager Office
-        alt_descriptions:
-          de:
-            source: de
-            description: Fuehrungsbuero
-      rn_02_30_04:
-        description: "Open administrative work area."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_OAD
-        title: Open Administrative Area
-        alt_descriptions:
-          de:
-            source: de
-            description: Offene Verwaltungsflaeche
       rn_03_10_01:
         description: "Horizontal circulation passage, including narrow aisles between rows or functions."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_COR
@@ -1043,22 +1079,6 @@ enums:
           de:
             source: de
             description: Rampe
-      rn_03_20_04:
-        description: "Stair or ramp landing platform."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_LND
-        title: Landing
-        alt_descriptions:
-          de:
-            source: de
-            description: Podest
-      rn_03_30_01:
-        description: "Circulation gallery integral to main activity."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_GAL
-        title: Gallery
-        alt_descriptions:
-          de:
-            source: de
-            description: Galerie
       rn_04_10_01:
         description: "Toilet room for male use."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_WC_M
@@ -1115,14 +1135,6 @@ enums:
           de:
             source: de
             description: Schliessfachraum
-      rn_04_30_01:
-        description: "Staffed or unstaffed coat check at entry."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_HYG_GRD
-        title: Cloakroom
-        alt_descriptions:
-          de:
-            source: de
-            description: Garderobe
       rn_05_10_01:
         description: "Room for inpatient care and recovery."
         meaning: https://example.org/abstract/building-space-name-classification/RN_HLC_PAT
@@ -1715,14 +1727,6 @@ enums:
           de:
             source: de
             description: Atrium
-      rn_12_30_02:
-        description: "Void within structural elements."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_STR
-        title: Structural Void
-        alt_descriptions:
-          de:
-            source: de
-            description: Konstruktionshohlraum
       rn_12_30_03:
         description: "Individual parking space within a structure."
         meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_PRK

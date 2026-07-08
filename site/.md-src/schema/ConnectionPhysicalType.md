@@ -39,7 +39,7 @@ URI: [pbs:ConnectionPhysicalType](https://schema.pragmaticbim.ch/ConnectionPhysi
 
 | Name | Description |
 | ---  | --- |
-| [connection_physical_type](connection_physical_type.md) | Classification of physical connector type (for example door, window, duct, pipe, cable). |
+| [connection_physical_type](connection_physical_type.md) | IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types. |
 
 
 

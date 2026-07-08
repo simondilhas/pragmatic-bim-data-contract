@@ -694,6 +694,9 @@ entities:
       connection_physical_type:
         source: constant
         value: door
+      connection_functional_types:
+        source: constant
+        value: [access]
       transport_medium:
         source: constant
         value: human_access
@@ -719,9 +722,40 @@ entities:
       connection_physical_type:
         source: constant
         value: window
+      connection_functional_types:
+        source: constant
+        value: [visual]
       transport_medium:
         source: constant
         value: daylight_view
+    geometry: *geometry_body_footprint
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelFillsElement
+      - IfcRelConnectsElements
+      - IfcRelAssociatesClassification
+
+  IfcOpeningElement:
+    content_kind: physical
+    canonical_type: ConnectionPhysical
+    notes: >
+      Physical type is opening_other. Assign connection_functional_types as access
+      and/or visual per case; no IFC default (same disambiguation as pipe segments).
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_door
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: opening_other
+      transport_medium:
+        source: constant
+        value: human_access
     geometry: *geometry_body_footprint
     relations:
       - IfcRelContainedInSpatialStructure
@@ -1006,6 +1040,9 @@ entities:
       connection_physical_type:
         source: constant
         value: duct
+      connection_functional_types:
+        source: constant
+        value: [ventilation]
       transport_medium:
         source: constant
         value: air
@@ -1031,6 +1068,9 @@ entities:
       connection_physical_type:
         source: constant
         value: network_other
+      connection_functional_types:
+        source: constant
+        value: [ventilation]
       transport_medium:
         source: constant
         value: air
@@ -1059,6 +1099,68 @@ entities:
     geometry: *geometry_body_footprint
     relations:
       - IfcRelContainedInSpatialStructure
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcCableSegment:
+    content_kind: physical
+    canonical_type: ConnectionPhysical
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: cable
+      connection_functional_types:
+        source: ifc_relation_heuristic
+        default: [electrical]
+        rules:
+          - when_assigned_to_system_discipline: data
+            value: [data]
+      transport_medium:
+        source: constant
+        value: electricity
+    geometry: *geometry_axis_body
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsPathElements
+      - IfcRelAssignsToSystem
+      - IfcRelAssociatesClassification
+
+  IfcConduitSegment:
+    content_kind: physical
+    canonical_type: ConnectionPhysical
+    fields:
+      name: *name_fallback_chain
+      code_or_number:
+        source: ifc_pset_fallback
+        <<: *code_equipment
+      storey: *storey_from_containment
+      classifications: *classifications_mapping
+    attributes:
+      <<: *attributes_entity_base
+      connection_physical_type:
+        source: constant
+        value: conduit
+      connection_functional_types:
+        source: ifc_relation_heuristic
+        default: [electrical]
+        rules:
+          - when_assigned_to_system_discipline: data
+            value: [data]
+      transport_medium:
+        source: constant
+        value: electricity
+    geometry: *geometry_axis_body
+    relations:
+      - IfcRelContainedInSpatialStructure
+      - IfcRelConnectsPathElements
       - IfcRelAssignsToSystem
       - IfcRelAssociatesClassification
 
@@ -1120,6 +1222,23 @@ entities:
       connection_physical_type:
         source: constant
         value: pipe
+      connection_functional_types:
+        source: ifc_relation_heuristic
+        default: [special_media]
+        rules:
+          - when_assigned_to_system_predefined_type: [HEATING, DOMESTICHOTWATER]
+            value: [heating]
+          - when_assigned_to_system_predefined_type: [CHILLEDWATER, CONDENSERWATER]
+            value: [cooling]
+          - when_assigned_to_system_predefined_type: [DOMESTICCOLDWATER, WATERSUPPLY]
+            value: [fresh_water]
+          - when_assigned_to_system_predefined_type: [DRAINAGE, SEWAGE, WASTEWATER]
+            value: [waste_water]
+          - when_assigned_to_system_predefined_type: [GAS, FUEL]
+            value: [special_media]
+        notes: >
+          IfcPipeSegmentTypeEnum is segment form (RIGIDSEGMENT, FLEXIBLESEGMENT, …),
+          not fluid type. Infer functional type from IfcDistributionSystem PredefinedType.
       transport_medium:
         source: ifc_relation_heuristic
         default: liquid
@@ -1153,6 +1272,10 @@ entities:
       connection_physical_type:
         source: constant
         value: network_other
+      connection_functional_types:
+        source: ifc_relation_heuristic
+        default: [special_media]
+        inherit_from_connected: IfcPipeSegment
       transport_medium:
         source: ifc_relation_heuristic
         default: liquid

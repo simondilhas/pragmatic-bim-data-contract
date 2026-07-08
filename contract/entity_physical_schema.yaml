@@ -77,6 +77,7 @@ classes:
       cable).
     slots:
     - connection_physical_type
+    - connection_functional_types
     - transport_medium
     - frame_material
     - infill_material
@@ -106,7 +107,12 @@ slots:
   connection_physical_type:
     range: ConnectionPhysicalType
     required: true
-    description: Classification of physical connector type (for example door, window, duct, pipe, cable).
+    description: IFC-derived physical connector form (for example door, window, duct, pipe, cable). Semantic role is expressed via connection_functional_types.
+  connection_functional_types:
+    range: ConnectionFunctionalType
+    multivalued: true
+    required: true
+    description: Functional connection role(s) between spaces (for example access, visual, ventilation, heating). Multiple values allowed (for example glazed door as access plus visual).
   transport_medium:
     range: TransportMedium
     required: true

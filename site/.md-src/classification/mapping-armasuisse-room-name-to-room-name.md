@@ -29,8 +29,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `arma:raumliste-innen-ausstellungsr-ume` | `closeMatch` | `rn:RN-COM-EXH` |
 | `arma:raumliste-innen-b-roarbeit-allgemein` | `closeMatch` | `rn:RN-WRK-OFF` |
 | `arma:raumliste-innen-b-ror-ume` | `closeMatch` | `rn:RN-WRK-OFF` |
-| `arma:raumliste-innen-b-ror-ume-profi-kdo` | `closeMatch` | `rn:RN-WRK-MNG` |
-| `arma:raumliste-innen-b-ror-ume-verwaltung` | `closeMatch` | `rn:RN-WRK-ADM` |
+| `arma:raumliste-innen-b-ror-ume-profi-kdo` | `closeMatch` | `rn:RN-WRK-OFF` |
+| `arma:raumliste-innen-b-ror-ume-verwaltung` | `closeMatch` | `rn:RN-WRK-OFF` |
 | `arma:raumliste-innen-b-rotechnik` | `closeMatch` | `rn:RN-TEC-COM` |
 | `arma:raumliste-innen-b-rotechnik-rechenzentrum` | `closeMatch` | `rn:RN-TEC-SRV` |
 | `arma:raumliste-innen-badezimmer` | `closeMatch` | `rn:RN-RES-BTH` |
@@ -54,7 +54,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `arma:raumliste-innen-fahrzeugverkehrsfl-che` | `closeMatch` | `rn:RN-VOI-PRK` |
 | `arma:raumliste-innen-film-und-h-rs-le` | `closeMatch` | `rn:RN-LRN-LCT` |
 | `arma:raumliste-innen-flur-halle-korridore` | `closeMatch` | `rn:RN-CIR-COR` |
-| `arma:raumliste-innen-garderoben` | `closeMatch` | `rn:RN-HYG-GRD` |
+| `arma:raumliste-innen-garderoben` | `closeMatch` | `rn:RN-CIR-ENT` |
 | `arma:raumliste-innen-garderoben-duschenraum-z-t2` | `closeMatch` | `rn:RN-HYG-SHW` |
 | `arma:raumliste-innen-garderoben-zu-duschen` | `closeMatch` | `rn:RN-HYG-SHW` |
 | `arma:raumliste-innen-garderoben-zu-duschen-mit-sanit-reinrichtung-z-t2` | `closeMatch` | `rn:RN-HYG-WC-MIX` |
@@ -67,7 +67,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `arma:raumliste-innen-k-che` | `closeMatch` | `rn:RN-RES-KIT` |
 | `arma:raumliste-innen-k-chen` | `closeMatch` | `rn:RN-RES-KIT` |
 | `arma:raumliste-innen-kiosk` | `closeMatch` | `rn:RN-COM-KSK` |
-| `arma:raumliste-innen-konstruktionsraum` | `closeMatch` | `rn:RN-VOI-STR` |
+| `arma:raumliste-innen-konstruktionsraum` | `closeMatch` | `rn:RN-VOI-MCH` |
 | `arma:raumliste-innen-kraft-fitnessraum` | `closeMatch` | `rn:RN-LRN-WRK` |
 | `arma:raumliste-innen-kraft-fitnessraum-mit-sanit-reinrichtung-z-t1` | `closeMatch` | `rn:RN-HYG-WC-MIX` |
 | `arma:raumliste-innen-lagerr-ume` | `closeMatch` | `rn:RN-STO-GEN` |
@@ -95,7 +95,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `arma:raumliste-innen-schlafraum-zeitmilit-r-of-h-h-uof` | `closeMatch` | `rn:RN-RES-BED` |
 | `arma:raumliste-innen-schlafraum-zeitmilit-r-uof-sdt` | `closeMatch` | `rn:RN-RES-BED` |
 | `arma:raumliste-innen-sitzungszimmer` | `closeMatch` | `rn:RN-RES-BED` |
-| `arma:raumliste-innen-sonstige-nutzung-allgemein` | `closeMatch` | `rn:RN-WRK-OAD` |
+| `arma:raumliste-innen-sonstige-nutzung-allgemein` | `closeMatch` | `rn:RN-WRK-OPN` |
 | `arma:raumliste-innen-spezielle-arbeitszone-mit-sanit-ren-einrichtungen` | `closeMatch` | `rn:RN-HYG-WC-MIX` |
 | `arma:raumliste-innen-sporthalle` | `closeMatch` | `rn:RN-LRN-AUS` |
 | `arma:raumliste-innen-technologisches-labor` | `closeMatch` | `rn:RN-LRN-SCI` |

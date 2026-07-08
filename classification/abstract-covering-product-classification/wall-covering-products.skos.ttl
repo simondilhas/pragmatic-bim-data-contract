@@ -1,4 +1,6 @@
 @prefix : <https://example.org/abstract/wall-covering-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix map: <https://example.org/mapping/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -11,6 +13,9 @@
   dcterms:issued "2026-06-30" ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractWallCoveringProductsToKbobEcobilansMapping, kbobbm:scheme ;
+  skos:scopeNote "Embodied carbon: resolve product notation via the referenced KBOB ecobilans mapping bridge (skos:closeMatch on layer narrowers where present; skos:relatedMatch on parent composites). Links KBOB Baumaterialien row notations only; obtain indicator values from the official KBOB ecobilans dataset."@en ;
+  skos:scopeNote "Graue Emissionen: Produktnotation ueber referenzierte KBOB-Oekobilanz-Mapping-Bruecke aufloesen (skos:closeMatch auf Schicht-narrower; skos:relatedMatch auf Eltern-Verbundprodukte). Verknuepft nur KBOB-Baumaterialien-Zeilennotationen; Kennwerte aus offiziellem KBOB-Oekobilanzdatensatz beziehen."@de ;
   skos:definition "Product-type classification for interior wall coverings and claddings. For catalog, specification, and cost workflows; pair with abstract material classification for dominant substance."@en ;
   skos:definition "Produkttyp-Klassifikation fuer innere Wandbelaege und Verkleidungen. Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer dominante Substanz kombinieren."@de ;
   skos:scopeNote "Default PBS entity is Boundary with boundary_type cladding (IfcCovering CLADDING). Tags product or system type, not dominant substance alone."@en ;

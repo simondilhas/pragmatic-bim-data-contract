@@ -96,6 +96,7 @@ click StatusType href "./StatusType.html" _blank
 | [Project](Project.md) | [client](client.md) | range | [Company](Company.md) |
 | [Program](Program.md) | [client](client.md) | range | [Company](Company.md) |
 | [Product](Product.md) | [vendor](vendor.md) | range | [Company](Company.md) |
+| [PersonRelationship](PersonRelationship.md) | [related_company](related_company.md) | range | [Company](Company.md) |
 | [CostRecord](CostRecord.md) | [priced_for_customer](priced_for_customer.md) | range | [Company](Company.md) |
 
 

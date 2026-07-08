@@ -9,8 +9,8 @@ map:abstractRoofCoveringProductsToKbobEcobilansMapping a dcterms:Dataset ;
   dcterms:title "Mapping abstrakter Dachbekleidungsprodukte nach KBOB Oekobilanz"@de ;
   dcterms:references rcp:scheme, kbobbm:scheme ;
   dcterms:issued "2026-07-01" ;
-  dcterms:description "Maps abstract roof covering products to KBOB ecobilans rows. Flat roof composites use layer narrowers for insulation and membrane; pitched and bundled types map to closest assembly or material row where available."@en ;
-  dcterms:description "Ordnet abstrakte Dachbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. Flachdach-Verbundsysteme nutzen Schicht-narrower fuer Daemmung und Abdichtung; geneigte und gebündelte Typen naechste Baugruppen- oder Materialzeile."@de .
+  dcterms:description "Maps abstract roof covering products to KBOB ecobilans rows. Flat roof composites use layer narrowers for insulation and membrane; pitched and bundled types map to closest assembly or material row where available. RCP-SLATE has no KBOB slate row; 03.009 hard sandstone slab used as closest natural-stone proxy."@en ;
+  dcterms:description "Ordnet abstrakte Dachbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. Flachdach-Verbundsysteme nutzen Schicht-narrower fuer Daemmung und Abdichtung; geneigte und gebündelte Typen naechste Baugruppen- oder Materialzeile. RCP-SLATE ohne KBOB-Schieferzeile; 03.009 Hartsandsteinplatte als naechste Naturstein-Naeherung."@de .
 
 # --- Flat roof composites (layer decomposition) ---
 
@@ -41,11 +41,11 @@ rcp:RCP-METAL-SHEET skos:closeMatch kbobbm:06_001 ;
 rcp:RCP-TILE-CLAY skos:closeMatch kbobbm:03_010 ;
   skos:relatedMatch kbobbm:11_008 .
 
-rcp:RCP-TILE-CONCRETE skos:closeMatch kbobbm:03_003 ;
-  skos:relatedMatch kbobbm:01_042 .
+rcp:RCP-TILE-CONCRETE skos:closeMatch kbobbm:03_001 ;
+  skos:relatedMatch kbobbm:03_002, kbobbm:01_042 .
 
-rcp:RCP-SLATE skos:closeMatch kbobbm:05_025 ;
-  skos:relatedMatch kbobbm:03_010 .
+rcp:RCP-SLATE skos:closeMatch kbobbm:03_009 ;
+  skos:relatedMatch kbobbm:11_016 .
 
 rcp:RCP-WOOD-SHINGLE skos:closeMatch kbobbm:07_014 ;
   skos:relatedMatch kbobbm:07_003 .

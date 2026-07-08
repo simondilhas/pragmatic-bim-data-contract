@@ -18,9 +18,9 @@ vocabularies:
     path: abstract-separator-classification/separator-slab-role-classification-en.skos.ttl
     title: Separator slab role classification
 
-  - slug: connection-physical-type
-    path: abstract-separator-classification/connection-physical-type-en.skos.ttl
-    title: Connection physical type classification
+  - slug: connection-functional-type
+    path: abstract-connector-classification/connection-functional-type-en.skos.ttl
+    title: Connection functional type classification
 
   - slug: roles
     path: abstract-roles/roles.skos.ttl
@@ -90,7 +90,39 @@ vocabularies:
     path: abstract-connector-product-classification/window-connector-products.skos.ttl
     title: Abstract window connector products
 
+  - slug: mep-unit-product
+    path: abstract-mep-product-classification/mep-unit-products.skos.ttl
+    title: Abstract MEP unit products
+
+  - slug: mep-terminal-product
+    path: abstract-mep-product-classification/mep-terminal-products.skos.ttl
+    title: Abstract MEP terminal products
+
+  - slug: person-relationship-type
+    path: abstract-person-relationship-classification/person-relationship-type.skos.ttl
+    title: Abstract person relationship types
+
+  - slug: topic
+    path: abstract-topic-classification/topic-classification.skos.ttl
+    title: Abstract topic classification
+
 mappings:
+  - slug: person-relationship-type-to-target-kind
+    path: mapping/person-relationship-type-to-target-kind.mapping.ttl
+    title: Person relationship type to target kind mapping
+
+  - slug: connection-functional-to-physical-type
+    path: mapping/connection-functional-to-physical-type.mapping.ttl
+    title: Connection functional type to physical type mapping
+
+  - slug: mep-product-to-connection-functional-type
+    path: mapping/mep-product-to-connection-functional-type.mapping.ttl
+    title: MEP product to connection functional type mapping
+
+  - slug: mep-product-to-ifc-class
+    path: mapping/mep-product-to-ifc-class.mapping.ttl
+    title: MEP product to IFC class mapping
+
   - slug: separator-role-to-space-activity
     path: mapping/separator-role-to-space-activity.mapping.ttl
     title: Separator role to space activity mapping
