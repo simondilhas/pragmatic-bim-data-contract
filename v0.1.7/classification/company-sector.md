@@ -15,11 +15,13 @@ Source: [`company-sector-classification.skos.ttl`](sources/company-sector.ttl)
 ```mermaid
 classDiagram
 direction TB
-class n_SEC_BAU["SEC-BAU: Construction and built environment"]
+class n_SEC_BAU["SEC-BAU: Construction and real estate"]
 class n_SEC_BAU_CLI["SEC-BAU-CLI: Client side"]
 class n_SEC_BAU_CLI_DEV["SEC-BAU-CLI-DEV: Project developer"]
 class n_SEC_BAU_CLI_GC["SEC-BAU-CLI-GC: Design-build / total contractor"]
 class n_SEC_BAU_CLI_OWN["SEC-BAU-CLI-OWN: Building owner"]
+class n_SEC_BAU_CLI_OWN_PRV["SEC-BAU-CLI-OWN-PRV: Private building owner"]
+class n_SEC_BAU_CLI_OWN_PUB["SEC-BAU-CLI-OWN-PUB: Public building owner"]
 class n_SEC_BAU_CNT["SEC-BAU-CNT: Construction contracting"]
 class n_SEC_BAU_FM["SEC-BAU-FM: Facility and property management"]
 class n_SEC_BAU_PLN["SEC-BAU-PLN: Planning and design"]
@@ -71,6 +73,8 @@ n_SEC_BAU <|-- n_SEC_BAU_PLN
 n_SEC_BAU_CLI <|-- n_SEC_BAU_CLI_DEV
 n_SEC_BAU_CLI <|-- n_SEC_BAU_CLI_GC
 n_SEC_BAU_CLI <|-- n_SEC_BAU_CLI_OWN
+n_SEC_BAU_CLI_OWN <|-- n_SEC_BAU_CLI_OWN_PRV
+n_SEC_BAU_CLI_OWN <|-- n_SEC_BAU_CLI_OWN_PUB
 n_SEC_BAU_PLN <|-- n_SEC_BAU_PLN_ARC
 n_SEC_BAU_PLN <|-- n_SEC_BAU_PLN_EXP
 n_SEC_BAU_PLN <|-- n_SEC_BAU_PLN_MEP
@@ -142,10 +146,10 @@ n_SEC_MIL <|-- n_SEC_MIL_SPC
 <tr>
 <td>SEC-BAU</td>
 <td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Bauwesen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Bauwesen / Immobilien</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Construction and built environment</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Construction and real estate</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
@@ -188,6 +192,26 @@ n_SEC_MIL <|-- n_SEC_MIL_SPC
 <td class="pbs-lang-col" data-lang="en" data-field="label">Building owner</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>SEC-BAU-CLI-OWN-PRV</td>
+<td>SEC-BAU-CLI-OWN</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Privater Bauherr</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Privater Besteller oder Bauherr (z. B. Unternehmen, Genossenschaft, Einzelperson, private Stiftung).</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Private building owner</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Private-sector client or owner (for example company, cooperative, individual, private foundation).</td>
+</tr>
+<tr>
+<td>SEC-BAU-CLI-OWN-PUB</td>
+<td>SEC-BAU-CLI-OWN</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Öffentlicher Bauherr</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Öffentlicher Besteller oder Bauherr (z. B. Gemeinde, Kanton, Bund, öffentliche Anstalt).</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Public building owner</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Public-sector client or owner (for example municipality, canton, federal agency, public corporation).</td>
 </tr>
 <tr>
 <td>SEC-BAU-CNT</td>
@@ -658,16 +682,6 @@ n_SEC_MIL <|-- n_SEC_MIL_SPC
 <td class="pbs-lang-col" data-lang="en" data-field="label">Space and aerospace</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Defence and civil space sector organizations.</td>
-</tr>
-<tr>
-<td>SEC-REA</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Immobilien</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Real estate</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 </tbody>
 </table>
