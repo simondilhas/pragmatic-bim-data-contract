@@ -343,6 +343,24 @@ class PersonalDataProcessingState(str, Enum):
     """
 
 
+class PersonLifecycleStatus(str, Enum):
+    """
+    Life stage of a person in CRM context, orthogonal to privacy processing state and workflow QA status.
+    """
+    Active = "active"
+    """
+    Person is living and considered active in CRM context.
+    """
+    Retired = "retired"
+    """
+    Person has retired from professional or public life.
+    """
+    Deceased = "deceased"
+    """
+    Person has died.
+    """
+
+
 class PersonalDataCategory(str, Enum):
     """
     Category of personal data covered by consent or processing scope.
@@ -1492,6 +1510,8 @@ class Person(Agent):
     postal_addresses: Optional[list[PostalAddress]] = Field(default=None, description="""Structured postal or physical addresses associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person', 'Company']} })
     contact_points: Optional[list[ContactPoint]] = Field(default=None, description="""Structured communication channels and profiles associated with this agent.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person', 'Company']} })
     belongs_to_company: Optional[str] = Field(default=None, description="""Optional company that the person belongs to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
+    birthday: Optional[date] = Field(default=None, description="""Date of birth. Personal data; governed by personal_data_processing_state, consent_records, and retain_until.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person'], 'slot_uri': 'schema:birthDate'} })
+    lifecycle_status: Optional[PersonLifecycleStatus] = Field(default=None, description="""Whether the person is active, retired, or deceased. Orthogonal to privacy processing state and workflow QA status.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
     personal_data_processing_state: Optional[PersonalDataProcessingState] = Field(default=None, description="""Privacy handling state for personal data on this person, orthogonal to workflow QA status.""", json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })
     consent_records: Optional[list[ConsentRecord]] = Field(default=None, description="""Audit trail of lawful basis and consent for processing personal data. When lawful_basis is consent and state is active, at least one non-withdrawn record should be present.
 """, json_schema_extra = { "linkml_meta": {'domain_of': ['Person']} })

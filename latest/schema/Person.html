@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -555,6 +555,7 @@ click ConsentRecord href "./ConsentRecord.html" _blank
 click ContactPoint href "./ContactPoint.html" _blank
 click Company href "./Company.html" _blank
 click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click PersonLifecycleStatus href "./PersonLifecycleStatus.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
@@ -620,6 +621,18 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td><a href="belongs_to_company.html">belongs_to_company</a></td>
 <td>0..1 <br/> <a href="Company.html">Company</a></td>
 <td>Optional company that the person belongs to.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="birthday.html">birthday</a></td>
+<td>0..1 <br/> <a href="Date.html">Date</a></td>
+<td>Date of birth. Personal data; governed by personal_data_processing_state, consent_records, and retain_until.</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="lifecycle_status.html">lifecycle_status</a></td>
+<td>0..1 <br/> <a href="PersonLifecycleStatus.html">PersonLifecycleStatus</a></td>
+<td>Whether the person is active, retired, or deceased. Orthogonal to privacy processing state and workflow QA status.</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -852,6 +865,8 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postal_addresses</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contact_points</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">belongs_to_company</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">birthday</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lifecycle_status</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personal_data_processing_state</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">consent_records</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data_controller</span>
@@ -913,6 +928,27 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
 <span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Company</span>
 <span class="w">    </span><span class="nt">inlined</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">birthday</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">birthday</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Date of birth. Personal data; governed by personal_data_processing_state,</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">consent_records, and retain_until.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">slot_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">schema:birthDate</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">date</span>
+<span class="w">  </span><span class="nt">lifecycle_status</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lifecycle_status</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Whether the person is active, retired, or deceased. Orthogonal to</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">privacy processing state and workflow QA status.</span>
+<span class="w">    </span><span class="nt">from_schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch</span>
+<span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="nt">domain_of</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span class="w">    </span><span class="nt">range</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PersonLifecycleStatus</span>
 <span class="w">  </span><span class="nt">personal_data_processing_state</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">personal_data_processing_state</span>
 <span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Privacy handling state for personal data on this person, orthogonal</span>

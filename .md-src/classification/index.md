@@ -34,6 +34,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract MEP terminal products](mep-terminal-product.md) | `abstract-mep-product-classification/mep-terminal-products.skos.ttl` |
 | [Abstract person relationship types](person-relationship-type.md) | `abstract-person-relationship-classification/person-relationship-type.skos.ttl` |
 | [Abstract topic classification](topic.md) | `abstract-topic-classification/topic-classification.skos.ttl` |
+| [Abstract company sector classification](company-sector.md) | `abstract-company-sector-classification/company-sector-classification.skos.ttl` |
 
 ## Mappings
 
