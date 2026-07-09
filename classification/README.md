@@ -22,7 +22,8 @@ classification/
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
 ├── abstract-material-classification/   # SKOS
-├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling, facade covering products
+├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling, facade, roof covering products
+├── abstract-foundation-product-classification/  # SKOS — foundation products
 ├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
 ├── abstract-connector-product-classification/  # SKOS — door and window connector products
 ├── abstract-mep-product-classification/  # SKOS — MEP unit and terminal products
@@ -44,7 +45,8 @@ classification/
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
 | `abstract-material-classification/` | Abstract material categories |
-| `abstract-covering-product-classification/` | Floor, wall, ceiling, and facade covering product types |
+| `abstract-covering-product-classification/` | Floor, wall, ceiling, facade, and roof covering product types |
+| `abstract-foundation-product-classification/` | Foundation product types (raft, strip, pile, slab-on-grade, …) |
 | `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
 | `abstract-connector-product-classification/` | Door and window connector product types (interior/exterior via BKP context) |
 | `abstract-mep-product-classification/` | MEP unit (producer/converter) and terminal (end device) product types |
@@ -69,6 +71,7 @@ classification/
 | `mapping/room-name-notation-v1-to-v2.mapping.ttl` | Mnemonic v1 room name codes → numeric v2 codes |
 | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` | armasuisse Raumliste → abstract room names |
 | `mapping/abstract-roles-to-bkp.mapping.ttl` | Workflow roles → BKP cost lines |
+| `mapping/kbob-document-types-to-document-function.mapping.ttl` | KBOB/IPB document type catalogue → abstract document function classes |
 | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` | Abstract material → Uniclass Ma |
 | `mapping/abstract-metric-to-sia416.mapping.ttl` | Abstract building metrics → SIA 416 |
 | `mapping/abstract-metric-to-din277.mapping.ttl` | Abstract building metrics → DIN 277 |
@@ -79,6 +82,8 @@ classification/
 | `mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl` | qto_buccaneer ratio keys → abstract ratios (guideline) |
 | `mapping/abstract-covering-products-to-material.mapping.ttl` | Abstract covering products → dominant material classes |
 | `mapping/abstract-covering-products-to-bkp.mapping.ttl` | Abstract covering products → BKP 281/282/283 (Ausbau 2) and 215.5/226/227 (facade, Rohbau 2) |
+| `mapping/abstract-foundation-products-to-bkp.mapping.ttl` | Abstract foundation products → BKP 216 / 211 (Rohbau 1) |
+| `mapping/abstract-roof-covering-products-to-bkp.mapping.ttl` | Abstract roof covering products → BKP 224 (Rohbau 2) |
 | `mapping/abstract-separator-products-to-material.mapping.ttl` | Abstract separator products → dominant material classes |
 | `mapping/abstract-separator-products-to-bkp.mapping.ttl` | Abstract separator products → BKP 211–215 / 277 cost lines |
 | `mapping/abstract-connector-products-to-material.mapping.ttl` | Abstract door and window connector products → dominant material classes |
@@ -113,7 +118,7 @@ Envelope products (facade `FaCP-*`, roof `RCP-*`, foundation `FDP-*`) follow a *
 **Carbon patterns:**
 
 - **Bundled** — single KBOB row on the parent (e.g. `FaCP-PREFAB-MODULAR-METAL`, pitched roof tiles).
-- **Layer recipe sum** — parent + [`kbob-ecobilans-layer-recipes.json`](mapping/kbob-ecobilans-layer-recipes.json) decomposes into internal layers (e.g. `FaCP-RENDER-ETICS-WDVS`, `RCP-FLAT-BITUMEN`).
+- **Layer recipe sum** — parent + `mapping/kbob-ecobilans-layer-recipes.json` decomposes into internal layers (e.g. `FaCP-RENDER-ETICS-WDVS`, `RCP-FLAT-BITUMEN`).
 
 **Generic internal layer roles** (new systems): `-INS` (insulation), `-SUB` (substructure/frame), `-FIN` (finish/cladding/membrane). Legacy suffixes remain unchanged.
 
@@ -179,7 +184,7 @@ Human-readable reference docs are generated from the SKOS and mapping TTL files:
 - **Regenerate locally:** `python scripts/build_classification_docs.py` (or `python scripts/build_site.py` for schema + classifications)
 - **Catalog:** [`catalog.yaml`](catalog.yaml) lists vocabularies and mappings included in the docs
 
-Abstract product **unit prices** are a separate cost enrichment layer: [`contract/cost/`](../contract/cost/) (JSON in [`baseline-unit-prices/`](../baseline-unit-prices/)), keyed by SKOS product notation from the vocabularies above.
+Abstract product **unit prices** are a separate cost enrichment layer: [`contract/cost/`](../contract/cost/) (JSON in `baseline-unit-prices/` at repo root; see [`contract/cost/README.md`](../contract/cost/README.md)), keyed by SKOS product notation from the vocabularies above.
 
 CI validates that committed `site/.md-src/classification/` matches the TTL sources (`schema-generation.yml`).
 
