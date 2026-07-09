@@ -12,17 +12,17 @@
   dcterms:description "Industry and sector taxonomy for classifying organizations in CRM and LLM extraction."@en ;
   dcterms:description "Branchen- und Sektor-Taxonomie zur Klassifikation von Organisationen in CRM und LLM-Extraktion."@de ;
   skos:hasTopConcept
-    :construction, :real_estate, :legal, :esg, :media, :food,
+    :construction, :legal, :esg, :media, :food,
     :funding, :military, :health, :investor, :association, :economy_professions .
 
-# --- construction (Bauwesen) ---
+# --- construction (Bauwesen / Immobilien) ---
 
 :construction a skos:Concept ;
   skos:inScheme :scheme ;
   skos:topConceptOf :scheme ;
   skos:notation "SEC-BAU" ;
-  skos:prefLabel "Construction and built environment"@en ;
-  skos:prefLabel "Bauwesen"@de ;
+  skos:prefLabel "Construction and real estate"@en ;
+  skos:prefLabel "Bauwesen / Immobilien"@de ;
   skos:narrower :client_side, :planning, :construction_contracting, :facility_management .
 
 :client_side a skos:Concept ;
@@ -45,7 +45,26 @@
   skos:broader :client_side ;
   skos:notation "SEC-BAU-CLI-OWN" ;
   skos:prefLabel "Building owner"@en ;
-  skos:prefLabel "Bauherr"@de .
+  skos:prefLabel "Bauherr"@de ;
+  skos:narrower :public_building_owner, :private_building_owner .
+
+:public_building_owner a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :building_owner ;
+  skos:notation "SEC-BAU-CLI-OWN-PUB" ;
+  skos:prefLabel "Public building owner"@en ;
+  skos:prefLabel "Öffentlicher Bauherr"@de ;
+  skos:scopeNote "Public-sector client or owner (for example municipality, canton, federal agency, public corporation)."@en ;
+  skos:scopeNote "Öffentlicher Besteller oder Bauherr (z. B. Gemeinde, Kanton, Bund, öffentliche Anstalt)."@de .
+
+:private_building_owner a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :building_owner ;
+  skos:notation "SEC-BAU-CLI-OWN-PRV" ;
+  skos:prefLabel "Private building owner"@en ;
+  skos:prefLabel "Privater Bauherr"@de ;
+  skos:scopeNote "Private-sector client or owner (for example company, cooperative, individual, private foundation)."@en ;
+  skos:scopeNote "Privater Besteller oder Bauherr (z. B. Unternehmen, Genossenschaft, Einzelperson, private Stiftung)."@de .
 
 :design_build_contractor a skos:Concept ;
   skos:inScheme :scheme ;
@@ -99,15 +118,6 @@
   skos:prefLabel "Facility and property management"@en ;
   skos:prefLabel "Bewirtschafter"@de ;
   skos:altLabel "Facility Management"@de .
-
-# --- real estate ---
-
-:real_estate a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:topConceptOf :scheme ;
-  skos:notation "SEC-REA" ;
-  skos:prefLabel "Real estate"@en ;
-  skos:prefLabel "Immobilien"@de .
 
 # --- legal ---
 
