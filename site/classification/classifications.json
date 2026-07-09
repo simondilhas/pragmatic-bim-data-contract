@@ -1,0 +1,463 @@
+{
+  "base_url": "https://schema.pragmaticbim.ch",
+  "docs_index": "https://schema.pragmaticbim.ch/classification/index.html",
+  "vocabularies": [
+    {
+      "slug": "room-activity",
+      "title": "Building space activity classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/room-activity.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/room-activity.html",
+      "scheme_iri": "https://example.org/abstract/building-space-activity-classification/scheme"
+    },
+    {
+      "slug": "room-name",
+      "title": "Building space name classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/room-name.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/room-name.html",
+      "scheme_iri": "https://example.org/abstract/building-space-name-classification/scheme"
+    },
+    {
+      "slug": "separator-wall-role",
+      "title": "Separator wall role classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/separator-wall-role.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/separator-wall-role.html",
+      "scheme_iri": "https://example.org/abstract/separator-wall-role-classification/scheme"
+    },
+    {
+      "slug": "separator-slab-role",
+      "title": "Separator slab role classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/separator-slab-role.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/separator-slab-role.html",
+      "scheme_iri": "https://example.org/abstract/separator-slab-role-classification/scheme"
+    },
+    {
+      "slug": "connection-functional-type",
+      "title": "Connection functional type classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/connection-functional-type.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/connection-functional-type.html",
+      "scheme_iri": "https://example.org/abstract/connection-functional-type/scheme"
+    },
+    {
+      "slug": "roles",
+      "title": "Abstract workflow participant roles",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/roles.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/roles.html",
+      "scheme_iri": "https://example.org/ch/abstract-roles/scheme"
+    },
+    {
+      "slug": "document-function",
+      "title": "Document function classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/document-function.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/document-function.html",
+      "scheme_iri": "https://example.org/ch/document-function/scheme"
+    },
+    {
+      "slug": "usecase",
+      "title": "Abstract use case classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/usecase.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/usecase.html",
+      "scheme_iri": "https://example.org/ch/abstract-usecase/scheme"
+    },
+    {
+      "slug": "material",
+      "title": "Abstract material classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/material.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/material.html",
+      "scheme_iri": "https://example.org/abstract/material-classification/scheme"
+    },
+    {
+      "slug": "building-metric",
+      "title": "Abstract building metrics",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/building-metric.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/building-metric.html",
+      "scheme_iri": "https://example.org/abstract/building-metric-definition/scheme"
+    },
+    {
+      "slug": "building-ratio",
+      "title": "Abstract building ratios",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/building-ratio.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/building-ratio.html",
+      "scheme_iri": "https://example.org/abstract/building-ratio-definition/scheme"
+    },
+    {
+      "slug": "floor-covering-product",
+      "title": "Abstract floor covering products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/floor-covering-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/floor-covering-product.html",
+      "scheme_iri": "https://example.org/abstract/floor-covering-product/scheme"
+    },
+    {
+      "slug": "wall-covering-product",
+      "title": "Abstract wall covering products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/wall-covering-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/wall-covering-product.html",
+      "scheme_iri": "https://example.org/abstract/wall-covering-product/scheme"
+    },
+    {
+      "slug": "ceiling-covering-product",
+      "title": "Abstract ceiling covering products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/ceiling-covering-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/ceiling-covering-product.html",
+      "scheme_iri": "https://example.org/abstract/ceiling-covering-product/scheme"
+    },
+    {
+      "slug": "facade-covering-product",
+      "title": "Abstract facade covering products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/facade-covering-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/facade-covering-product.html",
+      "scheme_iri": "https://example.org/abstract/facade-covering-product/scheme"
+    },
+    {
+      "slug": "roof-covering-product",
+      "title": "Abstract roof covering products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/roof-covering-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/roof-covering-product.html",
+      "scheme_iri": "https://example.org/abstract/roof-covering-product/scheme"
+    },
+    {
+      "slug": "foundation-product",
+      "title": "Abstract foundation products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/foundation-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/foundation-product.html",
+      "scheme_iri": "https://example.org/abstract/foundation-product/scheme"
+    },
+    {
+      "slug": "wall-separator-product",
+      "title": "Abstract wall separator products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/wall-separator-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/wall-separator-product.html",
+      "scheme_iri": "https://example.org/abstract/wall-separator-product/scheme"
+    },
+    {
+      "slug": "kbob-ecobilans-baumat",
+      "title": "KBOB ecobilans construction materials",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/kbob-ecobilans-baumat.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/kbob-ecobilans-baumat.html",
+      "scheme_iri": "https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/scheme"
+    },
+    {
+      "slug": "slab-separator-product",
+      "title": "Abstract slab separator products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/slab-separator-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/slab-separator-product.html",
+      "scheme_iri": "https://example.org/abstract/slab-separator-product/scheme"
+    },
+    {
+      "slug": "door-connector-product",
+      "title": "Abstract door connector products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/door-connector-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/door-connector-product.html",
+      "scheme_iri": "https://example.org/abstract/door-connector-product/scheme"
+    },
+    {
+      "slug": "window-connector-product",
+      "title": "Abstract window connector products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/window-connector-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/window-connector-product.html",
+      "scheme_iri": "https://example.org/abstract/window-connector-product/scheme"
+    },
+    {
+      "slug": "mep-unit-product",
+      "title": "Abstract MEP unit products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mep-unit-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mep-unit-product.html",
+      "scheme_iri": "https://example.org/abstract/mep-unit-product/scheme"
+    },
+    {
+      "slug": "mep-terminal-product",
+      "title": "Abstract MEP terminal products",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mep-terminal-product.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mep-terminal-product.html",
+      "scheme_iri": "https://example.org/abstract/mep-terminal-product/scheme"
+    },
+    {
+      "slug": "person-relationship-type",
+      "title": "Abstract person relationship types",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/person-relationship-type.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/person-relationship-type.html",
+      "scheme_iri": "https://example.org/ch/abstract-person-relationship/scheme"
+    },
+    {
+      "slug": "topic",
+      "title": "Abstract topic classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/topic.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/topic.html",
+      "scheme_iri": "https://example.org/ch/abstract-topic/scheme"
+    },
+    {
+      "slug": "company-sector",
+      "title": "Abstract company sector classification",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/company-sector.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/company-sector.html",
+      "scheme_iri": "https://example.org/ch/abstract-company-sector/scheme"
+    }
+  ],
+  "mappings": [
+    {
+      "slug": "person-relationship-type-to-target-kind",
+      "title": "Person relationship type to target kind mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-person-relationship-type-to-target-kind.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-person-relationship-type-to-target-kind.html",
+      "dataset_iri": "https://example.org/mapping/personRelationshipTypeToTargetKindMapping"
+    },
+    {
+      "slug": "connection-functional-to-physical-type",
+      "title": "Connection functional type to physical type mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-connection-functional-to-physical-type.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-connection-functional-to-physical-type.html",
+      "dataset_iri": "https://example.org/mapping/connectionFunctionalToPhysicalTypeMapping"
+    },
+    {
+      "slug": "mep-product-to-connection-functional-type",
+      "title": "MEP product to connection functional type mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-mep-product-to-connection-functional-type.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-mep-product-to-connection-functional-type.html",
+      "dataset_iri": "https://example.org/mapping/mepProductToConnectionFunctionalTypeMapping"
+    },
+    {
+      "slug": "mep-product-to-ifc-class",
+      "title": "MEP product to IFC class mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-mep-product-to-ifc-class.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-mep-product-to-ifc-class.html",
+      "dataset_iri": "https://example.org/mapping/mepProductToIfcClassMapping"
+    },
+    {
+      "slug": "separator-role-to-space-activity",
+      "title": "Separator role to space activity mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-separator-role-to-space-activity.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-separator-role-to-space-activity.html",
+      "dataset_iri": "https://example.org/mapping/separatorRoleToSpaceActivityMapping"
+    },
+    {
+      "slug": "room-activity-to-d0165",
+      "title": "Room activity to D0165 mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-room-activity-to-d0165.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-room-activity-to-d0165.html",
+      "dataset_iri": "https://example.org/mapping/abstractToD0165Mapping"
+    },
+    {
+      "slug": "d0165-to-room-activity",
+      "title": "D0165 to room activity mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-d0165-to-room-activity.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-d0165-to-room-activity.html",
+      "dataset_iri": "https://example.org/mapping/d0165ToAbstractMapping"
+    },
+    {
+      "slug": "room-activity-to-sia416",
+      "title": "Room activity to SIA 416 mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-room-activity-to-sia416.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-room-activity-to-sia416.html",
+      "dataset_iri": "https://example.org/mapping/abstractToSia416Mapping"
+    },
+    {
+      "slug": "room-name-to-activity",
+      "title": "Room name to space activity mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-room-name-to-activity.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-room-name-to-activity.html",
+      "dataset_iri": "https://example.org/mapping/roomNameToSpaceActivityMapping"
+    },
+    {
+      "slug": "room-name-notation-v1-to-v2",
+      "title": "Room name notation v1 to v2 mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-room-name-notation-v1-to-v2.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-room-name-notation-v1-to-v2.html",
+      "dataset_iri": "https://example.org/mapping/roomNameNotationV1ToV2Mapping"
+    },
+    {
+      "slug": "armasuisse-room-name-to-room-name",
+      "title": "armasuisse room name to abstract room name mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-armasuisse-room-name-to-room-name.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-armasuisse-room-name-to-room-name.html",
+      "dataset_iri": "https://example.org/mapping/armasuisseRoomNameToAbstractRoomNameMapping"
+    },
+    {
+      "slug": "roles-to-bkp",
+      "title": "Abstract roles to BKP mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-roles-to-bkp.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-roles-to-bkp.html",
+      "dataset_iri": "https://example.org/mapping/abstractRolesToBkpMapping"
+    },
+    {
+      "slug": "material-to-uniclass-ma",
+      "title": "Abstract material to Uniclass Ma mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-material-to-uniclass-ma.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-material-to-uniclass-ma.html",
+      "dataset_iri": "https://example.org/mapping/abstractMaterialToUniclassMaMapping"
+    },
+    {
+      "slug": "kbob-document-types-to-document-function",
+      "title": "KBOB document types to document function mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-kbob-document-types-to-document-function.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-kbob-document-types-to-document-function.html",
+      "dataset_iri": "https://example.org/mapping/kbobDocumentTypesToDocumentFunctionMapping"
+    },
+    {
+      "slug": "metric-to-sia416",
+      "title": "Abstract building metrics to SIA 416 mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-metric-to-sia416.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-metric-to-sia416.html",
+      "dataset_iri": "https://example.org/mapping/abstractMetricToSia416Mapping"
+    },
+    {
+      "slug": "metric-to-din277",
+      "title": "Abstract building metrics to DIN 277 mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-metric-to-din277.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-metric-to-din277.html",
+      "dataset_iri": "https://example.org/mapping/abstractMetricToDin277Mapping"
+    },
+    {
+      "slug": "metric-to-iso9836",
+      "title": "Abstract building metrics to ISO 9836 mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-metric-to-iso9836.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-metric-to-iso9836.html",
+      "dataset_iri": "https://example.org/mapping/abstractMetricToIso9836Mapping"
+    },
+    {
+      "slug": "metric-to-rics-ipms",
+      "title": "Abstract building metrics to RICS IPMS mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-metric-to-rics-ipms.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-metric-to-rics-ipms.html",
+      "dataset_iri": "https://example.org/mapping/abstractMetricToRicsIpmsMapping"
+    },
+    {
+      "slug": "ratio-to-sia416",
+      "title": "Abstract building ratios to SIA 416 mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-ratio-to-sia416.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-ratio-to-sia416.html",
+      "dataset_iri": "https://example.org/mapping/abstractRatioToSia416Mapping"
+    },
+    {
+      "slug": "qto-buccaneer-to-metric",
+      "title": "qto_buccaneer to abstract building metrics mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-qto-buccaneer-to-metric.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-qto-buccaneer-to-metric.html",
+      "dataset_iri": "https://example.org/mapping/qtoBuccaneerToAbstractMetricMapping"
+    },
+    {
+      "slug": "qto-buccaneer-to-ratio",
+      "title": "qto_buccaneer to abstract building ratios mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-qto-buccaneer-to-ratio.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-qto-buccaneer-to-ratio.html",
+      "dataset_iri": "https://example.org/mapping/qtoBuccaneerToAbstractRatioMapping"
+    },
+    {
+      "slug": "covering-products-to-material",
+      "title": "Abstract covering products to material mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-covering-products-to-material.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-covering-products-to-material.html",
+      "dataset_iri": "https://example.org/mapping/abstractCoveringProductsToMaterialMapping"
+    },
+    {
+      "slug": "covering-products-to-bkp",
+      "title": "Abstract covering products to BKP mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-covering-products-to-bkp.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-covering-products-to-bkp.html",
+      "dataset_iri": "https://example.org/mapping/abstractCoveringProductsToBkpMapping"
+    },
+    {
+      "slug": "foundation-products-to-bkp",
+      "title": "Abstract foundation products to BKP mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-foundation-products-to-bkp.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-foundation-products-to-bkp.html",
+      "dataset_iri": "https://example.org/mapping/abstractFoundationProductsToBkpMapping"
+    },
+    {
+      "slug": "roof-covering-products-to-bkp",
+      "title": "Abstract roof covering products to BKP mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-roof-covering-products-to-bkp.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-roof-covering-products-to-bkp.html",
+      "dataset_iri": "https://example.org/mapping/abstractRoofCoveringProductsToBkpMapping"
+    },
+    {
+      "slug": "separator-products-to-material",
+      "title": "Abstract separator products to material mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-separator-products-to-material.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-separator-products-to-material.html",
+      "dataset_iri": "https://example.org/mapping/abstractSeparatorProductsToMaterialMapping"
+    },
+    {
+      "slug": "separator-products-to-bkp",
+      "title": "Abstract separator products to BKP mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-separator-products-to-bkp.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-separator-products-to-bkp.html",
+      "dataset_iri": "https://example.org/mapping/abstractSeparatorProductsToBkpMapping"
+    },
+    {
+      "slug": "connector-products-to-material",
+      "title": "Abstract connector products to material mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-connector-products-to-material.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-material.html",
+      "dataset_iri": "https://example.org/mapping/abstractConnectorProductsToMaterialMapping"
+    },
+    {
+      "slug": "connector-products-to-bkp",
+      "title": "Abstract connector products to BKP mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-connector-products-to-bkp.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-connector-products-to-bkp.html",
+      "dataset_iri": "https://example.org/mapping/abstractConnectorProductsToBkpMapping"
+    },
+    {
+      "slug": "slab-separator-products-to-kbob-ecobilans",
+      "title": "Abstract slab separator products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-slab-separator-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-slab-separator-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractSlabSeparatorProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "window-connector-products-to-kbob-ecobilans",
+      "title": "Abstract window connector products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-window-connector-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-window-connector-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractWindowConnectorProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "facade-covering-products-to-kbob-ecobilans",
+      "title": "Abstract facade covering products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-facade-covering-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-facade-covering-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractFacadeCoveringProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "roof-covering-products-to-kbob-ecobilans",
+      "title": "Abstract roof covering products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-roof-covering-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-roof-covering-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractRoofCoveringProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "floor-covering-products-to-kbob-ecobilans",
+      "title": "Abstract floor covering products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-floor-covering-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-floor-covering-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractFloorCoveringProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "wall-covering-products-to-kbob-ecobilans",
+      "title": "Abstract wall covering products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-wall-covering-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-wall-covering-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractWallCoveringProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "ceiling-covering-products-to-kbob-ecobilans",
+      "title": "Abstract ceiling covering products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-ceiling-covering-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-ceiling-covering-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractCeilingCoveringProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "wall-separator-products-to-kbob-ecobilans",
+      "title": "Abstract wall separator products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-wall-separator-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-wall-separator-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractWallSeparatorProductsToKbobEcobilansMapping"
+    },
+    {
+      "slug": "door-connector-products-to-kbob-ecobilans",
+      "title": "Abstract door connector products to KBOB ecobilans mapping",
+      "source_ttl": "https://schema.pragmaticbim.ch/classification/sources/mapping-door-connector-products-to-kbob-ecobilans.ttl",
+      "docs_html": "https://schema.pragmaticbim.ch/classification/mapping-door-connector-products-to-kbob-ecobilans.html",
+      "dataset_iri": "https://example.org/mapping/abstractDoorConnectorProductsToKbobEcobilansMapping"
+    }
+  ]
+}

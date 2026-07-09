@@ -1,0 +1,163 @@
+@prefix : <https://example.org/abstract/wall-separator-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix map: <https://example.org/mapping/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract wall separator products"@en ;
+  skos:prefLabel "Abstrakte Wand-Trennelementprodukte"@de ;
+  dcterms:title "Abstract wall separator products"@en ;
+  dcterms:identifier "AbstractWallSeparatorProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractWallSeparatorProductsToKbobEcobilansMapping, kbobbm:scheme ;
+  skos:scopeNote "Embodied carbon: resolve product notation via the referenced KBOB ecobilans mapping bridge (skos:closeMatch on layer narrowers where present; skos:relatedMatch on parent composites). Links KBOB Baumaterialien row notations only; obtain indicator values from the official KBOB ecobilans dataset."@en ;
+  skos:scopeNote "Graue Emissionen: Produktnotation ueber referenzierte KBOB-Oekobilanz-Mapping-Bruecke aufloesen (skos:closeMatch auf Schicht-narrower; skos:relatedMatch auf Eltern-Verbundprodukte). Verknuepft nur KBOB-Baumaterialien-Zeilennotationen; Kennwerte aus offiziellem KBOB-Oekobilanzdatensatz beziehen."@de ;
+  skos:definition "Product-type classification for wall-based separating elements (SeparatorWall). Tags construction or system product type for catalog, specification, and cost workflows. Pair with separator wall role classification (W-EXT, W-INT, …) for topological position and with abstract material classification for dominant substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer wandbasierte Trennelemente (SeparatorWall). Kennzeichnet Bau- oder Systemprodukttyp fuer Katalog-, Spezifikations- und Kostenworkflows. Mit Trennwandrollen-Klassifikation (W-EXT, W-INT, …) fuer topologische Lage und mit abstrakter Materialklassifikation fuer dominante Substanz kombinieren."@de ;
+  skos:scopeNote "Interior vs exterior position is not encoded here; use Building Separator Wall Role Classification (W-EXT, W-INT, W-PRT, …) on the SeparatorWall entity."@en ;
+  skos:scopeNote "Innen- vs Aussenlage ist hier nicht kodiert; Building Separator Wall Role Classification (W-EXT, W-INT, W-PRT, …) am SeparatorWall-Entitaet verwenden."@de ;
+  skos:hasTopConcept
+    :SWP-ORTBETON,
+    :SWP-MASONRY,
+    :SWP-RAMMED-EARTH,
+    :SWP-BLT,
+    :SWP-PREFAB-CONC,
+    :SWP-STEEL,
+    :SWP-TIMBER,
+    :SWP-LEICHTBAU,
+    :SWP-CURTAIN-WALL,
+    :SWP-ELEMENT-WALL,
+    :SWP-OTH .
+
+:SWP-ORTBETON a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-ORTBETON" ;
+  skos:prefLabel "In-situ concrete wall"@en ;
+  skos:prefLabel "Ortbeton-Wand"@de ;
+  skos:definition "Wall cast in place from plain, reinforced, or structural concrete."@en ;
+  skos:definition "Wand in Ortbeton oder Stahlbeton vor Ort hergestellt."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "ortbeton-wall" .
+
+:SWP-MASONRY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-MASONRY" ;
+  skos:prefLabel "Masonry wall"@en ;
+  skos:prefLabel "Mauerwerk-Wand"@de ;
+  skos:definition "Wall built on site from brick, block, or stone masonry, including monolithic insulating block systems laid in mortar on site."@en ;
+  skos:definition "Wand aus vor Ort gemauertem Ziegel-, Block- oder Natursteinmauerwerk, einschliesslich monolithischer Daemm-Blocksysteme."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "masonry-wall" .
+
+:SWP-RAMMED-EARTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-RAMMED-EARTH" ;
+  skos:prefLabel "Rammed earth wall"@en ;
+  skos:prefLabel "Lehmstampf-Wand"@de ;
+  skos:definition "Wall from compacted earth, clay, or loam layers (Lehmstampf) built in situ."@en ;
+  skos:definition "Wand aus vor Ort verdichteten Lehm-, Ton- oder Erd-Schichten (Lehmstampf)."@de ;
+  skos:scopeNote "Typically exterior envelope (W-EXT); rare as interior partition."@en ;
+  skos:scopeNote "Typischerweise Aussenhuellenwand (W-EXT); selten als Innentrennwand."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "rammed-earth-wall" .
+
+:SWP-BLT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-BLT" ;
+  skos:prefLabel "Lightweight concrete panel (BLT) wall"@en ;
+  skos:prefLabel "Leichtbeton-Tafel-Wand (BLT)"@de ;
+  skos:definition "Wall from prefabricated lightweight-concrete block or panel (Tafel) systems, including storey-height wall panels assembled off site or in a factory."@en ;
+  skos:definition "Wand aus vorgefertigten Leichtbeton-Block- oder -Tafelsystemen, einschliesslich geschosshoher Wandtafeln aus Werk oder Vorfertigung."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "blt-wall" .
+
+:SWP-PREFAB-CONC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-PREFAB-CONC" ;
+  skos:prefLabel "Prefabricated concrete wall"@en ;
+  skos:prefLabel "Element-Wand Beton"@de ;
+  skos:definition "Wall from prefabricated normal-weight or structural concrete elements, excluding lightweight-concrete panel (BLT) systems."@en ;
+  skos:definition "Wand aus vorgefertigten Normal- oder Stahlbetonelementen, ohne Leichtbeton-Tafelsysteme (BLT)."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "prefab-conc-wall" .
+
+:SWP-STEEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-STEEL" ;
+  skos:prefLabel "Steel frame wall"@en ;
+  skos:prefLabel "Stahl-Wand"@de ;
+  skos:definition "Wall with primary steel structure and infill, lining, or cladding layers."@en ;
+  skos:definition "Wand mit primaerer Stahlkonstruktion und Fuell-, Bekleidungs- oder Auskleidungsschichten."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "steel-wall" .
+
+:SWP-TIMBER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-TIMBER" ;
+  skos:prefLabel "Timber frame wall"@en ;
+  skos:prefLabel "Holz-Wand"@de ;
+  skos:definition "Wall with primary timber frame, panel, or engineered-wood structure."@en ;
+  skos:definition "Wand mit primaerer Holz- oder Holzwerkstoff-Konstruktion."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "timber-wall" .
+
+:SWP-LEICHTBAU a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-LEICHTBAU" ;
+  skos:prefLabel "Lightweight construction wall"@en ;
+  skos:prefLabel "Leichtbauwand"@de ;
+  skos:definition "Lightweight wall with framed or panelised non-monolithic structure, excluding stick-built curtain wall and standard drywall element partitions."@en ;
+  skos:definition "Leichtbau-Wand mit gerahmter oder panelisierter nicht-monolithischer Konstruktion, ohne Vorhangfassaden- und uebliche Trockenbau-Elementtrennwaende."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "leichtbau-wall" .
+
+:SWP-CURTAIN-WALL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-CURTAIN-WALL" ;
+  skos:prefLabel "Curtain wall / facade system"@en ;
+  skos:prefLabel "Vorhangfassade"@de ;
+  skos:definition "Non-load-bearing facade or curtain wall system with mullion-transom or unitised glazing and cladding panels."@en ;
+  skos:definition "Nichttragende Fassade oder Vorhangfassade mit Pfosten-Riegel- oder Elementfassaden-System und Verglasung oder Bekleidungspanelen."@de ;
+  skos:scopeNote "Exterior envelope only (W-EXT). IFC source entity is often IfcCurtainWall; PBS maps to SeparatorWall."@en ;
+  skos:scopeNote "Nur Aussenhuellenwand (W-EXT). IFC-Quellentitaet ist oft IfcCurtainWall; PBS ordnet SeparatorWall zu."@de ;
+  dcterms:subject "IfcCurtainWall" ;
+  dcterms:identifier "curtain-wall" .
+
+:SWP-ELEMENT-WALL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-ELEMENT-WALL" ;
+  skos:prefLabel "Drywall / element partition wall"@en ;
+  skos:prefLabel "Trockenbau- / Elementtrennwand"@de ;
+  skos:definition "Interior partition or shaft wall from drywall, stud-framed, or modular element systems."@en ;
+  skos:definition "Innere Trenn- oder Schachtwand aus Trockenbau-, Staender- oder modularen Elementsystemen."@de ;
+  skos:scopeNote "Interior partitions and shaft walls (W-INT, W-PRT, W-SVC, …). Often costed under BKP 277 (Elementwaende); see BKP mapping bridge."@en ;
+  skos:scopeNote "Innere Trenn- und Schachtwaende (W-INT, W-PRT, W-SVC, …). Wird oft unter BKP 277 (Elementwaende) kalkuliert; siehe BKP-Mapping."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "element-partition-wall" .
+
+:SWP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SWP-OTH" ;
+  skos:prefLabel "Other / unknown wall separator"@en ;
+  skos:prefLabel "Sonstige / unbekannte Wand"@de ;
+  skos:definition "Wall separator product not classified or not yet known."@en ;
+  skos:definition "Wand-Trennelementprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "other" .

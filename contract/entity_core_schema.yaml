@@ -78,6 +78,8 @@ classes:
     - postal_addresses
     - contact_points
     - belongs_to_company
+    - birthday
+    - lifecycle_status
     - personal_data_processing_state
     - consent_records
     - data_controller
@@ -496,6 +498,13 @@ slots:
     range: Company
     inlined: false
     description: Optional company that the person belongs to.
+  birthday:
+    range: date
+    slot_uri: schema:birthDate
+    description: Date of birth. Personal data; governed by personal_data_processing_state, consent_records, and retain_until.
+  lifecycle_status:
+    range: PersonLifecycleStatus
+    description: Whether the person is active, retired, or deceased. Orthogonal to privacy processing state and workflow QA status.
   personal_data_processing_state:
     range: PersonalDataProcessingState
     description: Privacy handling state for personal data on this person, orthogonal to workflow QA status.

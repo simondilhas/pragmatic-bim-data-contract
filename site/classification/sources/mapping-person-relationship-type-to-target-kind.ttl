@@ -1,0 +1,72 @@
+@prefix rel: <https://example.org/ch/abstract-person-relationship/> .
+@prefix tgt: <https://schema.pragmaticbim.ch/person-relationship-target/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:personRelationshipTypeToTargetKindMapping a dcterms:Dataset ;
+  dcterms:title "Person relationship type to target kind mapping"@en ;
+  dcterms:title "Mapping Personenbeziehungstyp zu Ziel-Slot"@de ;
+  dcterms:references rel:scheme, tgt:scheme ;
+  dcterms:description "Maps person relationship predicate concepts to the PersonRelationship target slot that must be populated. Exactly one target slot per record."@en ;
+  dcterms:description "Ordnet Personenbeziehungs-Prädikate dem zu befüllenden PersonRelationship-Ziel-Slot zu. Pro Datensatz genau ein Ziel-Slot."@de .
+
+tgt:scheme a skos:ConceptScheme ;
+  dcterms:identifier "PersonRelationshipTargetKind" ;
+  skos:prefLabel "Person relationship target slot"@en ;
+  skos:prefLabel "Personenbeziehung Ziel-Slot"@de ;
+  skos:hasTopConcept tgt:related_person, tgt:related_company, tgt:related_topic .
+
+tgt:related_person a skos:Concept ;
+  skos:inScheme tgt:scheme ;
+  skos:topConceptOf tgt:scheme ;
+  skos:notation "related_person" ;
+  skos:prefLabel "Related person"@en ;
+  skos:prefLabel "Verknüpfte Person"@de ;
+  skos:definition "PersonRelationship.related_person slot."@en ;
+  skos:definition "PersonRelationship.related_person-Slot."@de .
+
+tgt:related_company a skos:Concept ;
+  skos:inScheme tgt:scheme ;
+  skos:topConceptOf tgt:scheme ;
+  skos:notation "related_company" ;
+  skos:prefLabel "Related company"@en ;
+  skos:prefLabel "Verknüpftes Unternehmen"@de ;
+  skos:definition "PersonRelationship.related_company slot."@en ;
+  skos:definition "PersonRelationship.related_company-Slot."@de .
+
+tgt:related_topic a skos:Concept ;
+  skos:inScheme tgt:scheme ;
+  skos:topConceptOf tgt:scheme ;
+  skos:notation "related_topic" ;
+  skos:prefLabel "Related topic"@en ;
+  skos:prefLabel "Verknüpftes Thema"@de ;
+  skos:definition "PersonRelationship.related_topic slot."@en ;
+  skos:definition "PersonRelationship.related_topic-Slot."@de .
+
+# Social
+rel:knows skos:relatedMatch tgt:related_person .
+rel:friend_of skos:relatedMatch tgt:related_person .
+rel:introduced_by skos:relatedMatch tgt:related_person .
+
+# Professional (person)
+rel:was_colleague_of skos:relatedMatch tgt:related_person .
+rel:reports_to skos:relatedMatch tgt:related_person .
+rel:mentored_by skos:relatedMatch tgt:related_person .
+rel:referred_by skos:relatedMatch tgt:related_person .
+
+# Organization
+rel:works_at skos:relatedMatch tgt:related_company .
+rel:worked_at skos:relatedMatch tgt:related_company .
+rel:consulted_for skos:relatedMatch tgt:related_company .
+rel:client_of skos:relatedMatch tgt:related_company .
+rel:vendor_of skos:relatedMatch tgt:related_company .
+
+# Commercial (KAM)
+rel:is_key_account_manager_for skos:relatedMatch tgt:related_company .
+rel:has_key_account_manager skos:relatedMatch tgt:related_person .
+
+# Interest
+rel:has_interest skos:relatedMatch tgt:related_topic .
+rel:has_expertise_in skos:relatedMatch tgt:related_topic .
+rel:learning_about skos:relatedMatch tgt:related_topic .

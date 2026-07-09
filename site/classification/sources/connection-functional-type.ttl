@@ -1,0 +1,139 @@
+@prefix : <https://example.org/abstract/connection-functional-type/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Connection Functional Type"@en ;
+  skos:prefLabel "Funktioneller Verbindungstyp"@de ;
+  dcterms:title "Connection Functional Type"@en ;
+  dcterms:identifier "ConnectionFunctionalType" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-07-02" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  skos:definition "Functional classification of physical connections between spaces by transported medium or passage role. A connection may carry multiple functional types (for example access plus visual on a glazed door)."@en ;
+  skos:definition "Funktionale Klassifikation physischer Verbindungen zwischen Raeumen nach transportiertem Medium oder Durchgangrolle. Eine Verbindung kann mehrere funktionale Typen tragen (z. B. Erschliessung plus Sicht bei einer verglasten Tuer)."@de ;
+  skos:hasTopConcept :electrical, :data, :ventilation, :heating, :cooling, :fresh_water, :waste_water, :special_media, :access, :visual .
+
+:electrical a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "electrical" ;
+  skos:prefLabel "Electrical"@en ;
+  skos:prefLabel "Elektro"@de ;
+  skos:definition "Power distribution connection."@en ;
+  skos:definition "Verbindung fuer Stromverteilung."@de ;
+  dcterms:subject "cable, conduit" ;
+  dcterms:identifier "electrical" .
+
+:data a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "data" ;
+  skos:prefLabel "Data / ICT"@en ;
+  skos:prefLabel "Daten / ICT"@de ;
+  skos:definition "Data, telecom, or building-automation connection."@en ;
+  skos:definition "Verbindung fuer Daten, Telekommunikation oder Gebaeudeautomation."@de ;
+  dcterms:subject "cable, conduit" ;
+  dcterms:identifier "data" .
+
+:ventilation a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ventilation" ;
+  skos:prefLabel "Ventilation"@en ;
+  skos:prefLabel "Lueftung"@de ;
+  skos:definition "Air supply, extract, or transfer connection."@en ;
+  skos:definition "Verbindung fuer Luftfoerderung, -absaugung oder -uebergabe."@de ;
+  dcterms:subject "duct" ;
+  dcterms:identifier "ventilation" .
+
+:heating a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "heating" ;
+  skos:prefLabel "Heating"@en ;
+  skos:prefLabel "Heizung"@de ;
+  skos:definition "Heating-medium supply or return connection."@en ;
+  skos:definition "Verbindung fuer Heizmedium-Zulauf oder -ruecklauf."@de ;
+  dcterms:subject "pipe" ;
+  dcterms:identifier "heating" ;
+  skos:broader :heat_distribution .
+
+:cooling a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "cooling" ;
+  skos:prefLabel "Cooling"@en ;
+  skos:prefLabel "Kuehlung"@de ;
+  skos:definition "Cooling-medium supply or return connection."@en ;
+  skos:definition "Verbindung fuer Kuehlmedium-Zulauf oder -ruecklauf."@de ;
+  dcterms:subject "pipe" ;
+  dcterms:identifier "cooling" ;
+  skos:broader :heat_distribution .
+
+:fresh_water a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "fresh_water" ;
+  skos:prefLabel "Fresh Water"@en ;
+  skos:prefLabel "Frischwasser"@de ;
+  skos:definition "Potable or domestic water supply connection."@en ;
+  skos:definition "Verbindung fuer Trink- oder Nutzwasserversorgung."@de ;
+  dcterms:subject "pipe" ;
+  dcterms:identifier "fresh_water" .
+
+:waste_water a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "waste_water" ;
+  skos:prefLabel "Waste Water"@en ;
+  skos:prefLabel "Abwasser"@de ;
+  skos:definition "Drainage, sewage, or rainwater connection."@en ;
+  skos:definition "Verbindung fuer Entwaesserung, Abwasser oder Regenwasser."@de ;
+  dcterms:subject "pipe" ;
+  dcterms:identifier "waste_water" .
+
+:special_media a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "special_media" ;
+  skos:prefLabel "Special Media"@en ;
+  skos:prefLabel "Sondermedien"@de ;
+  skos:definition "Gas, compressed air, fire suppression, vacuum, or other process-media connection; catch-all until project data justifies splitting."@en ;
+  skos:definition "Verbindung fuer Gas, Druckluft, Feuerloeschung, Vakuum oder andere Prozessmedien; Sammelbegriff bis Projektdaten eine Aufteilung rechtfertigen."@de ;
+  dcterms:subject "pipe, network_other" ;
+  dcterms:identifier "special_media" .
+
+:access a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "access" ;
+  skos:prefLabel "Access / Circulation"@en ;
+  skos:prefLabel "Erschliessung"@de ;
+  skos:definition "Physical passage of people or goods between spaces."@en ;
+  skos:definition "Physischer Durchgang von Personen oder Guetern zwischen Raeumen."@de ;
+  dcterms:subject "door, opening_other" ;
+  dcterms:identifier "access" .
+
+:visual a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "visual" ;
+  skos:prefLabel "Visual / Daylight"@en ;
+  skos:prefLabel "Sicht / Tageslicht"@de ;
+  skos:definition "Sightline or daylight connection without physical passage."@en ;
+  skos:definition "Sicht- oder Tageslichtverbindung ohne physischen Durchgang."@de ;
+  dcterms:subject "window, opening_other" ;
+  dcterms:identifier "visual" .
+
+:heat_distribution a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "heat_distribution" ;
+  skos:prefLabel "Heat Distribution"@en ;
+  skos:prefLabel "Waermeverteilung"@de ;
+  skos:definition "Grouping concept for heating and cooling distribution connections."@en ;
+  skos:definition "Gruppierungskonzept fuer Heiz- und Kuehlverteilungsverbindungen."@de ;
+  skos:narrower :heating, :cooling ;
+  skos:scopeNote "Grouping-only concept for coarser diagram views. Never assign directly on ConnectionPhysical; assign heating and/or cooling instead."@en ;
+  skos:scopeNote "Nur Gruppierungskonzept fuer grobere Diagrammansichten. Niemals direkt auf ConnectionPhysical zuweisen; stattdessen heating und/oder cooling zuweisen."@de ;
+  dcterms:identifier "heat_distribution" .

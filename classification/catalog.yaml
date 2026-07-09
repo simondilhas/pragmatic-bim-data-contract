@@ -106,6 +106,10 @@ vocabularies:
     path: abstract-topic-classification/topic-classification.skos.ttl
     title: Abstract topic classification
 
+  - slug: company-sector
+    path: abstract-company-sector-classification/company-sector-classification.skos.ttl
+    title: Abstract company sector classification
+
 mappings:
   - slug: person-relationship-type-to-target-kind
     path: mapping/person-relationship-type-to-target-kind.mapping.ttl

@@ -29,6 +29,7 @@ classification/
 ├── abstract-usecase-classification/    # SKOS — project lifecycle use cases
 ├── abstract-person-relationship-classification/  # SKOS — CRM person relationship predicates
 ├── abstract-topic-classification/      # SKOS — general person interests for CRM/LLM extraction
+├── abstract-company-sector-classification/  # SKOS — industry sectors for company classification
 └── mapping/                            # bridge TTL files
 ```
 
@@ -50,6 +51,7 @@ classification/
 | `abstract-usecase-classification/` | Project lifecycle use cases (ordering, design, QA, construction, handover, operation, deconstruction) |
 | `abstract-person-relationship-classification/` | CRM person relationship predicates (knows, works_at, key account manager, has_interest, …) |
 | `abstract-topic-classification/` | General person interests (music, sport, travel, …) for CRM stories and LLM extraction |
+| `abstract-company-sector-classification/` | Industry and sector taxonomy for classifying organizations in CRM |
 | `mapping/` | Crosswalks from abstract concepts to external code lists (SIA, D0165, BKP, …) |
 
 ## Mapping bridges

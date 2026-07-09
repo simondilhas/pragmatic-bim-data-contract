@@ -6550,6 +6550,14 @@
                         "null"
                     ]
                 },
+                "birthday": {
+                    "description": "Date of birth. Personal data; governed by personal_data_processing_state, consent_records, and retain_until.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "classifications": {
                     "description": "Classification entries from IFC and other schemes.",
                     "items": {
@@ -6628,6 +6636,10 @@
                         "string",
                         "null"
                     ]
+                },
+                "lifecycle_status": {
+                    "$ref": "#/$defs/PersonLifecycleStatus",
+                    "description": "Whether the person is active, retired, or deceased. Orthogonal to privacy processing state and workflow QA status."
                 },
                 "localized_descriptions": {
                     "description": "Localized variants of description.",
@@ -6782,6 +6794,16 @@
             ],
             "title": "Person",
             "type": "object"
+        },
+        "PersonLifecycleStatus": {
+            "description": "Life stage of a person in CRM context, orthogonal to privacy processing state and workflow QA status.",
+            "enum": [
+                "active",
+                "retired",
+                "deceased"
+            ],
+            "title": "PersonLifecycleStatus",
+            "type": "string"
         },
         "PersonRelationship": {
             "additionalProperties": false,

@@ -1,0 +1,116 @@
+@prefix : <https://example.org/abstract/door-connector-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract door connector products"@en ;
+  skos:prefLabel "Abstrakte Tuer-Verbindungsprodukte"@de ;
+  dcterms:title "Abstract door connector products"@en ;
+  dcterms:identifier "AbstractDoorConnectorProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for door connectors (ConnectionPhysical with functional type access; IFC physical type door). For catalog, specification, and cost workflows; pair with abstract material classification for frame and infill substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer Tuer-Verbindungen (ConnectionPhysical mit funktionalem Typ access; IFC-physischer Typ door). Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer Rahmen- und Fuellsubstanz kombinieren."@de ;
+  skos:scopeNote "Default PBS entity is ConnectionPhysical. Interior vs exterior position is not encoded here; BKP bridges use closeMatch for Rohbau 221.x (exterior) and relatedMatch for Ausbau 272/273 (interior) where applicable."@en ;
+  skos:scopeNote "Standard-PBS-Entitaet ist ConnectionPhysical. Innen- vs Aussenlage ist hier nicht kodiert; BKP-Mappings mit closeMatch fuer Rohbau 221.x (aussen) und relatedMatch fuer Ausbau 272/273 (innen) wo zutreffend."@de ;
+  skos:hasTopConcept
+    :DCP-WOOD,
+    :DCP-METAL,
+    :DCP-WOOD-METAL,
+    :DCP-PVC,
+    :DCP-GLASS,
+    :DCP-GATE,
+    :DCP-SPECIAL,
+    :DCP-OTH .
+
+:DCP-WOOD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-WOOD" ;
+  skos:prefLabel "Wood door system"@en ;
+  skos:prefLabel "Holztuer"@de ;
+  skos:definition "Door with primary wood frame and leaf, including solid wood and engineered-wood door systems."@en ;
+  skos:definition "Tuer mit primaerem Holzrahmen und -blatt, einschliesslich Massivholz- und Holzwerkstoff-Tuersystemen."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "wood-door" .
+
+:DCP-METAL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-METAL" ;
+  skos:prefLabel "Metal door system"@en ;
+  skos:prefLabel "Metalltuer"@de ;
+  skos:definition "Door with primary steel or metal frame and leaf, including security and fire-rated metal doors."@en ;
+  skos:definition "Tuer mit primaerem Stahl- oder Metallrahmen und -blatt, einschliesslich Sicherheits- und Brandschutz-Metalltueren."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "metal-door" .
+
+:DCP-WOOD-METAL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-WOOD-METAL" ;
+  skos:prefLabel "Wood–metal composite door"@en ;
+  skos:prefLabel "Holz-Metall-Tuer"@de ;
+  skos:definition "Door with wood interior face and exterior metal cladding or composite wood-aluminium frame system."@en ;
+  skos:definition "Tuer mit Holzinnenseite und Metall-Aussenbekleidung oder Holz-Aluminium-Verbund-Rahmensystem."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "wood-metal-door" .
+
+:DCP-PVC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-PVC" ;
+  skos:prefLabel "Plastic / PVC door system"@en ;
+  skos:prefLabel "Kunststoff- / PVC-Tuer"@de ;
+  skos:definition "Door with primary plastic, PVC, or synthetic frame and panel system."@en ;
+  skos:definition "Tuer mit primaerem Kunststoff-, PVC- oder Synthetik-Rahmen und -paneelsystem."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "pvc-door" .
+
+:DCP-GLASS a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-GLASS" ;
+  skos:prefLabel "Glazed door system"@en ;
+  skos:prefLabel "Glas- / Verglasungstuer"@de ;
+  skos:definition "Door predominantly glazed with minimal frame, including automatic sliding glass doors and full-height glazed entrances."@en ;
+  skos:definition "Ueberwiegend verglaste Tuer mit minimalem Rahmen, einschliesslich automatischer Schiebetueren und ganzverglaster Eingaenge."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "glass-door" .
+
+:DCP-GATE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-GATE" ;
+  skos:prefLabel "Gate / industrial door"@en ;
+  skos:prefLabel "Tor / Industrietuer"@de ;
+  skos:definition "Large-format gate, sectional door, rolling shutter, or industrial door system."@en ;
+  skos:definition "Grossformat-Tor, Sektionaltor, Rolltor oder Industrietuer-System."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "gate-door" .
+
+:DCP-SPECIAL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-SPECIAL" ;
+  skos:prefLabel "Special door system"@en ;
+  skos:prefLabel "Spezialtuer"@de ;
+  skos:definition "Special-purpose door product such as revolving door, airtight door, acoustic door, or shopfront entrance system."@en ;
+  skos:definition "Spezialtuer-Produkt wie Drehtuer, luftdichte Tuer, Schallschutztuer oder Schaufenster-Eingangssystem."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "special-door" .
+
+:DCP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DCP-OTH" ;
+  skos:prefLabel "Other / unknown door"@en ;
+  skos:prefLabel "Sonstige / unbekannte Tuer"@de ;
+  skos:definition "Door connector product not classified or not yet known."@en ;
+  skos:definition "Tuer-Verbindungsprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "other" .

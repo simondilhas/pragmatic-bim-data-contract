@@ -1,0 +1,166 @@
+@prefix : <https://example.org/abstract/foundation-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract foundation products"@en ;
+  skos:prefLabel "Abstrakte Fundamentprodukte"@de ;
+  dcterms:title "Abstract foundation products"@en ;
+  dcterms:identifier "AbstractFoundationProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for substructure and foundation systems below or at the building footprint. For catalog, specification, and cost workflows; pair with separator slab role L-BAS for raft and base slabs, slab separator products for structural build-up, and abstract material classification for dominant substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer Unterbau- und Fundamentsysteme unter oder auf der Gebaeudegrundflaeche. Fuer Katalog-, Spezifikations- und Kostenworkflows; mit Trenndeckenrolle L-BAS fuer Bodenplatten, Trenndeckenprodukten fuer tragenden Aufbau und abstrakter Materialklassifikation fuer dominante Substanz kombinieren."@de ;
+  skos:scopeNote "Default PBS mapping: SeparatorSlab with L-BAS for raft and base-slab foundations; IfcFooting for strip and pad footings; IfcPile for pile systems. Distinct from storey floor slabs (L-FLR) and roof slabs (L-ROF)."@en ;
+  skos:scopeNote "Standard-PBS-Zuordnung: SeparatorSlab mit L-BAS fuer Platten- und Bodenplattenfundamente; IfcFooting fuer Streifen- und Einzelfundamente; IfcPile fuer Pfahlsysteme. Unterscheidet sich von Geschossdecken (L-FLR) und Dachdecken (L-ROF)."@de ;
+  skos:scopeNote "Subsystem assignment: assign one topConcept per foundation product element. Baseline cost uses the parent bundled price. Narrower layer concepts (*-INS, etc.) are LCA-only decomposition; do not use as primary classification_code."@en ;
+  skos:scopeNote "Subsystem-Zuordnung: ein topConcept pro Fundamentproduktelement. Baseline-Kosten ueber gebündelten Elternpreis. Engere Schichtkonzepte (*-INS usw.) nur fuer Oekobilanz-Zerlegung; nicht als primaere classification_code verwenden."@de ;
+  skos:hasTopConcept
+    :FDP-RAFT,
+    :FDP-STRIP,
+    :FDP-PAD,
+    :FDP-PILE,
+    :FDP-MICRO-PILE,
+    :FDP-RETAINING,
+    :FDP-WATERPROOF,
+    :FDP-DRAINAGE,
+    :FDP-OTH .
+
+:FDP-RAFT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-RAFT" ;
+  skos:prefLabel "Raft / base slab foundation"@en ;
+  skos:prefLabel "Platten- / Bodenplattenfundament"@de ;
+  skos:definition "Continuous raft or base slab foundation transferring building loads to the ground, including basement floor slabs acting as foundation plates."@en ;
+  skos:definition "Durchgehende Platten- oder Bodenplattengruendung zur Lastabtragung ins Erdreich, einschliesslich Kellerbodenplatten als Fundamentplatte."@de ;
+  skos:narrower :FDP-RAFT-INS ;
+  skos:scopeNote "Pair with SeparatorSlab role L-BAS and slab separator product (SSP-*) for structural system; this concept tags the foundation product role."@en ;
+  skos:scopeNote "Mit SeparatorSlab-Rolle L-BAS und Trenndeckenprodukt (SSP-*) fuer Tragsystem kombinieren; dieses Konzept kennzeichnet die Fundamentproduktrolle."@de ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:subject "IfcFooting" ;
+  dcterms:identifier "raft-foundation" .
+
+:FDP-RAFT-INS a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "FDP-RAFT-INS" ;
+  skos:prefLabel "Raft foundation thermal insulation layer"@en ;
+  skos:prefLabel "Plattenfundament Waermedaemmschicht"@de ;
+  skos:definition "Under-slab or raft thermal insulation board layer of a raft or base slab foundation system."@en ;
+  skos:definition "Unterplatten- oder Plattenfundament-Waermedaemmplatten-Schicht."@de ;
+  skos:broader :FDP-RAFT ;
+  skos:scopeNote "LCA layer component of FDP-RAFT. Used for ecobilans decomposition and carbon calculation; not a standalone foundation product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von FDP-RAFT. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Fundamentprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "raft-foundation-insulation-layer" .
+
+:FDP-STRIP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-STRIP" ;
+  skos:prefLabel "Strip footing foundation"@en ;
+  skos:prefLabel "Streifenfundament"@de ;
+  skos:definition "Continuous strip or wall footing beneath load-bearing walls or structural lines."@en ;
+  skos:definition "Durchgehendes Streifen- oder Wandfundament unter tragenden Waenden oder strukturellen Linien."@de ;
+  dcterms:subject "IfcFooting" ;
+  dcterms:identifier "strip-footing" .
+
+:FDP-PAD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-PAD" ;
+  skos:prefLabel "Pad / isolated footing"@en ;
+  skos:prefLabel "Einzelfundament / Fundamentplatte"@de ;
+  skos:definition "Isolated pad, spread, or column footing supporting a single column or concentrated load point."@en ;
+  skos:definition "Isoliertes Einzel-, Streifen- oder Stuetzenfundament fuer eine Einzelstuetze oder konzentrierte Last."@de ;
+  dcterms:subject "IfcFooting" ;
+  dcterms:identifier "pad-footing" .
+
+:FDP-PILE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-PILE" ;
+  skos:prefLabel "Driven / bored pile foundation"@en ;
+  skos:prefLabel "Pfahlgruendung"@de ;
+  skos:definition "Deep foundation system using driven, drilled, or cast-in-place piles with pile cap or ground beam connection."@en ;
+  skos:definition "Tiefgruendung mit rammbaren, gebohrten oder ortbetonierten Pfaehlen und Pfahlkopf- oder Gründungsbalkenanschluss."@de ;
+  dcterms:subject "IfcPile" ;
+  dcterms:identifier "pile-foundation" .
+
+:FDP-MICRO-PILE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-MICRO-PILE" ;
+  skos:prefLabel "Micropile / ground improvement"@en ;
+  skos:prefLabel "Mikropfahl / Bodenverbesserung"@de ;
+  skos:definition "Small-diameter micropile, injection, or ground-improvement foundation system for constrained sites or underpinning."@en ;
+  skos:definition "Kleindurchmesser-Mikropfahl-, Injektions- oder Bodenverbesserungssystem fuer beengte Lagen oder Unterfangungen."@de ;
+  dcterms:subject "IfcPile" ;
+  dcterms:identifier "micropile-foundation" .
+
+:FDP-RETAINING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-RETAINING" ;
+  skos:prefLabel "Basement / retaining foundation wall"@en ;
+  skos:prefLabel "Keller- / Stuetzwandfundament"@de ;
+  skos:definition "Foundation wall, basement box, or retaining structure integrated with the substructure, including embedded perimeter walls below grade."@en ;
+  skos:definition "Fundamentwand, Kellerschacht oder Stuetzkonstruktion als Teil des Unterbaus, einschliesslich eingebetteter Kellerumfassungswaende."@de ;
+  skos:narrower :FDP-RETAINING-INS ;
+  skos:scopeNote "Often paired with wall separator role W-BLG and wall separator product (SWP-*); this concept tags the foundation-system product type."@en ;
+  skos:scopeNote "Oft mit Trennwandrolle W-BLG und Wandtrennelementprodukt (SWP-*) kombiniert; dieses Konzept kennzeichnet den Fundamentsystem-Produkttyp."@de ;
+  dcterms:subject "IfcWall" ;
+  dcterms:subject "IfcFooting" ;
+  dcterms:identifier "retaining-foundation" .
+
+:FDP-RETAINING-INS a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "FDP-RETAINING-INS" ;
+  skos:prefLabel "Basement / retaining wall insulation layer"@en ;
+  skos:prefLabel "Keller- / Stuetzwand Daemmschicht"@de ;
+  skos:definition "Perimeter or basement wall thermal insulation layer of a retaining foundation system."@en ;
+  skos:definition "Perimeter- oder Kellerwand-Waermedaemmschicht eines Keller- / Stuetzwandfundaments."@de ;
+  skos:broader :FDP-RETAINING ;
+  skos:scopeNote "LCA layer component of FDP-RETAINING. Used for ecobilans decomposition and carbon calculation; not a standalone foundation product classification."@en ;
+  skos:scopeNote "LCA-Schichtkomponente von FDP-RETAINING. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Fundamentprodukt-Klassifikation."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "retaining-foundation-insulation-layer" .
+
+:FDP-WATERPROOF a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-WATERPROOF" ;
+  skos:prefLabel "Foundation waterproofing / tanking"@en ;
+  skos:prefLabel "Fundament- / Kellerabdichtung"@de ;
+  skos:definition "Below-grade waterproofing, tanking, or white-tank system on foundation slabs and basement walls."@en ;
+  skos:definition "Unterirdische Abdichtung, Weisswanne oder Tankingsystem auf Fundamentplatten und Kellerwaenden."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:subject "IfcBuildingElementProxy" ;
+  dcterms:identifier "foundation-waterproofing" .
+
+:FDP-DRAINAGE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-DRAINAGE" ;
+  skos:prefLabel "Foundation drainage and protection"@en ;
+  skos:prefLabel "Fundamententwaesserung und -schutz"@de ;
+  skos:definition "Perimeter drainage, protection board, filter layer, or geocomposite around foundations and basement envelopes."@en ;
+  skos:definition "Perimeterentwaesserung, Schutzschicht, Filterschicht oder Geocomposite um Fundamente und Kellerhuellen."@de ;
+  dcterms:subject "IfcBuildingElementProxy" ;
+  dcterms:subject "IfcPipeSegment" ;
+  dcterms:identifier "foundation-drainage" .
+
+:FDP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FDP-OTH" ;
+  skos:prefLabel "Other / unknown foundation"@en ;
+  skos:prefLabel "Sonstiges / unbekanntes Fundament"@de ;
+  skos:definition "Foundation product not classified or not yet known."@en ;
+  skos:definition "Fundamentprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcFooting" ;
+  dcterms:identifier "other" .

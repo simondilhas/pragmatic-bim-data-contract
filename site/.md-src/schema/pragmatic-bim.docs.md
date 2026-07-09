@@ -127,6 +127,7 @@ Name: pragmatic_bim_data_contract
 | [assignee](assignee.md) | Responsible agent. |
 | [availability_notes](availability_notes.md) | Optional notes about availability, office hours, or response expectations. |
 | [belongs_to_company](belongs_to_company.md) | Optional company that the person belongs to. |
+| [birthday](birthday.md) | Date of birth. Personal data; governed by personal_data_processing_state, consent_records, and retain_until. |
 | [boundary_type](boundary_type.md) | Classification of boundary element (e.g., covering). |
 | [bounded_by](bounded_by.md) | Physical elements that bound a space. |
 | [bounded_space](bounded_space.md) | Space bounded by this boundary element. |
@@ -216,6 +217,7 @@ Name: pragmatic_bim_data_contract
 | [lag_days](lag_days.md) |  |
 | [language_tag](language_tag.md) | IETF BCP 47 language tag (for example en, de, pt-BR). |
 | [lawful_basis](lawful_basis.md) | Lawful basis for processing the scoped personal data categories. |
+| [lifecycle_status](lifecycle_status.md) | Whether the person is active, retired, or deceased. Orthogonal to privacy processing state and workflow QA status. |
 | [localized_descriptions](localized_descriptions.md) | Localized variants of description. |
 | [localized_names](localized_names.md) | Localized variants of name. |
 | [mapping_version](mapping_version.md) | Mapping specification version used to derive the normalized property. |
@@ -387,6 +389,7 @@ Name: pragmatic_bim_data_contract
 | [PerformancePropertyValueType](PerformancePropertyValueType.md) | Type discriminator for normalized performance property values. |
 | [PersonalDataCategory](PersonalDataCategory.md) | Category of personal data covered by consent or processing scope. |
 | [PersonalDataProcessingState](PersonalDataProcessingState.md) | Privacy handling state for personal data on a Person record, orthogonal to workflow QA status. |
+| [PersonLifecycleStatus](PersonLifecycleStatus.md) | Life stage of a person in CRM context, orthogonal to privacy processing state and workflow QA status. |
 | [PropertyPathKind](PropertyPathKind.md) | Classification of a property path for diff interpretation across IFC and text sources. |
 | [QuantityType](QuantityType.md) |  |
 | [RequirementTargetOperator](RequirementTargetOperator.md) | Comparison operator for numeric or textual requirement targets. |

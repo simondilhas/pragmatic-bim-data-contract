@@ -1,0 +1,253 @@
+@prefix : <https://example.org/ch/abstract-person-relationship/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract person relationship types"@en ;
+  skos:prefLabel "Abstrakte Personenbeziehungstypen"@de ;
+  dcterms:title "Abstract person relationship types"@en ;
+  dcterms:identifier "AbstractPersonRelationshipType" ;
+  dcterms:creator "pragmatic-bim-public-rules" ;
+  dcterms:issued "2026-07-08" ;
+  dcterms:description "CRM-oriented person relationship predicates for social, professional, organizational, commercial, and interest links."@en ;
+  dcterms:description "CRM-orientierte Personenbeziehungstypen für soziale, berufliche, organisatorische, kommerzielle und Interessen-Verknüpfungen."@de ;
+  skos:hasTopConcept :group_social, :group_professional, :group_organization, :group_commercial, :group_interest .
+
+# --- Groups (documentation hierarchy) ---
+
+:group_social a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GRP-SOC" ;
+  skos:prefLabel "Social relationships"@en ;
+  skos:prefLabel "Soziale Beziehungen"@de ;
+  skos:narrower :knows, :friend_of, :introduced_by .
+
+:group_professional a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GRP-PRO" ;
+  skos:prefLabel "Professional relationships (person)"@en ;
+  skos:prefLabel "Berufliche Beziehungen (Person)"@de ;
+  skos:narrower :was_colleague_of, :reports_to, :mentored_by, :referred_by .
+
+:group_organization a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GRP-ORG" ;
+  skos:prefLabel "Organization relationships"@en ;
+  skos:prefLabel "Organisationsbeziehungen"@de ;
+  skos:narrower :works_at, :worked_at, :consulted_for, :client_of, :vendor_of .
+
+:group_commercial a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GRP-COM" ;
+  skos:prefLabel "Commercial relationships"@en ;
+  skos:prefLabel "Kommerzielle Beziehungen"@de ;
+  skos:narrower :is_key_account_manager_for, :has_key_account_manager .
+
+:group_interest a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GRP-INT" ;
+  skos:prefLabel "Interest and expertise"@en ;
+  skos:prefLabel "Interessen und Expertise"@de ;
+  skos:narrower :has_interest, :has_expertise_in, :learning_about .
+
+# --- Social ---
+
+:knows a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_social ;
+  skos:notation "KNW" ;
+  skos:prefLabel "Knows"@en ;
+  skos:prefLabel "Kennt"@de ;
+  skos:definition "Person knows another person through social or professional acquaintance."@en ;
+  skos:definition "Person kennt eine andere Person durch soziale oder berufliche Bekanntschaft."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:friend_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_social ;
+  skos:notation "FRI" ;
+  skos:prefLabel "Friend of"@en ;
+  skos:prefLabel "Freund/Freundin von"@de ;
+  skos:definition "Person considers another person a friend."@en ;
+  skos:definition "Person betrachtet eine andere Person als Freundin oder Freund."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:introduced_by a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_social ;
+  skos:notation "ITR" ;
+  skos:prefLabel "Introduced by"@en ;
+  skos:prefLabel "Vorgestellt von"@de ;
+  skos:definition "Person was introduced to another person or context by someone."@en ;
+  skos:definition "Person wurde einer anderen Person oder einem Kontext durch jemanden vorgestellt."@de ;
+  skos:scopeNote "Target slot: related_person (the introducer)."@en ;
+  skos:scopeNote "Ziel-Slot: related_person (die vorstellende Person)."@de .
+
+# --- Professional (person) ---
+
+:was_colleague_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_professional ;
+  skos:notation "COL" ;
+  skos:prefLabel "Was colleague of"@en ;
+  skos:prefLabel "War Kollege/Kollegin von"@de ;
+  skos:definition "Person worked alongside another person in the same organization or project."@en ;
+  skos:definition "Person hat mit einer anderen Person in derselben Organisation oder auf demselben Projekt zusammengearbeitet."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:reports_to a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_professional ;
+  skos:notation "RPT" ;
+  skos:prefLabel "Reports to"@en ;
+  skos:prefLabel "Berichtet an"@de ;
+  skos:definition "Person reports to or is supervised by another person."@en ;
+  skos:definition "Person berichtet an oder wird von einer anderen Person geführt."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:mentored_by a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_professional ;
+  skos:notation "MTR" ;
+  skos:prefLabel "Mentored by"@en ;
+  skos:prefLabel "Mentoring durch"@de ;
+  skos:definition "Person received career or professional guidance from another person."@en ;
+  skos:definition "Person erhielt berufliche Orientierung oder Mentoring durch eine andere Person."@de ;
+  skos:scopeNote "Target slot: related_person (the mentor)."@en ;
+  skos:scopeNote "Ziel-Slot: related_person (die Mentorin oder der Mentor)."@de .
+
+:referred_by a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_professional ;
+  skos:notation "REF" ;
+  skos:prefLabel "Referred by"@en ;
+  skos:prefLabel "Empfohlen von"@de ;
+  skos:definition "Person was referred or introduced for business by another person."@en ;
+  skos:definition "Person wurde geschäftlich durch eine andere Person empfohlen oder vermittelt."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+# --- Organization ---
+
+:works_at a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "WAT" ;
+  skos:prefLabel "Works at"@en ;
+  skos:prefLabel "Arbeitet bei"@de ;
+  skos:definition "Person is currently employed by or affiliated with an organization."@en ;
+  skos:definition "Person ist derzeit bei einer Organisation angestellt oder zugeordnet."@de ;
+  skos:scopeNote "Target slot: related_company. Open-ended works_at without valid_to may mirror Person.belongs_to_company."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. works_at ohne valid_to kann Person.belongs_to_company entsprechen."@de .
+
+:worked_at a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "WRK" ;
+  skos:prefLabel "Worked at"@en ;
+  skos:prefLabel "War tätig bei"@de ;
+  skos:definition "Person was formerly employed by or affiliated with an organization."@en ;
+  skos:definition "Person war früher bei einer Organisation angestellt oder zugeordnet."@de ;
+  skos:scopeNote "Target slot: related_company. Use valid_from and valid_to for employment periods."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. valid_from und valid_to für Anstellungszeiträume verwenden."@de .
+
+:consulted_for a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "CST" ;
+  skos:prefLabel "Consulted for"@en ;
+  skos:prefLabel "Berater/Beraterin für"@de ;
+  skos:definition "Person provided consulting services to an organization without being an employee."@en ;
+  skos:definition "Person erbrachte Beratungsleistungen für eine Organisation ohne Anstellung."@de ;
+  skos:scopeNote "Target slot: related_company."@en ;
+  skos:scopeNote "Ziel-Slot: related_company."@de .
+
+:client_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "CLT" ;
+  skos:prefLabel "Client of"@en ;
+  skos:prefLabel "Kunde von"@de ;
+  skos:definition "Person or their organization is a client of the target organization."@en ;
+  skos:definition "Person oder deren Organisation ist Kunde der Zielorganisation."@de ;
+  skos:scopeNote "Target slot: related_company."@en ;
+  skos:scopeNote "Ziel-Slot: related_company."@de .
+
+:vendor_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "VND" ;
+  skos:prefLabel "Vendor of"@en ;
+  skos:prefLabel "Lieferant für"@de ;
+  skos:definition "Person or their organization supplies goods or services to the target organization."@en ;
+  skos:definition "Person oder deren Organisation liefert Waren oder Dienstleistungen an die Zielorganisation."@de ;
+  skos:scopeNote "Target slot: related_company."@en ;
+  skos:scopeNote "Ziel-Slot: related_company."@de .
+
+# --- Commercial (KAM) ---
+
+:is_key_account_manager_for a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_commercial ;
+  skos:notation "KAM" ;
+  skos:prefLabel "Is key account manager for"@en ;
+  skos:prefLabel "Ist Key-Account-Manager für"@de ;
+  skos:definition "Person acts as key account manager for a client organization or contact."@en ;
+  skos:definition "Person ist Key-Account-Manager für eine Kundenorganisation oder einen Ansprechpartner."@de ;
+  skos:scopeNote "Target slot: related_company (account org) or related_person (primary contact)."@en ;
+  skos:scopeNote "Ziel-Slot: related_company (Kundenorganisation) oder related_person (Hauptansprechpartner)."@de .
+
+:has_key_account_manager a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_commercial ;
+  skos:notation "HKM" ;
+  skos:prefLabel "Has key account manager"@en ;
+  skos:prefLabel "Hat Key-Account-Manager"@de ;
+  skos:definition "Person's commercial relationship is managed by a key account manager."@en ;
+  skos:definition "Die kommerzielle Beziehung der Person wird von einem Key-Account-Manager betreut."@de ;
+  skos:scopeNote "Target slot: related_person (the KAM)."@en ;
+  skos:scopeNote "Ziel-Slot: related_person (der Key-Account-Manager)."@de .
+
+# --- Interest ---
+
+:has_interest a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_interest ;
+  skos:notation "INT" ;
+  skos:prefLabel "Has interest"@en ;
+  skos:prefLabel "Hat Interesse"@de ;
+  skos:definition "Person has personal or professional interest in a topic concept."@en ;
+  skos:definition "Person hat persönliches oder berufliches Interesse an einem Themenkonzept."@de ;
+  skos:scopeNote "Target slot: related_topic."@en ;
+  skos:scopeNote "Ziel-Slot: related_topic."@de .
+
+:has_expertise_in a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_interest ;
+  skos:notation "EXP" ;
+  skos:prefLabel "Has expertise in"@en ;
+  skos:prefLabel "Hat Expertise in"@de ;
+  skos:definition "Person has demonstrated professional depth in a topic area."@en ;
+  skos:definition "Person verfügt über nachgewiesene fachliche Tiefe in einem Themenbereich."@de ;
+  skos:scopeNote "Target slot: related_topic."@en ;
+  skos:scopeNote "Ziel-Slot: related_topic."@de .
+
+:learning_about a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_interest ;
+  skos:notation "LRN" ;
+  skos:prefLabel "Learning about"@en ;
+  skos:prefLabel "Lernt über"@de ;
+  skos:definition "Person is developing or exploring interest in a topic area."@en ;
+  skos:definition "Person entwickelt oder erkundet Interesse an einem Themenbereich."@de ;
+  skos:scopeNote "Target slot: related_topic."@en ;
+  skos:scopeNote "Ziel-Slot: related_topic."@de .

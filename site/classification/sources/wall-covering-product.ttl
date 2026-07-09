@@ -1,0 +1,147 @@
+@prefix : <https://example.org/abstract/wall-covering-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix map: <https://example.org/mapping/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract wall covering products"@en ;
+  skos:prefLabel "Abstrakte Wandbelagsprodukte"@de ;
+  dcterms:title "Abstract wall covering products"@en ;
+  dcterms:identifier "AbstractWallCoveringProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-06-30" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractWallCoveringProductsToKbobEcobilansMapping, kbobbm:scheme ;
+  skos:scopeNote "Embodied carbon: resolve product notation via the referenced KBOB ecobilans mapping bridge (skos:closeMatch on layer narrowers where present; skos:relatedMatch on parent composites). Links KBOB Baumaterialien row notations only; obtain indicator values from the official KBOB ecobilans dataset."@en ;
+  skos:scopeNote "Graue Emissionen: Produktnotation ueber referenzierte KBOB-Oekobilanz-Mapping-Bruecke aufloesen (skos:closeMatch auf Schicht-narrower; skos:relatedMatch auf Eltern-Verbundprodukte). Verknuepft nur KBOB-Baumaterialien-Zeilennotationen; Kennwerte aus offiziellem KBOB-Oekobilanzdatensatz beziehen."@de ;
+  skos:definition "Product-type classification for interior wall coverings and claddings. For catalog, specification, and cost workflows; pair with abstract material classification for dominant substance."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer innere Wandbelaege und Verkleidungen. Fuer Katalog-, Spezifikations- und Kostenworkflows; mit abstrakter Materialklassifikation fuer dominante Substanz kombinieren."@de ;
+  skos:scopeNote "Default PBS entity is Boundary with boundary_type cladding (IfcCovering CLADDING). Tags product or system type, not dominant substance alone."@en ;
+  skos:scopeNote "Standard-PBS-Entitaet ist Boundary mit boundary_type cladding (IfcCovering CLADDING). Kennzeichnet Produkt- oder Systemtyp, nicht allein dominante Substanz."@de ;
+  skos:hasTopConcept
+    :WCP-SEAMLESS-COATING,
+    :WCP-WALLPAPER,
+    :WCP-NATURAL-STONE,
+    :WCP-ARTIFICIAL-STONE,
+    :WCP-CERAMIC-TILE,
+    :WCP-WOOD-PANEL,
+    :WCP-TEXTILE,
+    :WCP-SYNTHETIC-PANEL,
+    :WCP-PAINT,
+    :WCP-OTH .
+
+:WCP-SEAMLESS-COATING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-SEAMLESS-COATING" ;
+  skos:prefLabel "Seamless wall coating"@en ;
+  skos:prefLabel "Fugenlose Wandbeschichtung"@de ;
+  skos:definition "Troweled or sprayed seamless mineral or synthetic wall finish."@en ;
+  skos:definition "Gezogene oder gespritzte fugenlose mineralische oder synthetische Wandoberflaeche."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "seamless-wall-coating" .
+
+:WCP-WALLPAPER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-WALLPAPER" ;
+  skos:prefLabel "Wallpaper"@en ;
+  skos:prefLabel "Tapete"@de ;
+  skos:definition "Installed wallpaper, wallcovering roll goods, or vinyl wallcovering."@en ;
+  skos:definition "Eingebaute Tapete, Wandbespannung oder Vinyl-Wandbekleidung."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "wallpaper" .
+
+:WCP-NATURAL-STONE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-NATURAL-STONE" ;
+  skos:prefLabel "Natural stone wall cladding"@en ;
+  skos:prefLabel "Naturstein-Wandverkleidung"@de ;
+  skos:definition "Installed natural stone slab or tile wall cladding."@en ;
+  skos:definition "Eingebaute Natursteinplatten- oder -fliesen-Wandverkleidung."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "natural-stone-wall" .
+
+:WCP-ARTIFICIAL-STONE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-ARTIFICIAL-STONE" ;
+  skos:prefLabel "Artificial stone wall cladding"@en ;
+  skos:prefLabel "Kunststein-Wandverkleidung"@de ;
+  skos:definition "Installed artificial or agglomerate stone wall cladding."@en ;
+  skos:definition "Eingebaute Kunst- oder Agglomeratstein-Wandverkleidung."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "artificial-stone-wall" .
+
+:WCP-CERAMIC-TILE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-CERAMIC-TILE" ;
+  skos:prefLabel "Ceramic / porcelain wall tile"@en ;
+  skos:prefLabel "Keramik- / Feinsteinzeug-Wandfliese"@de ;
+  skos:definition "Installed ceramic, porcelain, or stoneware wall tile finish."@en ;
+  skos:definition "Eingebaute Keramik-, Feinsteinzeug- oder Steingut-Wandfliese."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "ceramic-tile-wall" .
+
+:WCP-WOOD-PANEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-WOOD-PANEL" ;
+  skos:prefLabel "Wood wall panel"@en ;
+  skos:prefLabel "Holz-Wandverkleidung"@de ;
+  skos:definition "Installed wood or wood-composite wall panel or slat cladding."@en ;
+  skos:definition "Eingebaute Holz- oder Holzwerkstoff-Wandverkleidung oder Lamellenbekleidung."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "wood-wall-panel" .
+
+:WCP-TEXTILE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-TEXTILE" ;
+  skos:prefLabel "Textile wall covering"@en ;
+  skos:prefLabel "Textile Wandbekleidung"@de ;
+  skos:definition "Installed textile or fabric wall covering system."@en ;
+  skos:definition "Eingebautes textiles oder Stoff-Wandbekleidungssystem."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "textile-wall" .
+
+:WCP-SYNTHETIC-PANEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-SYNTHETIC-PANEL" ;
+  skos:prefLabel "Synthetic wall panel"@en ;
+  skos:prefLabel "Kunststoff-Wandverkleidung"@de ;
+  skos:definition "Installed plastic, laminate, or composite wall panel cladding."@en ;
+  skos:definition "Eingebaute Kunststoff-, Laminat- oder Verbund-Wandverkleidung."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "synthetic-wall-panel" .
+
+:WCP-PAINT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-PAINT" ;
+  skos:prefLabel "Interior paint finish"@en ;
+  skos:prefLabel "Innenanstrich"@de ;
+  skos:definition "Applied interior paint or coating finish on wall surfaces."@en ;
+  skos:definition "Aufgetragener Innenanstrich oder Beschichtung auf Wandflaechen."@de ;
+  skos:scopeNote "Often costed under BKP 285 (innere Oberflaechenbehandlungen) rather than 282; see BKP mapping bridge."@en ;
+  skos:scopeNote "Wird oft unter BKP 285 (innere Oberflaechenbehandlungen) statt 282 kalkuliert; siehe BKP-Mapping."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "interior-paint" .
+
+:WCP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WCP-OTH" ;
+  skos:prefLabel "Other / unknown wall covering"@en ;
+  skos:prefLabel "Sonstiger / unbekannter Wandbelag"@de ;
+  skos:definition "Wall covering product not classified or not yet known."@en ;
+  skos:definition "Wandbelagsprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "other" .

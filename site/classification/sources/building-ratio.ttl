@@ -1,0 +1,130 @@
+@prefix rat: <https://example.org/abstract/building-ratio-definition/> .
+@prefix met: <https://example.org/abstract/building-metric-definition/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix pbs: <https://schema.pragmaticbim.ch/> .
+
+rat:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract building ratios"@en ;
+  skos:prefLabel "Abstrakte Gebaeudekennzahlen"@de ;
+  dcterms:title "Abstract building ratios"@en ;
+  dcterms:identifier "AbstractBuildingRatio" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-06-29" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Dimensionless building KPIs defined as quotients of abstract building metrics. Scope is inherited from operand metrics at calculation time."@en ;
+  skos:hasTopConcept
+    rat:ratio_building_volume_to_gross_floor_area,
+    rat:ratio_building_volume_to_gross_floor_area_above_ground,
+    rat:ratio_window_area_to_gross_floor_area,
+    rat:ratio_window_area_to_gross_floor_area_above_ground,
+    rat:ratio_facade_area_to_gross_volume,
+    rat:ratio_facade_area_to_gross_floor_area,
+    rat:ratio_construction_floor_area_to_gross_floor_area,
+    rat:ratio_envelope_area_to_gross_floor_area .
+
+rat:ratio_building_volume_to_gross_floor_area a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_building_volume_to_gross_floor_area" ;
+  skos:prefLabel "Building volume to gross floor area ratio"@en ;
+  skos:prefLabel "Gebaeudevolumen zu Bruttogeschossflaeche"@de ;
+  skos:definition "Quotient of gross building volume and gross floor area (SIA 416 QV family)."@en ;
+  skos:related met:total_gross_building_volume, met:total_gross_floor_area ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_gross_building_volume, met:total_gross_floor_area ;
+  dcterms:identifier "ratio_building_volume_to_gross_floor_area" .
+
+rat:ratio_building_volume_to_gross_floor_area_above_ground a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_building_volume_to_gross_floor_area_above_ground" ;
+  skos:prefLabel "Building volume to gross floor area ratio above ground"@en ;
+  skos:definition "Scoped quotient of gross building volume and gross floor area above ground."@en ;
+  skos:related met:total_gross_building_volume_above_ground, met:total_gross_floor_area_above_ground ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_gross_building_volume_above_ground, met:total_gross_floor_area_above_ground ;
+  dcterms:identifier "ratio_building_volume_to_gross_floor_area_above_ground" .
+
+rat:ratio_window_area_to_gross_floor_area a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_window_area_to_gross_floor_area" ;
+  skos:prefLabel "Window area to gross floor area ratio"@en ;
+  skos:definition "Quotient of exterior window area and gross floor area (approximates SIA 416 QF family)."@en ;
+  skos:related met:total_exterior_window_area, met:total_gross_floor_area ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_exterior_window_area, met:total_gross_floor_area ;
+  dcterms:identifier "ratio_window_area_to_gross_floor_area" .
+
+rat:ratio_window_area_to_gross_floor_area_above_ground a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_window_area_to_gross_floor_area_above_ground" ;
+  skos:prefLabel "Window area to gross floor area ratio above ground"@en ;
+  skos:definition "Scoped quotient of exterior window area and gross floor area above ground."@en ;
+  skos:related met:total_exterior_window_area_above_ground, met:total_gross_floor_area_above_ground ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_exterior_window_area_above_ground, met:total_gross_floor_area_above_ground ;
+  dcterms:identifier "ratio_window_area_to_gross_floor_area_above_ground" .
+
+rat:ratio_facade_area_to_gross_volume a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_facade_area_to_gross_volume" ;
+  skos:prefLabel "Facade area to gross volume ratio"@en ;
+  skos:definition "Quotient of vertical facade area and gross building volume."@en ;
+  skos:related met:total_vertical_facade_area, met:total_gross_building_volume ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_vertical_facade_area, met:total_gross_building_volume ;
+  dcterms:identifier "ratio_facade_area_to_gross_volume" .
+
+rat:ratio_facade_area_to_gross_floor_area a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_facade_area_to_gross_floor_area" ;
+  skos:prefLabel "Facade area to gross floor area ratio"@en ;
+  skos:definition "Quotient of vertical facade area (including windows and doors) and gross floor area."@en ;
+  skos:related met:total_vertical_facade_area, met:total_exterior_window_area, met:total_exterior_door_area, met:total_gross_floor_area ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_vertical_facade_area, met:total_exterior_window_area, met:total_exterior_door_area, met:total_gross_floor_area ;
+  dcterms:identifier "ratio_facade_area_to_gross_floor_area" .
+
+rat:ratio_construction_floor_area_to_gross_floor_area a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_construction_floor_area_to_gross_floor_area" ;
+  skos:prefLabel "Construction floor area to gross floor area ratio"@en ;
+  skos:definition "Quotient of construction floor area and gross floor area."@en ;
+  skos:related met:total_construction_floor_area, met:total_gross_floor_area ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_construction_floor_area, met:total_gross_floor_area ;
+  dcterms:identifier "ratio_construction_floor_area_to_gross_floor_area" .
+
+rat:ratio_envelope_area_to_gross_floor_area a skos:Concept ;
+  skos:inScheme rat:scheme ;
+  skos:topConceptOf rat:scheme ;
+  skos:notation "ratio_envelope_area_to_gross_floor_area" ;
+  skos:prefLabel "Envelope area to gross floor area ratio"@en ;
+  skos:definition "Quotient of total envelope area and gross floor area."@en ;
+  skos:related met:total_envelope_area, met:total_gross_floor_area ;
+  pbs:quantityType "ratio" ;
+  pbs:defaultUnit "1" ;
+  pbs:measurementKind "ratio" ;
+  pbs:relatedMetric met:total_envelope_area, met:total_gross_floor_area ;
+  dcterms:identifier "ratio_envelope_area_to_gross_floor_area" .

@@ -369,6 +369,34 @@ enums:
           de:
             source: de
             description: Gelöscht
+  PersonLifecycleStatus:
+    enum_uri: pbs:PersonLifecycleStatus
+    description: Life stage of a person in CRM context, orthogonal to privacy processing state and workflow QA status.
+    permissible_values:
+      active:
+        description: Person is living and considered active in CRM context.
+        meaning: pbs:person_lifecycle_status_active
+        title: Active
+        alt_descriptions:
+          de:
+            source: de
+            description: Aktiv
+      retired:
+        description: Person has retired from professional or public life.
+        meaning: pbs:person_lifecycle_status_retired
+        title: Retired
+        alt_descriptions:
+          de:
+            source: de
+            description: Im Ruhestand
+      deceased:
+        description: Person has died.
+        meaning: pbs:person_lifecycle_status_deceased
+        title: Deceased
+        alt_descriptions:
+          de:
+            source: de
+            description: Verstorben
   PersonalDataCategory:
     enum_uri: pbs:PersonalDataCategory
     description: Category of personal data covered by consent or processing scope.

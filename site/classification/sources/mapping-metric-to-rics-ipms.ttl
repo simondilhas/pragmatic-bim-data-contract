@@ -1,0 +1,14 @@
+@prefix met: <https://example.org/abstract/building-metric-definition/> .
+@prefix rics: <https://example.org/rics/ipms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/mapping/> .
+
+ex:abstractMetricToRicsIpmsMapping a dcterms:Dataset ;
+  dcterms:title "Abstract building metrics to RICS IPMS mapping"@en ;
+  dcterms:references met:scheme, rics:scheme ;
+  dcterms:description "Close match between abstract building metrics and RICS IPMS area concepts."@en .
+
+met:total_gross_floor_area skos:closeMatch rics:GEA, rics:IPMS1 .
+met:total_net_floor_area skos:closeMatch rics:GIA, rics:IPMS2 .
+met:total_gross_building_volume skos:closeMatch rics:GIFA .

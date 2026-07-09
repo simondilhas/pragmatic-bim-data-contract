@@ -1,0 +1,37 @@
+@prefix ccp: <https://example.org/abstract/ceiling-covering-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractCeilingCoveringProductsToKbobEcobilansMapping a dcterms:Dataset ;
+  dcterms:title "Abstract ceiling covering products to KBOB ecobilans mapping"@en ;
+  dcterms:title "Mapping abstrakter Deckenbekleidungsprodukte nach KBOB Oekobilanz"@de ;
+  dcterms:references ccp:scheme, kbobbm:scheme ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:description "Maps abstract ceiling covering products to KBOB ecobilans rows. CCP-MINERAL-FIBRE maps to mineral insulation 10.008 (kg) with default area yield in kbob-ecobilans-price-unit-defaults.json."@en ;
+  dcterms:description "Ordnet abstrakte Deckenbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. CCP-MINERAL-FIBRE auf Mineraldämmung 10.008 (kg) mit Standard-Flächenertrag in kbob-ecobilans-price-unit-defaults.json."@de .
+
+ccp:CCP-METAL-SHEET skos:closeMatch kbobbm:06_001 ;
+  skos:relatedMatch kbobbm:06_002 .
+
+ccp:CCP-GYPSUM-BOARD skos:closeMatch kbobbm:05_021 ;
+  skos:relatedMatch kbobbm:03_008 .
+
+ccp:CCP-MINERAL-FIBRE skos:closeMatch kbobbm:10_008 ;
+  skos:relatedMatch kbobbm:10_001, kbobbm:10_009 .
+
+ccp:CCP-WOOD skos:closeMatch kbobbm:07_014 ;
+  skos:relatedMatch kbobbm:07_016 .
+
+ccp:CCP-SYNTHETIC skos:closeMatch kbobbm:05_023 ;
+  skos:relatedMatch kbobbm:05_020 .
+
+ccp:CCP-METAL-PANEL skos:closeMatch kbobbm:06_002 ;
+  skos:relatedMatch kbobbm:06_001, kbobbm:06_012 .
+
+ccp:CCP-METAL-GRID skos:closeMatch kbobbm:06_012 ;
+  skos:relatedMatch kbobbm:06_002, kbobbm:06_001 .
+
+ccp:CCP-OTH skos:closeMatch kbobbm:05_021 ;
+  skos:relatedMatch kbobbm:06_002 .

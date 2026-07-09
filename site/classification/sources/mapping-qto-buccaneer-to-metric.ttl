@@ -1,0 +1,59 @@
+@prefix qto: <https://example.org/qto-buccaneer/metric/> .
+@prefix met: <https://example.org/abstract/building-metric-definition/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/mapping/> .
+
+ex:qtoBuccaneerToAbstractMetricMapping a dcterms:Dataset ;
+  dcterms:title "qto_buccaneer metric keys to abstract building metrics mapping"@en ;
+  dcterms:references met:scheme ;
+  dcterms:source <https://github.com/simondilhas/qto_buccaneer/releases/tag/V0.1.3> ;
+  dcterms:description "Optional guideline bridge from qto_buccaneer V0.1.3 metric keys to abstract metric concepts. Not a port of calculation logic."@en .
+
+qto:gross_floor_area skos:closeMatch met:total_gross_floor_area .
+qto:gross_floor_area_above_ground skos:closeMatch met:total_gross_floor_area_above_ground .
+qto:gross_floor_area_below_ground skos:closeMatch met:total_gross_floor_area_below_ground .
+
+qto:space_interior_floor_area skos:closeMatch met:total_net_floor_area .
+qto:space_interior_floor_area_above_ground skos:closeMatch met:total_net_floor_area_above_ground .
+qto:space_interior_floor_area_below_ground skos:closeMatch met:total_net_floor_area_below_ground .
+
+qto:construction_area skos:closeMatch met:total_construction_floor_area .
+qto:construction_area_above_ground skos:closeMatch met:total_construction_floor_area_above_ground .
+qto:construction_area_below_ground skos:closeMatch met:total_construction_floor_area_below_ground .
+
+qto:space_exterior_area skos:closeMatch met:total_exterior_floor_area .
+
+qto:gross_volume skos:closeMatch met:total_gross_building_volume .
+qto:gross_volume_above_ground skos:closeMatch met:total_gross_building_volume_above_ground .
+qto:gross_volume_below_ground skos:closeMatch met:total_gross_building_volume_below_ground .
+
+qto:space_interior_volume skos:closeMatch met:total_net_building_volume .
+qto:space_interior_volume_above_ground skos:closeMatch met:total_net_building_volume_above_ground .
+qto:space_interior_volume_below_ground skos:closeMatch met:total_net_building_volume_below_ground .
+
+qto:facade_vertical_area skos:closeMatch met:total_vertical_facade_area .
+qto:facade_vertical_area_above_ground skos:closeMatch met:total_vertical_facade_area_above_ground .
+qto:facade_vertical_area_below_ground skos:closeMatch met:total_vertical_facade_area_below_ground .
+
+qto:windows_exterior_area skos:closeMatch met:total_exterior_window_area .
+qto:windows_exterior_area_above_ground skos:closeMatch met:total_exterior_window_area_above_ground .
+qto:windows_exterior_area_below_ground skos:closeMatch met:total_exterior_window_area_below_ground .
+
+qto:doors_exterior_area skos:closeMatch met:total_exterior_door_area .
+qto:doors_exterior_area_above_ground skos:closeMatch met:total_exterior_door_area_above_ground .
+qto:doors_exterior_area_below_ground skos:closeMatch met:total_exterior_door_area_below_ground .
+
+qto:roof_area skos:closeMatch met:total_roof_area .
+qto:roof_area_above_ground skos:closeMatch met:total_roof_area_above_ground .
+qto:roof_area_below_ground skos:closeMatch met:total_roof_area_below_ground .
+
+qto:soffit_area skos:closeMatch met:total_soffit_area .
+qto:soffit_area_above_ground skos:closeMatch met:total_soffit_area_above_ground .
+qto:soffit_area_below_ground skos:closeMatch met:total_soffit_area_below_ground .
+
+qto:total_envelope_area skos:closeMatch met:total_envelope_area .
+
+qto:storeys_count_including_roof skos:closeMatch met:total_storey_count .
+qto:storeys_count_including_roof_above_ground skos:closeMatch met:total_storey_count_above_ground .
+qto:storeys_count_including_roof_below_ground skos:closeMatch met:total_storey_count_below_ground .

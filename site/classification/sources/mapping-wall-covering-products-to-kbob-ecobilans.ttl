@@ -1,0 +1,41 @@
+@prefix wcp: <https://example.org/abstract/wall-covering-product/> .
+@prefix kbobbm: <https://example.org/ch/kbob/ecobilans/baumat/2009-1-2022/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractWallCoveringProductsToKbobEcobilansMapping a dcterms:Dataset ;
+  dcterms:title "Abstract wall covering products to KBOB ecobilans mapping"@en ;
+  dcterms:title "Mapping abstrakter Wandbekleidungsprodukte nach KBOB Oekobilanz"@de ;
+  dcterms:references wcp:scheme, kbobbm:scheme ;
+  dcterms:issued "2026-07-01" ;
+  dcterms:description "Maps abstract wall covering products to KBOB ecobilans rows. WCP-WALLPAPER has no direct KBOB row; paint row 14.001 used as closest proxy for thin decorative finish."@en ;
+  dcterms:description "Ordnet abstrakte Wandbekleidungsprodukte KBOB-Oekobilanz-Zeilen zu. WCP-WALLPAPER ohne direkte Zeile; Anstrich 14.001 als naechste Naeherung fuer duenne dekorative Schicht."@de .
+
+wcp:WCP-SEAMLESS-COATING skos:closeMatch kbobbm:04_007 ;
+  skos:relatedMatch kbobbm:11_002 .
+
+wcp:WCP-WALLPAPER skos:closeMatch kbobbm:14_001 ;
+  skos:relatedMatch kbobbm:14_002 .
+
+wcp:WCP-NATURAL-STONE skos:closeMatch kbobbm:11_015 ;
+  skos:relatedMatch kbobbm:03_017 .
+
+wcp:WCP-ARTIFICIAL-STONE skos:closeMatch kbobbm:11_012 .
+
+wcp:WCP-CERAMIC-TILE skos:closeMatch kbobbm:11_008 ;
+  skos:relatedMatch kbobbm:03_010 .
+
+wcp:WCP-WOOD-PANEL skos:closeMatch kbobbm:07_014 ;
+  skos:relatedMatch kbobbm:07_016 .
+
+wcp:WCP-TEXTILE skos:closeMatch kbobbm:11_024 ;
+  skos:relatedMatch kbobbm:11_026 .
+
+wcp:WCP-SYNTHETIC-PANEL skos:closeMatch kbobbm:05_020 ;
+  skos:relatedMatch kbobbm:05_023 .
+
+wcp:WCP-PAINT skos:closeMatch kbobbm:14_001 .
+
+wcp:WCP-OTH skos:closeMatch kbobbm:14_001 ;
+  skos:relatedMatch kbobbm:04_007 .

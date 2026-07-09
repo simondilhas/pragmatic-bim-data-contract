@@ -36,6 +36,7 @@ click ConsentRecord href "./ConsentRecord.html" _blank
 click ContactPoint href "./ContactPoint.html" _blank
 click Company href "./Company.html" _blank
 click GeometryRepresentation href "./GeometryRepresentation.html" _blank
+click PersonLifecycleStatus href "./PersonLifecycleStatus.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click LocalizedText href "./LocalizedText.html" _blank
 click MetadataEntry href "./MetadataEntry.html" _blank
@@ -71,6 +72,8 @@ click StatusType href "./StatusType.html" _blank
 | [postal_addresses](postal_addresses.md) | * <br/> [PostalAddress](PostalAddress.md) | Structured postal or physical addresses associated with this agent. | direct |
 | [contact_points](contact_points.md) | * <br/> [ContactPoint](ContactPoint.md) | Structured communication channels and profiles associated with this agent. | direct |
 | [belongs_to_company](belongs_to_company.md) | 0..1 <br/> [Company](Company.md) | Optional company that the person belongs to. | direct |
+| [birthday](birthday.md) | 0..1 <br/> [Date](Date.md) | Date of birth. Personal data; governed by personal_data_processing_state, consent_records, and retain_until. | direct |
+| [lifecycle_status](lifecycle_status.md) | 0..1 <br/> [PersonLifecycleStatus](PersonLifecycleStatus.md) | Whether the person is active, retired, or deceased. Orthogonal to privacy processing state and workflow QA status. | direct |
 | [personal_data_processing_state](personal_data_processing_state.md) | 0..1 <br/> [PersonalDataProcessingState](PersonalDataProcessingState.md) | Privacy handling state for personal data on this person, orthogonal to workflow QA status. | direct |
 | [consent_records](consent_records.md) | * <br/> [ConsentRecord](ConsentRecord.md) | Audit trail of lawful basis and consent for processing personal data. When lawful_basis is consent and state is active, at least one non-withdrawn record should be present. | direct |
 | [data_controller](data_controller.md) | 0..1 <br/> [Company](Company.md) | Organization accountable as data controller for this person record. | direct |
@@ -170,6 +173,8 @@ slots:
 - postal_addresses
 - contact_points
 - belongs_to_company
+- birthday
+- lifecycle_status
 - personal_data_processing_state
 - consent_records
 - data_controller
@@ -235,6 +240,27 @@ attributes:
     - Person
     range: Company
     inlined: false
+  birthday:
+    name: birthday
+    description: Date of birth. Personal data; governed by personal_data_processing_state,
+      consent_records, and retain_until.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    slot_uri: schema:birthDate
+    owner: Person
+    domain_of:
+    - Person
+    range: date
+  lifecycle_status:
+    name: lifecycle_status
+    description: Whether the person is active, retired, or deceased. Orthogonal to
+      privacy processing state and workflow QA status.
+    from_schema: https://schema.pragmaticbim.ch
+    rank: 1000
+    owner: Person
+    domain_of:
+    - Person
+    range: PersonLifecycleStatus
   personal_data_processing_state:
     name: personal_data_processing_state
     description: Privacy handling state for personal data on this person, orthogonal

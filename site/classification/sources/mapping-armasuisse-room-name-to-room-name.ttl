@@ -1,0 +1,223 @@
+@prefix rn: <https://example.org/abstract/building-space-name-classification/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix arma: <https://example.org/ch/armasuisse/value/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:armasuisseRoomNameToAbstractRoomNameMapping a dcterms:Dataset ;
+  dcterms:title "armasuisse room name to abstract room name mapping"@en ;
+  dcterms:title "Mapping armasuisse Raumbezeichnungen zu abstrakten Raumnamen"@de ;
+  dcterms:references rn:scheme ;
+  dcterms:description "Maps armasuisse Raumliste labels to abstract BuildingSpaceNameClassification concepts. Military-specific labels are intentionally unmapped. Regenerate with scripts/generate_armasuisse_room_name_mapping.py."@en ;
+  dcterms:description "Ordnet armasuisse-Raumlistenbezeichnungen abstrakten BuildingSpaceNameClassification-Konzepten zu. Militaerspezifische Bezeichnungen bleiben absichtlich ungemappt. Regenerieren mit scripts/generate_armasuisse_room_name_mapping.py."@de .
+
+arma:raumliste_innen_fahrzeugabstellfl_che skos:closeMatch rn:RN_VOI_PRK ;
+  skos:prefLabel "Fahrzeugabstellfläche"@de .
+arma:raumliste_innen_elektrische_stromversorgung skos:closeMatch rn:RN_TEC_ELC ;
+  skos:prefLabel "Elektrische Stromversorgung"@de .
+arma:raumliste_innen_warmwasserversorgung skos:closeMatch rn:RN_TEC_PMP ;
+  skos:prefLabel "Warmwasserversorgung"@de .
+arma:raumliste_innen_vorraum skos:closeMatch rn:RN_CIR_VES ;
+  skos:prefLabel "Vorraum"@de .
+arma:raumliste_innen_archive_sammlungsr_ume skos:closeMatch rn:RN_STO_ARC ;
+  skos:prefLabel "Archive/Sammlungsräume"@de .
+arma:raumliste_innen_aufzugs_und_f_rderanlagen skos:closeMatch rn:RN_CIR_ELV ;
+  skos:prefLabel "Aufzugs- und Förderanlagen"@de .
+arma:raumliste_innen_werkst_tten skos:closeMatch rn:RN_IND_WRK ;
+  skos:prefLabel "Werkstätten"@de .
+arma:raumliste_innen_sonstige_nutzung_allgemein skos:closeMatch rn:RN_WRK_OPN ;
+  skos:prefLabel "Sonstige Nutzung allgemein"@de .
+arma:raumliste_innen_bibliotheksr_ume skos:closeMatch rn:RN_LRN_LIB ;
+  skos:prefLabel "Bibliotheksräume"@de .
+arma:raumliste_innen_waschk_che skos:closeMatch rn:RN_RES_LAU ;
+  skos:prefLabel "Waschküche"@de .
+arma:raumliste_innen_b_rotechnik skos:closeMatch rn:RN_TEC_COM ;
+  skos:prefLabel "Bürotechnik"@de .
+arma:raumliste_innen_b_rotechnik_rechenzentrum skos:closeMatch rn:RN_TEC_SRV ;
+  skos:prefLabel "Bürotechnik/Rechenzentrum"@de .
+arma:raumliste_innen_b_ror_ume skos:closeMatch rn:RN_WRK_OFF ;
+  skos:prefLabel "Büroräume"@de .
+arma:raumliste_innen_b_ror_ume_profi_kdo skos:closeMatch rn:RN_WRK_OFF ;
+  skos:prefLabel "Büroräume Profi (Kdo)"@de .
+arma:raumliste_innen_b_ror_ume_verwaltung skos:closeMatch rn:RN_WRK_OFF ;
+  skos:prefLabel "Büroräume Verwaltung"@de .
+arma:raumliste_innen_b_roarbeit_allgemein skos:closeMatch rn:RN_WRK_OFF ;
+  skos:prefLabel "Büroarbeit allgemein"@de .
+arma:raumliste_innen_cafeteria skos:closeMatch rn:RN_COM_CAF ;
+  skos:prefLabel "Cafeteria"@de .
+arma:raumliste_innen_zelle skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Zelle"@de .
+arma:raumliste_innen_schlafraum_zeitmilit_r_of_h_h_uof skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Schlafraum Zeitmilitär Of/höh Uof"@de .
+arma:raumliste_innen_schlafraum_zeitmilit_r_uof_sdt skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Schlafraum Zeitmilitär Uof/Sdt"@de .
+arma:raumliste_innen_schlafraum_berufspiloten skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Schlafraum Berufspiloten"@de .
+arma:raumliste_innen_schlafraum_rz_1x_w skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Schlafraum RZ 1x W"@de .
+arma:raumliste_innen_schlafraum_rz_2x_w skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Schlafraum RZ 2x W"@de .
+arma:raumliste_innen_raum_f_r_operative_eingriffe skos:closeMatch rn:RN_HLC_OR ;
+  skos:prefLabel "Raum für operative Eingriffe"@de .
+arma:raumliste_innen_bettenraum_mit_besonderer_ausstattung skos:closeMatch rn:RN_HLC_PAT ;
+  skos:prefLabel "Bettenraum mit besonderer Ausstattung"@de .
+arma:raumliste_innen_bettenraum_mit_allgemeiner_ausstattung skos:closeMatch rn:RN_HLC_PAT ;
+  skos:prefLabel "Bettenraum mit allgemeiner Ausstattung"@de .
+arma:raumliste_innen_schlafraum_unteroffiziere skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Schlafraum Unteroffiziere"@de .
+arma:raumliste_innen_heiz_u_brauchwassererw_rmung skos:closeMatch rn:RN_TEC_BOI ;
+  skos:prefLabel "Heiz- u. Brauchwassererwärmung"@de .
+arma:raumliste_innen_film_und_h_rs_le skos:closeMatch rn:RN_LRN_LCT ;
+  skos:prefLabel "Film- und Hörsäle"@de .
+arma:raumliste_innen_k_che skos:closeMatch rn:RN_RES_KIT ;
+  skos:prefLabel "Küche"@de .
+arma:raumliste_innen_k_chen skos:closeMatch rn:RN_RES_KIT ;
+  skos:prefLabel "Küchen"@de .
+arma:raumliste_innen_produktionsk_chen skos:closeMatch rn:RN_RES_KIT ;
+  skos:prefLabel "Produktionsküchen"@de .
+arma:raumliste_innen_abstellraum_hausdienst skos:closeMatch rn:RN_STO_JAN ;
+  skos:prefLabel "Abstellraum/Hausdienst"@de .
+arma:raumliste_innen_nebenr_ume_zu_produktionsk_chen skos:closeMatch rn:RN_RES_KIT ;
+  skos:prefLabel "Nebenräume zu Produktionsküchen"@de .
+arma:raumliste_innen_bildung_unterricht_und_kultur_allgemein skos:closeMatch rn:RN_LRN_CLS ;
+  skos:prefLabel "Bildung/Unterricht und Kultur allgemein"@de .
+arma:raumliste_innen_betriebstechnische_anlagen skos:closeMatch rn:RN_TEC_HVC ;
+  skos:prefLabel "Betriebstechnische Anlagen"@de .
+arma:raumliste_innen_treppen skos:closeMatch rn:RN_CIR_STR ;
+  skos:prefLabel "Treppen"@de .
+arma:raumliste_innen_konstruktionsraum skos:closeMatch rn:RN_VOI_MCH ;
+  skos:prefLabel "Konstruktionsraum"@de .
+arma:raumliste_innen_gemeinschaftsr_ume skos:closeMatch rn:RN_WRK_BRK ;
+  skos:prefLabel "Gemeinschaftsräume"@de .
+arma:raumliste_innen_gase_ohne_heizung_und_fl_ssigkeiten skos:closeMatch rn:RN_TEC_BOI ;
+  skos:prefLabel "Gase (ohne Heizung) und Flüssigkeiten"@de .
+arma:raumliste_innen_grossraumb_ro skos:closeMatch rn:RN_WRK_OPN ;
+  skos:prefLabel "Grossraumbüro"@de .
+arma:raumliste_innen_wohnr_ume_schlafr_ume skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Wohnräume (Schlafräume)"@de .
+arma:raumliste_innen_eingangshalle_kunden skos:closeMatch rn:RN_CIR_LOB ;
+  skos:prefLabel "Eingangshalle Kunden"@de .
+arma:raumliste_innen_eingangshalle skos:closeMatch rn:RN_CIR_LOB ;
+  skos:prefLabel "Eingangshalle"@de .
+arma:raumliste_innen_flur_halle_korridore skos:closeMatch rn:RN_CIR_COR ;
+  skos:prefLabel "Flur/Halle/Korridore"@de .
+arma:raumliste_innen_sporthalle skos:closeMatch rn:RN_LRN_AUS ;
+  skos:prefLabel "Sporthalle"@de .
+arma:raumliste_innen_halle_mit_hochregallager skos:closeMatch rn:RN_IND_WHS ;
+  skos:prefLabel "Halle mit Hochregallager"@de .
+arma:raumliste_innen_werkhallen skos:closeMatch rn:RN_IND_PRD ;
+  skos:prefLabel "Werkhallen"@de .
+arma:raumliste_innen_ausbildungshallen skos:closeMatch rn:RN_IND_PRD ;
+  skos:prefLabel "Ausbildungshallen"@de .
+arma:raumliste_innen_kiosk skos:closeMatch rn:RN_COM_KSK ;
+  skos:prefLabel "Kiosk"@de .
+arma:raumliste_innen_chemisches_bakteriologisches_labor skos:closeMatch rn:RN_LRN_SCI ;
+  skos:prefLabel "Chemisches/bakteriologisches Labor"@de .
+arma:raumliste_innen_physikalisches_technisches_labor skos:closeMatch rn:RN_LRN_SCI ;
+  skos:prefLabel "Physikalisches/technisches Labor"@de .
+arma:raumliste_innen_technologisches_labor skos:closeMatch rn:RN_LRN_SCI ;
+  skos:prefLabel "Technologisches Labor"@de .
+arma:raumliste_innen_fahrzeugverkehrsfl_che skos:closeMatch rn:RN_VOI_PRK ;
+  skos:prefLabel "Fahrzeugverkehrsfläche"@de .
+arma:raumliste_innen_raum_mit_allgemeiner_medizinischer_ausstattung skos:closeMatch rn:RN_HLC_TRT ;
+  skos:prefLabel "Raum mit allgemeiner medizinischer Ausstattung"@de .
+arma:raumliste_innen_raum_mit_besonderer_medizinischer_ausstattung skos:closeMatch rn:RN_HLC_PRM ;
+  skos:prefLabel "Raum mit besonderer medizinischer Ausstattung"@de .
+arma:raumliste_innen_kraft_fitnessraum skos:closeMatch rn:RN_LRN_WRK ;
+  skos:prefLabel "Kraft-/Fitnessraum"@de .
+arma:raumliste_innen_leseraum skos:closeMatch rn:RN_LRN_STU ;
+  skos:prefLabel "Leseraum"@de .
+arma:raumliste_innen_archivraum skos:closeMatch rn:RN_STO_ARC ;
+  skos:prefLabel "Archivraum"@de .
+arma:raumliste_innen_unterrichts_und_bungsr_ume_mit_festem_gest_hl skos:closeMatch rn:RN_LRN_CLS ;
+  skos:prefLabel "Unterrichts- und Übungsräume mit festem Gestühl"@de .
+arma:raumliste_innen_allgemeine_unterrichts_und_bungsr_ume_ohne_festes_gest_hl skos:closeMatch rn:RN_LRN_CLS ;
+  skos:prefLabel "Allgemeine Unterrichts- und Übungsräume ohne festes Gestühl"@de .
+arma:raumliste_innen_besondere_unterrichts_und_bungsr_ume_ohne_festes_gest_hl skos:closeMatch rn:RN_LRN_SEM ;
+  skos:prefLabel "Besondere Unterrichts- und Übungsräume ohne festes Gestühl"@de .
+arma:raumliste_innen_lagerr_ume skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerräume"@de .
+arma:raumliste_innen_lagerr_ume_zu_produktionsk_chen_ungek_hlt skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerräume zu Produktionsküchen (ungekühlt)"@de .
+arma:raumliste_innen_lagerr_ume_material_vor_ort_lager skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerräume Material (Vor Ort Lager)"@de .
+arma:raumliste_innen_lagerr_ume_f_r_gef_hrliche_g_ter skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerräume für gefährliche Güter"@de .
+arma:raumliste_innen_lagerr_ume_material_und_ger_te_infra skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerräume Material und Geräte (Infra)"@de .
+arma:raumliste_innen_lagerr_ume_munition skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerräume Munition"@de .
+arma:raumliste_innen_ausstellungsr_ume skos:closeMatch rn:RN_COM_EXH ;
+  skos:prefLabel "Ausstellungsräume"@de .
+arma:raumliste_innen_duschenraum skos:closeMatch rn:RN_HYG_SHW ;
+  skos:prefLabel "Duschenraum"@de .
+arma:raumliste_innen_lagerr_ume_material_fw_mag skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerräume Material (Fw Mag)"@de .
+arma:raumliste_innen_sanit_rr_ume skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Sanitärräume"@de .
+arma:raumliste_innen_milit_rpost_postb_ro skos:closeMatch rn:RN_WRK_OFF ;
+  skos:prefLabel "Militärpost/Postbüro"@de .
+arma:raumliste_innen_schacht_f_r_f_rderanlagen skos:closeMatch rn:RN_CIR_ELV ;
+  skos:prefLabel "Schacht für Förderanlagen"@de .
+arma:raumliste_innen_badezimmer skos:closeMatch rn:RN_RES_BTH ;
+  skos:prefLabel "Badezimmer"@de .
+arma:raumliste_innen_duschenraum_z_t2 skos:closeMatch rn:RN_HYG_SHW ;
+  skos:prefLabel "Duschenraum Z T2"@de .
+arma:raumliste_innen_kraft_fitnessraum_mit_sanit_reinrichtung_z_t1 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Kraft-/Fitnessraum mit Sanitäreinrichtung Z T1"@de .
+arma:raumliste_innen_sitzungszimmer skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Sitzungszimmer"@de .
+arma:raumliste_innen_behandlungsr_ume skos:closeMatch rn:RN_HLC_TRT ;
+  skos:prefLabel "Behandlungsräume"@de .
+arma:raumliste_innen_besprechungsraum skos:closeMatch rn:RN_WRK_MTG ;
+  skos:prefLabel "Besprechungsraum"@de .
+arma:raumliste_innen_besprechungsr_ume skos:closeMatch rn:RN_WRK_MTG ;
+  skos:prefLabel "Besprechungsräume"@de .
+arma:raumliste_innen_wohnzimmer skos:closeMatch rn:RN_RES_BED ;
+  skos:prefLabel "Wohnzimmer"@de .
+arma:raumliste_innen_lagerung_verteilung_und_verkauf_allgemein skos:closeMatch rn:RN_STO_GEN ;
+  skos:prefLabel "Lagerung/Verteilung und Verkauf allgemein"@de .
+arma:raumliste_innen_terrasse skos:closeMatch rn:RN_OUT_TRR ;
+  skos:prefLabel "Terrasse"@de .
+arma:raumliste_innen_toilette_z_t2 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Toilette Z T2"@de .
+arma:raumliste_innen_umkleideraum skos:closeMatch rn:RN_HYG_SHW ;
+  skos:prefLabel "Umkleideraum"@de .
+arma:raumliste_innen_garderoben_zu_duschen skos:closeMatch rn:RN_HYG_SHW ;
+  skos:prefLabel "Garderoben zu Duschen"@de .
+arma:raumliste_innen_garderoben skos:closeMatch rn:RN_CIR_ENT ;
+  skos:prefLabel "Garderoben"@de .
+arma:raumliste_innen_garderoben_zu_duschen_mit_sanit_reinrichtung_z_t2 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Garderoben zu Duschen mit Sanitäreinrichtung Z T2"@de .
+arma:raumliste_innen_garderoben_zu_duschen_z_t2 skos:closeMatch rn:RN_HYG_SHW ;
+  skos:prefLabel "Garderoben zu Duschen Z T2"@de .
+arma:raumliste_innen_garderoben_duschenraum_z_t2 skos:closeMatch rn:RN_HYG_SHW ;
+  skos:prefLabel "Garderoben/Duschenraum Z T2"@de .
+arma:raumliste_innen_toilette_t1 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Toilette T1"@de .
+arma:raumliste_innen_toilette_t2 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Toilette T2"@de .
+arma:raumliste_innen_toilette_t3 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Toilette T3"@de .
+arma:raumliste_innen_wc_duschenraum skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "WC/Duschenraum"@de .
+arma:raumliste_innen_wc_duschenraum_z_t2 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "WC/Duschenraum Z T2"@de .
+arma:raumliste_innen_wc_waschraum_z_t2 skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "WC/Waschraum Z T2"@de .
+arma:raumliste_innen_wc_waschraum skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "WC/Waschraum"@de .
+arma:raumliste_innen_spezielle_arbeitszone_mit_sanit_ren_einrichtungen skos:closeMatch rn:RN_HYG_WC_MIX ;
+  skos:prefLabel "Spezielle Arbeitszone mit sanitären Einrichtungen"@de .
+arma:raumliste_aussen_balkon skos:closeMatch rn:RN_OUT_BLN ;
+  skos:prefLabel "Balkon"@de .
+arma:raumliste_aussen_wasserbecken skos:closeMatch rn:RN_OUT_SPL ;
+  skos:prefLabel "Wasserbecken"@de .
+arma:raumliste_aussen_aussenanlagen_sport skos:closeMatch rn:RN_OUT_PLY ;
+  skos:prefLabel "Aussenanlagen Sport"@de .
+arma:raumliste_aussen_gartenanlage skos:closeMatch rn:RN_OUT_GDN ;
+  skos:prefLabel "Gartenanlage"@de .
+arma:raumliste_aussen_strasse_weg skos:closeMatch rn:RN_OUT_CWK ;
+  skos:prefLabel "Strasse/Weg"@de .
+
+# mapped=104 unmapped=164
