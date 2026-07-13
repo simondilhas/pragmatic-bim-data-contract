@@ -21,7 +21,7 @@
   skos:notation "ART" ;
   skos:prefLabel "Arts and entertainment"@en ;
   skos:prefLabel "Kunst und Unterhaltung"@de ;
-  skos:narrower :music, :film, :literature, :theater, :fan .
+  skos:narrower :music, :film, :photography, :video, :design, :literature, :theater, :fan .
 
 :music a skos:Concept ;
   skos:inScheme :scheme ;
@@ -94,6 +94,27 @@
   skos:prefLabel "Film and cinema"@en ;
   skos:prefLabel "Film und Kino"@de .
 
+:photography a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :arts_entertainment ;
+  skos:notation "ART-PHO" ;
+  skos:prefLabel "Photography"@en ;
+  skos:prefLabel "Fotografie"@de .
+
+:video a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :arts_entertainment ;
+  skos:notation "ART-VID" ;
+  skos:prefLabel "Video"@en ;
+  skos:prefLabel "Video"@de .
+
+:design a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :arts_entertainment ;
+  skos:notation "ART-DSN" ;
+  skos:prefLabel "Design"@en ;
+  skos:prefLabel "Design"@de .
+
 :literature a skos:Concept ;
   skos:inScheme :scheme ;
   skos:broader :arts_entertainment ;
@@ -131,7 +152,7 @@
   skos:notation "SPT" ;
   skos:prefLabel "Sports and recreation"@en ;
   skos:prefLabel "Sport und Freizeit"@de ;
-  skos:narrower :sport .
+  skos:narrower :sport, :outdoor_activities .
 
 :sport a skos:Concept ;
   skos:inScheme :scheme ;
@@ -139,7 +160,7 @@
   skos:notation "SPT-SPO" ;
   skos:prefLabel "Sport"@en ;
   skos:prefLabel "Sport"@de ;
-  skos:narrower :football, :american_football, :handball, :ice_hockey, :racing, :marathon, :running, :flying, :skiing .
+  skos:narrower :football, :american_football, :handball, :ice_hockey, :racing, :marathon, :running, :flying .
 
 :football a skos:Concept ;
   skos:inScheme :scheme ;
@@ -269,12 +290,45 @@
   skos:prefLabel "Car racing"@en ;
   skos:prefLabel "Autorennen"@de .
 
+:outdoor_activities a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :sports_recreation ;
+  skos:notation "SPT-OUT" ;
+  skos:prefLabel "Outdoor activities"@en ;
+  skos:prefLabel "Outdoor-Aktivitäten"@de ;
+  skos:narrower :hiking, :skiing, :cross_country_skiing, :hunting .
+
+:hiking a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :outdoor_activities ;
+  skos:notation "SPT-OUT-HIK" ;
+  skos:prefLabel "Hiking"@en ;
+  skos:prefLabel "Wandern"@de .
+
 :skiing a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:broader :sport ;
-  skos:notation "SPT-SPO-SKI" ;
+  skos:broader :outdoor_activities ;
+  skos:notation "SPT-OUT-SKI" ;
   skos:prefLabel "Skiing"@en ;
-  skos:prefLabel "Skifahren"@de .
+  skos:prefLabel "Skifahren"@de ;
+  skos:scopeNote "Downhill or alpine skiing."@en ;
+  skos:scopeNote "Abfahrts- oder Alpinski."@de .
+
+:cross_country_skiing a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :outdoor_activities ;
+  skos:notation "SPT-OUT-XCS" ;
+  skos:prefLabel "Cross-country skiing"@en ;
+  skos:prefLabel "Langlauf"@de ;
+  skos:altLabel "Nordic skiing"@en ;
+  skos:altLabel "Skilanglauf"@de .
+
+:hunting a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :outdoor_activities ;
+  skos:notation "SPT-OUT-HNT" ;
+  skos:prefLabel "Hunting"@en ;
+  skos:prefLabel "Jagen"@de .
 
 # --- professional ---
 

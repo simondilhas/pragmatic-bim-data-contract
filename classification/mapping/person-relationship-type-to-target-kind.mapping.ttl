@@ -49,6 +49,19 @@ rel:knows skos:relatedMatch tgt:related_person .
 rel:friend_of skos:relatedMatch tgt:related_person .
 rel:introduced_by skos:relatedMatch tgt:related_person .
 
+# Family
+rel:spouse_of skos:relatedMatch tgt:related_person .
+rel:parent_of skos:relatedMatch tgt:related_person .
+rel:child_of skos:relatedMatch tgt:related_person .
+rel:sibling_of skos:relatedMatch tgt:related_person .
+rel:grandparent_of skos:relatedMatch tgt:related_person .
+rel:grandchild_of skos:relatedMatch tgt:related_person .
+rel:aunt_or_uncle_of skos:relatedMatch tgt:related_person .
+rel:niece_or_nephew_of skos:relatedMatch tgt:related_person .
+rel:cousin_of skos:relatedMatch tgt:related_person .
+rel:parent_in_law_of skos:relatedMatch tgt:related_person .
+rel:child_in_law_of skos:relatedMatch tgt:related_person .
+
 # Professional (person)
 rel:was_colleague_of skos:relatedMatch tgt:related_person .
 rel:reports_to skos:relatedMatch tgt:related_person .
@@ -58,6 +71,8 @@ rel:referred_by skos:relatedMatch tgt:related_person .
 # Organization
 rel:works_at skos:relatedMatch tgt:related_company .
 rel:worked_at skos:relatedMatch tgt:related_company .
+rel:studied_at skos:relatedMatch tgt:related_company .
+rel:teaches_at skos:relatedMatch tgt:related_company .
 rel:consulted_for skos:relatedMatch tgt:related_company .
 rel:client_of skos:relatedMatch tgt:related_company .
 rel:vendor_of skos:relatedMatch tgt:related_company .

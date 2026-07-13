@@ -9,9 +9,9 @@
   dcterms:identifier "AbstractPersonRelationshipType" ;
   dcterms:creator "pragmatic-bim-public-rules" ;
   dcterms:issued "2026-07-08" ;
-  dcterms:description "CRM-oriented person relationship predicates for social, professional, organizational, commercial, and interest links."@en ;
-  dcterms:description "CRM-orientierte Personenbeziehungstypen für soziale, berufliche, organisatorische, kommerzielle und Interessen-Verknüpfungen."@de ;
-  skos:hasTopConcept :group_social, :group_professional, :group_organization, :group_commercial, :group_interest .
+  dcterms:description "CRM-oriented person relationship predicates for social, family, professional, organizational, commercial, and interest links."@en ;
+  dcterms:description "CRM-orientierte Personenbeziehungstypen für soziale, familiäre, berufliche, organisatorische, kommerzielle und Interessen-Verknüpfungen."@de ;
+  skos:hasTopConcept :group_social, :group_family, :group_professional, :group_organization, :group_commercial, :group_interest .
 
 # --- Groups (documentation hierarchy) ---
 
@@ -22,6 +22,14 @@
   skos:prefLabel "Social relationships"@en ;
   skos:prefLabel "Soziale Beziehungen"@de ;
   skos:narrower :knows, :friend_of, :introduced_by .
+
+:group_family a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GRP-FAM" ;
+  skos:prefLabel "Family relationships"@en ;
+  skos:prefLabel "Familienbeziehungen"@de ;
+  skos:narrower :spouse_of, :parent_of, :child_of, :sibling_of, :grandparent_of, :grandchild_of, :aunt_or_uncle_of, :niece_or_nephew_of, :cousin_of, :parent_in_law_of, :child_in_law_of .
 
 :group_professional a skos:Concept ;
   skos:inScheme :scheme ;
@@ -37,7 +45,7 @@
   skos:notation "GRP-ORG" ;
   skos:prefLabel "Organization relationships"@en ;
   skos:prefLabel "Organisationsbeziehungen"@de ;
-  skos:narrower :works_at, :worked_at, :consulted_for, :client_of, :vendor_of .
+  skos:narrower :works_at, :worked_at, :studied_at, :teaches_at, :consulted_for, :client_of, :vendor_of .
 
 :group_commercial a skos:Concept ;
   skos:inScheme :scheme ;
@@ -89,6 +97,129 @@
   skos:definition "Person wurde einer anderen Person oder einem Kontext durch jemanden vorgestellt."@de ;
   skos:scopeNote "Target slot: related_person (the introducer)."@en ;
   skos:scopeNote "Ziel-Slot: related_person (die vorstellende Person)."@de .
+
+# --- Family ---
+
+:spouse_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "SPO" ;
+  skos:prefLabel "Spouse of"@en ;
+  skos:prefLabel "Ehepartner/in von"@de ;
+  skos:definition "Person is the spouse or registered partner of another person."@en ;
+  skos:definition "Person ist Ehepartnerin, Ehepartner oder eingetragene Partnerin bzw. Partner einer anderen Person."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:parent_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "PAR" ;
+  skos:prefLabel "Parent of"@en ;
+  skos:prefLabel "Elternteil von"@de ;
+  skos:definition "Person is a biological, adoptive, or legal parent of another person."@en ;
+  skos:definition "Person ist leibliches, adoptiertes oder rechtliches Elternteil einer anderen Person."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:child_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "CHD" ;
+  skos:prefLabel "Child of"@en ;
+  skos:prefLabel "Kind von"@de ;
+  skos:definition "Person is a biological, adoptive, or legal child of another person."@en ;
+  skos:definition "Person ist leibliches, adoptiertes oder rechtliches Kind einer anderen Person."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:sibling_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "SIB" ;
+  skos:prefLabel "Sibling of"@en ;
+  skos:prefLabel "Geschwister von"@de ;
+  skos:definition "Person shares at least one parent with another person, or is a step-sibling through family union."@en ;
+  skos:definition "Person teilt mindestens ein Elternteil mit einer anderen Person oder ist Stiefgeschwister durch Familienzusammenschluss."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:grandparent_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "GPR" ;
+  skos:prefLabel "Grandparent of"@en ;
+  skos:prefLabel "Grosselternteil von"@de ;
+  skos:definition "Person is a biological, adoptive, or legal grandparent of another person."@en ;
+  skos:definition "Person ist leibliches, adoptiertes oder rechtliches Grosselternteil einer anderen Person."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:grandchild_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "GCH" ;
+  skos:prefLabel "Grandchild of"@en ;
+  skos:prefLabel "Enkelkind von"@de ;
+  skos:definition "Person is a biological, adoptive, or legal grandchild of another person."@en ;
+  skos:definition "Person ist leibliches, adoptiertes oder rechtliches Enkelkind einer anderen Person."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:aunt_or_uncle_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "AUN" ;
+  skos:prefLabel "Aunt or uncle of"@en ;
+  skos:prefLabel "Tante/Onkel von"@de ;
+  skos:definition "Person is an aunt or uncle of another person, including by blood, adoption, or marriage to an aunt or uncle."@en ;
+  skos:definition "Person ist Tante oder Onkel einer anderen Person, einschliesslich durch Blutsverwandtschaft, Adoption oder Heirat mit einer Tante bzw. einem Onkel."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:niece_or_nephew_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "NNP" ;
+  skos:prefLabel "Niece or nephew of"@en ;
+  skos:prefLabel "Nichte/Neffe von"@de ;
+  skos:definition "Person is a niece or nephew of another person, including by blood, adoption, or marriage to an aunt or uncle."@en ;
+  skos:definition "Person ist Nichte oder Neffe einer anderen Person, einschliesslich durch Blutsverwandtschaft, Adoption oder Heirat mit einer Tante bzw. einem Onkel."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:cousin_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "CSN" ;
+  skos:prefLabel "Cousin of"@en ;
+  skos:prefLabel "Cousin/Cousine von"@de ;
+  skos:definition "Person is a cousin of another person through a shared grandparent or more distant common ancestor."@en ;
+  skos:definition "Person ist Cousin oder Cousine einer anderen Person über gemeinsame Grosseltern oder entferntere gemeinsame Vorfahren."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:parent_in_law_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "PIL" ;
+  skos:prefLabel "Parent-in-law of"@en ;
+  skos:prefLabel "Schwiegerelternteil von"@de ;
+  skos:definition "Person is the parent of another person's spouse or registered partner."@en ;
+  skos:definition "Person ist Elternteil des Ehepartners, der Ehepartnerin oder der eingetragenen Partnerin bzw. des Partners einer anderen Person."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
+
+:child_in_law_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_family ;
+  skos:notation "CIL" ;
+  skos:prefLabel "Child-in-law of"@en ;
+  skos:prefLabel "Schwiegerkind von"@de ;
+  skos:definition "Person is the spouse or registered partner of another person's child."@en ;
+  skos:definition "Person ist Ehepartner, Ehepartnerin oder eingetragene Partnerin bzw. Partner des Kindes einer anderen Person."@de ;
+  skos:scopeNote "Target slot: related_person."@en ;
+  skos:scopeNote "Ziel-Slot: related_person."@de .
 
 # --- Professional (person) ---
 
@@ -159,6 +290,28 @@
   skos:definition "Person war früher bei einer Organisation angestellt oder zugeordnet."@de ;
   skos:scopeNote "Target slot: related_company. Use valid_from and valid_to for employment periods."@en ;
   skos:scopeNote "Ziel-Slot: related_company. valid_from und valid_to für Anstellungszeiträume verwenden."@de .
+
+:studied_at a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "STU" ;
+  skos:prefLabel "Studied at"@en ;
+  skos:prefLabel "Studierte an"@de ;
+  skos:definition "Person completed or pursued formal education at an academic or training institution."@en ;
+  skos:definition "Person hat an einer akademischen oder Ausbildungsinstitution studiert oder eine Ausbildung absolviert."@de ;
+  skos:scopeNote "Target slot: related_company. Use valid_from and valid_to for study periods."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. valid_from und valid_to für Studienzeiträume verwenden."@de .
+
+:teaches_at a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "TCH" ;
+  skos:prefLabel "Teaches at"@en ;
+  skos:prefLabel "Lehrt an"@de ;
+  skos:definition "Person teaches, lectures, or otherwise holds a teaching appointment at an institution."@en ;
+  skos:definition "Person unterrichtet, doziert oder hat eine Lehrtätigkeit an einer Institution."@de ;
+  skos:scopeNote "Target slot: related_company. Open-ended teaches_at without valid_to may indicate a current appointment."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. teaches_at ohne valid_to kann eine aktuelle Lehrtätigkeit anzeigen."@de .
 
 :consulted_for a skos:Concept ;
   skos:inScheme :scheme ;
