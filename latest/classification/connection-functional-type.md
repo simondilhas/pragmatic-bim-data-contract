@@ -94,16 +94,6 @@ n_heat_distribution <|-- n_heating
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>heat_distribution</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Waermeverteilung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Gruppierungskonzept fuer Heiz- und Kuehlverteilungsverbindungen.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Nur Gruppierungskonzept fuer grobere Diagrammansichten. Niemals direkt auf ConnectionPhysical zuweisen; stattdessen heating und/oder cooling zuweisen.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Heat Distribution</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Grouping concept for heating and cooling distribution connections.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Grouping-only concept for coarser diagram views. Never assign directly on ConnectionPhysical; assign heating and/or cooling instead.</td>
-</tr>
-<tr>
 <td>heating</td>
 <td>heat_distribution</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Heizung</td>
@@ -152,6 +142,16 @@ n_heat_distribution <|-- n_heating
 <td class="pbs-lang-col" data-lang="en" data-field="label">Waste Water</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Drainage, sewage, or rainwater connection.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>heat_distribution</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Waermeverteilung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Gruppierungskonzept fuer Heiz- und Kuehlverteilungsverbindungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Nur Gruppierungskonzept fuer grobere Diagrammansichten. Niemals direkt auf ConnectionPhysical zuweisen; stattdessen heating und/oder cooling zuweisen.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Heat Distribution</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Grouping concept for heating and cooling distribution connections.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Grouping-only concept for coarser diagram views. Never assign directly on ConnectionPhysical; assign heating and/or cooling instead.</td>
 </tr>
 </tbody>
 </table>
