@@ -16,6 +16,7 @@ Source: [`topic-classification.skos.ttl`](sources/topic.ttl)
 classDiagram
 direction TB
 class n_ART["ART: Arts and entertainment"]
+class n_ART_DSN["ART-DSN: Design"]
 class n_ART_FAN["ART-FAN: Fan culture"]
 class n_ART_FLM["ART-FLM: Film and cinema"]
 class n_ART_LIT["ART-LIT: Literature"]
@@ -28,8 +29,10 @@ class n_ART_MUS_OPR["ART-MUS-OPR: Opera"]
 class n_ART_MUS_ORC["ART-MUS-ORC: Orchestra"]
 class n_ART_MUS_ROK["ART-MUS-ROK: Rock"]
 class n_ART_MUS_SNG["ART-MUS-SNG: Singers"]
+class n_ART_PHO["ART-PHO: Photography"]
 class n_ART_THR["ART-THR: Theater"]
 class n_ART_THR_ACT["ART-THR-ACT: Actors"]
+class n_ART_VID["ART-VID: Video"]
 class n_CAU["CAU: Causes and volunteering"]
 class n_CAU_EDU["CAU-EDU: Education"]
 class n_CAU_ENV["CAU-ENV: Environment"]
@@ -54,6 +57,11 @@ class n_PRO_TEC["PRO-TEC: Technology"]
 class n_PRO_TEC_AI["PRO-TEC-AI: Artificial intelligence"]
 class n_PRO_TEC_SFT["PRO-TEC-SFT: Software"]
 class n_SPT["SPT: Sports and recreation"]
+class n_SPT_OUT["SPT-OUT: Outdoor activities"]
+class n_SPT_OUT_HIK["SPT-OUT-HIK: Hiking"]
+class n_SPT_OUT_HNT["SPT-OUT-HNT: Hunting"]
+class n_SPT_OUT_SKI["SPT-OUT-SKI: Skiing"]
+class n_SPT_OUT_XCS["SPT-OUT-XCS: Cross-country skiing"]
 class n_SPT_SPO["SPT-SPO: Sport"]
 class n_SPT_SPO_AFB["SPT-SPO-AFB: American football"]
 class n_SPT_SPO_FBL["SPT-SPO-FBL: Football"]
@@ -72,15 +80,17 @@ class n_SPT_SPO_RAC_MOT_MCY["SPT-SPO-RAC-MOT-MCY: Motorcycle racing"]
 class n_SPT_SPO_RAC_MOT_RLY["SPT-SPO-RAC-MOT-RLY: Rally"]
 class n_SPT_SPO_RAC_MOT_VIN["SPT-SPO-RAC-MOT-VIN: Vintage cars"]
 class n_SPT_SPO_RUN["SPT-SPO-RUN: Running"]
-class n_SPT_SPO_SKI["SPT-SPO-SKI: Skiing"]
 class n_TRV["TRV: Travel"]
 class n_TRV_ADV["TRV-ADV: Adventure travel"]
 class n_TRV_CIT["TRV-CIT: City breaks"]
+n_ART <|-- n_ART_DSN
 n_ART <|-- n_ART_FAN
 n_ART <|-- n_ART_FLM
 n_ART <|-- n_ART_LIT
 n_ART <|-- n_ART_MUS
+n_ART <|-- n_ART_PHO
 n_ART <|-- n_ART_THR
+n_ART <|-- n_ART_VID
 n_ART_MUS <|-- n_ART_MUS_CLS
 n_ART_MUS <|-- n_ART_MUS_FLK
 n_ART_MUS <|-- n_ART_MUS_JAZ
@@ -108,7 +118,12 @@ n_PRO_CON <|-- n_PRO_CON_BIM
 n_PRO_CON <|-- n_PRO_CON_FIR
 n_PRO_TEC <|-- n_PRO_TEC_AI
 n_PRO_TEC <|-- n_PRO_TEC_SFT
+n_SPT <|-- n_SPT_OUT
 n_SPT <|-- n_SPT_SPO
+n_SPT_OUT <|-- n_SPT_OUT_HIK
+n_SPT_OUT <|-- n_SPT_OUT_HNT
+n_SPT_OUT <|-- n_SPT_OUT_SKI
+n_SPT_OUT <|-- n_SPT_OUT_XCS
 n_SPT_SPO <|-- n_SPT_SPO_AFB
 n_SPT_SPO <|-- n_SPT_SPO_FBL
 n_SPT_SPO <|-- n_SPT_SPO_FLY
@@ -117,7 +132,6 @@ n_SPT_SPO <|-- n_SPT_SPO_IHK
 n_SPT_SPO <|-- n_SPT_SPO_MAR
 n_SPT_SPO <|-- n_SPT_SPO_RAC
 n_SPT_SPO <|-- n_SPT_SPO_RUN
-n_SPT_SPO <|-- n_SPT_SPO_SKI
 n_SPT_SPO_RAC <|-- n_SPT_SPO_RAC_CYC
 n_SPT_SPO_RAC <|-- n_SPT_SPO_RAC_F1
 n_SPT_SPO_RAC <|-- n_SPT_SPO_RAC_MOT
@@ -159,6 +173,16 @@ n_TRV <|-- n_TRV_CIT
 <td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Arts and entertainment</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>ART-DSN</td>
+<td>ART</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Design</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Design</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
@@ -283,6 +307,16 @@ n_TRV <|-- n_TRV_CIT
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>ART-PHO</td>
+<td>ART</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Fotografie</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Photography</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>ART-THR</td>
 <td>ART</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Theater</td>
@@ -299,6 +333,16 @@ n_TRV <|-- n_TRV_CIT
 <td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Actors</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>ART-VID</td>
+<td>ART</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Video</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Video</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
@@ -543,6 +587,56 @@ n_TRV <|-- n_TRV_CIT
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>SPT-OUT</td>
+<td>SPT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Outdoor-Aktivitäten</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Outdoor activities</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>SPT-OUT-HIK</td>
+<td>SPT-OUT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Wandern</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Hiking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>SPT-OUT-HNT</td>
+<td>SPT-OUT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Jagen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Hunting</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>SPT-OUT-SKI</td>
+<td>SPT-OUT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Skifahren</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Abfahrts- oder Alpinski.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Skiing</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Downhill or alpine skiing.</td>
+</tr>
+<tr>
+<td>SPT-OUT-XCS</td>
+<td>SPT-OUT</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Langlauf</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Cross-country skiing</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>SPT-SPO</td>
 <td>SPT</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Sport</td>
@@ -719,16 +813,6 @@ n_TRV <|-- n_TRV_CIT
 <td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Running</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>SPT-SPO-SKI</td>
-<td>SPT-SPO</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Skifahren</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Skiing</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
