@@ -24,9 +24,10 @@ alwaysApply: false
 ## Required workflow after any classification change
 
 1. Finish TTL / `catalog.yaml` edits.
-2. Run from repo root: `python scripts/build_site.py`
-3. Verify: `python scripts/build_site.py check` (must exit 0)
-4. Commit **source + generated** files in the same commit/PR.
+2. Run from repo root: `python scripts/sync_site.py` (build + CI check in one step)
+3. Commit **source + generated** files in the same commit/PR (`sync_site.py --stage` stages `site/` outputs).
+
+To publish a release: `python scripts/publish.py --commit 'your message'` (sync, commit, tag, push).
 
 If you add/remove/relabel concepts (e.g. `SPT-SPO-SKI`), the diff must appear in both the `.skos.ttl` and the regenerated `site/.md-src/classification/*.md`.
 
@@ -42,4 +43,4 @@ Run these **before** `build_site.py` when their inputs changed:
 
 ## Common failure
 
-CI error from `build_classification_docs.py --check` means committed `site/.md-src/classification/` is stale. Regenerate with `python scripts/build_site.py`, not manual markdown edits.
+CI error from `build_classification_docs.py --check` means committed `site/.md-src/classification/` is stale. Run `python scripts/sync_site.py`, not manual markdown edits.
