@@ -3,6 +3,23 @@
 
 Runs site sync, optionally commits, creates a version tag, and pushes.
 Tag push triggers `.github/workflows/schema-pages.yml`.
+
+    Args:
+        --version: Explicit release tag (default: bump latest tag).
+        --bump: Bump latest v* tag (default: patch).
+        --commit: Commit all current changes before tagging (required if working tree is dirty).
+        --tag-message: Annotated tag message (default: Release <version>).
+        --push: Push branch and tag to origin (default: true).
+        --dry-run: Show planned actions without writing to git or pushing.
+        --branch: Branch to push (default: main).
+        --skip-sync: Skip site rebuild/check (not recommended).
+
+    Examples:
+        python scripts/publish.py --dry-run
+        python scripts/publish.py --bump patch --commit 'Add family relationship concepts'
+        python scripts/publish.py --version v0.2.0 --commit 'Release v0.2.0' --push
+
+    After push, GitHub Actions publishes to https://schema.pragmaticbim.ch/
 """
 
 from __future__ import annotations

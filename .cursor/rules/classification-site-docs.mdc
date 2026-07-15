@@ -27,7 +27,7 @@ alwaysApply: false
 2. Run from repo root: `python scripts/sync_site.py` (build + CI check in one step)
 3. Commit **source + generated** files in the same commit/PR (`sync_site.py --stage` stages `site/` outputs).
 
-To publish a release: `python scripts/publish.py --commit 'your message'` (sync, commit, tag, push).
+To publish a release: `./scripts/publish.sh "your message"` (sync, commit, tag, push).
 
 If you add/remove/relabel concepts (e.g. `SPT-SPO-SKI`), the diff must appear in both the `.skos.ttl` and the regenerated `site/.md-src/classification/*.md`.
 

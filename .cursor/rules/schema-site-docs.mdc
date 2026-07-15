@@ -26,6 +26,6 @@ alwaysApply: false
 2. Run: `python scripts/sync_site.py` (build + CI check in one step)
 3. Commit **YAML + generated** `site/**` together (`sync_site.py --stage` stages outputs).
 
-To publish: `python scripts/publish.py --commit 'your message'`.
+To publish: `./scripts/publish.sh "your message"`.
 
 Classification TTL changes use a separate rule (`classification-site-docs.mdc`); the same `build_site.py check` covers both.

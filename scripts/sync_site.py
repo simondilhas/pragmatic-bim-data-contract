@@ -77,7 +77,7 @@ def main() -> None:
             "  python scripts/sync_site.py --stage\n"
             "  git commit -m '...'\n"
             "\n"
-            "Publishing a release: python scripts/publish.py --commit '...'"
+            "Publishing a release: ./scripts/publish.sh \"commit message\""
         ),
     )
     parser.add_argument(
