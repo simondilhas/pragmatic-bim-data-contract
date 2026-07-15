@@ -545,6 +545,19 @@ n_G_21 <|-- n_21_013
 </thead>
 <tbody>
 <tr>
+<td>G-00</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 00</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 00</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>00.001</td>
 <td>G-00</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Baugrubensicherung, Bohrpfahlwand, gespriesst</td>
@@ -857,6 +870,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-01</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 01</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 01</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>01.001</td>
 <td>G-01</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Magerbeton (ohne Bewehrung)</td>
@@ -948,6 +974,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-02</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 02</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 02</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>02.001</td>
 <td>G-02</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Backstein</td>
@@ -1035,6 +1074,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Plot de ciment</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-03</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 03</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 03</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -1312,6 +1364,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-04</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 04</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 04</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>04.001</td>
 <td>G-04</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Gips-/Weissputz</td>
@@ -1529,6 +1594,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Enduit en plâtre et chaux</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-05</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 05</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 05</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -1897,6 +1975,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-06</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 06</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 06</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>06.001</td>
 <td>G-06</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aluminiumblech, blank</td>
@@ -2075,6 +2166,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Plomb</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-07</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 07</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 07</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -2391,6 +2495,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-08</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 08</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 08</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>08.001</td>
 <td>G-08</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">2-Komponenten Klebstoff</td>
@@ -2452,6 +2569,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Masse de jointoiement en silicone</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-09</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 09</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 09</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -2556,6 +2686,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Voile de polyéthylène (PE)</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-10</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 10</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -2777,6 +2920,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Isolation en lin, résistant au feu</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-11</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 11</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 11</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -3132,6 +3288,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-12</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 12</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 12</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>12.001</td>
 <td>G-12</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussentüre, Holz, aluminiumbeplankt</td>
@@ -3288,6 +3457,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-13</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 13</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 13</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>13.001</td>
 <td>G-13</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Acrylnitril-Butadien-Styrol (ABS)</td>
@@ -3349,6 +3531,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Fer de fonte</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-14</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 14</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 14</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -3457,6 +3652,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>G-15</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 15</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 15</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>15.001</td>
 <td>G-15</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Plexiglas (PMMA, Acrylglas)</td>
@@ -3518,6 +3726,19 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Polystyrène (PS)</td>
+<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>G-21</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 21</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 21</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>
@@ -3687,227 +3908,6 @@ n_G_21 <|-- n_21_013
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="label">Armoire-évier en matières composites (base: poudre de roche)</td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-00</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 00</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 00</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-01</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 01</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 01</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-02</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 02</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 02</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-03</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 03</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 03</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-04</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 04</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 04</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-05</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 05</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 05</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-06</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 06</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 06</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-07</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 07</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 07</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-08</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 08</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 08</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-09</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 09</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 09</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-10</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 10</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-11</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 11</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 11</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-12</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 12</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 12</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-13</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 13</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 13</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-14</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 14</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 14</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-15</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 15</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 15</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
-</tr>
-<tr>
-<td>G-21</td>
-<td></td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">KBOB Gruppe 21</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">KBOB group 21</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="fr" data-field="label"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="fr" data-field="scope_note"></td>
 </tr>

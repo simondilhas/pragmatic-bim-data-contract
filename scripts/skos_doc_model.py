@@ -249,7 +249,10 @@ def parse_vocabulary(path: Path, *, slug: str, title: str) -> VocabularyDoc:
             )
         )
 
-    concepts.sort(key=lambda c: c.notation)
+    if any(c.broader or c.narrower for c in concepts):
+        concepts = sort_concepts_hierarchically(concepts)
+    else:
+        concepts.sort(key=lambda c: c.notation)
     langs = sorted(set(all_langs_from_meta(meta)) | set(all_langs_from_concepts(concepts)))
 
     return VocabularyDoc(
@@ -329,6 +332,44 @@ def parse_mapping(path: Path, *, slug: str, title: str) -> MappingDoc:
 
 def has_hierarchy(vocab: VocabularyDoc) -> bool:
     return any(c.broader or c.narrower for c in vocab.concepts)
+
+
+def sort_concepts_hierarchically(concepts: list[ConceptDoc]) -> list[ConceptDoc]:
+    """Depth-first order: top concepts first, then their narrower descendants."""
+    by_notation = {concept.notation: concept for concept in concepts}
+    children_map: dict[str, list[str]] = {}
+    for concept in concepts:
+        for child_notation in concept.narrower:
+            if child_notation in by_notation:
+                children_map.setdefault(concept.notation, []).append(child_notation)
+
+    roots = sorted(
+        (concept for concept in concepts if concept.is_top_concept),
+        key=lambda concept: concept.notation,
+    )
+
+    ordered: list[ConceptDoc] = []
+    visited: set[str] = set()
+
+    def visit(notation: str) -> None:
+        if notation in visited:
+            return
+        concept = by_notation.get(notation)
+        if concept is None:
+            return
+        visited.add(notation)
+        ordered.append(concept)
+        for child_notation in sorted(children_map.get(notation, [])):
+            visit(child_notation)
+
+    for root in roots:
+        visit(root.notation)
+
+    for concept in sorted(concepts, key=lambda item: item.notation):
+        if concept.notation not in visited:
+            ordered.append(concept)
+
+    return ordered
 
 
 def build_mermaid_hierarchy(vocab: VocabularyDoc) -> str:

@@ -73,11 +73,11 @@ rel:works_at skos:relatedMatch tgt:related_company .
 rel:worked_at skos:relatedMatch tgt:related_company .
 rel:studied_at skos:relatedMatch tgt:related_company .
 rel:teaches_at skos:relatedMatch tgt:related_company .
+
+# Commercial
 rel:consulted_for skos:relatedMatch tgt:related_company .
 rel:client_of skos:relatedMatch tgt:related_company .
 rel:vendor_of skos:relatedMatch tgt:related_company .
-
-# Commercial (KAM)
 rel:is_key_account_manager_for skos:relatedMatch tgt:related_company .
 rel:has_key_account_manager skos:relatedMatch tgt:related_person .
 

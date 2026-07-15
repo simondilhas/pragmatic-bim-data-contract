@@ -45,7 +45,7 @@
   skos:notation "GRP-ORG" ;
   skos:prefLabel "Organization relationships"@en ;
   skos:prefLabel "Organisationsbeziehungen"@de ;
-  skos:narrower :works_at, :worked_at, :studied_at, :teaches_at, :consulted_for, :client_of, :vendor_of .
+  skos:narrower :works_at, :worked_at, :studied_at, :teaches_at .
 
 :group_commercial a skos:Concept ;
   skos:inScheme :scheme ;
@@ -53,7 +53,7 @@
   skos:notation "GRP-COM" ;
   skos:prefLabel "Commercial relationships"@en ;
   skos:prefLabel "Kommerzielle Beziehungen"@de ;
-  skos:narrower :is_key_account_manager_for, :has_key_account_manager .
+  skos:narrower :consulted_for, :client_of, :vendor_of, :is_key_account_manager_for, :has_key_account_manager .
 
 :group_interest a skos:Concept ;
   skos:inScheme :scheme ;
@@ -315,7 +315,7 @@
 
 :consulted_for a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:broader :group_organization ;
+  skos:broader :group_commercial ;
   skos:notation "CST" ;
   skos:prefLabel "Consulted for"@en ;
   skos:prefLabel "Berater/Beraterin für"@de ;
@@ -326,7 +326,7 @@
 
 :client_of a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:broader :group_organization ;
+  skos:broader :group_commercial ;
   skos:notation "CLT" ;
   skos:prefLabel "Client of"@en ;
   skos:prefLabel "Kunde von"@de ;
@@ -337,7 +337,7 @@
 
 :vendor_of a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:broader :group_organization ;
+  skos:broader :group_commercial ;
   skos:notation "VND" ;
   skos:prefLabel "Vendor of"@en ;
   skos:prefLabel "Lieferant für"@de ;
