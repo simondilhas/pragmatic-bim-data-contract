@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -431,8 +431,8 @@
 <p>Source: <a href="sources/person-relationship-type.ttl"><code>person-relationship-type.skos.ttl</code></a></p>
 <h2 id="scheme">Scheme<a class="headerlink" href="#scheme" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> CRM-orientierte Personenbeziehungstypen für soziale, berufliche, organisatorische, kommerzielle und Interessen-Verknüpfungen.</li>
-<li><strong>description (en):</strong> CRM-oriented person relationship predicates for social, professional, organizational, commercial, and interest links.</li>
+<li><strong>description (de):</strong> CRM-orientierte Personenbeziehungstypen für soziale, familiäre, berufliche, organisatorische, kommerzielle und Interessen-Verknüpfungen.</li>
+<li><strong>description (en):</strong> CRM-oriented person relationship predicates for social, family, professional, organizational, commercial, and interest links.</li>
 <li><strong>prefLabel (de):</strong> Abstrakte Personenbeziehungstypen</li>
 <li><strong>prefLabel (en):</strong> Abstract person relationship types</li>
 <li><strong>title (en):</strong> Abstract person relationship types</li>
@@ -461,12 +461,19 @@
     </nav>
     <pre class="mermaid"><code>classDiagram
 direction TB
+class n_AUN["AUN: Aunt or uncle of"]
+class n_CHD["CHD: Child of"]
+class n_CIL["CIL: Child-in-law of"]
 class n_CLT["CLT: Client of"]
 class n_COL["COL: Was colleague of"]
+class n_CSN["CSN: Cousin of"]
 class n_CST["CST: Consulted for"]
 class n_EXP["EXP: Has expertise in"]
 class n_FRI["FRI: Friend of"]
+class n_GCH["GCH: Grandchild of"]
+class n_GPR["GPR: Grandparent of"]
 class n_GRP_COM["GRP-COM: Commercial relationships"]
+class n_GRP_FAM["GRP-FAM: Family relationships"]
 class n_GRP_INT["GRP-INT: Interest and expertise"]
 class n_GRP_ORG["GRP-ORG: Organization relationships"]
 class n_GRP_PRO["GRP-PRO: Professional relationships (person)"]
@@ -478,18 +485,38 @@ class n_KAM["KAM: Is key account manager for"]
 class n_KNW["KNW: Knows"]
 class n_LRN["LRN: Learning about"]
 class n_MTR["MTR: Mentored by"]
+class n_NNP["NNP: Niece or nephew of"]
+class n_PAR["PAR: Parent of"]
+class n_PIL["PIL: Parent-in-law of"]
 class n_REF["REF: Referred by"]
 class n_RPT["RPT: Reports to"]
+class n_SIB["SIB: Sibling of"]
+class n_SPO["SPO: Spouse of"]
+class n_STU["STU: Studied at"]
+class n_TCH["TCH: Teaches at"]
 class n_VND["VND: Vendor of"]
 class n_WAT["WAT: Works at"]
 class n_WRK["WRK: Worked at"]
 n_GRP_COM &lt;|-- n_HKM
 n_GRP_COM &lt;|-- n_KAM
+n_GRP_FAM &lt;|-- n_AUN
+n_GRP_FAM &lt;|-- n_CHD
+n_GRP_FAM &lt;|-- n_CIL
+n_GRP_FAM &lt;|-- n_CSN
+n_GRP_FAM &lt;|-- n_GCH
+n_GRP_FAM &lt;|-- n_GPR
+n_GRP_FAM &lt;|-- n_NNP
+n_GRP_FAM &lt;|-- n_PAR
+n_GRP_FAM &lt;|-- n_PIL
+n_GRP_FAM &lt;|-- n_SIB
+n_GRP_FAM &lt;|-- n_SPO
 n_GRP_INT &lt;|-- n_EXP
 n_GRP_INT &lt;|-- n_INT
 n_GRP_INT &lt;|-- n_LRN
 n_GRP_ORG &lt;|-- n_CLT
 n_GRP_ORG &lt;|-- n_CST
+n_GRP_ORG &lt;|-- n_STU
+n_GRP_ORG &lt;|-- n_TCH
 n_GRP_ORG &lt;|-- n_VND
 n_GRP_ORG &lt;|-- n_WAT
 n_GRP_ORG &lt;|-- n_WRK
@@ -525,6 +552,36 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 </thead>
 <tbody>
 <tr>
+<td>AUN</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Tante/Onkel von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Tante oder Onkel einer anderen Person, einschliesslich durch Blutsverwandtschaft, Adoption oder Heirat mit einer Tante bzw. einem Onkel.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Aunt or uncle of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is an aunt or uncle of another person, including by blood, adoption, or marriage to an aunt or uncle.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>CHD</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Kind von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist leibliches, adoptiertes oder rechtliches Kind einer anderen Person.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Child of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a biological, adoptive, or legal child of another person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>CIL</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Schwiegerkind von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Ehepartner, Ehepartnerin oder eingetragene Partnerin bzw. Partner des Kindes einer anderen Person.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Child-in-law of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is the spouse or registered partner of another person&#x27;s child.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
 <td>CLT</td>
 <td>GRP-ORG</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Kunde von</td>
@@ -542,6 +599,16 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Was colleague of</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Person worked alongside another person in the same organization or project.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>CSN</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Cousin/Cousine von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Cousin oder Cousine einer anderen Person über gemeinsame Grosseltern oder entferntere gemeinsame Vorfahren.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Cousin of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a cousin of another person through a shared grandparent or more distant common ancestor.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
 </tr>
 <tr>
@@ -575,12 +642,42 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
 </tr>
 <tr>
+<td>GCH</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Enkelkind von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist leibliches, adoptiertes oder rechtliches Enkelkind einer anderen Person.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Grandchild of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a biological, adoptive, or legal grandchild of another person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>GPR</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Grosselternteil von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist leibliches, adoptiertes oder rechtliches Grosselternteil einer anderen Person.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Grandparent of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a biological, adoptive, or legal grandparent of another person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
 <td>GRP-COM</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Kommerzielle Beziehungen</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Commercial relationships</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>GRP-FAM</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Familienbeziehungen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Family relationships</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
@@ -695,6 +792,36 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person (the mentor).</td>
 </tr>
 <tr>
+<td>NNP</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Nichte/Neffe von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Nichte oder Neffe einer anderen Person, einschliesslich durch Blutsverwandtschaft, Adoption oder Heirat mit einer Tante bzw. einem Onkel.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Niece or nephew of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a niece or nephew of another person, including by blood, adoption, or marriage to an aunt or uncle.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>PAR</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Elternteil von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist leibliches, adoptiertes oder rechtliches Elternteil einer anderen Person.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Parent of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a biological, adoptive, or legal parent of another person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>PIL</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Schwiegerelternteil von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Elternteil des Ehepartners, der Ehepartnerin oder der eingetragenen Partnerin bzw. des Partners einer anderen Person.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Parent-in-law of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is the parent of another person&#x27;s spouse or registered partner.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
 <td>REF</td>
 <td>GRP-PRO</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Empfohlen von</td>
@@ -713,6 +840,46 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td class="pbs-lang-col" data-lang="en" data-field="label">Reports to</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Person reports to or is supervised by another person.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>SIB</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Geschwister von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person teilt mindestens ein Elternteil mit einer anderen Person oder ist Stiefgeschwister durch Familienzusammenschluss.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Sibling of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person shares at least one parent with another person, or is a step-sibling through family union.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>SPO</td>
+<td>GRP-FAM</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Ehepartner/in von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Ehepartnerin, Ehepartner oder eingetragene Partnerin bzw. Partner einer anderen Person.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Spouse of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is the spouse or registered partner of another person.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_person.</td>
+</tr>
+<tr>
+<td>STU</td>
+<td>GRP-ORG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Studierte an</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person hat an einer akademischen oder Ausbildungsinstitution studiert oder eine Ausbildung absolviert.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_company. valid_from und valid_to für Studienzeiträume verwenden.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Studied at</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person completed or pursued formal education at an academic or training institution.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_company. Use valid_from and valid_to for study periods.</td>
+</tr>
+<tr>
+<td>TCH</td>
+<td>GRP-ORG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Lehrt an</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person unterrichtet, doziert oder hat eine Lehrtätigkeit an einer Institution.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_company. teaches_at ohne valid_to kann eine aktuelle Lehrtätigkeit anzeigen.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Teaches at</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person teaches, lectures, or otherwise holds a teaching appointment at an institution.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_company. Open-ended teaches_at without valid_to may indicate a current appointment.</td>
 </tr>
 <tr>
 <td>VND</td>

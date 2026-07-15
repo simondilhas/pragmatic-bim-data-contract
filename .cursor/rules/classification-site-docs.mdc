@@ -1,0 +1,45 @@
+---
+description: Regenerate committed site docs after classification SKOS or catalog edits
+globs: classification/**/*.ttl,classification/catalog.yaml
+alwaysApply: false
+---
+
+# Classification site docs must stay in sync
+
+## Source of truth
+
+- Vocabularies: `classification/**/*.skos.ttl`
+- Mappings: `classification/mapping/*.mapping.ttl`
+- Catalog: `classification/catalog.yaml` (controls which files appear in docs)
+
+## Generated artifacts (CI-checked)
+
+`python scripts/build_site.py check` compares committed markdown to a fresh build from TTL:
+
+- `site/.md-src/classification/*.md`
+- Also updated by full build: `site/classification/sources/*.ttl`, `site/classification/*.md`, `site/classification/classifications.json`
+
+**Do not edit generated files by hand.** Tables, mermaid diagrams, and mapping rows are derived from TTL.
+
+## Required workflow after any classification change
+
+1. Finish TTL / `catalog.yaml` edits.
+2. Run from repo root: `python scripts/build_site.py`
+3. Verify: `python scripts/build_site.py check` (must exit 0)
+4. Commit **source + generated** files in the same commit/PR.
+
+If you add/remove/relabel concepts (e.g. `SPT-SPO-SKI`), the diff must appear in both the `.skos.ttl` and the regenerated `site/.md-src/classification/*.md`.
+
+## Pre-build generators (when applicable)
+
+Run these **before** `build_site.py` when their inputs changed:
+
+| Change | Command |
+| --- | --- |
+| Room name codes | `python scripts/generate_room_name_vocabulary.py` |
+| KBOB ecobilans Excel | `python scripts/generate_kbob_ecobilans_vocabulary.py` |
+| armasuisse room list | `python scripts/generate_armasuisse_room_name_mapping.py` |
+
+## Common failure
+
+CI error from `build_classification_docs.py --check` means committed `site/.md-src/classification/` is stale. Regenerate with `python scripts/build_site.py`, not manual markdown edits.

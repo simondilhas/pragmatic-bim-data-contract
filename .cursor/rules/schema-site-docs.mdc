@@ -1,0 +1,30 @@
+---
+description: Regenerate committed site docs after LinkML schema YAML edits
+globs: contract/**/*.yaml
+alwaysApply: false
+---
+
+# Schema site docs must stay in sync
+
+## Source of truth
+
+- Main contract: `contract/00_pragmatic_bim_data_contract.yaml` and included modules under `contract/`
+- Cost schema: `contract/cost/baseline_cost_schema.yaml`
+
+## Generated artifacts (CI-checked)
+
+`python scripts/build_site.py check` compares committed markdown to LinkML output:
+
+- `site/.md-src/schema/`
+- `site/.md-src/cost/`
+
+**Do not edit generated schema markdown by hand.**
+
+## Required workflow after schema YAML changes
+
+1. Finish YAML edits.
+2. Run: `python scripts/build_site.py`
+3. Verify: `python scripts/build_site.py check` (must exit 0)
+4. Commit **YAML + generated** `site/.md-src/**` together.
+
+Classification TTL changes use a separate rule (`classification-site-docs.mdc`); the same `build_site.py check` covers both.
