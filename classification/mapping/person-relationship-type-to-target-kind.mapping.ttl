@@ -73,6 +73,10 @@ rel:works_at skos:relatedMatch tgt:related_company .
 rel:worked_at skos:relatedMatch tgt:related_company .
 rel:studied_at skos:relatedMatch tgt:related_company .
 rel:teaches_at skos:relatedMatch tgt:related_company .
+rel:executive_of skos:relatedMatch tgt:related_company .
+rel:supervisory_board_member_of skos:relatedMatch tgt:related_company .
+rel:advisory_board_member_of skos:relatedMatch tgt:related_company .
+rel:presidium_member_of skos:relatedMatch tgt:related_company .
 
 # Commercial
 rel:consulted_for skos:relatedMatch tgt:related_company .

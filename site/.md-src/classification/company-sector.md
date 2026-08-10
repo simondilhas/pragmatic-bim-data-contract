@@ -24,6 +24,8 @@ class n_SEC_BAU_CLI_OWN_PRV["SEC-BAU-CLI-OWN-PRV: Private building owner"]
 class n_SEC_BAU_CLI_OWN_PUB["SEC-BAU-CLI-OWN-PUB: Public building owner"]
 class n_SEC_BAU_CNT["SEC-BAU-CNT: Construction contracting"]
 class n_SEC_BAU_FM["SEC-BAU-FM: Facility and property management"]
+class n_SEC_BAU_MDS["SEC-BAU-MDS: Material distributor"]
+class n_SEC_BAU_MPR["SEC-BAU-MPR: Material producer"]
 class n_SEC_BAU_PLN["SEC-BAU-PLN: Planning and design"]
 class n_SEC_BAU_PLN_ARC["SEC-BAU-PLN-ARC: Architecture"]
 class n_SEC_BAU_PLN_EXP["SEC-BAU-PLN-EXP: Expert assessor"]
@@ -69,6 +71,8 @@ class n_SEC_MIL_SPC["SEC-MIL-SPC: Space and aerospace"]
 n_SEC_BAU <|-- n_SEC_BAU_CLI
 n_SEC_BAU <|-- n_SEC_BAU_CNT
 n_SEC_BAU <|-- n_SEC_BAU_FM
+n_SEC_BAU <|-- n_SEC_BAU_MDS
+n_SEC_BAU <|-- n_SEC_BAU_MPR
 n_SEC_BAU <|-- n_SEC_BAU_PLN
 n_SEC_BAU_CLI <|-- n_SEC_BAU_CLI_DEV
 n_SEC_BAU_CLI <|-- n_SEC_BAU_CLI_GC
@@ -232,6 +236,26 @@ n_SEC_MIL <|-- n_SEC_MIL_SPC
 <td class="pbs-lang-col" data-lang="en" data-field="label">Facility and property management</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>SEC-BAU-MDS</td>
+<td>SEC-BAU</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Baustoffhändler</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Händler oder Verteiler von Baustoffen und Bauprodukten.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Material distributor</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Distributor or merchant of construction materials and building products.</td>
+</tr>
+<tr>
+<td>SEC-BAU-MPR</td>
+<td>SEC-BAU</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Baustoffhersteller</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Hersteller von Baustoffen und Bauprodukten.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Material producer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Manufacturer of construction materials and building products.</td>
 </tr>
 <tr>
 <td>SEC-BAU-PLN</td>

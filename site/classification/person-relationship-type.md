@@ -15,6 +15,7 @@ Source: [`person-relationship-type.skos.ttl`](sources/person-relationship-type.t
 ```mermaid
 classDiagram
 direction TB
+class n_ADB["ADB: Advisory board member of"]
 class n_AUN["AUN: Aunt or uncle of"]
 class n_CHD["CHD: Child of"]
 class n_CIL["CIL: Child-in-law of"]
@@ -22,6 +23,7 @@ class n_CLT["CLT: Client of"]
 class n_COL["COL: Was colleague of"]
 class n_CSN["CSN: Cousin of"]
 class n_CST["CST: Consulted for"]
+class n_EXE["EXE: Executive of"]
 class n_EXP["EXP: Has expertise in"]
 class n_FRI["FRI: Friend of"]
 class n_GCH["GCH: Grandchild of"]
@@ -42,9 +44,11 @@ class n_MTR["MTR: Mentored by"]
 class n_NNP["NNP: Niece or nephew of"]
 class n_PAR["PAR: Parent of"]
 class n_PIL["PIL: Parent-in-law of"]
+class n_PRS["PRS: Presidium member of"]
 class n_REF["REF: Referred by"]
 class n_RPT["RPT: Reports to"]
 class n_SIB["SIB: Sibling of"]
+class n_SPB["SPB: Supervisory board member of"]
 class n_SPO["SPO: Spouse of"]
 class n_STU["STU: Studied at"]
 class n_TCH["TCH: Teaches at"]
@@ -70,6 +74,10 @@ n_GRP_FAM <|-- n_SPO
 n_GRP_INT <|-- n_EXP
 n_GRP_INT <|-- n_INT
 n_GRP_INT <|-- n_LRN
+n_GRP_ORG <|-- n_ADB
+n_GRP_ORG <|-- n_EXE
+n_GRP_ORG <|-- n_PRS
+n_GRP_ORG <|-- n_SPB
 n_GRP_ORG <|-- n_STU
 n_GRP_ORG <|-- n_TCH
 n_GRP_ORG <|-- n_WAT
@@ -333,6 +341,46 @@ n_GRP_SOC <|-- n_KNW
 <td class="pbs-lang-col" data-lang="en" data-field="label">Organization relationships</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>ADB</td>
+<td>GRP-ORG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Beirat von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Mitglied eines Beirats einer Organisation.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_company. Typischerweise ein Mandat, keine Anstellung; nicht als Synonym von works_at behandeln.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Advisory board member of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a member of an advisory board (Beirat) of an organization.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_company. Typically a mandate, not employment; do not treat as a synonym of works_at.</td>
+</tr>
+<tr>
+<td>EXE</td>
+<td>GRP-ORG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">In der Geschäftsleitung von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Mitglied der geschäftsführenden Leitung einer Organisation, beispielsweise Vorstand oder Geschäftsführung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_company. Kann zusammen mit works_at vorkommen, wenn die Person auch angestellt ist.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Executive of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a member of the executive management of an organization, such as Vorstand or Geschäftsführung.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_company. May coexist with works_at when the person is also employed.</td>
+</tr>
+<tr>
+<td>PRS</td>
+<td>GRP-ORG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Präsidium von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Mitglied des Präsidiums eines Vereins, Verbands oder einer vergleichbaren Organisation.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_company. Typischerweise ein Mandat, keine Anstellung; nicht als Synonym von works_at behandeln.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Presidium member of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a member of the presidium (Präsidium) of an association, federation, or similar organization.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_company. Typically a mandate, not employment; do not treat as a synonym of works_at.</td>
+</tr>
+<tr>
+<td>SPB</td>
+<td>GRP-ORG</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aufsichtsrat von</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Person ist Mitglied des gesetzlichen Aufsichtsrats einer Organisation.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Ziel-Slot: related_company. Typischerweise ein Mandat, keine Anstellung; nicht als Synonym von works_at behandeln.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Supervisory board member of</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Person is a member of the statutory supervisory board (Aufsichtsrat) of an organization.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Target slot: related_company. Typically a mandate, not employment; do not treat as a synonym of works_at.</td>
 </tr>
 <tr>
 <td>STU</td>

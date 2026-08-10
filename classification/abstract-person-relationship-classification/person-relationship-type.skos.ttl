@@ -45,7 +45,7 @@
   skos:notation "GRP-ORG" ;
   skos:prefLabel "Organization relationships"@en ;
   skos:prefLabel "Organisationsbeziehungen"@de ;
-  skos:narrower :works_at, :worked_at, :studied_at, :teaches_at .
+  skos:narrower :works_at, :worked_at, :studied_at, :teaches_at, :executive_of, :supervisory_board_member_of, :advisory_board_member_of, :presidium_member_of .
 
 :group_commercial a skos:Concept ;
   skos:inScheme :scheme ;
@@ -312,6 +312,52 @@
   skos:definition "Person unterrichtet, doziert oder hat eine Lehrtätigkeit an einer Institution."@de ;
   skos:scopeNote "Target slot: related_company. Open-ended teaches_at without valid_to may indicate a current appointment."@en ;
   skos:scopeNote "Ziel-Slot: related_company. teaches_at ohne valid_to kann eine aktuelle Lehrtätigkeit anzeigen."@de .
+
+:executive_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "EXE" ;
+  skos:prefLabel "Executive of"@en ;
+  skos:prefLabel "In der Geschäftsleitung von"@de ;
+  skos:altLabel "Vorstand von"@de ;
+  skos:altLabel "Geschäftsführung von"@de ;
+  skos:definition "Person is a member of the executive management of an organization, such as Vorstand or Geschäftsführung."@en ;
+  skos:definition "Person ist Mitglied der geschäftsführenden Leitung einer Organisation, beispielsweise Vorstand oder Geschäftsführung."@de ;
+  skos:scopeNote "Target slot: related_company. May coexist with works_at when the person is also employed."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. Kann zusammen mit works_at vorkommen, wenn die Person auch angestellt ist."@de .
+
+:supervisory_board_member_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "SPB" ;
+  skos:prefLabel "Supervisory board member of"@en ;
+  skos:prefLabel "Aufsichtsrat von"@de ;
+  skos:definition "Person is a member of the statutory supervisory board (Aufsichtsrat) of an organization."@en ;
+  skos:definition "Person ist Mitglied des gesetzlichen Aufsichtsrats einer Organisation."@de ;
+  skos:scopeNote "Target slot: related_company. Typically a mandate, not employment; do not treat as a synonym of works_at."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. Typischerweise ein Mandat, keine Anstellung; nicht als Synonym von works_at behandeln."@de .
+
+:advisory_board_member_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "ADB" ;
+  skos:prefLabel "Advisory board member of"@en ;
+  skos:prefLabel "Beirat von"@de ;
+  skos:definition "Person is a member of an advisory board (Beirat) of an organization."@en ;
+  skos:definition "Person ist Mitglied eines Beirats einer Organisation."@de ;
+  skos:scopeNote "Target slot: related_company. Typically a mandate, not employment; do not treat as a synonym of works_at."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. Typischerweise ein Mandat, keine Anstellung; nicht als Synonym von works_at behandeln."@de .
+
+:presidium_member_of a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :group_organization ;
+  skos:notation "PRS" ;
+  skos:prefLabel "Presidium member of"@en ;
+  skos:prefLabel "Präsidium von"@de ;
+  skos:definition "Person is a member of the presidium (Präsidium) of an association, federation, or similar organization."@en ;
+  skos:definition "Person ist Mitglied des Präsidiums eines Vereins, Verbands oder einer vergleichbaren Organisation."@de ;
+  skos:scopeNote "Target slot: related_company. Typically a mandate, not employment; do not treat as a synonym of works_at."@en ;
+  skos:scopeNote "Ziel-Slot: related_company. Typischerweise ein Mandat, keine Anstellung; nicht als Synonym von works_at behandeln."@de .
 
 :consulted_for a skos:Concept ;
   skos:inScheme :scheme ;

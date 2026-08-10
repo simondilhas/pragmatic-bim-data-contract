@@ -23,7 +23,9 @@
   skos:notation "SEC-BAU" ;
   skos:prefLabel "Construction and real estate"@en ;
   skos:prefLabel "Bauwesen / Immobilien"@de ;
-  skos:narrower :client_side, :planning, :construction_contracting, :facility_management .
+  skos:narrower
+    :client_side, :planning, :construction_contracting, :facility_management,
+    :material_producer, :material_distributor .
 
 :client_side a skos:Concept ;
   skos:inScheme :scheme ;
@@ -118,6 +120,24 @@
   skos:prefLabel "Facility and property management"@en ;
   skos:prefLabel "Bewirtschafter"@de ;
   skos:altLabel "Facility Management"@de .
+
+:material_producer a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :construction ;
+  skos:notation "SEC-BAU-MPR" ;
+  skos:prefLabel "Material producer"@en ;
+  skos:prefLabel "Baustoffhersteller"@de ;
+  skos:scopeNote "Manufacturer of construction materials and building products."@en ;
+  skos:scopeNote "Hersteller von Baustoffen und Bauprodukten."@de .
+
+:material_distributor a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:broader :construction ;
+  skos:notation "SEC-BAU-MDS" ;
+  skos:prefLabel "Material distributor"@en ;
+  skos:prefLabel "Baustoffhändler"@de ;
+  skos:scopeNote "Distributor or merchant of construction materials and building products."@en ;
+  skos:scopeNote "Händler oder Verteiler von Baustoffen und Bauprodukten."@de .
 
 # --- legal ---
 
