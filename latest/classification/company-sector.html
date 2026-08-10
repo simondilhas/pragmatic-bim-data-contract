@@ -17,7 +17,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -25,7 +25,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -470,6 +470,8 @@ class n_SEC_BAU_CLI_OWN_PRV["SEC-BAU-CLI-OWN-PRV: Private building owner"]
 class n_SEC_BAU_CLI_OWN_PUB["SEC-BAU-CLI-OWN-PUB: Public building owner"]
 class n_SEC_BAU_CNT["SEC-BAU-CNT: Construction contracting"]
 class n_SEC_BAU_FM["SEC-BAU-FM: Facility and property management"]
+class n_SEC_BAU_MDS["SEC-BAU-MDS: Material distributor"]
+class n_SEC_BAU_MPR["SEC-BAU-MPR: Material producer"]
 class n_SEC_BAU_PLN["SEC-BAU-PLN: Planning and design"]
 class n_SEC_BAU_PLN_ARC["SEC-BAU-PLN-ARC: Architecture"]
 class n_SEC_BAU_PLN_EXP["SEC-BAU-PLN-EXP: Expert assessor"]
@@ -515,6 +517,8 @@ class n_SEC_MIL_SPC["SEC-MIL-SPC: Space and aerospace"]
 n_SEC_BAU &lt;|-- n_SEC_BAU_CLI
 n_SEC_BAU &lt;|-- n_SEC_BAU_CNT
 n_SEC_BAU &lt;|-- n_SEC_BAU_FM
+n_SEC_BAU &lt;|-- n_SEC_BAU_MDS
+n_SEC_BAU &lt;|-- n_SEC_BAU_MPR
 n_SEC_BAU &lt;|-- n_SEC_BAU_PLN
 n_SEC_BAU_CLI &lt;|-- n_SEC_BAU_CLI_DEV
 n_SEC_BAU_CLI &lt;|-- n_SEC_BAU_CLI_GC
@@ -679,6 +683,26 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
 <td class="pbs-lang-col" data-lang="en" data-field="label">Facility and property management</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>SEC-BAU-MDS</td>
+<td>SEC-BAU</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Baustoffhändler</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Händler oder Verteiler von Baustoffen und Bauprodukten.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Material distributor</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Distributor or merchant of construction materials and building products.</td>
+</tr>
+<tr>
+<td>SEC-BAU-MPR</td>
+<td>SEC-BAU</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Baustoffhersteller</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Hersteller von Baustoffen und Bauprodukten.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Material producer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Manufacturer of construction materials and building products.</td>
 </tr>
 <tr>
 <td>SEC-BAU-PLN</td>
@@ -1186,7 +1210,7 @@ Hold "Alt" / "Option" to enable pan &amp; zoom
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
       
