@@ -62,7 +62,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -1610,9 +1610,9 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <h2 id="yaml-file-structure">YAML file structure<a class="headerlink" href="#yaml-file-structure" title="Permanent link">&para;</a></h2>
 <p>The entrypoint <a href="ifc_mapping.yaml"><code>ifc_mapping.yaml</code></a> declares version metadata and an <code>imports</code> list. Split modules compose the full mapping (see <strong>File layout and merge workflow</strong> above). Adapters typically load <a href="ifc_mapping.merged.yaml"><code>ifc_mapping.merged.yaml</code></a>.</p>
 <p>Merged structure:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">mapping_version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.2.0&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">mapping_version</span><span class="p">:</span><span class="w"> </span><span class="s">"1.2.0"</span>
 <span class="nt">schema_uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://schema.pragmaticbim.ch/</span>
-<span class="nt">canonical_type_version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;v0.0.7&quot;</span>
+<span class="nt">canonical_type_version</span><span class="p">:</span><span class="w"> </span><span class="s">"v0.0.7"</span>
 
 <span class="nt">conventions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="nt">pset_fallbacks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
@@ -1840,11 +1840,11 @@ ifc_mapping.merged.yaml   ← single file for adapters
 <p><code>metadata_value</code> is stored as text (<code>MetadataEntry.metadata_value</code>). The adapter serializes IFC values (numbers, booleans, enums, object references) to strings. Object references may use GlobalId where resolvable.</p>
 <p>Example <code>attributes</code> JSONB fragment:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;ifc_global_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3l$8vj$nL1Pu4$G9QjXjC&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;separator_wall_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unit_boundary&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;metadata_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IfcWall.OverallHeight&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;metadata_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3.0&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;metadata_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Pset_WallCommon.FireRating&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;metadata_value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EI60&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="nt">"ifc_global_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3l$8vj$nL1Pu4$G9QjXjC"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"separator_wall_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unit_boundary"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"metadata_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IfcWall.OverallHeight"</span><span class="p">,</span><span class="w"> </span><span class="nt">"metadata_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"metadata_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pset_WallCommon.FireRating"</span><span class="p">,</span><span class="w"> </span><span class="nt">"metadata_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EI60"</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>

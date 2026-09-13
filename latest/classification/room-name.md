@@ -4,9 +4,9 @@ Source: [`building-space-name-classification.skos.ttl`](sources/room-name.ttl)
 
 ## Scheme
 
-- **definition (de):** Normalisierte abstrakte Raumbezeichnungen fuer allgemeinen Gebaeudegebrauch auf IfcSpace.
+- **definition (de):** Normalisierte abstrakte Raumbezeichnungen für allgemeinen Gebäudegebrauch auf IfcSpace.
 - **definition (en):** Normalized abstract room name types for general building use on IfcSpace.
-- **prefLabel (de):** Gebaeude-Raumbezeichnungsklassifikation
+- **prefLabel (de):** Gebäude-Raumbezeichnungsklassifikation
 - **prefLabel (en):** Building Space Name Classification
 - **title (en):** Building Space Name Classification
 
@@ -27,9 +27,12 @@ class n_RN_01_20_01["RN-01-20-01: Kitchen"]
 class n_RN_01_20_02["RN-01-20-02: Bathroom"]
 class n_RN_01_20_03["RN-01-20-03: Laundry Room"]
 class n_RN_01_20_04["RN-01-20-04: Utility Room"]
+class n_RN_01_20_05["RN-01-20-05: Hallway"]
+class n_RN_01_20_06["RN-01-20-06: Residential Entry"]
+class n_RN_01_20_07["RN-01-20-07: Residential Closet"]
+class n_RN_01_20_08["RN-01-20-08: Cellar Compartment"]
+class n_RN_01_20_09["RN-01-20-09: Entrance Hall"]
 class n_RN_01_30["RN-01-30: Dwelling unit level"]
-class n_RN_01_30_01["RN-01-30-01: Residential Entry"]
-class n_RN_01_30_02["RN-01-30-02: Residential Closet"]
 class n_RN_01_30_03["RN-01-30-03: Apartment Unit"]
 class n_RN_02["RN-02: Work"]
 class n_RN_02_10["RN-02-10: Individual work"]
@@ -39,14 +42,14 @@ class n_RN_02_20["RN-02-20: Collaboration"]
 class n_RN_02_20_01["RN-02-20-01: Meeting Room"]
 class n_RN_02_20_02["RN-02-20-02: Conference Room"]
 class n_RN_02_20_03["RN-02-20-03: Break Room"]
-class n_RN_02_30["RN-02-30: Reception"]
+class n_RN_02_30["RN-02-30: Reception area"]
 class n_RN_02_30_01["RN-02-30-01: Reception"]
 class n_RN_03["RN-03: Circulation"]
 class n_RN_03_10["RN-03-10: Horizontal circulation"]
 class n_RN_03_10_01["RN-03-10-01: Corridor"]
 class n_RN_03_10_02["RN-03-10-02: Lobby"]
-class n_RN_03_10_03["RN-03-10-03: Entrance Hall"]
 class n_RN_03_10_04["RN-03-10-04: Vestibule"]
+class n_RN_03_10_05["RN-03-10-05: Airlock"]
 class n_RN_03_20["RN-03-20: Vertical circulation"]
 class n_RN_03_20_01["RN-03-20-01: Stairwell"]
 class n_RN_03_20_02["RN-03-20-02: Elevator Lobby"]
@@ -149,6 +152,7 @@ class n_RN_11_10["RN-11-10: Exterior platforms"]
 class n_RN_11_10_01["RN-11-10-01: Balcony"]
 class n_RN_11_10_02["RN-11-10-02: Terrace"]
 class n_RN_11_10_03["RN-11-10-03: Patio"]
+class n_RN_11_10_04["RN-11-10-04: Escape Balcony"]
 class n_RN_11_20["RN-11-20: Landscape and recreation"]
 class n_RN_11_20_01["RN-11-20-01: Garden Area"]
 class n_RN_11_20_02["RN-11-20-02: Playground"]
@@ -156,6 +160,8 @@ class n_RN_11_20_03["RN-11-20-03: Pool Area"]
 class n_RN_11_30["RN-11-30: Covered exterior routes"]
 class n_RN_11_30_01["RN-11-30-01: Covered Walkway"]
 class n_RN_11_30_02["RN-11-30-02: Portico"]
+class n_RN_11_40["RN-11-40: Exterior circulation"]
+class n_RN_11_40_01["RN-11-40-01: Exterior Stair"]
 class n_RN_12["RN-12: Void"]
 class n_RN_12_10["RN-12-10: Vertical voids"]
 class n_RN_12_10_01["RN-12-10-01: Shaft"]
@@ -179,8 +185,11 @@ n_RN_01_20 <|-- n_RN_01_20_01
 n_RN_01_20 <|-- n_RN_01_20_02
 n_RN_01_20 <|-- n_RN_01_20_03
 n_RN_01_20 <|-- n_RN_01_20_04
-n_RN_01_30 <|-- n_RN_01_30_01
-n_RN_01_30 <|-- n_RN_01_30_02
+n_RN_01_20 <|-- n_RN_01_20_05
+n_RN_01_20 <|-- n_RN_01_20_06
+n_RN_01_20 <|-- n_RN_01_20_07
+n_RN_01_20 <|-- n_RN_01_20_08
+n_RN_01_20 <|-- n_RN_01_20_09
 n_RN_01_30 <|-- n_RN_01_30_03
 n_RN_02 <|-- n_RN_02_10
 n_RN_02 <|-- n_RN_02_20
@@ -195,8 +204,8 @@ n_RN_03 <|-- n_RN_03_10
 n_RN_03 <|-- n_RN_03_20
 n_RN_03_10 <|-- n_RN_03_10_01
 n_RN_03_10 <|-- n_RN_03_10_02
-n_RN_03_10 <|-- n_RN_03_10_03
 n_RN_03_10 <|-- n_RN_03_10_04
+n_RN_03_10 <|-- n_RN_03_10_05
 n_RN_03_20 <|-- n_RN_03_20_01
 n_RN_03_20 <|-- n_RN_03_20_02
 n_RN_03_20 <|-- n_RN_03_20_03
@@ -289,14 +298,17 @@ n_RN_10_20 <|-- n_RN_10_20_03
 n_RN_11 <|-- n_RN_11_10
 n_RN_11 <|-- n_RN_11_20
 n_RN_11 <|-- n_RN_11_30
+n_RN_11 <|-- n_RN_11_40
 n_RN_11_10 <|-- n_RN_11_10_01
 n_RN_11_10 <|-- n_RN_11_10_02
 n_RN_11_10 <|-- n_RN_11_10_03
+n_RN_11_10 <|-- n_RN_11_10_04
 n_RN_11_20 <|-- n_RN_11_20_01
 n_RN_11_20 <|-- n_RN_11_20_02
 n_RN_11_20 <|-- n_RN_11_20_03
 n_RN_11_30 <|-- n_RN_11_30_01
 n_RN_11_30 <|-- n_RN_11_30_02
+n_RN_11_40 <|-- n_RN_11_40_01
 n_RN_12 <|-- n_RN_12_10
 n_RN_12 <|-- n_RN_12_20
 n_RN_12 <|-- n_RN_12_30
@@ -334,7 +346,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Wohnen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Wohnnutzungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Wohnnutzungen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Residential</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for residential living spaces.</td>
@@ -344,7 +356,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-10</td>
 <td>RN-01</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Wohnen und Schlafen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raeume fuer Wohnen, Schlafen und Essen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Räume für Wohnen, Schlafen und Essen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Living and sleeping</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Rooms for daily living, sleeping, and dining.</td>
@@ -354,7 +366,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-10-01</td>
 <td>RN-01-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Schlafzimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum primaer fuer Schlafen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum primär für Schlafen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Bedroom</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room primarily used for sleeping.</td>
@@ -364,7 +376,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-10-02</td>
 <td>RN-01-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Wohnzimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Wohnen und Entspannung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Wohnen und Entspannung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Living Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for daily living and relaxation.</td>
@@ -374,7 +386,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-10-03</td>
 <td>RN-01-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Esszimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Mahlzeiten.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Mahlzeiten.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Dining Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for eating meals.</td>
@@ -384,7 +396,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-10-04</td>
 <td>RN-01-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Arbeitszimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Wohnlicher Raum fuer Arbeit oder Studium.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Wohnlicher Raum für Arbeit oder Studium.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Home Study</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Residential room for study or home office work.</td>
@@ -393,8 +405,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-01-10-05</td>
 <td>RN-01-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Gaestezimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer ueber Nacht bleibende Gaeste.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gästezimmer</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für über Nacht bleibende Gäste.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Guest Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for overnight guests.</td>
@@ -404,17 +416,17 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-20</td>
 <td>RN-01</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Wohnliche Dienste</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Kueche, Bad, Waesche und Hauswirtschaft in Wohneinheiten.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Küche, Bad, Wäsche, Hauswirtschaft, Gang, Wohnungseingang, Abstellraum, Kellerabteil und Entree in Wohneinheiten.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Residential services</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Kitchen, bathroom, laundry, and utility spaces within dwellings.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Kitchen, bathroom, laundry, utility, hallway, entry, storage, cellar, and entrance spaces within dwellings.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>RN-01-20-01</td>
 <td>RN-01-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Kueche</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Speisezubereitung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Küche</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Speisezubereitung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Kitchen</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for food preparation.</td>
@@ -424,7 +436,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-20-02</td>
 <td>RN-01-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Badezimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit Bad, Dusche oder Koerperpflege.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit Bad, Dusche oder Körperpflege.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Bathroom</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room with bath, shower, or personal hygiene fixtures.</td>
@@ -433,8 +445,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-01-20-03</td>
 <td>RN-01-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Waschkueche</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Waeschepflege.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Waschküche</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Wäschepflege.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Laundry Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for washing and drying clothes.</td>
@@ -444,25 +456,25 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-01-20-04</td>
 <td>RN-01-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Hauswirtschaftsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer haushaltstechnische Einrichtungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für haushaltstechnische Einrichtungen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Utility Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for domestic utilities and equipment.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>RN-01-30</td>
-<td>RN-01</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Wohneinheitsebene</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Eingang, Abstell- und Gesamtwohnflaechen.</td>
+<td>RN-01-20-05</td>
+<td>RN-01-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gang</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Erschliessungsgang innerhalb einer Wohneinheit.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Dwelling unit level</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Entry, storage, and whole-unit spaces.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Hallway</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Circulation passage within a dwelling unit.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>RN-01-30-01</td>
-<td>RN-01-30</td>
+<td>RN-01-20-06</td>
+<td>RN-01-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Wohnungseingang</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Eingangsbereich innerhalb einer Wohneinheit.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
@@ -471,13 +483,43 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>RN-01-30-02</td>
-<td>RN-01-30</td>
+<td>RN-01-20-07</td>
+<td>RN-01-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Abstellraum Wohnen</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Kleiner Abstellraum innerhalb einer Wohneinheit.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Residential Closet</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Small storage within a dwelling unit.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-01-20-08</td>
+<td>RN-01-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Kellerabteil</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Zugeordnetes Kellerabteil einer Wohneinheit.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Cellar Compartment</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Assigned cellar storage compartment for a dwelling.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-01-20-09</td>
+<td>RN-01-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Entree</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Eingangs-Übergangsraum im Wohnkontext.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Entrance Hall</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Residential entrance transition space within a dwelling context.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-01-30</td>
+<td>RN-01</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Wohneinheitsebene</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Gesamtwohnflächen ohne weitere Unterteilung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Dwelling unit level</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Whole-unit spaces when not subdivided further.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -494,7 +536,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Arbeit</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Buero- und Wissensarbeit.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Büro- und Wissensarbeit.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Work</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for office and knowledge work.</td>
@@ -504,7 +546,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02-10</td>
 <td>RN-02</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Einzelarbeit</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Einzel- und Grossraumbueros.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Einzel- und Grossraumbüros.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Individual work</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Enclosed and open-plan workspaces.</td>
@@ -513,8 +555,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-02-10-01</td>
 <td>RN-02-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Buero</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Buero fuer Einzel- oder Gruppenarbeit.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Büro</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Büro für Einzel- oder Gruppenarbeit.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Office</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Enclosed office for individual or shared desk work.</td>
@@ -523,8 +565,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-02-10-02</td>
 <td>RN-02-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Grossraumbuero</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Offene Burolandschaft ohne geschlossene Zellbueros.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Grossraumbüro</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Offene Bürolandschaft ohne geschlossene Zellbüros.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Open-Plan Office</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Open office landscape without full-height partitions.</td>
@@ -534,7 +576,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02-20</td>
 <td>RN-02</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Zusammenarbeit</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Besprechungs- und informelle Teamraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Besprechungs- und informelle Teamräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Collaboration</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Meeting and informal collaboration spaces.</td>
@@ -544,7 +586,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02-20-01</td>
 <td>RN-02-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Besprechungsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer kleine Besprechungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für kleine Besprechungen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Meeting Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for small group meetings.</td>
@@ -554,7 +596,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02-20-02</td>
 <td>RN-02-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Konferenzraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer formelle Sitzungen und Praesentationen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für formelle Sitzungen und Präsentationen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Conference Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for formal meetings and presentations.</td>
@@ -564,7 +606,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02-20-03</td>
 <td>RN-02-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Pausenraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Informeller Raum fuer Pausen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Informeller Raum für Pausen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Break Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Informal staff rest and refreshment space.</td>
@@ -573,10 +615,10 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-02-30</td>
 <td>RN-02</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Empfang</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Empfang und Wartebereich fuer Besucher.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Empfangsbereich</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Empfang und Wartebereich für Besucher.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Reception</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Reception area</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Visitor reception and waiting area.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
@@ -584,7 +626,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-02-30-01</td>
 <td>RN-02-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Empfang</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Empfang und Wartebereich fuer Besucher.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Empfang und Wartebereich für Besucher.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Reception</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Visitor reception and waiting area.</td>
@@ -594,7 +636,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-03</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Erschliessung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Erschliessungsraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Erschliessungsräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Circulation</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for circulation and access spaces.</td>
@@ -604,17 +646,17 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-03-10</td>
 <td>RN-03</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Horizontale Erschliessung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Flure, Hallen und horizontale Zugaenge.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Flure, Hallen, Vorräume, Schleusen und horizontale Zugänge.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Horizontal circulation</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Corridors, lobbies, and horizontal access routes.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Corridors, lobbies, vestibules, airlocks, and horizontal access routes.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
 <td>RN-03-10-01</td>
 <td>RN-03-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Flur</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Horizontaler Verbindungsflur, einschliesslich schmaler Durchgaenge zwischen Reihen oder Funktionen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Horizontaler Verbindungsflur, einschliesslich schmaler Durchgänge zwischen Reihen oder Funktionen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Corridor</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Horizontal circulation passage, including narrow aisles between rows or functions.</td>
@@ -631,30 +673,30 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>RN-03-10-03</td>
-<td>RN-03-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Entree</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Uebergangsraum am Gebaeudeeingang.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Entrance Hall</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Building entrance transition space.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
-</tr>
-<tr>
 <td>RN-03-10-04</td>
 <td>RN-03-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Vorraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Uebergangsraum zwischen Aussen und Innen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Übergangsraum zwischen Aussen und Innen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Vestibule</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Transition space between exterior and interior.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>RN-03-10-05</td>
+<td>RN-03-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Schleuse</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Geschlossene Schleuse für kontrollierten Übergang zwischen Bereichen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Airlock</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Enclosed lock or airlock for controlled passage between zones.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>RN-03-20</td>
 <td>RN-03</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Vertikale Erschliessung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Treppen, Rampen und Aufzuege.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Treppen, Rampen und Aufzüge.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Vertical circulation</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Stairs, ramps, and lifts.</td>
@@ -694,7 +736,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Hygiene</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Hygiene- und Sanitaerraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Hygiene- und Sanitärräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Hygiene</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for sanitary and changing spaces.</td>
@@ -704,7 +746,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04-10</td>
 <td>RN-04</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Toiletten</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">WC-Raeume nach Barrierefreiheit und Geschlechterausstattung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC-Räume nach Barrierefreiheit und Geschlechterausstattung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Toilets</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet rooms by accessibility and gender provision.</td>
@@ -714,7 +756,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04-10-01</td>
 <td>RN-04-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Herren-WC</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">WC fuer Maenner.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC für Männer.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Male Toilet</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet room for male use.</td>
@@ -724,7 +766,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04-10-02</td>
 <td>RN-04-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Damen-WC</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">WC fuer Frauen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC für Frauen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Female Toilet</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet room for female use.</td>
@@ -734,7 +776,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04-10-03</td>
 <td>RN-04-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Barrierefreies WC</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Rollstuhlgaengiges WC.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Rollstuhlgängiges WC.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Accessible Toilet</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Wheelchair-accessible toilet room.</td>
@@ -744,7 +786,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04-10-04</td>
 <td>RN-04-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Allgemeines WC</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">WC fuer gemischte oder all-gender Nutzung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">WC für gemischte oder all-gender Nutzung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Unisex Toilet</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Toilet room for mixed or all-gender use.</td>
@@ -754,7 +796,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04-20</td>
 <td>RN-04</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Waschen und Umziehen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Duschen, Umziehen und Schliessfaecher.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Duschen, Umziehen und Schliessfächer.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Wash and change</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Shower, changing, and locker spaces.</td>
@@ -784,7 +826,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-04-20-03</td>
 <td>RN-04-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Schliessfachraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit persoenlichen Schliessfaechern.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit persönlichen Schliessfächern.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Locker Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room with personal lockers.</td>
@@ -794,7 +836,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Gesundheit</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer medizinische und pflegerische Raeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für medizinische und pflegerische Räume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Healthcare</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for medical and care spaces.</td>
@@ -803,8 +845,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-05-10</td>
 <td>RN-05</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Stationaere Pflege</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raeume fuer stationaeren Aufenthalt und Erholung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Stationäre Pflege</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Räume für stationären Aufenthalt und Erholung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Inpatient care</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Rooms for inpatient stay and recovery.</td>
@@ -814,7 +856,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-10-01</td>
 <td>RN-05-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Patientenzimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer stationaere Pflege.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für stationäre Pflege.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Patient Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for inpatient care and recovery.</td>
@@ -824,7 +866,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-10-02</td>
 <td>RN-05-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aufwachraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer postoperative Ueberwachung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für postoperative Überwachung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Recovery Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for post-procedure recovery.</td>
@@ -834,7 +876,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-20</td>
 <td>RN-05</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Klinische Behandlung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Behandlungs-, Operations- und Eingriffsraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Behandlungs-, Operations- und Eingriffsräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Clinical treatment</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Treatment, surgery, and procedure spaces.</td>
@@ -844,7 +886,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-20-01</td>
 <td>RN-05-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Behandlungsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer ambulante Behandlung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für ambulante Behandlung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Treatment Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for outpatient treatment.</td>
@@ -854,7 +896,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-20-02</td>
 <td>RN-05-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Operationssaal</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer operative Eingriffe.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für operative Eingriffe.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Operating Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for surgical procedures.</td>
@@ -864,7 +906,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-20-03</td>
 <td>RN-05-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Eingriffsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer kleinere medizinische Eingriffe.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für kleinere medizinische Eingriffe.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Procedure Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for minor medical procedures.</td>
@@ -874,7 +916,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-20-04</td>
 <td>RN-05-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Untersuchungsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer aerztliche Untersuchung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für ärztliche Untersuchung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Examination Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for clinical examination.</td>
@@ -894,7 +936,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-30-01</td>
 <td>RN-05-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Bildgebungsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer diagnostische Bildgebung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für diagnostische Bildgebung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Imaging Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for diagnostic imaging.</td>
@@ -904,7 +946,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-30-02</td>
 <td>RN-05-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Medizinisches Labor</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Labor fuer medizinische Analysen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Labor für medizinische Analysen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Medical Laboratory</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Laboratory for medical analysis.</td>
@@ -914,7 +956,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-05-30-03</td>
 <td>RN-05-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Wartezimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer wartende Patienten und Besucher.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für wartende Patienten und Besucher.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Waiting Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for patients and visitors to wait.</td>
@@ -934,7 +976,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Bildung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Bildungs- und Lernraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Bildungs- und Lernräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Education</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for teaching and learning spaces.</td>
@@ -944,7 +986,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-10</td>
 <td>RN-06</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Unterricht</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Klassenzimmer, Hoersaele und Seminarraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Klassenzimmer, Hörsäle und Seminarräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Instruction</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Classrooms, lecture halls, and seminar spaces.</td>
@@ -954,7 +996,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-10-01</td>
 <td>RN-06-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Klassenzimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Schul- oder Gruppenunterricht.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Schul- oder Gruppenunterricht.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Classroom</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for school or group instruction.</td>
@@ -963,8 +1005,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-06-10-02</td>
 <td>RN-06-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Hoersaal</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit festem Gestuehl fuer Vorlesungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Hörsaal</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit festem Gestühl für Vorlesungen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Lecture Hall</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room with fixed seating for lectures.</td>
@@ -974,7 +1016,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-10-03</td>
 <td>RN-06-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Seminarraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Seminare und Workshops.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Seminare und Workshops.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Seminar Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for seminars and workshops.</td>
@@ -984,7 +1026,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-10-04</td>
 <td>RN-06-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Computerraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit Computerarbeitsplaetzen fuer Unterricht.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum mit Computerarbeitsplätzen für Unterricht.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Computer Lab</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room with computer workstations for teaching.</td>
@@ -994,7 +1036,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-20</td>
 <td>RN-06</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Selbstgesteuertes Lernen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Bibliothek, Lernraeume und Ausbildungswerkstaetten.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Bibliothek, Lernräume und Ausbildungswerkstätten.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Self-directed learning</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Library, study, and training workshop spaces.</td>
@@ -1004,7 +1046,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-20-01</td>
 <td>RN-06-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Bibliotheksraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Lesen und Bibliotheksnutzung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Lesen und Bibliotheksnutzung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Library Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for reading and library use.</td>
@@ -1014,7 +1056,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-20-02</td>
 <td>RN-06-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Lernraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer selbststaendiges Lernen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für selbstständiges Lernen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Study Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for self-directed study.</td>
@@ -1024,7 +1066,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-20-03</td>
 <td>RN-06-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Ausbildungswerkstatt</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer praktische Ausbildung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für praktische Ausbildung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Training Workshop</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for practical skills training.</td>
@@ -1033,7 +1075,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-06-30</td>
 <td>RN-06</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Versammlung und Fachraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Versammlung und Fachräume</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Aula, Ateliers und naturwissenschaftliche Laboratorien.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Assembly and special subjects</td>
@@ -1044,7 +1086,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-30-01</td>
 <td>RN-06-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aula</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Grosse Versammlungshalle fuer Veranstaltungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Grosse Versammlungshalle für Veranstaltungen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Auditorium</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Large assembly hall for events.</td>
@@ -1054,7 +1096,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-30-02</td>
 <td>RN-06-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Kunstatelier</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer bildnerischen Unterricht.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für bildnerischen Unterricht.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Art Studio</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for visual arts instruction and practice.</td>
@@ -1064,7 +1106,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-06-30-03</td>
 <td>RN-06-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Naturwissenschaftslabor</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Labor fuer naturwissenschaftlichen Unterricht.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Labor für naturwissenschaftlichen Unterricht.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Science Lab</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Laboratory for science teaching.</td>
@@ -1074,7 +1116,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Gewerbe</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Gastronomie- und Verkaufsraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Gastronomie- und Verkaufsräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Commercial</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for hospitality and retail spaces.</td>
@@ -1114,7 +1156,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07-10-03</td>
 <td>RN-07-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Bar</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Getraenkeausschank.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Getränkeausschank.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Bar</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for beverage service.</td>
@@ -1124,7 +1166,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07-10-04</td>
 <td>RN-07-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Food-Court</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Gemeinsame Gastronomieflaeche mit mehreren Anbietern.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Gemeinsame Gastronomiefläche mit mehreren Anbietern.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Food Court</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Shared dining area with multiple vendors.</td>
@@ -1144,7 +1186,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07-20-01</td>
 <td>RN-07-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Verkaufsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Warenpraesentation und Verkauf.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Warenpräsentation und Verkauf.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Retail Space</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for displaying and selling goods.</td>
@@ -1153,8 +1195,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-07-20-02</td>
 <td>RN-07-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Verkaufsflaeche</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Offene Verkaufsflaeche.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Verkaufsfläche</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Offene Verkaufsfläche.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Sales Floor</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Open retail sales area.</td>
@@ -1174,7 +1216,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07-20-04</td>
 <td>RN-07-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Kundenbetreuungsbereich</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich fuer Kundenbetreuung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich für Kundenbetreuung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Customer Service Area</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Area for customer assistance and service.</td>
@@ -1184,7 +1226,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07-20-05</td>
 <td>RN-07-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Ausstellungsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Ausstellungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Ausstellungen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Exhibition Space</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for displays and exhibitions.</td>
@@ -1194,7 +1236,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07-30</td>
 <td>RN-07</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Beherbergung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Hotel- und Gaestezimmer.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Hotel- und Gästezimmer.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Hospitality</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Hotel and guest accommodation rooms.</td>
@@ -1204,7 +1246,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-07-30-01</td>
 <td>RN-07-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Hotelzimmer</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Uebernachtungszimmer fuer Gaeste.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Übernachtungszimmer für Gäste.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Hotel Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Guest accommodation room.</td>
@@ -1214,7 +1256,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Industrie</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Produktions- und Werkraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Produktions- und Werkräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Industrial</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for production and workshop spaces.</td>
@@ -1224,7 +1266,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-10</td>
 <td>RN-08</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Produktion</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Werkstaetten, Produktionshallen, Montage und Reinraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Werkstätten, Produktionshallen, Montage und Reinräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Production</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Workshops, production halls, assembly, and clean rooms.</td>
@@ -1234,7 +1276,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-10-01</td>
 <td>RN-08-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Werkstatt</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer manuelle Fertigung und Reparatur.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für manuelle Fertigung und Reparatur.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Workshop</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for manual fabrication and repair.</td>
@@ -1244,7 +1286,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-10-02</td>
 <td>RN-08-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Produktionshalle</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Halle fuer Produktionsprozesse.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Halle für Produktionsprozesse.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Production Hall</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Hall for manufacturing processes.</td>
@@ -1254,7 +1296,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-10-03</td>
 <td>RN-08-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Montagebereich</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich fuer Montage.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich für Montage.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Assembly Area</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Area for product assembly.</td>
@@ -1264,7 +1306,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-10-04</td>
 <td>RN-08-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Verpackungsbereich</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich fuer Verpackung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich für Verpackung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Packaging Area</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Area for packaging goods.</td>
@@ -1284,7 +1326,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-20</td>
 <td>RN-08</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Logistik</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Lagerung, Be-/Entladung, Qualitaetskontrolle und Wartung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Lagerung, Be-/Entladung, Qualitätskontrolle und Wartung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Logistics</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Warehousing, loading, quality control, and maintenance.</td>
@@ -1294,7 +1336,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-20-01</td>
 <td>RN-08-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Lagerhalle</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Halle oder Raum fuer Warenlagerung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Halle oder Raum für Warenlagerung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Warehouse</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room or hall for goods storage.</td>
@@ -1304,7 +1346,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-20-02</td>
 <td>RN-08-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Laderampe</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich fuer Be- und Entladung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Bereich für Be- und Entladung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Loading Dock</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Area for loading and unloading goods.</td>
@@ -1313,8 +1355,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-08-20-03</td>
 <td>RN-08-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Qualitaetskontrollraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Pruefung und Qualitaetskontrolle.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Qualitätskontrollraum</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Prüfung und Qualitätskontrolle.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Quality Control Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for inspection and quality testing.</td>
@@ -1324,7 +1366,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-20-04</td>
 <td>RN-08-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Wartungsbucht</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Bucht fuer Geraetewartung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Bucht für Gerätewartung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Maintenance Bay</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Bay for equipment maintenance.</td>
@@ -1334,7 +1376,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-08-30</td>
 <td>RN-08</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Spezielle Industrie</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Ueberdeckte Hoefe und spezielle Industrieraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Überdeckte Höfe und spezielle Industrieräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Special industrial</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Covered yards and special industrial spaces.</td>
@@ -1343,8 +1385,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-08-30-01</td>
 <td>RN-08-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Ueberdachter Hof</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Ueberdachter Aussenarbeits- oder Lagerhof als Raum modelliert.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Überdachter Hof</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Überdachter Aussenarbeits- oder Lagerhof als Raum modelliert.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Covered Yard</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Covered exterior work or storage yard modeled as space.</td>
@@ -1354,7 +1396,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Technik</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Technik- und Anlagenraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Technik- und Anlagenräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Technical</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for building services and plant rooms.</td>
@@ -1363,8 +1405,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-09-10</td>
 <td>RN-09</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">HLK und Sanitaertechnik</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Heizungs-, Kaelte-, Pumpen- und Sprinklerzentralen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">HLK und Sanitärtechnik</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Heizungs-, Kälte-, Pumpen- und Sprinklerzentralen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">HVAC and plumbing plant</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Heating, cooling, pumping, and fire suppression plant rooms.</td>
@@ -1374,7 +1416,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-10-01</td>
 <td>RN-09-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">HLK-Zentralraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Heizungs-, Lueftungs- und Klimaanlagen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Heizungs-, Lüftungs- und Klimaanlagen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">HVAC Plant Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for heating, ventilation, and cooling plant.</td>
@@ -1384,7 +1426,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-10-02</td>
 <td>RN-09-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Pumpenraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Pumpen und Fluessigkeitstechnik.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Pumpen und Flüssigkeitstechnik.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Pump Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for pumps and fluid handling.</td>
@@ -1394,7 +1436,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-10-03</td>
 <td>RN-09-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Heizungsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Heizkessel und Waermeerzeugung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Heizkessel und Wärmeerzeugung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Boiler Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for boilers and heat generation.</td>
@@ -1403,8 +1445,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-09-10-04</td>
 <td>RN-09-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Kaelteraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Kaelteanlagen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Kälteraum</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Kälteanlagen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Chiller Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for chillers and cooling plant.</td>
@@ -1414,7 +1456,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-10-05</td>
 <td>RN-09-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Sprinklerraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Sprinkler- und Loeschanlagen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Sprinkler- und Löschanlagen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Sprinkler Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for fire suppression equipment.</td>
@@ -1424,7 +1466,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-20</td>
 <td>RN-09</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Elektro- und IT-Technik</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Elektro-, Generator-, Transformator-, Server- und Kommunikationsraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Elektro-, Generator-, Transformator-, Server- und Kommunikationsräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Electrical and IT plant</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Electrical, generator, transformer, server, and telecom rooms.</td>
@@ -1434,7 +1476,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-20-01</td>
 <td>RN-09-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Elektroraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer elektrische Verteilung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für elektrische Verteilung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Electrical Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for electrical distribution equipment.</td>
@@ -1444,7 +1486,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-20-02</td>
 <td>RN-09-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Serverraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer IT- und Netzwerktechnik.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für IT- und Netzwerktechnik.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Server Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for IT and network equipment.</td>
@@ -1454,7 +1496,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-20-03</td>
 <td>RN-09-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Generatorraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Notstromaggregate.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Notstromaggregate.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Generator Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for backup power generation.</td>
@@ -1464,7 +1506,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-20-04</td>
 <td>RN-09-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Transformatorenraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Transformatoren.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Transformatoren.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Transformer Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for electrical transformers.</td>
@@ -1474,7 +1516,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-20-05</td>
 <td>RN-09-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Kommunikationsraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Telekommunikations- und Schwachstromanlagen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Telekommunikations- und Schwachstromanlagen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Communications Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for telecom and low-voltage systems.</td>
@@ -1483,8 +1525,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-09-30</td>
 <td>RN-09</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Zaehler und Entsorgung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Zaehlerraeume und Abfallraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Zähler und Entsorgung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Zählerräume und Abfallräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Metering and waste</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Meter rooms and waste handling spaces.</td>
@@ -1493,8 +1535,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-09-30-01</td>
 <td>RN-09-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Zaehlerraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Verbrauchszaehler.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Zählerraum</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Verbrauchszähler.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Meter Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for utility metering equipment.</td>
@@ -1504,7 +1546,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-09-30-02</td>
 <td>RN-09-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Abfallraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Abfallsammlung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Abfallsammlung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Waste Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for waste collection and handling.</td>
@@ -1514,7 +1556,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Lager</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer Lager- und Nebenraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Lager- und Nebenräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Storage</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for storage and ancillary spaces.</td>
@@ -1524,7 +1566,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-10</td>
 <td>RN-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Allgemeine Lagertypen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Allgemeine, Material-, Geraete- und Hauswartlager.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Allgemeine, Material-, Geräte- und Hauswartlager.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">General storage types</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">General, supply, equipment, and janitor storage.</td>
@@ -1534,7 +1576,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-10-01</td>
 <td>RN-10-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Allgemeiner Lagerraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer allgemeine Materiallagerung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für allgemeine Materiallagerung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">General Storage</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for general material storage.</td>
@@ -1544,7 +1586,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-10-02</td>
 <td>RN-10-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Materialraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Verbrauchsmaterial.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Verbrauchsmaterial.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Supply Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for consumable supplies.</td>
@@ -1553,8 +1595,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-10-10-03</td>
 <td>RN-10-10</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Geraetelager</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Lager fuer Geraete und Werkzeuge.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gerätelager</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Lager für Geräte und Werkzeuge.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Equipment Storage</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Storage for tools and equipment.</td>
@@ -1574,7 +1616,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-10-05</td>
 <td>RN-10-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Hauswarteschrank</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Kleiner Raum fuer Reinigungsmaterial.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kleiner Raum für Reinigungsmaterial.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Janitor Closet</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Small room for cleaning supplies and equipment.</td>
@@ -1584,7 +1626,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-20</td>
 <td>RN-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Speziallager</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Archive, Postraeume und Kuehllager.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Archive, Posträume und Kühllager.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Specialized storage</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Archives, mail rooms, and cold storage.</td>
@@ -1594,7 +1636,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-20-01</td>
 <td>RN-10-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Archivraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Dokumenten- und Aktenarchive.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Dokumenten- und Aktenarchive.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Archive Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for document and record archives.</td>
@@ -1604,7 +1646,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-20-02</td>
 <td>RN-10-20</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Postraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum fuer Postein- und -ausgang.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Raum für Postein- und -ausgang.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Mail Room</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Room for incoming and outgoing mail.</td>
@@ -1613,8 +1655,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-10-20-03</td>
 <td>RN-10-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Kuehlraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Gekuehlter Lagerraum.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Kühlraum</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Gekühlter Lagerraum.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Cold Storage</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Refrigerated storage room.</td>
@@ -1624,7 +1666,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-11</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer als IfcSpace modellierte Aussenraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für als IfcSpace modellierte Aussenräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Outdoor</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for exterior spaces modeled as IfcSpace.</td>
@@ -1634,10 +1676,10 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-11-10</td>
 <td>RN-11</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussenplattformen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Balkone, Terrassen und Innenhoefe.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Balkone, Fluchtbalkone, Terrassen und Innenhöfe.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Exterior platforms</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Balconies, terraces, and patios.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Balconies, escape balconies, terraces, and patios.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1654,7 +1696,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-11-10-02</td>
 <td>RN-11-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Terrasse</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenliegende Terrassenflaeche.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenliegende Terrassenfläche.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Terrace</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior paved or decked platform.</td>
@@ -1671,10 +1713,20 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>RN-11-10-04</td>
+<td>RN-11-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Fluchtbalkon</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenliegender Balkon als Fluchtweg.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Escape Balcony</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior balcony serving as an escape route.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>RN-11-20</td>
 <td>RN-11</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Landschaft und Freizeit</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Gaerten, Spielplaetze und Beckenflaechen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Gärten, Spielplätze und Beckenflächen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Landscape and recreation</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Gardens, playgrounds, and pool areas.</td>
@@ -1683,8 +1735,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-11-20-01</td>
 <td>RN-11-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Gartenflaeche</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Als Raum modellierte Gartenflaeche.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gartenfläche</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Als Raum modellierte Gartenfläche.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Garden Area</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Landscaped outdoor area as space.</td>
@@ -1703,8 +1755,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-11-20-03</td>
 <td>RN-11-20</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Beckenflaeche</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenliegende Becken- oder Wasserflaeche.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Beckenfläche</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenliegende Becken- oder Wasserfläche.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Pool Area</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Outdoor pool or water feature area.</td>
@@ -1713,8 +1765,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-11-30</td>
 <td>RN-11</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Ueberdachte Aussenwege</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Ueberdachte Fusswege und Portiken.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Überdachte Aussenwege</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Überdachte Fusswege und Portiken.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Covered exterior routes</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Covered walkways and porticos.</td>
@@ -1723,8 +1775,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-11-30-01</td>
 <td>RN-11-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Ueberdachter Fussweg</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Ueberdachter Aussenweg fuer Fussgaenger.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Überdachter Fussweg</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Überdachter Aussenweg für Fussgänger.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Covered Walkway</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Covered exterior pedestrian route.</td>
@@ -1734,17 +1786,37 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-11-30-02</td>
 <td>RN-11-30</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Portikus</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Ueberdachter Aussenanbau am Eingang.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Überdachter Aussenanbau am Eingang.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Portico</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Covered exterior entrance structure.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>RN-11-40</td>
+<td>RN-11</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussenerschliessung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussentreppen und aussenliegende vertikale Erschliessung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior circulation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior stairs and outdoor vertical access routes.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-11-40-01</td>
+<td>RN-11-40</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussentreppe</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenliegende Treppe zur vertikalen Erschliessung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior Stair</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Open or external stair for outdoor vertical circulation.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>RN-12</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Hohlraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen fuer nicht nutzbare Hohl- und Sonderraeume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für nicht nutzbare Hohl- und Sonderräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Void</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for non-occupiable void and special spaces.</td>
@@ -1753,8 +1825,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-12-10</td>
 <td>RN-12</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Vertikale Hohlraeume</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Schaechte und Steigzonen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Vertikale Hohlräume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Schächte und Steigzonen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Vertical voids</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Shafts and service risers.</td>
@@ -1774,7 +1846,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-12-10-02</td>
 <td>RN-12-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Steigzone</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Vertikale Gebaeudetechnik-Steigzone.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Vertikale Gebäudetechnik-Steigzone.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Riser</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Vertical building services riser.</td>
@@ -1783,8 +1855,8 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-12-20</td>
 <td>RN-12</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Installations- und Luftraeume</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Installationshohlraeume und modellierter Luftraum.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Installations- und Lufträume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Installationshohlräume und modellierter Luftraum.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Plenums and air volumes</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Plenums, mechanical voids, and modeled air spaces.</td>
@@ -1823,7 +1895,7 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <tr>
 <td>RN-12-30</td>
 <td>RN-12</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Sonderraeume</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Sonderräume</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Atrien und Innenparkierung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Structural and special voids</td>
