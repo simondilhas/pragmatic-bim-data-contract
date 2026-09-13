@@ -946,7 +946,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Gaestezimmer
+            description: Gästezimmer
       rn_01_20_01:
         description: "Room for food preparation."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_KIT
@@ -954,7 +954,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Kueche
+            description: Küche
       rn_01_20_02:
         description: "Room with bath, shower, or personal hygiene fixtures."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_BTH
@@ -970,7 +970,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Waschkueche
+            description: Waschküche
       rn_01_20_04:
         description: "Room for domestic utilities and equipment."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_UTL
@@ -979,7 +979,15 @@ enums:
           de:
             source: de
             description: Hauswirtschaftsraum
-      rn_01_30_01:
+      rn_01_20_05:
+        description: "Circulation passage within a dwelling unit."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_GNG
+        title: Hallway
+        alt_descriptions:
+          de:
+            source: de
+            description: Gang
+      rn_01_20_06:
         description: "Entry space within a dwelling unit."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_ENT
         title: Residential Entry
@@ -987,7 +995,7 @@ enums:
           de:
             source: de
             description: Wohnungseingang
-      rn_01_30_02:
+      rn_01_20_07:
         description: "Small storage within a dwelling unit."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_CLO
         title: Residential Closet
@@ -995,6 +1003,22 @@ enums:
           de:
             source: de
             description: Abstellraum Wohnen
+      rn_01_20_08:
+        description: "Assigned cellar storage compartment for a dwelling."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_CEL
+        title: Cellar Compartment
+        alt_descriptions:
+          de:
+            source: de
+            description: Kellerabteil
+      rn_01_20_09:
+        description: "Residential entrance transition space within a dwelling context."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_RES_ETR
+        title: Entrance Hall
+        alt_descriptions:
+          de:
+            source: de
+            description: Entree
       rn_01_30_03:
         description: "Generic residential unit space when not subdivided further."
         meaning: https://example.org/abstract/building-space-name-classification/RN_RES_APT
@@ -1010,7 +1034,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Buero
+            description: Büro
       rn_02_10_02:
         description: "Open office landscape without full-height partitions."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_OPN
@@ -1018,7 +1042,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Grossraumbuero
+            description: Grossraumbüro
       rn_02_20_01:
         description: "Room for small group meetings."
         meaning: https://example.org/abstract/building-space-name-classification/RN_WRK_MTG
@@ -1067,14 +1091,6 @@ enums:
           de:
             source: de
             description: Eingangshalle
-      rn_03_10_03:
-        description: "Building entrance transition space."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_ENT
-        title: Entrance Hall
-        alt_descriptions:
-          de:
-            source: de
-            description: Entree
       rn_03_10_04:
         description: "Transition space between exterior and interior."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_VES
@@ -1083,6 +1099,14 @@ enums:
           de:
             source: de
             description: Vorraum
+      rn_03_10_05:
+        description: "Enclosed lock or airlock for controlled passage between zones."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_SLU
+        title: Airlock
+        alt_descriptions:
+          de:
+            source: de
+            description: Schleuse
       rn_03_20_01:
         description: "Enclosed stair and landing volume."
         meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_STR
@@ -1258,7 +1282,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Hoersaal
+            description: Hörsaal
       rn_06_10_03:
         description: "Room for seminars and workshops."
         meaning: https://example.org/abstract/building-space-name-classification/RN_LRN_SEM
@@ -1370,7 +1394,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Verkaufsflaeche
+            description: Verkaufsfläche
       rn_07_20_03:
         description: "Small retail or service counter space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_COM_KSK
@@ -1466,7 +1490,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Qualitaetskontrollraum
+            description: Qualitätskontrollraum
       rn_08_20_04:
         description: "Bay for equipment maintenance."
         meaning: https://example.org/abstract/building-space-name-classification/RN_IND_MNT
@@ -1482,7 +1506,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Ueberdachter Hof
+            description: Überdachter Hof
       rn_09_10_01:
         description: "Room for heating, ventilation, and cooling plant."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_HVC
@@ -1514,7 +1538,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Kaelteraum
+            description: Kälteraum
       rn_09_10_05:
         description: "Room for fire suppression equipment."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_SPR
@@ -1570,7 +1594,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Zaehlerraum
+            description: Zählerraum
       rn_09_30_02:
         description: "Room for waste collection and handling."
         meaning: https://example.org/abstract/building-space-name-classification/RN_TEC_WST
@@ -1602,7 +1626,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Geraetelager
+            description: Gerätelager
       rn_10_10_04:
         description: "Temporary storage at delivery point."
         meaning: https://example.org/abstract/building-space-name-classification/RN_STO_ULD
@@ -1642,7 +1666,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Kuehlraum
+            description: Kühlraum
       rn_11_10_01:
         description: "Exterior projecting platform accessed from inside."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_BLN
@@ -1667,6 +1691,14 @@ enums:
           de:
             source: de
             description: Innenhof
+      rn_11_10_04:
+        description: "Exterior balcony serving as an escape route."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_EBL
+        title: Escape Balcony
+        alt_descriptions:
+          de:
+            source: de
+            description: Fluchtbalkon
       rn_11_20_01:
         description: "Landscaped outdoor area as space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_GDN
@@ -1674,7 +1706,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Gartenflaeche
+            description: Gartenfläche
       rn_11_20_02:
         description: "Outdoor play area."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_PLY
@@ -1690,7 +1722,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Beckenflaeche
+            description: Beckenfläche
       rn_11_30_01:
         description: "Covered exterior pedestrian route."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_CWK
@@ -1698,7 +1730,7 @@ enums:
         alt_descriptions:
           de:
             source: de
-            description: Ueberdachter Fussweg
+            description: Überdachter Fussweg
       rn_11_30_02:
         description: "Covered exterior entrance structure."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_PRT
@@ -1707,6 +1739,14 @@ enums:
           de:
             source: de
             description: Portikus
+      rn_11_40_01:
+        description: "Open or external stair for outdoor vertical circulation."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_STR
+        title: Exterior Stair
+        alt_descriptions:
+          de:
+            source: de
+            description: Aussentreppe
       rn_12_10_01:
         description: "Vertical service or circulation shaft."
         meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_SHA

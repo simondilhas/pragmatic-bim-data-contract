@@ -23,9 +23,9 @@ v1:rn_cir_elv skos:exactMatch rn:RN_CIR_ELV ;
   ex:supersedesNotation "RN-CIR-ELV" ;
   ex:mapsToNotation "RN-03-20-02" .
 
-v1:rn_cir_ent skos:exactMatch rn:RN_CIR_ENT ;
+v1:rn_cir_ent skos:exactMatch rn:RN_RES_ETR ;
   ex:supersedesNotation "RN-CIR-ENT" ;
-  ex:mapsToNotation "RN-03-10-03" .
+  ex:mapsToNotation "RN-01-20-09" .
 
 v1:rn_cir_gal skos:exactMatch rn:RN_CIR_LOB ;
   ex:supersedesNotation "RN-CIR-GAL" ;
@@ -42,6 +42,10 @@ v1:rn_cir_lob skos:exactMatch rn:RN_CIR_LOB ;
 v1:rn_cir_ram skos:exactMatch rn:RN_CIR_RAM ;
   ex:supersedesNotation "RN-CIR-RAM" ;
   ex:mapsToNotation "RN-03-20-03" .
+
+v1:rn_cir_slu skos:exactMatch rn:RN_CIR_SLU ;
+  ex:supersedesNotation "RN-CIR-SLU" ;
+  ex:mapsToNotation "RN-03-10-05" .
 
 v1:rn_cir_str skos:exactMatch rn:RN_CIR_STR ;
   ex:supersedesNotation "RN-CIR-STR" ;
@@ -135,9 +139,9 @@ v1:rn_hyg_chg skos:exactMatch rn:RN_HYG_CHG ;
   ex:supersedesNotation "RN-HYG-CHG" ;
   ex:mapsToNotation "RN-04-20-02" .
 
-v1:rn_hyg_grd skos:exactMatch rn:RN_CIR_ENT ;
+v1:rn_hyg_grd skos:exactMatch rn:RN_RES_ETR ;
   ex:supersedesNotation "RN-HYG-GRD" ;
-  ex:mapsToNotation "RN-03-10-03" .
+  ex:mapsToNotation "RN-01-20-09" .
 
 v1:rn_hyg_lck skos:exactMatch rn:RN_HYG_LCK ;
   ex:supersedesNotation "RN-HYG-LCK" ;
@@ -251,6 +255,10 @@ v1:rn_out_cwk skos:exactMatch rn:RN_OUT_CWK ;
   ex:supersedesNotation "RN-OUT-CWK" ;
   ex:mapsToNotation "RN-11-30-01" .
 
+v1:rn_out_ebl skos:exactMatch rn:RN_OUT_EBL ;
+  ex:supersedesNotation "RN-OUT-EBL" ;
+  ex:mapsToNotation "RN-11-10-04" .
+
 v1:rn_out_gdn skos:exactMatch rn:RN_OUT_GDN ;
   ex:supersedesNotation "RN-OUT-GDN" ;
   ex:mapsToNotation "RN-11-20-01" .
@@ -287,9 +295,13 @@ v1:rn_res_bth skos:exactMatch rn:RN_RES_BTH ;
   ex:supersedesNotation "RN-RES-BTH" ;
   ex:mapsToNotation "RN-01-20-02" .
 
+v1:rn_res_cel skos:exactMatch rn:RN_RES_CEL ;
+  ex:supersedesNotation "RN-RES-CEL" ;
+  ex:mapsToNotation "RN-01-20-08" .
+
 v1:rn_res_clo skos:exactMatch rn:RN_RES_CLO ;
   ex:supersedesNotation "RN-RES-CLO" ;
-  ex:mapsToNotation "RN-01-30-02" .
+  ex:mapsToNotation "RN-01-20-07" .
 
 v1:rn_res_din skos:exactMatch rn:RN_RES_DIN ;
   ex:supersedesNotation "RN-RES-DIN" ;
@@ -297,7 +309,15 @@ v1:rn_res_din skos:exactMatch rn:RN_RES_DIN ;
 
 v1:rn_res_ent skos:exactMatch rn:RN_RES_ENT ;
   ex:supersedesNotation "RN-RES-ENT" ;
-  ex:mapsToNotation "RN-01-30-01" .
+  ex:mapsToNotation "RN-01-20-06" .
+
+v1:rn_res_etr skos:exactMatch rn:RN_RES_ETR ;
+  ex:supersedesNotation "RN-RES-ETR" ;
+  ex:mapsToNotation "RN-01-20-09" .
+
+v1:rn_res_gng skos:exactMatch rn:RN_RES_GNG ;
+  ex:supersedesNotation "RN-RES-GNG" ;
+  ex:mapsToNotation "RN-01-20-05" .
 
 v1:rn_res_gst skos:exactMatch rn:RN_RES_GST ;
   ex:supersedesNotation "RN-RES-GST" ;

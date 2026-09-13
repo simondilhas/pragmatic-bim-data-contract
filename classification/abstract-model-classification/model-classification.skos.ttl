@@ -1,0 +1,333 @@
+@prefix : <https://example.org/ch/abstract-model/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract model classification"@en ;
+  skos:prefLabel "Abstrakte Fachmodell-Klassifikation"@de ;
+  skos:prefLabel "Classification abstraite des maquettes"@fr ;
+  skos:prefLabel "Classificazione astratta dei modelli"@it ;
+  dcterms:title "Abstract model classification"@en ;
+  dcterms:identifier "AbstractModelClassification" ;
+  dcterms:creator "pragmatic-bim-public-rules" ;
+  dcterms:issued "2026-09-03" ;
+  dcterms:description "BIM discipline-model types (Fachmodelle) for deliverable classification. Notation is the model token in `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`. Domain membership is in the model-to-domain mapping."@en ;
+  dcterms:description "BIM-Fachmodelltypen zur Klassifikation von Liefergegenständen. Notation ist das Modell-Token in `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`. Fachbereich-Zuordnung im Mapping Modell zu Fachbereich."@de ;
+  dcterms:description "Types de maquettes disciplinaires BIM pour classer les livrables. La notation est le jeton de maquette dans `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`. L'appartenance au domaine est dans le mapping maquette vers domaine."@fr ;
+  dcterms:description "Tipi di modello disciplinare BIM per classificare i deliverable. La notazione è il token del modello in `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`. L'appartenenza al dominio è nel mapping modello-dominio."@it ;
+  skos:hasTopConcept
+    :architecture, :storey-volume, :facade, :landscape, :surroundings, :furniture, :laboratory,
+    :heating, :cooling, :ventilation, :plumbing, :underground-services,
+    :concrete-structure, :steel-structure, :timber-structure, :reinforcement, :excavation-pit, :earthworks .
+
+# --- Architecture domain (ARC-*) ---
+
+:architecture a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC" ;
+  skos:prefLabel "Architecture"@en ;
+  skos:prefLabel "Architektur"@de ;
+  skos:prefLabel "Architecture"@fr ;
+  skos:prefLabel "Architettura"@it ;
+  skos:definition "Building architecture — spaces, components, and fit-out in one deliverable, including usable areas and space volumes for area verification."@en ;
+  skos:definition "Gebäudearchitektur — Räume, Bauteile und Ausbau in einem Fachmodell, inklusive Nutzflächen und Raumvolumen für Flächennachweise."@de ;
+  skos:definition "Architecture du bâtiment — locaux, composants et aménagement dans une maquette, y compris surfaces utiles et volumes de locaux pour les justificatifs de surfaces."@fr ;
+  skos:definition "Architettura dell'edificio — spazi, componenti e finiture in un modello, comprese superfici utili e volumi dei locali per le verifiche di superficie."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@it .
+
+:storey-volume a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GVM" ;
+  skos:prefLabel "Storey volume"@en ;
+  skos:prefLabel "Geschossvolumen"@de ;
+  skos:prefLabel "Volume d'étage"@fr ;
+  skos:prefLabel "Volume di piano"@it ;
+  skos:definition "Gross volume per storey for massing studies, metrics, and urban-design verification."@en ;
+  skos:definition "Bruttovolumen je Geschoss für Massenstudien, Kennwerte und städtebauliche Nachweise."@de ;
+  skos:definition "Volume brut par étage pour études de masse, indicateurs et justificatifs urbanistiques."@fr ;
+  skos:definition "Volume lordo per piano per studi di massa, indicatori e verifiche urbanistiche."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_ARC-GVM_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_ARC-GVM_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_ARC-GVM_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_ARC-GVM_{Userdefined_text}.{ext}`."@it .
+
+:facade a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FAS" ;
+  skos:prefLabel "Facade"@en ;
+  skos:prefLabel "Fassade"@de ;
+  skos:prefLabel "Façade"@fr ;
+  skos:prefLabel "Facciata"@it ;
+  skos:definition "External envelope and facade build-up — cladding, openings, and facade-related layers, separate from the rest of the architecture deliverable."@en ;
+  skos:definition "Aussenhülle und Fassadenaufbau — Bekleidung, Öffnungen und fassadenbezogene Schichten, getrennt vom übrigen Architekturmodell."@de ;
+  skos:definition "Enveloppe extérieure et composition de façade — revêtements, ouvertures et couches liées à la façade, séparés du reste de la maquette d'architecture."@fr ;
+  skos:definition "Involucro esterno e stratigrafia di facciata — rivestimenti, aperture e strati legati alla facciata, distinti dal resto del modello di architettura."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_ARC-FAS_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_ARC-FAS_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_ARC-FAS_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_ARC-FAS_{Userdefined_text}.{ext}`."@it .
+
+:landscape a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "LAN" ;
+  skos:prefLabel "Landscape"@en ;
+  skos:prefLabel "Landschaft"@de ;
+  skos:prefLabel "Paysage"@fr ;
+  skos:prefLabel "Paesaggio"@it ;
+  skos:definition "Surroundings and outdoor-space design — vegetation, paths, plazas, and designed external works."@en ;
+  skos:definition "Umgebungs- und Aussenraumgestaltung — Vegetation, Wege, Plätze und gestaltete Aussenanlagen."@de ;
+  skos:definition "Aménagement des abords et des espaces extérieurs — végétation, cheminements, places et aménagements paysagers."@fr ;
+  skos:definition "Sistemazione degli spazi esterni — vegetazione, percorsi, piazze e opere a verde."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_ARC-LAN_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_ARC-LAN_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_ARC-LAN_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_ARC-LAN_{Userdefined_text}.{ext}`."@it .
+
+:surroundings a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "UMG" ;
+  skos:prefLabel "Surroundings"@en ;
+  skos:prefLabel "Umgebung"@de ;
+  skos:prefLabel "Contexte"@fr ;
+  skos:prefLabel "Contesto"@it ;
+  skos:definition "Existing stock, neighbouring buildings, and terrain as spatial context — not designed landscape works."@en ;
+  skos:definition "Bestand, Nachbarbebauung und Terrain als räumlicher Kontext — nicht die gestaltete Landschaftsplanung."@de ;
+  skos:definition "Existant, constructions voisines et terrain comme contexte spatial — distinct de l'aménagement paysager."@fr ;
+  skos:definition "Esistente, edificato limitrofo e terreno come contesto spaziale — distinto dalla progettazione paesaggistica."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_ARC-UMG_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_ARC-UMG_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_ARC-UMG_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_ARC-UMG_{Userdefined_text}.{ext}`."@it .
+
+:furniture a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MOB" ;
+  skos:prefLabel "Furniture"@en ;
+  skos:prefLabel "Mobiliar"@de ;
+  skos:prefLabel "Mobilier"@fr ;
+  skos:prefLabel "Arredi"@it ;
+  skos:definition "Furnishings and furniture for use, visualisation, and coordination — not specialist laboratory equipment."@en ;
+  skos:definition "Einrichtung und Möblierung für Nutzung, Visualisierung und Koordination — keine Laborspezialausstattung."@de ;
+  skos:definition "Ameublement et mobilier pour usage, visualisation et coordination — hors équipements de laboratoire."@fr ;
+  skos:definition "Arredi e mobilio per uso, visualizzazione e coordinamento — esclusa l'attrezzatura di laboratorio."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_ARC-MOB_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_ARC-MOB_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_ARC-MOB_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_ARC-MOB_{Userdefined_text}.{ext}`."@it .
+
+:laboratory a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "LAB" ;
+  skos:prefLabel "Laboratory"@en ;
+  skos:prefLabel "Labor"@de ;
+  skos:prefLabel "Laboratoire"@fr ;
+  skos:prefLabel "Laboratorio"@it ;
+  skos:definition "Laboratory equipment and specialist lab fit-out — appliances, benches, and lab-specific installations."@en ;
+  skos:definition "Laboreinrichtung und Speziallabor-Ausstattung — Geräte, Bänke und laborspezifische Einbauten."@de ;
+  skos:definition "Équipements de laboratoire et aménagements spécialisés — appareils, paillasses et installations spécifiques."@fr ;
+  skos:definition "Attrezzature di laboratorio e allestimenti speciali — apparecchi, banchi e installazioni specifiche."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_ARC-LAB_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_ARC-LAB_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_ARC-LAB_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_ARC-LAB_{Userdefined_text}.{ext}`."@it .
+
+# --- MEP domain (MEP-*) ---
+
+:heating a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "HEI" ;
+  skos:prefLabel "Heating"@en ;
+  skos:prefLabel "Heizung"@de ;
+  skos:prefLabel "Chauffage"@fr ;
+  skos:prefLabel "Riscaldamento"@it ;
+  skos:definition "Heating systems — generation, distribution, and emission of heat."@en ;
+  skos:definition "Heizungsanlagen — Erzeugung, Verteilung und Abgabe von Wärme."@de ;
+  skos:definition "Installations de chauffage — production, distribution et émission de chaleur."@fr ;
+  skos:definition "Impianti di riscaldamento — produzione, distribuzione ed emissione di calore."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@it .
+
+:cooling a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "KUE" ;
+  skos:prefLabel "Cooling"@en ;
+  skos:prefLabel "Kühlung"@de ;
+  skos:prefLabel "Froid"@fr ;
+  skos:prefLabel "Raffrescamento"@it ;
+  skos:definition "Cooling systems — generation, distribution, and emission of cold."@en ;
+  skos:definition "Kälteanlagen — Erzeugung, Verteilung und Abgabe von Kälte."@de ;
+  skos:definition "Installations de froid — production, distribution et émission de froid."@fr ;
+  skos:definition "Impianti di raffrescamento — produzione, distribuzione ed emissione di freddo."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_MEP-KUE_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_MEP-KUE_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_MEP-KUE_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_MEP-KUE_{Userdefined_text}.{ext}`."@it .
+
+:ventilation a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "LUE" ;
+  skos:prefLabel "Ventilation"@en ;
+  skos:prefLabel "Lüftung"@de ;
+  skos:prefLabel "Ventilation"@fr ;
+  skos:prefLabel "Ventilazione"@it ;
+  skos:definition "Ventilation systems — air routes, equipment, and air-side distribution."@en ;
+  skos:definition "Lüftungsanlagen — Luftführung, Geräte und lufttechnische Verteilung."@de ;
+  skos:definition "Installations de ventilation — réseaux d'air, appareils et distribution aéraulique."@fr ;
+  skos:definition "Impianti di ventilazione — condotte d'aria, apparecchi e distribuzione aeraulica."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_MEP-LUE_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_MEP-LUE_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_MEP-LUE_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_MEP-LUE_{Userdefined_text}.{ext}`."@it .
+
+:plumbing a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SAN" ;
+  skos:prefLabel "Plumbing"@en ;
+  skos:prefLabel "Sanitär"@de ;
+  skos:prefLabel "Sanitaire"@fr ;
+  skos:prefLabel "Sanitari"@it ;
+  skos:definition "Plumbing systems — drinking water, wastewater, and sanitary appliances in the building, excluding underground drains."@en ;
+  skos:definition "Sanitäranlagen — Trinkwasser, Abwasser und sanitäre Apparate im Gebäude, ohne Grundleitungen."@de ;
+  skos:definition "Installations sanitaires — eau potable, eaux usées et appareils sanitaires dans le bâtiment, hors collecteurs enterrés."@fr ;
+  skos:definition "Impianti sanitari — acqua potabile, acque reflue e apparecchi sanitari nell'edificio, escluse le condotte interrate."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_MEP-SAN_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_MEP-SAN_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_MEP-SAN_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_MEP-SAN_{Userdefined_text}.{ext}`."@it .
+
+:underground-services a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "GRL" ;
+  skos:prefLabel "Underground services"@en ;
+  skos:prefLabel "Grundleitung"@de ;
+  skos:prefLabel "Collecteurs"@fr ;
+  skos:prefLabel "Condotte interrate"@it ;
+  skos:definition "Underground drains and sewerage outside or under the building — separate from in-building plumbing."@en ;
+  skos:definition "Grundleitungen und Kanalisation ausserhalb bzw. unter dem Gebäude — getrennt von der Sanitärinstallation."@de ;
+  skos:definition "Collecteurs et canalisations enterrées hors ou sous le bâtiment — distincts des installations sanitaires."@fr ;
+  skos:definition "Condotte interrate e fognature fuori o sotto l'edificio — distinte dagli impianti sanitari."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_MEP-GRL_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_MEP-GRL_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_MEP-GRL_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_MEP-GRL_{Userdefined_text}.{ext}`."@it .
+
+# --- Structural domain (STR-*) ---
+
+:concrete-structure a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BET" ;
+  skos:prefLabel "Concrete"@en ;
+  skos:prefLabel "Betonbau"@de ;
+  skos:prefLabel "Béton armé"@fr ;
+  skos:prefLabel "Calcestruzzo"@it ;
+  skos:definition "Reinforced-concrete structure — foundations, columns, walls, slabs, and other load-bearing concrete members."@en ;
+  skos:definition "Stahlbetontragwerk — Fundamente, Stützen, Wände, Decken und weitere tragende Betonbauteile."@de ;
+  skos:definition "Ouvrage en béton armé — fondations, poteaux, murs, dalles et autres éléments porteurs en béton."@fr ;
+  skos:definition "Struttura in calcestruzzo armato — fondazioni, colonne, pareti, solette e altri elementi portanti in calcestruzzo."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@it .
+
+:steel-structure a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "STB" ;
+  skos:prefLabel "Steel"@en ;
+  skos:prefLabel "Stahlbau"@de ;
+  skos:prefLabel "Construction métallique"@fr ;
+  skos:prefLabel "Carpenteria metallica"@it ;
+  skos:definition "Steel structure — beams, columns, bracing, and other load-bearing steel members."@en ;
+  skos:definition "Stahltragwerk — Träger, Stützen, Verbände und weitere tragende Stahlbauteile."@de ;
+  skos:definition "Ouvrage métallique — poutres, poteaux, contreventements et autres éléments porteurs en acier."@fr ;
+  skos:definition "Struttura in acciaio — travi, colonne, controventi e altri elementi portanti in acciaio."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_STR-STB_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_STR-STB_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_STR-STB_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_STR-STB_{Userdefined_text}.{ext}`."@it .
+
+:timber-structure a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "HLZ" ;
+  skos:prefLabel "Timber"@en ;
+  skos:prefLabel "Holzbau"@de ;
+  skos:prefLabel "Construction bois"@fr ;
+  skos:prefLabel "Costruzione in legno"@it ;
+  skos:definition "Timber structure — columns, beams, floors, and other load-bearing timber members."@en ;
+  skos:definition "Holztragwerk — Stützen, Träger, Decken und weitere tragende Holzbauteile."@de ;
+  skos:definition "Ouvrage en bois — poteaux, poutres, planchers et autres éléments porteurs en bois."@fr ;
+  skos:definition "Struttura in legno — colonne, travi, solai e altri elementi portanti in legno."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_STR-HLZ_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_STR-HLZ_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_STR-HLZ_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_STR-HLZ_{Userdefined_text}.{ext}`."@it .
+
+:reinforcement a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BEW" ;
+  skos:prefLabel "Reinforcement"@en ;
+  skos:prefLabel "Bewehrung"@de ;
+  skos:prefLabel "Armature"@fr ;
+  skos:prefLabel "Armatura"@it ;
+  skos:definition "Reinforcement for execution — bars, layers, and positions according to the reinforcement design, separate from the concrete structure."@en ;
+  skos:definition "Armierung für Ausführung — Stäbe, Lagen und Positionen gemäss Bewehrungsplanung, getrennt vom Betontragwerk."@de ;
+  skos:definition "Armatures pour l'exécution — barres, nappes et positions selon le plan d'armature, distinctes de l'ouvrage en béton."@fr ;
+  skos:definition "Armatura per l'esecuzione — barre, strati e posizioni secondo il progetto delle armature, distinta dalla struttura in calcestruzzo."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_STR-BEW_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_STR-BEW_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_STR-BEW_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_STR-BEW_{Userdefined_text}.{ext}`."@it .
+
+:excavation-pit a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BGR" ;
+  skos:prefLabel "Excavation pit"@en ;
+  skos:prefLabel "Baugrube"@de ;
+  skos:prefLabel "Fouille"@fr ;
+  skos:prefLabel "Scavo di fondazione"@it ;
+  skos:definition "Excavation-pit support — walls, anchors, struts, and other retaining elements."@en ;
+  skos:definition "Baugrubensicherung — Wände, Anker, Aussteifungen und weitere Sicherungselemente."@de ;
+  skos:definition "Soutènement de fouille — parois, ancrages, butons et autres éléments de sécurisation."@fr ;
+  skos:definition "Opere di sostegno dello scavo — pareti, tiranti, puntelli e altri elementi di messa in sicurezza."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_STR-BGR_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_STR-BGR_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_STR-BGR_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_STR-BGR_{Userdefined_text}.{ext}`."@it .
+
+:earthworks a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "AUS" ;
+  skos:prefLabel "Earthworks"@en ;
+  skos:prefLabel "Aushub"@de ;
+  skos:prefLabel "Terrassement"@fr ;
+  skos:prefLabel "Scavi"@it ;
+  skos:definition "Excavation and earthworks — cut and fill volumes, separate from excavation-pit support."@en ;
+  skos:definition "Aushub und Erdbau — Abtrags- und Auffüllvolumen, getrennt von der Baugrubensicherung."@de ;
+  skos:definition "Terrassement — volumes de déblai et de remblai, distincts du soutènement de fouille."@fr ;
+  skos:definition "Scavi e movimenti di terra — volumi di scavo e riporto, distinti dalle opere di sostegno."@it ;
+  skos:scopeNote "File name: `{Projektnumber}_STR-AUS_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateiname: `{Projektnumber}_STR-AUS_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Nom de fichier: `{Projektnumber}_STR-AUS_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Nome file: `{Projektnumber}_STR-AUS_{Userdefined_text}.{ext}`."@it .

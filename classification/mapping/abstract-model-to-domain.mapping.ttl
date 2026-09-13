@@ -1,0 +1,40 @@
+@prefix mod: <https://example.org/ch/abstract-model/> .
+@prefix dom: <https://example.org/ch/abstract-domain/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractModelToDomainMapping a dcterms:Dataset ;
+  dcterms:title "Abstract model to domain mapping"@en ;
+  dcterms:title "Mapping abstrakter Fachmodelle zu Fachbereichen"@de ;
+  dcterms:references mod:scheme, dom:scheme ;
+  dcterms:issued "2026-09-03" ;
+  dcterms:description "Maps each BIM discipline-model type to its domain (architecture ARC, structural STR, MEP). closeMatch is the owning domain used in the file-name prefix `{DOMAIN}-{MODEL}`."@en ;
+  dcterms:description "Ordnet jeden BIM-Fachmodelltyp seinem Fachbereich zu (Architektur ARC, Tragwerk STR, Gebäudetechnik MEP). closeMatch ist der Fachbereich im Dateinamen-Präfix `{DOMAIN}-{MODEL}`."@de .
+
+# --- Architecture (ARC-*) ---
+
+mod:architecture skos:closeMatch dom:architecture .
+mod:storey-volume skos:closeMatch dom:architecture .
+mod:facade skos:closeMatch dom:architecture .
+mod:landscape skos:closeMatch dom:architecture .
+mod:surroundings skos:closeMatch dom:architecture .
+mod:furniture skos:closeMatch dom:architecture .
+mod:laboratory skos:closeMatch dom:architecture .
+
+# --- MEP (MEP-*) ---
+
+mod:heating skos:closeMatch dom:mep .
+mod:cooling skos:closeMatch dom:mep .
+mod:ventilation skos:closeMatch dom:mep .
+mod:plumbing skos:closeMatch dom:mep .
+mod:underground-services skos:closeMatch dom:mep .
+
+# --- Structural (STR-*) ---
+
+mod:concrete-structure skos:closeMatch dom:structural .
+mod:steel-structure skos:closeMatch dom:structural .
+mod:timber-structure skos:closeMatch dom:structural .
+mod:reinforcement skos:closeMatch dom:structural .
+mod:excavation-pit skos:closeMatch dom:structural .
+mod:earthworks skos:closeMatch dom:structural .

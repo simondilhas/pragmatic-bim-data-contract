@@ -4,7 +4,7 @@
 
 :scheme a skos:ConceptScheme ;
   skos:prefLabel "Building Space Name Classification"@en ;
-  skos:prefLabel "Gebaeude-Raumbezeichnungsklassifikation"@de ;
+  skos:prefLabel "Gebäude-Raumbezeichnungsklassifikation"@de ;
   dcterms:title "Building Space Name Classification"@en ;
   dcterms:identifier "BuildingSpaceNameClassification" ;
   dcterms:creator "abstract" ;
@@ -12,7 +12,7 @@
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-public-rules> ;
   skos:definition "Normalized abstract room name types for general building use on IfcSpace."@en ;
-  skos:definition "Normalisierte abstrakte Raumbezeichnungen fuer allgemeinen Gebaeudegebrauch auf IfcSpace."@de ;
+  skos:definition "Normalisierte abstrakte Raumbezeichnungen für allgemeinen Gebäudegebrauch auf IfcSpace."@de ;
   skos:hasTopConcept :RN_RES, :RN_WRK, :RN_CIR, :RN_HYG, :RN_HLC, :RN_LRN, :RN_COM, :RN_IND, :RN_TEC, :RN_STO, :RN_OUT, :RN_VOI .
 
 :RN_RES a skos:Concept ;
@@ -22,7 +22,7 @@
   skos:prefLabel "Residential"@en ;
   skos:prefLabel "Wohnen"@de ;
   skos:definition "Normalized room names for residential living spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Wohnnutzungen."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Wohnnutzungen."@de ;
   skos:narrower :RN_RES_LIV_GRP, :RN_RES_SVC_GRP, :RN_RES_UNT_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01" .
@@ -34,7 +34,7 @@
   skos:prefLabel "Work"@en ;
   skos:prefLabel "Arbeit"@de ;
   skos:definition "Normalized room names for office and knowledge work."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Buero- und Wissensarbeit."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Büro- und Wissensarbeit."@de ;
   skos:narrower :RN_WRK_IND_GRP, :RN_WRK_COL_GRP, :RN_WRK_ADM_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02" .
@@ -46,7 +46,7 @@
   skos:prefLabel "Circulation"@en ;
   skos:prefLabel "Erschliessung"@de ;
   skos:definition "Normalized room names for circulation and access spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Erschliessungsraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Erschliessungsräume."@de ;
   skos:narrower :RN_CIR_HOR_GRP, :RN_CIR_VRT_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03" .
@@ -58,7 +58,7 @@
   skos:prefLabel "Hygiene"@en ;
   skos:prefLabel "Hygiene"@de ;
   skos:definition "Normalized room names for sanitary and changing spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Hygiene- und Sanitaerraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Hygiene- und Sanitärräume."@de ;
   skos:narrower :RN_HYG_WC_GRP, :RN_HYG_WSH_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04" .
@@ -70,7 +70,7 @@
   skos:prefLabel "Healthcare"@en ;
   skos:prefLabel "Gesundheit"@de ;
   skos:definition "Normalized room names for medical and care spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer medizinische und pflegerische Raeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für medizinische und pflegerische Räume."@de ;
   skos:narrower :RN_HLC_INP_GRP, :RN_HLC_CLN_GRP, :RN_HLC_SUP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05" .
@@ -82,7 +82,7 @@
   skos:prefLabel "Education"@en ;
   skos:prefLabel "Bildung"@de ;
   skos:definition "Normalized room names for teaching and learning spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Bildungs- und Lernraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Bildungs- und Lernräume."@de ;
   skos:narrower :RN_LRN_INS_GRP, :RN_LRN_STY_GRP, :RN_LRN_ASM_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06" .
@@ -94,7 +94,7 @@
   skos:prefLabel "Commercial"@en ;
   skos:prefLabel "Gewerbe"@de ;
   skos:definition "Normalized room names for hospitality and retail spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Gastronomie- und Verkaufsraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Gastronomie- und Verkaufsräume."@de ;
   skos:narrower :RN_COM_DIN_GRP, :RN_COM_RET_GRP, :RN_COM_HSP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07" .
@@ -106,7 +106,7 @@
   skos:prefLabel "Industrial"@en ;
   skos:prefLabel "Industrie"@de ;
   skos:definition "Normalized room names for production and workshop spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Produktions- und Werkraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Produktions- und Werkräume."@de ;
   skos:narrower :RN_IND_PRD_GRP, :RN_IND_LOG_GRP, :RN_IND_SPC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08" .
@@ -118,7 +118,7 @@
   skos:prefLabel "Technical"@en ;
   skos:prefLabel "Technik"@de ;
   skos:definition "Normalized room names for building services and plant rooms."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Technik- und Anlagenraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Technik- und Anlagenräume."@de ;
   skos:narrower :RN_TEC_MEP_GRP, :RN_TEC_ELC_GRP, :RN_TEC_UTL_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09" .
@@ -130,7 +130,7 @@
   skos:prefLabel "Storage"@en ;
   skos:prefLabel "Lager"@de ;
   skos:definition "Normalized room names for storage and ancillary spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer Lager- und Nebenraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für Lager- und Nebenräume."@de ;
   skos:narrower :RN_STO_GEN_GRP, :RN_STO_SPC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10" .
@@ -142,8 +142,8 @@
   skos:prefLabel "Outdoor"@en ;
   skos:prefLabel "Aussen"@de ;
   skos:definition "Normalized room names for exterior spaces modeled as IfcSpace."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer als IfcSpace modellierte Aussenraeume."@de ;
-  skos:narrower :RN_OUT_PLT_GRP, :RN_OUT_LND_GRP, :RN_OUT_COV_GRP ;
+  skos:definition "Normalisierte Raumbezeichnungen für als IfcSpace modellierte Aussenräume."@de ;
+  skos:narrower :RN_OUT_PLT_GRP, :RN_OUT_LND_GRP, :RN_OUT_COV_GRP, :RN_OUT_CIR_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11" .
 
@@ -154,7 +154,7 @@
   skos:prefLabel "Void"@en ;
   skos:prefLabel "Hohlraum"@de ;
   skos:definition "Normalized room names for non-occupiable void and special spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen fuer nicht nutzbare Hohl- und Sonderraeume."@de ;
+  skos:definition "Normalisierte Raumbezeichnungen für nicht nutzbare Hohl- und Sonderräume."@de ;
   skos:narrower :RN_VOI_VRT_GRP, :RN_VOI_PLN_GRP, :RN_VOI_STR_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-12" .
@@ -165,7 +165,7 @@
   skos:prefLabel "Living and sleeping"@en ;
   skos:prefLabel "Wohnen und Schlafen"@de ;
   skos:definition "Rooms for daily living, sleeping, and dining."@en ;
-  skos:definition "Raeume fuer Wohnen, Schlafen und Essen."@de ;
+  skos:definition "Räume für Wohnen, Schlafen und Essen."@de ;
   skos:broader :RN_RES ;
   skos:narrower :RN_RES_BED, :RN_RES_LIV, :RN_RES_DIN, :RN_RES_STU, :RN_RES_GST ;
   dcterms:subject "IfcSpace" ;
@@ -176,10 +176,10 @@
   skos:notation "RN-01-20" ;
   skos:prefLabel "Residential services"@en ;
   skos:prefLabel "Wohnliche Dienste"@de ;
-  skos:definition "Kitchen, bathroom, laundry, and utility spaces within dwellings."@en ;
-  skos:definition "Kueche, Bad, Waesche und Hauswirtschaft in Wohneinheiten."@de ;
+  skos:definition "Kitchen, bathroom, laundry, utility, hallway, entry, storage, cellar, and entrance spaces within dwellings."@en ;
+  skos:definition "Küche, Bad, Wäsche, Hauswirtschaft, Gang, Wohnungseingang, Abstellraum, Kellerabteil und Entree in Wohneinheiten."@de ;
   skos:broader :RN_RES ;
-  skos:narrower :RN_RES_KIT, :RN_RES_BTH, :RN_RES_LAU, :RN_RES_UTL ;
+  skos:narrower :RN_RES_KIT, :RN_RES_BTH, :RN_RES_LAU, :RN_RES_UTL, :RN_RES_GNG, :RN_RES_ENT, :RN_RES_CLO, :RN_RES_CEL, :RN_RES_ETR ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-20" .
 
@@ -188,10 +188,10 @@
   skos:notation "RN-01-30" ;
   skos:prefLabel "Dwelling unit level"@en ;
   skos:prefLabel "Wohneinheitsebene"@de ;
-  skos:definition "Entry, storage, and whole-unit spaces."@en ;
-  skos:definition "Eingang, Abstell- und Gesamtwohnflaechen."@de ;
+  skos:definition "Whole-unit spaces when not subdivided further."@en ;
+  skos:definition "Gesamtwohnflächen ohne weitere Unterteilung."@de ;
   skos:broader :RN_RES ;
-  skos:narrower :RN_RES_ENT, :RN_RES_CLO, :RN_RES_APT ;
+  skos:narrower :RN_RES_APT ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-30" .
 
@@ -201,7 +201,7 @@
   skos:prefLabel "Individual work"@en ;
   skos:prefLabel "Einzelarbeit"@de ;
   skos:definition "Enclosed and open-plan workspaces."@en ;
-  skos:definition "Einzel- und Grossraumbueros."@de ;
+  skos:definition "Einzel- und Grossraumbüros."@de ;
   skos:broader :RN_WRK ;
   skos:narrower :RN_WRK_OFF, :RN_WRK_OPN ;
   dcterms:subject "IfcSpace" ;
@@ -213,7 +213,7 @@
   skos:prefLabel "Collaboration"@en ;
   skos:prefLabel "Zusammenarbeit"@de ;
   skos:definition "Meeting and informal collaboration spaces."@en ;
-  skos:definition "Besprechungs- und informelle Teamraeume."@de ;
+  skos:definition "Besprechungs- und informelle Teamräume."@de ;
   skos:broader :RN_WRK ;
   skos:narrower :RN_WRK_MTG, :RN_WRK_CNF, :RN_WRK_BRK ;
   dcterms:subject "IfcSpace" ;
@@ -222,10 +222,10 @@
 :RN_WRK_ADM_GRP a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-02-30" ;
-  skos:prefLabel "Reception"@en ;
-  skos:prefLabel "Empfang"@de ;
+  skos:prefLabel "Reception area"@en ;
+  skos:prefLabel "Empfangsbereich"@de ;
   skos:definition "Visitor reception and waiting area."@en ;
-  skos:definition "Empfang und Wartebereich fuer Besucher."@de ;
+  skos:definition "Empfang und Wartebereich für Besucher."@de ;
   skos:broader :RN_WRK ;
   skos:narrower :RN_WRK_REC ;
   dcterms:subject "IfcSpace" ;
@@ -236,10 +236,10 @@
   skos:notation "RN-03-10" ;
   skos:prefLabel "Horizontal circulation"@en ;
   skos:prefLabel "Horizontale Erschliessung"@de ;
-  skos:definition "Corridors, lobbies, and horizontal access routes."@en ;
-  skos:definition "Flure, Hallen und horizontale Zugaenge."@de ;
+  skos:definition "Corridors, lobbies, vestibules, airlocks, and horizontal access routes."@en ;
+  skos:definition "Flure, Hallen, Vorräume, Schleusen und horizontale Zugänge."@de ;
   skos:broader :RN_CIR ;
-  skos:narrower :RN_CIR_COR, :RN_CIR_LOB, :RN_CIR_ENT, :RN_CIR_VES ;
+  skos:narrower :RN_CIR_COR, :RN_CIR_LOB, :RN_CIR_VES, :RN_CIR_SLU ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03-10" .
 
@@ -249,7 +249,7 @@
   skos:prefLabel "Vertical circulation"@en ;
   skos:prefLabel "Vertikale Erschliessung"@de ;
   skos:definition "Stairs, ramps, and lifts."@en ;
-  skos:definition "Treppen, Rampen und Aufzuege."@de ;
+  skos:definition "Treppen, Rampen und Aufzüge."@de ;
   skos:broader :RN_CIR ;
   skos:narrower :RN_CIR_STR, :RN_CIR_ELV, :RN_CIR_RAM ;
   dcterms:subject "IfcSpace" ;
@@ -261,7 +261,7 @@
   skos:prefLabel "Toilets"@en ;
   skos:prefLabel "Toiletten"@de ;
   skos:definition "Toilet rooms by accessibility and gender provision."@en ;
-  skos:definition "WC-Raeume nach Barrierefreiheit und Geschlechterausstattung."@de ;
+  skos:definition "WC-Räume nach Barrierefreiheit und Geschlechterausstattung."@de ;
   skos:broader :RN_HYG ;
   skos:narrower :RN_HYG_WC_M, :RN_HYG_WC_F, :RN_HYG_WC_IV, :RN_HYG_WC_MIX ;
   dcterms:subject "IfcSpace" ;
@@ -273,7 +273,7 @@
   skos:prefLabel "Wash and change"@en ;
   skos:prefLabel "Waschen und Umziehen"@de ;
   skos:definition "Shower, changing, and locker spaces."@en ;
-  skos:definition "Duschen, Umziehen und Schliessfaecher."@de ;
+  skos:definition "Duschen, Umziehen und Schliessfächer."@de ;
   skos:broader :RN_HYG ;
   skos:narrower :RN_HYG_SHW, :RN_HYG_CHG, :RN_HYG_LCK ;
   dcterms:subject "IfcSpace" ;
@@ -283,9 +283,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-05-10" ;
   skos:prefLabel "Inpatient care"@en ;
-  skos:prefLabel "Stationaere Pflege"@de ;
+  skos:prefLabel "Stationäre Pflege"@de ;
   skos:definition "Rooms for inpatient stay and recovery."@en ;
-  skos:definition "Raeume fuer stationaeren Aufenthalt und Erholung."@de ;
+  skos:definition "Räume für stationären Aufenthalt und Erholung."@de ;
   skos:broader :RN_HLC ;
   skos:narrower :RN_HLC_PAT, :RN_HLC_RCV ;
   dcterms:subject "IfcSpace" ;
@@ -297,7 +297,7 @@
   skos:prefLabel "Clinical treatment"@en ;
   skos:prefLabel "Klinische Behandlung"@de ;
   skos:definition "Treatment, surgery, and procedure spaces."@en ;
-  skos:definition "Behandlungs-, Operations- und Eingriffsraeume."@de ;
+  skos:definition "Behandlungs-, Operations- und Eingriffsräume."@de ;
   skos:broader :RN_HLC ;
   skos:narrower :RN_HLC_TRT, :RN_HLC_OR, :RN_HLC_PRM, :RN_HLC_EXM ;
   dcterms:subject "IfcSpace" ;
@@ -321,7 +321,7 @@
   skos:prefLabel "Instruction"@en ;
   skos:prefLabel "Unterricht"@de ;
   skos:definition "Classrooms, lecture halls, and seminar spaces."@en ;
-  skos:definition "Klassenzimmer, Hoersaele und Seminarraeume."@de ;
+  skos:definition "Klassenzimmer, Hörsäle und Seminarräume."@de ;
   skos:broader :RN_LRN ;
   skos:narrower :RN_LRN_CLS, :RN_LRN_LCT, :RN_LRN_SEM, :RN_LRN_CMP ;
   dcterms:subject "IfcSpace" ;
@@ -333,7 +333,7 @@
   skos:prefLabel "Self-directed learning"@en ;
   skos:prefLabel "Selbstgesteuertes Lernen"@de ;
   skos:definition "Library, study, and training workshop spaces."@en ;
-  skos:definition "Bibliothek, Lernraeume und Ausbildungswerkstaetten."@de ;
+  skos:definition "Bibliothek, Lernräume und Ausbildungswerkstätten."@de ;
   skos:broader :RN_LRN ;
   skos:narrower :RN_LRN_LIB, :RN_LRN_STU, :RN_LRN_WRK ;
   dcterms:subject "IfcSpace" ;
@@ -343,7 +343,7 @@
   skos:inScheme :scheme ;
   skos:notation "RN-06-30" ;
   skos:prefLabel "Assembly and special subjects"@en ;
-  skos:prefLabel "Versammlung und Fachraeume"@de ;
+  skos:prefLabel "Versammlung und Fachräume"@de ;
   skos:definition "Auditoria, art studios, and science laboratories."@en ;
   skos:definition "Aula, Ateliers und naturwissenschaftliche Laboratorien."@de ;
   skos:broader :RN_LRN ;
@@ -381,7 +381,7 @@
   skos:prefLabel "Hospitality"@en ;
   skos:prefLabel "Beherbergung"@de ;
   skos:definition "Hotel and guest accommodation rooms."@en ;
-  skos:definition "Hotel- und Gaestezimmer."@de ;
+  skos:definition "Hotel- und Gästezimmer."@de ;
   skos:broader :RN_COM ;
   skos:narrower :RN_COM_HTL ;
   dcterms:subject "IfcSpace" ;
@@ -393,7 +393,7 @@
   skos:prefLabel "Production"@en ;
   skos:prefLabel "Produktion"@de ;
   skos:definition "Workshops, production halls, assembly, and clean rooms."@en ;
-  skos:definition "Werkstaetten, Produktionshallen, Montage und Reinraeume."@de ;
+  skos:definition "Werkstätten, Produktionshallen, Montage und Reinräume."@de ;
   skos:broader :RN_IND ;
   skos:narrower :RN_IND_WRK, :RN_IND_PRD, :RN_IND_ASM, :RN_IND_PKG, :RN_IND_CLN ;
   dcterms:subject "IfcSpace" ;
@@ -405,7 +405,7 @@
   skos:prefLabel "Logistics"@en ;
   skos:prefLabel "Logistik"@de ;
   skos:definition "Warehousing, loading, quality control, and maintenance."@en ;
-  skos:definition "Lagerung, Be-/Entladung, Qualitaetskontrolle und Wartung."@de ;
+  skos:definition "Lagerung, Be-/Entladung, Qualitätskontrolle und Wartung."@de ;
   skos:broader :RN_IND ;
   skos:narrower :RN_IND_WHS, :RN_IND_LDK, :RN_IND_QC, :RN_IND_MNT ;
   dcterms:subject "IfcSpace" ;
@@ -417,7 +417,7 @@
   skos:prefLabel "Special industrial"@en ;
   skos:prefLabel "Spezielle Industrie"@de ;
   skos:definition "Covered yards and special industrial spaces."@en ;
-  skos:definition "Ueberdeckte Hoefe und spezielle Industrieraeume."@de ;
+  skos:definition "Überdeckte Höfe und spezielle Industrieräume."@de ;
   skos:broader :RN_IND ;
   skos:narrower :RN_IND_YRD ;
   dcterms:subject "IfcSpace" ;
@@ -427,9 +427,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-09-10" ;
   skos:prefLabel "HVAC and plumbing plant"@en ;
-  skos:prefLabel "HLK und Sanitaertechnik"@de ;
+  skos:prefLabel "HLK und Sanitärtechnik"@de ;
   skos:definition "Heating, cooling, pumping, and fire suppression plant rooms."@en ;
-  skos:definition "Heizungs-, Kaelte-, Pumpen- und Sprinklerzentralen."@de ;
+  skos:definition "Heizungs-, Kälte-, Pumpen- und Sprinklerzentralen."@de ;
   skos:broader :RN_TEC ;
   skos:narrower :RN_TEC_HVC, :RN_TEC_PMP, :RN_TEC_BOI, :RN_TEC_CHL, :RN_TEC_SPR ;
   dcterms:subject "IfcSpace" ;
@@ -441,7 +441,7 @@
   skos:prefLabel "Electrical and IT plant"@en ;
   skos:prefLabel "Elektro- und IT-Technik"@de ;
   skos:definition "Electrical, generator, transformer, server, and telecom rooms."@en ;
-  skos:definition "Elektro-, Generator-, Transformator-, Server- und Kommunikationsraeume."@de ;
+  skos:definition "Elektro-, Generator-, Transformator-, Server- und Kommunikationsräume."@de ;
   skos:broader :RN_TEC ;
   skos:narrower :RN_TEC_ELC, :RN_TEC_SRV, :RN_TEC_GEN, :RN_TEC_TRA, :RN_TEC_COM ;
   dcterms:subject "IfcSpace" ;
@@ -451,9 +451,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-09-30" ;
   skos:prefLabel "Metering and waste"@en ;
-  skos:prefLabel "Zaehler und Entsorgung"@de ;
+  skos:prefLabel "Zähler und Entsorgung"@de ;
   skos:definition "Meter rooms and waste handling spaces."@en ;
-  skos:definition "Zaehlerraeume und Abfallraeume."@de ;
+  skos:definition "Zählerräume und Abfallräume."@de ;
   skos:broader :RN_TEC ;
   skos:narrower :RN_TEC_MMR, :RN_TEC_WST ;
   dcterms:subject "IfcSpace" ;
@@ -465,7 +465,7 @@
   skos:prefLabel "General storage types"@en ;
   skos:prefLabel "Allgemeine Lagertypen"@de ;
   skos:definition "General, supply, equipment, and janitor storage."@en ;
-  skos:definition "Allgemeine, Material-, Geraete- und Hauswartlager."@de ;
+  skos:definition "Allgemeine, Material-, Geräte- und Hauswartlager."@de ;
   skos:broader :RN_STO ;
   skos:narrower :RN_STO_GEN, :RN_STO_SUP, :RN_STO_EQP, :RN_STO_ULD, :RN_STO_JAN ;
   dcterms:subject "IfcSpace" ;
@@ -477,7 +477,7 @@
   skos:prefLabel "Specialized storage"@en ;
   skos:prefLabel "Speziallager"@de ;
   skos:definition "Archives, mail rooms, and cold storage."@en ;
-  skos:definition "Archive, Postraeume und Kuehllager."@de ;
+  skos:definition "Archive, Posträume und Kühllager."@de ;
   skos:broader :RN_STO ;
   skos:narrower :RN_STO_ARC, :RN_STO_MAL, :RN_STO_COL ;
   dcterms:subject "IfcSpace" ;
@@ -488,10 +488,10 @@
   skos:notation "RN-11-10" ;
   skos:prefLabel "Exterior platforms"@en ;
   skos:prefLabel "Aussenplattformen"@de ;
-  skos:definition "Balconies, terraces, and patios."@en ;
-  skos:definition "Balkone, Terrassen und Innenhoefe."@de ;
+  skos:definition "Balconies, escape balconies, terraces, and patios."@en ;
+  skos:definition "Balkone, Fluchtbalkone, Terrassen und Innenhöfe."@de ;
   skos:broader :RN_OUT ;
-  skos:narrower :RN_OUT_BLN, :RN_OUT_TRR, :RN_OUT_PAT ;
+  skos:narrower :RN_OUT_BLN, :RN_OUT_TRR, :RN_OUT_PAT, :RN_OUT_EBL ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-10" .
 
@@ -501,7 +501,7 @@
   skos:prefLabel "Landscape and recreation"@en ;
   skos:prefLabel "Landschaft und Freizeit"@de ;
   skos:definition "Gardens, playgrounds, and pool areas."@en ;
-  skos:definition "Gaerten, Spielplaetze und Beckenflaechen."@de ;
+  skos:definition "Gärten, Spielplätze und Beckenflächen."@de ;
   skos:broader :RN_OUT ;
   skos:narrower :RN_OUT_GDN, :RN_OUT_PLY, :RN_OUT_SPL ;
   dcterms:subject "IfcSpace" ;
@@ -511,21 +511,33 @@
   skos:inScheme :scheme ;
   skos:notation "RN-11-30" ;
   skos:prefLabel "Covered exterior routes"@en ;
-  skos:prefLabel "Ueberdachte Aussenwege"@de ;
+  skos:prefLabel "Überdachte Aussenwege"@de ;
   skos:definition "Covered walkways and porticos."@en ;
-  skos:definition "Ueberdachte Fusswege und Portiken."@de ;
+  skos:definition "Überdachte Fusswege und Portiken."@de ;
   skos:broader :RN_OUT ;
   skos:narrower :RN_OUT_CWK, :RN_OUT_PRT ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-30" .
 
+:RN_OUT_CIR_GRP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-11-40" ;
+  skos:prefLabel "Exterior circulation"@en ;
+  skos:prefLabel "Aussenerschliessung"@de ;
+  skos:definition "Exterior stairs and outdoor vertical access routes."@en ;
+  skos:definition "Aussentreppen und aussenliegende vertikale Erschliessung."@de ;
+  skos:broader :RN_OUT ;
+  skos:narrower :RN_OUT_STR ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-11-40" .
+
 :RN_VOI_VRT_GRP a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-12-10" ;
   skos:prefLabel "Vertical voids"@en ;
-  skos:prefLabel "Vertikale Hohlraeume"@de ;
+  skos:prefLabel "Vertikale Hohlräume"@de ;
   skos:definition "Shafts and service risers."@en ;
-  skos:definition "Schaechte und Steigzonen."@de ;
+  skos:definition "Schächte und Steigzonen."@de ;
   skos:broader :RN_VOI ;
   skos:narrower :RN_VOI_SHA, :RN_VOI_RIS ;
   dcterms:subject "IfcSpace" ;
@@ -535,9 +547,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-12-20" ;
   skos:prefLabel "Plenums and air volumes"@en ;
-  skos:prefLabel "Installations- und Luftraeume"@de ;
+  skos:prefLabel "Installations- und Lufträume"@de ;
   skos:definition "Plenums, mechanical voids, and modeled air spaces."@en ;
-  skos:definition "Installationshohlraeume und modellierter Luftraum."@de ;
+  skos:definition "Installationshohlräume und modellierter Luftraum."@de ;
   skos:broader :RN_VOI ;
   skos:narrower :RN_VOI_PLN, :RN_VOI_MCH, :RN_VOI_AIR ;
   dcterms:subject "IfcSpace" ;
@@ -547,7 +559,7 @@
   skos:inScheme :scheme ;
   skos:notation "RN-12-30" ;
   skos:prefLabel "Structural and special voids"@en ;
-  skos:prefLabel "Sonderraeume"@de ;
+  skos:prefLabel "Sonderräume"@de ;
   skos:definition "Atria and interior parking stalls."@en ;
   skos:definition "Atrien und Innenparkierung."@de ;
   skos:broader :RN_VOI ;
@@ -561,7 +573,7 @@
   skos:prefLabel "Bedroom"@en ;
   skos:prefLabel "Schlafzimmer"@de ;
   skos:definition "Room primarily used for sleeping."@en ;
-  skos:definition "Raum primaer fuer Schlafen."@de ;
+  skos:definition "Raum primär für Schlafen."@de ;
   skos:broader :RN_RES_LIV_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-10-01" .
@@ -572,7 +584,7 @@
   skos:prefLabel "Living Room"@en ;
   skos:prefLabel "Wohnzimmer"@de ;
   skos:definition "Room for daily living and relaxation."@en ;
-  skos:definition "Raum fuer Wohnen und Entspannung."@de ;
+  skos:definition "Raum für Wohnen und Entspannung."@de ;
   skos:broader :RN_RES_LIV_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-10-02" .
@@ -583,7 +595,7 @@
   skos:prefLabel "Dining Room"@en ;
   skos:prefLabel "Esszimmer"@de ;
   skos:definition "Room for eating meals."@en ;
-  skos:definition "Raum fuer Mahlzeiten."@de ;
+  skos:definition "Raum für Mahlzeiten."@de ;
   skos:broader :RN_RES_LIV_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-10-03" .
@@ -594,7 +606,7 @@
   skos:prefLabel "Home Study"@en ;
   skos:prefLabel "Arbeitszimmer"@de ;
   skos:definition "Residential room for study or home office work."@en ;
-  skos:definition "Wohnlicher Raum fuer Arbeit oder Studium."@de ;
+  skos:definition "Wohnlicher Raum für Arbeit oder Studium."@de ;
   skos:broader :RN_RES_LIV_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-10-04" .
@@ -603,9 +615,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-01-10-05" ;
   skos:prefLabel "Guest Room"@en ;
-  skos:prefLabel "Gaestezimmer"@de ;
+  skos:prefLabel "Gästezimmer"@de ;
   skos:definition "Room for overnight guests."@en ;
-  skos:definition "Raum fuer ueber Nacht bleibende Gaeste."@de ;
+  skos:definition "Raum für über Nacht bleibende Gäste."@de ;
   skos:broader :RN_RES_LIV_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-10-05" .
@@ -614,9 +626,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-01-20-01" ;
   skos:prefLabel "Kitchen"@en ;
-  skos:prefLabel "Kueche"@de ;
+  skos:prefLabel "Küche"@de ;
   skos:definition "Room for food preparation."@en ;
-  skos:definition "Raum fuer Speisezubereitung."@de ;
+  skos:definition "Raum für Speisezubereitung."@de ;
   skos:broader :RN_RES_SVC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-20-01" .
@@ -627,7 +639,7 @@
   skos:prefLabel "Bathroom"@en ;
   skos:prefLabel "Badezimmer"@de ;
   skos:definition "Room with bath, shower, or personal hygiene fixtures."@en ;
-  skos:definition "Raum mit Bad, Dusche oder Koerperpflege."@de ;
+  skos:definition "Raum mit Bad, Dusche oder Körperpflege."@de ;
   skos:broader :RN_RES_SVC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-20-02" .
@@ -636,9 +648,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-01-20-03" ;
   skos:prefLabel "Laundry Room"@en ;
-  skos:prefLabel "Waschkueche"@de ;
+  skos:prefLabel "Waschküche"@de ;
   skos:definition "Room for washing and drying clothes."@en ;
-  skos:definition "Raum fuer Waeschepflege."@de ;
+  skos:definition "Raum für Wäschepflege."@de ;
   skos:broader :RN_RES_SVC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-20-03" .
@@ -649,32 +661,65 @@
   skos:prefLabel "Utility Room"@en ;
   skos:prefLabel "Hauswirtschaftsraum"@de ;
   skos:definition "Room for domestic utilities and equipment."@en ;
-  skos:definition "Raum fuer haushaltstechnische Einrichtungen."@de ;
+  skos:definition "Raum für haushaltstechnische Einrichtungen."@de ;
   skos:broader :RN_RES_SVC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-01-20-04" .
 
+:RN_RES_GNG a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-01-20-05" ;
+  skos:prefLabel "Hallway"@en ;
+  skos:prefLabel "Gang"@de ;
+  skos:definition "Circulation passage within a dwelling unit."@en ;
+  skos:definition "Erschliessungsgang innerhalb einer Wohneinheit."@de ;
+  skos:broader :RN_RES_SVC_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-01-20-05" .
+
 :RN_RES_ENT a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:notation "RN-01-30-01" ;
+  skos:notation "RN-01-20-06" ;
   skos:prefLabel "Residential Entry"@en ;
   skos:prefLabel "Wohnungseingang"@de ;
   skos:definition "Entry space within a dwelling unit."@en ;
   skos:definition "Eingangsbereich innerhalb einer Wohneinheit."@de ;
-  skos:broader :RN_RES_UNT_GRP ;
+  skos:broader :RN_RES_SVC_GRP ;
   dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-01-30-01" .
+  dcterms:identifier "RN-01-20-06" .
 
 :RN_RES_CLO a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:notation "RN-01-30-02" ;
+  skos:notation "RN-01-20-07" ;
   skos:prefLabel "Residential Closet"@en ;
   skos:prefLabel "Abstellraum Wohnen"@de ;
   skos:definition "Small storage within a dwelling unit."@en ;
   skos:definition "Kleiner Abstellraum innerhalb einer Wohneinheit."@de ;
-  skos:broader :RN_RES_UNT_GRP ;
+  skos:broader :RN_RES_SVC_GRP ;
   dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-01-30-02" .
+  dcterms:identifier "RN-01-20-07" .
+
+:RN_RES_CEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-01-20-08" ;
+  skos:prefLabel "Cellar Compartment"@en ;
+  skos:prefLabel "Kellerabteil"@de ;
+  skos:definition "Assigned cellar storage compartment for a dwelling."@en ;
+  skos:definition "Zugeordnetes Kellerabteil einer Wohneinheit."@de ;
+  skos:broader :RN_RES_SVC_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-01-20-08" .
+
+:RN_RES_ETR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-01-20-09" ;
+  skos:prefLabel "Entrance Hall"@en ;
+  skos:prefLabel "Entree"@de ;
+  skos:definition "Residential entrance transition space within a dwelling context."@en ;
+  skos:definition "Eingangs-Übergangsraum im Wohnkontext."@de ;
+  skos:broader :RN_RES_SVC_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-01-20-09" .
 
 :RN_RES_APT a skos:Concept ;
   skos:inScheme :scheme ;
@@ -691,9 +736,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-02-10-01" ;
   skos:prefLabel "Office"@en ;
-  skos:prefLabel "Buero"@de ;
+  skos:prefLabel "Büro"@de ;
   skos:definition "Enclosed office for individual or shared desk work."@en ;
-  skos:definition "Buero fuer Einzel- oder Gruppenarbeit."@de ;
+  skos:definition "Büro für Einzel- oder Gruppenarbeit."@de ;
   skos:broader :RN_WRK_IND_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-10-01" .
@@ -702,9 +747,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-02-10-02" ;
   skos:prefLabel "Open-Plan Office"@en ;
-  skos:prefLabel "Grossraumbuero"@de ;
+  skos:prefLabel "Grossraumbüro"@de ;
   skos:definition "Open office landscape without full-height partitions."@en ;
-  skos:definition "Offene Burolandschaft ohne geschlossene Zellbueros."@de ;
+  skos:definition "Offene Bürolandschaft ohne geschlossene Zellbüros."@de ;
   skos:broader :RN_WRK_IND_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-10-02" .
@@ -715,7 +760,7 @@
   skos:prefLabel "Meeting Room"@en ;
   skos:prefLabel "Besprechungsraum"@de ;
   skos:definition "Room for small group meetings."@en ;
-  skos:definition "Raum fuer kleine Besprechungen."@de ;
+  skos:definition "Raum für kleine Besprechungen."@de ;
   skos:broader :RN_WRK_COL_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-20-01" .
@@ -726,7 +771,7 @@
   skos:prefLabel "Conference Room"@en ;
   skos:prefLabel "Konferenzraum"@de ;
   skos:definition "Room for formal meetings and presentations."@en ;
-  skos:definition "Raum fuer formelle Sitzungen und Praesentationen."@de ;
+  skos:definition "Raum für formelle Sitzungen und Präsentationen."@de ;
   skos:broader :RN_WRK_COL_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-20-02" .
@@ -737,7 +782,7 @@
   skos:prefLabel "Break Room"@en ;
   skos:prefLabel "Pausenraum"@de ;
   skos:definition "Informal staff rest and refreshment space."@en ;
-  skos:definition "Informeller Raum fuer Pausen."@de ;
+  skos:definition "Informeller Raum für Pausen."@de ;
   skos:broader :RN_WRK_COL_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-20-03" .
@@ -748,7 +793,7 @@
   skos:prefLabel "Reception"@en ;
   skos:prefLabel "Empfang"@de ;
   skos:definition "Visitor reception and waiting area."@en ;
-  skos:definition "Empfang und Wartebereich fuer Besucher."@de ;
+  skos:definition "Empfang und Wartebereich für Besucher."@de ;
   skos:broader :RN_WRK_ADM_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-02-30-01" .
@@ -762,7 +807,7 @@
   skos:altLabel "Korridor"@de ;
   skos:altLabel "Seitengang"@de ;
   skos:definition "Horizontal circulation passage, including narrow aisles between rows or functions."@en ;
-  skos:definition "Horizontaler Verbindungsflur, einschliesslich schmaler Durchgaenge zwischen Reihen oder Funktionen."@de ;
+  skos:definition "Horizontaler Verbindungsflur, einschliesslich schmaler Durchgänge zwischen Reihen oder Funktionen."@de ;
   skos:broader :RN_CIR_HOR_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03-10-01" .
@@ -778,27 +823,27 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03-10-02" .
 
-:RN_CIR_ENT a skos:Concept ;
-  skos:inScheme :scheme ;
-  skos:notation "RN-03-10-03" ;
-  skos:prefLabel "Entrance Hall"@en ;
-  skos:prefLabel "Entree"@de ;
-  skos:definition "Building entrance transition space."@en ;
-  skos:definition "Uebergangsraum am Gebaeudeeingang."@de ;
-  skos:broader :RN_CIR_HOR_GRP ;
-  dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-03-10-03" .
-
 :RN_CIR_VES a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-03-10-04" ;
   skos:prefLabel "Vestibule"@en ;
   skos:prefLabel "Vorraum"@de ;
   skos:definition "Transition space between exterior and interior."@en ;
-  skos:definition "Uebergangsraum zwischen Aussen und Innen."@de ;
+  skos:definition "Übergangsraum zwischen Aussen und Innen."@de ;
   skos:broader :RN_CIR_HOR_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-03-10-04" .
+
+:RN_CIR_SLU a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-03-10-05" ;
+  skos:prefLabel "Airlock"@en ;
+  skos:prefLabel "Schleuse"@de ;
+  skos:definition "Enclosed lock or airlock for controlled passage between zones."@en ;
+  skos:definition "Geschlossene Schleuse für kontrollierten Übergang zwischen Bereichen."@de ;
+  skos:broader :RN_CIR_HOR_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-03-10-05" .
 
 :RN_CIR_STR a skos:Concept ;
   skos:inScheme :scheme ;
@@ -839,7 +884,7 @@
   skos:prefLabel "Male Toilet"@en ;
   skos:prefLabel "Herren-WC"@de ;
   skos:definition "Toilet room for male use."@en ;
-  skos:definition "WC fuer Maenner."@de ;
+  skos:definition "WC für Männer."@de ;
   skos:broader :RN_HYG_WC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04-10-01" .
@@ -850,7 +895,7 @@
   skos:prefLabel "Female Toilet"@en ;
   skos:prefLabel "Damen-WC"@de ;
   skos:definition "Toilet room for female use."@en ;
-  skos:definition "WC fuer Frauen."@de ;
+  skos:definition "WC für Frauen."@de ;
   skos:broader :RN_HYG_WC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04-10-02" .
@@ -861,7 +906,7 @@
   skos:prefLabel "Accessible Toilet"@en ;
   skos:prefLabel "Barrierefreies WC"@de ;
   skos:definition "Wheelchair-accessible toilet room."@en ;
-  skos:definition "Rollstuhlgaengiges WC."@de ;
+  skos:definition "Rollstuhlgängiges WC."@de ;
   skos:broader :RN_HYG_WC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04-10-03" .
@@ -872,7 +917,7 @@
   skos:prefLabel "Unisex Toilet"@en ;
   skos:prefLabel "Allgemeines WC"@de ;
   skos:definition "Toilet room for mixed or all-gender use."@en ;
-  skos:definition "WC fuer gemischte oder all-gender Nutzung."@de ;
+  skos:definition "WC für gemischte oder all-gender Nutzung."@de ;
   skos:broader :RN_HYG_WC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04-10-04" .
@@ -905,7 +950,7 @@
   skos:prefLabel "Locker Room"@en ;
   skos:prefLabel "Schliessfachraum"@de ;
   skos:definition "Room with personal lockers."@en ;
-  skos:definition "Raum mit persoenlichen Schliessfaechern."@de ;
+  skos:definition "Raum mit persönlichen Schliessfächern."@de ;
   skos:broader :RN_HYG_WSH_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-04-20-03" .
@@ -916,7 +961,7 @@
   skos:prefLabel "Patient Room"@en ;
   skos:prefLabel "Patientenzimmer"@de ;
   skos:definition "Room for inpatient care and recovery."@en ;
-  skos:definition "Raum fuer stationaere Pflege."@de ;
+  skos:definition "Raum für stationäre Pflege."@de ;
   skos:broader :RN_HLC_INP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-10-01" .
@@ -927,7 +972,7 @@
   skos:prefLabel "Recovery Room"@en ;
   skos:prefLabel "Aufwachraum"@de ;
   skos:definition "Room for post-procedure recovery."@en ;
-  skos:definition "Raum fuer postoperative Ueberwachung."@de ;
+  skos:definition "Raum für postoperative Überwachung."@de ;
   skos:broader :RN_HLC_INP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-10-02" .
@@ -938,7 +983,7 @@
   skos:prefLabel "Treatment Room"@en ;
   skos:prefLabel "Behandlungsraum"@de ;
   skos:definition "Room for outpatient treatment."@en ;
-  skos:definition "Raum fuer ambulante Behandlung."@de ;
+  skos:definition "Raum für ambulante Behandlung."@de ;
   skos:broader :RN_HLC_CLN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-20-01" .
@@ -949,7 +994,7 @@
   skos:prefLabel "Operating Room"@en ;
   skos:prefLabel "Operationssaal"@de ;
   skos:definition "Room for surgical procedures."@en ;
-  skos:definition "Raum fuer operative Eingriffe."@de ;
+  skos:definition "Raum für operative Eingriffe."@de ;
   skos:broader :RN_HLC_CLN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-20-02" .
@@ -960,7 +1005,7 @@
   skos:prefLabel "Procedure Room"@en ;
   skos:prefLabel "Eingriffsraum"@de ;
   skos:definition "Room for minor medical procedures."@en ;
-  skos:definition "Raum fuer kleinere medizinische Eingriffe."@de ;
+  skos:definition "Raum für kleinere medizinische Eingriffe."@de ;
   skos:broader :RN_HLC_CLN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-20-03" .
@@ -971,7 +1016,7 @@
   skos:prefLabel "Examination Room"@en ;
   skos:prefLabel "Untersuchungsraum"@de ;
   skos:definition "Room for clinical examination."@en ;
-  skos:definition "Raum fuer aerztliche Untersuchung."@de ;
+  skos:definition "Raum für ärztliche Untersuchung."@de ;
   skos:broader :RN_HLC_CLN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-20-04" .
@@ -982,7 +1027,7 @@
   skos:prefLabel "Imaging Room"@en ;
   skos:prefLabel "Bildgebungsraum"@de ;
   skos:definition "Room for diagnostic imaging."@en ;
-  skos:definition "Raum fuer diagnostische Bildgebung."@de ;
+  skos:definition "Raum für diagnostische Bildgebung."@de ;
   skos:broader :RN_HLC_SUP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-30-01" .
@@ -993,7 +1038,7 @@
   skos:prefLabel "Medical Laboratory"@en ;
   skos:prefLabel "Medizinisches Labor"@de ;
   skos:definition "Laboratory for medical analysis."@en ;
-  skos:definition "Labor fuer medizinische Analysen."@de ;
+  skos:definition "Labor für medizinische Analysen."@de ;
   skos:broader :RN_HLC_SUP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-30-02" .
@@ -1004,7 +1049,7 @@
   skos:prefLabel "Waiting Room"@en ;
   skos:prefLabel "Wartezimmer"@de ;
   skos:definition "Room for patients and visitors to wait."@en ;
-  skos:definition "Raum fuer wartende Patienten und Besucher."@de ;
+  skos:definition "Raum für wartende Patienten und Besucher."@de ;
   skos:broader :RN_HLC_SUP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-05-30-03" .
@@ -1026,7 +1071,7 @@
   skos:prefLabel "Classroom"@en ;
   skos:prefLabel "Klassenzimmer"@de ;
   skos:definition "Room for school or group instruction."@en ;
-  skos:definition "Raum fuer Schul- oder Gruppenunterricht."@de ;
+  skos:definition "Raum für Schul- oder Gruppenunterricht."@de ;
   skos:broader :RN_LRN_INS_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-10-01" .
@@ -1035,9 +1080,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-06-10-02" ;
   skos:prefLabel "Lecture Hall"@en ;
-  skos:prefLabel "Hoersaal"@de ;
+  skos:prefLabel "Hörsaal"@de ;
   skos:definition "Room with fixed seating for lectures."@en ;
-  skos:definition "Raum mit festem Gestuehl fuer Vorlesungen."@de ;
+  skos:definition "Raum mit festem Gestühl für Vorlesungen."@de ;
   skos:broader :RN_LRN_INS_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-10-02" .
@@ -1048,7 +1093,7 @@
   skos:prefLabel "Seminar Room"@en ;
   skos:prefLabel "Seminarraum"@de ;
   skos:definition "Room for seminars and workshops."@en ;
-  skos:definition "Raum fuer Seminare und Workshops."@de ;
+  skos:definition "Raum für Seminare und Workshops."@de ;
   skos:broader :RN_LRN_INS_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-10-03" .
@@ -1059,7 +1104,7 @@
   skos:prefLabel "Computer Lab"@en ;
   skos:prefLabel "Computerraum"@de ;
   skos:definition "Room with computer workstations for teaching."@en ;
-  skos:definition "Raum mit Computerarbeitsplaetzen fuer Unterricht."@de ;
+  skos:definition "Raum mit Computerarbeitsplätzen für Unterricht."@de ;
   skos:broader :RN_LRN_INS_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-10-04" .
@@ -1070,7 +1115,7 @@
   skos:prefLabel "Library Room"@en ;
   skos:prefLabel "Bibliotheksraum"@de ;
   skos:definition "Room for reading and library use."@en ;
-  skos:definition "Raum fuer Lesen und Bibliotheksnutzung."@de ;
+  skos:definition "Raum für Lesen und Bibliotheksnutzung."@de ;
   skos:broader :RN_LRN_STY_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-20-01" .
@@ -1081,7 +1126,7 @@
   skos:prefLabel "Study Room"@en ;
   skos:prefLabel "Lernraum"@de ;
   skos:definition "Room for self-directed study."@en ;
-  skos:definition "Raum fuer selbststaendiges Lernen."@de ;
+  skos:definition "Raum für selbstständiges Lernen."@de ;
   skos:broader :RN_LRN_STY_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-20-02" .
@@ -1092,7 +1137,7 @@
   skos:prefLabel "Training Workshop"@en ;
   skos:prefLabel "Ausbildungswerkstatt"@de ;
   skos:definition "Room for practical skills training."@en ;
-  skos:definition "Raum fuer praktische Ausbildung."@de ;
+  skos:definition "Raum für praktische Ausbildung."@de ;
   skos:broader :RN_LRN_STY_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-20-03" .
@@ -1103,7 +1148,7 @@
   skos:prefLabel "Auditorium"@en ;
   skos:prefLabel "Aula"@de ;
   skos:definition "Large assembly hall for events."@en ;
-  skos:definition "Grosse Versammlungshalle fuer Veranstaltungen."@de ;
+  skos:definition "Grosse Versammlungshalle für Veranstaltungen."@de ;
   skos:broader :RN_LRN_ASM_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-30-01" .
@@ -1114,7 +1159,7 @@
   skos:prefLabel "Art Studio"@en ;
   skos:prefLabel "Kunstatelier"@de ;
   skos:definition "Room for visual arts instruction and practice."@en ;
-  skos:definition "Raum fuer bildnerischen Unterricht."@de ;
+  skos:definition "Raum für bildnerischen Unterricht."@de ;
   skos:broader :RN_LRN_ASM_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-30-02" .
@@ -1125,7 +1170,7 @@
   skos:prefLabel "Science Lab"@en ;
   skos:prefLabel "Naturwissenschaftslabor"@de ;
   skos:definition "Laboratory for science teaching."@en ;
-  skos:definition "Labor fuer naturwissenschaftlichen Unterricht."@de ;
+  skos:definition "Labor für naturwissenschaftlichen Unterricht."@de ;
   skos:broader :RN_LRN_ASM_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-06-30-03" .
@@ -1158,7 +1203,7 @@
   skos:prefLabel "Bar"@en ;
   skos:prefLabel "Bar"@de ;
   skos:definition "Room for beverage service."@en ;
-  skos:definition "Raum fuer Getraenkeausschank."@de ;
+  skos:definition "Raum für Getränkeausschank."@de ;
   skos:broader :RN_COM_DIN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07-10-03" .
@@ -1169,7 +1214,7 @@
   skos:prefLabel "Food Court"@en ;
   skos:prefLabel "Food-Court"@de ;
   skos:definition "Shared dining area with multiple vendors."@en ;
-  skos:definition "Gemeinsame Gastronomieflaeche mit mehreren Anbietern."@de ;
+  skos:definition "Gemeinsame Gastronomiefläche mit mehreren Anbietern."@de ;
   skos:broader :RN_COM_DIN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07-10-04" .
@@ -1180,7 +1225,7 @@
   skos:prefLabel "Retail Space"@en ;
   skos:prefLabel "Verkaufsraum"@de ;
   skos:definition "Room for displaying and selling goods."@en ;
-  skos:definition "Raum fuer Warenpraesentation und Verkauf."@de ;
+  skos:definition "Raum für Warenpräsentation und Verkauf."@de ;
   skos:broader :RN_COM_RET_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07-20-01" .
@@ -1189,9 +1234,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-07-20-02" ;
   skos:prefLabel "Sales Floor"@en ;
-  skos:prefLabel "Verkaufsflaeche"@de ;
+  skos:prefLabel "Verkaufsfläche"@de ;
   skos:definition "Open retail sales area."@en ;
-  skos:definition "Offene Verkaufsflaeche."@de ;
+  skos:definition "Offene Verkaufsfläche."@de ;
   skos:broader :RN_COM_RET_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07-20-02" .
@@ -1213,7 +1258,7 @@
   skos:prefLabel "Customer Service Area"@en ;
   skos:prefLabel "Kundenbetreuungsbereich"@de ;
   skos:definition "Area for customer assistance and service."@en ;
-  skos:definition "Bereich fuer Kundenbetreuung."@de ;
+  skos:definition "Bereich für Kundenbetreuung."@de ;
   skos:broader :RN_COM_RET_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07-20-04" .
@@ -1224,7 +1269,7 @@
   skos:prefLabel "Exhibition Space"@en ;
   skos:prefLabel "Ausstellungsraum"@de ;
   skos:definition "Room for displays and exhibitions."@en ;
-  skos:definition "Raum fuer Ausstellungen."@de ;
+  skos:definition "Raum für Ausstellungen."@de ;
   skos:broader :RN_COM_RET_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07-20-05" .
@@ -1235,7 +1280,7 @@
   skos:prefLabel "Hotel Room"@en ;
   skos:prefLabel "Hotelzimmer"@de ;
   skos:definition "Guest accommodation room."@en ;
-  skos:definition "Uebernachtungszimmer fuer Gaeste."@de ;
+  skos:definition "Übernachtungszimmer für Gäste."@de ;
   skos:broader :RN_COM_HSP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-07-30-01" .
@@ -1246,7 +1291,7 @@
   skos:prefLabel "Workshop"@en ;
   skos:prefLabel "Werkstatt"@de ;
   skos:definition "Room for manual fabrication and repair."@en ;
-  skos:definition "Raum fuer manuelle Fertigung und Reparatur."@de ;
+  skos:definition "Raum für manuelle Fertigung und Reparatur."@de ;
   skos:broader :RN_IND_PRD_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-10-01" .
@@ -1257,7 +1302,7 @@
   skos:prefLabel "Production Hall"@en ;
   skos:prefLabel "Produktionshalle"@de ;
   skos:definition "Hall for manufacturing processes."@en ;
-  skos:definition "Halle fuer Produktionsprozesse."@de ;
+  skos:definition "Halle für Produktionsprozesse."@de ;
   skos:broader :RN_IND_PRD_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-10-02" .
@@ -1268,7 +1313,7 @@
   skos:prefLabel "Assembly Area"@en ;
   skos:prefLabel "Montagebereich"@de ;
   skos:definition "Area for product assembly."@en ;
-  skos:definition "Bereich fuer Montage."@de ;
+  skos:definition "Bereich für Montage."@de ;
   skos:broader :RN_IND_PRD_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-10-03" .
@@ -1279,7 +1324,7 @@
   skos:prefLabel "Packaging Area"@en ;
   skos:prefLabel "Verpackungsbereich"@de ;
   skos:definition "Area for packaging goods."@en ;
-  skos:definition "Bereich fuer Verpackung."@de ;
+  skos:definition "Bereich für Verpackung."@de ;
   skos:broader :RN_IND_PRD_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-10-04" .
@@ -1301,7 +1346,7 @@
   skos:prefLabel "Warehouse"@en ;
   skos:prefLabel "Lagerhalle"@de ;
   skos:definition "Room or hall for goods storage."@en ;
-  skos:definition "Halle oder Raum fuer Warenlagerung."@de ;
+  skos:definition "Halle oder Raum für Warenlagerung."@de ;
   skos:broader :RN_IND_LOG_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-20-01" .
@@ -1312,7 +1357,7 @@
   skos:prefLabel "Loading Dock"@en ;
   skos:prefLabel "Laderampe"@de ;
   skos:definition "Area for loading and unloading goods."@en ;
-  skos:definition "Bereich fuer Be- und Entladung."@de ;
+  skos:definition "Bereich für Be- und Entladung."@de ;
   skos:broader :RN_IND_LOG_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-20-02" .
@@ -1321,9 +1366,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-08-20-03" ;
   skos:prefLabel "Quality Control Room"@en ;
-  skos:prefLabel "Qualitaetskontrollraum"@de ;
+  skos:prefLabel "Qualitätskontrollraum"@de ;
   skos:definition "Room for inspection and quality testing."@en ;
-  skos:definition "Raum fuer Pruefung und Qualitaetskontrolle."@de ;
+  skos:definition "Raum für Prüfung und Qualitätskontrolle."@de ;
   skos:broader :RN_IND_LOG_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-20-03" .
@@ -1334,7 +1379,7 @@
   skos:prefLabel "Maintenance Bay"@en ;
   skos:prefLabel "Wartungsbucht"@de ;
   skos:definition "Bay for equipment maintenance."@en ;
-  skos:definition "Bucht fuer Geraetewartung."@de ;
+  skos:definition "Bucht für Gerätewartung."@de ;
   skos:broader :RN_IND_LOG_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-20-04" .
@@ -1343,9 +1388,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-08-30-01" ;
   skos:prefLabel "Covered Yard"@en ;
-  skos:prefLabel "Ueberdachter Hof"@de ;
+  skos:prefLabel "Überdachter Hof"@de ;
   skos:definition "Covered exterior work or storage yard modeled as space."@en ;
-  skos:definition "Ueberdachter Aussenarbeits- oder Lagerhof als Raum modelliert."@de ;
+  skos:definition "Überdachter Aussenarbeits- oder Lagerhof als Raum modelliert."@de ;
   skos:broader :RN_IND_SPC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-08-30-01" .
@@ -1356,7 +1401,7 @@
   skos:prefLabel "HVAC Plant Room"@en ;
   skos:prefLabel "HLK-Zentralraum"@de ;
   skos:definition "Room for heating, ventilation, and cooling plant."@en ;
-  skos:definition "Raum fuer Heizungs-, Lueftungs- und Klimaanlagen."@de ;
+  skos:definition "Raum für Heizungs-, Lüftungs- und Klimaanlagen."@de ;
   skos:broader :RN_TEC_MEP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-10-01" .
@@ -1367,7 +1412,7 @@
   skos:prefLabel "Pump Room"@en ;
   skos:prefLabel "Pumpenraum"@de ;
   skos:definition "Room for pumps and fluid handling."@en ;
-  skos:definition "Raum fuer Pumpen und Fluessigkeitstechnik."@de ;
+  skos:definition "Raum für Pumpen und Flüssigkeitstechnik."@de ;
   skos:broader :RN_TEC_MEP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-10-02" .
@@ -1378,7 +1423,7 @@
   skos:prefLabel "Boiler Room"@en ;
   skos:prefLabel "Heizungsraum"@de ;
   skos:definition "Room for boilers and heat generation."@en ;
-  skos:definition "Raum fuer Heizkessel und Waermeerzeugung."@de ;
+  skos:definition "Raum für Heizkessel und Wärmeerzeugung."@de ;
   skos:broader :RN_TEC_MEP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-10-03" .
@@ -1387,9 +1432,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-09-10-04" ;
   skos:prefLabel "Chiller Room"@en ;
-  skos:prefLabel "Kaelteraum"@de ;
+  skos:prefLabel "Kälteraum"@de ;
   skos:definition "Room for chillers and cooling plant."@en ;
-  skos:definition "Raum fuer Kaelteanlagen."@de ;
+  skos:definition "Raum für Kälteanlagen."@de ;
   skos:broader :RN_TEC_MEP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-10-04" .
@@ -1400,7 +1445,7 @@
   skos:prefLabel "Sprinkler Room"@en ;
   skos:prefLabel "Sprinklerraum"@de ;
   skos:definition "Room for fire suppression equipment."@en ;
-  skos:definition "Raum fuer Sprinkler- und Loeschanlagen."@de ;
+  skos:definition "Raum für Sprinkler- und Löschanlagen."@de ;
   skos:broader :RN_TEC_MEP_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-10-05" .
@@ -1411,7 +1456,7 @@
   skos:prefLabel "Electrical Room"@en ;
   skos:prefLabel "Elektroraum"@de ;
   skos:definition "Room for electrical distribution equipment."@en ;
-  skos:definition "Raum fuer elektrische Verteilung."@de ;
+  skos:definition "Raum für elektrische Verteilung."@de ;
   skos:broader :RN_TEC_ELC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-20-01" .
@@ -1422,7 +1467,7 @@
   skos:prefLabel "Server Room"@en ;
   skos:prefLabel "Serverraum"@de ;
   skos:definition "Room for IT and network equipment."@en ;
-  skos:definition "Raum fuer IT- und Netzwerktechnik."@de ;
+  skos:definition "Raum für IT- und Netzwerktechnik."@de ;
   skos:broader :RN_TEC_ELC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-20-02" .
@@ -1433,7 +1478,7 @@
   skos:prefLabel "Generator Room"@en ;
   skos:prefLabel "Generatorraum"@de ;
   skos:definition "Room for backup power generation."@en ;
-  skos:definition "Raum fuer Notstromaggregate."@de ;
+  skos:definition "Raum für Notstromaggregate."@de ;
   skos:broader :RN_TEC_ELC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-20-03" .
@@ -1444,7 +1489,7 @@
   skos:prefLabel "Transformer Room"@en ;
   skos:prefLabel "Transformatorenraum"@de ;
   skos:definition "Room for electrical transformers."@en ;
-  skos:definition "Raum fuer Transformatoren."@de ;
+  skos:definition "Raum für Transformatoren."@de ;
   skos:broader :RN_TEC_ELC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-20-04" .
@@ -1455,7 +1500,7 @@
   skos:prefLabel "Communications Room"@en ;
   skos:prefLabel "Kommunikationsraum"@de ;
   skos:definition "Room for telecom and low-voltage systems."@en ;
-  skos:definition "Raum fuer Telekommunikations- und Schwachstromanlagen."@de ;
+  skos:definition "Raum für Telekommunikations- und Schwachstromanlagen."@de ;
   skos:broader :RN_TEC_ELC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-20-05" .
@@ -1464,9 +1509,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-09-30-01" ;
   skos:prefLabel "Meter Room"@en ;
-  skos:prefLabel "Zaehlerraum"@de ;
+  skos:prefLabel "Zählerraum"@de ;
   skos:definition "Room for utility metering equipment."@en ;
-  skos:definition "Raum fuer Verbrauchszaehler."@de ;
+  skos:definition "Raum für Verbrauchszähler."@de ;
   skos:broader :RN_TEC_UTL_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-30-01" .
@@ -1477,7 +1522,7 @@
   skos:prefLabel "Waste Room"@en ;
   skos:prefLabel "Abfallraum"@de ;
   skos:definition "Room for waste collection and handling."@en ;
-  skos:definition "Raum fuer Abfallsammlung."@de ;
+  skos:definition "Raum für Abfallsammlung."@de ;
   skos:broader :RN_TEC_UTL_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-09-30-02" .
@@ -1488,7 +1533,7 @@
   skos:prefLabel "General Storage"@en ;
   skos:prefLabel "Allgemeiner Lagerraum"@de ;
   skos:definition "Room for general material storage."@en ;
-  skos:definition "Raum fuer allgemeine Materiallagerung."@de ;
+  skos:definition "Raum für allgemeine Materiallagerung."@de ;
   skos:broader :RN_STO_GEN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-10-01" .
@@ -1499,7 +1544,7 @@
   skos:prefLabel "Supply Room"@en ;
   skos:prefLabel "Materialraum"@de ;
   skos:definition "Room for consumable supplies."@en ;
-  skos:definition "Raum fuer Verbrauchsmaterial."@de ;
+  skos:definition "Raum für Verbrauchsmaterial."@de ;
   skos:broader :RN_STO_GEN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-10-02" .
@@ -1508,9 +1553,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-10-10-03" ;
   skos:prefLabel "Equipment Storage"@en ;
-  skos:prefLabel "Geraetelager"@de ;
+  skos:prefLabel "Gerätelager"@de ;
   skos:definition "Storage for tools and equipment."@en ;
-  skos:definition "Lager fuer Geraete und Werkzeuge."@de ;
+  skos:definition "Lager für Geräte und Werkzeuge."@de ;
   skos:broader :RN_STO_GEN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-10-03" .
@@ -1532,7 +1577,7 @@
   skos:prefLabel "Janitor Closet"@en ;
   skos:prefLabel "Hauswarteschrank"@de ;
   skos:definition "Small room for cleaning supplies and equipment."@en ;
-  skos:definition "Kleiner Raum fuer Reinigungsmaterial."@de ;
+  skos:definition "Kleiner Raum für Reinigungsmaterial."@de ;
   skos:broader :RN_STO_GEN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-10-05" .
@@ -1543,7 +1588,7 @@
   skos:prefLabel "Archive Room"@en ;
   skos:prefLabel "Archivraum"@de ;
   skos:definition "Room for document and record archives."@en ;
-  skos:definition "Raum fuer Dokumenten- und Aktenarchive."@de ;
+  skos:definition "Raum für Dokumenten- und Aktenarchive."@de ;
   skos:broader :RN_STO_SPC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-20-01" .
@@ -1554,7 +1599,7 @@
   skos:prefLabel "Mail Room"@en ;
   skos:prefLabel "Postraum"@de ;
   skos:definition "Room for incoming and outgoing mail."@en ;
-  skos:definition "Raum fuer Postein- und -ausgang."@de ;
+  skos:definition "Raum für Postein- und -ausgang."@de ;
   skos:broader :RN_STO_SPC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-20-02" .
@@ -1563,9 +1608,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-10-20-03" ;
   skos:prefLabel "Cold Storage"@en ;
-  skos:prefLabel "Kuehlraum"@de ;
+  skos:prefLabel "Kühlraum"@de ;
   skos:definition "Refrigerated storage room."@en ;
-  skos:definition "Gekuehlter Lagerraum."@de ;
+  skos:definition "Gekühlter Lagerraum."@de ;
   skos:broader :RN_STO_SPC_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-20-03" .
@@ -1587,7 +1632,7 @@
   skos:prefLabel "Terrace"@en ;
   skos:prefLabel "Terrasse"@de ;
   skos:definition "Exterior paved or decked platform."@en ;
-  skos:definition "Aussenliegende Terrassenflaeche."@de ;
+  skos:definition "Aussenliegende Terrassenfläche."@de ;
   skos:broader :RN_OUT_PLT_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-10-02" .
@@ -1603,13 +1648,24 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-10-03" .
 
+:RN_OUT_EBL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-11-10-04" ;
+  skos:prefLabel "Escape Balcony"@en ;
+  skos:prefLabel "Fluchtbalkon"@de ;
+  skos:definition "Exterior balcony serving as an escape route."@en ;
+  skos:definition "Aussenliegender Balkon als Fluchtweg."@de ;
+  skos:broader :RN_OUT_PLT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-11-10-04" .
+
 :RN_OUT_GDN a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-11-20-01" ;
   skos:prefLabel "Garden Area"@en ;
-  skos:prefLabel "Gartenflaeche"@de ;
+  skos:prefLabel "Gartenfläche"@de ;
   skos:definition "Landscaped outdoor area as space."@en ;
-  skos:definition "Als Raum modellierte Gartenflaeche."@de ;
+  skos:definition "Als Raum modellierte Gartenfläche."@de ;
   skos:broader :RN_OUT_LND_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-20-01" .
@@ -1629,9 +1685,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-11-20-03" ;
   skos:prefLabel "Pool Area"@en ;
-  skos:prefLabel "Beckenflaeche"@de ;
+  skos:prefLabel "Beckenfläche"@de ;
   skos:definition "Outdoor pool or water feature area."@en ;
-  skos:definition "Aussenliegende Becken- oder Wasserflaeche."@de ;
+  skos:definition "Aussenliegende Becken- oder Wasserfläche."@de ;
   skos:broader :RN_OUT_LND_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-20-03" .
@@ -1640,9 +1696,9 @@
   skos:inScheme :scheme ;
   skos:notation "RN-11-30-01" ;
   skos:prefLabel "Covered Walkway"@en ;
-  skos:prefLabel "Ueberdachter Fussweg"@de ;
+  skos:prefLabel "Überdachter Fussweg"@de ;
   skos:definition "Covered exterior pedestrian route."@en ;
-  skos:definition "Ueberdachter Aussenweg fuer Fussgaenger."@de ;
+  skos:definition "Überdachter Aussenweg für Fussgänger."@de ;
   skos:broader :RN_OUT_COV_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-30-01" .
@@ -1653,10 +1709,24 @@
   skos:prefLabel "Portico"@en ;
   skos:prefLabel "Portikus"@de ;
   skos:definition "Covered exterior entrance structure."@en ;
-  skos:definition "Ueberdachter Aussenanbau am Eingang."@de ;
+  skos:definition "Überdachter Aussenanbau am Eingang."@de ;
   skos:broader :RN_OUT_COV_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-30-02" .
+
+:RN_OUT_STR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-11-40-01" ;
+  skos:prefLabel "Exterior Stair"@en ;
+  skos:prefLabel "Aussentreppe"@de ;
+  skos:altLabel "External Stair"@en ;
+  skos:altLabel "Open Stair"@en ;
+  skos:altLabel "Freitreppe"@de ;
+  skos:definition "Open or external stair for outdoor vertical circulation."@en ;
+  skos:definition "Aussenliegende Treppe zur vertikalen Erschliessung."@de ;
+  skos:broader :RN_OUT_CIR_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-11-40-01" .
 
 :RN_VOI_SHA a skos:Concept ;
   skos:inScheme :scheme ;
@@ -1675,7 +1745,7 @@
   skos:prefLabel "Riser"@en ;
   skos:prefLabel "Steigzone"@de ;
   skos:definition "Vertical building services riser."@en ;
-  skos:definition "Vertikale Gebaeudetechnik-Steigzone."@de ;
+  skos:definition "Vertikale Gebäudetechnik-Steigzone."@de ;
   skos:broader :RN_VOI_VRT_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-12-10-02" .

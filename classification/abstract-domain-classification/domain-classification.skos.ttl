@@ -1,0 +1,69 @@
+@prefix : <https://example.org/ch/abstract-domain/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract domain classification"@en ;
+  skos:prefLabel "Abstrakte Fachbereich-Klassifikation"@de ;
+  skos:prefLabel "Classification abstraite des domaines"@fr ;
+  skos:prefLabel "Classificazione astratta dei domini"@it ;
+  dcterms:title "Abstract domain classification"@en ;
+  dcterms:identifier "AbstractDomainClassification" ;
+  dcterms:creator "pragmatic-bim-public-rules" ;
+  dcterms:issued "2026-09-03" ;
+  dcterms:description "Discipline domains for BIM deliverables (architecture, structural, MEP). File-name prefix in `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`."@en ;
+  dcterms:description "Fachbereiche für BIM-Liefergegenstände (Architektur, Tragwerk, Gebäudetechnik). Dateinamen-Präfix in `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`."@de ;
+  dcterms:description "Domaines disciplinaires pour les livrables BIM (architecture, structure, CVC/sanitaire). Préfixe de nom de fichier dans `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`."@fr ;
+  dcterms:description "Domini disciplinari per i deliverable BIM (architettura, struttura, impianti). Prefisso del nome file in `{Projektnumber}_{DOMAIN}-{MODEL}_{Userdefined_text}.{ext}`."@it ;
+  skos:hasTopConcept :architecture, :mep, :structural .
+
+:architecture a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC" ;
+  skos:prefLabel "Architecture"@en ;
+  skos:prefLabel "Architektur"@de ;
+  skos:prefLabel "Architecture"@fr ;
+  skos:prefLabel "Architettura"@it ;
+  skos:definition "Architecture discipline — building design, spaces, envelope, fit-out, furniture, laboratory fit-out, landscape, and spatial context models."@en ;
+  skos:definition "Fachbereich Architektur — Gebäudeentwurf, Räume, Hülle, Ausbau, Möblierung, Laboreinrichtung, Landschaft und räumlicher Kontext."@de ;
+  skos:definition "Discipline architecture — conception du bâtiment, locaux, enveloppe, aménagement, mobilier, laboratoires, paysage et contexte spatial."@fr ;
+  skos:definition "Disciplina architettura — progettazione dell'edificio, spazi, involucro, finiture, arredi, laboratori, paesaggio e contesto spaziale."@it ;
+  skos:scopeNote "File-name domain token ARC, for example `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateinamen-Fachbereich ARC, z. B. `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Jeton de domaine ARC dans le nom de fichier, p. ex. `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Token di dominio ARC nel nome file, ad es. `{Projektnumber}_ARC-ARC_{Userdefined_text}.{ext}`."@it .
+
+:mep a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "MEP" ;
+  skos:prefLabel "MEP"@en ;
+  skos:prefLabel "Gebäudetechnik"@de ;
+  skos:prefLabel "Technique du bâtiment"@fr ;
+  skos:prefLabel "Impianti"@it ;
+  skos:definition "Building services discipline — heating, cooling, ventilation, plumbing, and underground drainage models. Electrical models are not in this vocabulary."@en ;
+  skos:definition "Fachbereich Gebäudetechnik — Heizung, Kühlung, Lüftung, Sanitär und Grundleitungen. Elektromodelle sind in diesem Vokabular nicht enthalten."@de ;
+  skos:definition "Discipline technique du bâtiment — chauffage, froid, ventilation, sanitaire et collecteurs enterrés. Les maquettes électriques ne figurent pas dans ce vocabulaire."@fr ;
+  skos:definition "Disciplina impianti — riscaldamento, raffrescamento, ventilazione, sanitari e condotte interrate. I modelli elettrici non sono in questo vocabolario."@it ;
+  skos:scopeNote "File-name domain token MEP, for example `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateinamen-Fachbereich MEP, z. B. `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Jeton de domaine MEP dans le nom de fichier, p. ex. `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Token di dominio MEP nel nome file, ad es. `{Projektnumber}_MEP-HEI_{Userdefined_text}.{ext}`."@it .
+
+:structural a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "STR" ;
+  skos:prefLabel "Structural"@en ;
+  skos:prefLabel "Tragwerk"@de ;
+  skos:prefLabel "Structure"@fr ;
+  skos:prefLabel "Struttura"@it ;
+  skos:definition "Structural discipline — concrete, steel, and timber load-bearing models, reinforcement, excavation-pit support, and earthworks."@en ;
+  skos:definition "Fachbereich Tragwerk — Stahlbeton, Stahl und Holz, Bewehrung, Baugrubensicherung und Aushub."@de ;
+  skos:definition "Discipline structure — béton armé, acier et bois, armatures, soutènement de fouille et terrassement."@fr ;
+  skos:definition "Disciplina struttura — calcestruzzo, acciaio e legno, armatura, opere di sostegno e scavi."@it ;
+  skos:scopeNote "File-name domain token STR, for example `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@en ;
+  skos:scopeNote "Dateinamen-Fachbereich STR, z. B. `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@de ;
+  skos:scopeNote "Jeton de domaine STR dans le nom de fichier, p. ex. `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@fr ;
+  skos:scopeNote "Token di dominio STR nel nome file, ad es. `{Projektnumber}_STR-BET_{Userdefined_text}.{ext}`."@it .

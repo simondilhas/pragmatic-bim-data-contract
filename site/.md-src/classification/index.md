@@ -35,6 +35,8 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract person relationship types](person-relationship-type.md) | `abstract-person-relationship-classification/person-relationship-type.skos.ttl` |
 | [Abstract topic classification](topic.md) | `abstract-topic-classification/topic-classification.skos.ttl` |
 | [Abstract company sector classification](company-sector.md) | `abstract-company-sector-classification/company-sector-classification.skos.ttl` |
+| [Abstract domain classification](domain.md) | `abstract-domain-classification/domain-classification.skos.ttl` |
+| [Abstract model classification](model.md) | `abstract-model-classification/model-classification.skos.ttl` |
 
 ## Mappings
 
@@ -52,6 +54,9 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Room name notation v1 to v2 mapping](mapping-room-name-notation-v1-to-v2.md) | `mapping/room-name-notation-v1-to-v2.mapping.ttl` |
 | [armasuisse room name to abstract room name mapping](mapping-armasuisse-room-name-to-room-name.md) | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` |
 | [Abstract roles to BKP mapping](mapping-roles-to-bkp.md) | `mapping/abstract-roles-to-bkp.mapping.ttl` |
+| [Abstract model to domain mapping](mapping-model-to-domain.md) | `mapping/abstract-model-to-domain.mapping.ttl` |
+| [Abstract model to BKP delivered-by mapping](mapping-model-to-bkp-delivered-by.md) | `mapping/abstract-model-to-bkp-delivered-by.mapping.ttl` |
+| [Abstract model to BKP delivered-from mapping](mapping-model-to-bkp-delivered-from.md) | `mapping/abstract-model-to-bkp-delivered-from.mapping.ttl` |
 | [Abstract material to Uniclass Ma mapping](mapping-material-to-uniclass-ma.md) | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` |
 | [KBOB document types to document function mapping](mapping-kbob-document-types-to-document-function.md) | `mapping/kbob-document-types-to-document-function.mapping.ttl` |
 | [Abstract building metrics to SIA 416 mapping](mapping-metric-to-sia416.md) | `mapping/abstract-metric-to-sia416.mapping.ttl` |

@@ -31,6 +31,8 @@ classification/
 ├── abstract-person-relationship-classification/  # SKOS — CRM person relationship predicates
 ├── abstract-topic-classification/      # SKOS — general person interests for CRM/LLM extraction
 ├── abstract-company-sector-classification/  # SKOS — industry sectors for company classification
+├── abstract-domain-classification/     # SKOS — BIM discipline domains (ARC, STR, MEP)
+├── abstract-model-classification/      # SKOS — BIM discipline-model types (Fachmodelle)
 └── mapping/                            # bridge TTL files
 ```
 
@@ -54,6 +56,8 @@ classification/
 | `abstract-person-relationship-classification/` | CRM person relationship predicates (knows, works_at, key account manager, has_interest, …) |
 | `abstract-topic-classification/` | General person interests (music, sport, travel, …) for CRM stories and LLM extraction |
 | `abstract-company-sector-classification/` | Industry and sector taxonomy for classifying organizations in CRM |
+| `abstract-domain-classification/` | BIM discipline domains (architecture, structural, MEP) used as file-name prefix |
+| `abstract-model-classification/` | BIM discipline-model types (Fachmodelle) used as file-name model token |
 | `mapping/` | Crosswalks from abstract concepts to external code lists (SIA, D0165, BKP, …) |
 
 ## Mapping bridges
@@ -71,6 +75,9 @@ classification/
 | `mapping/room-name-notation-v1-to-v2.mapping.ttl` | Mnemonic v1 room name codes → numeric v2 codes |
 | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` | armasuisse Raumliste → abstract room names |
 | `mapping/abstract-roles-to-bkp.mapping.ttl` | Workflow roles → BKP cost lines |
+| `mapping/abstract-model-to-domain.mapping.ttl` | Discipline-model types → domain (ARC / STR / MEP) |
+| `mapping/abstract-model-to-bkp-delivered-by.mapping.ttl` | Discipline-model types → BKP Honorar lines (planner who delivers the model) |
+| `mapping/abstract-model-to-bkp-delivered-from.mapping.ttl` | Discipline-model types → BKP construction cost groups (works the model content is taken from) |
 | `mapping/kbob-document-types-to-document-function.mapping.ttl` | KBOB/IPB document type catalogue → abstract document function classes |
 | `mapping/abstract-material-to-uniclass-ma.mapping.ttl` | Abstract material → Uniclass Ma |
 | `mapping/abstract-metric-to-sia416.mapping.ttl` | Abstract building metrics → SIA 416 |

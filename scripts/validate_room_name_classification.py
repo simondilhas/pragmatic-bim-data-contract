@@ -29,7 +29,7 @@ ACT_SKOS = REPO_ROOT / "classification/abstract-room-classification/building_spa
 ENUM_PATH = REPO_ROOT / "contract/entity_schema_enums.yaml"
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-EXPECTED_LEAF_COUNT = 117
+EXPECTED_LEAF_COUNT = 112
 
 
 def _check_unique_pref_labels(errors: list[str]) -> None:
@@ -129,7 +129,11 @@ def main() -> None:
     for concept in CONCEPTS:
         mapped = list(map_graph.objects(RN[concept.local_name], EX.mapsToActivity))
         if not mapped:
-            errors.append(f"{concept.local_name} has no activity mapping")
+            if concept.activity_codes:
+                errors.append(f"{concept.local_name} has no activity mapping")
+            continue
+        if not concept.activity_codes:
+            errors.append(f"{concept.local_name} has activity mapping but empty activity_codes")
             continue
         for target in mapped:
             local = str(target).rsplit("/", 1)[-1]

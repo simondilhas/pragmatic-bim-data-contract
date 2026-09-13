@@ -659,13 +659,25 @@ class SpaceNameType(str, Enum):
     """
     Room for domestic utilities and equipment.
     """
-    Residential_Entry = "rn_01_30_01"
+    Hallway = "rn_01_20_05"
+    """
+    Circulation passage within a dwelling unit.
+    """
+    Residential_Entry = "rn_01_20_06"
     """
     Entry space within a dwelling unit.
     """
-    Residential_Closet = "rn_01_30_02"
+    Residential_Closet = "rn_01_20_07"
     """
     Small storage within a dwelling unit.
+    """
+    Cellar_Compartment = "rn_01_20_08"
+    """
+    Assigned cellar storage compartment for a dwelling.
+    """
+    Entrance_Hall = "rn_01_20_09"
+    """
+    Residential entrance transition space within a dwelling context.
     """
     Apartment_Unit = "rn_01_30_03"
     """
@@ -703,13 +715,13 @@ class SpaceNameType(str, Enum):
     """
     Main entrance lobby or reception hall.
     """
-    Entrance_Hall = "rn_03_10_03"
-    """
-    Building entrance transition space.
-    """
     Vestibule = "rn_03_10_04"
     """
     Transition space between exterior and interior.
+    """
+    Airlock = "rn_03_10_05"
+    """
+    Enclosed lock or airlock for controlled passage between zones.
     """
     Stairwell = "rn_03_20_01"
     """
@@ -1003,6 +1015,10 @@ class SpaceNameType(str, Enum):
     """
     Enclosed or semi-enclosed outdoor sitting area.
     """
+    Escape_Balcony = "rn_11_10_04"
+    """
+    Exterior balcony serving as an escape route.
+    """
     Garden_Area = "rn_11_20_01"
     """
     Landscaped outdoor area as space.
@@ -1022,6 +1038,10 @@ class SpaceNameType(str, Enum):
     Portico = "rn_11_30_02"
     """
     Covered exterior entrance structure.
+    """
+    Exterior_Stair = "rn_11_40_01"
+    """
+    Open or external stair for outdoor vertical circulation.
     """
     Shaft = "rn_12_10_01"
     """

@@ -18,11 +18,12 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-cir-ais` | `exactMatch` | `rn:RN-CIR-COR` |
 | `v1:rn-cir-cor` | `exactMatch` | `rn:RN-CIR-COR` |
 | `v1:rn-cir-elv` | `exactMatch` | `rn:RN-CIR-ELV` |
-| `v1:rn-cir-ent` | `exactMatch` | `rn:RN-CIR-ENT` |
+| `v1:rn-cir-ent` | `exactMatch` | `rn:RN-RES-ETR` |
 | `v1:rn-cir-gal` | `exactMatch` | `rn:RN-CIR-LOB` |
 | `v1:rn-cir-lnd` | `exactMatch` | `rn:RN-CIR-STR` |
 | `v1:rn-cir-lob` | `exactMatch` | `rn:RN-CIR-LOB` |
 | `v1:rn-cir-ram` | `exactMatch` | `rn:RN-CIR-RAM` |
+| `v1:rn-cir-slu` | `exactMatch` | `rn:RN-CIR-SLU` |
 | `v1:rn-cir-str` | `exactMatch` | `rn:RN-CIR-STR` |
 | `v1:rn-cir-ves` | `exactMatch` | `rn:RN-CIR-VES` |
 | `v1:rn-com-bar` | `exactMatch` | `rn:RN-COM-BAR` |
@@ -46,7 +47,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-hlc-trt` | `exactMatch` | `rn:RN-HLC-TRT` |
 | `v1:rn-hlc-wtr` | `exactMatch` | `rn:RN-HLC-WTR` |
 | `v1:rn-hyg-chg` | `exactMatch` | `rn:RN-HYG-CHG` |
-| `v1:rn-hyg-grd` | `exactMatch` | `rn:RN-CIR-ENT` |
+| `v1:rn-hyg-grd` | `exactMatch` | `rn:RN-RES-ETR` |
 | `v1:rn-hyg-lck` | `exactMatch` | `rn:RN-HYG-LCK` |
 | `v1:rn-hyg-shw` | `exactMatch` | `rn:RN-HYG-SHW` |
 | `v1:rn-hyg-wc-f` | `exactMatch` | `rn:RN-HYG-WC-F` |
@@ -75,6 +76,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-lrn-wrk` | `exactMatch` | `rn:RN-LRN-WRK` |
 | `v1:rn-out-bln` | `exactMatch` | `rn:RN-OUT-BLN` |
 | `v1:rn-out-cwk` | `exactMatch` | `rn:RN-OUT-CWK` |
+| `v1:rn-out-ebl` | `exactMatch` | `rn:RN-OUT-EBL` |
 | `v1:rn-out-gdn` | `exactMatch` | `rn:RN-OUT-GDN` |
 | `v1:rn-out-pat` | `exactMatch` | `rn:RN-OUT-PAT` |
 | `v1:rn-out-ply` | `exactMatch` | `rn:RN-OUT-PLY` |
@@ -84,9 +86,12 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-res-apt` | `exactMatch` | `rn:RN-RES-APT` |
 | `v1:rn-res-bed` | `exactMatch` | `rn:RN-RES-BED` |
 | `v1:rn-res-bth` | `exactMatch` | `rn:RN-RES-BTH` |
+| `v1:rn-res-cel` | `exactMatch` | `rn:RN-RES-CEL` |
 | `v1:rn-res-clo` | `exactMatch` | `rn:RN-RES-CLO` |
 | `v1:rn-res-din` | `exactMatch` | `rn:RN-RES-DIN` |
 | `v1:rn-res-ent` | `exactMatch` | `rn:RN-RES-ENT` |
+| `v1:rn-res-etr` | `exactMatch` | `rn:RN-RES-ETR` |
+| `v1:rn-res-gng` | `exactMatch` | `rn:RN-RES-GNG` |
 | `v1:rn-res-gst` | `exactMatch` | `rn:RN-RES-GST` |
 | `v1:rn-res-kit` | `exactMatch` | `rn:RN-RES-KIT` |
 | `v1:rn-res-lau` | `exactMatch` | `rn:RN-RES-LAU` |

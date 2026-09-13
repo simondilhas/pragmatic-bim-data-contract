@@ -185,7 +185,7 @@ arma:raumliste_innen_umkleideraum skos:closeMatch rn:RN_HYG_SHW ;
   skos:prefLabel "Umkleideraum"@de .
 arma:raumliste_innen_garderoben_zu_duschen skos:closeMatch rn:RN_HYG_SHW ;
   skos:prefLabel "Garderoben zu Duschen"@de .
-arma:raumliste_innen_garderoben skos:closeMatch rn:RN_CIR_ENT ;
+arma:raumliste_innen_garderoben skos:closeMatch rn:RN_RES_ETR ;
   skos:prefLabel "Garderoben"@de .
 arma:raumliste_innen_garderoben_zu_duschen_mit_sanit_reinrichtung_z_t2 skos:closeMatch rn:RN_HYG_WC_MIX ;
   skos:prefLabel "Garderoben zu Duschen mit Sanitäreinrichtung Z T2"@de .

@@ -110,6 +110,14 @@ vocabularies:
     path: abstract-company-sector-classification/company-sector-classification.skos.ttl
     title: Abstract company sector classification
 
+  - slug: domain
+    path: abstract-domain-classification/domain-classification.skos.ttl
+    title: Abstract domain classification
+
+  - slug: model
+    path: abstract-model-classification/model-classification.skos.ttl
+    title: Abstract model classification
+
 mappings:
   - slug: person-relationship-type-to-target-kind
     path: mapping/person-relationship-type-to-target-kind.mapping.ttl
@@ -158,6 +166,18 @@ mappings:
   - slug: roles-to-bkp
     path: mapping/abstract-roles-to-bkp.mapping.ttl
     title: Abstract roles to BKP mapping
+
+  - slug: model-to-domain
+    path: mapping/abstract-model-to-domain.mapping.ttl
+    title: Abstract model to domain mapping
+
+  - slug: model-to-bkp-delivered-by
+    path: mapping/abstract-model-to-bkp-delivered-by.mapping.ttl
+    title: Abstract model to BKP delivered-by mapping
+
+  - slug: model-to-bkp-delivered-from
+    path: mapping/abstract-model-to-bkp-delivered-from.mapping.ttl
+    title: Abstract model to BKP delivered-from mapping
 
   - slug: material-to-uniclass-ma
     path: mapping/abstract-material-to-uniclass-ma.mapping.ttl

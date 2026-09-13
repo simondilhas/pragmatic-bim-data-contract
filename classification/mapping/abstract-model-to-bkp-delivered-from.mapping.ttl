@@ -1,0 +1,64 @@
+@prefix mod: <https://example.org/ch/abstract-model/> .
+@prefix bkp: <https://example.org/ch/bkp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractModelToBkpDeliveredFromMapping a dcterms:Dataset ;
+  dcterms:title "Abstract model to BKP delivered-from mapping"@en ;
+  dcterms:title "Mapping abstrakter Fachmodelle nach BKP geliefert aus"@de ;
+  dcterms:references mod:scheme, bkp:scheme ;
+  dcterms:issued "2026-09-03" ;
+  dcterms:description "Maps each BIM discipline-model type to BKP construction cost groups the model content is taken from. closeMatch is the primary works package; relatedMatch is a secondary chapter. Codes follow this repository's BKP IRI set (211 Baumeisterarbeiten, 213 Stahlbau, 214 Holzbau, 216 Fundamente, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Full BKP vocabulary is external; only referenced IRIs are used."@en ;
+  dcterms:description "Ordnet jeden BIM-Fachmodelltyp BKP-Baukostengruppen zu, aus denen der Modellinhalt stammt. closeMatch ist das Leitgewerk; relatedMatch eine sekundäre Hauptgruppe. Codes folgen dem BKP-IRI-Satz dieses Repositories (211 Baumeisterarbeiten, 213 Stahlbau, 214 Holzbau, 216 Fundamente, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Vollstaendiges BKP-Vokabular extern."@de .
+
+# --- Architecture ---
+
+mod:architecture skos:closeMatch bkp:27, bkp:28 ;
+  skos:relatedMatch bkp:21, bkp:22 .
+
+mod:storey-volume skos:relatedMatch bkp:2 .
+
+mod:facade skos:closeMatch bkp:221, bkp:215_5, bkp:226, bkp:227 ;
+  skos:relatedMatch bkp:22 .
+
+mod:landscape skos:closeMatch bkp:4 .
+
+mod:surroundings skos:relatedMatch bkp:4 .
+
+mod:furniture skos:closeMatch bkp:9 ;
+  skos:relatedMatch bkp:28 .
+
+mod:laboratory skos:closeMatch bkp:3 .
+
+# --- MEP ---
+
+mod:heating skos:closeMatch bkp:24 .
+
+mod:cooling skos:closeMatch bkp:24 .
+
+mod:ventilation skos:closeMatch bkp:24 .
+
+mod:plumbing skos:closeMatch bkp:25 .
+
+mod:underground-services skos:closeMatch bkp:25 ;
+  skos:relatedMatch bkp:4 .
+
+# --- Structural ---
+
+mod:concrete-structure skos:closeMatch bkp:211, bkp:216 ;
+  skos:relatedMatch bkp:21 .
+
+mod:steel-structure skos:closeMatch bkp:213 ;
+  skos:relatedMatch bkp:21 .
+
+mod:timber-structure skos:closeMatch bkp:214 ;
+  skos:relatedMatch bkp:21 .
+
+mod:reinforcement skos:closeMatch bkp:211 ;
+  skos:relatedMatch bkp:21 .
+
+mod:excavation-pit skos:closeMatch bkp:21 .
+
+mod:earthworks skos:closeMatch bkp:1 ;
+  skos:relatedMatch bkp:21 .

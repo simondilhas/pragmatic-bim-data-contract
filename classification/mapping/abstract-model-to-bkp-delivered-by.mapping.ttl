@@ -1,0 +1,79 @@
+@prefix mod: <https://example.org/ch/abstract-model/> .
+@prefix bkp: <https://example.org/ch/bkp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractModelToBkpDeliveredByMapping a dcterms:Dataset ;
+  dcterms:title "Abstract model to BKP delivered-by mapping"@en ;
+  dcterms:title "Mapping abstrakter Fachmodelle nach BKP geliefert durch"@de ;
+  dcterms:references mod:scheme, bkp:scheme ;
+  dcterms:issued "2026-09-03" ;
+  dcterms:description "Maps each BIM discipline-model type to BKP Honorar lines for the planner who delivers the model. closeMatch is the primary discipline (091 Architekt, 092 Bauingenieur, 094 HLKK-Ingenieur, 095 Sanitaeringenieur). Discipline Honorare repeat per phase (091/191/…). Landscape and laboratory add relatedMatch to Spezialisten-Honorar (096 …). Full BKP vocabulary is external; only referenced IRIs are used."@en ;
+  dcterms:description "Ordnet jeden BIM-Fachmodelltyp BKP-Honorarpositionen der liefernden Planungsdisziplin zu. closeMatch ist die Leitdisziplin (091 Architekt, 092 Bauingenieur, 094 HLKK-Ingenieur, 095 Sanitaeringenieur). Disziplin-Honorare wiederholen sich pro Phase (091/191/…). Landschaft und Labor ergänzen relatedMatch zu Spezialisten-Honorar (096 …). Vollstaendiges BKP-Vokabular extern."@de .
+
+# --- Architecture models: Architekt (091 …); landscape/laboratory also Spezialisten (096 …) ---
+
+mod:architecture skos:closeMatch
+  bkp:091, bkp:191, bkp:291, bkp:391, bkp:491, bkp:591, bkp:991 .
+
+mod:storey-volume skos:closeMatch
+  bkp:091, bkp:191, bkp:291, bkp:391, bkp:491, bkp:591, bkp:991 .
+
+mod:facade skos:closeMatch
+  bkp:091, bkp:191, bkp:291, bkp:391, bkp:491, bkp:591, bkp:991 .
+
+mod:surroundings skos:closeMatch
+  bkp:091, bkp:191, bkp:291, bkp:391, bkp:491, bkp:591, bkp:991 .
+
+mod:furniture skos:closeMatch
+  bkp:091, bkp:191, bkp:291, bkp:391, bkp:491, bkp:591, bkp:991 .
+
+mod:landscape skos:closeMatch
+  bkp:091, bkp:191, bkp:291, bkp:391, bkp:491, bkp:591, bkp:991 ;
+  skos:relatedMatch
+    bkp:096, bkp:196, bkp:296, bkp:396, bkp:496, bkp:596, bkp:996 .
+
+mod:laboratory skos:closeMatch
+  bkp:091, bkp:191, bkp:291, bkp:391, bkp:491, bkp:591, bkp:991 ;
+  skos:relatedMatch
+    bkp:096, bkp:196, bkp:296, bkp:396, bkp:496, bkp:596, bkp:996 .
+
+# --- Structural models: Bauingenieur (092 …); no 992 in this BKP extract ---
+
+mod:concrete-structure skos:closeMatch
+  bkp:092, bkp:192, bkp:292, bkp:392, bkp:492, bkp:592 .
+
+mod:steel-structure skos:closeMatch
+  bkp:092, bkp:192, bkp:292, bkp:392, bkp:492, bkp:592 .
+
+mod:timber-structure skos:closeMatch
+  bkp:092, bkp:192, bkp:292, bkp:392, bkp:492, bkp:592 .
+
+mod:reinforcement skos:closeMatch
+  bkp:092, bkp:192, bkp:292, bkp:392, bkp:492, bkp:592 .
+
+mod:excavation-pit skos:closeMatch
+  bkp:092, bkp:192, bkp:292, bkp:392, bkp:492, bkp:592 .
+
+mod:earthworks skos:closeMatch
+  bkp:092, bkp:192, bkp:292, bkp:392, bkp:492, bkp:592 .
+
+# --- MEP HLKK models: HLKK-Ingenieur (094 …); no 994 in this BKP extract ---
+
+mod:heating skos:closeMatch
+  bkp:094, bkp:194, bkp:294, bkp:394, bkp:494, bkp:594 .
+
+mod:cooling skos:closeMatch
+  bkp:094, bkp:194, bkp:294, bkp:394, bkp:494, bkp:594 .
+
+mod:ventilation skos:closeMatch
+  bkp:094, bkp:194, bkp:294, bkp:394, bkp:494, bkp:594 .
+
+# --- MEP sanitary models: Sanitaeringenieur (095 …); no 995 in this BKP extract ---
+
+mod:plumbing skos:closeMatch
+  bkp:095, bkp:195, bkp:295, bkp:395, bkp:495, bkp:595 .
+
+mod:underground-services skos:closeMatch
+  bkp:095, bkp:195, bkp:295, bkp:395, bkp:495, bkp:595 .

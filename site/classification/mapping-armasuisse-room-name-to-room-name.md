@@ -54,7 +54,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `arma:raumliste-innen-fahrzeugverkehrsfl-che` | `closeMatch` | `rn:RN-VOI-PRK` |
 | `arma:raumliste-innen-film-und-h-rs-le` | `closeMatch` | `rn:RN-LRN-LCT` |
 | `arma:raumliste-innen-flur-halle-korridore` | `closeMatch` | `rn:RN-CIR-COR` |
-| `arma:raumliste-innen-garderoben` | `closeMatch` | `rn:RN-CIR-ENT` |
+| `arma:raumliste-innen-garderoben` | `closeMatch` | `rn:RN-RES-ETR` |
 | `arma:raumliste-innen-garderoben-duschenraum-z-t2` | `closeMatch` | `rn:RN-HYG-SHW` |
 | `arma:raumliste-innen-garderoben-zu-duschen` | `closeMatch` | `rn:RN-HYG-SHW` |
 | `arma:raumliste-innen-garderoben-zu-duschen-mit-sanit-reinrichtung-z-t2` | `closeMatch` | `rn:RN-HYG-WC-MIX` |

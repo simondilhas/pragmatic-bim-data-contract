@@ -19,8 +19,11 @@ rn:RN_RES_KIT ex:mapsToActivity abs:M_RES .
 rn:RN_RES_BTH ex:mapsToActivity abs:M_RES .
 rn:RN_RES_LAU ex:mapsToActivity abs:M_RES .
 rn:RN_RES_UTL ex:mapsToActivity abs:M_RES .
+rn:RN_RES_GNG ex:mapsToActivity abs:M_RES .
 rn:RN_RES_ENT ex:mapsToActivity abs:M_RES .
 rn:RN_RES_CLO ex:mapsToActivity abs:M_RES .
+rn:RN_RES_CEL ex:mapsToActivity abs:M_RES .
+rn:RN_RES_ETR ex:mapsToActivity abs:M_RES .
 rn:RN_RES_APT ex:mapsToActivity abs:M_RES .
 rn:RN_WRK_OFF ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_OPN ex:mapsToActivity abs:M_WRK_KNW .
@@ -29,9 +32,9 @@ rn:RN_WRK_CNF ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_BRK ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_WRK_REC ex:mapsToActivity abs:M_WRK_KNW .
 rn:RN_CIR_COR ex:mapsToActivity abs:S_CIR_HOR .
-rn:RN_CIR_LOB ex:mapsToActivity abs:S_CIR_HOR, abs:M_CIR .
-rn:RN_CIR_ENT ex:mapsToActivity abs:S_CIR_HOR .
+rn:RN_CIR_LOB ex:mapsToActivity abs:S_CIR_HOR .
 rn:RN_CIR_VES ex:mapsToActivity abs:S_CIR_HOR .
+rn:RN_CIR_SLU ex:mapsToActivity abs:S_CIR_HOR .
 rn:RN_CIR_STR ex:mapsToActivity abs:S_CIR_VRT_MAN .
 rn:RN_CIR_ELV ex:mapsToActivity abs:S_CIR_VRT_MEC .
 rn:RN_CIR_RAM ex:mapsToActivity abs:S_CIR_VRT_MAN .
@@ -105,15 +108,16 @@ rn:RN_STO_COL ex:mapsToActivity abs:S_STO_GEN .
 rn:RN_OUT_BLN ex:mapsToActivity abs:O .
 rn:RN_OUT_TRR ex:mapsToActivity abs:O .
 rn:RN_OUT_PAT ex:mapsToActivity abs:O_GRN_REC .
+rn:RN_OUT_EBL ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_GDN ex:mapsToActivity abs:O_GRN_GDN .
 rn:RN_OUT_PLY ex:mapsToActivity abs:O_GRN_REC .
 rn:RN_OUT_SPL ex:mapsToActivity abs:O_GRN_REC .
 rn:RN_OUT_CWK ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_PRT ex:mapsToActivity abs:O_CIR_PED .
-rn:RN_VOI_SHA ex:mapsToActivity abs:S_VOI_VRT .
-rn:RN_VOI_RIS ex:mapsToActivity abs:S_VOI_VRT .
+rn:RN_OUT_STR ex:mapsToActivity abs:O_CIR_PED .
+rn:RN_VOI_SHA ex:mapsToActivity abs:S_TEC .
+rn:RN_VOI_RIS ex:mapsToActivity abs:S_TEC .
 rn:RN_VOI_PLN ex:mapsToActivity abs:S_VOI_PLN .
 rn:RN_VOI_MCH ex:mapsToActivity abs:S_VOI_PLN .
-rn:RN_VOI_AIR ex:mapsToActivity abs:S_VOI .
-rn:RN_VOI_ATR ex:mapsToActivity abs:S_VOI_MLT .
+rn:RN_VOI_ATR ex:mapsToActivity abs:M .
 rn:RN_VOI_PRK ex:mapsToActivity abs:S_PRK_INT .

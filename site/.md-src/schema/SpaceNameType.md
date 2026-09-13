@@ -32,8 +32,11 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_01_20_02 | https://example.org/abstract/building-space-name-classification/RN_RES_BTH | Room with bath, shower, or personal hygiene fixtures. | Title: Bathroom<br>|
 | rn_01_20_03 | https://example.org/abstract/building-space-name-classification/RN_RES_LAU | Room for washing and drying clothes. | Title: Laundry Room<br>|
 | rn_01_20_04 | https://example.org/abstract/building-space-name-classification/RN_RES_UTL | Room for domestic utilities and equipment. | Title: Utility Room<br>|
-| rn_01_30_01 | https://example.org/abstract/building-space-name-classification/RN_RES_ENT | Entry space within a dwelling unit. | Title: Residential Entry<br>|
-| rn_01_30_02 | https://example.org/abstract/building-space-name-classification/RN_RES_CLO | Small storage within a dwelling unit. | Title: Residential Closet<br>|
+| rn_01_20_05 | https://example.org/abstract/building-space-name-classification/RN_RES_GNG | Circulation passage within a dwelling unit. | Title: Hallway<br>|
+| rn_01_20_06 | https://example.org/abstract/building-space-name-classification/RN_RES_ENT | Entry space within a dwelling unit. | Title: Residential Entry<br>|
+| rn_01_20_07 | https://example.org/abstract/building-space-name-classification/RN_RES_CLO | Small storage within a dwelling unit. | Title: Residential Closet<br>|
+| rn_01_20_08 | https://example.org/abstract/building-space-name-classification/RN_RES_CEL | Assigned cellar storage compartment for a dwelling. | Title: Cellar Compartment<br>|
+| rn_01_20_09 | https://example.org/abstract/building-space-name-classification/RN_RES_ETR | Residential entrance transition space within a dwelling context. | Title: Entrance Hall<br>|
 | rn_01_30_03 | https://example.org/abstract/building-space-name-classification/RN_RES_APT | Generic residential unit space when not subdivided further. | Title: Apartment Unit<br>|
 | rn_02_10_01 | https://example.org/abstract/building-space-name-classification/RN_WRK_OFF | Enclosed office for individual or shared desk work. | Title: Office<br>|
 | rn_02_10_02 | https://example.org/abstract/building-space-name-classification/RN_WRK_OPN | Open office landscape without full-height partitions. | Title: Open-Plan Office<br>|
@@ -43,8 +46,8 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_02_30_01 | https://example.org/abstract/building-space-name-classification/RN_WRK_REC | Visitor reception and waiting area. | Title: Reception<br>|
 | rn_03_10_01 | https://example.org/abstract/building-space-name-classification/RN_CIR_COR | Horizontal circulation passage, including narrow aisles between rows or functions. | Title: Corridor<br>|
 | rn_03_10_02 | https://example.org/abstract/building-space-name-classification/RN_CIR_LOB | Main entrance lobby or reception hall. | Title: Lobby<br>|
-| rn_03_10_03 | https://example.org/abstract/building-space-name-classification/RN_CIR_ENT | Building entrance transition space. | Title: Entrance Hall<br>|
 | rn_03_10_04 | https://example.org/abstract/building-space-name-classification/RN_CIR_VES | Transition space between exterior and interior. | Title: Vestibule<br>|
+| rn_03_10_05 | https://example.org/abstract/building-space-name-classification/RN_CIR_SLU | Enclosed lock or airlock for controlled passage between zones. | Title: Airlock<br>|
 | rn_03_20_01 | https://example.org/abstract/building-space-name-classification/RN_CIR_STR | Enclosed stair and landing volume. | Title: Stairwell<br>|
 | rn_03_20_02 | https://example.org/abstract/building-space-name-classification/RN_CIR_ELV | Waiting area at elevator stops. | Title: Elevator Lobby<br>|
 | rn_03_20_03 | https://example.org/abstract/building-space-name-classification/RN_CIR_RAM | Inclined accessible circulation route. | Title: Ramp<br>|
@@ -118,11 +121,13 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_11_10_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_BLN | Exterior projecting platform accessed from inside. | Title: Balcony<br>|
 | rn_11_10_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_TRR | Exterior paved or decked platform. | Title: Terrace<br>|
 | rn_11_10_03 | https://example.org/abstract/building-space-name-classification/RN_OUT_PAT | Enclosed or semi-enclosed outdoor sitting area. | Title: Patio<br>|
+| rn_11_10_04 | https://example.org/abstract/building-space-name-classification/RN_OUT_EBL | Exterior balcony serving as an escape route. | Title: Escape Balcony<br>|
 | rn_11_20_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_GDN | Landscaped outdoor area as space. | Title: Garden Area<br>|
 | rn_11_20_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_PLY | Outdoor play area. | Title: Playground<br>|
 | rn_11_20_03 | https://example.org/abstract/building-space-name-classification/RN_OUT_SPL | Outdoor pool or water feature area. | Title: Pool Area<br>|
 | rn_11_30_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_CWK | Covered exterior pedestrian route. | Title: Covered Walkway<br>|
 | rn_11_30_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_PRT | Covered exterior entrance structure. | Title: Portico<br>|
+| rn_11_40_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_STR | Open or external stair for outdoor vertical circulation. | Title: Exterior Stair<br>|
 | rn_12_10_01 | https://example.org/abstract/building-space-name-classification/RN_VOI_SHA | Vertical service or circulation shaft. | Title: Shaft<br>|
 | rn_12_10_02 | https://example.org/abstract/building-space-name-classification/RN_VOI_RIS | Vertical building services riser. | Title: Riser<br>|
 | rn_12_20_01 | https://example.org/abstract/building-space-name-classification/RN_VOI_PLN | Ceiling or floor service void. | Title: Plenum<br>|
@@ -219,7 +224,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Gaestezimmer
+        description: Gästezimmer
     title: Guest Room
   rn_01_20_01:
     text: rn_01_20_01
@@ -228,7 +233,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Kueche
+        description: Küche
     title: Kitchen
   rn_01_20_02:
     text: rn_01_20_02
@@ -246,7 +251,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Waschkueche
+        description: Waschküche
     title: Laundry Room
   rn_01_20_04:
     text: rn_01_20_04
@@ -257,8 +262,17 @@ permissible_values:
         source: de
         description: Hauswirtschaftsraum
     title: Utility Room
-  rn_01_30_01:
-    text: rn_01_30_01
+  rn_01_20_05:
+    text: rn_01_20_05
+    description: Circulation passage within a dwelling unit.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_RES_GNG
+    alt_descriptions:
+      de:
+        source: de
+        description: Gang
+    title: Hallway
+  rn_01_20_06:
+    text: rn_01_20_06
     description: Entry space within a dwelling unit.
     meaning: https://example.org/abstract/building-space-name-classification/RN_RES_ENT
     alt_descriptions:
@@ -266,8 +280,8 @@ permissible_values:
         source: de
         description: Wohnungseingang
     title: Residential Entry
-  rn_01_30_02:
-    text: rn_01_30_02
+  rn_01_20_07:
+    text: rn_01_20_07
     description: Small storage within a dwelling unit.
     meaning: https://example.org/abstract/building-space-name-classification/RN_RES_CLO
     alt_descriptions:
@@ -275,6 +289,24 @@ permissible_values:
         source: de
         description: Abstellraum Wohnen
     title: Residential Closet
+  rn_01_20_08:
+    text: rn_01_20_08
+    description: Assigned cellar storage compartment for a dwelling.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_RES_CEL
+    alt_descriptions:
+      de:
+        source: de
+        description: Kellerabteil
+    title: Cellar Compartment
+  rn_01_20_09:
+    text: rn_01_20_09
+    description: Residential entrance transition space within a dwelling context.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_RES_ETR
+    alt_descriptions:
+      de:
+        source: de
+        description: Entree
+    title: Entrance Hall
   rn_01_30_03:
     text: rn_01_30_03
     description: Generic residential unit space when not subdivided further.
@@ -291,7 +323,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Buero
+        description: Büro
     title: Office
   rn_02_10_02:
     text: rn_02_10_02
@@ -300,7 +332,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Grossraumbuero
+        description: Grossraumbüro
     title: Open-Plan Office
   rn_02_20_01:
     text: rn_02_20_01
@@ -357,15 +389,6 @@ permissible_values:
         source: de
         description: Eingangshalle
     title: Lobby
-  rn_03_10_03:
-    text: rn_03_10_03
-    description: Building entrance transition space.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_ENT
-    alt_descriptions:
-      de:
-        source: de
-        description: Entree
-    title: Entrance Hall
   rn_03_10_04:
     text: rn_03_10_04
     description: Transition space between exterior and interior.
@@ -375,6 +398,15 @@ permissible_values:
         source: de
         description: Vorraum
     title: Vestibule
+  rn_03_10_05:
+    text: rn_03_10_05
+    description: Enclosed lock or airlock for controlled passage between zones.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_CIR_SLU
+    alt_descriptions:
+      de:
+        source: de
+        description: Schleuse
+    title: Airlock
   rn_03_20_01:
     text: rn_03_20_01
     description: Enclosed stair and landing volume.
@@ -571,7 +603,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Hoersaal
+        description: Hörsaal
     title: Lecture Hall
   rn_06_10_03:
     text: rn_06_10_03
@@ -697,7 +729,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Verkaufsflaeche
+        description: Verkaufsfläche
     title: Sales Floor
   rn_07_20_03:
     text: rn_07_20_03
@@ -805,7 +837,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Qualitaetskontrollraum
+        description: Qualitätskontrollraum
     title: Quality Control Room
   rn_08_20_04:
     text: rn_08_20_04
@@ -823,7 +855,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Ueberdachter Hof
+        description: Überdachter Hof
     title: Covered Yard
   rn_09_10_01:
     text: rn_09_10_01
@@ -859,7 +891,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Kaelteraum
+        description: Kälteraum
     title: Chiller Room
   rn_09_10_05:
     text: rn_09_10_05
@@ -922,7 +954,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Zaehlerraum
+        description: Zählerraum
     title: Meter Room
   rn_09_30_02:
     text: rn_09_30_02
@@ -958,7 +990,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Geraetelager
+        description: Gerätelager
     title: Equipment Storage
   rn_10_10_04:
     text: rn_10_10_04
@@ -1003,7 +1035,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Kuehlraum
+        description: Kühlraum
     title: Cold Storage
   rn_11_10_01:
     text: rn_11_10_01
@@ -1032,6 +1064,15 @@ permissible_values:
         source: de
         description: Innenhof
     title: Patio
+  rn_11_10_04:
+    text: rn_11_10_04
+    description: Exterior balcony serving as an escape route.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_EBL
+    alt_descriptions:
+      de:
+        source: de
+        description: Fluchtbalkon
+    title: Escape Balcony
   rn_11_20_01:
     text: rn_11_20_01
     description: Landscaped outdoor area as space.
@@ -1039,7 +1080,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Gartenflaeche
+        description: Gartenfläche
     title: Garden Area
   rn_11_20_02:
     text: rn_11_20_02
@@ -1057,7 +1098,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Beckenflaeche
+        description: Beckenfläche
     title: Pool Area
   rn_11_30_01:
     text: rn_11_30_01
@@ -1066,7 +1107,7 @@ permissible_values:
     alt_descriptions:
       de:
         source: de
-        description: Ueberdachter Fussweg
+        description: Überdachter Fussweg
     title: Covered Walkway
   rn_11_30_02:
     text: rn_11_30_02
@@ -1077,6 +1118,15 @@ permissible_values:
         source: de
         description: Portikus
     title: Portico
+  rn_11_40_01:
+    text: rn_11_40_01
+    description: Open or external stair for outdoor vertical circulation.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_STR
+    alt_descriptions:
+      de:
+        source: de
+        description: Aussentreppe
+    title: Exterior Stair
   rn_12_10_01:
     text: rn_12_10_01
     description: Vertical service or circulation shaft.

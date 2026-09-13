@@ -70,7 +70,7 @@ def render_skos() -> str:
         "",
         ":scheme a skos:ConceptScheme ;",
         '  skos:prefLabel "Building Space Name Classification"@en ;',
-        '  skos:prefLabel "Gebaeude-Raumbezeichnungsklassifikation"@de ;',
+        '  skos:prefLabel "Gebäude-Raumbezeichnungsklassifikation"@de ;',
         '  dcterms:title "Building Space Name Classification"@en ;',
         '  dcterms:identifier "BuildingSpaceNameClassification" ;',
         '  dcterms:creator "abstract" ;',
@@ -78,7 +78,7 @@ def render_skos() -> str:
         '  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;',
         '  dcterms:source <https://github.com/simondilhas/pragmatic-bim-public-rules> ;',
         '  skos:definition "Normalized abstract room name types for general building use on IfcSpace."@en ;',
-        '  skos:definition "Normalisierte abstrakte Raumbezeichnungen fuer allgemeinen Gebaeudegebrauch auf IfcSpace."@de ;',
+        '  skos:definition "Normalisierte abstrakte Raumbezeichnungen für allgemeinen Gebäudegebrauch auf IfcSpace."@de ;',
         "  skos:hasTopConcept " + ", ".join(f":{c.local_name}" for c in CATEGORIES) + " .",
         "",
     ]
@@ -163,6 +163,8 @@ def render_activity_mapping() -> str:
     ]
 
     for concept in CONCEPTS:
+        if not concept.activity_codes:
+            continue
         targets = ", ".join(f"abs:{activity_local_name(code)}" for code in concept.activity_codes)
         lines.append(f"rn:{concept.local_name} ex:mapsToActivity {targets} .")
 
