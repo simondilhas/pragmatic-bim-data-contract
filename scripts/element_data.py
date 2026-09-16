@@ -191,9 +191,9 @@ ELEMENTS: list[ElementplanElement] = [
         "Geschossdecke",
         "Structural slab between storeys, excluding floor build-up and suspended ceiling.",
         "Tragende Decke zwischen Geschossen, ohne Bodenaufbau und Abhangdecke.",
-        "GrossVolume",
+        "GrossArea",
         "Qto_SlabBaseQuantities",
-        "m3",
+        "m2",
         "IfcSlab",
         "ssp",
     ),
@@ -282,11 +282,15 @@ ELEMENTS: list[ElementplanElement] = [
         "Horizontal load-bearing member spanning between columns or walls, modelled as a downstand or "
         "upstand beam.",
         "Horizontales Tragglied zwischen Stützen oder Wänden, als Unterzug oder Überzug modelliert.",
-        "GrossVolume",
+        "Length",
         "Qto_BeamBaseQuantities",
-        "m3",
+        "m",
         "IfcBeam",
         "bmp",
+        "Priced per running metre; the beam cross-section is carried by the product concept, so the "
+        "BMP-* prices are per metre of the nominal section of that material.",
+        "Bepreisung pro Laufmeter; der Trägerquerschnitt steckt im Produktkonzept, die BMP-*-Preise "
+        "gelten je Laufmeter des Nennquerschnitts dieses Materials.",
     ),
     ElementplanElement(
         "ARC-STAIR",
@@ -323,11 +327,10 @@ ELEMENTS: list[ElementplanElement] = [
         "m2",
         "IfcWindow",
         "wicp",
-        "The Area base quantity is not yet published on the WINDOW element in the Elementplan, which "
-        "exposes only OverallWidth and OverallHeight; derive the opening area from those two until the "
-        "quantity is added.",
-        "Die Basismenge Area ist beim Bauteil WINDOW im Elementplan noch nicht publiziert, dort stehen "
-        "nur OverallWidth und OverallHeight; die Öffnungsfläche bis dahin daraus ableiten.",
+        "Rooflights are priced on the same m² basis; WICP-SKYLIGHT was rebased from a per-piece "
+        "reference using a nominal rooflight area.",
+        "Dachfenster werden auf derselben m²-Basis bepreist; WICP-SKYLIGHT wurde von einem "
+        "Stückreferenzwert über eine Nennfläche umgerechnet.",
     ),
     ElementplanElement(
         "DOOR",

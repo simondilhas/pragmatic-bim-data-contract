@@ -37,10 +37,10 @@ Source: [`elementplan-elements.skos.ttl`](sources/elementplan-element.ttl)
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Unterzug oder Überzug</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Horizontales Tragglied zwischen Stützen oder Wänden, als Unterzug oder Überzug modelliert.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Bepreisung pro Laufmeter; der Trägerquerschnitt steckt im Produktkonzept, die BMP-*-Preise gelten je Laufmeter des Nennquerschnitts dieses Materials.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Beam</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Horizontal load-bearing member spanning between columns or walls, modelled as a downstand or upstand beam.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Priced per running metre; the beam cross-section is carried by the product concept, so the BMP-* prices are per metre of the nominal section of that material.</td>
 </tr>
 <tr>
 <td>ARC-CEILING</td>
@@ -247,10 +247,10 @@ Source: [`elementplan-elements.skos.ttl`](sources/elementplan-element.ttl)
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Fenster</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Fenster in einer Aussen- oder Innenwand, bepreist über die Fläche der Wandöffnung.</td>
-<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Die Basismenge Area ist beim Bauteil WINDOW im Elementplan noch nicht publiziert, dort stehen nur OverallWidth und OverallHeight; die Öffnungsfläche bis dahin daraus ableiten.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note">Dachfenster werden auf derselben m²-Basis bepreist; WICP-SKYLIGHT wurde von einem Stückreferenzwert über eine Nennfläche umgerechnet.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Window</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Window in an exterior or interior wall, priced by the area of the wall opening it fills.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note">The Area base quantity is not yet published on the WINDOW element in the Elementplan, which exposes only OverallWidth and OverallHeight; derive the opening area from those two until the quantity is added.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Rooflights are priced on the same m² basis; WICP-SKYLIGHT was rebased from a per-piece reference using a nominal rooflight area.</td>
 </tr>
 </tbody>
 </table>

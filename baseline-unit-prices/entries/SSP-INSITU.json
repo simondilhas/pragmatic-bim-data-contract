@@ -1,25 +1,25 @@
 {
   "product": "SSP-INSITU",
-  "material_cost": 150.0,
-  "price_unit": "m3",
-  "onsite_labor_hours_per_unit": 9.0,
-  "provenance_status": "reference_calibrated",
+  "material_cost": 42.0,
+  "price_unit": "m2",
+  "onsite_labor_hours_per_unit": 2.52,
+  "provenance_status": "estimated",
   "observations": [
     {
       "aspect": "material_cost",
-      "value": 150.0,
+      "value": 42.0,
       "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-      "contributed_at": "2026-07-01",
-      "provenance_status": "reference_calibrated",
-      "notes": "Net EUR ex-works material per m3; onsite labor person-hours per m3. Installed reference split into material vs labor via category material_share.",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "notes": "Net EUR ex-works material per m2; labour person-hours per m2. Rebased from the per-m3 reference using a nominal floor slab thickness of 0.28 m on the reference values of 150.0 EUR and 9.0 h per m3, so the m2 basis is derived rather than sourced. The Elementplan element prices this product per m2.",
       "selects_canonical": true
     },
     {
       "aspect": "onsite_labor_hours_per_unit",
-      "value": 9.0,
+      "value": 2.52,
       "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-      "contributed_at": "2026-07-01",
-      "provenance_status": "reference_calibrated",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
       "selects_canonical": true
     }
   ]

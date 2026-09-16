@@ -9,43 +9,43 @@
     "BMP-OTH": {
       "product": "BMP-OTH",
       "product_uri": "https://example.org/abstract/beam-product/BMP-OTH",
-      "material_cost": 400.0,
-      "price_unit": "m3",
+      "material_cost": 72.0,
+      "price_unit": "m",
       "waste_pct": 0.05,
       "transport_pct": 0.06,
-      "onsite_labor_hours_per_unit": 16.0,
-      "delivered_material_cost": 445.2,
+      "onsite_labor_hours_per_unit": 2.88,
+      "delivered_material_cost": 80.1,
       "demolition": {
-        "unit": "m3",
-        "hours_per_unit": 1.0,
-        "disposal_cost": 16.0
+        "unit": "m",
+        "hours_per_unit": 0.2,
+        "disposal_cost": 3.0
       },
       "uncertainty": {
         "material_low_pct": -0.12,
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 352.0,
-        "material_cost_high": 472.0,
-        "delivered_material_cost_low": 391.8,
-        "delivered_material_cost_high": 525.3,
-        "onsite_labor_hours_low": 14.4,
-        "onsite_labor_hours_high": 20.0
+        "material_cost_low": 63.4,
+        "material_cost_high": 85.0,
+        "delivered_material_cost_low": 70.5,
+        "delivered_material_cost_high": 94.5,
+        "onsite_labor_hours_low": 2.59,
+        "onsite_labor_hours_high": 3.6
       },
       "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 400.0,
+          "value": 72.0,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
-          "notes": "Net EUR ex-works material per m3 of gross member volume; onsite labor person-hours per m3. Fallback mirrors reinforced concrete, the most common beam material.",
+          "notes": "Net EUR ex-works material per m; labour person-hours per m. Rebased from the per-m3 reference using a nominal 300 x 600 mm section (0.18 m2) on the reference values of 400.0 EUR and 16.0 h per m3, so the m basis is derived rather than sourced. The Elementplan element prices this product per m.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 16.0,
+          "value": 2.88,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
@@ -56,43 +56,43 @@
     "BMP-RC": {
       "product": "BMP-RC",
       "product_uri": "https://example.org/abstract/beam-product/BMP-RC",
-      "material_cost": 400.0,
-      "price_unit": "m3",
+      "material_cost": 72.0,
+      "price_unit": "m",
       "waste_pct": 0.05,
       "transport_pct": 0.06,
-      "onsite_labor_hours_per_unit": 16.0,
-      "delivered_material_cost": 445.2,
+      "onsite_labor_hours_per_unit": 2.88,
+      "delivered_material_cost": 80.1,
       "demolition": {
-        "unit": "m3",
-        "hours_per_unit": 1.0,
-        "disposal_cost": 16.0
+        "unit": "m",
+        "hours_per_unit": 0.2,
+        "disposal_cost": 3.0
       },
       "uncertainty": {
         "material_low_pct": -0.12,
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 352.0,
-        "material_cost_high": 472.0,
-        "delivered_material_cost_low": 391.8,
-        "delivered_material_cost_high": 525.3,
-        "onsite_labor_hours_low": 14.4,
-        "onsite_labor_hours_high": 20.0
+        "material_cost_low": 63.4,
+        "material_cost_high": 85.0,
+        "delivered_material_cost_low": 70.5,
+        "delivered_material_cost_high": 94.5,
+        "onsite_labor_hours_low": 2.59,
+        "onsite_labor_hours_high": 3.6
       },
       "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 400.0,
+          "value": 72.0,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
-          "notes": "Net EUR ex-works material per m3 of gross member volume; onsite labor person-hours per m3. Concrete, reinforcement, and formwork material.",
+          "notes": "Net EUR ex-works material per m; labour person-hours per m. Rebased from the per-m3 reference using a nominal 300 x 600 mm section (0.18 m2) on the reference values of 400.0 EUR and 16.0 h per m3, so the m basis is derived rather than sourced. The Elementplan element prices this product per m.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 16.0,
+          "value": 2.88,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
@@ -103,43 +103,43 @@
     "BMP-STEEL": {
       "product": "BMP-STEEL",
       "product_uri": "https://example.org/abstract/beam-product/BMP-STEEL",
-      "material_cost": 19000.0,
-      "price_unit": "m3",
+      "material_cost": 214.7,
+      "price_unit": "m",
       "waste_pct": 0.05,
       "transport_pct": 0.06,
-      "onsite_labor_hours_per_unit": 65.0,
-      "delivered_material_cost": 21147.0,
+      "onsite_labor_hours_per_unit": 0.73,
+      "delivered_material_cost": 239.0,
       "demolition": {
-        "unit": "m3",
-        "hours_per_unit": 1.0,
-        "disposal_cost": 16.0
+        "unit": "m",
+        "hours_per_unit": 0.2,
+        "disposal_cost": 3.0
       },
       "uncertainty": {
         "material_low_pct": -0.12,
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 16720.0,
-        "material_cost_high": 22420.0,
-        "delivered_material_cost_low": 18609.4,
-        "delivered_material_cost_high": 24953.5,
-        "onsite_labor_hours_low": 58.5,
-        "onsite_labor_hours_high": 81.25
+        "material_cost_low": 188.9,
+        "material_cost_high": 253.3,
+        "delivered_material_cost_low": 210.3,
+        "delivered_material_cost_high": 282.0,
+        "onsite_labor_hours_low": 0.66,
+        "onsite_labor_hours_high": 0.91
       },
       "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 19000.0,
+          "value": 214.7,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
-          "notes": "Net EUR ex-works material per m3 of gross member volume; onsite labor person-hours per m3. Steel at 7850 kg/m3 and fabricated section supply rate.",
+          "notes": "Net EUR ex-works material per m; labour person-hours per m. Rebased from the per-m3 reference using a nominal HEA 300 section (0.0113 m2) on the reference values of 19000.0 EUR and 65.0 h per m3, so the m basis is derived rather than sourced. The Elementplan element prices this product per m.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 65.0,
+          "value": 0.73,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
@@ -150,43 +150,43 @@
     "BMP-TIMBER": {
       "product": "BMP-TIMBER",
       "product_uri": "https://example.org/abstract/beam-product/BMP-TIMBER",
-      "material_cost": 1200.0,
-      "price_unit": "m3",
+      "material_cost": 96.0,
+      "price_unit": "m",
       "waste_pct": 0.05,
       "transport_pct": 0.06,
-      "onsite_labor_hours_per_unit": 8.0,
-      "delivered_material_cost": 1335.6,
+      "onsite_labor_hours_per_unit": 0.64,
+      "delivered_material_cost": 106.8,
       "demolition": {
-        "unit": "m3",
-        "hours_per_unit": 1.0,
-        "disposal_cost": 16.0
+        "unit": "m",
+        "hours_per_unit": 0.2,
+        "disposal_cost": 3.0
       },
       "uncertainty": {
         "material_low_pct": -0.12,
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 1056.0,
-        "material_cost_high": 1416.0,
-        "delivered_material_cost_low": 1175.3,
-        "delivered_material_cost_high": 1576.0,
-        "onsite_labor_hours_low": 7.2,
-        "onsite_labor_hours_high": 10.0
+        "material_cost_low": 84.5,
+        "material_cost_high": 113.3,
+        "delivered_material_cost_low": 94.0,
+        "delivered_material_cost_high": 126.0,
+        "onsite_labor_hours_low": 0.58,
+        "onsite_labor_hours_high": 0.8
       },
       "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 1200.0,
+          "value": 96.0,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
-          "notes": "Net EUR ex-works material per m3 of gross member volume; onsite labor person-hours per m3. Glued-laminated or solid timber section supply rate.",
+          "notes": "Net EUR ex-works material per m; labour person-hours per m. Rebased from the per-m3 reference using a nominal 200 x 400 mm glulam section (0.08 m2) on the reference values of 1200.0 EUR and 8.0 h per m3, so the m basis is derived rather than sourced. The Elementplan element prices this product per m.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 8.0,
+          "value": 0.64,
           "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
           "contributed_at": "2026-09-16",
           "provenance_status": "estimated",
@@ -1701,14 +1701,14 @@
     "FDP-DRAINAGE": {
       "product": "FDP-DRAINAGE",
       "product_uri": "https://example.org/abstract/foundation-product/FDP-DRAINAGE",
-      "material_cost": 22.0,
-      "price_unit": "m2",
+      "material_cost": 73.3,
+      "price_unit": "m3",
       "waste_pct": 0.05,
       "transport_pct": 0.06,
-      "onsite_labor_hours_per_unit": 0.6,
-      "delivered_material_cost": 24.5,
+      "onsite_labor_hours_per_unit": 2.0,
+      "delivered_material_cost": 81.6,
       "demolition": {
-        "unit": "m2",
+        "unit": "m3",
         "hours_per_unit": 1.2,
         "disposal_cost": 18.0
       },
@@ -1717,30 +1717,30 @@
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 19.4,
-        "material_cost_high": 26.0,
-        "delivered_material_cost_low": 21.6,
-        "delivered_material_cost_high": 28.9,
-        "onsite_labor_hours_low": 0.54,
-        "onsite_labor_hours_high": 0.75
+        "material_cost_low": 64.5,
+        "material_cost_high": 86.5,
+        "delivered_material_cost_low": 71.8,
+        "delivered_material_cost_high": 96.3,
+        "onsite_labor_hours_low": 1.8,
+        "onsite_labor_hours_high": 2.5
       },
-      "provenance_status": "reference_calibrated",
+      "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 22.0,
+          "value": 73.33,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
-          "notes": "Net EUR ex-works material per m2; onsite labor person-hours per m2. Installed reference split into material vs labor via category material_share.",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
+          "notes": "Net EUR ex-works material per m3; labour person-hours per m3. Rebased from the per-m2 layer reference using a nominal foundation thickness of 0.30 m, so one m3 of foundation volume carries 3.33 m2 of drainage layer on the reference values of 22.0 EUR and 0.6 h per m2, so the m3 basis is derived rather than sourced. The Elementplan element prices this product per m3.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 0.6,
+          "value": 2.0,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
           "selects_canonical": true
         }
       ]
@@ -2077,14 +2077,14 @@
     "FDP-WATERPROOF": {
       "product": "FDP-WATERPROOF",
       "product_uri": "https://example.org/abstract/foundation-product/FDP-WATERPROOF",
-      "material_cost": 28.0,
-      "price_unit": "m2",
+      "material_cost": 93.3,
+      "price_unit": "m3",
       "waste_pct": 0.05,
       "transport_pct": 0.06,
-      "onsite_labor_hours_per_unit": 0.9,
-      "delivered_material_cost": 31.2,
+      "onsite_labor_hours_per_unit": 3.0,
+      "delivered_material_cost": 103.8,
       "demolition": {
-        "unit": "m2",
+        "unit": "m3",
         "hours_per_unit": 1.2,
         "disposal_cost": 18.0
       },
@@ -2093,30 +2093,30 @@
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 24.6,
-        "material_cost_high": 33.0,
-        "delivered_material_cost_low": 27.5,
-        "delivered_material_cost_high": 36.8,
-        "onsite_labor_hours_low": 0.81,
-        "onsite_labor_hours_high": 1.12
+        "material_cost_low": 82.1,
+        "material_cost_high": 110.1,
+        "delivered_material_cost_low": 91.3,
+        "delivered_material_cost_high": 122.5,
+        "onsite_labor_hours_low": 2.7,
+        "onsite_labor_hours_high": 3.75
       },
-      "provenance_status": "reference_calibrated",
+      "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 28.0,
+          "value": 93.33,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
-          "notes": "Net EUR ex-works material per m2; onsite labor person-hours per m2. Installed reference split into material vs labor via category material_share.",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
+          "notes": "Net EUR ex-works material per m3; labour person-hours per m3. Rebased from the per-m2 layer reference using a nominal foundation thickness of 0.30 m, so one m3 of foundation volume carries 3.33 m2 of waterproofing on the reference values of 28.0 EUR and 0.9 h per m2, so the m3 basis is derived rather than sourced. The Elementplan element prices this product per m3.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 0.9,
+          "value": 3.0,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
           "selects_canonical": true
         }
       ]
@@ -4198,14 +4198,14 @@
     "SSP-INSITU": {
       "product": "SSP-INSITU",
       "product_uri": "https://example.org/abstract/slab-separator-product/SSP-INSITU",
-      "material_cost": 150.0,
-      "price_unit": "m3",
+      "material_cost": 42.0,
+      "price_unit": "m2",
       "waste_pct": 0.05,
       "transport_pct": 0.06,
-      "onsite_labor_hours_per_unit": 9.0,
-      "delivered_material_cost": 167.0,
+      "onsite_labor_hours_per_unit": 2.52,
+      "delivered_material_cost": 46.7,
       "demolition": {
-        "unit": "m3",
+        "unit": "m2",
         "hours_per_unit": 0.9,
         "disposal_cost": 14.0
       },
@@ -4214,30 +4214,30 @@
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 132.0,
-        "material_cost_high": 177.0,
-        "delivered_material_cost_low": 147.0,
-        "delivered_material_cost_high": 197.1,
-        "onsite_labor_hours_low": 8.1,
-        "onsite_labor_hours_high": 11.25
+        "material_cost_low": 37.0,
+        "material_cost_high": 49.6,
+        "delivered_material_cost_low": 41.1,
+        "delivered_material_cost_high": 55.1,
+        "onsite_labor_hours_low": 2.27,
+        "onsite_labor_hours_high": 3.15
       },
-      "provenance_status": "reference_calibrated",
+      "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 150.0,
+          "value": 42.0,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
-          "notes": "Net EUR ex-works material per m3; onsite labor person-hours per m3. Installed reference split into material vs labor via category material_share.",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
+          "notes": "Net EUR ex-works material per m2; labour person-hours per m2. Rebased from the per-m3 reference using a nominal floor slab thickness of 0.28 m on the reference values of 150.0 EUR and 9.0 h per m3, so the m2 basis is derived rather than sourced. The Elementplan element prices this product per m2.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 9.0,
+          "value": 2.52,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
           "selects_canonical": true
         }
       ]
@@ -4718,14 +4718,14 @@
     "SWP-ORTBETON": {
       "product": "SWP-ORTBETON",
       "product_uri": "https://example.org/abstract/wall-separator-product/SWP-ORTBETON",
-      "material_cost": 150.0,
-      "price_unit": "m3",
+      "material_cost": 30.0,
+      "price_unit": "m2",
       "waste_pct": 0.05,
       "transport_pct": 0.05,
-      "onsite_labor_hours_per_unit": 9.5,
-      "delivered_material_cost": 165.4,
+      "onsite_labor_hours_per_unit": 1.9,
+      "delivered_material_cost": 33.1,
       "demolition": {
-        "unit": "m3",
+        "unit": "m2",
         "hours_per_unit": 0.8,
         "disposal_cost": 12.0
       },
@@ -4734,30 +4734,30 @@
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 132.0,
-        "material_cost_high": 177.0,
-        "delivered_material_cost_low": 145.6,
-        "delivered_material_cost_high": 195.2,
-        "onsite_labor_hours_low": 8.55,
-        "onsite_labor_hours_high": 11.88
+        "material_cost_low": 26.4,
+        "material_cost_high": 35.4,
+        "delivered_material_cost_low": 29.1,
+        "delivered_material_cost_high": 39.1,
+        "onsite_labor_hours_low": 1.71,
+        "onsite_labor_hours_high": 2.38
       },
-      "provenance_status": "reference_calibrated",
+      "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 150.0,
+          "value": 30.0,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
-          "notes": "Net EUR ex-works material per m3; onsite labor person-hours per m3. Installed reference split into material vs labor via category material_share.",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
+          "notes": "Net EUR ex-works material per m2; labour person-hours per m2. Rebased from the per-m3 reference using a nominal in-situ wall thickness of 0.20 m on the reference values of 150.0 EUR and 9.5 h per m3, so the m2 basis is derived rather than sourced. The Elementplan element prices this product per m2.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 9.5,
+          "value": 1.9,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
           "selects_canonical": true
         }
       ]
@@ -4812,15 +4812,15 @@
     "SWP-PREFAB-CONC": {
       "product": "SWP-PREFAB-CONC",
       "product_uri": "https://example.org/abstract/wall-separator-product/SWP-PREFAB-CONC",
-      "material_cost": 190.0,
-      "price_unit": "m3",
+      "material_cost": 38.0,
+      "price_unit": "m2",
       "waste_pct": 0.05,
       "transport_pct": 0.05,
-      "onsite_labor_hours_per_unit": 1.2,
-      "delivered_material_cost": 209.5,
-      "offsite_labor_hours_per_unit": 3.0,
+      "onsite_labor_hours_per_unit": 0.24,
+      "delivered_material_cost": 41.9,
+      "offsite_labor_hours_per_unit": 0.6,
       "demolition": {
-        "unit": "m3",
+        "unit": "m2",
         "hours_per_unit": 0.8,
         "disposal_cost": 12.0
       },
@@ -4829,32 +4829,32 @@
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 167.2,
-        "material_cost_high": 224.2,
-        "delivered_material_cost_low": 184.4,
-        "delivered_material_cost_high": 247.2,
-        "onsite_labor_hours_low": 1.08,
-        "onsite_labor_hours_high": 1.5,
-        "offsite_labor_hours_low": 2.7,
-        "offsite_labor_hours_high": 3.75
+        "material_cost_low": 33.4,
+        "material_cost_high": 44.8,
+        "delivered_material_cost_low": 36.9,
+        "delivered_material_cost_high": 49.4,
+        "onsite_labor_hours_low": 0.22,
+        "onsite_labor_hours_high": 0.3,
+        "offsite_labor_hours_low": 0.54,
+        "offsite_labor_hours_high": 0.75
       },
-      "provenance_status": "reference_calibrated",
+      "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 190.0,
+          "value": 38.0,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
-          "notes": "Net EUR ex-works material per m3; onsite labor person-hours per m3. Installed reference split into material vs labor via category material_share.",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
+          "notes": "Net EUR ex-works material per m2; labour person-hours per m2. Rebased from the per-m3 reference using a nominal precast wall thickness of 0.20 m on the reference values of 190.0 EUR and 1.2 h onsite and 3.0 h offsite per m3, so the m2 basis is derived rather than sourced. The Elementplan element prices this product per m2.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 1.2,
+          "value": 0.24,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
           "selects_canonical": true
         }
       ]
@@ -5661,14 +5661,14 @@
     "WICP-SKYLIGHT": {
       "product": "WICP-SKYLIGHT",
       "product_uri": "https://example.org/abstract/window-connector-product/WICP-SKYLIGHT",
-      "material_cost": 560.0,
-      "price_unit": "pcs",
+      "material_cost": 466.7,
+      "price_unit": "m2",
       "waste_pct": 0.02,
       "transport_pct": 0.04,
-      "onsite_labor_hours_per_unit": 2.8,
-      "delivered_material_cost": 594.0,
+      "onsite_labor_hours_per_unit": 2.33,
+      "delivered_material_cost": 495.1,
       "demolition": {
-        "unit": "pcs",
+        "unit": "m2",
         "hours_per_unit": 0.5,
         "disposal_cost": 8.0
       },
@@ -5677,30 +5677,30 @@
         "material_high_pct": 0.18,
         "labor_low_pct": -0.1,
         "labor_high_pct": 0.25,
-        "material_cost_low": 492.8,
-        "material_cost_high": 660.8,
-        "delivered_material_cost_low": 522.7,
-        "delivered_material_cost_high": 700.9,
-        "onsite_labor_hours_low": 2.52,
-        "onsite_labor_hours_high": 3.5
+        "material_cost_low": 410.7,
+        "material_cost_high": 550.7,
+        "delivered_material_cost_low": 435.7,
+        "delivered_material_cost_high": 584.2,
+        "onsite_labor_hours_low": 2.1,
+        "onsite_labor_hours_high": 2.91
       },
-      "provenance_status": "reference_calibrated",
+      "provenance_status": "estimated",
       "observations": [
         {
           "aspect": "material_cost",
-          "value": 560.0,
+          "value": 466.7,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
-          "notes": "Net EUR ex-works material per pcs; onsite labor person-hours per pcs. Installed reference split into material vs labor via category material_share.",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
+          "notes": "Net EUR ex-works material per m2; labour person-hours per m2. Rebased from the per-piece reference using a nominal rooflight area of 1.20 m2 on the reference values of 560.0 EUR and 2.8 h per pcs, so the m2 basis is derived rather than sourced. The Elementplan element prices this product per m2.",
           "selects_canonical": true
         },
         {
           "aspect": "onsite_labor_hours_per_unit",
-          "value": 2.8,
+          "value": 2.33,
           "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-          "contributed_at": "2026-07-01",
-          "provenance_status": "reference_calibrated",
+          "contributed_at": "2026-09-16",
+          "provenance_status": "estimated",
           "selects_canonical": true
         }
       ]

@@ -92,8 +92,11 @@ concepts disagree; the build refuses to run unless every code has a positive
 ## Edit workflow
 
 1. Research a net-EUR material cost and onsite labor hours for the product,
-   keyed to its price unit (m² face, m³ member or concrete volume, m of running
-   length for railings, or piece).
+   keyed to its price unit. The price unit is **not a free choice**: it is the
+   unit of the reference quantity that the Elementplan element declares for the
+   scheme this product belongs to (m² face, m³ member or concrete volume, m of
+   running length for beams and railings). `validate_element_classification.py`
+   fails when an entry is priced in another unit than its element.
 2. Edit `entries/{NOTATION}.json`: set `material_cost`,
    `onsite_labor_hours_per_unit` (and `offsite_labor_hours_per_unit` for
    prefab), and add at least one `observation` with `reference_source` and
@@ -160,6 +163,19 @@ Which product applies to which building element is resolved by
 [`classification/mapping/elementplan-elements-to-products.mapping.ttl`](../classification/mapping/elementplan-elements-to-products.mapping.ttl).
 Each element declares one reference quantity and price unit, and every product
 of the linked scheme shares them, so an element resolves to exactly one quantity
-basis. Doors are priced per **m² of opening** (`Qto_DoorBaseQuantities.Area`),
-not per leaf; the `DCP-*` values were rebased from per-door references using a
-nominal opening area recorded in each entry's observation notes.
+basis, enforced by `validate_element_classification.py`.
+
+Where a researched reference came in another unit than the element declares, the
+entry was rebased on a nominal geometry recorded in its observation notes:
+
+| Products | Reference basis | Priced as | Nominal geometry |
+|----------|-----------------|-----------|------------------|
+| `DCP-*` | per door leaf | m² of opening (`Qto_DoorBaseQuantities.Area`) | 1.89 m² opening |
+| `WICP-SKYLIGHT` | per rooflight | m² of opening (`Qto_WindowBaseQuantities.Area`) | 1.20 m² rooflight |
+| `SWP-ORTBETON`, `SWP-PREFAB-CONC` | per m³ concrete | m² wall face (`Qto_WallBaseQuantities.NetSideArea`) | 0.20 m wall thickness |
+| `SSP-INSITU` | per m³ concrete | m² slab area (`Qto_SlabBaseQuantities.GrossArea`) | 0.28 m slab thickness |
+| `FDP-DRAINAGE`, `FDP-WATERPROOF` | per m² layer | m³ foundation volume (`Qto_FootingBaseQuantities.GrossVolume`) | 0.30 m foundation thickness |
+| `BMP-*` | per m³ member | m of beam length (`Qto_BeamBaseQuantities.Length`) | HEA 300, 200×400 mm, 300×600 mm per material |
+
+Rebased entries carry `provenance_status: estimated`, since the unit basis is
+derived rather than sourced.

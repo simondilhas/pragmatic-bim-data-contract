@@ -67,8 +67,8 @@ el:ARC-SLAB-BASE pbs:productScheme fdp:scheme ;
   skos:closeMatch fdp:FDP-OTH .
 
 el:ARC-SLAB-FLOOR pbs:productScheme ssp:scheme ;
-  pbs:referenceQuantity "GrossVolume" ;
-  pbs:priceUnit "m3" ;
+  pbs:referenceQuantity "GrossArea" ;
+  pbs:priceUnit "m2" ;
   skos:closeMatch ssp:SSP-OTH .
 
 el:ARC-SLAB-BALCONY pbs:productScheme ssp:scheme ;
@@ -97,8 +97,8 @@ el:ARC-COLUMN pbs:productScheme clp:scheme ;
   skos:closeMatch clp:CLP-OTH .
 
 el:ARC-BEAM pbs:productScheme bmp:scheme ;
-  pbs:referenceQuantity "GrossVolume" ;
-  pbs:priceUnit "m3" ;
+  pbs:referenceQuantity "Length" ;
+  pbs:priceUnit "m" ;
   skos:closeMatch bmp:BMP-OTH .
 
 el:ARC-STAIR pbs:productScheme srp:scheme ;

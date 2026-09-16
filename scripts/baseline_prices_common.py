@@ -82,35 +82,18 @@ DEFAULT_UNCERTAINTY = {
 }
 
 
-# Notations priced by volume (m3), running metre (m), or by piece (pcs).
-# Everything else is m2. Foundation elements priced by running metre in practice
-# are anchored to their dominant concrete volume (m3).
-PRICE_UNIT_M3_PREFIXES = ("CLP-", "BMP-", "SRP-")
-PRICE_UNIT_M_PREFIXES = ("RAP-",)
-
-PRICE_UNIT_M3 = {
-    "SWP-ORTBETON",
-    "SWP-PREFAB-CONC",
-    "SSP-INSITU",
-    "FDP-PAD",
-    "FDP-STRIP",
-    "FDP-RAFT",
-    "FDP-RETAINING",
-    "FDP-PILE",
-    "FDP-MICRO-PILE",
-    "FDP-OTH",
-}
-PRICE_UNIT_PCS = {"WICP-SKYLIGHT"}
+# The price unit follows the Elementplan element the product scheme serves, so that
+# every product of one scheme shares the element reference quantity: foundation
+# products per m3 of GrossVolume, columns and stairs per m3, beams per metre of
+# Length, railings per metre, everything else per m2.
+PRICE_UNIT_M3_PREFIXES = ("CLP-", "SRP-", "FDP-")
+PRICE_UNIT_M_PREFIXES = ("RAP-", "BMP-")
 
 
 def default_price_unit(notation: str) -> str:
     if notation.startswith(PRICE_UNIT_M_PREFIXES):
         return "m"
     if notation.startswith(PRICE_UNIT_M3_PREFIXES):
-        return "m3"
-    if notation in PRICE_UNIT_PCS:
-        return "pcs"
-    if notation in PRICE_UNIT_M3:
         return "m3"
     return "m2"
 

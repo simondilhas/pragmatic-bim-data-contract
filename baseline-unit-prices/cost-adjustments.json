@@ -86,7 +86,7 @@
       "waste_pct": 0.05,
       "transport_pct": 0.06,
       "material_share": 0.5,
-      "demolition": { "hours_per_unit": 1.0, "disposal_cost": 16.0 }
+      "demolition": { "hours_per_unit": 0.2, "disposal_cost": 3.0 }
     },
     "Stair Product": {
       "waste_pct": 0.05,

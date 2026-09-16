@@ -1,25 +1,25 @@
 {
   "product": "FDP-DRAINAGE",
-  "material_cost": 22.0,
-  "price_unit": "m2",
-  "onsite_labor_hours_per_unit": 0.6,
-  "provenance_status": "reference_calibrated",
+  "material_cost": 73.33,
+  "price_unit": "m3",
+  "onsite_labor_hours_per_unit": 2.0,
+  "provenance_status": "estimated",
   "observations": [
     {
       "aspect": "material_cost",
-      "value": 22.0,
+      "value": 73.33,
       "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-      "contributed_at": "2026-07-01",
-      "provenance_status": "reference_calibrated",
-      "notes": "Net EUR ex-works material per m2; onsite labor person-hours per m2. Installed reference split into material vs labor via category material_share.",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "notes": "Net EUR ex-works material per m3; labour person-hours per m3. Rebased from the per-m2 layer reference using a nominal foundation thickness of 0.30 m, so one m3 of foundation volume carries 3.33 m2 of drainage layer on the reference values of 22.0 EUR and 0.6 h per m2, so the m3 basis is derived rather than sourced. The Elementplan element prices this product per m3.",
       "selects_canonical": true
     },
     {
       "aspect": "onsite_labor_hours_per_unit",
-      "value": 0.6,
+      "value": 2.0,
       "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
-      "contributed_at": "2026-07-01",
-      "provenance_status": "reference_calibrated",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
       "selects_canonical": true
     }
   ]

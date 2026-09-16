@@ -225,6 +225,36 @@ def _check_price_coverage(errors: list[str]) -> None:
             )
 
 
+def _check_price_units(errors: list[str]) -> None:
+    """Every product of a linked scheme must be priced in the element price unit.
+
+    The element declares one reference quantity, so a product priced in another unit
+    cannot be costed from it. Also catches one scheme serving two elements that
+    declare different price units.
+    """
+    if not ENTRIES_DIR.exists():
+        return
+    units: dict[str, str] = {}
+    for path in sorted(ENTRIES_DIR.glob("*.json")):
+        entry = json.loads(path.read_text(encoding="utf-8"))
+        units[str(entry.get("product", path.stem))] = str(entry.get("price_unit"))
+
+    for element in elements_with_products():
+        ref = scheme_for(element)
+        members = sorted(n for n in units if n.startswith(ref.notation_prefix))
+        if not members:
+            errors.append(
+                f"{element.notation}: no price entries for product scheme {ref.prefix}"
+            )
+            continue
+        wrong = [f"{n}={units[n]}" for n in members if units[n] != element.price_unit]
+        if wrong:
+            errors.append(
+                f"{element.notation}: {element.quantity_pset}.{element.reference_quantity} "
+                f"requires price_unit {element.price_unit}, but {', '.join(wrong)}"
+            )
+
+
 def main() -> int:
     errors: list[str] = []
     _check_element_data(errors)
@@ -233,6 +263,7 @@ def main() -> int:
     _check_mapping(errors)
     _check_catalog(errors)
     _check_price_coverage(errors)
+    _check_price_units(errors)
 
     if errors:
         print(f"Element classification validation failed ({len(errors)} error(s)):")

@@ -92,27 +92,27 @@ BEAM_PRODUCTS: list[MemberProduct] = [
         "Steel beam",
         "Stahlträger",
         "Hot-rolled or welded steel beam used as downstand or upstand girder, including corrosion and "
-        "fire protection where required. Priced per m3 of gross member volume.",
+        "fire protection where required. Priced per running metre on a nominal HEA 300 section.",
         "Warmgewalzter oder geschweisster Stahlträger als Unterzug oder Überzug, inklusive Korrosions- "
-        "und erforderlichem Brandschutz. Preis pro m3 Bruttovolumen.",
+        "und erforderlichem Brandschutz. Preis pro Laufmeter bei Nennquerschnitt HEA 300.",
     ),
     MemberProduct(
         "BMP-TIMBER",
         "Timber beam",
         "Holzträger",
         "Solid, glued-laminated, or engineered timber beam including connectors and surface treatment. "
-        "Priced per m3 of gross member volume.",
+        "Priced per running metre on a nominal 200 x 400 mm section.",
         "Vollholz-, Brettschichtholz- oder Konstruktionsholzträger inklusive Verbindungsmittel und "
-        "Oberflächenbehandlung. Preis pro m3 Bruttovolumen.",
+        "Oberflächenbehandlung. Preis pro Laufmeter bei Nennquerschnitt 200 x 400 mm.",
     ),
     MemberProduct(
         "BMP-RC",
         "Reinforced concrete beam",
         "Stahlbetonträger",
         "Cast-in-situ or precast reinforced concrete downstand or upstand beam including formwork and "
-        "reinforcement. Priced per m3 of gross member volume.",
+        "reinforcement. Priced per running metre on a nominal 300 x 600 mm section.",
         "Ortbeton- oder Fertigteil-Stahlbetonträger als Unterzug oder Überzug inklusive Schalung und "
-        "Bewehrung. Preis pro m3 Bruttovolumen.",
+        "Bewehrung. Preis pro Laufmeter bei Nennquerschnitt 300 x 600 mm.",
     ),
     MemberProduct(
         "BMP-OTH",
@@ -287,13 +287,15 @@ SCHEMES: list[MemberProductScheme] = [
         definition_de="Produkttyp-Klassifikation für horizontale Tragglieder (Unterzüge, Überzüge, "
         "Träger) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und "
         "Referenzen für graue Emissionen zum Trägerbauteil des pragmaticBIM Elementplans.",
-        scope_note_en="Assign one concept per beam element. Baseline cost is priced per m3 of gross "
-        "member volume (Qto_BeamBaseQuantities.GrossVolume). Covers architectural (ARC-BEAM) and "
-        "structural beam elements; distinct from slab separator products (SSP) used for slabs.",
-        scope_note_de="Ein Konzept pro Trägerbauteil zuordnen. Basiskosten pro m3 Bruttovolumen "
-        "(Qto_BeamBaseQuantities.GrossVolume). Umfasst architektonische (ARC-BEAM) und tragende "
+        scope_note_en="Assign one concept per beam element. Baseline cost is priced per running metre "
+        "of beam length (Qto_BeamBaseQuantities.Length), on a nominal cross-section per material "
+        "recorded in the price entry. Covers architectural (ARC-BEAM) and structural beam elements; "
+        "distinct from slab separator products (SSP) used for slabs.",
+        scope_note_de="Ein Konzept pro Trägerbauteil zuordnen. Basiskosten pro Laufmeter Trägerlänge "
+        "(Qto_BeamBaseQuantities.Length), bezogen auf einen im Preiseintrag dokumentierten "
+        "Nennquerschnitt je Baustoff. Umfasst architektonische (ARC-BEAM) und tragende "
         "Trägerbauteile; abgegrenzt von Deckentrennelementprodukten (SSP).",
-        price_unit="m3",
+        price_unit="m",
         default_product="BMP-OTH",
         products=BEAM_PRODUCTS,
     ),

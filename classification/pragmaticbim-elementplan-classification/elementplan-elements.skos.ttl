@@ -165,9 +165,9 @@
   skos:prefLabel "Geschossdecke"@de ;
   skos:definition "Structural slab between storeys, excluding floor build-up and suspended ceiling."@en ;
   skos:definition "Tragende Decke zwischen Geschossen, ohne Bodenaufbau und Abhangdecke."@de ;
-  pbs:referenceQuantity "GrossVolume" ;
+  pbs:referenceQuantity "GrossArea" ;
   pbs:quantityPset "Qto_SlabBaseQuantities" ;
-  pbs:priceUnit "m3" ;
+  pbs:priceUnit "m2" ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "ARC-SLAB-FLOOR" .
 
@@ -265,9 +265,11 @@
   skos:prefLabel "Unterzug oder Überzug"@de ;
   skos:definition "Horizontal load-bearing member spanning between columns or walls, modelled as a downstand or upstand beam."@en ;
   skos:definition "Horizontales Tragglied zwischen Stützen oder Wänden, als Unterzug oder Überzug modelliert."@de ;
-  pbs:referenceQuantity "GrossVolume" ;
+  skos:scopeNote "Priced per running metre; the beam cross-section is carried by the product concept, so the BMP-* prices are per metre of the nominal section of that material."@en ;
+  skos:scopeNote "Bepreisung pro Laufmeter; der Trägerquerschnitt steckt im Produktkonzept, die BMP-*-Preise gelten je Laufmeter des Nennquerschnitts dieses Materials."@de ;
+  pbs:referenceQuantity "Length" ;
   pbs:quantityPset "Qto_BeamBaseQuantities" ;
-  pbs:priceUnit "m3" ;
+  pbs:priceUnit "m" ;
   dcterms:subject "IfcBeam" ;
   dcterms:identifier "ARC-BEAM" .
 
@@ -307,8 +309,8 @@
   skos:prefLabel "Fenster"@de ;
   skos:definition "Window in an exterior or interior wall, priced by the area of the wall opening it fills."@en ;
   skos:definition "Fenster in einer Aussen- oder Innenwand, bepreist über die Fläche der Wandöffnung."@de ;
-  skos:scopeNote "The Area base quantity is not yet published on the WINDOW element in the Elementplan, which exposes only OverallWidth and OverallHeight; derive the opening area from those two until the quantity is added."@en ;
-  skos:scopeNote "Die Basismenge Area ist beim Bauteil WINDOW im Elementplan noch nicht publiziert, dort stehen nur OverallWidth und OverallHeight; die Öffnungsfläche bis dahin daraus ableiten."@de ;
+  skos:scopeNote "Rooflights are priced on the same m² basis; WICP-SKYLIGHT was rebased from a per-piece reference using a nominal rooflight area."@en ;
+  skos:scopeNote "Dachfenster werden auf derselben m²-Basis bepreist; WICP-SKYLIGHT wurde von einem Stückreferenzwert über eine Nennfläche umgerechnet."@de ;
   pbs:referenceQuantity "Area" ;
   pbs:quantityPset "Qto_WindowBaseQuantities" ;
   pbs:priceUnit "m2" ;
