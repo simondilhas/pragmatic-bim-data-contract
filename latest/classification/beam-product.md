@@ -4,8 +4,8 @@ Source: [`beam-products.skos.ttl`](sources/beam-product.ttl)
 
 ## Scheme
 
-- **definition (de):** Produkttyp-Klassifikation für horizontale Tragglieder (Unterzüge, Überzüge, Träger) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Trägerbauteil des pragmatic BIM Elementplans.
-- **definition (en):** Product-type classification for horizontal load-bearing members (downstand and upstand beams, girders) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the beam element of the pragmatic BIM element plan.
+- **definition (de):** Produkttyp-Klassifikation für horizontale Tragglieder (Unterzüge, Überzüge, Träger) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Trägerbauteil des pragmaticBIM Elementplans.
+- **definition (en):** Product-type classification for horizontal load-bearing members (downstand and upstand beams, girders) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the beam element of the pragmaticBIM Elementplan.
 - **prefLabel (de):** Abstrakte Trägerprodukte
 - **prefLabel (en):** Abstract beam products
 - **title (de):** Abstrakte Trägerprodukte

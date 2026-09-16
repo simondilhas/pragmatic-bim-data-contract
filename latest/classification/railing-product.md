@@ -5,7 +5,7 @@ Source: [`railing-products.skos.ttl`](sources/railing-product.ttl)
 ## Scheme
 
 - **definition (de):** Produkttyp-Klassifikation für Geländer, Brüstungen und Absturzsicherungssysteme nach Füllung und Konstruktionsart. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Geländerbauteil des pragmatic BIM Elementplans.
-- **definition (en):** Product-type classification for railings, balustrades, and fall protection systems by infill and construction type. Used to attach baseline unit prices and embodied carbon references to the railing element of the pragmatic BIM element plan.
+- **definition (en):** Product-type classification for railings, balustrades, and fall protection systems by infill and construction type. Used to attach baseline unit prices and embodied carbon references to the railing element of the pragmaticBIM Elementplan.
 - **prefLabel (de):** Abstrakte Geländerprodukte
 - **prefLabel (en):** Abstract railing products
 - **title (de):** Abstrakte Geländerprodukte

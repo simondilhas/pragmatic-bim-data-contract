@@ -4,8 +4,8 @@ Source: [`stair-products.skos.ttl`](sources/stair-product.ttl)
 
 ## Scheme
 
-- **definition (de):** Produkttyp-Klassifikation für Treppenläufe und Podeste nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Treppenbauteil des pragmatic BIM Elementplans.
-- **definition (en):** Product-type classification for stair flights and landings by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the stair element of the pragmatic BIM element plan.
+- **definition (de):** Produkttyp-Klassifikation für Treppenläufe und Podeste nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Treppenbauteil des pragmaticBIM Elementplans.
+- **definition (en):** Product-type classification for stair flights and landings by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the stair element of the pragmaticBIM Elementplan.
 - **prefLabel (de):** Abstrakte Treppenprodukte
 - **prefLabel (en):** Abstract stair products
 - **title (de):** Abstrakte Treppenprodukte
