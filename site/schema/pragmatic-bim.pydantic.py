@@ -1003,6 +1003,22 @@ class SpaceNameType(str, Enum):
     """
     Refrigerated storage room.
     """
+    Laboratory_Storage = "rn_10_20_04"
+    """
+    Storage for laboratory materials and consumables.
+    """
+    Chemical_Storage = "rn_10_20_05"
+    """
+    Storage for chemicals.
+    """
+    Hazardous_Material_Storage = "rn_10_20_06"
+    """
+    Storage for hazardous materials.
+    """
+    Sample_Storage = "rn_10_20_07"
+    """
+    Storage for laboratory or material samples.
+    """
     Balcony = "rn_11_10_01"
     """
     Exterior projecting platform accessed from inside.
@@ -1018,6 +1034,14 @@ class SpaceNameType(str, Enum):
     Escape_Balcony = "rn_11_10_04"
     """
     Exterior balcony serving as an escape route.
+    """
+    Roof_Terrace = "rn_11_10_05"
+    """
+    Occupiable flat-roof area intended for outdoor use.
+    """
+    Maintenance_Roof = "rn_11_10_06"
+    """
+    Walkable flat-roof area accessible only for facility management and inspection.
     """
     Garden_Area = "rn_11_20_01"
     """
@@ -1063,13 +1087,37 @@ class SpaceNameType(str, Enum):
     """
     Non-occupiable air volume in the model.
     """
-    Atrium_Void = "rn_12_30_01"
+    Interior_Car_Parking = "rn_13_10_01"
     """
-    Multistory open interior volume.
+    Interior parking space for passenger cars.
     """
-    Interior_Parking_Stall = "rn_12_30_03"
+    Interior_Truck_Parking = "rn_13_10_02"
     """
-    Individual parking space within a structure.
+    Interior parking space for trucks.
+    """
+    Interior_Bicycle_Parking = "rn_13_10_03"
+    """
+    Interior parking space for bicycles.
+    """
+    Interior_Motorcycle_Parking = "rn_13_10_04"
+    """
+    Interior parking space for motorcycles.
+    """
+    Exterior_Car_Parking = "rn_13_20_01"
+    """
+    Exterior parking space for passenger cars.
+    """
+    Exterior_Truck_Parking = "rn_13_20_02"
+    """
+    Exterior parking space for trucks.
+    """
+    Exterior_Bicycle_Parking = "rn_13_20_03"
+    """
+    Exterior parking space for bicycles.
+    """
+    Exterior_Motorcycle_Parking = "rn_13_20_04"
+    """
+    Exterior parking space for motorcycles.
     """
 
 

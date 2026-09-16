@@ -11,7 +11,7 @@ map:armasuisseRoomNameToAbstractRoomNameMapping a dcterms:Dataset ;
   dcterms:description "Maps armasuisse Raumliste labels to abstract BuildingSpaceNameClassification concepts. Military-specific labels are intentionally unmapped. Regenerate with scripts/generate_armasuisse_room_name_mapping.py."@en ;
   dcterms:description "Ordnet armasuisse-Raumlistenbezeichnungen abstrakten BuildingSpaceNameClassification-Konzepten zu. Militaerspezifische Bezeichnungen bleiben absichtlich ungemappt. Regenerieren mit scripts/generate_armasuisse_room_name_mapping.py."@de .
 
-arma:raumliste_innen_fahrzeugabstellfl_che skos:closeMatch rn:RN_VOI_PRK ;
+arma:raumliste_innen_fahrzeugabstellfl_che skos:closeMatch rn:RN_PRK_INT_CAR ;
   skos:prefLabel "Fahrzeugabstellfläche"@de .
 arma:raumliste_innen_elektrische_stromversorgung skos:closeMatch rn:RN_TEC_ELC ;
   skos:prefLabel "Elektrische Stromversorgung"@de .
@@ -117,7 +117,7 @@ arma:raumliste_innen_physikalisches_technisches_labor skos:closeMatch rn:RN_LRN_
   skos:prefLabel "Physikalisches/technisches Labor"@de .
 arma:raumliste_innen_technologisches_labor skos:closeMatch rn:RN_LRN_SCI ;
   skos:prefLabel "Technologisches Labor"@de .
-arma:raumliste_innen_fahrzeugverkehrsfl_che skos:closeMatch rn:RN_VOI_PRK ;
+arma:raumliste_innen_fahrzeugverkehrsfl_che skos:closeMatch rn:RN_PRK_INT_CAR ;
   skos:prefLabel "Fahrzeugverkehrsfläche"@de .
 arma:raumliste_innen_raum_mit_allgemeiner_medizinischer_ausstattung skos:closeMatch rn:RN_HLC_TRT ;
   skos:prefLabel "Raum mit allgemeiner medizinischer Ausstattung"@de .

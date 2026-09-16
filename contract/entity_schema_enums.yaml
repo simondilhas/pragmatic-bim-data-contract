@@ -1667,6 +1667,38 @@ enums:
           de:
             source: de
             description: Kühlraum
+      rn_10_20_04:
+        description: "Storage for laboratory materials and consumables."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_LAB
+        title: Laboratory Storage
+        alt_descriptions:
+          de:
+            source: de
+            description: Laborlager
+      rn_10_20_05:
+        description: "Storage for chemicals."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_CHM
+        title: Chemical Storage
+        alt_descriptions:
+          de:
+            source: de
+            description: Chemikalienlager
+      rn_10_20_06:
+        description: "Storage for hazardous materials."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_HAZ
+        title: Hazardous Material Storage
+        alt_descriptions:
+          de:
+            source: de
+            description: Gefahrstofflager
+      rn_10_20_07:
+        description: "Storage for laboratory or material samples."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_STO_SMP
+        title: Sample Storage
+        alt_descriptions:
+          de:
+            source: de
+            description: Probenlager
       rn_11_10_01:
         description: "Exterior projecting platform accessed from inside."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_BLN
@@ -1699,6 +1731,22 @@ enums:
           de:
             source: de
             description: Fluchtbalkon
+      rn_11_10_05:
+        description: "Occupiable flat-roof area intended for outdoor use."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_RTR
+        title: Roof Terrace
+        alt_descriptions:
+          de:
+            source: de
+            description: Dachterrasse
+      rn_11_10_06:
+        description: "Walkable flat-roof area accessible only for facility management and inspection."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_RWM
+        title: Maintenance Roof
+        alt_descriptions:
+          de:
+            source: de
+            description: Wartungsdach
       rn_11_20_01:
         description: "Landscaped outdoor area as space."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_GDN
@@ -1787,22 +1835,70 @@ enums:
           de:
             source: de
             description: Luftraum
-      rn_12_30_01:
-        description: "Multistory open interior volume."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_ATR
-        title: Atrium Void
+      rn_13_10_01:
+        description: "Interior parking space for passenger cars."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_CAR
+        title: Interior Car Parking
         alt_descriptions:
           de:
             source: de
-            description: Atrium
-      rn_12_30_03:
-        description: "Individual parking space within a structure."
-        meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_PRK
-        title: Interior Parking Stall
+            description: Parkplatz PKW Innen
+      rn_13_10_02:
+        description: "Interior parking space for trucks."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_TRK
+        title: Interior Truck Parking
         alt_descriptions:
           de:
             source: de
-            description: Innenparkierplatz
+            description: Parkplatz LKW Innen
+      rn_13_10_03:
+        description: "Interior parking space for bicycles."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_BIK
+        title: Interior Bicycle Parking
+        alt_descriptions:
+          de:
+            source: de
+            description: Parkplatz Velo Innen
+      rn_13_10_04:
+        description: "Interior parking space for motorcycles."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_MTO
+        title: Interior Motorcycle Parking
+        alt_descriptions:
+          de:
+            source: de
+            description: Parkplatz Motorrad Innen
+      rn_13_20_01:
+        description: "Exterior parking space for passenger cars."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_CAR
+        title: Exterior Car Parking
+        alt_descriptions:
+          de:
+            source: de
+            description: Parkplatz PKW Aussen
+      rn_13_20_02:
+        description: "Exterior parking space for trucks."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_TRK
+        title: Exterior Truck Parking
+        alt_descriptions:
+          de:
+            source: de
+            description: Parkplatz LKW Aussen
+      rn_13_20_03:
+        description: "Exterior parking space for bicycles."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_BIK
+        title: Exterior Bicycle Parking
+        alt_descriptions:
+          de:
+            source: de
+            description: Parkplatz Velo Aussen
+      rn_13_20_04:
+        description: "Exterior parking space for motorcycles."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_MTO
+        title: Exterior Motorcycle Parking
+        alt_descriptions:
+          de:
+            source: de
+            description: Parkplatz Motorrad Aussen
   SystemDiscipline:
     enum_uri: pbs:SystemDiscipline
     description: Discipline of a building service system.

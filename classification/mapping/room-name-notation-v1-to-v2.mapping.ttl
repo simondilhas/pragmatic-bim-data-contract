@@ -275,6 +275,14 @@ v1:rn_out_prt skos:exactMatch rn:RN_OUT_PRT ;
   ex:supersedesNotation "RN-OUT-PRT" ;
   ex:mapsToNotation "RN-11-30-02" .
 
+v1:rn_out_rtr skos:exactMatch rn:RN_OUT_RTR ;
+  ex:supersedesNotation "RN-OUT-RTR" ;
+  ex:mapsToNotation "RN-11-10-05" .
+
+v1:rn_out_rwm skos:exactMatch rn:RN_OUT_RWM ;
+  ex:supersedesNotation "RN-OUT-RWM" ;
+  ex:mapsToNotation "RN-11-10-06" .
+
 v1:rn_out_spl skos:exactMatch rn:RN_OUT_SPL ;
   ex:supersedesNotation "RN-OUT-SPL" ;
   ex:mapsToNotation "RN-11-20-03" .
@@ -427,10 +435,6 @@ v1:rn_voi_air skos:exactMatch rn:RN_VOI_AIR ;
   ex:supersedesNotation "RN-VOI-AIR" ;
   ex:mapsToNotation "RN-12-20-03" .
 
-v1:rn_voi_atr skos:exactMatch rn:RN_VOI_ATR ;
-  ex:supersedesNotation "RN-VOI-ATR" ;
-  ex:mapsToNotation "RN-12-30-01" .
-
 v1:rn_voi_mch skos:exactMatch rn:RN_VOI_MCH ;
   ex:supersedesNotation "RN-VOI-MCH" ;
   ex:mapsToNotation "RN-12-20-02" .
@@ -439,9 +443,9 @@ v1:rn_voi_pln skos:exactMatch rn:RN_VOI_PLN ;
   ex:supersedesNotation "RN-VOI-PLN" ;
   ex:mapsToNotation "RN-12-20-01" .
 
-v1:rn_voi_prk skos:exactMatch rn:RN_VOI_PRK ;
+v1:rn_voi_prk skos:exactMatch rn:RN_PRK_INT_CAR ;
   ex:supersedesNotation "RN-VOI-PRK" ;
-  ex:mapsToNotation "RN-12-30-03" .
+  ex:mapsToNotation "RN-13-10-01" .
 
 v1:rn_voi_ris skos:exactMatch rn:RN_VOI_RIS ;
   ex:supersedesNotation "RN-VOI-RIS" ;

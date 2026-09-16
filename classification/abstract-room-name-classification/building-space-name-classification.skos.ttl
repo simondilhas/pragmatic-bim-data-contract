@@ -13,7 +13,7 @@
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-public-rules> ;
   skos:definition "Normalized abstract room name types for general building use on IfcSpace."@en ;
   skos:definition "Normalisierte abstrakte Raumbezeichnungen für allgemeinen Gebäudegebrauch auf IfcSpace."@de ;
-  skos:hasTopConcept :RN_RES, :RN_WRK, :RN_CIR, :RN_HYG, :RN_HLC, :RN_LRN, :RN_COM, :RN_IND, :RN_TEC, :RN_STO, :RN_OUT, :RN_VOI .
+  skos:hasTopConcept :RN_RES, :RN_WRK, :RN_CIR, :RN_HYG, :RN_HLC, :RN_LRN, :RN_COM, :RN_IND, :RN_TEC, :RN_STO, :RN_OUT, :RN_VOI, :RN_PRK .
 
 :RN_RES a skos:Concept ;
   skos:inScheme :scheme ;
@@ -153,11 +153,23 @@
   skos:notation "RN-12" ;
   skos:prefLabel "Void"@en ;
   skos:prefLabel "Hohlraum"@de ;
-  skos:definition "Normalized room names for non-occupiable void and special spaces."@en ;
-  skos:definition "Normalisierte Raumbezeichnungen für nicht nutzbare Hohl- und Sonderräume."@de ;
-  skos:narrower :RN_VOI_VRT_GRP, :RN_VOI_PLN_GRP, :RN_VOI_STR_GRP ;
+  skos:definition "Normalized room names for non-occupiable void spaces."@en ;
+  skos:definition "Normalisierte Raumbezeichnungen für nicht nutzbare Hohlräume."@de ;
+  skos:narrower :RN_VOI_VRT_GRP, :RN_VOI_PLN_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-12" .
+
+:RN_PRK a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RN-13" ;
+  skos:prefLabel "Parking"@en ;
+  skos:prefLabel "Parkierung"@de ;
+  skos:definition "Normalized room names for interior and exterior parking spaces."@en ;
+  skos:definition "Normalisierte Raumbezeichnungen für Innen- und Aussenparkierung."@de ;
+  skos:narrower :RN_PRK_INT_GRP, :RN_PRK_EXT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13" .
 
 :RN_RES_LIV_GRP a skos:Concept ;
   skos:inScheme :scheme ;
@@ -476,10 +488,10 @@
   skos:notation "RN-10-20" ;
   skos:prefLabel "Specialized storage"@en ;
   skos:prefLabel "Speziallager"@de ;
-  skos:definition "Archives, mail rooms, and cold storage."@en ;
-  skos:definition "Archive, Posträume und Kühllager."@de ;
+  skos:definition "Archives, mail rooms, cold storage, and laboratory, chemical, hazardous, and sample storage."@en ;
+  skos:definition "Archive, Posträume, Kühllager sowie Labor-, Chemikalien-, Gefahrstoff- und Probenlager."@de ;
   skos:broader :RN_STO ;
-  skos:narrower :RN_STO_ARC, :RN_STO_MAL, :RN_STO_COL ;
+  skos:narrower :RN_STO_ARC, :RN_STO_MAL, :RN_STO_COL, :RN_STO_LAB, :RN_STO_CHM, :RN_STO_HAZ, :RN_STO_SMP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-20" .
 
@@ -488,10 +500,10 @@
   skos:notation "RN-11-10" ;
   skos:prefLabel "Exterior platforms"@en ;
   skos:prefLabel "Aussenplattformen"@de ;
-  skos:definition "Balconies, escape balconies, terraces, and patios."@en ;
-  skos:definition "Balkone, Fluchtbalkone, Terrassen und Innenhöfe."@de ;
+  skos:definition "Balconies, escape balconies, terraces, roof terraces, maintenance roofs, and patios."@en ;
+  skos:definition "Balkone, Fluchtbalkone, Terrassen, Dachterrassen, Wartungsdächer und Innenhöfe."@de ;
   skos:broader :RN_OUT ;
-  skos:narrower :RN_OUT_BLN, :RN_OUT_TRR, :RN_OUT_PAT, :RN_OUT_EBL ;
+  skos:narrower :RN_OUT_BLN, :RN_OUT_TRR, :RN_OUT_PAT, :RN_OUT_EBL, :RN_OUT_RTR, :RN_OUT_RWM ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-10" .
 
@@ -555,17 +567,29 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-12-20" .
 
-:RN_VOI_STR_GRP a skos:Concept ;
+:RN_PRK_INT_GRP a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:notation "RN-12-30" ;
-  skos:prefLabel "Structural and special voids"@en ;
-  skos:prefLabel "Sonderräume"@de ;
-  skos:definition "Atria and interior parking stalls."@en ;
-  skos:definition "Atrien und Innenparkierung."@de ;
-  skos:broader :RN_VOI ;
-  skos:narrower :RN_VOI_ATR, :RN_VOI_PRK ;
+  skos:notation "RN-13-10" ;
+  skos:prefLabel "Interior parking"@en ;
+  skos:prefLabel "Innenparkierung"@de ;
+  skos:definition "Parking spaces within a building or structure."@en ;
+  skos:definition "Parkplätze in einem Gebäude oder einer Anlage."@de ;
+  skos:broader :RN_PRK ;
+  skos:narrower :RN_PRK_INT_CAR, :RN_PRK_INT_TRK, :RN_PRK_INT_BIK, :RN_PRK_INT_MTO ;
   dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-12-30" .
+  dcterms:identifier "RN-13-10" .
+
+:RN_PRK_EXT_GRP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-13-20" ;
+  skos:prefLabel "Exterior parking"@en ;
+  skos:prefLabel "Aussenparkierung"@de ;
+  skos:definition "Parking spaces in outdoor areas."@en ;
+  skos:definition "Parkplätze im Aussenbereich."@de ;
+  skos:broader :RN_PRK ;
+  skos:narrower :RN_PRK_EXT_CAR, :RN_PRK_EXT_TRK, :RN_PRK_EXT_BIK, :RN_PRK_EXT_MTO ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13-20" .
 
 :RN_RES_BED a skos:Concept ;
   skos:inScheme :scheme ;
@@ -1615,6 +1639,50 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-10-20-03" .
 
+:RN_STO_LAB a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-10-20-04" ;
+  skos:prefLabel "Laboratory Storage"@en ;
+  skos:prefLabel "Laborlager"@de ;
+  skos:definition "Storage for laboratory materials and consumables."@en ;
+  skos:definition "Lager für Labormaterial und Verbrauchsgüter."@de ;
+  skos:broader :RN_STO_SPC_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-10-20-04" .
+
+:RN_STO_CHM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-10-20-05" ;
+  skos:prefLabel "Chemical Storage"@en ;
+  skos:prefLabel "Chemikalienlager"@de ;
+  skos:definition "Storage for chemicals."@en ;
+  skos:definition "Lager für Chemikalien."@de ;
+  skos:broader :RN_STO_SPC_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-10-20-05" .
+
+:RN_STO_HAZ a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-10-20-06" ;
+  skos:prefLabel "Hazardous Material Storage"@en ;
+  skos:prefLabel "Gefahrstofflager"@de ;
+  skos:definition "Storage for hazardous materials."@en ;
+  skos:definition "Lager für Gefahrstoffe."@de ;
+  skos:broader :RN_STO_SPC_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-10-20-06" .
+
+:RN_STO_SMP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-10-20-07" ;
+  skos:prefLabel "Sample Storage"@en ;
+  skos:prefLabel "Probenlager"@de ;
+  skos:definition "Storage for laboratory or material samples."@en ;
+  skos:definition "Lager für Labor- oder Materialproben."@de ;
+  skos:broader :RN_STO_SPC_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-10-20-07" .
+
 :RN_OUT_BLN a skos:Concept ;
   skos:inScheme :scheme ;
   skos:notation "RN-11-10-01" ;
@@ -1658,6 +1726,28 @@
   skos:broader :RN_OUT_PLT_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-10-04" .
+
+:RN_OUT_RTR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-11-10-05" ;
+  skos:prefLabel "Roof Terrace"@en ;
+  skos:prefLabel "Dachterrasse"@de ;
+  skos:definition "Occupiable flat-roof area intended for outdoor use."@en ;
+  skos:definition "Begehbares und nutzbares Flachdach als Aussenfläche."@de ;
+  skos:broader :RN_OUT_PLT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-11-10-05" .
+
+:RN_OUT_RWM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-11-10-06" ;
+  skos:prefLabel "Maintenance Roof"@en ;
+  skos:prefLabel "Wartungsdach"@de ;
+  skos:definition "Walkable flat-roof area accessible only for facility management and inspection."@en ;
+  skos:definition "Begehbares Flachdach nur für Betrieb, Wartung und Inspektion."@de ;
+  skos:broader :RN_OUT_PLT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-11-10-06" .
 
 :RN_OUT_GDN a skos:Concept ;
   skos:inScheme :scheme ;
@@ -1783,24 +1873,90 @@
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-12-20-03" .
 
-:RN_VOI_ATR a skos:Concept ;
+:RN_PRK_INT_CAR a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:notation "RN-12-30-01" ;
-  skos:prefLabel "Atrium Void"@en ;
-  skos:prefLabel "Atrium"@de ;
-  skos:definition "Multistory open interior volume."@en ;
-  skos:definition "Mehrgeschossiger offener Innenraum."@de ;
-  skos:broader :RN_VOI_STR_GRP ;
+  skos:notation "RN-13-10-01" ;
+  skos:prefLabel "Interior Car Parking"@en ;
+  skos:prefLabel "Parkplatz PKW Innen"@de ;
+  skos:definition "Interior parking space for passenger cars."@en ;
+  skos:definition "Innenparkplatz für Personenwagen."@de ;
+  skos:broader :RN_PRK_INT_GRP ;
   dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-12-30-01" .
+  dcterms:identifier "RN-13-10-01" .
 
-:RN_VOI_PRK a skos:Concept ;
+:RN_PRK_INT_TRK a skos:Concept ;
   skos:inScheme :scheme ;
-  skos:notation "RN-12-30-03" ;
-  skos:prefLabel "Interior Parking Stall"@en ;
-  skos:prefLabel "Innenparkierplatz"@de ;
-  skos:definition "Individual parking space within a structure."@en ;
-  skos:definition "Einzelner Parkierplatz in geschlossener Anlage."@de ;
-  skos:broader :RN_VOI_STR_GRP ;
+  skos:notation "RN-13-10-02" ;
+  skos:prefLabel "Interior Truck Parking"@en ;
+  skos:prefLabel "Parkplatz LKW Innen"@de ;
+  skos:definition "Interior parking space for trucks."@en ;
+  skos:definition "Innenparkplatz für Lastwagen."@de ;
+  skos:broader :RN_PRK_INT_GRP ;
   dcterms:subject "IfcSpace" ;
-  dcterms:identifier "RN-12-30-03" .
+  dcterms:identifier "RN-13-10-02" .
+
+:RN_PRK_INT_BIK a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-13-10-03" ;
+  skos:prefLabel "Interior Bicycle Parking"@en ;
+  skos:prefLabel "Parkplatz Velo Innen"@de ;
+  skos:definition "Interior parking space for bicycles."@en ;
+  skos:definition "Innenparkplatz für Velos."@de ;
+  skos:broader :RN_PRK_INT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13-10-03" .
+
+:RN_PRK_INT_MTO a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-13-10-04" ;
+  skos:prefLabel "Interior Motorcycle Parking"@en ;
+  skos:prefLabel "Parkplatz Motorrad Innen"@de ;
+  skos:definition "Interior parking space for motorcycles."@en ;
+  skos:definition "Innenparkplatz für Motorräder."@de ;
+  skos:broader :RN_PRK_INT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13-10-04" .
+
+:RN_PRK_EXT_CAR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-13-20-01" ;
+  skos:prefLabel "Exterior Car Parking"@en ;
+  skos:prefLabel "Parkplatz PKW Aussen"@de ;
+  skos:definition "Exterior parking space for passenger cars."@en ;
+  skos:definition "Aussenparkplatz für Personenwagen."@de ;
+  skos:broader :RN_PRK_EXT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13-20-01" .
+
+:RN_PRK_EXT_TRK a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-13-20-02" ;
+  skos:prefLabel "Exterior Truck Parking"@en ;
+  skos:prefLabel "Parkplatz LKW Aussen"@de ;
+  skos:definition "Exterior parking space for trucks."@en ;
+  skos:definition "Aussenparkplatz für Lastwagen."@de ;
+  skos:broader :RN_PRK_EXT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13-20-02" .
+
+:RN_PRK_EXT_BIK a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-13-20-03" ;
+  skos:prefLabel "Exterior Bicycle Parking"@en ;
+  skos:prefLabel "Parkplatz Velo Aussen"@de ;
+  skos:definition "Exterior parking space for bicycles."@en ;
+  skos:definition "Aussenparkplatz für Velos."@de ;
+  skos:broader :RN_PRK_EXT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13-20-03" .
+
+:RN_PRK_EXT_MTO a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-13-20-04" ;
+  skos:prefLabel "Exterior Motorcycle Parking"@en ;
+  skos:prefLabel "Parkplatz Motorrad Aussen"@de ;
+  skos:definition "Exterior parking space for motorcycles."@en ;
+  skos:definition "Aussenparkplatz für Motorräder."@de ;
+  skos:broader :RN_PRK_EXT_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-13-20-04" .

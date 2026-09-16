@@ -50,8 +50,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `arma:raumliste-innen-eingangshalle` | `closeMatch` | `rn:RN-CIR-LOB` |
 | `arma:raumliste-innen-eingangshalle-kunden` | `closeMatch` | `rn:RN-CIR-LOB` |
 | `arma:raumliste-innen-elektrische-stromversorgung` | `closeMatch` | `rn:RN-TEC-ELC` |
-| `arma:raumliste-innen-fahrzeugabstellfl-che` | `closeMatch` | `rn:RN-VOI-PRK` |
-| `arma:raumliste-innen-fahrzeugverkehrsfl-che` | `closeMatch` | `rn:RN-VOI-PRK` |
+| `arma:raumliste-innen-fahrzeugabstellfl-che` | `closeMatch` | `rn:RN-PRK-INT-CAR` |
+| `arma:raumliste-innen-fahrzeugverkehrsfl-che` | `closeMatch` | `rn:RN-PRK-INT-CAR` |
 | `arma:raumliste-innen-film-und-h-rs-le` | `closeMatch` | `rn:RN-LRN-LCT` |
 | `arma:raumliste-innen-flur-halle-korridore` | `closeMatch` | `rn:RN-CIR-COR` |
 | `arma:raumliste-innen-garderoben` | `closeMatch` | `rn:RN-RES-ETR` |
