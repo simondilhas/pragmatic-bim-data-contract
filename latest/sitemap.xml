@@ -9,6 +9,14 @@
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/beam-product.html</loc>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/building-element.html</loc>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/building-metric.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
@@ -18,6 +26,10 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/classification/ceiling-covering-product.html</loc>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/column-product.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>
@@ -90,6 +102,10 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/classification/mapping-door-connector-products-to-kbob-ecobilans.html</loc>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-elements-to-products.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>
@@ -241,6 +257,10 @@
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/railing-product.html</loc>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/roles.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
@@ -266,6 +286,10 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/classification/slab-separator-product.html</loc>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/stair-product.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>

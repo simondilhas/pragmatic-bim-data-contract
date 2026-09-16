@@ -439,6 +439,7 @@
         "PriceUnitEnum": {
             "description": "Native trade unit for a baseline unit price.",
             "enum": [
+                "m",
                 "m2",
                 "m3",
                 "pcs"

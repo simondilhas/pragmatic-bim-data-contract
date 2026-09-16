@@ -1,0 +1,101 @@
+---
+search:
+  boost: 5.0
+---
+
+# Slot: due_at 
+
+
+_Due timestamp for task completion._
+
+
+
+<div data-search-exclude markdown="1">
+
+
+
+URI: [schema:deadline](https://schema.org/deadline)
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Task](Task.md) | Task entity for implementation and follow-up workflows. Entity.status covers lifecycle; task_status uses action status vocabulary URIs. Links to related entities via applies_to_entities. |  no  |
+| [DeliverableRequirement](DeliverableRequirement.md) | Deliverable or documentation requirement (model LOD, O&M manual, export format, etc.). |  no  |
+| [ScheduleRequirement](ScheduleRequirement.md) | Schedule obligation requirement (deadline, milestone, or start/finish window). |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Datetime](Datetime.md) |
+| Domain Of | [Task](Task.md), [DeliverableRequirement](DeliverableRequirement.md), [ScheduleRequirement](ScheduleRequirement.md) |
+| Slot URI | [schema:deadline](https://schema.org/deadline) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://schema.pragmaticbim.ch
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | schema:deadline |
+| native | pbs:due_at |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: due_at
+description: Due timestamp for task completion.
+from_schema: https://schema.pragmaticbim.ch
+rank: 1000
+slot_uri: schema:deadline
+domain_of:
+- Task
+- DeliverableRequirement
+- ScheduleRequirement
+range: datetime
+
+```
+</details></div>
