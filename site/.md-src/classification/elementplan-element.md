@@ -1,15 +1,15 @@
-# Abstract building elements
+# pragmaticBIM Elementplan elements
 
-Source: [`building-elements.skos.ttl`](sources/building-element.ttl)
+Source: [`elementplan-elements.skos.ttl`](sources/elementplan-element.ttl)
 
 ## Scheme
 
-- **definition (de):** Kostenrelevante Bauteile des pragmatic BIM Elementplans. Jedes Konzept trägt die eine für die Mengenermittlung verwendete IFC-Basismenge (pbs:referenceQuantity in pbs:quantityPset) sowie die zugehörige Verrechnungseinheit (pbs:priceUnit), damit ein Bauteil auf eine eindeutige Mengenbasis für die Kostenermittlung auflöst.
-- **definition (en):** Cost-relevant building elements of the pragmatic BIM element plan. Each concept carries the one IFC base quantity used for take-off (pbs:referenceQuantity in pbs:quantityPset) and the unit that quantity is billed in (pbs:priceUnit), so an element resolves to a single unambiguous quantity basis for costing.
-- **prefLabel (de):** Abstrakte Bauteile
-- **prefLabel (en):** Abstract building elements
-- **title (de):** Abstrakte Bauteile
-- **title (en):** Abstract building elements
+- **definition (de):** Kostenrelevante Bauteile des pragmaticBIM Elementplans. Jedes Konzept trägt die eine für die Mengenermittlung verwendete IFC-Basismenge (pbs:referenceQuantity in pbs:quantityPset) sowie die zugehörige Verrechnungseinheit (pbs:priceUnit), damit ein Bauteil auf eine eindeutige Mengenbasis für die Kostenermittlung auflöst.
+- **definition (en):** Cost-relevant building elements of the pragmaticBIM Elementplan. Each concept carries the one IFC base quantity used for take-off (pbs:referenceQuantity in pbs:quantityPset) and the unit that quantity is billed in (pbs:priceUnit), so an element resolves to a single unambiguous quantity basis for costing.
+- **prefLabel (de):** pragmaticBIM Elementplan Bauteile
+- **prefLabel (en):** pragmaticBIM Elementplan elements
+- **title (de):** pragmaticBIM Elementplan Bauteile
+- **title (en):** pragmaticBIM Elementplan elements
 
 ## Concepts
 
@@ -230,7 +230,7 @@ Source: [`building-elements.skos.ttl`](sources/building-element.ttl)
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note">Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine Basismenge für Möbel. Noch kein Produktschema definiert.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Furniture</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Loose or fitted furniture item recorded as a countable object.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Priced per piece from instance cardinality; the element plan publishes no base quantity for furniture. No product scheme is defined yet.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Priced per piece from instance cardinality; the Elementplan publishes no base quantity for furniture. No product scheme is defined yet.</td>
 </tr>
 <tr>
 <td>LAN-TREE</td>
@@ -240,7 +240,7 @@ Source: [`building-elements.skos.ttl`](sources/building-element.ttl)
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note">Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine Basismenge für Bäume. Noch kein Produktschema definiert.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Tree</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Existing or new tree in the site or landscape model, recorded as a countable object.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Priced per piece from instance cardinality; the element plan publishes no base quantity for trees. No product scheme is defined yet.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">Priced per piece from instance cardinality; the Elementplan publishes no base quantity for trees. No product scheme is defined yet.</td>
 </tr>
 <tr>
 <td>WINDOW</td>
@@ -250,7 +250,7 @@ Source: [`building-elements.skos.ttl`](sources/building-element.ttl)
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note">Die Basismenge Area ist beim Bauteil WINDOW im Elementplan noch nicht publiziert, dort stehen nur OverallWidth und OverallHeight; die Öffnungsfläche bis dahin daraus ableiten.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Window</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Window in an exterior or interior wall, priced by the area of the wall opening it fills.</td>
-<td class="pbs-lang-col" data-lang="en" data-field="scope_note">The Area base quantity is not yet published on the WINDOW element in the element plan, which exposes only OverallWidth and OverallHeight; derive the opening area from those two until the quantity is added.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note">The Area base quantity is not yet published on the WINDOW element in the Elementplan, which exposes only OverallWidth and OverallHeight; derive the opening area from those two until the quantity is added.</td>
 </tr>
 </tbody>
 </table>

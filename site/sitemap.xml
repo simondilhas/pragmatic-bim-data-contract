@@ -13,10 +13,6 @@
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/classification/building-element.html</loc>
-         <lastmod>2026-09-16</lastmod>
-    </url>
-    <url>
          <loc>https://schema.pragmaticbim.ch/classification/building-metric.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
@@ -50,6 +46,10 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/classification/door-connector-product.html</loc>
+         <lastmod>2026-09-16</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/elementplan-element.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>
@@ -105,7 +105,7 @@
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>
-         <loc>https://schema.pragmaticbim.ch/classification/mapping-elements-to-products.html</loc>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-elementplan-elements-to-products.html</loc>
          <lastmod>2026-09-16</lastmod>
     </url>
     <url>

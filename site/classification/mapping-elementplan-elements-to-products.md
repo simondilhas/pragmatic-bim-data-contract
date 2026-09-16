@@ -1,6 +1,6 @@
-# Abstract building elements to products mapping
+# pragmaticBIM Elementplan elements to products mapping
 
-Source: [`abstract-elements-to-products.mapping.ttl`](sources/mapping-elements-to-products.ttl)
+Source: [`elementplan-elements-to-products.mapping.ttl`](sources/mapping-elementplan-elements-to-products.ttl)
 
 External target labels are not shipped in this repository; only codes and IRIs are shown.
 
@@ -8,8 +8,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 - **description (de):** Verknüpft jedes kostenrelevante Bauteil mit dem Produkt-SKOS-Schema, dessen Konzepte es für die Bepreisung differenzieren (pbs:productScheme), sowie mit dem Sammelprodukt als Rückfallwert, wenn ein Modell keine Produktklassifikation trägt (skos:closeMatch). Jedes Konzept des referenzierten Schemas ist ein gültiges Produkt für das Bauteil; alle teilen Referenzmenge und Verrechnungseinheit des Bauteils. Bauteile ohne pbs:productScheme haben noch kein Produktvokabular. Regenerieren mit scripts/generate_element_vocabulary.py.
 - **description (en):** Links each cost-relevant building element to the product SKOS scheme whose concepts differentiate it for pricing (pbs:productScheme), plus the catch-all product used as fallback when a model carries no product classification (skos:closeMatch). Any concept of the referenced scheme is a valid product for the element; all of them share the element reference quantity and price unit. Elements without a pbs:productScheme have no product vocabulary yet. Regenerate with scripts/generate_element_vocabulary.py.
-- **title (de):** Mapping abstrakter Bauteile zu Produkten
-- **title (en):** Abstract building elements to products mapping
+- **title (de):** Mapping pragmaticBIM Elementplan Bauteile zu Produkten
+- **title (en):** pragmaticBIM Elementplan elements to products mapping
 
 ## Links
 

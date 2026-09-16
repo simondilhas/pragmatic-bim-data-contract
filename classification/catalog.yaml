@@ -46,9 +46,9 @@ vocabularies:
     path: abstract-ratio-definition/building-ratios.skos.ttl
     title: Abstract building ratios
 
-  - slug: building-element
-    path: abstract-element-classification/building-elements.skos.ttl
-    title: Abstract building elements
+  - slug: elementplan-element
+    path: pragmaticbim-elementplan-classification/elementplan-elements.skos.ttl
+    title: pragmaticBIM Elementplan elements
 
   - slug: floor-covering-product
     path: abstract-covering-product-classification/floor-covering-products.skos.ttl
@@ -219,9 +219,9 @@ mappings:
     path: mapping/abstract-metric-to-iso9836.mapping.ttl
     title: Abstract building metrics to ISO 9836 mapping
 
-  - slug: elements-to-products
-    path: mapping/abstract-elements-to-products.mapping.ttl
-    title: Abstract building elements to products mapping
+  - slug: elementplan-elements-to-products
+    path: mapping/elementplan-elements-to-products.mapping.ttl
+    title: pragmaticBIM Elementplan elements to products mapping
 
   - slug: metric-to-rics-ipms
     path: mapping/abstract-metric-to-rics-ipms.mapping.ttl

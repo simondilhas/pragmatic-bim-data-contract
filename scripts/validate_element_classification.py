@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the building element vocabulary, member product schemes, and product bridge."""
+"""Validate the Elementplan element vocabulary, member product schemes, and product bridge."""
 
 from __future__ import annotations
 
@@ -27,9 +27,12 @@ from member_product_data import ALL_PRODUCTS, SCHEMES  # noqa: E402
 PBS = Namespace("https://schema.pragmaticbim.ch/")
 EL = Namespace(EL_NS)
 
-ELEMENT_SKOS = REPO_ROOT / "classification/abstract-element-classification/building-elements.skos.ttl"
+ELEMENT_SKOS = (
+    REPO_ROOT
+    / "classification/pragmaticbim-elementplan-classification/elementplan-elements.skos.ttl"
+)
 PRODUCT_DIR = REPO_ROOT / "classification/abstract-member-product-classification"
-MAPPING = REPO_ROOT / "classification/mapping/abstract-elements-to-products.mapping.ttl"
+MAPPING = REPO_ROOT / "classification/mapping/elementplan-elements-to-products.mapping.ttl"
 CATALOG = REPO_ROOT / "classification/catalog.yaml"
 ENTRIES_DIR = REPO_ROOT / "baseline-unit-prices/entries"
 
@@ -191,9 +194,9 @@ def _check_catalog(errors: list[str]) -> None:
         return
     text = CATALOG.read_text(encoding="utf-8")
     expected_paths = [
-        "abstract-element-classification/building-elements.skos.ttl",
+        "pragmaticbim-elementplan-classification/elementplan-elements.skos.ttl",
         *[f"abstract-member-product-classification/{s.filename}" for s in SCHEMES],
-        "mapping/abstract-elements-to-products.mapping.ttl",
+        "mapping/elementplan-elements-to-products.mapping.ttl",
     ]
     for path in expected_paths:
         if path not in text:

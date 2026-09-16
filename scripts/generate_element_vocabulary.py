@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate the building element vocabulary, member product schemes, and product bridge.
+"""Generate the Elementplan element vocabulary, member product schemes, and product bridge.
 
 Writes:
-  classification/abstract-element-classification/building-elements.skos.ttl
+  classification/pragmaticbim-elementplan-classification/elementplan-elements.skos.ttl
   classification/abstract-member-product-classification/*-products.skos.ttl
-  classification/mapping/abstract-elements-to-products.mapping.ttl
+  classification/mapping/elementplan-elements-to-products.mapping.ttl
 """
 
 from __future__ import annotations
@@ -31,37 +31,40 @@ from element_data import (  # noqa: E402
 )
 from member_product_data import SCHEMES, MemberProductScheme  # noqa: E402
 
-ELEMENT_OUT = REPO_ROOT / "classification/abstract-element-classification/building-elements.skos.ttl"
+ELEMENT_OUT = (
+    REPO_ROOT
+    / "classification/pragmaticbim-elementplan-classification/elementplan-elements.skos.ttl"
+)
 PRODUCT_DIR = REPO_ROOT / "classification/abstract-member-product-classification"
-MAPPING_OUT = REPO_ROOT / "classification/mapping/abstract-elements-to-products.mapping.ttl"
+MAPPING_OUT = REPO_ROOT / "classification/mapping/elementplan-elements-to-products.mapping.ttl"
 
 PBS_NS = "https://schema.pragmaticbim.ch/"
 MAP_NS = "https://example.org/mapping/"
 
 ELEMENT_SCHEME_DEFINITION_EN = (
-    "Cost-relevant building elements of the pragmatic BIM element plan. Each concept carries the one "
+    "Cost-relevant building elements of the pragmaticBIM Elementplan. Each concept carries the one "
     "IFC base quantity used for take-off (pbs:referenceQuantity in pbs:quantityPset) and the unit that "
     "quantity is billed in (pbs:priceUnit), so an element resolves to a single unambiguous quantity "
     "basis for costing."
 )
 ELEMENT_SCHEME_DEFINITION_DE = (
-    "Kostenrelevante Bauteile des pragmatic BIM Elementplans. Jedes Konzept trägt die eine für die "
+    "Kostenrelevante Bauteile des pragmaticBIM Elementplans. Jedes Konzept trägt die eine für die "
     "Mengenermittlung verwendete IFC-Basismenge (pbs:referenceQuantity in pbs:quantityPset) sowie die "
     "zugehörige Verrechnungseinheit (pbs:priceUnit), damit ein Bauteil auf eine eindeutige "
     "Mengenbasis für die Kostenermittlung auflöst."
 )
 ELEMENT_SCOPE_NOTE_EN = (
-    "Element codes, labels, IFC classes, and quantity sets follow the pragmatic BIM Swiss element plan "
+    "Element codes, labels, IFC classes, and quantity sets follow the pragmaticBIM Elementplan Swiss "
     "add-ons package, which is authoritative. Exactly one reference quantity per element; where the "
-    "element plan publishes several base quantities, only the costing quantity is recorded here. "
-    "Products that differentiate an element for pricing are linked through the abstract elements to "
+    "Elementplan publishes several base quantities, only the costing quantity is recorded here. "
+    "Products that differentiate an element for pricing are linked through the Elementplan elements to "
     "products mapping bridge."
 )
 ELEMENT_SCOPE_NOTE_DE = (
     "Bauteilcodes, Bezeichnungen, IFC-Klassen und Mengengruppen folgen dem Add-ons-Paket des "
-    "pragmatic BIM Elementplans Schweiz, das führend ist. Genau eine Referenzmenge pro Bauteil; wo der "
+    "pragmaticBIM Elementplans Schweiz, das führend ist. Genau eine Referenzmenge pro Bauteil; wo der "
     "Elementplan mehrere Basismengen publiziert, ist hier nur die Kostenmenge erfasst. Produkte zur "
-    "Differenzierung eines Bauteils für die Bepreisung werden über die Mapping-Brücke abstrakte "
+    "Differenzierung eines Bauteils für die Bepreisung werden über die Mapping-Brücke Elementplan "
     "Bauteile zu Produkten verknüpft."
 )
 
@@ -105,7 +108,7 @@ def _scheme_header(
         f'  dcterms:modified "{ISSUED}"^^xsd:date ;',
         f"  dcterms:license <{LICENSE}> ;",
         f"  dcterms:source <{SOURCE}> ;",
-        "  dcterms:references map:abstractElementsToProductsMapping ;",
+        "  dcterms:references map:elementplanElementsToProductsMapping ;",
         f'  skos:definition "{ttl_escape(definition_en)}"@en ;',
         f'  skos:definition "{ttl_escape(definition_de)}"@de ;',
         f'  skos:scopeNote "{ttl_escape(scope_note_en)}"@en ;',
@@ -131,9 +134,9 @@ def render_element_skos() -> str:
     ]
     lines.extend(
         _scheme_header(
-            "BuildingElement",
-            "Abstract building elements",
-            "Abstrakte Bauteile",
+            "ElementplanElement",
+            "pragmaticBIM Elementplan elements",
+            "pragmaticBIM Elementplan Bauteile",
             ELEMENT_SCHEME_DEFINITION_EN,
             ELEMENT_SCHEME_DEFINITION_DE,
             ELEMENT_SCOPE_NOTE_EN,
@@ -230,9 +233,9 @@ def render_mapping() -> str:
             "@prefix skos: <http://www.w3.org/2004/02/skos/core#> .",
             "@prefix dcterms: <http://purl.org/dc/terms/> .",
             "",
-            "map:abstractElementsToProductsMapping a dcterms:Dataset ;",
-            '  dcterms:title "Abstract building elements to products mapping"@en ;',
-            '  dcterms:title "Mapping abstrakter Bauteile zu Produkten"@de ;',
+            "map:elementplanElementsToProductsMapping a dcterms:Dataset ;",
+            '  dcterms:title "pragmaticBIM Elementplan elements to products mapping"@en ;',
+            '  dcterms:title "Mapping pragmaticBIM Elementplan Bauteile zu Produkten"@de ;',
             "  dcterms:references el:scheme, "
             + ", ".join(f"{prefix}:scheme" for prefix in prefixes)
             + " ;",

@@ -22,7 +22,6 @@ classification/
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
 ├── abstract-material-classification/   # SKOS
-├── abstract-element-classification/    # SKOS — cost-relevant building elements with reference quantity
 ├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling, facade, roof covering products
 ├── abstract-foundation-product-classification/  # SKOS — foundation products
 ├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
@@ -35,6 +34,7 @@ classification/
 ├── abstract-company-sector-classification/  # SKOS — industry sectors for company classification
 ├── abstract-domain-classification/     # SKOS — BIM discipline domains (ARC, STR, MEP)
 ├── abstract-model-classification/      # SKOS — BIM discipline-model types (Fachmodelle)
+├── pragmaticbim-elementplan-classification/  # SKOS — cost-relevant Elementplan elements with reference quantity
 └── mapping/                            # bridge TTL files
 ```
 
@@ -49,7 +49,6 @@ classification/
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
 | `abstract-material-classification/` | Abstract material categories |
-| `abstract-element-classification/` | Cost-relevant building elements, each with one reference quantity and price unit |
 | `abstract-covering-product-classification/` | Floor, wall, ceiling, facade, and roof covering product types |
 | `abstract-foundation-product-classification/` | Foundation product types (raft, strip, pile, slab-on-grade, …) |
 | `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
@@ -62,6 +61,7 @@ classification/
 | `abstract-company-sector-classification/` | Industry and sector taxonomy for classifying organizations in CRM |
 | `abstract-domain-classification/` | BIM discipline domains (architecture, structural, MEP) used as file-name prefix |
 | `abstract-model-classification/` | BIM discipline-model types (Fachmodelle) used as file-name model token |
+| `pragmaticbim-elementplan-classification/` | Cost-relevant pragmaticBIM Elementplan elements, each with one reference quantity and price unit |
 | `mapping/` | Crosswalks from abstract concepts to external code lists (SIA, D0165, BKP, …) |
 
 ## Mapping bridges
@@ -71,7 +71,7 @@ classification/
 | `mapping/connection-functional-to-physical-type.mapping.ttl` | Connection functional types → ConnectionPhysicalType enum values |
 | `mapping/mep-product-to-connection-functional-type.mapping.ttl` | MEP unit and terminal products → ConnectionFunctionalType disciplines |
 | `mapping/mep-product-to-ifc-class.mapping.ttl` | MEP unit and terminal products → IFC entity class hints |
-| `mapping/abstract-elements-to-products.mapping.ttl` | Building elements → product scheme that differentiates them for pricing, plus fallback product |
+| `mapping/elementplan-elements-to-products.mapping.ttl` | Elementplan elements → product scheme that differentiates them for pricing, plus fallback product |
 | `mapping/separator-role-to-space-activity.mapping.ttl` | Abstract separator roles → space activity |
 | `mapping/abstract-room-classification-to-d0165.mapping.ttl` | Space activity → SIA D0165 area codes |
 | `mapping/d0165-to-abstract-room-classification.mapping.ttl` | D0165 → space activity (reverse) |

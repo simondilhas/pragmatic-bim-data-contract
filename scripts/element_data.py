@@ -1,6 +1,6 @@
-"""Source data for the abstract building element classification and its product bridge.
+"""Source data for the pragmaticBIM Elementplan element classification and its product bridge.
 
-One row per element of the pragmatic BIM element plan that carries cost. Each element
+One row per element of the pragmaticBIM Elementplan that carries cost. Each element
 declares exactly one reference quantity (the IFC base quantity used for take-off), the
 price unit that quantity is billed in, and the product scheme whose concepts differentiate
 the element for pricing.
@@ -21,7 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from baseline_prices_common import SCHEME_IRI_PREFIXES  # noqa: E402
 
-EL_NS = "https://example.org/abstract/building-element/"
+EL_NS = "https://example.org/pragmaticbim/elementplan-element/"
 ISSUED = "2026-09-16"
 LICENSE = "https://creativecommons.org/licenses/by/4.0/"
 SOURCE = "https://github.com/simondilhas/pragmatic-bim-data-contract"
@@ -64,7 +64,7 @@ PRODUCT_SCHEMES: dict[str, ProductSchemeRef] = {
 
 
 @dataclass(frozen=True)
-class BuildingElement:
+class ElementplanElement:
     notation: str
     label_en: str
     label_de: str
@@ -79,8 +79,8 @@ class BuildingElement:
     scope_note_de: str = ""
 
 
-ELEMENTS: list[BuildingElement] = [
-    BuildingElement(
+ELEMENTS: list[ElementplanElement] = [
+    ElementplanElement(
         "ARC-WALL-EXT",
         "Exterior wall",
         "Aussenwand",
@@ -94,7 +94,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcWall",
         "swp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-WALL-INT-LB",
         "Load-bearing interior wall",
         "Tragende Innenwand",
@@ -106,7 +106,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcWall",
         "swp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-WALL-INT",
         "Non-load-bearing interior wall",
         "Nichttragende Innenwand",
@@ -119,7 +119,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcWall",
         "swp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-WALL-CLAD-EXT",
         "Facade cladding",
         "Fassadenbekleidung",
@@ -133,7 +133,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcCovering",
         "facp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-WALL-CLAD",
         "Interior wall covering",
         "Innenwandbekleidung",
@@ -145,7 +145,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcCovering",
         "wcp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-FLOOR-COV",
         "Floor build-up",
         "Bodenaufbau",
@@ -159,7 +159,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcCovering",
         "fcp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-CEILING",
         "Suspended ceiling",
         "Abhangdecke",
@@ -171,7 +171,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcCovering",
         "ccp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-SLAB-BASE",
         "Base slab",
         "Bodenplatte",
@@ -185,7 +185,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcSlab",
         "fdp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-SLAB-FLOOR",
         "Floor slab",
         "Geschossdecke",
@@ -197,7 +197,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcSlab",
         "ssp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-SLAB-BALCONY",
         "Balcony slab",
         "Balkon",
@@ -211,7 +211,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcSlab",
         "ssp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-ROOF-FLAT",
         "Flat roof",
         "Flachdach",
@@ -223,7 +223,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcSlab",
         "rcp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-ROOF-PITCH",
         "Pitched roof",
         "Steildach",
@@ -235,7 +235,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcRoof",
         "rcp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-ROOF-DRAIN",
         "Tapered roof insulation",
         "Gefälledämmung",
@@ -251,7 +251,7 @@ ELEMENTS: list[BuildingElement] = [
         "Noch kein Produktschema definiert; die Gefälledämmung wird derzeit nur als Teil des "
         "übergeordneten Flachdachaufbaus bepreist.",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-FOOTING",
         "Footing",
         "Fundament",
@@ -263,7 +263,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcFooting",
         "fdp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-COLUMN",
         "Column",
         "Stütze",
@@ -275,7 +275,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcColumn",
         "clp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-BEAM",
         "Beam",
         "Unterzug oder Überzug",
@@ -288,7 +288,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcBeam",
         "bmp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-STAIR",
         "Stair",
         "Treppe",
@@ -300,7 +300,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcStair",
         "srp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "ARC-RAILING",
         "Railing and fall protection",
         "Geländer und Absturzsicherung",
@@ -312,7 +312,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcRailing",
         "rap",
     ),
-    BuildingElement(
+    ElementplanElement(
         "WINDOW",
         "Window",
         "Fenster",
@@ -323,13 +323,13 @@ ELEMENTS: list[BuildingElement] = [
         "m2",
         "IfcWindow",
         "wicp",
-        "The Area base quantity is not yet published on the WINDOW element in the element plan, which "
+        "The Area base quantity is not yet published on the WINDOW element in the Elementplan, which "
         "exposes only OverallWidth and OverallHeight; derive the opening area from those two until the "
         "quantity is added.",
         "Die Basismenge Area ist beim Bauteil WINDOW im Elementplan noch nicht publiziert, dort stehen "
         "nur OverallWidth und OverallHeight; die Öffnungsfläche bis dahin daraus ableiten.",
     ),
-    BuildingElement(
+    ElementplanElement(
         "DOOR",
         "Door",
         "Tür",
@@ -341,7 +341,7 @@ ELEMENTS: list[BuildingElement] = [
         "IfcDoor",
         "dcp",
     ),
-    BuildingElement(
+    ElementplanElement(
         "FURN",
         "Furniture",
         "Möbel",
@@ -352,12 +352,12 @@ ELEMENTS: list[BuildingElement] = [
         "pcs",
         "IfcFurniture",
         "",
-        "Priced per piece from instance cardinality; the element plan publishes no base quantity for "
+        "Priced per piece from instance cardinality; the Elementplan publishes no base quantity for "
         "furniture. No product scheme is defined yet.",
         "Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine "
         "Basismenge für Möbel. Noch kein Produktschema definiert.",
     ),
-    BuildingElement(
+    ElementplanElement(
         "LAN-TREE",
         "Tree",
         "Baum",
@@ -369,7 +369,7 @@ ELEMENTS: list[BuildingElement] = [
         "pcs",
         "IfcGeographicElement",
         "",
-        "Priced per piece from instance cardinality; the element plan publishes no base quantity for "
+        "Priced per piece from instance cardinality; the Elementplan publishes no base quantity for "
         "trees. No product scheme is defined yet.",
         "Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine "
         "Basismenge für Bäume. Noch kein Produktschema definiert.",
@@ -377,11 +377,11 @@ ELEMENTS: list[BuildingElement] = [
 ]
 
 
-def elements_with_products() -> list[BuildingElement]:
+def elements_with_products() -> list[ElementplanElement]:
     return [e for e in ELEMENTS if e.product_scheme]
 
 
-def scheme_for(element: BuildingElement) -> ProductSchemeRef:
+def scheme_for(element: ElementplanElement) -> ProductSchemeRef:
     return PRODUCT_SCHEMES[element.product_scheme]
 
 

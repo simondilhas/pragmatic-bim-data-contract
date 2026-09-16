@@ -16,8 +16,8 @@
   dcterms:modified "2026-09-16"^^xsd:date ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
-  dcterms:references map:abstractElementsToProductsMapping ;
-  skos:definition "Product-type classification for railings, balustrades, and fall protection systems by infill and construction type. Used to attach baseline unit prices and embodied carbon references to the railing element of the pragmatic BIM element plan."@en ;
+  dcterms:references map:elementplanElementsToProductsMapping ;
+  skos:definition "Product-type classification for railings, balustrades, and fall protection systems by infill and construction type. Used to attach baseline unit prices and embodied carbon references to the railing element of the pragmaticBIM Elementplan."@en ;
   skos:definition "Produkttyp-Klassifikation für Geländer, Brüstungen und Absturzsicherungssysteme nach Füllung und Konstruktionsart. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Geländerbauteil des pragmatic BIM Elementplans."@de ;
   skos:scopeNote "Assign one concept per railing element. Baseline cost is priced per m of railing length (Qto_RailingBaseQuantities.Length). Complements the IFC railing PredefinedType, which records the guarding function rather than the product type."@en ;
   skos:scopeNote "Ein Konzept pro Geländerbauteil zuordnen. Basiskosten pro m Geländerlänge (Qto_RailingBaseQuantities.Length). Ergänzt den IFC-PredefinedType für Geländer, der die Schutzfunktion und nicht den Produkttyp abbildet."@de ;

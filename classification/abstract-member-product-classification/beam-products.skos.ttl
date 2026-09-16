@@ -16,9 +16,9 @@
   dcterms:modified "2026-09-16"^^xsd:date ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
-  dcterms:references map:abstractElementsToProductsMapping ;
-  skos:definition "Product-type classification for horizontal load-bearing members (downstand and upstand beams, girders) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the beam element of the pragmatic BIM element plan."@en ;
-  skos:definition "Produkttyp-Klassifikation für horizontale Tragglieder (Unterzüge, Überzüge, Träger) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Trägerbauteil des pragmatic BIM Elementplans."@de ;
+  dcterms:references map:elementplanElementsToProductsMapping ;
+  skos:definition "Product-type classification for horizontal load-bearing members (downstand and upstand beams, girders) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the beam element of the pragmaticBIM Elementplan."@en ;
+  skos:definition "Produkttyp-Klassifikation für horizontale Tragglieder (Unterzüge, Überzüge, Träger) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Trägerbauteil des pragmaticBIM Elementplans."@de ;
   skos:scopeNote "Assign one concept per beam element. Baseline cost is priced per m3 of gross member volume (Qto_BeamBaseQuantities.GrossVolume). Covers architectural (ARC-BEAM) and structural beam elements; distinct from slab separator products (SSP) used for slabs."@en ;
   skos:scopeNote "Ein Konzept pro Trägerbauteil zuordnen. Basiskosten pro m3 Bruttovolumen (Qto_BeamBaseQuantities.GrossVolume). Umfasst architektonische (ARC-BEAM) und tragende Trägerbauteile; abgegrenzt von Deckentrennelementprodukten (SSP)."@de ;
   skos:hasTopConcept

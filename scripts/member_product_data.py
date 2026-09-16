@@ -259,10 +259,10 @@ SCHEMES: list[MemberProductScheme] = [
         title_de="Abstrakte Stützenprodukte",
         definition_en="Product-type classification for vertical load-bearing members (columns and "
         "posts) by dominant construction material. Used to attach baseline unit prices and embodied "
-        "carbon references to the column element of the pragmatic BIM element plan.",
+        "carbon references to the column element of the pragmaticBIM Elementplan.",
         definition_de="Produkttyp-Klassifikation für vertikale Tragglieder (Stützen und Pfosten) nach "
         "dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für "
-        "graue Emissionen zum Stützenbauteil des pragmatic BIM Elementplans.",
+        "graue Emissionen zum Stützenbauteil des pragmaticBIM Elementplans.",
         scope_note_en="Assign one concept per column element. Baseline cost is priced per m3 of gross "
         "member volume (Qto_ColumnBaseQuantities.GrossVolume). Covers architectural (ARC-COLUMN) and "
         "structural column elements; distinct from wall separator products (SWP) used for walls.",
@@ -283,10 +283,10 @@ SCHEMES: list[MemberProductScheme] = [
         title_de="Abstrakte Trägerprodukte",
         definition_en="Product-type classification for horizontal load-bearing members (downstand and "
         "upstand beams, girders) by dominant construction material. Used to attach baseline unit "
-        "prices and embodied carbon references to the beam element of the pragmatic BIM element plan.",
+        "prices and embodied carbon references to the beam element of the pragmaticBIM Elementplan.",
         definition_de="Produkttyp-Klassifikation für horizontale Tragglieder (Unterzüge, Überzüge, "
         "Träger) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und "
-        "Referenzen für graue Emissionen zum Trägerbauteil des pragmatic BIM Elementplans.",
+        "Referenzen für graue Emissionen zum Trägerbauteil des pragmaticBIM Elementplans.",
         scope_note_en="Assign one concept per beam element. Baseline cost is priced per m3 of gross "
         "member volume (Qto_BeamBaseQuantities.GrossVolume). Covers architectural (ARC-BEAM) and "
         "structural beam elements; distinct from slab separator products (SSP) used for slabs.",
@@ -307,10 +307,10 @@ SCHEMES: list[MemberProductScheme] = [
         title_de="Abstrakte Treppenprodukte",
         definition_en="Product-type classification for stair flights and landings by dominant "
         "construction material. Used to attach baseline unit prices and embodied carbon references to "
-        "the stair element of the pragmatic BIM element plan.",
+        "the stair element of the pragmaticBIM Elementplan.",
         definition_de="Produkttyp-Klassifikation für Treppenläufe und Podeste nach dominierendem "
         "Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen "
-        "zum Treppenbauteil des pragmatic BIM Elementplans.",
+        "zum Treppenbauteil des pragmaticBIM Elementplans.",
         scope_note_en="Assign one concept per stair element. Baseline cost is priced per m3 of gross "
         "flight volume (Qto_StairBaseQuantities.GrossVolume), not per flight or per step. Railings on "
         "stairs are classified separately with railing products (RAP).",
@@ -331,7 +331,7 @@ SCHEMES: list[MemberProductScheme] = [
         title_de="Abstrakte Geländerprodukte",
         definition_en="Product-type classification for railings, balustrades, and fall protection "
         "systems by infill and construction type. Used to attach baseline unit prices and embodied "
-        "carbon references to the railing element of the pragmatic BIM element plan.",
+        "carbon references to the railing element of the pragmaticBIM Elementplan.",
         definition_de="Produkttyp-Klassifikation für Geländer, Brüstungen und "
         "Absturzsicherungssysteme nach Füllung und Konstruktionsart. Dient der Zuordnung von "
         "Basis-Einheitspreisen und Referenzen für graue Emissionen zum Geländerbauteil des pragmatic "

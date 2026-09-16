@@ -1,4 +1,4 @@
-@prefix : <https://example.org/abstract/building-element/> .
+@prefix : <https://example.org/pragmaticbim/elementplan-element/> .
 @prefix pbs: <https://schema.pragmaticbim.ch/> .
 @prefix map: <https://example.org/mapping/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -6,21 +6,21 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :scheme a skos:ConceptScheme ;
-  skos:prefLabel "Abstract building elements"@en ;
-  skos:prefLabel "Abstrakte Bauteile"@de ;
-  dcterms:title "Abstract building elements"@en ;
-  dcterms:title "Abstrakte Bauteile"@de ;
-  dcterms:identifier "BuildingElement" ;
+  skos:prefLabel "pragmaticBIM Elementplan elements"@en ;
+  skos:prefLabel "pragmaticBIM Elementplan Bauteile"@de ;
+  dcterms:title "pragmaticBIM Elementplan elements"@en ;
+  dcterms:title "pragmaticBIM Elementplan Bauteile"@de ;
+  dcterms:identifier "ElementplanElement" ;
   dcterms:creator "abstract.foundation" ;
   dcterms:issued "2026-09-16"^^xsd:date ;
   dcterms:modified "2026-09-16"^^xsd:date ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
-  dcterms:references map:abstractElementsToProductsMapping ;
-  skos:definition "Cost-relevant building elements of the pragmatic BIM element plan. Each concept carries the one IFC base quantity used for take-off (pbs:referenceQuantity in pbs:quantityPset) and the unit that quantity is billed in (pbs:priceUnit), so an element resolves to a single unambiguous quantity basis for costing."@en ;
-  skos:definition "Kostenrelevante Bauteile des pragmatic BIM Elementplans. Jedes Konzept trägt die eine für die Mengenermittlung verwendete IFC-Basismenge (pbs:referenceQuantity in pbs:quantityPset) sowie die zugehörige Verrechnungseinheit (pbs:priceUnit), damit ein Bauteil auf eine eindeutige Mengenbasis für die Kostenermittlung auflöst."@de ;
-  skos:scopeNote "Element codes, labels, IFC classes, and quantity sets follow the pragmatic BIM Swiss element plan add-ons package, which is authoritative. Exactly one reference quantity per element; where the element plan publishes several base quantities, only the costing quantity is recorded here. Products that differentiate an element for pricing are linked through the abstract elements to products mapping bridge."@en ;
-  skos:scopeNote "Bauteilcodes, Bezeichnungen, IFC-Klassen und Mengengruppen folgen dem Add-ons-Paket des pragmatic BIM Elementplans Schweiz, das führend ist. Genau eine Referenzmenge pro Bauteil; wo der Elementplan mehrere Basismengen publiziert, ist hier nur die Kostenmenge erfasst. Produkte zur Differenzierung eines Bauteils für die Bepreisung werden über die Mapping-Brücke abstrakte Bauteile zu Produkten verknüpft."@de ;
+  dcterms:references map:elementplanElementsToProductsMapping ;
+  skos:definition "Cost-relevant building elements of the pragmaticBIM Elementplan. Each concept carries the one IFC base quantity used for take-off (pbs:referenceQuantity in pbs:quantityPset) and the unit that quantity is billed in (pbs:priceUnit), so an element resolves to a single unambiguous quantity basis for costing."@en ;
+  skos:definition "Kostenrelevante Bauteile des pragmaticBIM Elementplans. Jedes Konzept trägt die eine für die Mengenermittlung verwendete IFC-Basismenge (pbs:referenceQuantity in pbs:quantityPset) sowie die zugehörige Verrechnungseinheit (pbs:priceUnit), damit ein Bauteil auf eine eindeutige Mengenbasis für die Kostenermittlung auflöst."@de ;
+  skos:scopeNote "Element codes, labels, IFC classes, and quantity sets follow the pragmaticBIM Elementplan Swiss add-ons package, which is authoritative. Exactly one reference quantity per element; where the Elementplan publishes several base quantities, only the costing quantity is recorded here. Products that differentiate an element for pricing are linked through the Elementplan elements to products mapping bridge."@en ;
+  skos:scopeNote "Bauteilcodes, Bezeichnungen, IFC-Klassen und Mengengruppen folgen dem Add-ons-Paket des pragmaticBIM Elementplans Schweiz, das führend ist. Genau eine Referenzmenge pro Bauteil; wo der Elementplan mehrere Basismengen publiziert, ist hier nur die Kostenmenge erfasst. Produkte zur Differenzierung eines Bauteils für die Bepreisung werden über die Mapping-Brücke Elementplan Bauteile zu Produkten verknüpft."@de ;
   skos:hasTopConcept
     :ARC-WALL-EXT,
     :ARC-WALL-INT-LB,
@@ -307,7 +307,7 @@
   skos:prefLabel "Fenster"@de ;
   skos:definition "Window in an exterior or interior wall, priced by the area of the wall opening it fills."@en ;
   skos:definition "Fenster in einer Aussen- oder Innenwand, bepreist über die Fläche der Wandöffnung."@de ;
-  skos:scopeNote "The Area base quantity is not yet published on the WINDOW element in the element plan, which exposes only OverallWidth and OverallHeight; derive the opening area from those two until the quantity is added."@en ;
+  skos:scopeNote "The Area base quantity is not yet published on the WINDOW element in the Elementplan, which exposes only OverallWidth and OverallHeight; derive the opening area from those two until the quantity is added."@en ;
   skos:scopeNote "Die Basismenge Area ist beim Bauteil WINDOW im Elementplan noch nicht publiziert, dort stehen nur OverallWidth und OverallHeight; die Öffnungsfläche bis dahin daraus ableiten."@de ;
   pbs:referenceQuantity "Area" ;
   pbs:quantityPset "Qto_WindowBaseQuantities" ;
@@ -337,7 +337,7 @@
   skos:prefLabel "Möbel"@de ;
   skos:definition "Loose or fitted furniture item recorded as a countable object."@en ;
   skos:definition "Losmöbel oder Einbaumöbel, als zählbares Objekt erfasst."@de ;
-  skos:scopeNote "Priced per piece from instance cardinality; the element plan publishes no base quantity for furniture. No product scheme is defined yet."@en ;
+  skos:scopeNote "Priced per piece from instance cardinality; the Elementplan publishes no base quantity for furniture. No product scheme is defined yet."@en ;
   skos:scopeNote "Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine Basismenge für Möbel. Noch kein Produktschema definiert."@de ;
   pbs:referenceQuantity "count" ;
   pbs:priceUnit "pcs" ;
@@ -352,7 +352,7 @@
   skos:prefLabel "Baum"@de ;
   skos:definition "Existing or new tree in the site or landscape model, recorded as a countable object."@en ;
   skos:definition "Bestehender oder neuer Baum im Umgebungs- oder Landschaftsmodell, als zählbares Objekt erfasst."@de ;
-  skos:scopeNote "Priced per piece from instance cardinality; the element plan publishes no base quantity for trees. No product scheme is defined yet."@en ;
+  skos:scopeNote "Priced per piece from instance cardinality; the Elementplan publishes no base quantity for trees. No product scheme is defined yet."@en ;
   skos:scopeNote "Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine Basismenge für Bäume. Noch kein Produktschema definiert."@de ;
   pbs:referenceQuantity "count" ;
   pbs:priceUnit "pcs" ;

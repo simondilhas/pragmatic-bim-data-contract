@@ -157,7 +157,7 @@ Product labels and definitions remain in
 ## Element binding
 
 Which product applies to which building element is resolved by
-[`classification/mapping/abstract-elements-to-products.mapping.ttl`](../classification/mapping/abstract-elements-to-products.mapping.ttl).
+[`classification/mapping/elementplan-elements-to-products.mapping.ttl`](../classification/mapping/elementplan-elements-to-products.mapping.ttl).
 Each element declares one reference quantity and price unit, and every product
 of the linked scheme shares them, so an element resolves to exactly one quantity
 basis. Doors are priced per **m² of opening** (`Qto_DoorBaseQuantities.Area`),

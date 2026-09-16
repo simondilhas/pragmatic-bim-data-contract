@@ -19,7 +19,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract material classification](material.md) | `abstract-material-classification/material-classification.skos.ttl` |
 | [Abstract building metrics](building-metric.md) | `abstract-metric-definition/building-metrics.skos.ttl` |
 | [Abstract building ratios](building-ratio.md) | `abstract-ratio-definition/building-ratios.skos.ttl` |
-| [Abstract building elements](building-element.md) | `abstract-element-classification/building-elements.skos.ttl` |
+| [pragmaticBIM Elementplan elements](elementplan-element.md) | `pragmaticbim-elementplan-classification/elementplan-elements.skos.ttl` |
 | [Abstract floor covering products](floor-covering-product.md) | `abstract-covering-product-classification/floor-covering-products.skos.ttl` |
 | [Abstract wall covering products](wall-covering-product.md) | `abstract-covering-product-classification/wall-covering-products.skos.ttl` |
 | [Abstract ceiling covering products](ceiling-covering-product.md) | `abstract-covering-product-classification/ceiling-covering-products.skos.ttl` |
@@ -67,7 +67,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract building metrics to SIA 416 mapping](mapping-metric-to-sia416.md) | `mapping/abstract-metric-to-sia416.mapping.ttl` |
 | [Abstract building metrics to DIN 277 mapping](mapping-metric-to-din277.md) | `mapping/abstract-metric-to-din277.mapping.ttl` |
 | [Abstract building metrics to ISO 9836 mapping](mapping-metric-to-iso9836.md) | `mapping/abstract-metric-to-iso9836.mapping.ttl` |
-| [Abstract building elements to products mapping](mapping-elements-to-products.md) | `mapping/abstract-elements-to-products.mapping.ttl` |
+| [pragmaticBIM Elementplan elements to products mapping](mapping-elementplan-elements-to-products.md) | `mapping/elementplan-elements-to-products.mapping.ttl` |
 | [Abstract building metrics to RICS IPMS mapping](mapping-metric-to-rics-ipms.md) | `mapping/abstract-metric-to-rics-ipms.mapping.ttl` |
 | [Abstract building ratios to SIA 416 mapping](mapping-ratio-to-sia416.md) | `mapping/abstract-ratio-to-sia416.mapping.ttl` |
 | [qto_buccaneer to abstract building metrics mapping](mapping-qto-buccaneer-to-metric.md) | `mapping/qto-buccaneer-to-abstract-metric.mapping.ttl` |

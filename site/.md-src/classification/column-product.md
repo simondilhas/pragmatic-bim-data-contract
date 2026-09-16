@@ -4,8 +4,8 @@ Source: [`column-products.skos.ttl`](sources/column-product.ttl)
 
 ## Scheme
 
-- **definition (de):** Produkttyp-Klassifikation für vertikale Tragglieder (Stützen und Pfosten) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Stützenbauteil des pragmatic BIM Elementplans.
-- **definition (en):** Product-type classification for vertical load-bearing members (columns and posts) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the column element of the pragmatic BIM element plan.
+- **definition (de):** Produkttyp-Klassifikation für vertikale Tragglieder (Stützen und Pfosten) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Stützenbauteil des pragmaticBIM Elementplans.
+- **definition (en):** Product-type classification for vertical load-bearing members (columns and posts) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the column element of the pragmaticBIM Elementplan.
 - **prefLabel (de):** Abstrakte Stützenprodukte
 - **prefLabel (en):** Abstract column products
 - **title (de):** Abstrakte Stützenprodukte

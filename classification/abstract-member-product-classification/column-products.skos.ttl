@@ -16,9 +16,9 @@
   dcterms:modified "2026-09-16"^^xsd:date ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
-  dcterms:references map:abstractElementsToProductsMapping ;
-  skos:definition "Product-type classification for vertical load-bearing members (columns and posts) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the column element of the pragmatic BIM element plan."@en ;
-  skos:definition "Produkttyp-Klassifikation für vertikale Tragglieder (Stützen und Pfosten) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Stützenbauteil des pragmatic BIM Elementplans."@de ;
+  dcterms:references map:elementplanElementsToProductsMapping ;
+  skos:definition "Product-type classification for vertical load-bearing members (columns and posts) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the column element of the pragmaticBIM Elementplan."@en ;
+  skos:definition "Produkttyp-Klassifikation für vertikale Tragglieder (Stützen und Pfosten) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Stützenbauteil des pragmaticBIM Elementplans."@de ;
   skos:scopeNote "Assign one concept per column element. Baseline cost is priced per m3 of gross member volume (Qto_ColumnBaseQuantities.GrossVolume). Covers architectural (ARC-COLUMN) and structural column elements; distinct from wall separator products (SWP) used for walls."@en ;
   skos:scopeNote "Ein Konzept pro Stützenbauteil zuordnen. Basiskosten pro m3 Bruttovolumen (Qto_ColumnBaseQuantities.GrossVolume). Umfasst architektonische (ARC-COLUMN) und tragende Stützenbauteile; abgegrenzt von Wandtrennelementprodukten (SWP)."@de ;
   skos:hasTopConcept
