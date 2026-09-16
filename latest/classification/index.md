@@ -76,6 +76,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract covering products to BKP mapping](mapping-covering-products-to-bkp.md) | `mapping/abstract-covering-products-to-bkp.mapping.ttl` |
 | [Abstract foundation products to BKP mapping](mapping-foundation-products-to-bkp.md) | `mapping/abstract-foundation-products-to-bkp.mapping.ttl` |
 | [Abstract roof covering products to BKP mapping](mapping-roof-covering-products-to-bkp.md) | `mapping/abstract-roof-covering-products-to-bkp.mapping.ttl` |
+| [Abstract MEP products to BKP mapping](mapping-mep-products-to-bkp.md) | `mapping/abstract-mep-products-to-bkp.mapping.ttl` |
 | [Abstract separator products to material mapping](mapping-separator-products-to-material.md) | `mapping/abstract-separator-products-to-material.mapping.ttl` |
 | [Abstract separator products to BKP mapping](mapping-separator-products-to-bkp.md) | `mapping/abstract-separator-products-to-bkp.mapping.ttl` |
 | [Abstract connector products to material mapping](mapping-connector-products-to-material.md) | `mapping/abstract-connector-products-to-material.mapping.ttl` |

@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,8 +421,8 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> Ordnet jeden BIM-Fachmodelltyp BKP-Baukostengruppen zu, aus denen der Modellinhalt stammt. closeMatch ist das Leitgewerk; relatedMatch eine sekundäre Hauptgruppe. Codes folgen dem BKP-IRI-Satz dieses Repositories (211 Baumeisterarbeiten, 213 Stahlbau, 214 Holzbau, 216 Fundamente, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Vollstaendiges BKP-Vokabular extern.</li>
-<li><strong>description (en):</strong> Maps each BIM discipline-model type to BKP construction cost groups the model content is taken from. closeMatch is the primary works package; relatedMatch is a secondary chapter. Codes follow this repository's BKP IRI set (211 Baumeisterarbeiten, 213 Stahlbau, 214 Holzbau, 216 Fundamente, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Full BKP vocabulary is external; only referenced IRIs are used.</li>
+<li><strong>description (de):</strong> Ordnet jeden BIM-Fachmodelltyp BKP-Baukostengruppen zu, aus denen der Modellinhalt stammt. closeMatch ist das Leitgewerk; relatedMatch eine sekundäre Hauptgruppe. Codes folgen dem BKP-IRI-Satz dieses Repositories (211 Baumeisterarbeiten, 212 Montagebau in Beton, 213 Stahlbau, 214 Holzbau, 17/20 Fundation und Baugrube, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative.</li>
+<li><strong>description (en):</strong> Maps each BIM discipline-model type to BKP construction cost groups the model content is taken from. closeMatch is the primary works package; relatedMatch is a secondary chapter. Codes follow this repository's BKP IRI set (211 Baumeisterarbeiten, 212 Montagebau in Beton, 213 Stahlbau, 214 Holzbau, 17/20 Fundation und Baugrube, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Full BKP vocabulary is external; only referenced IRIs are used. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative.</li>
 <li><strong>title (de):</strong> Mapping abstrakter Fachmodelle nach BKP geliefert aus</li>
 <li><strong>title (en):</strong> Abstract model to BKP delivered-from mapping</li>
 </ul>
@@ -464,7 +464,7 @@
 <tr>
 <td><code>mod:concrete-structure</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216</code></td>
+<td><code>bkp:212</code></td>
 </tr>
 <tr>
 <td><code>mod:concrete-structure</code></td>
@@ -489,7 +489,12 @@
 <tr>
 <td><code>mod:excavation-pit</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:21</code></td>
+<td><code>bkp:20</code></td>
+</tr>
+<tr>
+<td><code>mod:excavation-pit</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:17</code></td>
 </tr>
 <tr>
 <td><code>mod:facade</code></td>

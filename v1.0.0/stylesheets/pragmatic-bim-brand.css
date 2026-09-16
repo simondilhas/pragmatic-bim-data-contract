@@ -1,0 +1,163 @@
+/* Pragmatic BIM brand colors — primary palette */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-primary="custom"],
+[data-md-color-accent="custom"] {
+  --md-default-bg-color: #ffffff;
+  --md-default-bg-color--light: #ffffff;
+  --md-default-bg-color--lighter: #f5f5f5;
+  --md-default-fg-color: #000000;
+  --md-default-fg-color--light: #000000;
+  --md-default-fg-color--lighter: #333333;
+
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #ffffff;
+  --md-primary-fg-color--dark: #e8e8f5;
+  --md-primary-bg-color: #312f8a;
+  --md-primary-bg-color--light: #312f8a;
+  --md-primary-bg-color--dark: #262470;
+
+  --md-accent-fg-color: #f57f20;
+  --md-accent-bg-color: #f57f20;
+
+  --md-typeset-a-color: #f57f20;
+}
+
+.md-header,
+.md-header[data-md-state="shadow"] {
+  background-color: #312f8a;
+}
+
+.md-header__button,
+.md-header__title,
+.md-header__topic {
+  color: #ffffff;
+}
+
+.md-nav__title {
+  background-color: #312f8a;
+  color: #ffffff;
+}
+
+.md-nav__link--active,
+.md-nav__link[data-md-state="blur"]:focus,
+.md-nav__link:hover {
+  color: #f57f20;
+}
+
+.md-typeset a {
+  color: #f57f20;
+}
+
+.md-typeset a:hover,
+.md-typeset a:focus {
+  color: #d96d1a;
+}
+
+.md-main,
+.md-sidebar,
+.md-content {
+  background-color: #ffffff;
+}
+
+.md-typeset {
+  color: #000000;
+}
+
+.pbs-vocab-concepts {
+  margin-top: 0.5rem;
+}
+
+.pbs-lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.pbs-lang-btn {
+  appearance: none;
+  border: 1px solid #312f8a;
+  background: #ffffff;
+  color: #312f8a;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pbs-lang-btn:hover,
+.pbs-lang-btn:focus {
+  border-color: #f57f20;
+  color: #f57f20;
+}
+
+.pbs-lang-btn.is-active {
+  background: #312f8a;
+  border-color: #312f8a;
+  color: #ffffff;
+}
+
+.pbs-vocab-concepts .pbs-lang-col {
+  display: none;
+}
+
+.pbs-vocab-concepts[data-active-lang="de"] .pbs-lang-col[data-lang="de"],
+.pbs-vocab-concepts[data-active-lang="en"] .pbs-lang-col[data-lang="en"],
+.pbs-vocab-concepts[data-active-lang="fr"] .pbs-lang-col[data-lang="fr"],
+.pbs-vocab-concepts[data-active-lang="it"] .pbs-lang-col[data-lang="it"],
+.pbs-vocab-concepts[data-active-lang="pt"] .pbs-lang-col[data-lang="pt"],
+.pbs-vocab-concepts[data-active-lang="pt-BR"] .pbs-lang-col[data-lang="pt-BR"] {
+  display: table-cell;
+}
+
+.md-typeset .mermaid {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.pbs-version-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 0.25rem;
+}
+
+.pbs-version-label {
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pbs-version-select {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.2rem;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  max-width: 9rem;
+  padding: 0.2rem 1.4rem 0.2rem 0.45rem;
+}
+
+.pbs-version-select:focus {
+  outline: 2px solid #f57f20;
+  outline-offset: 1px;
+}
+
+.md-header .md-source.pbs-repo-link {
+  color: #ffffff;
+}
+
+.md-header .md-source.pbs-repo-link:hover {
+  opacity: 0.85;
+}
+
+.pbs-doc-meta {
+  margin-bottom: 1.5rem;
+}
