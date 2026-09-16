@@ -118,10 +118,16 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_10_20_01 | https://example.org/abstract/building-space-name-classification/RN_STO_ARC | Room for document and record archives. | Title: Archive Room<br>|
 | rn_10_20_02 | https://example.org/abstract/building-space-name-classification/RN_STO_MAL | Room for incoming and outgoing mail. | Title: Mail Room<br>|
 | rn_10_20_03 | https://example.org/abstract/building-space-name-classification/RN_STO_COL | Refrigerated storage room. | Title: Cold Storage<br>|
+| rn_10_20_04 | https://example.org/abstract/building-space-name-classification/RN_STO_LAB | Storage for laboratory materials and consumables. | Title: Laboratory Storage<br>|
+| rn_10_20_05 | https://example.org/abstract/building-space-name-classification/RN_STO_CHM | Storage for chemicals. | Title: Chemical Storage<br>|
+| rn_10_20_06 | https://example.org/abstract/building-space-name-classification/RN_STO_HAZ | Storage for hazardous materials. | Title: Hazardous Material Storage<br>|
+| rn_10_20_07 | https://example.org/abstract/building-space-name-classification/RN_STO_SMP | Storage for laboratory or material samples. | Title: Sample Storage<br>|
 | rn_11_10_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_BLN | Exterior projecting platform accessed from inside. | Title: Balcony<br>|
 | rn_11_10_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_TRR | Exterior paved or decked platform. | Title: Terrace<br>|
 | rn_11_10_03 | https://example.org/abstract/building-space-name-classification/RN_OUT_PAT | Enclosed or semi-enclosed outdoor sitting area. | Title: Patio<br>|
 | rn_11_10_04 | https://example.org/abstract/building-space-name-classification/RN_OUT_EBL | Exterior balcony serving as an escape route. | Title: Escape Balcony<br>|
+| rn_11_10_05 | https://example.org/abstract/building-space-name-classification/RN_OUT_RTR | Occupiable flat-roof area intended for outdoor use. | Title: Roof Terrace<br>|
+| rn_11_10_06 | https://example.org/abstract/building-space-name-classification/RN_OUT_RWM | Walkable flat-roof area accessible only for facility management and inspection. | Title: Maintenance Roof<br>|
 | rn_11_20_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_GDN | Landscaped outdoor area as space. | Title: Garden Area<br>|
 | rn_11_20_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_PLY | Outdoor play area. | Title: Playground<br>|
 | rn_11_20_03 | https://example.org/abstract/building-space-name-classification/RN_OUT_SPL | Outdoor pool or water feature area. | Title: Pool Area<br>|
@@ -133,8 +139,14 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_12_20_01 | https://example.org/abstract/building-space-name-classification/RN_VOI_PLN | Ceiling or floor service void. | Title: Plenum<br>|
 | rn_12_20_02 | https://example.org/abstract/building-space-name-classification/RN_VOI_MCH | Non-accessible mechanical void. | Title: Mechanical Void<br>|
 | rn_12_20_03 | https://example.org/abstract/building-space-name-classification/RN_VOI_AIR | Non-occupiable air volume in the model. | Title: Air Space<br>|
-| rn_12_30_01 | https://example.org/abstract/building-space-name-classification/RN_VOI_ATR | Multistory open interior volume. | Title: Atrium Void<br>|
-| rn_12_30_03 | https://example.org/abstract/building-space-name-classification/RN_VOI_PRK | Individual parking space within a structure. | Title: Interior Parking Stall<br>|
+| rn_13_10_01 | https://example.org/abstract/building-space-name-classification/RN_PRK_INT_CAR | Interior parking space for passenger cars. | Title: Interior Car Parking<br>|
+| rn_13_10_02 | https://example.org/abstract/building-space-name-classification/RN_PRK_INT_TRK | Interior parking space for trucks. | Title: Interior Truck Parking<br>|
+| rn_13_10_03 | https://example.org/abstract/building-space-name-classification/RN_PRK_INT_BIK | Interior parking space for bicycles. | Title: Interior Bicycle Parking<br>|
+| rn_13_10_04 | https://example.org/abstract/building-space-name-classification/RN_PRK_INT_MTO | Interior parking space for motorcycles. | Title: Interior Motorcycle Parking<br>|
+| rn_13_20_01 | https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_CAR | Exterior parking space for passenger cars. | Title: Exterior Car Parking<br>|
+| rn_13_20_02 | https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_TRK | Exterior parking space for trucks. | Title: Exterior Truck Parking<br>|
+| rn_13_20_03 | https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_BIK | Exterior parking space for bicycles. | Title: Exterior Bicycle Parking<br>|
+| rn_13_20_04 | https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_MTO | Exterior parking space for motorcycles. | Title: Exterior Motorcycle Parking<br>|
 
 
 
@@ -1037,6 +1049,42 @@ permissible_values:
         source: de
         description: Kühlraum
     title: Cold Storage
+  rn_10_20_04:
+    text: rn_10_20_04
+    description: Storage for laboratory materials and consumables.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_STO_LAB
+    alt_descriptions:
+      de:
+        source: de
+        description: Laborlager
+    title: Laboratory Storage
+  rn_10_20_05:
+    text: rn_10_20_05
+    description: Storage for chemicals.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_STO_CHM
+    alt_descriptions:
+      de:
+        source: de
+        description: Chemikalienlager
+    title: Chemical Storage
+  rn_10_20_06:
+    text: rn_10_20_06
+    description: Storage for hazardous materials.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_STO_HAZ
+    alt_descriptions:
+      de:
+        source: de
+        description: Gefahrstofflager
+    title: Hazardous Material Storage
+  rn_10_20_07:
+    text: rn_10_20_07
+    description: Storage for laboratory or material samples.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_STO_SMP
+    alt_descriptions:
+      de:
+        source: de
+        description: Probenlager
+    title: Sample Storage
   rn_11_10_01:
     text: rn_11_10_01
     description: Exterior projecting platform accessed from inside.
@@ -1073,6 +1121,25 @@ permissible_values:
         source: de
         description: Fluchtbalkon
     title: Escape Balcony
+  rn_11_10_05:
+    text: rn_11_10_05
+    description: Occupiable flat-roof area intended for outdoor use.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_RTR
+    alt_descriptions:
+      de:
+        source: de
+        description: Dachterrasse
+    title: Roof Terrace
+  rn_11_10_06:
+    text: rn_11_10_06
+    description: Walkable flat-roof area accessible only for facility management and
+      inspection.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_RWM
+    alt_descriptions:
+      de:
+        source: de
+        description: Wartungsdach
+    title: Maintenance Roof
   rn_11_20_01:
     text: rn_11_20_01
     description: Landscaped outdoor area as space.
@@ -1172,24 +1239,78 @@ permissible_values:
         source: de
         description: Luftraum
     title: Air Space
-  rn_12_30_01:
-    text: rn_12_30_01
-    description: Multistory open interior volume.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_ATR
+  rn_13_10_01:
+    text: rn_13_10_01
+    description: Interior parking space for passenger cars.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_CAR
     alt_descriptions:
       de:
         source: de
-        description: Atrium
-    title: Atrium Void
-  rn_12_30_03:
-    text: rn_12_30_03
-    description: Individual parking space within a structure.
-    meaning: https://example.org/abstract/building-space-name-classification/RN_VOI_PRK
+        description: Parkplatz PKW Innen
+    title: Interior Car Parking
+  rn_13_10_02:
+    text: rn_13_10_02
+    description: Interior parking space for trucks.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_TRK
     alt_descriptions:
       de:
         source: de
-        description: Innenparkierplatz
-    title: Interior Parking Stall
+        description: Parkplatz LKW Innen
+    title: Interior Truck Parking
+  rn_13_10_03:
+    text: rn_13_10_03
+    description: Interior parking space for bicycles.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_BIK
+    alt_descriptions:
+      de:
+        source: de
+        description: Parkplatz Velo Innen
+    title: Interior Bicycle Parking
+  rn_13_10_04:
+    text: rn_13_10_04
+    description: Interior parking space for motorcycles.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_INT_MTO
+    alt_descriptions:
+      de:
+        source: de
+        description: Parkplatz Motorrad Innen
+    title: Interior Motorcycle Parking
+  rn_13_20_01:
+    text: rn_13_20_01
+    description: Exterior parking space for passenger cars.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_CAR
+    alt_descriptions:
+      de:
+        source: de
+        description: Parkplatz PKW Aussen
+    title: Exterior Car Parking
+  rn_13_20_02:
+    text: rn_13_20_02
+    description: Exterior parking space for trucks.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_TRK
+    alt_descriptions:
+      de:
+        source: de
+        description: Parkplatz LKW Aussen
+    title: Exterior Truck Parking
+  rn_13_20_03:
+    text: rn_13_20_03
+    description: Exterior parking space for bicycles.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_BIK
+    alt_descriptions:
+      de:
+        source: de
+        description: Parkplatz Velo Aussen
+    title: Exterior Bicycle Parking
+  rn_13_20_04:
+    text: rn_13_20_04
+    description: Exterior parking space for motorcycles.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_PRK_EXT_MTO
+    alt_descriptions:
+      de:
+        source: de
+        description: Parkplatz Motorrad Aussen
+    title: Exterior Motorcycle Parking
 
 ```
 </details>

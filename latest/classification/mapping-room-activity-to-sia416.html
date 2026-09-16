@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,7 +421,7 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (en):</strong> Operational 1:n mapping between activity-based abstract classes and SIA area classes.</li>
+<li><strong>description (en):</strong> Operational 1:1 mapping from leaf activity classes to a primary SIA area class. Parent classes may remain broader.</li>
 <li><strong>title (en):</strong> Abstract Building Classification to SIA D0165 mapping</li>
 </ul>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
@@ -436,11 +436,6 @@
 <tbody>
 <tr>
 <td><code>abs:M</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:HNF</code></td>
-</tr>
-<tr>
-<td><code>abs:M-CIR</code></td>
 <td><code>mapsToSia416</code></td>
 <td><code>sia:HNF</code></td>
 </tr>
@@ -490,19 +485,9 @@
 <td><code>sia:AGF</code></td>
 </tr>
 <tr>
-<td><code>abs:O</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:UF</code></td>
-</tr>
-<tr>
 <td><code>abs:O-CIR</code></td>
 <td><code>mapsToSia416</code></td>
 <td><code>sia:AVF</code></td>
-</tr>
-<tr>
-<td><code>abs:O-CIR</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:BUF</code></td>
 </tr>
 <tr>
 <td><code>abs:O-CIR-PED</code></td>
@@ -510,19 +495,9 @@
 <td><code>sia:AVF</code></td>
 </tr>
 <tr>
-<td><code>abs:O-CIR-PED</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:BUF</code></td>
-</tr>
-<tr>
 <td><code>abs:O-CIR-RD</code></td>
 <td><code>mapsToSia416</code></td>
 <td><code>sia:AVF</code></td>
-</tr>
-<tr>
-<td><code>abs:O-CIR-RD</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:BUF</code></td>
 </tr>
 <tr>
 <td><code>abs:O-GRN</code></td>
@@ -532,11 +507,6 @@
 <tr>
 <td><code>abs:O-GRN-GDN</code></td>
 <td><code>mapsToSia416</code></td>
-<td><code>sia:BUF</code></td>
-</tr>
-<tr>
-<td><code>abs:O-GRN-GDN</code></td>
-<td><code>mapsToSia416</code></td>
 <td><code>sia:UUF</code></td>
 </tr>
 <tr>
@@ -545,39 +515,14 @@
 <td><code>sia:BUF</code></td>
 </tr>
 <tr>
-<td><code>abs:O-GRN-REC</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:UUF</code></td>
-</tr>
-<tr>
 <td><code>abs:O-GRN-SPT</code></td>
 <td><code>mapsToSia416</code></td>
 <td><code>sia:BUF</code></td>
-</tr>
-<tr>
-<td><code>abs:O-GRN-SPT</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:UUF</code></td>
-</tr>
-<tr>
-<td><code>abs:S</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:FF</code></td>
-</tr>
-<tr>
-<td><code>abs:S</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:KF</code></td>
 </tr>
 <tr>
 <td><code>abs:S</code></td>
 <td><code>mapsToSia416</code></td>
 <td><code>sia:NNF</code></td>
-</tr>
-<tr>
-<td><code>abs:S</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:VF</code></td>
 </tr>
 <tr>
 <td><code>abs:S-CIR</code></td>
@@ -642,22 +587,7 @@
 <tr>
 <td><code>abs:S-PRK</code></td>
 <td><code>mapsToSia416</code></td>
-<td><code>sia:AVF</code></td>
-</tr>
-<tr>
-<td><code>abs:S-PRK</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:BUF</code></td>
-</tr>
-<tr>
-<td><code>abs:S-PRK</code></td>
-<td><code>mapsToSia416</code></td>
 <td><code>sia:NNF</code></td>
-</tr>
-<tr>
-<td><code>abs:S-PRK-EXT</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:AVF</code></td>
 </tr>
 <tr>
 <td><code>abs:S-PRK-EXT</code></td>
@@ -668,11 +598,6 @@
 <td><code>abs:S-PRK-INT</code></td>
 <td><code>mapsToSia416</code></td>
 <td><code>sia:NNF</code></td>
-</tr>
-<tr>
-<td><code>abs:S-PRK-SVC</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:BUF</code></td>
 </tr>
 <tr>
 <td><code>abs:S-PRK-SVC</code></td>
@@ -702,11 +627,6 @@
 <tr>
 <td><code>abs:S-VOI-MLT</code></td>
 <td><code>mapsToSia416</code></td>
-<td><code>sia:KF</code></td>
-</tr>
-<tr>
-<td><code>abs:S-VOI-MLT</code></td>
-<td><code>mapsToSia416</code></td>
 <td><code>sia:VF</code></td>
 </tr>
 <tr>
@@ -723,11 +643,6 @@
 <td><code>abs:S-VOI-VRT</code></td>
 <td><code>mapsToSia416</code></td>
 <td><code>sia:FF</code></td>
-</tr>
-<tr>
-<td><code>abs:S-VOI-VRT</code></td>
-<td><code>mapsToSia416</code></td>
-<td><code>sia:VF</code></td>
 </tr>
 </tbody>
 </table>

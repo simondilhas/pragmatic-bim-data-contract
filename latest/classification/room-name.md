@@ -147,12 +147,18 @@ class n_RN_10_20["RN-10-20: Specialized storage"]
 class n_RN_10_20_01["RN-10-20-01: Archive Room"]
 class n_RN_10_20_02["RN-10-20-02: Mail Room"]
 class n_RN_10_20_03["RN-10-20-03: Cold Storage"]
+class n_RN_10_20_04["RN-10-20-04: Laboratory Storage"]
+class n_RN_10_20_05["RN-10-20-05: Chemical Storage"]
+class n_RN_10_20_06["RN-10-20-06: Hazardous Material Storage"]
+class n_RN_10_20_07["RN-10-20-07: Sample Storage"]
 class n_RN_11["RN-11: Outdoor"]
 class n_RN_11_10["RN-11-10: Exterior platforms"]
 class n_RN_11_10_01["RN-11-10-01: Balcony"]
 class n_RN_11_10_02["RN-11-10-02: Terrace"]
 class n_RN_11_10_03["RN-11-10-03: Patio"]
 class n_RN_11_10_04["RN-11-10-04: Escape Balcony"]
+class n_RN_11_10_05["RN-11-10-05: Roof Terrace"]
+class n_RN_11_10_06["RN-11-10-06: Maintenance Roof"]
 class n_RN_11_20["RN-11-20: Landscape and recreation"]
 class n_RN_11_20_01["RN-11-20-01: Garden Area"]
 class n_RN_11_20_02["RN-11-20-02: Playground"]
@@ -170,9 +176,17 @@ class n_RN_12_20["RN-12-20: Plenums and air volumes"]
 class n_RN_12_20_01["RN-12-20-01: Plenum"]
 class n_RN_12_20_02["RN-12-20-02: Mechanical Void"]
 class n_RN_12_20_03["RN-12-20-03: Air Space"]
-class n_RN_12_30["RN-12-30: Structural and special voids"]
-class n_RN_12_30_01["RN-12-30-01: Atrium Void"]
-class n_RN_12_30_03["RN-12-30-03: Interior Parking Stall"]
+class n_RN_13["RN-13: Parking"]
+class n_RN_13_10["RN-13-10: Interior parking"]
+class n_RN_13_10_01["RN-13-10-01: Interior Car Parking"]
+class n_RN_13_10_02["RN-13-10-02: Interior Truck Parking"]
+class n_RN_13_10_03["RN-13-10-03: Interior Bicycle Parking"]
+class n_RN_13_10_04["RN-13-10-04: Interior Motorcycle Parking"]
+class n_RN_13_20["RN-13-20: Exterior parking"]
+class n_RN_13_20_01["RN-13-20-01: Exterior Car Parking"]
+class n_RN_13_20_02["RN-13-20-02: Exterior Truck Parking"]
+class n_RN_13_20_03["RN-13-20-03: Exterior Bicycle Parking"]
+class n_RN_13_20_04["RN-13-20-04: Exterior Motorcycle Parking"]
 n_RN_01 <|-- n_RN_01_10
 n_RN_01 <|-- n_RN_01_20
 n_RN_01 <|-- n_RN_01_30
@@ -295,6 +309,10 @@ n_RN_10_10 <|-- n_RN_10_10_05
 n_RN_10_20 <|-- n_RN_10_20_01
 n_RN_10_20 <|-- n_RN_10_20_02
 n_RN_10_20 <|-- n_RN_10_20_03
+n_RN_10_20 <|-- n_RN_10_20_04
+n_RN_10_20 <|-- n_RN_10_20_05
+n_RN_10_20 <|-- n_RN_10_20_06
+n_RN_10_20 <|-- n_RN_10_20_07
 n_RN_11 <|-- n_RN_11_10
 n_RN_11 <|-- n_RN_11_20
 n_RN_11 <|-- n_RN_11_30
@@ -303,6 +321,8 @@ n_RN_11_10 <|-- n_RN_11_10_01
 n_RN_11_10 <|-- n_RN_11_10_02
 n_RN_11_10 <|-- n_RN_11_10_03
 n_RN_11_10 <|-- n_RN_11_10_04
+n_RN_11_10 <|-- n_RN_11_10_05
+n_RN_11_10 <|-- n_RN_11_10_06
 n_RN_11_20 <|-- n_RN_11_20_01
 n_RN_11_20 <|-- n_RN_11_20_02
 n_RN_11_20 <|-- n_RN_11_20_03
@@ -311,14 +331,21 @@ n_RN_11_30 <|-- n_RN_11_30_02
 n_RN_11_40 <|-- n_RN_11_40_01
 n_RN_12 <|-- n_RN_12_10
 n_RN_12 <|-- n_RN_12_20
-n_RN_12 <|-- n_RN_12_30
 n_RN_12_10 <|-- n_RN_12_10_01
 n_RN_12_10 <|-- n_RN_12_10_02
 n_RN_12_20 <|-- n_RN_12_20_01
 n_RN_12_20 <|-- n_RN_12_20_02
 n_RN_12_20 <|-- n_RN_12_20_03
-n_RN_12_30 <|-- n_RN_12_30_01
-n_RN_12_30 <|-- n_RN_12_30_03
+n_RN_13 <|-- n_RN_13_10
+n_RN_13 <|-- n_RN_13_20
+n_RN_13_10 <|-- n_RN_13_10_01
+n_RN_13_10 <|-- n_RN_13_10_02
+n_RN_13_10 <|-- n_RN_13_10_03
+n_RN_13_10 <|-- n_RN_13_10_04
+n_RN_13_20 <|-- n_RN_13_20_01
+n_RN_13_20 <|-- n_RN_13_20_02
+n_RN_13_20 <|-- n_RN_13_20_03
+n_RN_13_20 <|-- n_RN_13_20_04
 ```
 
 ## Concepts
@@ -1626,10 +1653,10 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-10-20</td>
 <td>RN-10</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Speziallager</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Archive, Posträume und Kühllager.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Archive, Posträume, Kühllager sowie Labor-, Chemikalien-, Gefahrstoff- und Probenlager.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Specialized storage</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Archives, mail rooms, and cold storage.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Archives, mail rooms, cold storage, and laboratory, chemical, hazardous, and sample storage.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1663,6 +1690,46 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
+<td>RN-10-20-04</td>
+<td>RN-10-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Laborlager</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Lager für Labormaterial und Verbrauchsgüter.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Laboratory Storage</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Storage for laboratory materials and consumables.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-10-20-05</td>
+<td>RN-10-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Chemikalienlager</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Lager für Chemikalien.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Chemical Storage</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Storage for chemicals.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-10-20-06</td>
+<td>RN-10-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gefahrstofflager</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Lager für Gefahrstoffe.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Hazardous Material Storage</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Storage for hazardous materials.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-10-20-07</td>
+<td>RN-10-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Probenlager</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Lager für Labor- oder Materialproben.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Sample Storage</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Storage for laboratory or material samples.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
 <td>RN-11</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussen</td>
@@ -1676,10 +1743,10 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-11-10</td>
 <td>RN-11</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussenplattformen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Balkone, Fluchtbalkone, Terrassen und Innenhöfe.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Balkone, Fluchtbalkone, Terrassen, Dachterrassen, Wartungsdächer und Innenhöfe.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Exterior platforms</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Balconies, escape balconies, terraces, and patios.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Balconies, escape balconies, terraces, roof terraces, maintenance roofs, and patios.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1720,6 +1787,26 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Escape Balcony</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior balcony serving as an escape route.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-11-10-05</td>
+<td>RN-11-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Dachterrasse</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Begehbares und nutzbares Flachdach als Aussenfläche.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Roof Terrace</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Occupiable flat-roof area intended for outdoor use.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-11-10-06</td>
+<td>RN-11-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Wartungsdach</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Begehbares Flachdach nur für Betrieb, Wartung und Inspektion.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Maintenance Roof</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Walkable flat-roof area accessible only for facility management and inspection.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1816,10 +1903,10 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td>RN-12</td>
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Hohlraum</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für nicht nutzbare Hohl- und Sonderräume.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für nicht nutzbare Hohlräume.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Void</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for non-occupiable void and special spaces.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for non-occupiable void spaces.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1893,33 +1980,113 @@ n_RN_12_30 <|-- n_RN_12_30_03
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>RN-12-30</td>
-<td>RN-12</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Sonderräume</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Atrien und Innenparkierung.</td>
+<td>RN-13</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkierung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Normalisierte Raumbezeichnungen für Innen- und Aussenparkierung.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Structural and special voids</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Atria and interior parking stalls.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Normalized room names for interior and exterior parking spaces.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>RN-12-30-01</td>
-<td>RN-12-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Atrium</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Mehrgeschossiger offener Innenraum.</td>
+<td>RN-13-10</td>
+<td>RN-13</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Innenparkierung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Parkplätze in einem Gebäude oder einer Anlage.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Atrium Void</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Multistory open interior volume.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Parking spaces within a building or structure.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
-<td>RN-12-30-03</td>
-<td>RN-12-30</td>
-<td class="pbs-lang-col" data-lang="de" data-field="label">Innenparkierplatz</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Einzelner Parkierplatz in geschlossener Anlage.</td>
+<td>RN-13-10-01</td>
+<td>RN-13-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz PKW Innen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Innenparkplatz für Personenwagen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
-<td class="pbs-lang-col" data-lang="en" data-field="label">Interior Parking Stall</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Individual parking space within a structure.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior Car Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Interior parking space for passenger cars.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-10-02</td>
+<td>RN-13-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz LKW Innen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Innenparkplatz für Lastwagen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior Truck Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Interior parking space for trucks.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-10-03</td>
+<td>RN-13-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz Velo Innen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Innenparkplatz für Velos.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior Bicycle Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Interior parking space for bicycles.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-10-04</td>
+<td>RN-13-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz Motorrad Innen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Innenparkplatz für Motorräder.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Interior Motorcycle Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Interior parking space for motorcycles.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-20</td>
+<td>RN-13</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Aussenparkierung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Parkplätze im Aussenbereich.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Parking spaces in outdoor areas.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-20-01</td>
+<td>RN-13-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz PKW Aussen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenparkplatz für Personenwagen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior Car Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior parking space for passenger cars.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-20-02</td>
+<td>RN-13-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz LKW Aussen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenparkplatz für Lastwagen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior Truck Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior parking space for trucks.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-20-03</td>
+<td>RN-13-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz Velo Aussen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenparkplatz für Velos.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior Bicycle Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior parking space for bicycles.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-13-20-04</td>
+<td>RN-13-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Parkplatz Motorrad Aussen</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussenparkplatz für Motorräder.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Exterior Motorcycle Parking</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior parking space for motorcycles.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 </tbody>

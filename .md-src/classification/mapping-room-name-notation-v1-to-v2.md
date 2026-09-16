@@ -81,6 +81,8 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-out-pat` | `exactMatch` | `rn:RN-OUT-PAT` |
 | `v1:rn-out-ply` | `exactMatch` | `rn:RN-OUT-PLY` |
 | `v1:rn-out-prt` | `exactMatch` | `rn:RN-OUT-PRT` |
+| `v1:rn-out-rtr` | `exactMatch` | `rn:RN-OUT-RTR` |
+| `v1:rn-out-rwm` | `exactMatch` | `rn:RN-OUT-RWM` |
 | `v1:rn-out-spl` | `exactMatch` | `rn:RN-OUT-SPL` |
 | `v1:rn-out-trr` | `exactMatch` | `rn:RN-OUT-TRR` |
 | `v1:rn-res-apt` | `exactMatch` | `rn:RN-RES-APT` |
@@ -119,10 +121,9 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-tec-tra` | `exactMatch` | `rn:RN-TEC-TRA` |
 | `v1:rn-tec-wst` | `exactMatch` | `rn:RN-TEC-WST` |
 | `v1:rn-voi-air` | `exactMatch` | `rn:RN-VOI-AIR` |
-| `v1:rn-voi-atr` | `exactMatch` | `rn:RN-VOI-ATR` |
 | `v1:rn-voi-mch` | `exactMatch` | `rn:RN-VOI-MCH` |
 | `v1:rn-voi-pln` | `exactMatch` | `rn:RN-VOI-PLN` |
-| `v1:rn-voi-prk` | `exactMatch` | `rn:RN-VOI-PRK` |
+| `v1:rn-voi-prk` | `exactMatch` | `rn:RN-PRK-INT-CAR` |
 | `v1:rn-voi-ris` | `exactMatch` | `rn:RN-VOI-RIS` |
 | `v1:rn-voi-sha` | `exactMatch` | `rn:RN-VOI-SHA` |
 | `v1:rn-voi-str` | `exactMatch` | `rn:RN-VOI-MCH` |
