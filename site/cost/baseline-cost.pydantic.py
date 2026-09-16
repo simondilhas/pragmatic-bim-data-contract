@@ -101,6 +101,7 @@ class PriceUnitEnum(str, Enum):
     """
     Native trade unit for a baseline unit price.
     """
+    Running_metre = "m"
     Square_metre = "m2"
     Cubic_metre = "m3"
     Piece = "pcs"

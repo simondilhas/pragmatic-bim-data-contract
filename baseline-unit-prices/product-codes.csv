@@ -1,0 +1,126 @@
+notation,category,price_unit,pref_label_en,product_uri
+BMP-OTH,Beam Product,m3,Other or unknown beam,https://example.org/abstract/beam-product/BMP-OTH
+BMP-RC,Beam Product,m3,Reinforced concrete beam,https://example.org/abstract/beam-product/BMP-RC
+BMP-STEEL,Beam Product,m3,Steel beam,https://example.org/abstract/beam-product/BMP-STEEL
+BMP-TIMBER,Beam Product,m3,Timber beam,https://example.org/abstract/beam-product/BMP-TIMBER
+CCP-GYPSUM-BOARD,Ceiling Covering,m2,Gypsum board ceiling,https://example.org/abstract/ceiling-covering-product/CCP-GYPSUM-BOARD
+CCP-METAL-GRID,Ceiling Covering,m2,Metal grid ceiling,https://example.org/abstract/ceiling-covering-product/CCP-METAL-GRID
+CCP-METAL-PANEL,Ceiling Covering,m2,Metal panel ceiling,https://example.org/abstract/ceiling-covering-product/CCP-METAL-PANEL
+CCP-METAL-SHEET,Ceiling Covering,m2,Metal sheet ceiling,https://example.org/abstract/ceiling-covering-product/CCP-METAL-SHEET
+CCP-MINERAL-FIBRE,Ceiling Covering,m2,Mineral-fibre acoustic ceiling,https://example.org/abstract/ceiling-covering-product/CCP-MINERAL-FIBRE
+CCP-OTH,Ceiling Covering,m2,Other / unknown ceiling covering,https://example.org/abstract/ceiling-covering-product/CCP-OTH
+CCP-SYNTHETIC,Ceiling Covering,m2,Synthetic ceiling lining,https://example.org/abstract/ceiling-covering-product/CCP-SYNTHETIC
+CCP-WOOD,Ceiling Covering,m2,Wood ceiling lining,https://example.org/abstract/ceiling-covering-product/CCP-WOOD
+CLP-OTH,Column Product,m3,Other or unknown column,https://example.org/abstract/column-product/CLP-OTH
+CLP-RC,Column Product,m3,Reinforced concrete column,https://example.org/abstract/column-product/CLP-RC
+CLP-STEEL,Column Product,m3,Steel column,https://example.org/abstract/column-product/CLP-STEEL
+CLP-TIMBER,Column Product,m3,Timber column,https://example.org/abstract/column-product/CLP-TIMBER
+DCP-GATE,Door Connector,m2,Gate / industrial door,https://example.org/abstract/door-connector-product/DCP-GATE
+DCP-GLASS,Door Connector,m2,Glazed door system,https://example.org/abstract/door-connector-product/DCP-GLASS
+DCP-METAL,Door Connector,m2,Metal door system,https://example.org/abstract/door-connector-product/DCP-METAL
+DCP-OTH,Door Connector,m2,Other / unknown door,https://example.org/abstract/door-connector-product/DCP-OTH
+DCP-PVC,Door Connector,m2,Plastic / PVC door system,https://example.org/abstract/door-connector-product/DCP-PVC
+DCP-SPECIAL,Door Connector,m2,Special door system,https://example.org/abstract/door-connector-product/DCP-SPECIAL
+DCP-WOOD,Door Connector,m2,Wood door system,https://example.org/abstract/door-connector-product/DCP-WOOD
+DCP-WOOD-METAL,Door Connector,m2,Wood–metal composite door,https://example.org/abstract/door-connector-product/DCP-WOOD-METAL
+FCP-ARTIFICIAL-STONE,Floor Covering,m2,Artificial stone flooring,https://example.org/abstract/floor-covering-product/FCP-ARTIFICIAL-STONE
+FCP-CARPET,Floor Covering,m2,Textile carpet,https://example.org/abstract/floor-covering-product/FCP-CARPET
+FCP-CERAMIC-TILE,Floor Covering,m2,Ceramic / porcelain tile floor,https://example.org/abstract/floor-covering-product/FCP-CERAMIC-TILE
+FCP-LAMINATE,Floor Covering,m2,Laminate flooring,https://example.org/abstract/floor-covering-product/FCP-LAMINATE
+FCP-LINOLIUM,Floor Covering,m2,Linoleum,https://example.org/abstract/floor-covering-product/FCP-LINOLIUM
+FCP-LVT,Floor Covering,m2,Vinyl / LVT floor,https://example.org/abstract/floor-covering-product/FCP-LVT
+FCP-NATURAL-STONE,Floor Covering,m2,Natural stone flooring,https://example.org/abstract/floor-covering-product/FCP-NATURAL-STONE
+FCP-OTH,Floor Covering,m2,Other / unknown floor covering,https://example.org/abstract/floor-covering-product/FCP-OTH
+FCP-PARQUET,Floor Covering,m2,Parquet / engineered wood floor,https://example.org/abstract/floor-covering-product/FCP-PARQUET
+FCP-RAISED-FLOOR,Floor Covering,m2,Raised / access floor,https://example.org/abstract/floor-covering-product/FCP-RAISED-FLOOR
+FCP-SEAMLESS-RESIN,Floor Covering,m2,Seamless resin floor,https://example.org/abstract/floor-covering-product/FCP-SEAMLESS-RESIN
+FCP-SUBFLOOR,Floor Covering,m2,Subfloor / leveling layer,https://example.org/abstract/floor-covering-product/FCP-SUBFLOOR
+FDP-DRAINAGE,Foundation Product,m2,Foundation drainage and protection,https://example.org/abstract/foundation-product/FDP-DRAINAGE
+FDP-MICRO-PILE,Foundation Product,m3,Micropile / ground improvement,https://example.org/abstract/foundation-product/FDP-MICRO-PILE
+FDP-OTH,Foundation Product,m3,Other / unknown foundation,https://example.org/abstract/foundation-product/FDP-OTH
+FDP-PAD,Foundation Product,m3,Pad / isolated footing,https://example.org/abstract/foundation-product/FDP-PAD
+FDP-PILE,Foundation Product,m3,Driven / bored pile foundation,https://example.org/abstract/foundation-product/FDP-PILE
+FDP-RAFT,Foundation Product,m3,Raft / base slab foundation,https://example.org/abstract/foundation-product/FDP-RAFT
+FDP-RETAINING,Foundation Product,m3,Basement / retaining foundation wall,https://example.org/abstract/foundation-product/FDP-RETAINING
+FDP-STRIP,Foundation Product,m3,Strip footing foundation,https://example.org/abstract/foundation-product/FDP-STRIP
+FDP-WATERPROOF,Foundation Product,m2,Foundation waterproofing / tanking,https://example.org/abstract/foundation-product/FDP-WATERPROOF
+FaCP-BIPV-INTEGRATED,European Facade Covering,m2,Building-integrated photovoltaic facade,https://example.org/abstract/facade-covering-product/FaCP-BIPV-INTEGRATED
+FaCP-BRICK-SLIP,European Facade Covering,m2,Brick slip / tile-hung ventilated facade,https://example.org/abstract/facade-covering-product/FaCP-BRICK-SLIP
+FaCP-CERAMIC-VENTILATED,European Facade Covering,m2,Ventilated ceramic tile system,https://example.org/abstract/facade-covering-product/FaCP-CERAMIC-VENTILATED
+FaCP-EXTERIOR-PAINT-COATING,European Facade Covering,m2,Exterior paint / protective coating finish,https://example.org/abstract/facade-covering-product/FaCP-EXTERIOR-PAINT-COATING
+FaCP-FIBER-CEMENT-BOARD,European Facade Covering,m2,Fibre-cement board facade,https://example.org/abstract/facade-covering-product/FaCP-FIBER-CEMENT-BOARD
+FaCP-HPL-PANEL,European Facade Covering,m2,HPL / compact laminate facade panel,https://example.org/abstract/facade-covering-product/FaCP-HPL-PANEL
+FaCP-METAL-COMPOSITE-PANEL,European Facade Covering,m2,Metal composite facade panel (ACP),https://example.org/abstract/facade-covering-product/FaCP-METAL-COMPOSITE-PANEL
+FaCP-METAL-SHEET-STANDING-SEAM,European Facade Covering,m2,Metal sheet standing-seam facade,https://example.org/abstract/facade-covering-product/FaCP-METAL-SHEET-STANDING-SEAM
+FaCP-NATURAL-STONE-VENTILATED,European Facade Covering,m2,Ventilated natural stone cladding,https://example.org/abstract/facade-covering-product/FaCP-NATURAL-STONE-VENTILATED
+FaCP-OTHER,European Facade Covering,m2,Other / unknown facade covering,https://example.org/abstract/facade-covering-product/FaCP-OTHER
+FaCP-PREFAB-MODULAR-METAL,European Facade Covering,m2,Prefabricated modular metal facade system,https://example.org/abstract/facade-covering-product/FaCP-PREFAB-MODULAR-METAL
+FaCP-PREFAB-MODULAR-TIMBER,European Facade Covering,m2,Prefabricated modular timber facade system,https://example.org/abstract/facade-covering-product/FaCP-PREFAB-MODULAR-TIMBER
+FaCP-RENDER-ETICS-WDVS,European Facade Covering,m2,Render / ETICS facade system,https://example.org/abstract/facade-covering-product/FaCP-RENDER-ETICS-WDVS
+FaCP-RETROFIT-OVERCLADDING,European Facade Covering,m2,Retrofit overcladding system (composite),https://example.org/abstract/facade-covering-product/FaCP-RETROFIT-OVERCLADDING
+FaCP-SYNTHETIC-VENTILATED,European Facade Covering,m2,Synthetic ventilated facade panel,https://example.org/abstract/facade-covering-product/FaCP-SYNTHETIC-VENTILATED
+FaCP-TIMBER-VENTILATED,European Facade Covering,m2,Timber ventilated facade system,https://example.org/abstract/facade-covering-product/FaCP-TIMBER-VENTILATED
+RAP-BALUSTER,Railing Product,m,Metal baluster railing,https://example.org/abstract/railing-product/RAP-BALUSTER
+RAP-CABLE-MESH,Railing Product,m,Cable or mesh infill railing,https://example.org/abstract/railing-product/RAP-CABLE-MESH
+RAP-GLASS-FRAMED,Railing Product,m,Framed laminated glass railing,https://example.org/abstract/railing-product/RAP-GLASS-FRAMED
+RAP-GLASS-POINT,Railing Product,m,Point-fixed structural glass railing,https://example.org/abstract/railing-product/RAP-GLASS-POINT
+RAP-HANDRAIL,Railing Product,m,Handrail only,https://example.org/abstract/railing-product/RAP-HANDRAIL
+RAP-OTH,Railing Product,m,Other or unknown railing,https://example.org/abstract/railing-product/RAP-OTH
+RAP-PARAPET-SOLID,Railing Product,m,Solid parapet,https://example.org/abstract/railing-product/RAP-PARAPET-SOLID
+RAP-PERFORATED-METAL,Railing Product,m,Perforated or expanded metal railing,https://example.org/abstract/railing-product/RAP-PERFORATED-METAL
+RAP-TIMBER,Railing Product,m,Timber railing,https://example.org/abstract/railing-product/RAP-TIMBER
+RCP-FLAT-BITUMEN,Roof Covering,m2,Built-up / bitumen flat roof,https://example.org/abstract/roof-covering-product/RCP-FLAT-BITUMEN
+RCP-FLAT-LIQUID,Roof Covering,m2,Liquid-applied flat roof,https://example.org/abstract/roof-covering-product/RCP-FLAT-LIQUID
+RCP-FLAT-SINGLE-PLY,Roof Covering,m2,Single-ply membrane flat roof,https://example.org/abstract/roof-covering-product/RCP-FLAT-SINGLE-PLY
+RCP-GREEN-EXTENSIVE,Roof Covering,m2,Extensive green roof,https://example.org/abstract/roof-covering-product/RCP-GREEN-EXTENSIVE
+RCP-GREEN-INTENSIVE,Roof Covering,m2,Intensive green roof,https://example.org/abstract/roof-covering-product/RCP-GREEN-INTENSIVE
+RCP-METAL-SHEET,Roof Covering,m2,Metal sheet roof,https://example.org/abstract/roof-covering-product/RCP-METAL-SHEET
+RCP-OTH,Roof Covering,m2,Other / unknown roof covering,https://example.org/abstract/roof-covering-product/RCP-OTH
+RCP-PV-ROOF,Roof Covering,m2,Roof-mounted photovoltaic system,https://example.org/abstract/roof-covering-product/RCP-PV-ROOF
+RCP-SLATE,Roof Covering,m2,Natural slate roof,https://example.org/abstract/roof-covering-product/RCP-SLATE
+RCP-TILE-CLAY,Roof Covering,m2,Clay tile roof,https://example.org/abstract/roof-covering-product/RCP-TILE-CLAY
+RCP-TILE-CONCRETE,Roof Covering,m2,Concrete tile roof,https://example.org/abstract/roof-covering-product/RCP-TILE-CONCRETE
+RCP-WOOD-SHINGLE,Roof Covering,m2,Wood shingle / shake roof,https://example.org/abstract/roof-covering-product/RCP-WOOD-SHINGLE
+SRP-OTH,Stair Product,m3,Other or unknown stair,https://example.org/abstract/stair-product/SRP-OTH
+SRP-RC,Stair Product,m3,Reinforced concrete stair,https://example.org/abstract/stair-product/SRP-RC
+SRP-STEEL,Stair Product,m3,Steel stair,https://example.org/abstract/stair-product/SRP-STEEL
+SRP-TIMBER,Stair Product,m3,Timber stair,https://example.org/abstract/stair-product/SRP-TIMBER
+SSP-CLT,Slab Separator,m2,Cross-laminated timber (CLT) slab,https://example.org/abstract/slab-separator-product/SSP-CLT
+SSP-HBV,Slab Separator,m2,Timber–concrete composite slab (HBV),https://example.org/abstract/slab-separator-product/SSP-HBV
+SSP-HOLZ-LEHM,Slab Separator,m2,Timber–clay slab / deck,https://example.org/abstract/slab-separator-product/SSP-HOLZ-LEHM
+SSP-INSITU,Slab Separator,m3,In-situ concrete slab,https://example.org/abstract/slab-separator-product/SSP-INSITU
+SSP-LIGHTWEIGHT,Slab Separator,m2,Lightweight slab system,https://example.org/abstract/slab-separator-product/SSP-LIGHTWEIGHT
+SSP-OTH,Slab Separator,m2,Other / unknown slab separator,https://example.org/abstract/slab-separator-product/SSP-OTH
+SSP-PREFAB-CONC,Slab Separator Layer,m2,Prefabricated concrete slab,https://example.org/abstract/slab-separator-product/SSP-PREFAB-CONC
+SSP-STEEL-COMPOSITE,Slab Separator,m2,Steel deck / composite slab,https://example.org/abstract/slab-separator-product/SSP-STEEL-COMPOSITE
+SSP-TIMBER,Slab Separator,m2,Timber slab / deck,https://example.org/abstract/slab-separator-product/SSP-TIMBER
+SWP-BLT,Wall Separator,m2,Lightweight concrete panel (BLT) wall,https://example.org/abstract/wall-separator-product/SWP-BLT
+SWP-CURTAIN-WALL,Wall Separator,m2,Curtain wall / facade system,https://example.org/abstract/wall-separator-product/SWP-CURTAIN-WALL
+SWP-ELEMENT-WALL,Wall Separator,m2,Drywall / element partition wall,https://example.org/abstract/wall-separator-product/SWP-ELEMENT-WALL
+SWP-LEICHTBAU,Wall Separator,m2,Lightweight construction wall,https://example.org/abstract/wall-separator-product/SWP-LEICHTBAU
+SWP-MASONRY,Wall Separator,m2,Masonry wall,https://example.org/abstract/wall-separator-product/SWP-MASONRY
+SWP-ORTBETON,Wall Separator,m3,In-situ concrete wall,https://example.org/abstract/wall-separator-product/SWP-ORTBETON
+SWP-OTH,Wall Separator,m2,Other / unknown wall separator,https://example.org/abstract/wall-separator-product/SWP-OTH
+SWP-PREFAB-CONC,Wall Separator,m3,Prefabricated concrete wall,https://example.org/abstract/wall-separator-product/SWP-PREFAB-CONC
+SWP-RAMMED-EARTH,Wall Separator,m2,Rammed earth wall,https://example.org/abstract/wall-separator-product/SWP-RAMMED-EARTH
+SWP-STEEL,Wall Separator,m2,Steel frame wall,https://example.org/abstract/wall-separator-product/SWP-STEEL
+SWP-TIMBER,Wall Separator,m2,Timber frame wall,https://example.org/abstract/wall-separator-product/SWP-TIMBER
+WCP-ARTIFICIAL-STONE,Wall Covering,m2,Artificial stone wall cladding,https://example.org/abstract/wall-covering-product/WCP-ARTIFICIAL-STONE
+WCP-CERAMIC-TILE,Wall Covering,m2,Ceramic / porcelain wall tile,https://example.org/abstract/wall-covering-product/WCP-CERAMIC-TILE
+WCP-NATURAL-STONE,Wall Covering,m2,Natural stone wall cladding,https://example.org/abstract/wall-covering-product/WCP-NATURAL-STONE
+WCP-OTH,Wall Covering,m2,Other / unknown wall covering,https://example.org/abstract/wall-covering-product/WCP-OTH
+WCP-PAINT,Wall Covering,m2,Interior paint finish,https://example.org/abstract/wall-covering-product/WCP-PAINT
+WCP-SEAMLESS-COATING,Wall Covering,m2,Seamless wall coating,https://example.org/abstract/wall-covering-product/WCP-SEAMLESS-COATING
+WCP-SYNTHETIC-PANEL,Wall Covering,m2,Synthetic wall panel,https://example.org/abstract/wall-covering-product/WCP-SYNTHETIC-PANEL
+WCP-TEXTILE,Wall Covering,m2,Textile wall covering,https://example.org/abstract/wall-covering-product/WCP-TEXTILE
+WCP-WALLPAPER,Wall Covering,m2,Wallpaper,https://example.org/abstract/wall-covering-product/WCP-WALLPAPER
+WCP-WOOD-PANEL,Wall Covering,m2,Wood wall panel,https://example.org/abstract/wall-covering-product/WCP-WOOD-PANEL
+WICP-ALUMINIUM,Window Connector,m2,Aluminium window system,https://example.org/abstract/window-connector-product/WICP-ALUMINIUM
+WICP-FACADE-UNIT,Window Connector,m2,Facade glazing unit,https://example.org/abstract/window-connector-product/WICP-FACADE-UNIT
+WICP-OTH,Window Connector,m2,Other / unknown window,https://example.org/abstract/window-connector-product/WICP-OTH
+WICP-PVC,Window Connector,m2,Plastic / PVC window system,https://example.org/abstract/window-connector-product/WICP-PVC
+WICP-SKYLIGHT,Window Connector,pcs,Roof window / skylight,https://example.org/abstract/window-connector-product/WICP-SKYLIGHT
+WICP-SPECIAL,Window Connector,m2,Special transparent opening,https://example.org/abstract/window-connector-product/WICP-SPECIAL
+WICP-STEEL,Window Connector,m2,Steel window system,https://example.org/abstract/window-connector-product/WICP-STEEL
+WICP-WOOD,Window Connector,m2,Wood window system,https://example.org/abstract/window-connector-product/WICP-WOOD
+WICP-WOOD-METAL,Window Connector,m2,Wood–metal composite window,https://example.org/abstract/window-connector-product/WICP-WOOD-METAL

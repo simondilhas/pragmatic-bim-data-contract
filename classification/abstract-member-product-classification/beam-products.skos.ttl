@@ -1,0 +1,72 @@
+@prefix : <https://example.org/abstract/beam-product/> .
+@prefix pbs: <https://schema.pragmaticbim.ch/> .
+@prefix map: <https://example.org/mapping/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract beam products"@en ;
+  skos:prefLabel "Abstrakte Trägerprodukte"@de ;
+  dcterms:title "Abstract beam products"@en ;
+  dcterms:title "Abstrakte Trägerprodukte"@de ;
+  dcterms:identifier "BeamProduct" ;
+  dcterms:creator "abstract.foundation" ;
+  dcterms:issued "2026-09-16"^^xsd:date ;
+  dcterms:modified "2026-09-16"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractElementsToProductsMapping ;
+  skos:definition "Product-type classification for horizontal load-bearing members (downstand and upstand beams, girders) by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the beam element of the pragmatic BIM element plan."@en ;
+  skos:definition "Produkttyp-Klassifikation für horizontale Tragglieder (Unterzüge, Überzüge, Träger) nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Trägerbauteil des pragmatic BIM Elementplans."@de ;
+  skos:scopeNote "Assign one concept per beam element. Baseline cost is priced per m3 of gross member volume (Qto_BeamBaseQuantities.GrossVolume). Covers architectural (ARC-BEAM) and structural beam elements; distinct from slab separator products (SSP) used for slabs."@en ;
+  skos:scopeNote "Ein Konzept pro Trägerbauteil zuordnen. Basiskosten pro m3 Bruttovolumen (Qto_BeamBaseQuantities.GrossVolume). Umfasst architektonische (ARC-BEAM) und tragende Trägerbauteile; abgegrenzt von Deckentrennelementprodukten (SSP)."@de ;
+  skos:hasTopConcept
+    :BMP-STEEL,
+    :BMP-TIMBER,
+    :BMP-RC,
+    :BMP-OTH .
+
+:BMP-STEEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BMP-STEEL" ;
+  skos:prefLabel "Steel beam"@en ;
+  skos:prefLabel "Stahlträger"@de ;
+  skos:definition "Hot-rolled or welded steel beam used as downstand or upstand girder, including corrosion and fire protection where required. Priced per m3 of gross member volume."@en ;
+  skos:definition "Warmgewalzter oder geschweisster Stahlträger als Unterzug oder Überzug, inklusive Korrosions- und erforderlichem Brandschutz. Preis pro m3 Bruttovolumen."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "BMP-STEEL" .
+
+:BMP-TIMBER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BMP-TIMBER" ;
+  skos:prefLabel "Timber beam"@en ;
+  skos:prefLabel "Holzträger"@de ;
+  skos:definition "Solid, glued-laminated, or engineered timber beam including connectors and surface treatment. Priced per m3 of gross member volume."@en ;
+  skos:definition "Vollholz-, Brettschichtholz- oder Konstruktionsholzträger inklusive Verbindungsmittel und Oberflächenbehandlung. Preis pro m3 Bruttovolumen."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "BMP-TIMBER" .
+
+:BMP-RC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BMP-RC" ;
+  skos:prefLabel "Reinforced concrete beam"@en ;
+  skos:prefLabel "Stahlbetonträger"@de ;
+  skos:definition "Cast-in-situ or precast reinforced concrete downstand or upstand beam including formwork and reinforcement. Priced per m3 of gross member volume."@en ;
+  skos:definition "Ortbeton- oder Fertigteil-Stahlbetonträger als Unterzug oder Überzug inklusive Schalung und Bewehrung. Preis pro m3 Bruttovolumen."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "BMP-RC" .
+
+:BMP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "BMP-OTH" ;
+  skos:prefLabel "Other or unknown beam"@en ;
+  skos:prefLabel "Anderer oder unbekannter Träger"@de ;
+  skos:definition "Fallback for beams whose material or product type is not yet determined, or for composite and masonry beams outside the listed types."@en ;
+  skos:definition "Rückfallwert für Träger mit noch unbestimmtem Material oder Produkttyp sowie für Verbund- und Mauerwerksträger ausserhalb der gelisteten Typen."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "BMP-OTH" .

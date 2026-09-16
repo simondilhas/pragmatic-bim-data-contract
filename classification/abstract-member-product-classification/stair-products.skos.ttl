@@ -1,0 +1,72 @@
+@prefix : <https://example.org/abstract/stair-product/> .
+@prefix pbs: <https://schema.pragmaticbim.ch/> .
+@prefix map: <https://example.org/mapping/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract stair products"@en ;
+  skos:prefLabel "Abstrakte Treppenprodukte"@de ;
+  dcterms:title "Abstract stair products"@en ;
+  dcterms:title "Abstrakte Treppenprodukte"@de ;
+  dcterms:identifier "StairProduct" ;
+  dcterms:creator "abstract.foundation" ;
+  dcterms:issued "2026-09-16"^^xsd:date ;
+  dcterms:modified "2026-09-16"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractElementsToProductsMapping ;
+  skos:definition "Product-type classification for stair flights and landings by dominant construction material. Used to attach baseline unit prices and embodied carbon references to the stair element of the pragmatic BIM element plan."@en ;
+  skos:definition "Produkttyp-Klassifikation für Treppenläufe und Podeste nach dominierendem Baustoff. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Treppenbauteil des pragmatic BIM Elementplans."@de ;
+  skos:scopeNote "Assign one concept per stair element. Baseline cost is priced per m3 of gross flight volume (Qto_StairBaseQuantities.GrossVolume), not per flight or per step. Railings on stairs are classified separately with railing products (RAP)."@en ;
+  skos:scopeNote "Ein Konzept pro Treppenbauteil zuordnen. Basiskosten pro m3 Bruttovolumen des Laufs (Qto_StairBaseQuantities.GrossVolume), nicht pro Lauf oder Stufe. Geländer an Treppen werden separat mit Geländerprodukten (RAP) klassifiziert."@de ;
+  skos:hasTopConcept
+    :SRP-STEEL,
+    :SRP-TIMBER,
+    :SRP-RC,
+    :SRP-OTH .
+
+:SRP-STEEL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SRP-STEEL" ;
+  skos:prefLabel "Steel stair"@en ;
+  skos:prefLabel "Stahltreppe"@de ;
+  skos:definition "Steel stair flight with stringers and treads of steel or grating, including landings and surface protection. Priced per m3 of gross flight volume."@en ;
+  skos:definition "Stahltreppenlauf mit Wangen und Stufen aus Stahl oder Gitterrost, inklusive Podeste und Oberflächenschutz. Preis pro m3 Bruttovolumen des Laufs."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "SRP-STEEL" .
+
+:SRP-TIMBER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SRP-TIMBER" ;
+  skos:prefLabel "Timber stair"@en ;
+  skos:prefLabel "Holztreppe"@de ;
+  skos:definition "Timber stair flight with stringers, treads, and risers of solid or engineered timber, including surface treatment. Priced per m3 of gross flight volume."@en ;
+  skos:definition "Holztreppenlauf mit Wangen, Tritt- und Setzstufen aus Vollholz oder Konstruktionsholz, inklusive Oberflächenbehandlung. Preis pro m3 Bruttovolumen des Laufs."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "SRP-TIMBER" .
+
+:SRP-RC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SRP-RC" ;
+  skos:prefLabel "Reinforced concrete stair"@en ;
+  skos:prefLabel "Stahlbetontreppe"@de ;
+  skos:definition "Cast-in-situ or precast reinforced concrete stair flight including formwork, reinforcement, and acoustic bearings. Priced per m3 of gross flight volume."@en ;
+  skos:definition "Ortbeton- oder Fertigteil-Stahlbetontreppenlauf inklusive Schalung, Bewehrung und Schallschutzlager. Preis pro m3 Bruttovolumen des Laufs."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "SRP-RC" .
+
+:SRP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SRP-OTH" ;
+  skos:prefLabel "Other or unknown stair"@en ;
+  skos:prefLabel "Andere oder unbekannte Treppe"@de ;
+  skos:definition "Fallback for stairs whose material or product type is not yet determined, or for stone and composite stairs outside the listed types."@en ;
+  skos:definition "Rückfallwert für Treppen mit noch unbestimmtem Material oder Produkttyp sowie für Stein- und Verbundtreppen ausserhalb der gelisteten Typen."@de ;
+  pbs:priceUnit "m3" ;
+  dcterms:identifier "SRP-OTH" .

@@ -14,7 +14,7 @@ PRODUCTS = REPO_ROOT / "baseline-unit-prices/baseline-products.json"
 REGIONAL = REPO_ROOT / "baseline-unit-prices/regional-benchmarks.json"
 LIST_SCRIPT = REPO_ROOT / "scripts/list_baseline_products.py"
 
-VALID_PRICE_UNITS = ("m2", "m3", "pcs")
+VALID_PRICE_UNITS = ("m", "m2", "m3", "pcs")
 
 METHOD_REQUIRED_SLOT = {
     "density": "density_kg_m3",

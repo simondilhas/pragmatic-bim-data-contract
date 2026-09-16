@@ -1,0 +1,132 @@
+@prefix : <https://example.org/abstract/railing-product/> .
+@prefix pbs: <https://schema.pragmaticbim.ch/> .
+@prefix map: <https://example.org/mapping/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract railing products"@en ;
+  skos:prefLabel "Abstrakte Geländerprodukte"@de ;
+  dcterms:title "Abstract railing products"@en ;
+  dcterms:title "Abstrakte Geländerprodukte"@de ;
+  dcterms:identifier "RailingProduct" ;
+  dcterms:creator "abstract.foundation" ;
+  dcterms:issued "2026-09-16"^^xsd:date ;
+  dcterms:modified "2026-09-16"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractElementsToProductsMapping ;
+  skos:definition "Product-type classification for railings, balustrades, and fall protection systems by infill and construction type. Used to attach baseline unit prices and embodied carbon references to the railing element of the pragmatic BIM element plan."@en ;
+  skos:definition "Produkttyp-Klassifikation für Geländer, Brüstungen und Absturzsicherungssysteme nach Füllung und Konstruktionsart. Dient der Zuordnung von Basis-Einheitspreisen und Referenzen für graue Emissionen zum Geländerbauteil des pragmatic BIM Elementplans."@de ;
+  skos:scopeNote "Assign one concept per railing element. Baseline cost is priced per m of railing length (Qto_RailingBaseQuantities.Length). Complements the IFC railing PredefinedType, which records the guarding function rather than the product type."@en ;
+  skos:scopeNote "Ein Konzept pro Geländerbauteil zuordnen. Basiskosten pro m Geländerlänge (Qto_RailingBaseQuantities.Length). Ergänzt den IFC-PredefinedType für Geländer, der die Schutzfunktion und nicht den Produkttyp abbildet."@de ;
+  skos:hasTopConcept
+    :RAP-BALUSTER,
+    :RAP-GLASS-FRAMED,
+    :RAP-GLASS-POINT,
+    :RAP-PERFORATED-METAL,
+    :RAP-CABLE-MESH,
+    :RAP-TIMBER,
+    :RAP-PARAPET-SOLID,
+    :RAP-HANDRAIL,
+    :RAP-OTH .
+
+:RAP-BALUSTER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-BALUSTER" ;
+  skos:prefLabel "Metal baluster railing"@en ;
+  skos:prefLabel "Staketengeländer"@de ;
+  skos:definition "Railing with vertical metal balusters between posts and handrail, galvanized or coated. Priced per m of railing length."@en ;
+  skos:definition "Geländer mit vertikalen Metallstaketen zwischen Pfosten und Handlauf, verzinkt oder beschichtet. Preis pro m Geländerlänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-BALUSTER" .
+
+:RAP-GLASS-FRAMED a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-GLASS-FRAMED" ;
+  skos:prefLabel "Framed laminated glass railing"@en ;
+  skos:prefLabel "VSG-Geländer gerahmt"@de ;
+  skos:definition "Railing with laminated safety glass infill held in a metal frame or channel profile. Priced per m of railing length."@en ;
+  skos:definition "Geländer mit Verbundsicherheitsglas-Füllung in Metallrahmen oder Klemmprofil. Preis pro m Geländerlänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-GLASS-FRAMED" .
+
+:RAP-GLASS-POINT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-GLASS-POINT" ;
+  skos:prefLabel "Point-fixed structural glass railing"@en ;
+  skos:prefLabel "VSG-Geländer punktgehalten"@de ;
+  skos:definition "All-glass railing with laminated safety glass panes on point fixings or a base clamping profile, without vertical posts. Priced per m of railing length."@en ;
+  skos:definition "Ganzglasgeländer mit Verbundsicherheitsglasscheiben auf Punkthaltern oder Klemmprofil im Fussbereich, ohne vertikale Pfosten. Preis pro m Geländerlänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-GLASS-POINT" .
+
+:RAP-PERFORATED-METAL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-PERFORATED-METAL" ;
+  skos:prefLabel "Perforated or expanded metal railing"@en ;
+  skos:prefLabel "Lochblech- oder Streckmetallgeländer"@de ;
+  skos:definition "Railing with perforated sheet or expanded metal infill panels in a metal frame. Priced per m of railing length."@en ;
+  skos:definition "Geländer mit Lochblech- oder Streckmetallfüllung in Metallrahmen. Preis pro m Geländerlänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-PERFORATED-METAL" .
+
+:RAP-CABLE-MESH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-CABLE-MESH" ;
+  skos:prefLabel "Cable or mesh infill railing"@en ;
+  skos:prefLabel "Drahtseil- oder Netzgeländer"@de ;
+  skos:definition "Railing with tensioned stainless steel cables or woven mesh infill between posts. Priced per m of railing length."@en ;
+  skos:definition "Geländer mit gespannten Edelstahlseilen oder Netzfüllung zwischen den Pfosten. Preis pro m Geländerlänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-CABLE-MESH" .
+
+:RAP-TIMBER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-TIMBER" ;
+  skos:prefLabel "Timber railing"@en ;
+  skos:prefLabel "Holzgeländer"@de ;
+  skos:definition "Railing with timber posts, rails, and infill including surface treatment. Priced per m of railing length."@en ;
+  skos:definition "Geländer mit Pfosten, Riegeln und Füllung aus Holz inklusive Oberflächenbehandlung. Preis pro m Geländerlänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-TIMBER" .
+
+:RAP-PARAPET-SOLID a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-PARAPET-SOLID" ;
+  skos:prefLabel "Solid parapet"@en ;
+  skos:prefLabel "Massive Brüstung"@de ;
+  skos:definition "Fall protection formed by a solid concrete or masonry parapet with coping, acting as the guarding element. Priced per m of parapet length."@en ;
+  skos:definition "Absturzsicherung als massive Beton- oder Mauerwerksbrüstung mit Abdeckung, die die Schutzfunktion übernimmt. Preis pro m Brüstungslänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-PARAPET-SOLID" .
+
+:RAP-HANDRAIL a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-HANDRAIL" ;
+  skos:prefLabel "Handrail only"@en ;
+  skos:prefLabel "Handlauf"@de ;
+  skos:definition "Wall-mounted or post-mounted handrail without infill, used where no fall protection infill is required. Priced per m of handrail length."@en ;
+  skos:definition "Wand- oder pfostenmontierter Handlauf ohne Füllung, wo keine Absturzsicherung mit Füllung erforderlich ist. Preis pro m Handlauflänge."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-HANDRAIL" .
+
+:RAP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "RAP-OTH" ;
+  skos:prefLabel "Other or unknown railing"@en ;
+  skos:prefLabel "Anderes oder unbekanntes Geländer"@de ;
+  skos:definition "Fallback for railings whose product type is not yet determined, or for special guarding systems outside the listed types."@en ;
+  skos:definition "Rückfallwert für Geländer mit noch unbestimmtem Produkttyp sowie für spezielle Absturzsicherungssysteme ausserhalb der gelisteten Typen."@de ;
+  pbs:priceUnit "m" ;
+  dcterms:identifier "RAP-OTH" .

@@ -1,0 +1,38 @@
+{
+  "version": "v13",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "disclaimer": "See baseline-unit-prices/NOTICE.md",
+  "issued": "2026-07-01",
+  "anchor": "DE_MU",
+  "notes": "Regional material-cost factors relative to the EUR (DE-level) baseline. material_factor scales the EUR delivered material cost to a region's price level (DE_MU = 1.00). fx_to_eur converts an amount in the region's local currency to EUR (use for the labor term). All values are illustrative benchmarks only.",
+  "regions": [
+    {
+      "code": "CH_ZH",
+      "label_en": "Zurich, Switzerland",
+      "material_factor": 1.2,
+      "currency": "CHF",
+      "fx_to_eur": 1.05
+    },
+    {
+      "code": "DE_MU",
+      "label_en": "Munich, Germany",
+      "material_factor": 1.0,
+      "currency": "EUR",
+      "fx_to_eur": 1.0
+    },
+    {
+      "code": "UK_LON",
+      "label_en": "London, United Kingdom",
+      "material_factor": 1.05,
+      "currency": "GBP",
+      "fx_to_eur": 1.16
+    },
+    {
+      "code": "US_NYC",
+      "label_en": "New York, USA",
+      "material_factor": 1.1,
+      "currency": "USD",
+      "fx_to_eur": 0.92
+    }
+  ]
+}

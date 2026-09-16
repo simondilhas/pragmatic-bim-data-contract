@@ -46,6 +46,10 @@ vocabularies:
     path: abstract-ratio-definition/building-ratios.skos.ttl
     title: Abstract building ratios
 
+  - slug: building-element
+    path: abstract-element-classification/building-elements.skos.ttl
+    title: Abstract building elements
+
   - slug: floor-covering-product
     path: abstract-covering-product-classification/floor-covering-products.skos.ttl
     title: Abstract floor covering products
@@ -89,6 +93,22 @@ vocabularies:
   - slug: window-connector-product
     path: abstract-connector-product-classification/window-connector-products.skos.ttl
     title: Abstract window connector products
+
+  - slug: column-product
+    path: abstract-member-product-classification/column-products.skos.ttl
+    title: Abstract column products
+
+  - slug: beam-product
+    path: abstract-member-product-classification/beam-products.skos.ttl
+    title: Abstract beam products
+
+  - slug: stair-product
+    path: abstract-member-product-classification/stair-products.skos.ttl
+    title: Abstract stair products
+
+  - slug: railing-product
+    path: abstract-member-product-classification/railing-products.skos.ttl
+    title: Abstract railing products
 
   - slug: mep-unit-product
     path: abstract-mep-product-classification/mep-unit-products.skos.ttl
@@ -198,6 +218,10 @@ mappings:
   - slug: metric-to-iso9836
     path: mapping/abstract-metric-to-iso9836.mapping.ttl
     title: Abstract building metrics to ISO 9836 mapping
+
+  - slug: elements-to-products
+    path: mapping/abstract-elements-to-products.mapping.ttl
+    title: Abstract building elements to products mapping
 
   - slug: metric-to-rics-ipms
     path: mapping/abstract-metric-to-rics-ipms.mapping.ttl

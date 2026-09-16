@@ -3,8 +3,12 @@
 
 Parses every ``classification/**/*product*.skos.ttl`` for ``skos:topConceptOf``
 concepts and their notation. LCA layer sub-concepts are excluded (they carry a
-layer suffix and are not top concepts). Outputs a product manifest and, on
-request, a human CSV or scaffolded per-code entry templates.
+layer suffix and are not top concepts). Notations without a category in
+``NOTATION_PREFIX_CATEGORIES`` are also excluded: the category resolves the
+waste, transport, and demolition defaults an entry needs, so a product without
+one cannot be priced. MEP products are outside the baseline book for that
+reason. Outputs a product manifest and, on request, a human CSV or scaffolded
+per-code entry templates.
 
 Usage:
   python scripts/list_baseline_products.py            # write manifest
@@ -41,6 +45,7 @@ CODES_CSV_PATH = BASELINE_DIR / "product-codes.csv"
 
 def collect_products() -> list[dict[str, object]]:
     products: list[dict[str, object]] = []
+    skipped: list[str] = []
     for path in sorted(CLASSIFICATION_DIR.glob(SKOS_GLOB)):
         graph = Graph()
         graph.parse(path, format="turtle")
@@ -49,6 +54,10 @@ def collect_products() -> list[dict[str, object]]:
             if not notation:
                 continue
             notation = str(notation)
+            category = infer_product_category(notation)
+            if not category:
+                skipped.append(notation)
+                continue
             scheme = graph.value(concept, SKOS.topConceptOf)
             scheme_id = None
             if scheme is not None:
@@ -64,11 +73,17 @@ def collect_products() -> list[dict[str, object]]:
                     "scheme": str(scheme_id) if scheme_id else str(scheme or ""),
                     "product_uri": notation_to_iri(notation),
                     "pref_label_en": label_en,
-                    "category": infer_product_category(notation),
+                    "category": category,
                     "price_unit": default_price_unit(notation),
                 }
             )
     products.sort(key=lambda p: str(p["notation"]))
+    if skipped:
+        print(
+            f"Skipped {len(skipped)} concept(s) outside the baseline price book "
+            f"(no category): {', '.join(sorted(skipped)[:5])}"
+            + (" ..." if len(skipped) > 5 else "")
+        )
     return products
 
 

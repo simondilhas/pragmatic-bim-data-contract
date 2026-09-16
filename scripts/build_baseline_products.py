@@ -82,7 +82,7 @@ def validate_entries(entries: list[dict], strict: bool) -> list[str]:
         if not notation:
             errors.append(f"{fname}: missing product")
             continue
-        if entry.get("price_unit") not in ("m2", "m3", "pcs"):
+        if entry.get("price_unit") not in ("m", "m2", "m3", "pcs"):
             errors.append(f"{notation}: invalid or missing price_unit ({entry.get('price_unit')})")
         material_cost = entry.get("material_cost")
         if material_cost is None:

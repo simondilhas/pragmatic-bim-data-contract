@@ -28,6 +28,10 @@ NOTATION_PREFIX_CATEGORIES = [
     ("FaCP-", "European Facade Covering"),
     ("FDP-", "Foundation Product"),
     ("RCP-", "Roof Covering"),
+    ("CLP-", "Column Product"),
+    ("BMP-", "Beam Product"),
+    ("SRP-", "Stair Product"),
+    ("RAP-", "Railing Product"),
 ]
 
 # notation suffixes marking LCA layer sub-concepts (excluded from entries/)
@@ -64,6 +68,10 @@ SCHEME_IRI_PREFIXES = {
     "FaCP-": "https://example.org/abstract/facade-covering-product/",
     "RCP-": "https://example.org/abstract/roof-covering-product/",
     "FDP-": "https://example.org/abstract/foundation-product/",
+    "CLP-": "https://example.org/abstract/column-product/",
+    "BMP-": "https://example.org/abstract/beam-product/",
+    "SRP-": "https://example.org/abstract/stair-product/",
+    "RAP-": "https://example.org/abstract/railing-product/",
 }
 
 DEFAULT_UNCERTAINTY = {
@@ -74,9 +82,12 @@ DEFAULT_UNCERTAINTY = {
 }
 
 
-# Notations priced by volume (m3) or by piece (pcs). Everything else is m2.
-# PriceUnitEnum only permits m2 / m3 / pcs, so foundation elements priced by
-# running metre in practice are anchored to their dominant concrete volume (m3).
+# Notations priced by volume (m3), running metre (m), or by piece (pcs).
+# Everything else is m2. Foundation elements priced by running metre in practice
+# are anchored to their dominant concrete volume (m3).
+PRICE_UNIT_M3_PREFIXES = ("CLP-", "BMP-", "SRP-")
+PRICE_UNIT_M_PREFIXES = ("RAP-",)
+
 PRICE_UNIT_M3 = {
     "SWP-ORTBETON",
     "SWP-PREFAB-CONC",
@@ -93,8 +104,10 @@ PRICE_UNIT_PCS = {"WICP-SKYLIGHT"}
 
 
 def default_price_unit(notation: str) -> str:
-    if notation.startswith("DCP-"):
-        return "pcs"
+    if notation.startswith(PRICE_UNIT_M_PREFIXES):
+        return "m"
+    if notation.startswith(PRICE_UNIT_M3_PREFIXES):
+        return "m3"
     if notation in PRICE_UNIT_PCS:
         return "pcs"
     if notation in PRICE_UNIT_M3:

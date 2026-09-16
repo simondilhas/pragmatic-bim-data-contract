@@ -23,6 +23,7 @@ URI: [cost:PriceUnitEnum](https://schema.pragmaticbim.ch/cost/PriceUnitEnum)
 ## Permissible Values
 | Value | Meaning | Description | Additional Info |
 | --- | --- | --- | --- |
+| m | None |  | Title: Running metre<br>|
 | m2 | None |  | Title: Square metre<br>|
 | m3 | None |  | Title: Cubic metre<br>|
 | pcs | None |  | Title: Piece<br>|
@@ -74,6 +75,9 @@ from_schema: https://schema.pragmaticbim.ch/cost/baseline-cost
 rank: 1000
 enum_uri: cost:PriceUnitEnum
 permissible_values:
+  m:
+    text: m
+    title: Running metre
   m2:
     text: m2
     title: Square metre

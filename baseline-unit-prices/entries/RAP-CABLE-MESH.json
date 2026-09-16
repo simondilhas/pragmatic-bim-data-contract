@@ -1,0 +1,26 @@
+{
+  "product": "RAP-CABLE-MESH",
+  "material_cost": 160.0,
+  "price_unit": "m",
+  "onsite_labor_hours_per_unit": 1.4,
+  "provenance_status": "estimated",
+  "observations": [
+    {
+      "aspect": "material_cost",
+      "value": 160.0,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "notes": "Net EUR ex-works material per m of railing length; onsite labor person-hours per m. Tensioned stainless steel cables or woven mesh infill.",
+      "selects_canonical": true
+    },
+    {
+      "aspect": "onsite_labor_hours_per_unit",
+      "value": 1.4,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "selects_canonical": true
+    }
+  ]
+}

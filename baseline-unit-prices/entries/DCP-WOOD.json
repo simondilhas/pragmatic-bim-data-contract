@@ -1,0 +1,26 @@
+{
+  "product": "DCP-WOOD",
+  "material_cost": 153.4,
+  "price_unit": "m2",
+  "onsite_labor_hours_per_unit": 0.79,
+  "provenance_status": "estimated",
+  "observations": [
+    {
+      "aspect": "material_cost",
+      "value": 153.4,
+      "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "notes": "Net EUR ex-works material per m2 of door opening; onsite labor person-hours per m2. Rebased from the per-door reference value (290 EUR, 1.5 h per leaf) using a nominal opening area of 1.89 m2, so the m2 basis is derived rather than sourced.",
+      "selects_canonical": true
+    },
+    {
+      "aspect": "onsite_labor_hours_per_unit",
+      "value": 0.79,
+      "reference_source": "BKI Baukosten Bauelemente Neubau 2026 + manufacturer/trade net EUR list prices (DE 2026)",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "selects_canonical": true
+    }
+  ]
+}

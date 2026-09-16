@@ -1,0 +1,26 @@
+{
+  "product": "CLP-RC",
+  "material_cost": 420.0,
+  "price_unit": "m3",
+  "onsite_labor_hours_per_unit": 18.0,
+  "provenance_status": "estimated",
+  "observations": [
+    {
+      "aspect": "material_cost",
+      "value": 420.0,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "notes": "Net EUR ex-works material per m3 of gross member volume; onsite labor person-hours per m3. Concrete, reinforcement, and formwork material; formwork-intensive geometry.",
+      "selects_canonical": true
+    },
+    {
+      "aspect": "onsite_labor_hours_per_unit",
+      "value": 18.0,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "selects_canonical": true
+    }
+  ]
+}

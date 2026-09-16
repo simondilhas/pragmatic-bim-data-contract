@@ -22,10 +22,12 @@ classification/
 ├── abstract-roles/                     # SKOS + YAML
 ├── abstract-document-function/         # SKOS
 ├── abstract-material-classification/   # SKOS
+├── abstract-element-classification/    # SKOS — cost-relevant building elements with reference quantity
 ├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling, facade, roof covering products
 ├── abstract-foundation-product-classification/  # SKOS — foundation products
 ├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
 ├── abstract-connector-product-classification/  # SKOS — door and window connector products
+├── abstract-member-product-classification/  # SKOS — column, beam, stair, railing products
 ├── abstract-mep-product-classification/  # SKOS — MEP unit and terminal products
 ├── abstract-usecase-classification/    # SKOS — project lifecycle use cases
 ├── abstract-person-relationship-classification/  # SKOS — CRM person relationship predicates
@@ -47,10 +49,12 @@ classification/
 | `abstract-roles/` | Workflow participant roles |
 | `abstract-document-function/` | Document function vocabulary |
 | `abstract-material-classification/` | Abstract material categories |
+| `abstract-element-classification/` | Cost-relevant building elements, each with one reference quantity and price unit |
 | `abstract-covering-product-classification/` | Floor, wall, ceiling, facade, and roof covering product types |
 | `abstract-foundation-product-classification/` | Foundation product types (raft, strip, pile, slab-on-grade, …) |
 | `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
 | `abstract-connector-product-classification/` | Door and window connector product types (interior/exterior via BKP context) |
+| `abstract-member-product-classification/` | Column, beam, stair, and railing product types (material or infill based) |
 | `abstract-mep-product-classification/` | MEP unit (producer/converter) and terminal (end device) product types |
 | `abstract-usecase-classification/` | Project lifecycle use cases (ordering, design, QA, construction, handover, operation, deconstruction) |
 | `abstract-person-relationship-classification/` | CRM person relationship predicates (knows, works_at, key account manager, has_interest, …) |
@@ -67,6 +71,7 @@ classification/
 | `mapping/connection-functional-to-physical-type.mapping.ttl` | Connection functional types → ConnectionPhysicalType enum values |
 | `mapping/mep-product-to-connection-functional-type.mapping.ttl` | MEP unit and terminal products → ConnectionFunctionalType disciplines |
 | `mapping/mep-product-to-ifc-class.mapping.ttl` | MEP unit and terminal products → IFC entity class hints |
+| `mapping/abstract-elements-to-products.mapping.ttl` | Building elements → product scheme that differentiates them for pricing, plus fallback product |
 | `mapping/separator-role-to-space-activity.mapping.ttl` | Abstract separator roles → space activity |
 | `mapping/abstract-room-classification-to-d0165.mapping.ttl` | Space activity → SIA D0165 area codes |
 | `mapping/d0165-to-abstract-room-classification.mapping.ttl` | D0165 → space activity (reverse) |

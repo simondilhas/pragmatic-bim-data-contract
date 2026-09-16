@@ -1,0 +1,26 @@
+{
+  "product": "BMP-STEEL",
+  "material_cost": 19000.0,
+  "price_unit": "m3",
+  "onsite_labor_hours_per_unit": 65.0,
+  "provenance_status": "estimated",
+  "observations": [
+    {
+      "aspect": "material_cost",
+      "value": 19000.0,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "notes": "Net EUR ex-works material per m3 of gross member volume; onsite labor person-hours per m3. Steel at 7850 kg/m3 and fabricated section supply rate.",
+      "selects_canonical": true
+    },
+    {
+      "aspect": "onsite_labor_hours_per_unit",
+      "value": 65.0,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "selects_canonical": true
+    }
+  ]
+}

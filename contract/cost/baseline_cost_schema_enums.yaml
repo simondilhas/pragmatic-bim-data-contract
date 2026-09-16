@@ -35,6 +35,8 @@ enums:
     enum_uri: cost:PriceUnitEnum
     description: Native trade unit for a baseline unit price.
     permissible_values:
+      m:
+        title: Running metre
       m2:
         title: Square metre
       m3:

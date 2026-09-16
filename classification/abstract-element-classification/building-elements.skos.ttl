@@ -1,0 +1,360 @@
+@prefix : <https://example.org/abstract/building-element/> .
+@prefix pbs: <https://schema.pragmaticbim.ch/> .
+@prefix map: <https://example.org/mapping/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract building elements"@en ;
+  skos:prefLabel "Abstrakte Bauteile"@de ;
+  dcterms:title "Abstract building elements"@en ;
+  dcterms:title "Abstrakte Bauteile"@de ;
+  dcterms:identifier "BuildingElement" ;
+  dcterms:creator "abstract.foundation" ;
+  dcterms:issued "2026-09-16"^^xsd:date ;
+  dcterms:modified "2026-09-16"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:abstractElementsToProductsMapping ;
+  skos:definition "Cost-relevant building elements of the pragmatic BIM element plan. Each concept carries the one IFC base quantity used for take-off (pbs:referenceQuantity in pbs:quantityPset) and the unit that quantity is billed in (pbs:priceUnit), so an element resolves to a single unambiguous quantity basis for costing."@en ;
+  skos:definition "Kostenrelevante Bauteile des pragmatic BIM Elementplans. Jedes Konzept trägt die eine für die Mengenermittlung verwendete IFC-Basismenge (pbs:referenceQuantity in pbs:quantityPset) sowie die zugehörige Verrechnungseinheit (pbs:priceUnit), damit ein Bauteil auf eine eindeutige Mengenbasis für die Kostenermittlung auflöst."@de ;
+  skos:scopeNote "Element codes, labels, IFC classes, and quantity sets follow the pragmatic BIM Swiss element plan add-ons package, which is authoritative. Exactly one reference quantity per element; where the element plan publishes several base quantities, only the costing quantity is recorded here. Products that differentiate an element for pricing are linked through the abstract elements to products mapping bridge."@en ;
+  skos:scopeNote "Bauteilcodes, Bezeichnungen, IFC-Klassen und Mengengruppen folgen dem Add-ons-Paket des pragmatic BIM Elementplans Schweiz, das führend ist. Genau eine Referenzmenge pro Bauteil; wo der Elementplan mehrere Basismengen publiziert, ist hier nur die Kostenmenge erfasst. Produkte zur Differenzierung eines Bauteils für die Bepreisung werden über die Mapping-Brücke abstrakte Bauteile zu Produkten verknüpft."@de ;
+  skos:hasTopConcept
+    :ARC-WALL-EXT,
+    :ARC-WALL-INT-LB,
+    :ARC-WALL-INT,
+    :ARC-WALL-CLAD-EXT,
+    :ARC-WALL-CLAD,
+    :ARC-FLOOR-COV,
+    :ARC-CEILING,
+    :ARC-SLAB-BASE,
+    :ARC-SLAB-FLOOR,
+    :ARC-SLAB-BALCONY,
+    :ARC-ROOF-FLAT,
+    :ARC-ROOF-PITCH,
+    :ARC-ROOF-DRAIN,
+    :ARC-FOOTING,
+    :ARC-COLUMN,
+    :ARC-BEAM,
+    :ARC-STAIR,
+    :ARC-RAILING,
+    :WINDOW,
+    :DOOR,
+    :FURN,
+    :LAN-TREE .
+
+:ARC-WALL-EXT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-WALL-EXT" ;
+  skos:prefLabel "Exterior wall"@en ;
+  skos:prefLabel "Aussenwand"@de ;
+  skos:definition "Exterior wall as building envelope, modelled as a multi-layer component in early phases and for simple facades."@en ;
+  skos:definition "Aussenwand als Gebäudehülle, in frühen Phasen und bei einfachen Fassaden als Mehrschichtbauteil modelliert."@de ;
+  pbs:referenceQuantity "NetSideArea" ;
+  pbs:quantityPset "Qto_WallBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "ARC-WALL-EXT" .
+
+:ARC-WALL-INT-LB a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-WALL-INT-LB" ;
+  skos:prefLabel "Load-bearing interior wall"@en ;
+  skos:prefLabel "Tragende Innenwand"@de ;
+  skos:definition "Load-bearing interior wall separating interior spaces and carrying vertical loads."@en ;
+  skos:definition "Tragende Innenwand, die Innenräume trennt und vertikale Lasten abträgt."@de ;
+  pbs:referenceQuantity "NetSideArea" ;
+  pbs:quantityPset "Qto_WallBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "ARC-WALL-INT-LB" .
+
+:ARC-WALL-INT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-WALL-INT" ;
+  skos:prefLabel "Non-load-bearing interior wall"@en ;
+  skos:prefLabel "Nichttragende Innenwand"@de ;
+  skos:definition "Non-load-bearing interior wall or partition separating interior spaces without carrying vertical loads."@en ;
+  skos:definition "Nichttragende Innenwand oder Trennwand, die Innenräume ohne Lastabtrag trennt."@de ;
+  pbs:referenceQuantity "NetSideArea" ;
+  pbs:quantityPset "Qto_WallBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcWall" ;
+  dcterms:identifier "ARC-WALL-INT" .
+
+:ARC-WALL-CLAD-EXT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-WALL-CLAD-EXT" ;
+  skos:prefLabel "Facade cladding"@en ;
+  skos:prefLabel "Fassadenbekleidung"@de ;
+  skos:definition "Exterior facade cladding or ventilated facade system modelled as a separate covering layer on the envelope wall."@en ;
+  skos:definition "Aussenseitige Fassadenbekleidung oder vorgehängte Fassade, als separate Bekleidungsschicht auf der Hüllwand modelliert."@de ;
+  pbs:referenceQuantity "NetArea" ;
+  pbs:quantityPset "Qto_CoveringBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "ARC-WALL-CLAD-EXT" .
+
+:ARC-WALL-CLAD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-WALL-CLAD" ;
+  skos:prefLabel "Interior wall covering"@en ;
+  skos:prefLabel "Innenwandbekleidung"@de ;
+  skos:definition "Interior wall covering, lining, or finish applied to the room side of a wall."@en ;
+  skos:definition "Innenseitige Wandbekleidung, Verkleidung oder Oberflächenausbau auf der Raumseite einer Wand."@de ;
+  pbs:referenceQuantity "NetArea" ;
+  pbs:quantityPset "Qto_CoveringBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "ARC-WALL-CLAD" .
+
+:ARC-FLOOR-COV a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-FLOOR-COV" ;
+  skos:prefLabel "Floor build-up"@en ;
+  skos:prefLabel "Bodenaufbau"@de ;
+  skos:definition "Floor build-up above the structural slab, including screed, separation layers, and the visible floor finish."@en ;
+  skos:definition "Bodenaufbau über der Rohdecke, inklusive Unterlagsboden, Trennschichten und sichtbarem Bodenbelag."@de ;
+  pbs:referenceQuantity "NetArea" ;
+  pbs:quantityPset "Qto_CoveringBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "ARC-FLOOR-COV" .
+
+:ARC-CEILING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-CEILING" ;
+  skos:prefLabel "Suspended ceiling"@en ;
+  skos:prefLabel "Abhangdecke"@de ;
+  skos:definition "Suspended or applied ceiling below the structural slab, including substructure."@en ;
+  skos:definition "Abgehängte oder direkt applizierte Decke unter der Rohdecke, inklusive Unterkonstruktion."@de ;
+  pbs:referenceQuantity "NetArea" ;
+  pbs:quantityPset "Qto_CoveringBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "ARC-CEILING" .
+
+:ARC-SLAB-BASE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-SLAB-BASE" ;
+  skos:prefLabel "Base slab"@en ;
+  skos:prefLabel "Bodenplatte"@de ;
+  skos:definition "Lowest floor slab bearing on the ground, including waterproofing and insulation layers where modelled as part of the slab."@en ;
+  skos:definition "Unterste auf dem Boden aufliegende Platte, inklusive Abdichtung und Dämmung, sofern als Teil der Platte modelliert."@de ;
+  pbs:referenceQuantity "GrossVolume" ;
+  pbs:quantityPset "Qto_SlabBaseQuantities" ;
+  pbs:priceUnit "m3" ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "ARC-SLAB-BASE" .
+
+:ARC-SLAB-FLOOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-SLAB-FLOOR" ;
+  skos:prefLabel "Floor slab"@en ;
+  skos:prefLabel "Geschossdecke"@de ;
+  skos:definition "Structural slab between storeys, excluding floor build-up and suspended ceiling."@en ;
+  skos:definition "Tragende Decke zwischen Geschossen, ohne Bodenaufbau und Abhangdecke."@de ;
+  pbs:referenceQuantity "GrossVolume" ;
+  pbs:quantityPset "Qto_SlabBaseQuantities" ;
+  pbs:priceUnit "m3" ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "ARC-SLAB-FLOOR" .
+
+:ARC-SLAB-BALCONY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-SLAB-BALCONY" ;
+  skos:prefLabel "Balcony slab"@en ;
+  skos:prefLabel "Balkon"@de ;
+  skos:definition "Cantilevered or supported exterior balcony slab, including thermal separation to the structure."@en ;
+  skos:definition "Auskragende oder abgestützte Balkonplatte im Aussenbereich, inklusive thermischer Trennung zur Tragstruktur."@de ;
+  pbs:referenceQuantity "GrossArea" ;
+  pbs:quantityPset "Qto_SlabBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "ARC-SLAB-BALCONY" .
+
+:ARC-ROOF-FLAT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-ROOF-FLAT" ;
+  skos:prefLabel "Flat roof"@en ;
+  skos:prefLabel "Flachdach"@de ;
+  skos:definition "Flat roof assembly including structural slab, insulation, and waterproofing membrane."@en ;
+  skos:definition "Flachdachaufbau inklusive Tragdecke, Dämmung und Abdichtung."@de ;
+  pbs:referenceQuantity "GrossArea" ;
+  pbs:quantityPset "Qto_SlabBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcSlab" ;
+  dcterms:identifier "ARC-ROOF-FLAT" .
+
+:ARC-ROOF-PITCH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-ROOF-PITCH" ;
+  skos:prefLabel "Pitched roof"@en ;
+  skos:prefLabel "Steildach"@de ;
+  skos:definition "Pitched roof assembly including structure, insulation, and roof covering."@en ;
+  skos:definition "Steildachaufbau inklusive Konstruktion, Dämmung und Dacheindeckung."@de ;
+  pbs:referenceQuantity "GrossArea" ;
+  pbs:quantityPset "Qto_RoofBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcRoof" ;
+  dcterms:identifier "ARC-ROOF-PITCH" .
+
+:ARC-ROOF-DRAIN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-ROOF-DRAIN" ;
+  skos:prefLabel "Tapered roof insulation"@en ;
+  skos:prefLabel "Gefälledämmung"@de ;
+  skos:definition "Tapered insulation layer forming the drainage slope of a flat roof."@en ;
+  skos:definition "Keilförmige Dämmschicht zur Bildung des Entwässerungsgefälles auf dem Flachdach."@de ;
+  skos:scopeNote "No product scheme is defined yet; tapered insulation is currently priced only as part of the parent flat roof assembly."@en ;
+  skos:scopeNote "Noch kein Produktschema definiert; die Gefälledämmung wird derzeit nur als Teil des übergeordneten Flachdachaufbaus bepreist."@de ;
+  pbs:referenceQuantity "NetArea" ;
+  pbs:quantityPset "Qto_CoveringBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "ARC-ROOF-DRAIN" .
+
+:ARC-FOOTING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-FOOTING" ;
+  skos:prefLabel "Footing"@en ;
+  skos:prefLabel "Fundament"@de ;
+  skos:definition "Pad, strip, or raft footing transferring loads into the ground."@en ;
+  skos:definition "Einzel-, Streifen- oder Plattenfundament zur Lastabtragung in den Baugrund."@de ;
+  pbs:referenceQuantity "GrossVolume" ;
+  pbs:quantityPset "Qto_FootingBaseQuantities" ;
+  pbs:priceUnit "m3" ;
+  dcterms:subject "IfcFooting" ;
+  dcterms:identifier "ARC-FOOTING" .
+
+:ARC-COLUMN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-COLUMN" ;
+  skos:prefLabel "Column"@en ;
+  skos:prefLabel "Stütze"@de ;
+  skos:definition "Vertical load-bearing member transferring loads to slabs, beams, or footings."@en ;
+  skos:definition "Vertikales Tragglied, das Lasten in Decken, Träger oder Fundamente abträgt."@de ;
+  pbs:referenceQuantity "GrossVolume" ;
+  pbs:quantityPset "Qto_ColumnBaseQuantities" ;
+  pbs:priceUnit "m3" ;
+  dcterms:subject "IfcColumn" ;
+  dcterms:identifier "ARC-COLUMN" .
+
+:ARC-BEAM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-BEAM" ;
+  skos:prefLabel "Beam"@en ;
+  skos:prefLabel "Unterzug oder Überzug"@de ;
+  skos:definition "Horizontal load-bearing member spanning between columns or walls, modelled as a downstand or upstand beam."@en ;
+  skos:definition "Horizontales Tragglied zwischen Stützen oder Wänden, als Unterzug oder Überzug modelliert."@de ;
+  pbs:referenceQuantity "GrossVolume" ;
+  pbs:quantityPset "Qto_BeamBaseQuantities" ;
+  pbs:priceUnit "m3" ;
+  dcterms:subject "IfcBeam" ;
+  dcterms:identifier "ARC-BEAM" .
+
+:ARC-STAIR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-STAIR" ;
+  skos:prefLabel "Stair"@en ;
+  skos:prefLabel "Treppe"@de ;
+  skos:definition "Stair flight with landings connecting storeys."@en ;
+  skos:definition "Treppenlauf mit Podesten zur Verbindung von Geschossen."@de ;
+  pbs:referenceQuantity "GrossVolume" ;
+  pbs:quantityPset "Qto_StairBaseQuantities" ;
+  pbs:priceUnit "m3" ;
+  dcterms:subject "IfcStair" ;
+  dcterms:identifier "ARC-STAIR" .
+
+:ARC-RAILING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "ARC-RAILING" ;
+  skos:prefLabel "Railing and fall protection"@en ;
+  skos:prefLabel "Geländer und Absturzsicherung"@de ;
+  skos:definition "Railing, balustrade, or parapet providing fall protection along slabs, stairs, and openings."@en ;
+  skos:definition "Geländer, Brüstung oder Absturzsicherung entlang von Decken, Treppen und Öffnungen."@de ;
+  pbs:referenceQuantity "Length" ;
+  pbs:quantityPset "Qto_RailingBaseQuantities" ;
+  pbs:priceUnit "m" ;
+  dcterms:subject "IfcRailing" ;
+  dcterms:identifier "ARC-RAILING" .
+
+:WINDOW a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "WINDOW" ;
+  skos:prefLabel "Window"@en ;
+  skos:prefLabel "Fenster"@de ;
+  skos:definition "Window in an exterior or interior wall, priced by the area of the wall opening it fills."@en ;
+  skos:definition "Fenster in einer Aussen- oder Innenwand, bepreist über die Fläche der Wandöffnung."@de ;
+  skos:scopeNote "The Area base quantity is not yet published on the WINDOW element in the element plan, which exposes only OverallWidth and OverallHeight; derive the opening area from those two until the quantity is added."@en ;
+  skos:scopeNote "Die Basismenge Area ist beim Bauteil WINDOW im Elementplan noch nicht publiziert, dort stehen nur OverallWidth und OverallHeight; die Öffnungsfläche bis dahin daraus ableiten."@de ;
+  pbs:referenceQuantity "Area" ;
+  pbs:quantityPset "Qto_WindowBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcWindow" ;
+  dcterms:identifier "WINDOW" .
+
+:DOOR a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "DOOR" ;
+  skos:prefLabel "Door"@en ;
+  skos:prefLabel "Tür"@de ;
+  skos:definition "Door in an exterior or interior wall, priced by the area of the wall opening it fills."@en ;
+  skos:definition "Tür in einer Aussen- oder Innenwand, bepreist über die Fläche der Wandöffnung."@de ;
+  pbs:referenceQuantity "Area" ;
+  pbs:quantityPset "Qto_DoorBaseQuantities" ;
+  pbs:priceUnit "m2" ;
+  dcterms:subject "IfcDoor" ;
+  dcterms:identifier "DOOR" .
+
+:FURN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "FURN" ;
+  skos:prefLabel "Furniture"@en ;
+  skos:prefLabel "Möbel"@de ;
+  skos:definition "Loose or fitted furniture item recorded as a countable object."@en ;
+  skos:definition "Losmöbel oder Einbaumöbel, als zählbares Objekt erfasst."@de ;
+  skos:scopeNote "Priced per piece from instance cardinality; the element plan publishes no base quantity for furniture. No product scheme is defined yet."@en ;
+  skos:scopeNote "Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine Basismenge für Möbel. Noch kein Produktschema definiert."@de ;
+  pbs:referenceQuantity "count" ;
+  pbs:priceUnit "pcs" ;
+  dcterms:subject "IfcFurniture" ;
+  dcterms:identifier "FURN" .
+
+:LAN-TREE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "LAN-TREE" ;
+  skos:prefLabel "Tree"@en ;
+  skos:prefLabel "Baum"@de ;
+  skos:definition "Existing or new tree in the site or landscape model, recorded as a countable object."@en ;
+  skos:definition "Bestehender oder neuer Baum im Umgebungs- oder Landschaftsmodell, als zählbares Objekt erfasst."@de ;
+  skos:scopeNote "Priced per piece from instance cardinality; the element plan publishes no base quantity for trees. No product scheme is defined yet."@en ;
+  skos:scopeNote "Bepreisung pro Stück über die Anzahl der Instanzen; der Elementplan publiziert keine Basismenge für Bäume. Noch kein Produktschema definiert."@de ;
+  pbs:referenceQuantity "count" ;
+  pbs:priceUnit "pcs" ;
+  dcterms:subject "IfcGeographicElement" ;
+  dcterms:identifier "LAN-TREE" .

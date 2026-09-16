@@ -1,0 +1,12 @@
+{
+  "issued": "2026-07-01",
+  "notes": "Legacy/reference authoring aid retained from the Excel workflow. In the per-code pipeline, onsite and offsite labor hours are authored directly in baseline-unit-prices/entries/*.json; this file documents the prefab offsite-hour assumptions that informed those entries. The build does not read this file.",
+  "products": [
+    { "notation": "SWP-ORTBETON", "onsite_hours_per_unit": 10.0 },
+    { "notation": "SSP-INSITU", "onsite_hours_per_unit": 9.0 },
+    { "notation": "SWP-PREFAB-CONC", "offsite_hours_per_unit": 3.0 },
+    { "notation": "SSP-PREFAB-CONC", "offsite_hours_per_unit": 2.0 },
+    { "notation": "FaCP-PREFAB-MODULAR-TIMBER", "offsite_hours_per_unit": 4.0 },
+    { "notation": "FaCP-PREFAB-MODULAR-METAL", "offsite_hours_per_unit": 4.5 }
+  ]
+}

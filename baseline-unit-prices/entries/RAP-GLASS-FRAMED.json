@@ -1,0 +1,26 @@
+{
+  "product": "RAP-GLASS-FRAMED",
+  "material_cost": 260.0,
+  "price_unit": "m",
+  "onsite_labor_hours_per_unit": 1.5,
+  "provenance_status": "estimated",
+  "observations": [
+    {
+      "aspect": "material_cost",
+      "value": 260.0,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "notes": "Net EUR ex-works material per m of railing length; onsite labor person-hours per m. Laminated safety glass infill in metal frame or channel profile.",
+      "selects_canonical": true
+    },
+    {
+      "aspect": "onsite_labor_hours_per_unit",
+      "value": 1.5,
+      "reference_source": "Editorial first-fill estimate (pragmatic BIM), anchored on DE_MU trade material rates and installed-rate labour splits; no external reference dataset consulted yet",
+      "contributed_at": "2026-09-16",
+      "provenance_status": "estimated",
+      "selects_canonical": true
+    }
+  ]
+}

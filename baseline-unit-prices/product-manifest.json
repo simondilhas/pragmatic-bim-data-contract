@@ -1,0 +1,1006 @@
+{
+  "count": 125,
+  "source": "classification/**/*product*.skos.ttl",
+  "products": [
+    {
+      "notation": "BMP-OTH",
+      "scheme": "BeamProduct",
+      "product_uri": "https://example.org/abstract/beam-product/BMP-OTH",
+      "pref_label_en": "Other or unknown beam",
+      "category": "Beam Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "BMP-RC",
+      "scheme": "BeamProduct",
+      "product_uri": "https://example.org/abstract/beam-product/BMP-RC",
+      "pref_label_en": "Reinforced concrete beam",
+      "category": "Beam Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "BMP-STEEL",
+      "scheme": "BeamProduct",
+      "product_uri": "https://example.org/abstract/beam-product/BMP-STEEL",
+      "pref_label_en": "Steel beam",
+      "category": "Beam Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "BMP-TIMBER",
+      "scheme": "BeamProduct",
+      "product_uri": "https://example.org/abstract/beam-product/BMP-TIMBER",
+      "pref_label_en": "Timber beam",
+      "category": "Beam Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "CCP-GYPSUM-BOARD",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-GYPSUM-BOARD",
+      "pref_label_en": "Gypsum board ceiling",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CCP-METAL-GRID",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-METAL-GRID",
+      "pref_label_en": "Metal grid ceiling",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CCP-METAL-PANEL",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-METAL-PANEL",
+      "pref_label_en": "Metal panel ceiling",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CCP-METAL-SHEET",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-METAL-SHEET",
+      "pref_label_en": "Metal sheet ceiling",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CCP-MINERAL-FIBRE",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-MINERAL-FIBRE",
+      "pref_label_en": "Mineral-fibre acoustic ceiling",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CCP-OTH",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-OTH",
+      "pref_label_en": "Other / unknown ceiling covering",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CCP-SYNTHETIC",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-SYNTHETIC",
+      "pref_label_en": "Synthetic ceiling lining",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CCP-WOOD",
+      "scheme": "AbstractCeilingCoveringProduct",
+      "product_uri": "https://example.org/abstract/ceiling-covering-product/CCP-WOOD",
+      "pref_label_en": "Wood ceiling lining",
+      "category": "Ceiling Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "CLP-OTH",
+      "scheme": "ColumnProduct",
+      "product_uri": "https://example.org/abstract/column-product/CLP-OTH",
+      "pref_label_en": "Other or unknown column",
+      "category": "Column Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "CLP-RC",
+      "scheme": "ColumnProduct",
+      "product_uri": "https://example.org/abstract/column-product/CLP-RC",
+      "pref_label_en": "Reinforced concrete column",
+      "category": "Column Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "CLP-STEEL",
+      "scheme": "ColumnProduct",
+      "product_uri": "https://example.org/abstract/column-product/CLP-STEEL",
+      "pref_label_en": "Steel column",
+      "category": "Column Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "CLP-TIMBER",
+      "scheme": "ColumnProduct",
+      "product_uri": "https://example.org/abstract/column-product/CLP-TIMBER",
+      "pref_label_en": "Timber column",
+      "category": "Column Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "DCP-GATE",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-GATE",
+      "pref_label_en": "Gate / industrial door",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "DCP-GLASS",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-GLASS",
+      "pref_label_en": "Glazed door system",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "DCP-METAL",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-METAL",
+      "pref_label_en": "Metal door system",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "DCP-OTH",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-OTH",
+      "pref_label_en": "Other / unknown door",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "DCP-PVC",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-PVC",
+      "pref_label_en": "Plastic / PVC door system",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "DCP-SPECIAL",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-SPECIAL",
+      "pref_label_en": "Special door system",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "DCP-WOOD",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-WOOD",
+      "pref_label_en": "Wood door system",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "DCP-WOOD-METAL",
+      "scheme": "AbstractDoorConnectorProduct",
+      "product_uri": "https://example.org/abstract/door-connector-product/DCP-WOOD-METAL",
+      "pref_label_en": "Wood–metal composite door",
+      "category": "Door Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-ARTIFICIAL-STONE",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-ARTIFICIAL-STONE",
+      "pref_label_en": "Artificial stone flooring",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-CARPET",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-CARPET",
+      "pref_label_en": "Textile carpet",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-CERAMIC-TILE",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-CERAMIC-TILE",
+      "pref_label_en": "Ceramic / porcelain tile floor",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-LAMINATE",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-LAMINATE",
+      "pref_label_en": "Laminate flooring",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-LINOLIUM",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-LINOLIUM",
+      "pref_label_en": "Linoleum",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-LVT",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-LVT",
+      "pref_label_en": "Vinyl / LVT floor",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-NATURAL-STONE",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-NATURAL-STONE",
+      "pref_label_en": "Natural stone flooring",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-OTH",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-OTH",
+      "pref_label_en": "Other / unknown floor covering",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-PARQUET",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-PARQUET",
+      "pref_label_en": "Parquet / engineered wood floor",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-RAISED-FLOOR",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-RAISED-FLOOR",
+      "pref_label_en": "Raised / access floor",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-SEAMLESS-RESIN",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-SEAMLESS-RESIN",
+      "pref_label_en": "Seamless resin floor",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FCP-SUBFLOOR",
+      "scheme": "AbstractFloorCoveringProduct",
+      "product_uri": "https://example.org/abstract/floor-covering-product/FCP-SUBFLOOR",
+      "pref_label_en": "Subfloor / leveling layer",
+      "category": "Floor Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FDP-DRAINAGE",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-DRAINAGE",
+      "pref_label_en": "Foundation drainage and protection",
+      "category": "Foundation Product",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FDP-MICRO-PILE",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-MICRO-PILE",
+      "pref_label_en": "Micropile / ground improvement",
+      "category": "Foundation Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "FDP-OTH",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-OTH",
+      "pref_label_en": "Other / unknown foundation",
+      "category": "Foundation Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "FDP-PAD",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-PAD",
+      "pref_label_en": "Pad / isolated footing",
+      "category": "Foundation Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "FDP-PILE",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-PILE",
+      "pref_label_en": "Driven / bored pile foundation",
+      "category": "Foundation Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "FDP-RAFT",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-RAFT",
+      "pref_label_en": "Raft / base slab foundation",
+      "category": "Foundation Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "FDP-RETAINING",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-RETAINING",
+      "pref_label_en": "Basement / retaining foundation wall",
+      "category": "Foundation Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "FDP-STRIP",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-STRIP",
+      "pref_label_en": "Strip footing foundation",
+      "category": "Foundation Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "FDP-WATERPROOF",
+      "scheme": "AbstractFoundationProduct",
+      "product_uri": "https://example.org/abstract/foundation-product/FDP-WATERPROOF",
+      "pref_label_en": "Foundation waterproofing / tanking",
+      "category": "Foundation Product",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-BIPV-INTEGRATED",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-BIPV-INTEGRATED",
+      "pref_label_en": "Building-integrated photovoltaic facade",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-BRICK-SLIP",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-BRICK-SLIP",
+      "pref_label_en": "Brick slip / tile-hung ventilated facade",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-CERAMIC-VENTILATED",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-CERAMIC-VENTILATED",
+      "pref_label_en": "Ventilated ceramic tile system",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-EXTERIOR-PAINT-COATING",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-EXTERIOR-PAINT-COATING",
+      "pref_label_en": "Exterior paint / protective coating finish",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-FIBER-CEMENT-BOARD",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-FIBER-CEMENT-BOARD",
+      "pref_label_en": "Fibre-cement board facade",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-HPL-PANEL",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-HPL-PANEL",
+      "pref_label_en": "HPL / compact laminate facade panel",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-METAL-COMPOSITE-PANEL",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-METAL-COMPOSITE-PANEL",
+      "pref_label_en": "Metal composite facade panel (ACP)",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-METAL-SHEET-STANDING-SEAM",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-METAL-SHEET-STANDING-SEAM",
+      "pref_label_en": "Metal sheet standing-seam facade",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-NATURAL-STONE-VENTILATED",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-NATURAL-STONE-VENTILATED",
+      "pref_label_en": "Ventilated natural stone cladding",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-OTHER",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-OTHER",
+      "pref_label_en": "Other / unknown facade covering",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-PREFAB-MODULAR-METAL",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-PREFAB-MODULAR-METAL",
+      "pref_label_en": "Prefabricated modular metal facade system",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-PREFAB-MODULAR-TIMBER",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-PREFAB-MODULAR-TIMBER",
+      "pref_label_en": "Prefabricated modular timber facade system",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-RENDER-ETICS-WDVS",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-RENDER-ETICS-WDVS",
+      "pref_label_en": "Render / ETICS facade system",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-RETROFIT-OVERCLADDING",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-RETROFIT-OVERCLADDING",
+      "pref_label_en": "Retrofit overcladding system (composite)",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-SYNTHETIC-VENTILATED",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-SYNTHETIC-VENTILATED",
+      "pref_label_en": "Synthetic ventilated facade panel",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "FaCP-TIMBER-VENTILATED",
+      "scheme": "EuropeanFacadeCoveringProduct",
+      "product_uri": "https://example.org/abstract/facade-covering-product/FaCP-TIMBER-VENTILATED",
+      "pref_label_en": "Timber ventilated facade system",
+      "category": "European Facade Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RAP-BALUSTER",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-BALUSTER",
+      "pref_label_en": "Metal baluster railing",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-CABLE-MESH",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-CABLE-MESH",
+      "pref_label_en": "Cable or mesh infill railing",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-GLASS-FRAMED",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-GLASS-FRAMED",
+      "pref_label_en": "Framed laminated glass railing",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-GLASS-POINT",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-GLASS-POINT",
+      "pref_label_en": "Point-fixed structural glass railing",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-HANDRAIL",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-HANDRAIL",
+      "pref_label_en": "Handrail only",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-OTH",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-OTH",
+      "pref_label_en": "Other or unknown railing",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-PARAPET-SOLID",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-PARAPET-SOLID",
+      "pref_label_en": "Solid parapet",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-PERFORATED-METAL",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-PERFORATED-METAL",
+      "pref_label_en": "Perforated or expanded metal railing",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RAP-TIMBER",
+      "scheme": "RailingProduct",
+      "product_uri": "https://example.org/abstract/railing-product/RAP-TIMBER",
+      "pref_label_en": "Timber railing",
+      "category": "Railing Product",
+      "price_unit": "m"
+    },
+    {
+      "notation": "RCP-FLAT-BITUMEN",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-FLAT-BITUMEN",
+      "pref_label_en": "Built-up / bitumen flat roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-FLAT-LIQUID",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-FLAT-LIQUID",
+      "pref_label_en": "Liquid-applied flat roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-FLAT-SINGLE-PLY",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-FLAT-SINGLE-PLY",
+      "pref_label_en": "Single-ply membrane flat roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-GREEN-EXTENSIVE",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-GREEN-EXTENSIVE",
+      "pref_label_en": "Extensive green roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-GREEN-INTENSIVE",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-GREEN-INTENSIVE",
+      "pref_label_en": "Intensive green roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-METAL-SHEET",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-METAL-SHEET",
+      "pref_label_en": "Metal sheet roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-OTH",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-OTH",
+      "pref_label_en": "Other / unknown roof covering",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-PV-ROOF",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-PV-ROOF",
+      "pref_label_en": "Roof-mounted photovoltaic system",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-SLATE",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-SLATE",
+      "pref_label_en": "Natural slate roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-TILE-CLAY",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-TILE-CLAY",
+      "pref_label_en": "Clay tile roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-TILE-CONCRETE",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-TILE-CONCRETE",
+      "pref_label_en": "Concrete tile roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "RCP-WOOD-SHINGLE",
+      "scheme": "AbstractRoofCoveringProduct",
+      "product_uri": "https://example.org/abstract/roof-covering-product/RCP-WOOD-SHINGLE",
+      "pref_label_en": "Wood shingle / shake roof",
+      "category": "Roof Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SRP-OTH",
+      "scheme": "StairProduct",
+      "product_uri": "https://example.org/abstract/stair-product/SRP-OTH",
+      "pref_label_en": "Other or unknown stair",
+      "category": "Stair Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "SRP-RC",
+      "scheme": "StairProduct",
+      "product_uri": "https://example.org/abstract/stair-product/SRP-RC",
+      "pref_label_en": "Reinforced concrete stair",
+      "category": "Stair Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "SRP-STEEL",
+      "scheme": "StairProduct",
+      "product_uri": "https://example.org/abstract/stair-product/SRP-STEEL",
+      "pref_label_en": "Steel stair",
+      "category": "Stair Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "SRP-TIMBER",
+      "scheme": "StairProduct",
+      "product_uri": "https://example.org/abstract/stair-product/SRP-TIMBER",
+      "pref_label_en": "Timber stair",
+      "category": "Stair Product",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "SSP-CLT",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-CLT",
+      "pref_label_en": "Cross-laminated timber (CLT) slab",
+      "category": "Slab Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SSP-HBV",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-HBV",
+      "pref_label_en": "Timber–concrete composite slab (HBV)",
+      "category": "Slab Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SSP-HOLZ-LEHM",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-HOLZ-LEHM",
+      "pref_label_en": "Timber–clay slab / deck",
+      "category": "Slab Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SSP-INSITU",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-INSITU",
+      "pref_label_en": "In-situ concrete slab",
+      "category": "Slab Separator",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "SSP-LIGHTWEIGHT",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-LIGHTWEIGHT",
+      "pref_label_en": "Lightweight slab system",
+      "category": "Slab Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SSP-OTH",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-OTH",
+      "pref_label_en": "Other / unknown slab separator",
+      "category": "Slab Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SSP-PREFAB-CONC",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-PREFAB-CONC",
+      "pref_label_en": "Prefabricated concrete slab",
+      "category": "Slab Separator Layer",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SSP-STEEL-COMPOSITE",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-STEEL-COMPOSITE",
+      "pref_label_en": "Steel deck / composite slab",
+      "category": "Slab Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SSP-TIMBER",
+      "scheme": "AbstractSlabSeparatorProduct",
+      "product_uri": "https://example.org/abstract/slab-separator-product/SSP-TIMBER",
+      "pref_label_en": "Timber slab / deck",
+      "category": "Slab Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-BLT",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-BLT",
+      "pref_label_en": "Lightweight concrete panel (BLT) wall",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-CURTAIN-WALL",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-CURTAIN-WALL",
+      "pref_label_en": "Curtain wall / facade system",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-ELEMENT-WALL",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-ELEMENT-WALL",
+      "pref_label_en": "Drywall / element partition wall",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-LEICHTBAU",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-LEICHTBAU",
+      "pref_label_en": "Lightweight construction wall",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-MASONRY",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-MASONRY",
+      "pref_label_en": "Masonry wall",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-ORTBETON",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-ORTBETON",
+      "pref_label_en": "In-situ concrete wall",
+      "category": "Wall Separator",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "SWP-OTH",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-OTH",
+      "pref_label_en": "Other / unknown wall separator",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-PREFAB-CONC",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-PREFAB-CONC",
+      "pref_label_en": "Prefabricated concrete wall",
+      "category": "Wall Separator",
+      "price_unit": "m3"
+    },
+    {
+      "notation": "SWP-RAMMED-EARTH",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-RAMMED-EARTH",
+      "pref_label_en": "Rammed earth wall",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-STEEL",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-STEEL",
+      "pref_label_en": "Steel frame wall",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "SWP-TIMBER",
+      "scheme": "AbstractWallSeparatorProduct",
+      "product_uri": "https://example.org/abstract/wall-separator-product/SWP-TIMBER",
+      "pref_label_en": "Timber frame wall",
+      "category": "Wall Separator",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-ARTIFICIAL-STONE",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-ARTIFICIAL-STONE",
+      "pref_label_en": "Artificial stone wall cladding",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-CERAMIC-TILE",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-CERAMIC-TILE",
+      "pref_label_en": "Ceramic / porcelain wall tile",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-NATURAL-STONE",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-NATURAL-STONE",
+      "pref_label_en": "Natural stone wall cladding",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-OTH",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-OTH",
+      "pref_label_en": "Other / unknown wall covering",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-PAINT",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-PAINT",
+      "pref_label_en": "Interior paint finish",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-SEAMLESS-COATING",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-SEAMLESS-COATING",
+      "pref_label_en": "Seamless wall coating",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-SYNTHETIC-PANEL",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-SYNTHETIC-PANEL",
+      "pref_label_en": "Synthetic wall panel",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-TEXTILE",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-TEXTILE",
+      "pref_label_en": "Textile wall covering",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-WALLPAPER",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-WALLPAPER",
+      "pref_label_en": "Wallpaper",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WCP-WOOD-PANEL",
+      "scheme": "AbstractWallCoveringProduct",
+      "product_uri": "https://example.org/abstract/wall-covering-product/WCP-WOOD-PANEL",
+      "pref_label_en": "Wood wall panel",
+      "category": "Wall Covering",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-ALUMINIUM",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-ALUMINIUM",
+      "pref_label_en": "Aluminium window system",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-FACADE-UNIT",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-FACADE-UNIT",
+      "pref_label_en": "Facade glazing unit",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-OTH",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-OTH",
+      "pref_label_en": "Other / unknown window",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-PVC",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-PVC",
+      "pref_label_en": "Plastic / PVC window system",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-SKYLIGHT",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-SKYLIGHT",
+      "pref_label_en": "Roof window / skylight",
+      "category": "Window Connector",
+      "price_unit": "pcs"
+    },
+    {
+      "notation": "WICP-SPECIAL",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-SPECIAL",
+      "pref_label_en": "Special transparent opening",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-STEEL",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-STEEL",
+      "pref_label_en": "Steel window system",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-WOOD",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-WOOD",
+      "pref_label_en": "Wood window system",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    },
+    {
+      "notation": "WICP-WOOD-METAL",
+      "scheme": "AbstractWindowConnectorProduct",
+      "product_uri": "https://example.org/abstract/window-connector-product/WICP-WOOD-METAL",
+      "pref_label_en": "Wood–metal composite window",
+      "category": "Window Connector",
+      "price_unit": "m2"
+    }
+  ]
+}
