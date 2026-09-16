@@ -78,6 +78,7 @@ class ConceptDoc:
     pref_label: LangStrings = field(default_factory=LangStrings)
     definition: LangStrings = field(default_factory=LangStrings)
     scope_note: LangStrings = field(default_factory=LangStrings)
+    description: LangStrings = field(default_factory=LangStrings)
     broader: list[str] = field(default_factory=list)
     narrower: list[str] = field(default_factory=list)
     is_top_concept: bool = False
@@ -192,7 +193,12 @@ def all_langs_from_meta(meta: dict[str, LangStrings]) -> list[str]:
 def all_langs_from_concepts(concepts: list[ConceptDoc]) -> list[str]:
     langs: set[str] = set()
     for concept in concepts:
-        for strings in (concept.pref_label, concept.definition, concept.scope_note):
+        for strings in (
+            concept.pref_label,
+            concept.definition,
+            concept.scope_note,
+            concept.description,
+        ):
             langs.update(strings.langs())
     langs.discard("und")
     return sorted(langs)
@@ -243,6 +249,7 @@ def parse_vocabulary(path: Path, *, slug: str, title: str) -> VocabularyDoc:
                 pref_label=collect_lang_strings(graph, concept, SKOS.prefLabel),
                 definition=collect_lang_strings(graph, concept, SKOS.definition),
                 scope_note=collect_lang_strings(graph, concept, SKOS.scopeNote),
+                description=collect_lang_strings(graph, concept, DCTERMS.description),
                 broader=broader,
                 narrower=narrower,
                 is_top_concept=notation in top_concepts,
@@ -447,6 +454,7 @@ def default_lang(langs: list[str]) -> str:
 LANG_FIELDS = (
     ("label", "Label", lambda c: c.pref_label),
     ("definition", "Definition", lambda c: c.definition),
+    ("description", "Description", lambda c: c.description),
     ("scope_note", "Scope note", lambda c: c.scope_note),
 )
 
@@ -466,11 +474,18 @@ def render_concepts_table_html(vocab: VocabularyDoc) -> str:
             f'<button type="button" class="pbs-lang-btn" data-lang="{escape_html(lang)}">'
             f"{escape_html(lang.upper())}</button>"
         )
+    # Vocabularies without concept descriptions keep their previous column set.
+    fields = [
+        field
+        for field in LANG_FIELDS
+        if field[0] != "description" or any(c.description.values for c in vocab.concepts)
+    ]
+
     lines.extend(["</div>", "<table>", "<thead>", "<tr>"])
     lines.append("<th>Notation</th>")
     lines.append("<th>Broader</th>")
     for lang in vocab.langs:
-        for field_key, field_title, _ in LANG_FIELDS:
+        for field_key, field_title, _ in fields:
             lines.append(
                 f'<th class="pbs-lang-col" data-lang="{escape_html(lang)}" '
                 f'data-field="{field_key}">{field_title}</th>'
@@ -483,7 +498,7 @@ def render_concepts_table_html(vocab: VocabularyDoc) -> str:
         lines.append(f"<td>{escape_html(concept.notation)}</td>")
         lines.append(f"<td>{escape_html(broader)}</td>")
         for lang in vocab.langs:
-            for field_key, _, getter in LANG_FIELDS:
+            for field_key, _, getter in fields:
                 value = getter(concept).get(lang)
                 lines.append(
                     f'<td class="pbs-lang-col" data-lang="{escape_html(lang)}" '

@@ -13,7 +13,6 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_SCHEMA_ROOT = REPO_ROOT / "contract" / "00_pragmatic_bim_data_contract.yaml"
-DEFAULT_COST_SCHEMA_ROOT = REPO_ROOT / "contract" / "cost" / "baseline_cost_schema.yaml"
 DEFAULT_SITE_DIR = REPO_ROOT / "site"
 DEFAULT_MD_SRC = DEFAULT_SITE_DIR / ".md-src"
 DEFAULT_HTML_BUILD = DEFAULT_SITE_DIR / ".html-build"
@@ -62,13 +61,6 @@ SCHEMA_ARTIFACTS = {
     "pragmatic-bim.csv",
     "pragmatic-bim.pydantic.py",
     "pragmatic-bim.docs.md",
-}
-COST_SCHEMA_ARTIFACTS = {
-    "baseline-cost.shacl.ttl",
-    "baseline-cost.schema.json",
-    "baseline-cost.csv",
-    "baseline-cost.pydantic.py",
-    "baseline-cost.docs.md",
 }
 CLASSIFICATION_PRESERVE = {"sources", "classifications.json"}
 MKDOCS_OUTPUT_NAMES = {
@@ -372,8 +364,6 @@ def clear_section_html(section_dir: Path) -> None:
     if not section_dir.is_dir():
         return
     preserve = SCHEMA_ARTIFACTS if section_dir.name == "schema" else CLASSIFICATION_PRESERVE
-    if section_dir.name == "cost":
-        preserve = COST_SCHEMA_ARTIFACTS
     for item in section_dir.iterdir():
         if item.name in preserve:
             continue
@@ -389,7 +379,7 @@ def clear_mkdocs_outputs(site_dir: Path) -> None:
             continue
         if item.name in MKDOCS_OUTPUT_NAMES or item.suffix == ".html":
             _remove_path(item)
-        elif item.is_dir() and item.name in {"schema", "classification", "mapping", "cost"}:
+        elif item.is_dir() and item.name in {"schema", "classification", "mapping"}:
             clear_section_html(item)
 
 
@@ -422,8 +412,6 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
     html_build = site_dir / ".html-build"
     schema_out = site_dir / "schema"
     classification_out = site_dir / "classification"
-    cost_schema_root = REPO_ROOT / "contract" / "cost" / "baseline_cost_schema.yaml"
-    cost_out = site_dir / "cost"
 
     subprocess.run(
         [
@@ -437,21 +425,6 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
         check=True,
         cwd=REPO_ROOT,
     )
-    subprocess.run(
-        [
-            sys.executable,
-            str(REPO_ROOT / "scripts" / "build_schema_docs.py"),
-            "--schema-root",
-            str(cost_schema_root),
-            "--md-src",
-            str(md_src / "cost"),
-            "--index-name",
-            "baseline-cost.docs",
-        ],
-        check=True,
-        cwd=REPO_ROOT,
-    )
-
     subprocess.run(
         [
             sys.executable,
@@ -473,9 +446,7 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
     run_mkdocs_build(html_build=html_build)
     merge_html_build(html_build, site_dir)
     run_linkml_artifacts(schema_root, schema_out)
-    run_linkml_artifacts(cost_schema_root, cost_out, prefix="baseline-cost")
     publish_schema_markdown(md_src / "schema", schema_out)
-    publish_schema_markdown(md_src / "cost", cost_out)
     publish_classification_markdown(md_src / "classification", classification_out)
 
     subprocess.run(
@@ -498,7 +469,6 @@ def build_site(*, schema_root: Path, site_dir: Path, base_url: str) -> None:
 
 
 def check_site(*, schema_root: Path) -> None:
-    cost_schema_root = REPO_ROOT / "contract" / "cost" / "baseline_cost_schema.yaml"
     subprocess.run(
         [
             sys.executable,
@@ -508,21 +478,6 @@ def check_site(*, schema_root: Path) -> None:
             str(schema_root),
             "--md-src",
             str(DEFAULT_MD_SRC / "schema"),
-        ],
-        check=True,
-        cwd=REPO_ROOT,
-    )
-    subprocess.run(
-        [
-            sys.executable,
-            str(REPO_ROOT / "scripts" / "build_schema_docs.py"),
-            "--check",
-            "--schema-root",
-            str(cost_schema_root),
-            "--md-src",
-            str(DEFAULT_MD_SRC / "cost"),
-            "--index-name",
-            "baseline-cost.docs",
         ],
         check=True,
         cwd=REPO_ROOT,

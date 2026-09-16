@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,8 +421,8 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> Ordnet abstrakte Dachbekleidungsprodukte BKP-Rohbau-2-Positionen zu (224 Bedachungsarbeiten). BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern.</li>
-<li><strong>description (en):</strong> Maps abstract roof covering product concepts to BKP Rohbau 2 cost lines (224 Bedachungsarbeiten). BKP subcodes use underscore notation (e.g. bkp:224_0 for BKP 224.0). Full BKP vocabulary is external; only referenced IRIs are used.</li>
+<li><strong>description (de):</strong> Ordnet abstrakte Dachbekleidungsprodukte BKP-Rohbau-2-Positionen zu: 224.0 Deckungen (Steildaecher) fuer Steildacheindeckungen, 224.1 Plastische und elastische Dichtungsbelaege fuer Flachdachabdichtungen und Gruendachaufbauten, 222 Spenglerarbeiten fuer Metallblechdaecher. Sekundaere Positionen sind 214 Montagebau in Holz, 421 Gaertnerarbeiten (Bepflanzung) und 231 Zentrale Starkstromanlagen (Dach-Photovoltaik). BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative.</li>
+<li><strong>description (en):</strong> Maps abstract roof covering product concepts to BKP Rohbau 2 cost lines: 224.0 Deckungen (Steildaecher) for pitched coverings, 224.1 Plastische und elastische Dichtungsbelaege for flat roof membranes and green roof build-ups, 222 Spenglerarbeiten for sheet metal roofs. Secondary lines are 214 Montagebau in Holz, 421 Gaertnerarbeiten (planting) and 231 Zentrale Starkstromanlagen (roof photovoltaics). BKP subcodes use underscore notation (e.g. bkp:224_0 for BKP 224.0). Full BKP vocabulary is external; only referenced IRIs are used. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative.</li>
 <li><strong>title (de):</strong> Mapping abstrakter Dachbekleidungsprodukte nach BKP</li>
 <li><strong>title (en):</strong> Abstract roof covering products to BKP mapping</li>
 </ul>
@@ -439,82 +439,82 @@
 <tr>
 <td><code>rcp:RCP-FLAT-BITUMEN</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-0</code></td>
+<td><code>bkp:224-1</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-FLAT-LIQUID</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-0</code></td>
-</tr>
-<tr>
-<td><code>rcp:RCP-FLAT-LIQUID</code></td>
-<td><code>relatedMatch</code></td>
 <td><code>bkp:224-1</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-FLAT-SINGLE-PLY</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-0</code></td>
+<td><code>bkp:224-1</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-GREEN-EXTENSIVE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-6</code></td>
+<td><code>bkp:224-1</code></td>
+</tr>
+<tr>
+<td><code>rcp:RCP-GREEN-EXTENSIVE</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:421</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-GREEN-INTENSIVE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-6</code></td>
+<td><code>bkp:224-1</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-GREEN-INTENSIVE</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:224-0</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:421</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-METAL-SHEET</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-2</code></td>
+<td><code>bkp:222</code></td>
+</tr>
+<tr>
+<td><code>rcp:RCP-METAL-SHEET</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:224-0</code></td>
+</tr>
+<tr>
+<td><code>rcp:RCP-PV-ROOF</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:224-1</code></td>
+</tr>
+<tr>
+<td><code>rcp:RCP-PV-ROOF</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:231</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-PV-ROOF</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>bkp:224-7</code></td>
-</tr>
-<tr>
-<td><code>rcp:RCP-PV-ROOF</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:244</code></td>
+<td><code>bkp:232</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-SLATE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-3</code></td>
+<td><code>bkp:224-0</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-TILE-CLAY</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-3</code></td>
-</tr>
-<tr>
-<td><code>rcp:RCP-TILE-CLAY</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:224-4</code></td>
+<td><code>bkp:224-0</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-TILE-CONCRETE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-4</code></td>
-</tr>
-<tr>
-<td><code>rcp:RCP-TILE-CONCRETE</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:224-3</code></td>
+<td><code>bkp:224-0</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-WOOD-SHINGLE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:224-5</code></td>
+<td><code>bkp:224-0</code></td>
 </tr>
 <tr>
 <td><code>rcp:RCP-WOOD-SHINGLE</code></td>

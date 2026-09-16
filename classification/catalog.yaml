@@ -255,6 +255,10 @@ mappings:
     path: mapping/abstract-roof-covering-products-to-bkp.mapping.ttl
     title: Abstract roof covering products to BKP mapping
 
+  - slug: mep-products-to-bkp
+    path: mapping/abstract-mep-products-to-bkp.mapping.ttl
+    title: Abstract MEP products to BKP mapping
+
   - slug: separator-products-to-material
     path: mapping/abstract-separator-products-to-material.mapping.ttl
     title: Abstract separator products to material mapping

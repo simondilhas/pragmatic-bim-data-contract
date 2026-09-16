@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,8 +421,8 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> Ordnet abstrakte Fundamentprodukte BKP-Rohbau-1-Positionen zu (216 Fundamente; 211 Baumeisterarbeiten wo Beton tragend dominiert). BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern.</li>
-<li><strong>description (en):</strong> Maps abstract foundation product concepts to BKP Rohbau 1 cost lines (216 Fundamente; 211 Baumeisterarbeiten where structural concrete dominates). BKP subcodes use underscore notation (e.g. bkp:216_0 for BKP 216.0). Full BKP vocabulary is external; only referenced IRIs are used.</li>
+<li><strong>description (de):</strong> Ordnet abstrakte Fundamentprodukte BKP-Positionen zu: 211.5 Beton- und Stahlbetonarbeiten fuer betonierte Fundamente, 17 Fundation, Sicherung, Abdichtung fuer Tiefgruendungen und Grundwasserabdichtung (171 Pfaehle, 172 Baugrubenabschluesse, 175 Grundwasserabdichtungen, 177 Baugrundverbesserungen), 211.4 Kanalisationen im Gebaeude fuer Perimeterentwaesserung und 225.2 Spezielle Daemmungen fuer Perimeterdaemmschichten. BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative.</li>
+<li><strong>description (en):</strong> Maps abstract foundation product concepts to BKP cost lines: 211.5 Beton- und Stahlbetonarbeiten for cast concrete foundations, 17 Fundation, Sicherung, Abdichtung for deep foundations and groundwater sealing (171 Pfaehle, 172 Baugrubenabschluesse, 175 Grundwasserabdichtungen, 177 Baugrundverbesserungen), 211.4 Kanalisationen im Gebaeude for perimeter drainage and 225.2 Spezielle Daemmungen for perimeter insulation layers. BKP subcodes use underscore notation (e.g. bkp:211_5 for BKP 211.5). Full BKP vocabulary is external; only referenced IRIs are used. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative.</li>
 <li><strong>title (de):</strong> Mapping abstrakter Fundamentprodukte nach BKP</li>
 <li><strong>title (en):</strong> Abstract foundation products to BKP mapping</li>
 </ul>
@@ -439,27 +439,32 @@
 <tr>
 <td><code>fdp:FDP-DRAINAGE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-5</code></td>
+<td><code>bkp:211-4</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-DRAINAGE</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>bkp:216-0</code></td>
+<td><code>bkp:175</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-MICRO-PILE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-2</code></td>
+<td><code>bkp:171</code></td>
+</tr>
+<tr>
+<td><code>fdp:FDP-MICRO-PILE</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:177</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-MICRO-PILE</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>bkp:216-3</code></td>
+<td><code>bkp:123-2</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-PAD</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-1</code></td>
+<td><code>bkp:211-5</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-PAD</code></td>
@@ -469,17 +474,17 @@
 <tr>
 <td><code>fdp:FDP-PILE</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-2</code></td>
+<td><code>bkp:171</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-PILE</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:211</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:211-5</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-RAFT</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-0</code></td>
+<td><code>bkp:211-5</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-RAFT</code></td>
@@ -487,19 +492,39 @@
 <td><code>bkp:211</code></td>
 </tr>
 <tr>
-<td><code>fdp:FDP-RETAINING</code></td>
+<td><code>fdp:FDP-RAFT-INS</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-0</code></td>
+<td><code>bkp:225-2</code></td>
+</tr>
+<tr>
+<td><code>fdp:FDP-RAFT-INS</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:211-5</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-RETAINING</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:172</code></td>
+</tr>
+<tr>
+<td><code>fdp:FDP-RETAINING</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:211-5</code></td>
+</tr>
+<tr>
+<td><code>fdp:FDP-RETAINING-INS</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:225-2</code></td>
+</tr>
+<tr>
+<td><code>fdp:FDP-RETAINING-INS</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>bkp:211</code></td>
+<td><code>bkp:211-5</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-STRIP</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-1</code></td>
+<td><code>bkp:211-5</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-STRIP</code></td>
@@ -509,12 +534,12 @@
 <tr>
 <td><code>fdp:FDP-WATERPROOF</code></td>
 <td><code>closeMatch</code></td>
-<td><code>bkp:216-4</code></td>
+<td><code>bkp:175</code></td>
 </tr>
 <tr>
 <td><code>fdp:FDP-WATERPROOF</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:216-0</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:225-3</code></td>
 </tr>
 </tbody>
 </table>

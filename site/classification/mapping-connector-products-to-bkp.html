@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,8 +421,8 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> Ordnet abstrakte Tuer- und Fenster-Verbindungsprodukte BKP-Rohbau-221.x (Aussenfenster und -tueren) und Ausbau-272/273 (innere Metall- und Holz-Oeffnungen) zu. BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern.</li>
-<li><strong>description (en):</strong> Maps abstract door and window connector product concepts to BKP Rohbau 221.x (exterior windows and doors) and Ausbau 272/273 (interior metal and wood openings). BKP subcodes use underscore notation (e.g. bkp:221_0 for BKP 221.0). Full BKP vocabulary is external.</li>
+<li><strong>description (de):</strong> Ordnet abstrakte Tuer- und Fenster-Verbindungsprodukte BKP-Rohbau-221.x (Aussenfenster und -tueren) und Ausbau-272/273 (innere Metall- und Holz-Oeffnungen) zu. BKP-Untercodes mit Unterstrich. Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative.</li>
+<li><strong>description (en):</strong> Maps abstract door and window connector product concepts to BKP Rohbau 221.x (exterior windows and doors) and Ausbau 272/273 (interior metal and wood openings). BKP subcodes use underscore notation (e.g. bkp:221_0 for BKP 221.0). Full BKP vocabulary is external. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative.</li>
 <li><strong>title (de):</strong> Mapping abstrakter Verbindungsprodukte nach BKP</li>
 <li><strong>title (en):</strong> Abstract connector products to BKP mapping</li>
 </ul>
@@ -563,18 +563,18 @@
 </tr>
 <tr>
 <td><code>wicp:WICP-SKYLIGHT</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:221-0</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:221-8</code></td>
+</tr>
+<tr>
+<td><code>wicp:WICP-SKYLIGHT</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:224-3</code></td>
 </tr>
 <tr>
 <td><code>wicp:WICP-SKYLIGHT</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>bkp:221-4</code></td>
-</tr>
-<tr>
-<td><code>wicp:WICP-SKYLIGHT</code></td>
-<td><code>relatedMatch</code></td>
-<td><code>bkp:224</code></td>
+<td><code>bkp:224-2</code></td>
 </tr>
 <tr>
 <td><code>wicp:WICP-SPECIAL</code></td>

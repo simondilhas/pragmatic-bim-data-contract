@@ -36,9 +36,11 @@ n_L_FLR <|-- n_L_FLR_INT
 <th>Broader</th>
 <th class="pbs-lang-col" data-lang="de" data-field="label">Label</th>
 <th class="pbs-lang-col" data-lang="de" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="de" data-field="description">Description</th>
 <th class="pbs-lang-col" data-lang="de" data-field="scope_note">Scope note</th>
 <th class="pbs-lang-col" data-lang="en" data-field="label">Label</th>
 <th class="pbs-lang-col" data-lang="en" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="en" data-field="description">Description</th>
 <th class="pbs-lang-col" data-lang="en" data-field="scope_note">Scope note</th>
 </tr>
 </thead>
@@ -48,9 +50,11 @@ n_L_FLR <|-- n_L_FLR_INT
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Bodenplatte</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Platte auf oder unter Gelaendehoehe als primaere Abgrenzung zwischen Gebaeude und Erdreich oder unterirdischen Bedingungen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Einschliesslich Fundamentplatten, Kellerdecken und Untergeschossabgrenzungen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Base slab</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Slab at or below ground level forming the primary separation between the building and earth or below-grade conditions.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Including foundation slabs, basement floor slabs, and cellar decks.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -58,9 +62,11 @@ n_L_FLR <|-- n_L_FLR_INT
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Geschossdecke</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Horizontale Decke zur Trennung genutzter Geschosse, ohne Bodenplatten- oder Dachrolle.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Einschliesslich uebliche Geschossdecken, Podeste und Zwischengeschosse; unterteilt nach innerer und aeusserer Exposition.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Floor slab</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Horizontal slab separating occupied levels, excluding base slab and roof roles.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Including typical story floors, landings, and mezzanine decks; subdivided by interior and exterior exposure.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -68,9 +74,11 @@ n_L_FLR <|-- n_L_FLR_INT
 <td>L-FLR</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussere Geschossdecke</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Geschossdecke mit Exposition zur Aussenumgebung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Einschliesslich Balkonplatten, Terrassendecken und andere horizontale Aussenbelaege.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Exterior floor slab</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Floor slab exposed to the exterior environment.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Including balcony slabs, terrace decks, and other exterior horizontal walking surfaces.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -78,9 +86,11 @@ n_L_FLR <|-- n_L_FLR_INT
 <td>L-FLR</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Innere Geschossdecke</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Geschossdecke, die Innenraeume oder Geschosse innerhalb der Gebaeudehuelle voneinander trennt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Einschliesslich uebliche Geschossdecken, Korridorboeden, Zwischengeschosse und Decken zwischen Nutzungseinheiten.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Interior floor slab</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Floor slab separating interior spaces or levels within the building envelope.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Including typical story floors, corridor floors, mezzanines, and unit boundary floors.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -88,9 +98,11 @@ n_L_FLR <|-- n_L_FLR_INT
 <td></td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Dachdecke</td>
 <td class="pbs-lang-col" data-lang="de" data-field="definition">Decke als primaere wetterexponierte Abgrenzung auf Dachniveau.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Einschliesslich Flachdachplatten, tragende Dachdecken und oberste Geschossabgrenzungen im Dachaufbau.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Roof slab</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Slab forming the primary weather-exposed separation at roof level.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Including flat roof decks, pitched roof structural slabs, and top-floor roof build-up separations.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 </tbody>

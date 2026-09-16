@@ -1,5 +1,0 @@
-code,currency,material_factor,fx_to_eur,labor_factor,labor_unit_price,offsite_labor_unit_price
-CH_ZH,CHF,1.2,1.05,1.0,85.0,65.0
-DE_MU,EUR,1.0,1.0,1.0,55.0,42.0
-UK_LON,GBP,1.05,1.16,1.0,45.0,35.0
-US_NYC,USD,1.1,0.92,1.0,75.0,55.0

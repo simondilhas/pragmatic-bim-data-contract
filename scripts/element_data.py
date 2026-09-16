@@ -19,7 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from baseline_prices_common import SCHEME_IRI_PREFIXES  # noqa: E402
+from product_schemes import SCHEME_IRI_PREFIXES  # noqa: E402
 
 EL_NS = "https://example.org/pragmaticbim/elementplan-element/"
 ISSUED = "2026-09-16"

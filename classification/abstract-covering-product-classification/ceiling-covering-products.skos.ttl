@@ -38,6 +38,8 @@
   skos:prefLabel "Metallblech-Deckenbekleidung"@de ;
   skos:definition "Metal sheet or strip ceiling lining."@en ;
   skos:definition "Metallblech- oder -streifen-Deckenbekleidung."@de ;
+  dcterms:description "Visible ceiling lining from metal sheets or strips below the load-bearing slab, with a plain or perforated surface. Clipped or screwed onto a suspended metal substructure, with acoustic fleece and insulation laid in the cavity where required. Suitable for circulation areas, sanitary rooms, and technical rooms with requirements on cleanability, non-combustible surfaces, and partial access to services in the ceiling void."@en ;
+  dcterms:description "Sichtbare Deckenbekleidung aus Metallblechen oder -streifen unter der tragenden Decke, mit glatter oder perforierter Oberfläche. Auf abgehängter Metallunterkonstruktion eingeklipst oder verschraubt, bei Bedarf mit Akustikvlies und Dämmung im Hohlraum. Geeignet für Erschliessungs-, Sanitär- und Technikräume mit Anforderungen an Reinigbarkeit, nichtbrennbare Oberflächen und teilweise Zugänglichkeit der Installationen im Deckenhohlraum."@de ;
   dcterms:subject "IfcCovering" ;
   dcterms:identifier "metal-sheet-ceiling" .
 
@@ -49,6 +51,8 @@
   skos:prefLabel "Gipskarton-Decke"@de ;
   skos:definition "Gypsum board or plasterboard ceiling lining or suspended ceiling."@en ;
   skos:definition "Gipskarton-Deckenbekleidung oder abgehaengte GK-Decke."@de ;
+  dcterms:description "Closed, jointless-looking ceiling surface from gypsum boards, either fixed directly to the slab or suspended in front of it. Screwed onto a metal or timber substructure, with taped and filled joints ready for painting, and with access panels where services must remain reachable. Suitable for offices, dwellings, and rooms with fire protection or sound insulation requirements, where the ceiling void carries services and no regular access is needed."@en ;
+  dcterms:description "Geschlossene, fugenlos wirkende Deckenoberfläche aus Gipsplatten, direkt an der Decke befestigt oder davor abgehängt. Auf Metall- oder Holzunterkonstruktion verschraubt, mit verspachtelten und malfertigen Fugen sowie Revisionsöffnungen dort, wo Installationen zugänglich bleiben müssen. Geeignet für Büro-, Wohn- und Aufenthaltsräume mit Anforderungen an Brand- oder Schallschutz, wenn der Deckenhohlraum Installationen aufnimmt und keine regelmässige Zugänglichkeit nötig ist."@de ;
   dcterms:subject "IfcCovering" ;
   dcterms:identifier "gypsum-board-ceiling" .
 
@@ -60,6 +64,8 @@
   skos:prefLabel "Mineralfaser-Akustikdecke"@de ;
   skos:definition "Mineral-fibre acoustic ceiling tile or board system."@en ;
   skos:definition "Mineralfaser-Akustikplatten- oder -paneelsystem."@de ;
+  dcterms:description "Sound-absorbing ceiling lining from mineral-fibre tiles or boards below the load-bearing slab. Laid into or clipped onto a suspended grid or rail substructure as demountable panels, with edge profiles and cut-outs for luminaires and air outlets. Suitable for offices, schools, and healthcare rooms with high room-acoustic requirements and the need for full access to services in the ceiling void."@en ;
+  dcterms:description "Schallabsorbierende Deckenbekleidung aus Mineralfaserplatten oder -paneelen unter der tragenden Decke. Als demontierbare Platten in abgehängte Raster- oder Schienenunterkonstruktion eingelegt oder eingeklipst, mit Randprofilen und Ausschnitten für Leuchten und Luftdurchlässe. Geeignet für Büro-, Schul- und Pflegeräume mit hohen raumakustischen Anforderungen und Bedarf an vollflächiger Zugänglichkeit der Installationen im Deckenhohlraum."@de ;
   dcterms:subject "IfcCovering" ;
   dcterms:identifier "mineral-fibre-ceiling" .
 
@@ -71,6 +77,8 @@
   skos:prefLabel "Holz-Deckenbekleidung"@de ;
   skos:definition "Wood or wood-composite ceiling lining or panel system."@en ;
   skos:definition "Holz- oder Holzwerkstoff-Deckenbekleidung oder Paneelsystem."@de ;
+  dcterms:description "Visible ceiling lining from solid wood or wood-based panels, boards, or slats below the load-bearing slab. Mechanically fixed on battens or a suspended substructure, with visible or concealed fastenings and acoustic fleece behind perforated or slatted surfaces. Suitable for halls, meeting rooms, and educational rooms with acoustic and appearance requirements, where fire behaviour and surface treatment of the wood are specified separately."@en ;
+  dcterms:description "Sichtbare Deckenbekleidung aus Vollholz oder Holzwerkstoffen als Platten, Bretter oder Lamellen unter der tragenden Decke. Mechanisch auf Lattung oder abgehängter Unterkonstruktion befestigt, mit sichtbarer oder verdeckter Befestigung und Akustikvlies hinter perforierten oder gelamellten Flächen. Geeignet für Saal-, Sitzungs- und Schulungsräume mit akustischen und gestalterischen Anforderungen, wobei Brandverhalten und Oberflächenbehandlung des Holzes gesondert festzulegen sind."@de ;
   dcterms:subject "IfcCovering" ;
   dcterms:identifier "wood-ceiling" .
 
@@ -82,6 +90,8 @@
   skos:prefLabel "Kunststoff-Deckenbekleidung"@de ;
   skos:definition "Plastic, textile, or synthetic ceiling lining or membrane."@en ;
   skos:definition "Kunststoff-, Textil- oder synthetische Deckenbekleidung oder Membran."@de ;
+  dcterms:description "Lightweight ceiling lining from plastic, textile, or synthetic panels or a tensioned membrane below the load-bearing slab. Stretched into perimeter edge profiles or fixed onto a light suspended substructure, with sealed penetrations for luminaires and air outlets. Suitable for wet rooms, clean rooms, and large spans where a smooth, wipeable, and largely joint-free surface with low dead load is required."@en ;
+  dcterms:description "Leichte Deckenbekleidung aus Kunststoff-, Textil- oder synthetischen Paneelen oder einer Spannmembran unter der tragenden Decke. In umlaufende Randprofile eingespannt oder auf leichter abgehängter Unterkonstruktion befestigt, mit dichten Durchdringungen für Leuchten und Luftdurchlässe. Geeignet für Nassräume, Reinräume und grosse Spannweiten mit Anforderung an eine glatte, abwischbare und weitgehend fugenlose Oberfläche bei geringem Eigengewicht."@de ;
   dcterms:subject "IfcCovering" ;
   dcterms:identifier "synthetic-ceiling" .
 
@@ -93,6 +103,8 @@
   skos:prefLabel "Metallpaneel-Decke"@de ;
   skos:definition "Metal panel or lamella ceiling system."@en ;
   skos:definition "Metallpaneel- oder Lamellendekensystem."@de ;
+  dcterms:description "Ceiling system from linear metal panels or lamellas below the load-bearing slab, with plain or perforated faces and open or closed joints. Clipped onto carrier rails of a suspended substructure, individually demountable, with acoustic fleece and insulation in the cavity where required. Suitable for circulation areas, station-type and industrial spaces, and canopies with requirements on robustness, cleanability, and quick access to services."@en ;
+  dcterms:description "Deckensystem aus linearen Metallpaneelen oder Lamellen unter der tragenden Decke, mit glatten oder perforierten Sichtflächen und offenen oder geschlossenen Fugen. Auf Tragschienen einer abgehängten Unterkonstruktion eingeklipst, einzeln demontierbar, bei Bedarf mit Akustikvlies und Dämmung im Hohlraum. Geeignet für Erschliessungsflächen, Bahnhof- und Industriebereiche sowie Vordächer mit Anforderungen an Robustheit, Reinigbarkeit und schnelle Zugänglichkeit der Installationen."@de ;
   dcterms:subject "IfcCovering" ;
   dcterms:identifier "metal-panel-ceiling" .
 
@@ -104,6 +116,8 @@
   skos:prefLabel "Metallraster-Decke"@de ;
   skos:definition "Metal grid or lay-in suspended ceiling with removable tiles."@en ;
   skos:definition "Metallraster- oder Einlege-Decke mit abnehmbaren Platten."@de ;
+  dcterms:description "Suspended ceiling from a visible metal grid with removable lay-in tiles or open grid cells below the load-bearing slab. Grid profiles are hung from the slab on adjustable hangers, and tiles are laid in without fixings so that every field can be removed individually. Suitable for offices, laboratories, and technical areas with dense services in the ceiling void that require full and repeated access, with acoustic and fire behaviour determined by the chosen infill."@en ;
+  dcterms:description "Abgehängte Decke aus sichtbarem Metallraster mit abnehmbaren Einlegeplatten oder offenen Rasterzellen unter der tragenden Decke. Rasterprofile werden mit verstellbaren Abhängern an der Rohdecke aufgehängt, die Platten ohne Befestigung eingelegt, sodass jedes Feld einzeln entnommen werden kann. Geeignet für Büro-, Labor- und Technikbereiche mit dichten Installationen im Deckenhohlraum, die vollflächig und wiederholt zugänglich sein müssen, wobei Akustik und Brandverhalten von der gewählten Einlage abhängen."@de ;
   dcterms:subject "IfcCovering" ;
   dcterms:identifier "metal-grid-ceiling" .
 
@@ -115,6 +129,8 @@
   skos:prefLabel "Sonstige / unbekannte Deckenbekleidung"@de ;
   skos:definition "Ceiling covering product not classified or not yet known."@en ;
   skos:definition "Deckenbekleidungsprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  dcterms:description "Placeholder for ceiling coverings whose product type is not yet fixed or not classified at tender stage. Functional requirements on suspension height, access to services in the ceiling void, room acoustics, fire behaviour, and cleanability must be stated separately. Use only in early design stages or where data is incomplete."@en ;
+  dcterms:description "Platzhalter für Deckenbekleidungen, deren Produkttyp zum Zeitpunkt der Ausschreibung noch nicht festgelegt oder nicht klassifiziert ist. Funktionale Anforderungen an Abhängehöhe, Zugänglichkeit der Installationen im Deckenhohlraum, Raumakustik, Brandverhalten und Reinigbarkeit sind gesondert zu beschreiben. Nur in frühen Planungsphasen oder bei unvollständiger Datenlage verwenden."@de ;
   skos:scopeNote "Fallback for early design stages or missing data."@en ;
   skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
   dcterms:subject "IfcCovering" ;

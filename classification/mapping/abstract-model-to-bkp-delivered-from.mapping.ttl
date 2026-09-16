@@ -9,8 +9,8 @@ map:abstractModelToBkpDeliveredFromMapping a dcterms:Dataset ;
   dcterms:title "Mapping abstrakter Fachmodelle nach BKP geliefert aus"@de ;
   dcterms:references mod:scheme, bkp:scheme ;
   dcterms:issued "2026-09-03" ;
-  dcterms:description "Maps each BIM discipline-model type to BKP construction cost groups the model content is taken from. closeMatch is the primary works package; relatedMatch is a secondary chapter. Codes follow this repository's BKP IRI set (211 Baumeisterarbeiten, 213 Stahlbau, 214 Holzbau, 216 Fundamente, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Full BKP vocabulary is external; only referenced IRIs are used."@en ;
-  dcterms:description "Ordnet jeden BIM-Fachmodelltyp BKP-Baukostengruppen zu, aus denen der Modellinhalt stammt. closeMatch ist das Leitgewerk; relatedMatch eine sekundäre Hauptgruppe. Codes folgen dem BKP-IRI-Satz dieses Repositories (211 Baumeisterarbeiten, 213 Stahlbau, 214 Holzbau, 216 Fundamente, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Vollstaendiges BKP-Vokabular extern."@de .
+  dcterms:description "Maps each BIM discipline-model type to BKP construction cost groups the model content is taken from. closeMatch is the primary works package; relatedMatch is a secondary chapter. Codes follow this repository's BKP IRI set (211 Baumeisterarbeiten, 212 Montagebau in Beton, 213 Stahlbau, 214 Holzbau, 17/20 Fundation und Baugrube, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Full BKP vocabulary is external; only referenced IRIs are used. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative."@en ;
+  dcterms:description "Ordnet jeden BIM-Fachmodelltyp BKP-Baukostengruppen zu, aus denen der Modellinhalt stammt. closeMatch ist das Leitgewerk; relatedMatch eine sekundäre Hauptgruppe. Codes folgen dem BKP-IRI-Satz dieses Repositories (211 Baumeisterarbeiten, 212 Montagebau in Beton, 213 Stahlbau, 214 Holzbau, 17/20 Fundation und Baugrube, 221/215.5/226/227 Fassade, 24 HLK, 25 Sanitaer, 27/28 Ausbau, 3 Betriebseinrichtungen, 4 Umgebung, 9 Ausstattung). Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative."@de .
 
 # --- Architecture ---
 
@@ -46,7 +46,7 @@ mod:underground-services skos:closeMatch bkp:25 ;
 
 # --- Structural ---
 
-mod:concrete-structure skos:closeMatch bkp:211, bkp:216 ;
+mod:concrete-structure skos:closeMatch bkp:211, bkp:212 ;
   skos:relatedMatch bkp:21 .
 
 mod:steel-structure skos:closeMatch bkp:213 ;
@@ -58,7 +58,8 @@ mod:timber-structure skos:closeMatch bkp:214 ;
 mod:reinforcement skos:closeMatch bkp:211 ;
   skos:relatedMatch bkp:21 .
 
-mod:excavation-pit skos:closeMatch bkp:21 .
+mod:excavation-pit skos:closeMatch bkp:20 ;
+  skos:relatedMatch bkp:17 .
 
 mod:earthworks skos:closeMatch bkp:1 ;
   skos:relatedMatch bkp:21 .

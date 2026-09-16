@@ -35,6 +35,8 @@
   skos:prefLabel "Stahltreppe"@de ;
   skos:definition "Steel stair flight with stringers and treads of steel or grating, including landings and surface protection. Priced per m3 of gross flight volume."@en ;
   skos:definition "Stahltreppenlauf mit Wangen und Stufen aus Stahl oder Gitterrost, inklusive Podeste und Oberflächenschutz. Preis pro m3 Bruttovolumen des Laufs."@de ;
+  dcterms:description "Stair flight of steel for vertical circulation between levels, including landings and fixings to the surrounding structure. Stringers, treads of plate or grating, and landings are prefabricated, lifted into place, and bolted or welded to walls and slabs. Suitable for escape, technical, and external stairs as well as refurbishment where light, quickly erected flights are required."@en ;
+  dcterms:description "Stahltreppenlauf für die vertikale Erschliessung zwischen Geschossen, inklusive Podeste und Befestigungen an der umgebenden Struktur. Wangen, Stufen aus Blech oder Gitterrost und Podeste werden vorgefertigt, eingehoben und an Wänden und Decken verschraubt oder verschweisst. Geeignet für Flucht-, Technik- und Aussentreppen sowie für Sanierungen mit leichten, schnell montierten Läufen."@de ;
   pbs:priceUnit "m3" ;
   dcterms:identifier "SRP-STEEL" .
 
@@ -46,6 +48,8 @@
   skos:prefLabel "Holztreppe"@de ;
   skos:definition "Timber stair flight with stringers, treads, and risers of solid or engineered timber, including surface treatment. Priced per m3 of gross flight volume."@en ;
   skos:definition "Holztreppenlauf mit Wangen, Tritt- und Setzstufen aus Vollholz oder Konstruktionsholz, inklusive Oberflächenbehandlung. Preis pro m3 Bruttovolumen des Laufs."@de ;
+  dcterms:description "Stair flight of solid or engineered timber for vertical circulation between levels. Stringers, treads, and risers are prefabricated in the workshop, fitted on site, and finished with a surface treatment. Suitable for interior stairs in housing and low-rise buildings where visible timber surfaces and low dead load are wanted."@en ;
+  dcterms:description "Holztreppenlauf aus Vollholz oder Konstruktionsholz für die vertikale Erschliessung zwischen Geschossen. Wangen, Tritt- und Setzstufen werden im Werk vorgefertigt, vor Ort eingebaut und mit einer Oberflächenbehandlung versehen. Geeignet für Innentreppen im Wohnungsbau und in niedrigen Gebäuden mit sichtbaren Holzoberflächen und geringem Eigengewicht."@de ;
   pbs:priceUnit "m3" ;
   dcterms:identifier "SRP-TIMBER" .
 
@@ -57,6 +61,8 @@
   skos:prefLabel "Stahlbetontreppe"@de ;
   skos:definition "Cast-in-situ or precast reinforced concrete stair flight including formwork, reinforcement, and acoustic bearings. Priced per m3 of gross flight volume."@en ;
   skos:definition "Ortbeton- oder Fertigteil-Stahlbetontreppenlauf inklusive Schalung, Bewehrung und Schallschutzlager. Preis pro m3 Bruttovolumen des Laufs."@de ;
+  dcterms:description "Stair flight of reinforced concrete for vertical circulation, usually part of the fire-separated escape route. Cast in place with formwork and reinforcement or delivered as a precast flight and set on acoustic bearings that interrupt structure-borne sound. Suitable for escape stairwells with heavy wear and requirements on fire resistance and sound insulation."@en ;
+  dcterms:description "Stahlbetontreppenlauf für die vertikale Erschliessung, in der Regel Teil des brandschutztechnisch abgetrennten Fluchtwegs. Vor Ort mit Schalung und Bewehrung betoniert oder als Fertigteillauf geliefert und auf Schallschutzlagern versetzt, die den Körperschall unterbrechen. Geeignet für Fluchttreppenhäuser mit hoher Beanspruchung sowie Anforderungen an Feuerwiderstand und Schallschutz."@de ;
   pbs:priceUnit "m3" ;
   dcterms:identifier "SRP-RC" .
 
@@ -68,5 +74,7 @@
   skos:prefLabel "Andere oder unbekannte Treppe"@de ;
   skos:definition "Fallback for stairs whose material or product type is not yet determined, or for stone and composite stairs outside the listed types."@en ;
   skos:definition "Rückfallwert für Treppen mit noch unbestimmtem Material oder Produkttyp sowie für Stein- und Verbundtreppen ausserhalb der gelisteten Typen."@de ;
+  dcterms:description "Placeholder for stairs whose material or product type is not yet fixed at tender stage, and for stone or composite stairs outside the listed types. Geometry, use, and fire and acoustic requirements must be stated separately. Use only in early design stages or where data is incomplete."@en ;
+  dcterms:description "Platzhalter für Treppen, deren Material oder Produkttyp zum Zeitpunkt der Ausschreibung noch nicht festgelegt ist, sowie für Stein- und Verbundtreppen ausserhalb der gelisteten Typen. Geometrie, Nutzung sowie Brand- und Schallschutzanforderungen sind gesondert zu beschreiben. Nur in frühen Planungsphasen oder bei unvollständiger Datenlage verwenden."@de ;
   pbs:priceUnit "m3" ;
   dcterms:identifier "SRP-OTH" .

@@ -1,0 +1,141 @@
+@prefix mup: <https://example.org/abstract/mep-unit-product/> .
+@prefix mtp: <https://example.org/abstract/mep-terminal-product/> .
+@prefix bkp: <https://example.org/ch/bkp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:abstractMepProductsToBkpMapping a dcterms:Dataset ;
+  dcterms:title "Abstract MEP products to BKP mapping"@en ;
+  dcterms:title "Mapping abstrakter Gebaeudetechnikprodukte nach BKP"@de ;
+  dcterms:references mup:scheme, mtp:scheme, bkp:scheme ;
+  dcterms:issued "2026-09-16" ;
+  dcterms:description "Maps abstract MEP unit and terminal product concepts to BKP building services cost lines (23 Elektroanlagen, 24 Heizungs-, Lueftungs-, Klimaanlagen, 25 Sanitaeranlagen). closeMatch is the leading cost line; relatedMatch is a secondary line the product may be booked under depending on system boundary. Generation and central plant resolve to 231/242/245/253, distribution terminals to 232/233/236/243/244/251/254. Full BKP vocabulary is external; only referenced IRIs are used. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative."@en ;
+  dcterms:description "Ordnet abstrakte Gebaeudetechnikprodukte (Erzeuger und Endgeraete) BKP-Positionen der Gebaeudetechnik zu (23 Elektroanlagen, 24 Heizungs-, Lueftungs-, Klimaanlagen, 25 Sanitaeranlagen). closeMatch ist die Leitposition; relatedMatch eine sekundaere Position je nach Systemgrenze. Erzeugung und Zentralen loesen auf 231/242/245/253 auf, Verteilung und Endgeraete auf 232/233/236/243/244/251/254. Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative."@de .
+
+# --- MEP unit products: electrical and data (BKP 231, 232, 236) ---
+
+mup:MUP-ELEC-TRANSFORMER skos:closeMatch bkp:231 .
+
+mup:MUP-ELEC-MAIN-DIST-BOARD skos:closeMatch bkp:231 ;
+  skos:relatedMatch bkp:232 .
+
+mup:MUP-ELEC-SUB-DIST-BOARD skos:closeMatch bkp:232 ;
+  skos:relatedMatch bkp:231 .
+
+mup:MUP-ELEC-UPS skos:closeMatch bkp:231 .
+
+mup:MUP-ELEC-GENERATOR skos:closeMatch bkp:231 .
+
+mup:MUP-DATA-PATCH-PANEL skos:closeMatch bkp:236 .
+
+mup:MUP-DATA-NETWORK-SWITCH skos:closeMatch bkp:236 .
+
+mup:MUP-DATA-SERVER skos:closeMatch bkp:236 ;
+  skos:relatedMatch bkp:234 .
+
+# --- MEP unit products: heating, ventilation, cooling (BKP 241–245, 247) ---
+
+mup:MUP-HEAT-BOILER skos:closeMatch bkp:242 ;
+  skos:relatedMatch bkp:241 .
+
+mup:MUP-HEAT-HEAT-PUMP skos:closeMatch bkp:242 .
+
+mup:MUP-HEAT-DISTRICT-HEAT-SUBSTATION skos:closeMatch bkp:242 ;
+  skos:relatedMatch bkp:241 .
+
+mup:MUP-VENT-AHU skos:closeMatch bkp:244 ;
+  skos:relatedMatch bkp:245 .
+
+mup:MUP-VENT-FAN skos:closeMatch bkp:244 .
+
+mup:MUP-COOL-CHILLER skos:closeMatch bkp:245 .
+
+mup:MUP-COOL-FREE-COOLER skos:closeMatch bkp:245 .
+
+mup:MUP-SM-COMPRESSOR skos:closeMatch bkp:247 ;
+  skos:relatedMatch bkp:247_1 .
+
+# --- MEP unit products: sanitary and special media (BKP 252, 253, 254) ---
+
+mup:MUP-FW-PRESSURE-BOOSTER skos:closeMatch bkp:253 ;
+  skos:relatedMatch bkp:254 .
+
+mup:MUP-FW-WATER-HEATER skos:closeMatch bkp:253, bkp:242 .
+
+mup:MUP-WW-GREASE-SEPARATOR skos:closeMatch bkp:253 .
+
+mup:MUP-WW-LIFTING-STATION skos:closeMatch bkp:253 .
+
+mup:MUP-SM-FIRE-PUMP skos:closeMatch bkp:252 ;
+  skos:relatedMatch bkp:253 .
+
+mup:MUP-SM-GAS-REGULATOR skos:closeMatch bkp:253 ;
+  skos:relatedMatch bkp:254 .
+
+# --- MEP terminal products: electrical and data (BKP 232, 233, 236) ---
+
+mtp:MTP-ELEC-LIGHT skos:closeMatch bkp:233 ;
+  skos:relatedMatch bkp:232 .
+
+mtp:MTP-ELEC-SOCKET skos:closeMatch bkp:232 .
+
+mtp:MTP-ELEC-SWITCH skos:closeMatch bkp:232 .
+
+mtp:MTP-DATA-DATA-OUTLET skos:closeMatch bkp:236 .
+
+mtp:MTP-DATA-WIFI-AP skos:closeMatch bkp:236 .
+
+mtp:MTP-DATA-SENSOR-ACTUATOR skos:closeMatch bkp:236 ;
+  skos:relatedMatch bkp:247 .
+
+# --- MEP terminal products: heating, ventilation, cooling (BKP 243, 244, 245) ---
+
+mtp:MTP-HEAT-RADIATOR skos:closeMatch bkp:243 .
+
+mtp:MTP-HEAT-UFH-MANIFOLD skos:closeMatch bkp:243 .
+
+mtp:MTP-HEAT-FAN-COIL skos:closeMatch bkp:243 ;
+  skos:relatedMatch bkp:245 .
+
+mtp:MTP-VENT-AIR-VALVE skos:closeMatch bkp:244 .
+
+mtp:MTP-VENT-GRILLE skos:closeMatch bkp:244 .
+
+mtp:MTP-COOL-CHILLED-CEILING skos:closeMatch bkp:245 ;
+  skos:relatedMatch bkp:283_1 .
+
+mtp:MTP-COOL-FAN-COIL skos:closeMatch bkp:245 ;
+  skos:relatedMatch bkp:243 .
+
+# --- MEP terminal products: sanitary and special media (BKP 251, 252, 254) ---
+
+mtp:MTP-FW-TAP skos:closeMatch bkp:251 .
+
+mtp:MTP-FW-SHOWER skos:closeMatch bkp:251 .
+
+mtp:MTP-FW-WC-FLUSH skos:closeMatch bkp:251 .
+
+mtp:MTP-WW-WC-OUTLET skos:closeMatch bkp:254 ;
+  skos:relatedMatch bkp:251 .
+
+mtp:MTP-WW-FLOOR-DRAIN skos:closeMatch bkp:254 ;
+  skos:relatedMatch bkp:253 .
+
+mtp:MTP-WW-SINK-DRAIN skos:closeMatch bkp:254 ;
+  skos:relatedMatch bkp:253 .
+
+mtp:MTP-SM-SPRINKLER-HEAD skos:closeMatch bkp:252 .
+
+mtp:MTP-SM-HOSE-REEL skos:closeMatch bkp:252 .
+
+mtp:MTP-SM-GAS-OUTLET skos:closeMatch bkp:254 ;
+  skos:relatedMatch bkp:253 .
+
+# --- MEP terminal products: fire safety, cross-cutting (BKP 236, 244) ---
+
+mtp:MTP-FIRE-SMOKE-DETECTOR skos:closeMatch bkp:236 .
+
+mtp:MTP-FIRE-FIRE-DAMPER skos:closeMatch bkp:244 .
+
+mtp:MTP-FIRE-FIRE-DAMPER-ACTUATOR skos:closeMatch bkp:244, bkp:236 .

@@ -88,13 +88,9 @@ def load_modules(schema_dir: Path, base_url: str) -> list[dict]:
 
 def artifact_urls(base_url: str, slug: str) -> dict[str, str]:
     base = base_url.rstrip("/")
-    if slug.startswith("cost/"):
-        artifact_base = f"{base}/cost"
-        prefix = "baseline-cost"
-    else:
-        artifact_base = f"{base}/schema"
-        prefix = "pragmatic-bim"
-    schema_base = f"{base}/schema"
+    artifact_base = f"{base}/schema"
+    prefix = "pragmatic-bim"
+    schema_base = artifact_base
     urls = {
         "docs_index": f"{base}/index.html",
         "schema_docs": f"{schema_base}/pragmatic-bim.docs.html",
@@ -121,11 +117,8 @@ def build_descriptor(module: dict, base_url: str) -> dict:
     }
     primary = module.get("primary_doc")
     if primary:
-        if slug.startswith("cost/"):
-            descriptor["html"] = f"{base_url.rstrip('/')}/cost/{primary}.html"
-        else:
-            schema_base = urls["schema_docs"].rsplit("/", 1)[0]
-            descriptor["html"] = f"{schema_base}/{primary}.html"
+        schema_base = urls["schema_docs"].rsplit("/", 1)[0]
+        descriptor["html"] = f"{schema_base}/{primary}.html"
         descriptor["primary_doc"] = primary
     return descriptor
 

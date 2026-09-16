@@ -39,6 +39,8 @@
   skos:prefLabel "Ortbeton-Decke / -Platte"@de ;
   skos:definition "Slab cast in place from reinforced or plain concrete."@en ;
   skos:definition "Decke oder Platte in Ortbeton oder Stahlbeton ausgefuehrt."@de ;
+  dcterms:description "Load-bearing horizontal element cast in place from reinforced concrete, spanning between walls, beams, or columns. Formwork, reinforcement, and pouring are carried out on site, producing a jointless monolithic plate. Suitable for floor, base, and roof slabs with high load capacity, fire resistance, and thermal mass."@en ;
+  dcterms:description "Tragendes horizontales Bauteil aus vor Ort betoniertem Stahlbeton, das zwischen Wänden, Unterzügen oder Stützen spannt. Schalung, Bewehrung und Betonage erfolgen auf der Baustelle, wodurch eine fugenlose monolithische Platte entsteht. Geeignet für Geschossdecken, Bodenplatten und Dachdecken mit hoher Tragfähigkeit, Feuerwiderstand und Speichermasse."@de ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "insitu-slab" .
 
@@ -50,6 +52,8 @@
   skos:prefLabel "Elementdecke / -platte Beton"@de ;
   skos:definition "Slab from prefabricated concrete elements such as hollow-core, double-tee, or flat slabs."@en ;
   skos:definition "Decke oder Platte aus vorgefertigten Betonelementen wie Hohldiele, Doppel-T-Traeger oder Flachdeckelementen."@de ;
+  dcterms:description "Load-bearing horizontal element assembled from factory-made concrete units such as hollow-core, double-tee, or flat slab elements. Elements are delivered ready to install, set on the supporting structure, and joined with grouted joints or a structural concrete topping. Suitable for floor and roof slabs where short erection times and large spans with little site labour are required."@en ;
+  dcterms:description "Tragendes horizontales Bauteil aus werkseitig hergestellten Betonelementen wie Hohldielen, Doppel-T-Trägern oder Flachdeckenelementen. Die Elemente werden einbaufertig geliefert, auf das Tragwerk versetzt und über Fugenverguss oder eine statisch wirksame Ortbetonauflage verbunden. Geeignet für Geschoss- und Dachdecken mit kurzer Montagezeit und grossen Spannweiten bei geringem Aufwand auf der Baustelle."@de ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "prefab-conc-slab" .
 
@@ -61,6 +65,8 @@
   skos:prefLabel "Stahlverbunddecke"@de ;
   skos:definition "Slab with primary steel deck, beams, or composite steel-concrete system."@en ;
   skos:definition "Decke mit primaerer Stahltrapezprofil-, Traeger- oder Stahl-Beton-Verbundkonstruktion."@de ;
+  dcterms:description "Load-bearing horizontal element in which profiled steel decking or steel beams act together with a concrete slab. The steel deck is laid as permanent formwork on the steel frame and connected by shear studs to the concrete cast on top. Suitable for floor and roof slabs with long spans, low structural depth, and fast erection."@en ;
+  dcterms:description "Tragendes horizontales Bauteil, bei dem Stahltrapezprofile oder Stahlträger mit einer Betonplatte zusammenwirken. Das Stahlprofilblech wird als verlorene Schalung auf das Stahltragwerk verlegt und über Kopfbolzendübel schubfest mit dem aufbetonierten Beton verbunden. Geeignet für Geschoss- und Dachdecken mit grossen Spannweiten, geringer Konstruktionshöhe und rascher Montage."@de ;
   skos:narrower :SSP-STEEL-COMPOSITE-STL, :SSP-STEEL-COMPOSITE-CONC ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "steel-composite-slab" .
@@ -72,6 +78,8 @@
   skos:prefLabel "Stahltrapezprofil-Schicht"@de ;
   skos:definition "Steel deck or profile layer of a steel-composite slab."@en ;
   skos:definition "Stahltrapezprofil- oder Traeger-Schicht einer Stahlverbunddecke."@de ;
+  dcterms:description "Steel part of a composite slab, consisting of profiled sheeting or supporting beams that carry the wet concrete and act as tensile reinforcement in the finished deck. Delivered as rolled or cold-formed sections, lifted into place, and fixed to the primary frame before concreting. Accounted separately where the steel and concrete parts of the deck are quantified or assessed individually."@en ;
+  dcterms:description "Stahlanteil einer Verbunddecke aus Profilblech oder Trägern, der den Frischbeton aufnimmt und im fertigen Zustand als Zugbewehrung wirkt. Als gewalzte oder kaltgeformte Profile geliefert, eingehoben und vor dem Betonieren am Primärtragwerk befestigt. Wird separat ausgewiesen, wenn Stahl- und Betonanteil der Decke getrennt ermittelt oder bewertet werden."@de ;
   skos:broader :SSP-STEEL-COMPOSITE ;
   skos:scopeNote "LCA layer component of SSP-STEEL-COMPOSITE. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von SSP-STEEL-COMPOSITE. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
@@ -85,6 +93,8 @@
   skos:prefLabel "Stahlverbunddecke Betonauflage-Schicht"@de ;
   skos:definition "Concrete topping layer of a steel-composite slab."@en ;
   skos:definition "Betonauflage-Schicht einer Stahlverbunddecke."@de ;
+  dcterms:description "Concrete part of a composite slab, forming the compression zone and the loadable surface of the finished deck. Cast on the steel decking on site with mesh or bar reinforcement and bonded to the steel through shear connectors. Accounted separately where the steel and concrete parts of the deck are quantified or assessed individually."@en ;
+  dcterms:description "Betonanteil einer Verbunddecke, der die Druckzone und die belastbare Oberfläche der fertigen Decke bildet. Vor Ort auf das Stahlprofilblech betoniert, mit Matten- oder Stabbewehrung versehen und über Verbundmittel mit dem Stahl verbunden. Wird separat ausgewiesen, wenn Stahl- und Betonanteil der Decke getrennt ermittelt oder bewertet werden."@de ;
   skos:broader :SSP-STEEL-COMPOSITE ;
   skos:scopeNote "LCA layer component of SSP-STEEL-COMPOSITE. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von SSP-STEEL-COMPOSITE. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
@@ -99,6 +109,8 @@
   skos:prefLabel "Holzdecke / -platte"@de ;
   skos:definition "Slab or deck with primary timber joists, panels, or rib-deck structure, excluding cross-laminated timber (CLT) plate slabs."@en ;
   skos:definition "Decke oder Platte mit primaerer Holz- oder Holzwerkstoff-Konstruktion aus Traegern, Paneelen oder Rippendecke, ohne Brettsperrholz- (CLT-) Platten."@de ;
+  dcterms:description "Load-bearing horizontal element with a primary structure of timber joists, ribs, or wood-based panels, usually with sheathing and a separating floor build-up above. Prefabricated as joist or rib-deck modules, set on walls or beams on site, and completed with acoustic layers and ballast fill. Suitable for floor and roof decks with low dead load, dry construction, and short erection times."@en ;
+  dcterms:description "Tragendes horizontales Bauteil mit primärer Konstruktion aus Holzbalken, Rippen oder Holzwerkstoffplatten, in der Regel mit Beplankung und darüberliegendem Bodenaufbau. Als Balken- oder Rippendeckenmodule vorgefertigt, vor Ort auf Wände oder Unterzüge aufgelegt und mit Schallschutzschichten und Beschwerung ergänzt. Geeignet für Geschoss- und Dachdecken mit geringem Eigengewicht, trockener Bauweise und kurzer Montagezeit."@de ;
   skos:scopeNote "For cross-laminated timber (CLT) plate slabs use SSP-CLT."@en ;
   skos:scopeNote "Fuer Brettsperrholz- (CLT-) Platten SSP-CLT verwenden."@de ;
   dcterms:subject "IfcSlab" ;
@@ -112,6 +124,8 @@
   skos:prefLabel "Brettsperrholz-Decke / -Platte (CLT)"@de ;
   skos:definition "Slab or deck with primary cross-laminated timber (CLT) or glulam plate structure, including factory-prefabricated mass-timber floor and roof decks."@en ;
   skos:definition "Decke oder Platte mit primaerer Brettsperrholz- (CLT-) oder Brettschichtholz-Plattenkonstruktion, einschliesslich werkseitig vorgefertigter Holz-Massivdecken."@de ;
+  dcterms:description "Load-bearing horizontal element formed by solid mass timber plates that span in one or two directions. Plates are cut to size in the factory including openings and service routes, lifted into position, and screwed along the panel joints. Suitable for floor and roof decks where a visible timber soffit, a high degree of prefabrication, and low dead load are required."@en ;
+  dcterms:description "Tragendes horizontales Bauteil aus massiven Holzplatten, ein- oder zweiachsig spannend. Die Platten werden im Werk einschliesslich Öffnungen und Installationsführungen abgebunden, eingehoben und entlang der Plattenstösse verschraubt. Geeignet für Geschoss- und Dachdecken mit sichtbarer Holzuntersicht, hohem Vorfertigungsgrad und geringem Eigengewicht."@de ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "clt-slab" .
 
@@ -124,6 +138,8 @@
   skos:altLabel "Holbetonverbund"@de ;
   skos:definition "Hybrid slab with timber base (for example block timber, CLT, or rib deck) and a shear-connected concrete topping cast on site or prefabricated as a composite element."@en ;
   skos:definition "Hybride Decke mit Holztragwerk (z. B. Blockholzplatte, Brettsperrholz oder Rippendecke) und schubfest verbundener Ortbeton- oder Fertigbetonauflage."@de ;
+  dcterms:description "Load-bearing horizontal element combining a timber plate or rib structure with a concrete topping that takes the compression forces. Both layers are joined shear-resistant by notches, screws, or connectors, with the concrete cast on site or supplied as a prefabricated composite element. Suitable for floor decks that require longer spans, better acoustic performance, and more mass than a pure timber deck."@en ;
+  dcterms:description "Tragendes horizontales Bauteil, das eine Holzplatten- oder Rippenkonstruktion mit einer druckübertragenden Betonauflage verbindet. Beide Schichten werden über Kerven, Schrauben oder Verbindungsmittel schubfest gekoppelt, der Beton wird vor Ort eingebracht oder als vorgefertigtes Verbundelement geliefert. Geeignet für Geschossdecken mit grösseren Spannweiten, besserem Schallschutz und höherer Masse als reine Holzdecken."@de ;
   skos:narrower :SSP-HBV-WOD, :SSP-HBV-CONC ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "hbv-slab" .
@@ -135,6 +151,8 @@
   skos:prefLabel "HBV Holztragwerk-Schicht"@de ;
   skos:definition "Timber base layer of an HBV slab (block timber, CLT, rib deck, or similar engineered-wood structure)."@en ;
   skos:definition "Holztragwerk-Schicht einer HBV-Decke (Blockholz, Brettsperrholz, Rippendecke oder aehnliche Holzwerkstoff-Konstruktion)."@de ;
+  dcterms:description "Timber part of a timber-concrete composite deck, taking the tensile and bending forces and forming the soffit of the finished slab. Prefabricated as solid timber plate, cross-laminated panel, or rib deck and delivered with the shear connectors already fitted. Accounted separately where the timber and concrete parts of the deck are quantified or assessed individually."@en ;
+  dcterms:description "Holzanteil einer Holz-Beton-Verbunddecke, der Zug- und Biegekräfte aufnimmt und die Untersicht der fertigen Decke bildet. Als Massivholzplatte, Brettsperrholzelement oder Rippendecke vorgefertigt und mit bereits eingebauten Verbindungsmitteln geliefert. Wird separat ausgewiesen, wenn Holz- und Betonanteil der Decke getrennt ermittelt oder bewertet werden."@de ;
   skos:broader :SSP-HBV ;
   skos:scopeNote "LCA layer component of SSP-HBV. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von SSP-HBV. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
@@ -148,6 +166,8 @@
   skos:prefLabel "HBV Betonauflage-Schicht"@de ;
   skos:definition "Concrete topping layer of an HBV slab, cast in situ or prefabricated, shear-connected to the timber base."@en ;
   skos:definition "Betonauflage-Schicht einer HBV-Decke, in Ortbeton oder als Fertigteil, schubfest mit dem Holztragwerk verbunden."@de ;
+  dcterms:description "Concrete part of a timber-concrete composite deck, forming the compression zone, the mass for acoustic performance, and the load-distributing surface. Cast on the timber base on site or prefabricated together with it, reinforced and tied to the shear connectors. Accounted separately where the timber and concrete parts of the deck are quantified or assessed individually."@en ;
+  dcterms:description "Betonanteil einer Holz-Beton-Verbunddecke, der die Druckzone, die schalltechnisch wirksame Masse und die lastverteilende Oberfläche bildet. Vor Ort auf das Holztragwerk betoniert oder gemeinsam mit diesem vorgefertigt, bewehrt und an die Verbindungsmittel angeschlossen. Wird separat ausgewiesen, wenn Holz- und Betonanteil der Decke getrennt ermittelt oder bewertet werden."@de ;
   skos:broader :SSP-HBV ;
   skos:scopeNote "LCA layer component of SSP-HBV. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von SSP-HBV. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
@@ -162,6 +182,8 @@
   skos:prefLabel "Holz-Lehm-Decke"@de ;
   skos:definition "Slab or deck with timber joists or frame and rammed-clay (Stampflehm) infill or topping, including prefabricated timber–clay panel systems."@en ;
   skos:definition "Decke mit Holztraegern oder -rahmen und Stampflehm-Ausfachung oder -auflage, einschliesslich vorgefertigter Holz-Lehm-Deckenelemente."@de ;
+  dcterms:description "Load-bearing horizontal element with timber joists or a timber frame and a heavy clay infill or topping between or above the timber members. Produced as prefabricated panels or filled on site, with the moist clay compacted and dried before the floor build-up follows. Suitable for floor decks that need added mass for sound insulation, humidity buffering, and low-emission natural materials."@en ;
+  dcterms:description "Tragendes horizontales Bauteil mit Holzbalken oder Holzrahmen und schwerer Lehmausfachung oder Lehmauflage zwischen oder über den Holzteilen. Als vorgefertigte Elemente hergestellt oder vor Ort verfüllt, wobei der feuchte Lehm verdichtet und vor dem Bodenaufbau getrocknet wird. Geeignet für Geschossdecken mit Anforderungen an zusätzliche Masse für den Schallschutz, Feuchtepufferung und emissionsarme Naturbaustoffe."@de ;
   skos:narrower :SSP-HOLZ-LEHM-WOD, :SSP-HOLZ-LEHM-MSN ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "holz-lehm-slab" .
@@ -173,6 +195,8 @@
   skos:prefLabel "Holz-Lehm-Decke Holzschicht"@de ;
   skos:definition "Timber joist or frame layer of a timber–clay slab."@en ;
   skos:definition "Holztraeger- oder -rahmen-Schicht einer Holz-Lehm-Decke."@de ;
+  dcterms:description "Timber part of a timber-clay deck, providing the span, the load transfer, and the frame that holds the clay fill. Prefabricated as joists, ribs, or a panel frame and set on the supporting walls before the fill is placed. Accounted separately where the timber and clay parts of the deck are quantified or assessed individually."@en ;
+  dcterms:description "Holzanteil einer Holz-Lehm-Decke, der die Spannweite, die Lastabtragung und das Traggerüst für die Lehmfüllung bereitstellt. Als Balken, Rippen oder Rahmenelement vorgefertigt und vor dem Einbringen der Füllung auf die tragenden Wände aufgelegt. Wird separat ausgewiesen, wenn Holz- und Lehmanteil der Decke getrennt ermittelt oder bewertet werden."@de ;
   skos:broader :SSP-HOLZ-LEHM ;
   skos:scopeNote "LCA layer component of SSP-HOLZ-LEHM. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von SSP-HOLZ-LEHM. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
@@ -186,6 +210,8 @@
   skos:prefLabel "Holz-Lehm-Decke Lehmschicht"@de ;
   skos:definition "Rammed-clay (Stampflehm) infill or topping layer of a timber–clay slab."@en ;
   skos:definition "Stampflehm-Ausfachungs- oder -auflage-Schicht einer Holz-Lehm-Decke."@de ;
+  dcterms:description "Clay part of a timber-clay deck, supplying mass for sound insulation, thermal storage, and indoor humidity buffering. Placed as moist rammed clay, clay boards, or clay elements between or on the timber structure, compacted, and dried before further layers follow. Accounted separately where the timber and clay parts of the deck are quantified or assessed individually."@en ;
+  dcterms:description "Lehmanteil einer Holz-Lehm-Decke, der Masse für Schallschutz, Wärmespeicherung und Feuchtepufferung im Innenraum liefert. Als feuchter Stampflehm, Lehmplatten oder Lehmelemente zwischen oder auf der Holzkonstruktion eingebracht, verdichtet und vor weiteren Schichten getrocknet. Wird separat ausgewiesen, wenn Holz- und Lehmanteil der Decke getrennt ermittelt oder bewertet werden."@de ;
   skos:broader :SSP-HOLZ-LEHM ;
   skos:scopeNote "LCA layer component of SSP-HOLZ-LEHM. Used for ecobilans decomposition and carbon calculation; not a standalone slab product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von SSP-HOLZ-LEHM. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Deckenprodukt-Klassifikation."@de ;
@@ -200,6 +226,8 @@
   skos:prefLabel "Leichtbau-Decke / -Platte"@de ;
   skos:definition "Lightweight slab system with non-monolithic primary structure."@en ;
   skos:definition "Leichtbau-Decken- oder Plattensystem mit nicht-monolithischer Primaerkonstruktion."@de ;
+  dcterms:description "Horizontal deck or platform with a light, non-monolithic primary structure of profiles, ribs, or panels carrying limited loads. Assembled on site from prefabricated parts and fixed to the supporting structure, normally without a heavy topping. Suitable for secondary decks, technical platforms, and service levels where low dead load and demountability matter more than mass."@en ;
+  dcterms:description "Horizontale Decke oder Plattform mit leichter, nicht monolithischer Primärkonstruktion aus Profilen, Rippen oder Paneelen für begrenzte Lasten. Vor Ort aus vorgefertigten Teilen montiert und am Tragwerk befestigt, in der Regel ohne schwere Auflage. Geeignet für untergeordnete Decken, Technikpodeste und Installationsebenen, bei denen geringes Eigengewicht und Rückbaubarkeit wichtiger sind als Masse."@de ;
   dcterms:subject "IfcSlab" ;
   dcterms:identifier "lightweight-slab" .
 
@@ -211,6 +239,8 @@
   skos:prefLabel "Sonstige / unbekannte Decke / Platte"@de ;
   skos:definition "Slab separator product not classified or not yet known."@en ;
   skos:definition "Deckenplatten-Trennelementprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  dcterms:description "Placeholder for slab products whose construction type is not yet fixed or not classified at tender stage. Functional requirements such as span, imposed load, fire resistance, and acoustic performance must be stated separately. Use only in early design stages or where data is incomplete."@en ;
+  dcterms:description "Platzhalter für Deckenprodukte, deren Bauart zum Zeitpunkt der Ausschreibung noch nicht festgelegt oder nicht klassifiziert ist. Funktionale Anforderungen wie Spannweite, Nutzlast, Feuerwiderstand und Schallschutz sind gesondert zu beschreiben. Nur in frühen Planungsphasen oder bei unvollständiger Datenlage verwenden."@de ;
   skos:scopeNote "Fallback for early design stages or missing data."@en ;
   skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
   dcterms:subject "IfcSlab" ;

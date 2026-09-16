@@ -41,6 +41,8 @@
   skos:prefLabel "Ortbeton-Wand"@de ;
   skos:definition "Wall cast in place from plain, reinforced, or structural concrete."@en ;
   skos:definition "Wand in Ortbeton oder Stahlbeton vor Ort hergestellt."@de ;
+  dcterms:description "Load-bearing or non-load-bearing wall cast in place from concrete or reinforced concrete. Formwork, reinforcement, and pouring are carried out on site, producing jointless monolithic wall panels. Suitable for exterior and interior walls with structural, bracing, or watertightness requirements."@en ;
+  dcterms:description "Tragende oder nichttragende Wand aus vor Ort betoniertem Beton oder Stahlbeton. Schalung, Bewehrung und Betonage erfolgen auf der Baustelle, wodurch fugenlose, monolithische Wandscheiben entstehen. Geeignet für Aussen- und Innenwände mit tragenden, aussteifenden oder abdichtenden Anforderungen."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "ortbeton-wall" .
 
@@ -52,6 +54,8 @@
   skos:prefLabel "Mauerwerk-Wand"@de ;
   skos:definition "Wall built on site from brick, block, or stone masonry, including monolithic insulating block systems laid in mortar on site."@en ;
   skos:definition "Wand aus vor Ort gemauertem Ziegel-, Block- oder Natursteinmauerwerk, einschliesslich monolithischer Daemm-Blocksysteme."@de ;
+  dcterms:description "Load-bearing or non-load-bearing wall laid on site from brick, block, or natural stone units in mortar. Includes monolithic insulating block systems that combine structure and thermal insulation in a single layer. Suitable for exterior and interior walls built unit by unit in traditional trade work."@en ;
+  dcterms:description "Tragende oder nichttragende Wand aus vor Ort vermauerten Ziegel-, Block- oder Natursteinen im Mörtelverband. Einschliesslich monolithischer Dämm-Blocksysteme, die Tragfunktion und Wärmedämmung in einer Schicht vereinen. Geeignet für Aussen- und Innenwände in kleinteiliger, handwerklicher Ausführung."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "masonry-wall" .
 
@@ -63,6 +67,8 @@
   skos:prefLabel "Lehmstampf-Wand"@de ;
   skos:definition "Wall from compacted earth, clay, or loam layers (Lehmstampf) built in situ."@en ;
   skos:definition "Wand aus vor Ort verdichteten Lehm-, Ton- oder Erd-Schichten (Lehmstampf)."@de ;
+  dcterms:description "Load-bearing or non-load-bearing wall from compacted, untreated earth material placed in formwork. Solid, monolithic construction without additional cladding."@en ;
+  dcterms:description "Tragende oder nichttragende Wand aus verdichtetem, unbehandeltem Erdmaterial in Schalung eingebracht. Massive, monolithische Bauweise ohne zusätzliche Bekleidung."@de ;
   skos:scopeNote "Typically exterior envelope (W-EXT); rare as interior partition."@en ;
   skos:scopeNote "Typischerweise Aussenhuellenwand (W-EXT); selten als Innentrennwand."@de ;
   dcterms:subject "IfcWall" ;
@@ -76,6 +82,8 @@
   skos:prefLabel "Leichtbeton-Tafel-Wand (BLT)"@de ;
   skos:definition "Wall from prefabricated lightweight-concrete block or panel (Tafel) systems, including storey-height wall panels assembled off site or in a factory."@en ;
   skos:definition "Wand aus vorgefertigten Leichtbeton-Block- oder -Tafelsystemen, einschliesslich geschosshoher Wandtafeln aus Werk oder Vorfertigung."@de ;
+  dcterms:description "Load-bearing or non-load-bearing wall from prefabricated lightweight-concrete blocks or storey-height panels. Factory-produced and set in place on site, with lower dead load than normal-weight concrete. Suitable for exterior and interior walls where structure and thermal insulation are required in the same component."@en ;
+  dcterms:description "Tragende oder nichttragende Wand aus vorgefertigten Leichtbeton-Blöcken oder geschosshohen Tafeln. Werkseitig hergestellt und vor Ort versetzt, mit geringerem Eigengewicht als Normalbeton. Geeignet für Aussen- und Innenwände, bei denen Tragfähigkeit und Wärmedämmung im gleichen Bauteil gefordert sind."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "blt-wall" .
 
@@ -87,6 +95,8 @@
   skos:prefLabel "Element-Wand Beton"@de ;
   skos:definition "Wall from prefabricated normal-weight or structural concrete elements, excluding lightweight-concrete panel (BLT) systems."@en ;
   skos:definition "Wand aus vorgefertigten Normal- oder Stahlbetonelementen, ohne Leichtbeton-Tafelsysteme (BLT)."@de ;
+  dcterms:description "Load-bearing or non-load-bearing wall from prefabricated concrete elements. Factory-produced, erected and connected on site. Suitable for exterior and interior walls with a high degree of prefabrication."@en ;
+  dcterms:description "Tragende oder nichttragende Wand aus vorgefertigten Betonelementen. Werkseitig hergestellt, vor Ort montiert und verbunden. Geeignet für Aussen- und Innenwände mit hohem Vorfertigungsgrad."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "prefab-conc-wall" .
 
@@ -98,6 +108,8 @@
   skos:prefLabel "Stahl-Wand"@de ;
   skos:definition "Wall with primary steel structure and infill, lining, or cladding layers."@en ;
   skos:definition "Wand mit primaerer Stahlkonstruktion und Fuell-, Bekleidungs- oder Auskleidungsschichten."@de ;
+  dcterms:description "Load-bearing or non-load-bearing wall with a primary steel structure of sections or studs and sheathing or infill layers. Prefabricated frames are erected on site, with insulation and lining added layer by layer. Suitable for exterior and interior walls with low dead load and high fit-out flexibility."@en ;
+  dcterms:description "Tragende oder nichttragende Wand mit primärer Stahlkonstruktion aus Profilen oder Ständern und Ausfachungs- oder Bekleidungsschichten. Vorgefertigte Rahmen werden vor Ort montiert, Dämmung und Bekleidung schichtweise ergänzt. Geeignet für Aussen- und Innenwände mit geringem Eigengewicht und hoher Ausbauflexibilität."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "steel-wall" .
 
@@ -109,6 +121,8 @@
   skos:prefLabel "Holz-Wand"@de ;
   skos:definition "Wall with primary timber frame, panel, or engineered-wood structure."@en ;
   skos:definition "Wand mit primaerer Holz- oder Holzwerkstoff-Konstruktion."@de ;
+  dcterms:description "Load-bearing or non-load-bearing wall with a primary structure of solid timber, glued laminated timber, or engineered wood panels. Prefabricated as frame, stud, or solid timber elements and assembled on site. Suitable for exterior and interior walls with a high degree of prefabrication and low dead load."@en ;
+  dcterms:description "Tragende oder nichttragende Wand mit primärer Konstruktion aus Vollholz, Brettschichtholz oder Holzwerkstoffplatten. Als Rahmen-, Ständer- oder Massivholzelement vorgefertigt und vor Ort montiert. Geeignet für Aussen- und Innenwände mit hohem Vorfertigungsgrad und geringem Eigengewicht."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "timber-wall" .
 
@@ -120,6 +134,8 @@
   skos:prefLabel "Leichtbauwand"@de ;
   skos:definition "Lightweight wall with framed or panelised non-monolithic structure, excluding stick-built curtain wall and standard drywall element partitions."@en ;
   skos:definition "Leichtbau-Wand mit gerahmter oder panelisierter nicht-monolithischer Konstruktion, ohne Vorhangfassaden- und uebliche Trockenbau-Elementtrennwaende."@de ;
+  dcterms:description "Non-load-bearing or lightly loaded wall from a framed or panelised lightweight structure with insulation and sheathing on one or both sides. Built up on site from individual parts rather than monolithically. Suitable for interior walls and light exterior wall build-ups with acoustic and fire protection requirements."@en ;
+  dcterms:description "Nichttragende oder gering belastete Wand aus gerahmter oder panelisierter Leichtbaukonstruktion mit Dämmung und ein- oder beidseitiger Beplankung. Vor Ort aus Einzelteilen aufgebaut, nicht monolithisch. Geeignet für Innenwände und leichte Aussenwandaufbauten mit Anforderungen an Schall- und Brandschutz."@de ;
   dcterms:subject "IfcWall" ;
   dcterms:identifier "leichtbau-wall" .
 
@@ -131,6 +147,8 @@
   skos:prefLabel "Vorhangfassade"@de ;
   skos:definition "Non-load-bearing facade or curtain wall system with mullion-transom or unitised glazing and cladding panels."@en ;
   skos:definition "Nichttragende Fassade oder Vorhangfassade mit Pfosten-Riegel- oder Elementfassaden-System und Verglasung oder Bekleidungspanelen."@de ;
+  dcterms:description "Non-load-bearing exterior wall enclosure as a self-supporting system in front of the building structure, with glazed and/or panel infill fields. Carries its own vertical loads and transfers wind loads into the building structure."@en ;
+  dcterms:description "Nichttragende Aussenwandbekleidung als eigenständiges Tragsystem vor der Gebäudestruktur, mit Verglasungs- und/oder Paneelfeldern. Trägt vertikale Lasten in sich selbst ab und leitet Windlasten in die Gebäudestruktur ein."@de ;
   skos:scopeNote "Exterior envelope only (W-EXT). IFC source entity is often IfcCurtainWall; PBS maps to SeparatorWall."@en ;
   skos:scopeNote "Nur Aussenhuellenwand (W-EXT). IFC-Quellentitaet ist oft IfcCurtainWall; PBS ordnet SeparatorWall zu."@de ;
   dcterms:subject "IfcCurtainWall" ;
@@ -144,6 +162,8 @@
   skos:prefLabel "Trockenbau- / Elementtrennwand"@de ;
   skos:definition "Interior partition or shaft wall from drywall, stud-framed, or modular element systems."@en ;
   skos:definition "Innere Trenn- oder Schachtwand aus Trockenbau-, Staender- oder modularen Elementsystemen."@de ;
+  dcterms:description "Non-load-bearing interior wall from drywall, stud-framed, or modular element systems with metal or timber studs and board sheathing. Assembled on site from prefabricated parts, with cavity insulation and integrated services where required. Suitable for partitions, shaft walls, and lining walls, in particular where later reconfiguration or removal is expected."@en ;
+  dcterms:description "Nichttragende Innenwand aus Trockenbau-, Ständer- oder modularen Elementsystemen mit Metall- oder Holzständerwerk und Plattenbeplankung. Vor Ort aus vorgefertigten Teilen montiert, mit Hohlraumdämmung und bei Bedarf integrierten Installationen. Geeignet für Trenn-, Schacht- und Vorsatzwände, insbesondere bei späterem Umbau- oder Rückbaubedarf."@de ;
   skos:scopeNote "Interior partitions and shaft walls (W-INT, W-PRT, W-SVC, …). Often costed under BKP 277 (Elementwaende); see BKP mapping bridge."@en ;
   skos:scopeNote "Innere Trenn- und Schachtwaende (W-INT, W-PRT, W-SVC, …). Wird oft unter BKP 277 (Elementwaende) kalkuliert; siehe BKP-Mapping."@de ;
   dcterms:subject "IfcWall" ;
@@ -157,6 +177,8 @@
   skos:prefLabel "Sonstige / unbekannte Wand"@de ;
   skos:definition "Wall separator product not classified or not yet known."@en ;
   skos:definition "Wand-Trennelementprodukt nicht klassifiziert oder noch unbekannt."@de ;
+  dcterms:description "Placeholder for wall products whose construction type is not yet fixed or not classified at tender stage. Functional requirements must be stated separately. Use only in early design stages or where data is incomplete."@en ;
+  dcterms:description "Platzhalter für Wandprodukte, deren Bauart zum Zeitpunkt der Ausschreibung noch nicht festgelegt oder nicht klassifiziert ist. Funktionale Anforderungen sind gesondert zu beschreiben. Nur in frühen Planungsphasen oder bei unvollständiger Datenlage verwenden."@de ;
   skos:scopeNote "Fallback for early design stages or missing data."@en ;
   skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
   dcterms:subject "IfcWall" ;

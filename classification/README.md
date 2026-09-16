@@ -94,8 +94,9 @@ classification/
 | `mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl` | qto_buccaneer ratio keys → abstract ratios (guideline) |
 | `mapping/abstract-covering-products-to-material.mapping.ttl` | Abstract covering products → dominant material classes |
 | `mapping/abstract-covering-products-to-bkp.mapping.ttl` | Abstract covering products → BKP 281/282/283 (Ausbau 2) and 215.5/226/227 (facade, Rohbau 2) |
-| `mapping/abstract-foundation-products-to-bkp.mapping.ttl` | Abstract foundation products → BKP 216 / 211 (Rohbau 1) |
-| `mapping/abstract-roof-covering-products-to-bkp.mapping.ttl` | Abstract roof covering products → BKP 224 (Rohbau 2) |
+| `mapping/abstract-foundation-products-to-bkp.mapping.ttl` | Abstract foundation products → BKP 211.5 / 17x (Fundation, Sicherung, Abdichtung) |
+| `mapping/abstract-roof-covering-products-to-bkp.mapping.ttl` | Abstract roof covering products → BKP 224.0 / 224.1 / 222 (Rohbau 2) |
+| `mapping/abstract-mep-products-to-bkp.mapping.ttl` | Abstract MEP unit and terminal products → BKP 23 / 24 / 25 building services cost lines |
 | `mapping/abstract-separator-products-to-material.mapping.ttl` | Abstract separator products → dominant material classes |
 | `mapping/abstract-separator-products-to-bkp.mapping.ttl` | Abstract separator products → BKP 211–215 / 277 cost lines |
 | `mapping/abstract-connector-products-to-material.mapping.ttl` | Abstract door and window connector products → dominant material classes |
@@ -196,7 +197,7 @@ Human-readable reference docs are generated from the SKOS and mapping TTL files:
 - **Regenerate locally:** `python scripts/build_classification_docs.py` (or `python scripts/build_site.py` for schema + classifications)
 - **Catalog:** [`catalog.yaml`](catalog.yaml) lists vocabularies and mappings included in the docs
 
-Abstract product **unit prices** are a separate cost enrichment layer: [`contract/cost/`](../contract/cost/) (JSON in `baseline-unit-prices/` at repo root; see [`contract/cost/README.md`](../contract/cost/README.md)), keyed by SKOS product notation from the vocabularies above.
+Abstract product **unit prices** are a separate cost enrichment layer keyed by SKOS product notation from the vocabularies above. That layer (LinkML module, price data, and reference cost model) is unpublished working material and lives outside the contract under `temp/cost/`.
 
 CI validates that committed `site/.md-src/classification/` matches the TTL sources (`schema-generation.yml`).
 

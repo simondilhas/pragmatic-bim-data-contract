@@ -210,6 +210,8 @@ def render_product_skos(scheme: MemberProductScheme) -> str:
                 f'  skos:prefLabel "{ttl_escape(product.label_de)}"@de ;',
                 f'  skos:definition "{ttl_escape(product.definition_en)}"@en ;',
                 f'  skos:definition "{ttl_escape(product.definition_de)}"@de ;',
+                f'  dcterms:description "{ttl_escape(product.description_en)}"@en ;',
+                f'  dcterms:description "{ttl_escape(product.description_de)}"@de ;',
                 f'  pbs:priceUnit "{scheme.price_unit}" ;',
                 f'  dcterms:identifier "{product.notation}" .',
                 "",

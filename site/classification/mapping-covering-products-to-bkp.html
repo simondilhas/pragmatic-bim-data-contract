@@ -58,7 +58,7 @@
     
     
   <meta name="panzoom-theme" content="material">
-<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -421,8 +421,8 @@
 <p>External target labels are not shipped in this repository; only codes and IRIs are shown.</p>
 <h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>description (de):</strong> Ordnet abstrakte Bekleidungsprodukte BKP-Positionen zu: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) und Rohbau 2 Fassadenbekleidungen (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP-Untercodes mit Unterstrich (z. B. bkp:281_7 fuer BKP 281.7). Vollstaendiges BKP-Vokabular extern.</li>
-<li><strong>description (en):</strong> Maps abstract covering product concepts to BKP cost lines: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) and Rohbau 2 facade cladding (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP subcodes use underscore notation (e.g. bkp:281_7 for BKP 281.7). Full BKP vocabulary is external; only referenced IRIs are used.</li>
+<li><strong>description (de):</strong> Ordnet abstrakte Bekleidungsprodukte BKP-Positionen zu: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) und Rohbau 2 Fassadenbekleidungen (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP-Untercodes mit Unterstrich (z. B. bkp:281_7 fuer BKP 281.7). Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative.</li>
+<li><strong>description (en):</strong> Maps abstract covering product concepts to BKP cost lines: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) and Rohbau 2 facade cladding (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP subcodes use underscore notation (e.g. bkp:281_7 for BKP 281.7). Full BKP vocabulary is external; only referenced IRIs are used. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative.</li>
 <li><strong>title (de):</strong> Mapping abstrakter Bekleidungsprodukte nach BKP</li>
 <li><strong>title (en):</strong> Abstract covering products to BKP mapping</li>
 </ul>
@@ -527,6 +527,21 @@
 <td><code>bkp:281-0</code></td>
 </tr>
 <tr>
+<td><code>facp:FaCP-BIPV-INTEGRATED</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:215-5</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-BIPV-INTEGRATED</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:231</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-BIPV-INTEGRATED</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:232</code></td>
+</tr>
+<tr>
 <td><code>facp:FaCP-BRICK-SLIP</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
@@ -534,20 +549,20 @@
 <tr>
 <td><code>facp:FaCP-BRICK-SLIP</code></td>
 <td><code>relatedMatch</code></td>
-<td><code>bkp:211</code></td>
+<td><code>bkp:211-6</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-CERAMIC-TILE</code></td>
+<td><code>facp:FaCP-CERAMIC-VENTILATED</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-EXTERIOR-PAINT</code></td>
+<td><code>facp:FaCP-EXTERIOR-PAINT-COATING</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:227-1</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-FIBRE-CEMENT</code></td>
+<td><code>facp:FaCP-FIBER-CEMENT-BOARD</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
 </tr>
@@ -562,47 +577,97 @@
 <td><code>bkp:215-2</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-METAL-PANEL</code></td>
+<td><code>facp:FaCP-METAL-COMPOSITE-PANEL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:215-2</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-METAL-COMPOSITE-PANEL</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-METAL-PANEL</code></td>
+<td><code>facp:FaCP-METAL-SHEET-STANDING-SEAM</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:215-5</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-METAL-SHEET-STANDING-SEAM</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:222</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-METAL-SHEET-STANDING-SEAM</code></td>
 <td><code>relatedMatch</code></td>
 <td><code>bkp:215-2</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-METAL-SHEET</code></td>
+<td><code>facp:FaCP-NATURAL-STONE-VENTILATED</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-METAL-SHEET</code></td>
+<td><code>facp:FaCP-NATURAL-STONE-VENTILATED</code></td>
+<td><code>relatedMatch</code></td>
+<td><code>bkp:216-0</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-PREFAB-MODULAR-METAL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:213-5</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-PREFAB-MODULAR-METAL</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:215-5</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-PREFAB-MODULAR-METAL</code></td>
 <td><code>relatedMatch</code></td>
 <td><code>bkp:215-2</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-NATURAL-STONE</code></td>
+<td><code>facp:FaCP-PREFAB-MODULAR-TIMBER</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:214-4</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-PREFAB-MODULAR-TIMBER</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-RENDER</code></td>
+<td><code>facp:FaCP-RENDER-ETICS-WDVS</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:226-2</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-RENDER</code></td>
+<td><code>facp:FaCP-RENDER-ETICS-WDVS</code></td>
 <td><code>relatedMatch</code></td>
 <td><code>bkp:226-1</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-SYNTHETIC</code></td>
+<td><code>facp:FaCP-RETROFIT-OVERCLADDING</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
 </tr>
 <tr>
-<td><code>facp:FaCP-WOOD</code></td>
+<td><code>facp:FaCP-RETROFIT-OVERCLADDING</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:226-2</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-SYNTHETIC-VENTILATED</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:215-5</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-TIMBER-VENTILATED</code></td>
+<td><code>closeMatch</code></td>
+<td><code>bkp:214-4</code></td>
+</tr>
+<tr>
+<td><code>facp:FaCP-TIMBER-VENTILATED</code></td>
 <td><code>closeMatch</code></td>
 <td><code>bkp:215-5</code></td>
 </tr>

@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import json
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -34,7 +33,6 @@ ELEMENT_SKOS = (
 PRODUCT_DIR = REPO_ROOT / "classification/abstract-member-product-classification"
 MAPPING = REPO_ROOT / "classification/mapping/elementplan-elements-to-products.mapping.ttl"
 CATALOG = REPO_ROOT / "classification/catalog.yaml"
-ENTRIES_DIR = REPO_ROOT / "baseline-unit-prices/entries"
 
 EXPECTED_ELEMENT_COUNT = 22
 EXPECTED_PRODUCT_COUNT = 21
@@ -203,58 +201,6 @@ def _check_catalog(errors: list[str]) -> None:
             errors.append(f"catalog.yaml does not register {path}")
 
 
-def _check_price_coverage(errors: list[str]) -> None:
-    if not ENTRIES_DIR.exists():
-        errors.append(f"missing {ENTRIES_DIR.relative_to(REPO_ROOT)}")
-        return
-    for product in ALL_PRODUCTS:
-        path = ENTRIES_DIR / f"{product.notation}.json"
-        if not path.exists():
-            errors.append(f"{product.notation}: no price entry in baseline-unit-prices/entries")
-            continue
-        entry = json.loads(path.read_text(encoding="utf-8"))
-        if not entry.get("material_cost"):
-            errors.append(f"{product.notation}: price entry has no material_cost")
-
-    for element in elements_with_products():
-        ref = scheme_for(element)
-        fallback = ENTRIES_DIR / f"{ref.default_product}.json"
-        if not fallback.exists():
-            errors.append(
-                f"{element.notation}: fallback product {ref.default_product} has no price entry"
-            )
-
-
-def _check_price_units(errors: list[str]) -> None:
-    """Every product of a linked scheme must be priced in the element price unit.
-
-    The element declares one reference quantity, so a product priced in another unit
-    cannot be costed from it. Also catches one scheme serving two elements that
-    declare different price units.
-    """
-    if not ENTRIES_DIR.exists():
-        return
-    units: dict[str, str] = {}
-    for path in sorted(ENTRIES_DIR.glob("*.json")):
-        entry = json.loads(path.read_text(encoding="utf-8"))
-        units[str(entry.get("product", path.stem))] = str(entry.get("price_unit"))
-
-    for element in elements_with_products():
-        ref = scheme_for(element)
-        members = sorted(n for n in units if n.startswith(ref.notation_prefix))
-        if not members:
-            errors.append(
-                f"{element.notation}: no price entries for product scheme {ref.prefix}"
-            )
-            continue
-        wrong = [f"{n}={units[n]}" for n in members if units[n] != element.price_unit]
-        if wrong:
-            errors.append(
-                f"{element.notation}: {element.quantity_pset}.{element.reference_quantity} "
-                f"requires price_unit {element.price_unit}, but {', '.join(wrong)}"
-            )
-
-
 def main() -> int:
     errors: list[str] = []
     _check_element_data(errors)
@@ -262,8 +208,6 @@ def main() -> int:
     _check_generated_ttl(errors)
     _check_mapping(errors)
     _check_catalog(errors)
-    _check_price_coverage(errors)
-    _check_price_units(errors)
 
     if errors:
         print(f"Element classification validation failed ({len(errors)} error(s)):")

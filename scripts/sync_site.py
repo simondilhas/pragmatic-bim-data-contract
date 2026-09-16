@@ -19,7 +19,6 @@ SITE_SYNC_PATHS = (
     "site/.md-src",
     "site/classification",
     "site/schema",
-    "site/cost",
     "site/mapping",
     "site/index.html",
     "site/404.html",

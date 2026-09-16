@@ -12,8 +12,8 @@ map:abstractCoveringProductsToBkpMapping a dcterms:Dataset ;
   dcterms:title "Mapping abstrakter Bekleidungsprodukte nach BKP"@de ;
   dcterms:references fcp:scheme, wcp:scheme, ccp:scheme, facp:scheme, bkp:scheme ;
   dcterms:issued "2026-06-30" ;
-  dcterms:description "Maps abstract covering product concepts to BKP cost lines: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) and Rohbau 2 facade cladding (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP subcodes use underscore notation (e.g. bkp:281_7 for BKP 281.7). Full BKP vocabulary is external; only referenced IRIs are used."@en ;
-  dcterms:description "Ordnet abstrakte Bekleidungsprodukte BKP-Positionen zu: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) und Rohbau 2 Fassadenbekleidungen (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP-Untercodes mit Unterstrich (z. B. bkp:281_7 fuer BKP 281.7). Vollstaendiges BKP-Vokabular extern."@de .
+  dcterms:description "Maps abstract covering product concepts to BKP cost lines: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) and Rohbau 2 facade cladding (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP subcodes use underscore notation (e.g. bkp:281_7 for BKP 281.7). Full BKP vocabulary is external; only referenced IRIs are used. Disambiguation: BKP is deliberately not bijective, so the same product can be booked under different cost lines depending on building part, phase and awarded trade (e.g. 175 Grundwasserabdichtungen against 225.3 Spezielle Feuchtigkeitsabdichtungen; group 14 Anpassungen an bestehende Bauten mirrors group 2 for refurbishment; group 44 Installationen mirrors 23-26 for site works). Where two positions are equally valid, both are given as skos:closeMatch; skos:relatedMatch marks a secondary or adjacent line, not an equal alternative."@en ;
+  dcterms:description "Ordnet abstrakte Bekleidungsprodukte BKP-Positionen zu: Ausbau 2 (281 Bodenbelaege, 282 Wandbelaege, 283 Deckenverkleidungen) und Rohbau 2 Fassadenbekleidungen (215.5 Aeuessere Verkleidungen, 226 Fassadenputze, 227 Aeuessere Oberflaechenbehandlungen). BKP-Untercodes mit Unterstrich (z. B. bkp:281_7 fuer BKP 281.7). Vollstaendiges BKP-Vokabular extern. Disambiguierung: Der BKP ist bewusst nicht eindeutig, dieselbe Leistung kann je nach Bauteil, Phase und Vergabe auf verschiedenen Positionen liegen (z. B. 175 Grundwasserabdichtungen gegenueber 225.3 Spezielle Feuchtigkeitsabdichtungen; Gruppe 14 Anpassungen an bestehende Bauten spiegelt Gruppe 2 im Umbau; Gruppe 44 Installationen spiegelt 23-26 in der Umgebung). Sind zwei Positionen gleichwertig, stehen beide als skos:closeMatch; skos:relatedMatch bezeichnet eine sekundaere oder benachbarte Position, keine gleichwertige Alternative."@de .
 
 # --- Floor covering products (BKP 281.x) ---
 
@@ -77,29 +77,39 @@ ccp:CCP-METAL-GRID skos:closeMatch bkp:283_7 .
 
 # --- Facade covering products (BKP 215.5 / 226.x / 227.x, Rohbau 2) ---
 
-facp:FaCP-METAL-SHEET skos:closeMatch bkp:215_5 ;
+facp:FaCP-METAL-SHEET-STANDING-SEAM skos:closeMatch bkp:215_5, bkp:222 ;
   skos:relatedMatch bkp:215_2 .
 
-facp:FaCP-METAL-PANEL skos:closeMatch bkp:215_5 ;
-  skos:relatedMatch bkp:215_2 .
+facp:FaCP-METAL-COMPOSITE-PANEL skos:closeMatch bkp:215_5, bkp:215_2 .
 
-facp:FaCP-FIBRE-CEMENT skos:closeMatch bkp:215_5 .
+facp:FaCP-FIBER-CEMENT-BOARD skos:closeMatch bkp:215_5 .
 
-facp:FaCP-NATURAL-STONE skos:closeMatch bkp:215_5 .
+facp:FaCP-NATURAL-STONE-VENTILATED skos:closeMatch bkp:215_5 ;
+  skos:relatedMatch bkp:216_0 .
 
-facp:FaCP-CERAMIC-TILE skos:closeMatch bkp:215_5 .
+facp:FaCP-CERAMIC-VENTILATED skos:closeMatch bkp:215_5 .
 
-facp:FaCP-WOOD skos:closeMatch bkp:215_5 .
+facp:FaCP-TIMBER-VENTILATED skos:closeMatch bkp:215_5, bkp:214_4 .
 
-facp:FaCP-SYNTHETIC skos:closeMatch bkp:215_5 .
+facp:FaCP-SYNTHETIC-VENTILATED skos:closeMatch bkp:215_5 .
 
-facp:FaCP-RENDER skos:closeMatch bkp:226_2 ;
+facp:FaCP-RENDER-ETICS-WDVS skos:closeMatch bkp:226_2 ;
   skos:relatedMatch bkp:226_1 .
 
-facp:FaCP-EXTERIOR-PAINT skos:closeMatch bkp:227_1 .
+facp:FaCP-EXTERIOR-PAINT-COATING skos:closeMatch bkp:227_1 .
+
+facp:FaCP-PREFAB-MODULAR-METAL skos:closeMatch bkp:215_5, bkp:213_5 ;
+  skos:relatedMatch bkp:215_2 .
+
+facp:FaCP-PREFAB-MODULAR-TIMBER skos:closeMatch bkp:215_5, bkp:214_4 .
+
+facp:FaCP-RETROFIT-OVERCLADDING skos:closeMatch bkp:215_5, bkp:226_2 .
+
+facp:FaCP-BIPV-INTEGRATED skos:closeMatch bkp:215_5, bkp:231 ;
+  skos:relatedMatch bkp:232 .
 
 facp:FaCP-HPL-PANEL skos:closeMatch bkp:215_5 ;
   skos:relatedMatch bkp:215_2 .
 
 facp:FaCP-BRICK-SLIP skos:closeMatch bkp:215_5 ;
-  skos:relatedMatch bkp:211 .
+  skos:relatedMatch bkp:211_6 .

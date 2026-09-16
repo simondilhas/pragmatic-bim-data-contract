@@ -4,6 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :scheme a skos:ConceptScheme ;
@@ -56,6 +57,8 @@
   skos:prefLabel "Vorgehängte Keramikfliesenfassade"@de ;
   skos:definition "Ceramic, porcelain, or stoneware ventilated facade tile or panel system with rear-ventilated cavity. Dominant product type in European market (33.9% by value, 2023). Integrates insulation layer, air cavity, and mechanical fixings."@en ;
   skos:definition "Keramik-, Feinsteinzeug- oder Steingut-Fliesensystem für vorgehängte Fassaden mit Belüftungshohlraum. Dominierender Produkttyp im europäischen Markt (33,9% Wertanteil, 2023). Integriert Isolationsschicht, Belüftungshohlraum und mechanische Befestigungen."@de ;
+  dcterms:description "Non-load-bearing weather protection layer of ceramic, porcelain, or stoneware tiles and panels set in front of the load-bearing exterior wall. The units are fixed visibly or concealed onto a metal sub-frame so that a continuous ventilated cavity remains between insulation and cladding. Suitable for new build and retrofit on exposed facades with high requirements for driving-rain protection, colour stability, and low maintenance."@en ;
+  dcterms:description "Nichttragende Wetterschutzschicht aus Keramik-, Feinsteinzeug- oder Steingutplatten vor der tragenden Aussenwand. Die Platten werden sichtbar oder verdeckt auf einer Metall-Unterkonstruktion befestigt, sodass zwischen Dämmung und Bekleidung ein durchgehender Hinterlüftungsraum bleibt. Geeignet für Neubau und Sanierung an exponierten Fassaden mit hohen Anforderungen an Schlagregenschutz, Farbstabilität und geringen Unterhalt."@de ;
   skos:scopeNote "Fire rating: typically A1 or A2-s1,d0 (EN 13501-1). Thermal performance: compatible with U-values 0.24-0.15 W/m²K in ventilated configuration. Regional dominance: Italy, Spain, Portugal, Central Europe. Suitable for retrofit applications (non-structural overlay on existing facade). Growing market CAGR 6.1% 2024-2030."@en ;
   skos:scopeNote "Brandschutz: typischerweise A1 oder A2-s1,d0 (EN 13501-1). Wärmeleistung: kompatibel mit U-Werten 0,24-0,15 W/m²K in vorgehängter Konfiguration. Regionale Dominanz: Italien, Spanien, Portugal, Mitteleuropa. Geeignet für Sanierungsanwendungen (nicht-tragende Überlagerung auf bestehender Fassade). Wachsender Markt CAGR 6,1% 2024-2030."@de ;
   dcterms:subject "IfcCovering" ;
@@ -78,6 +81,8 @@
   skos:prefLabel "Vorgehängte Natursteinfassade"@de ;
   skos:definition "Natural stone slab, tile, or panel ventilated facade system (granite, limestone, slate, marble). Includes stone-faced metal cassettes and sub-frame support systems with thermal breaks."@en ;
   skos:definition "Natursteinplatten-, -fliesen- oder Paneelsystem für vorgehängte Fassaden (Granit, Kalkstein, Schiefer, Marmor). Einschliesslich steinkaschierter Metallkassetten und Unterkonstruktionssysteme mit Wärmebrechern."@de ;
+  dcterms:description "Non-load-bearing cladding of natural stone slabs or stone-faced cassettes carried in front of the load-bearing exterior wall. The slabs are held by undercut or dowel anchors on an adjustable, thermally separated metal sub-frame, with insulation and ventilated cavity behind the stone. Suitable for representative new build and facade renewal with long service life, provided that heavy formats and an additional dead-load allowance are accepted."@en ;
+  dcterms:description "Nichttragende Bekleidung aus Natursteinplatten oder steinkaschierten Kassetten vor der tragenden Aussenwand. Die Platten werden mit Hinterschnitt- oder Dornankern auf einer justierbaren, thermisch getrennten Metall-Unterkonstruktion gehalten; Dämmung und Hinterlüftungsraum liegen dahinter. Geeignet für repräsentative Neubauten und Fassadenerneuerungen mit langer Nutzungsdauer, wenn schwere Formate und ein zusätzlicher Lastzuschlag akzeptiert werden."@de ;
   skos:scopeNote "Fire rating: A1 (natural stone inherently non-combustible). Thermal performance: requires integrated insulation layer; U-values 0.20-0.12 W/m²K achievable. Weight consideration: structural frame design critical. Regional: Northern Europe (Nordic stone), Mediterranean (limestone/marble), Central Europe (slate). High durability (>60 years). Retrofit suitability: good for facade replacement on load-bearing walls."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "EN 13501-1" ;
@@ -98,6 +103,8 @@
   skos:prefLabel "Stehfalz-Metallblechfassade"@de ;
   skos:definition "Profiled metal sheet (aluminium, steel, copper, zinc) or standing-seam facade cladding with locked/interlocking seams. Includes weathertight metal cassette systems."@en ;
   skos:definition "Profiliertes Metallblech (Aluminium, Stahl, Kupfer, Zink) oder Stehfalz-Fassadenbekleidung mit verschlossenen/verschränkten Nähten. Einschliesslich dichter Metallkassettensysteme."@de ;
+  dcterms:description "Non-load-bearing metal skin of profiled sheet or standing-seam bands in aluminium, steel, copper, or zinc in front of the exterior wall. The bands are seamed or clipped onto a ventilated timber or metal sub-frame using sliding clips that accommodate thermal movement. Suitable for new build and lightweight retrofit overlays on exposed and geometrically demanding facades where high watertightness is required at low added dead load."@en ;
+  dcterms:description "Nichttragende Metallhaut aus Profilblech oder Stehfalzbahnen in Aluminium, Stahl, Kupfer oder Zink vor der Aussenwand. Die Bahnen werden auf einer hinterlüfteten Holz- oder Metall-Unterkonstruktion gefalzt oder geklipst, mit Schiebehaftern für die thermische Längenänderung. Geeignet für Neubau und leichte Sanierungsüberkleidungen an exponierten und geometrisch anspruchsvollen Fassaden mit hoher Anforderung an Wasserdichtigkeit bei geringem Zusatzgewicht."@de ;
   skos:scopeNote "Fire rating: A2-s1,d0 (aluminium composite core requires verification; pure metal A1). Thermal break requirement: integrated in frame to achieve U <0.20 W/m²K. Market growth: 6.4% CAGR 2024-2030 (fastest growing segment). Regional strength: Scandinavia, Germany, Alpine region. Advantages: watertightness, long spans, architectural expression. Retrofit: excellent for non-structural overlay, minimal weight."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "EN 13501-1" ;
@@ -117,6 +124,8 @@
   skos:prefLabel "Metallverbund-Fassadenpaneel (AVP)"@de ;
   skos:definition "Aluminium composite panel (ACP), metal cassette, or other metal-faced composite panel system. Pre-fabricated sandwich panels with aluminium faces and core (polyethylene, mineral wool, or fire-rated core)."@en ;
   skos:definition "Aluminium-Verbundplatte (AVP), Metallkassette oder anderes metallkaschiertes Verbundpaneelsystem. Vorgefertigte Sandwichpaneele mit Aluminium-Deckschichten und Kern (Polyethylen, Mineralwolle oder brandgeschützter Kern)."@de ;
+  dcterms:description "Non-load-bearing facade skin of factory-made sandwich panels with metal faces and a bonded core, hung in front of the insulated exterior wall. The panels are folded into cassettes or trays and mechanically fixed to an aligned metal sub-frame, with defined joints and cavity ventilation. Suitable for new build and fast retrofit of large flat surfaces; the core must be declared non-combustible where building height or use demands it."@en ;
+  dcterms:description "Nichttragende Fassadenhaut aus werkseitig gefertigten Sandwichpaneelen mit Metalldeckschichten und verklebtem Kern, vorgehängt vor der gedämmten Aussenwand. Die Paneele werden zu Kassetten oder Schalen gekantet und mechanisch auf einer ausgerichteten Metall-Unterkonstruktion befestigt, mit definierten Fugen und Hinterlüftung. Geeignet für Neubau und rasche Sanierung grosser ebener Flächen; der Kern ist als nichtbrennbar nachzuweisen, wenn Gebäudehöhe oder Nutzung dies verlangen."@de ;
   skos:scopeNote "CRITICAL: Fire rating heavily depends on core material. PE-core panels: Class E or D (restricted/banned in many EU countries post-Grenfell). Mineral-wool-core panels: A2-s1,d0 compliant (preferred for high-rise). Modularity: high; fast assembly (1-2m²/hour on-site). Thermal performance: good integration with insulation layer; achieves U-values 0.15 W/m²K. Retrofit application: excellent; non-structural overlay. Ban status: UK, France, Germany, Netherlands restrict combustible cores on buildings >11-18m."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "EN 13501-1" ;
@@ -138,6 +147,8 @@
   skos:prefLabel "Holz-Vorgehängte Fassade"@de ;
   skos:definition "Wood, solid timber, engineered wood, or wood-composite ventilated facade cladding, slats, boards, or panel system. Includes solid timber boards, larch, cedar, thermally-modified wood (TMW), and cross-laminated timber (CLT) facings."@en ;
   skos:definition "Holz-, Massivholz-, Konstruktionsholz- oder Holzwerkstoff-Fassadensystem mit Belüftung, Lamellen, Bretter oder Paneelsystem. Einschliesslich Massivholzbretter, Lärche, Zeder, thermisch modifiziertes Holz (TMH) und Kreuzschichtholz (KVH) -Verkleidungen."@de ;
+  dcterms:description "Non-load-bearing timber cladding of boards, slats, or wood-based panels mounted in front of the insulated exterior wall. Fixing is by visible or concealed fasteners onto a battened sub-frame that ensures rear ventilation and all-round drying of the cladding. Suitable for new build and retrofit at low added dead load; surface treatment, end-grain detailing, and the accepted degree of weathering are to be specified."@en ;
+  dcterms:description "Nichttragende Holzbekleidung aus Brettern, Lamellen oder Holzwerkstoffplatten vor der gedämmten Aussenwand. Die Befestigung erfolgt mit sichtbaren oder verdeckten Verbindungsmitteln auf einer Lattung, die allseitige Hinterlüftung und Abtrocknung der Bekleidung sicherstellt. Geeignet für Neubau und Sanierung bei geringem Zusatzgewicht; Oberflächenbehandlung, Hirnholzausbildung und zulässiger Vergrauungsgrad sind festzulegen."@de ;
   skos:scopeNote "Fire rating: typically D-s2,d0 or E class (flame-retardant treatment required for multi-story residential, A2-s1,d0 achievable with charring layer design). Timber-based multifunctional prefab systems emerging (4RinEU, Energiesprong projects). Regional strength: Scandinavia (Nordic tradition), Austria, Bavaria. Sustainability advantage: renewable material, circular economy aligned, embodied carbon lower than mineral alternatives. Retrofit application: excellent for modular prefab systems; quick on-site installation (reduces labor disruption). EU policy support: timber construction incentivized under 2024 Green Building Directive."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "EN 13501-1" ;
@@ -161,6 +172,8 @@
   skos:prefLabel "Faserzement-Fassadensystem"@de ;
   skos:definition "Fibre-cement, reinforced cement board, or artificial stone facade board/panel system. Includes flat boards, profiled boards, and engineered fiber-reinforced panels."@en ;
   skos:definition "Faserzement-, verstärktes Zementbrett oder Kunststein-Fassadenbrett/-Paneelsystem. Einschliesslich flacher Bretter, profilierter Bretter und konstruierter faserverstärkter Paneele."@de ;
+  dcterms:description "Non-load-bearing mineral board cladding of fibre-cement or reinforced cement panels in front of the insulated exterior wall. The boards are cut to size and riveted, screwed, or concealed-fixed to a metal or timber sub-frame with a ventilated cavity and a defined joint pattern. Suitable for new build and retrofit where a durable, low-maintenance, dimensionally stable mineral surface is required; edge protection and careful handling of the brittle boards are to be considered."@en ;
+  dcterms:description "Nichttragende mineralische Plattenbekleidung aus Faserzement- oder verstärkten Zementplatten vor der gedämmten Aussenwand. Die Platten werden zugeschnitten und genietet, geschraubt oder verdeckt auf einer Metall- oder Holz-Unterkonstruktion mit Hinterlüftungsraum und definiertem Fugenbild befestigt. Geeignet für Neubau und Sanierung, wenn eine dauerhafte, unterhaltsarme und formstabile mineralische Oberfläche gefordert ist; Kantenschutz und sorgfältige Handhabung der spröden Platten sind zu berücksichtigen."@de ;
   skos:scopeNote "Fire rating: A1 or A2-s1,d0 (mineral-based, non-combustible). Thermal: moderate; requires integrated insulation layer for U <0.20. Regional: common in Central Europe (Germany, Austria, Poland), France. Advantages: durability (30-50 years), low maintenance, weather-resistant. Disadvantages: brittleness, weight, installation skill sensitivity. Retrofit: moderate suitability (weight consideration on support structure). Market share: declining slightly as ceramic and wood options grow."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "EN 13501-1" ;
@@ -179,6 +192,8 @@
   skos:prefLabel "Putzsystem / WDVS-Fassade"@de ;
   skos:definition "Mineral render, plaster, external thermal insulation composite system (ETICS / WDVS, EPS, mineral wool, PIR), or cement/acrylic facade finish. Bonded to substrate with adhesive and mechanical fixing."@en ;
   skos:definition "Mineralputz, Aussenputz, Waermedaemmverbundsystem (WDVS/ETICS, EPS, Mineralwolle, PIR) oder Zement-/Kunstharzfassadenoberfläche. Mit Klebstoff und mechanischer Verankerung am Untergrund befestigt."@de ;
+  dcterms:description "Non-load-bearing bonded external insulation and render system applied directly onto the load-bearing exterior wall without a ventilated cavity. Insulation boards are adhesive-bonded and mechanically anchored to the substrate and then covered with a reinforced base coat with embedded mesh and a finishing render. Suitable for new build and for energy retrofit of solid walls where the wall is thickened from outside; flatness, anchor capacity, and moisture condition of the substrate must be verified."@en ;
+  dcterms:description "Nichttragendes, geklebtes Aussendämm- und Putzsystem, direkt auf der tragenden Aussenwand ohne Hinterlüftungsraum. Die Dämmplatten werden auf den Untergrund geklebt und mechanisch verdübelt und anschliessend mit bewehrtem Unterputz mit eingelegtem Armierungsgewebe und Deckputz überzogen. Geeignet für Neubau und energetische Sanierung massiver Wände mit Verdickung des Wandaufbaus von aussen; Ebenheit, Dübeltragfähigkeit und Feuchtezustand des Untergrunds sind zu prüfen."@de ;
   skos:narrower :FaCP-RENDER-ETICS-WDVS-INS, :FaCP-RENDER-ETICS-WDVS-RENDER ;
   skos:scopeNote "Fire rating: depends on insulation core. EPS (traditional): typically D-s2,d0 or E (banned high-rise). Mineral wool / PIR core: A2-s1,d0 compliant. Thermal performance: excellent (U-values 0.12-0.08 W/m²K achievable). Retrofit dominance: 60-70% of EU deep energy retrofits use ETICS (Fit-for-55 policy driver). Sustainability concern: EPS waste; mineral wool alternatives growing. Installation: moderate skill; weather-dependent. Regional: universal application across all EU climates. Lifecycle: 20-40 years (finishing coat renewal needed)."@en ;
   dcterms:subject "IfcCovering" ;
@@ -201,6 +216,8 @@
   skos:prefLabel "WDVS Daemm-Schicht"@de ;
   skos:definition "Insulation board layer of an ETICS / WDVS facade system (EPS, mineral wool, or PIR)."@en ;
   skos:definition "Daemmplatten-Schicht eines WDVS/ETICS-Fassadensystems (EPS, Mineralwolle oder PIR)."@de ;
+  dcterms:description "Insulation layer within a bonded render facade system, forming the thermal barrier between the load-bearing wall and the render finish. The boards are laid in adhesive on the levelled substrate with tight, offset joints and secured with anchors sized to wind load and substrate, the layer thickness governing the thermal performance of the whole build-up. It is stated separately because thickness, insulation material, and fire behaviour are specified and costed independently of the render finish."@en ;
+  dcterms:description "Dämmschicht innerhalb eines geklebten Putzfassadensystems; sie bildet die Wärmeschutzebene zwischen tragender Wand und Putzoberfläche. Die Platten werden auf dem ausgeglichenen Untergrund fugendicht und versetzt im Kleber verlegt und mit auf Windlast und Untergrund abgestimmten Dübeln gesichert, wobei die Schichtdicke die Wärmeleistung des Gesamtaufbaus bestimmt. Sie wird separat ausgewiesen, weil Dicke, Dämmstoff und Brandverhalten unabhängig vom Deckputz festgelegt und kalkuliert werden."@de ;
   skos:broader :FaCP-RENDER-ETICS-WDVS ;
   skos:scopeNote "LCA layer component of FaCP-RENDER-ETICS-WDVS. Used for ecobilans decomposition and carbon calculation; not a standalone facade product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von FaCP-RENDER-ETICS-WDVS. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Fassadenprodukt-Klassifikation."@de ;
@@ -214,6 +231,8 @@
   skos:prefLabel "WDVS Putz-Schicht"@de ;
   skos:definition "Render or plaster finish layer of an ETICS / WDVS facade system."@en ;
   skos:definition "Putz- oder Oberputz-Schicht eines WDVS/ETICS-Fassadensystems."@de ;
+  dcterms:description "Render finish layer of a bonded external insulation system, protecting the insulation against weather, impact, and ultraviolet radiation and forming the visible facade surface. It is applied in several passes onto the insulation boards as a reinforced base coat with embedded mesh followed by the finishing coat, with texture and colour to be specified. It is stated separately because the finish is renewed in shorter cycles than the insulation and its impact resistance and vapour permeability are requirements of their own."@en ;
+  dcterms:description "Putzschicht eines geklebten Aussendämmsystems; sie schützt die Dämmung gegen Witterung, Stoss und UV-Strahlung und bildet die sichtbare Fassadenoberfläche. Sie wird mehrlagig auf die Dämmplatten aufgebracht, als bewehrter Unterputz mit eingelegtem Armierungsgewebe und anschliessendem Deckputz, wobei Struktur und Farbton vorzugeben sind. Sie wird separat ausgewiesen, weil die Oberfläche in kürzeren Zyklen erneuert wird als die Dämmung und ihre Stossfestigkeit sowie Dampfdurchlässigkeit eigene Anforderungen sind."@de ;
   skos:broader :FaCP-RENDER-ETICS-WDVS ;
   skos:scopeNote "LCA layer component of FaCP-RENDER-ETICS-WDVS. Used for ecobilans decomposition and carbon calculation; not a standalone facade product classification."@en ;
   skos:scopeNote "LCA-Schichtkomponente von FaCP-RENDER-ETICS-WDVS. Fuer Oekobilanz-Zerlegung und CO2-Berechnung; keine eigenstaendige Fassadenprodukt-Klassifikation."@de ;
@@ -228,6 +247,8 @@
   skos:prefLabel "Kunststoff-Vorgehängte Fassade"@de ;
   skos:definition "HPL (high-pressure laminate), plastic, acrylic, composite laminate, or other synthetic ventilated facade panel cladding. Includes fibre-reinforced plastic (FRP) and polycarbonate systems."@en ;
   skos:definition "HPL (Hochdrucklaminat), Kunststoff-, Acryl-, Verbundlaminat oder andere synthetische vorgehängte Fassadenpaneele. Einschliesslich glasfaserverstärkter Kunststoff (GFK) und Polykarbonat-Systemen."@de ;
+  dcterms:description "Non-load-bearing cladding of synthetic panels such as laminates, plastics, or fibre-reinforced composites hung in front of the insulated exterior wall. The panels are mechanically fixed to a metal or timber sub-frame with a ventilated cavity, using fixings and joint widths that allow the comparatively large thermal movement of the material. Suitable for commercial, industrial, and low-rise buildings; colour fastness under ultraviolet exposure, impact resistance, and reaction to fire of the panel must be stated."@en ;
+  dcterms:description "Nichttragende Bekleidung aus Kunststoffpaneelen wie Laminaten, Kunststoffplatten oder faserverstärkten Verbundwerkstoffen, vorgehängt vor der gedämmten Aussenwand. Die Paneele werden mechanisch auf einer Metall- oder Holz-Unterkonstruktion mit Hinterlüftungsraum befestigt, mit Befestigungen und Fugenbreiten für die vergleichsweise grosse thermische Längenänderung des Materials. Geeignet für Gewerbe-, Industrie- und niedrige Gebäude; Farbbeständigkeit unter UV-Belastung, Stossfestigkeit und Brandverhalten der Paneele sind anzugeben."@de ;
   skos:scopeNote "Fire rating: typically D-s2,d0 or E (combustibility concern; restricted on high-rise residential). Thermal: insulation layer required; moderate U-values 0.15-0.20 W/m²K. Maintenance: low; weather resistant. Durability: 20-30 years (UV degradation concern). Regional: niche market; used for industrial, commercial, or low-rise applications. Circular economy: limited end-of-life recycling. Growth: slower than other systems (environmental concerns, regulatory tightening)."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "EN 13501-1" ;
@@ -249,6 +270,8 @@
   skos:prefLabel "Gebäudeintegrierte Photovoltaik-Fassade"@de ;
   skos:definition "Facade cladding system with integrated crystalline silicon, thin-film, or perovskite photovoltaic cells. Can be applied to metal, ceramic, or glass substrates for aesthetic and energy-generating dual function."@en ;
   skos:definition "Fassadenbekleidungssystem mit integrierten kristallinen Silizium-, Dünnschicht- oder Perowskit-Photovoltaikzellen. Kann auf Metall-, Keramik- oder Glasunterlagen für ästhetische und energieerzetgende Dualfunktion angewendet werden."@de ;
+  dcterms:description "Non-load-bearing facade cladding that additionally generates electricity, with photovoltaic cells integrated into the visible outer layer of the wall build-up. Active modules replace conventional cladding panels on a sub-frame or unitised system and are wired through the cavity to inverters, so weather protection and energy generation are delivered by the same layer. Suitable for new build and prestige renewal on well-exposed facades; module temperature, access for maintenance and replacement, and cable routing must be resolved in the design."@en ;
+  dcterms:description "Nichttragende Fassadenbekleidung mit zusätzlicher Stromerzeugung; Photovoltaikzellen sind in die sichtbare Aussenschicht des Wandaufbaus integriert. Aktive Module ersetzen herkömmliche Bekleidungspaneele auf einer Unterkonstruktion oder in einem Elementsystem und werden durch den Hohlraum zu Wechselrichtern verkabelt, sodass Wetterschutz und Energiegewinnung in derselben Schicht erbracht werden. Geeignet für Neubau und repräsentative Erneuerung an gut besonnten Fassaden; Modultemperatur, Zugänglichkeit für Unterhalt und Austausch sowie Kabelführung sind in der Planung zu lösen."@de ;
   skos:scopeNote "Emerging technology; market penetration <5% (2025). Fire rating: substrate-dependent (typically A2-s1,d0 capable). Thermal: varies; integration with ventilated cavity improves performance. Regulatory support: EU directive incentivizes BIPV on new construction and major renovations (EPBD 2024). Cost premium: 20-40% over conventional facade (decreasing). Electrical performance: 150-200 W/m² output typical. Integration challenges: cell temperature management, maintenance access, wiring concealment. Regional drivers: Southern EU (higher insolation), new commercial buildings, flagship retrofits."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "EN 13501-1" ;
@@ -271,6 +294,8 @@
   skos:prefLabel "Vorgefertigtes modulares Holzfassaden-System"@de ;
   skos:definition "Factory-manufactured modular timber-based facade exoskeleton or wrapper system. Typically includes structural timber frame, integrated insulation, ventilated cavity, finishing layer (wood, plaster, or composite), and pre-integrated MEP rough-ins (windows, ventilation, solar fittings)."@en ;
   skos:definition "Fabrikmässig gefertigtes modulares holzbasiertes Fassadensystem oder Umhüllung. Typischerweise mit Holztragrahmen, integrierter Isolation, Belüftungshohlraum, Fertigungsschicht (Holz, Putz oder Verbundstoff) und vorintegrierten TGA-Rohbauten (Fenster, Lüftung, Solaranlagen)."@de ;
+  dcterms:description "Non-load-bearing facade module manufactured in the factory as a timber-framed element with insulation, air-tight layer, cladding, and often windows already fitted. The modules are delivered storey-high, lifted into place, and anchored at discrete points to the existing or new load-bearing structure, with joints sealed and services connected on site. Suitable for new build and for retrofit of occupied buildings where site time and disruption must stay minimal and the existing facade geometry has been surveyed."@en ;
+  dcterms:description "Nichttragendes Fassadenmodul, werkseitig als Holzrahmenelement mit Dämmung, Luftdichtungsschicht, Bekleidung und häufig bereits eingebauten Fenstern gefertigt. Die Module werden geschosshoch angeliefert, eingehoben und punktweise am bestehenden oder neuen Tragwerk verankert; Fugen werden abgedichtet und Installationen vor Ort angeschlossen. Geeignet für Neubau und Sanierung im bewohnten Zustand, wenn Bauzeit und Störung gering bleiben müssen und die Bestandsgeometrie der Fassade vermessen vorliegt."@de ;
   skos:scopeNote "Innovation focus: multifunctional facade integrating thermal, acoustic, and MEP functions off-site. Retrofit application (4RinEU, Energiesprong projects): rapid deployment on existing load-bearing structure; on-site assembly time 1-2 weeks for residential. Fire rating: A2-s1,d0 achievable with mineral wool integration. Assembly advantage: reduces on-site labor by 70%, improves precision, minimizes occupant disruption. Regional pilots: Netherlands, Norway, Spain, Italy (social housing retrofits). Regulatory support: CPR 2024 facilitates prefab module trading across EU borders. Cost: 10-15% premium amortized over energy savings and reduced labor. Supply chain: growing capacity (Blokable, prefabrication consortia)."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "Prefabricated" ;
@@ -296,6 +321,8 @@
   skos:prefLabel "Vorgefertigtes modulares Metallfassaden-System"@de ;
   skos:definition "Factory-assembled modular facade system using aluminium, steel, or composite metal frames with integrated insulation layers, cladding panels (metal composite, natural stone veneer, or ceramic facing), and mechanically-fixed sub-structure."@en ;
   skos:definition "Werkseitig montiertes modulares Fassadensystem mit Aluminium-, Stahl- oder Verbundmetallrahmen, integrierten Isolationsschichten, Verkleidungspaneelen (Metallverbund, Natursteinfurnier oder Keramikoberfläche) und mechanisch befestigter Unterkonstruktion."@de ;
+  dcterms:description "Non-load-bearing facade module assembled in the factory from metal frames with integrated insulation and a finished cladding face. The units are set storey-high in front of the primary structure and anchored on brackets that allow adjustment and thermal separation, with gasketed or sealed joints between modules. Suitable for new build and later partial replacement on tall commercial, industrial, and technical buildings requiring erection speed, dimensional accuracy, and repeatable details."@en ;
+  dcterms:description "Nichttragendes Fassadenmodul, werkseitig aus Metallrahmen mit integrierter Dämmung und fertiger Bekleidungsschale montiert. Die Elemente werden geschosshoch vor das Primärtragwerk gesetzt und an Konsolen verankert, die Justierung und thermische Trennung erlauben; die Modulfugen werden mit Dichtprofilen oder Versiegelung geschlossen. Geeignet für Neubau und späteren teilweisen Austausch an hohen Gewerbe-, Industrie- und Technikgebäuden mit Anforderungen an Montagegeschwindigkeit, Masshaltigkeit und wiederholbare Details."@de ;
   skos:scopeNote "Applications: high-rise commercial, data centers, industrial facilities. Fire rating: A2-s1,d0 (metal frame + non-combustible insulation core). Thermal break: mandatory; achieved via composite frame or inserted strips. Modularity: dimensions typically 1.5m x 5-7m height. Assembly: fast; anchored to building structure at discrete points. Quality control: factory-built precision reduces site defects. Thermal performance: U-values 0.12-0.15 W/m²K achievable. Regional strength: Germany, Switzerland, Nordic countries (commercial sector). Sustainability: modular design allows future upgrade/replacement without full facade demolition."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "Prefabricated" ;
@@ -320,6 +347,8 @@
   skos:prefLabel "Aussenanstrich / Schutzanstrichsystem"@de ;
   skos:definition "Applied exterior paint, coating, or finish layer on facade surfaces (mineral paint, silicate paint, acrylic, polyurethane, or epoxy). Can be primary finish or secondary protective layer over substrate."@en ;
   skos:definition "Aufgetragener Aussenanstrich, Beschichtung oder Oberflächenschicht auf Fassadenflaechen (Minerallack, Silikatfarbe, Acryl, Polyurethan oder Epoxid). Kann primäre Fertigungsschicht oder sekundäre Schutzschicht über Untergrund sein."@de ;
+  dcterms:description "Non-load-bearing coating applied thinly and directly onto the facade substrate, acting as protective and decorative surface rather than as a separate cladding layer. It is applied after cleaning and repair of the substrate in primer and topcoat passes by brush, roller, or spray, and its vapour permeability must be matched to the substrate so that the wall can dry out. Suitable for new build finishes and for facade refurbishment as a recurring maintenance measure; film build, colour, and surface preparation are to be specified."@en ;
+  dcterms:description "Nichttragende Beschichtung, dünnschichtig direkt auf dem Fassadenuntergrund aufgebracht; sie wirkt als Schutz- und Gestaltungsoberfläche und nicht als eigene Bekleidungsschicht. Der Auftrag erfolgt nach Reinigung und Instandsetzung des Untergrunds in Grund- und Deckanstrich mit Pinsel, Rolle oder Spritzverfahren, wobei die Dampfdurchlässigkeit auf den Untergrund abzustimmen ist, damit die Wand abtrocknen kann. Geeignet für Neubauoberflächen und Fassadenrenovation als wiederkehrende Unterhaltsmassnahme; Schichtdicke, Farbton und Untergrundvorbereitung sind vorzugeben."@de ;
   skos:scopeNote "Fire rating: typically D-s2,d0 or E (thin organic layer). Thermal: minimal direct contribution (surface emissivity property). Maintenance: critical for long-term facade durability; repainting cycle 10-15 years typical. Regional: used universally; quality/formulation varies (climate adaptation). Sustainability: organic solvent content (VOC) regulated by EU Directive 2004/42/EC. Innovation: self-cleaning coatings (TiO₂), phase-change materials (PCM) for thermal regulation emerging."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "Finish-Layer" ;
@@ -338,6 +367,8 @@
   skos:prefLabel "Sanierungsüberkleidungssystem (Verbund)"@de ;
   skos:definition "Non-structural facade overlay or wrapper applied over existing facade on retrofit/renovation projects. Combines cladding layer (typically ETICS, ventilated panel, or prefab module) anchored to existing substrate with mechanical fixings and/or adhesive. Primary application: EU Fit-for-55 deep energy retrofits on residential/commercial stock."@en ;
   skos:definition "Nicht-tragende Fassadenüberlagerung oder Umhüllung über bestehende Fassade bei Sanierungs-/Renovierungsprojekten. Kombiniert Verkleidungsschicht (typischerweise ETICS, Lüftungspaneel oder Fertigmodul) mit mechanischen Befestigungen und/oder Klebstoff auf bestehendem Untergrund. Primäre Anwendung: EU Fit-for-55-Tiefensanierungen im Wohn-/Gewerbebebestand."@de ;
+  dcterms:description "Non-load-bearing overlay built over a retained existing facade, adding insulation and a new weather-protecting surface without removing the old wall. The new build-up is anchored through the old surface into the load-bearing substrate, either bonded with render or carried on a levelling sub-frame that takes up the unevenness of the existing wall. Suitable for energy refurbishment of existing stock; condition, flatness, and anchor capacity of the old facade as well as new window, eaves, and plinth details must be established beforehand."@en ;
+  dcterms:description "Nichttragende Überkleidung über der erhaltenen bestehenden Fassade; sie ergänzt Dämmung und eine neue wetterschützende Oberfläche, ohne die alte Wand zu entfernen. Der neue Aufbau wird durch die alte Oberfläche im tragenden Untergrund verankert, entweder geklebt mit Putz oder auf einer ausgleichenden Unterkonstruktion, die Unebenheiten des Bestands aufnimmt. Geeignet für die energetische Erneuerung des Gebäudebestands; Zustand, Ebenheit und Verankerungsfähigkeit der alten Fassade sowie neue Fenster-, Dachrand- und Sockeldetails sind vorab zu klären."@de ;
   skos:scopeNote "Key advantage: non-destructive; avoids facade demolition/disposal waste. Thermal improvement: typical retrofit adds 80-120mm insulation, achieving U-value reduction from >0.5 W/m²K (pre-1980s) to <0.15 W/m²K (nZEB standard). Installation: requires initial facade inspection, moisture assessment, support frame design. Labor intensive but lower on-site disruption vs. traditional facade replacement. Regulatory drivers: EPBD 2024 requires building renovation within 2050 timeline; EU funds (REPowerEU) support retrofit projects. Market volume: 60-70% of European facade work (2024-2030). Regional variation: retrofit intensity highest in Northern/Central Europe (older building stock, climate drivers)."@en ;
   dcterms:subject "IfcCovering" ;
   dcterms:subject "Retrofit" ;
@@ -360,6 +391,8 @@
   skos:prefLabel "HPL- / Kompaktplatten-Fassade"@de ;
   skos:definition "High-pressure laminate (HPL) or compact laminate ventilated rainscreen panel system with subframe and mechanical fixings."@en ;
   skos:definition "Hochdrucklaminat- (HPL) oder Kompaktplatten-System als vorgehängte hinterlüftete Fassade mit Unterkonstruktion und mechanischer Befestigung."@de ;
+  dcterms:description "Non-load-bearing rainscreen cladding of compact high-pressure laminate boards in front of the insulated exterior wall. The boards are fixed with visible rivets or screws, or with concealed rear fixings, to a metal or timber sub-frame that keeps an open ventilated cavity and permits panel movement. Suitable for new build and retrofit on commercial and institutional facades needing a hard-wearing, easily cleaned surface, including plinth areas exposed to impact and graffiti."@en ;
+  dcterms:description "Nichttragende hinterlüftete Bekleidung aus Kompaktplatten in Hochdrucklaminat vor der gedämmten Aussenwand. Die Platten werden mit sichtbaren Nieten oder Schrauben oder mit verdeckter Rückseitenbefestigung auf einer Metall- oder Holz-Unterkonstruktion befestigt, die einen offenen Hinterlüftungsraum und die Plattenbewegung zulässt. Geeignet für Neubau und Sanierung an Gewerbe- und Institutionsfassaden mit Bedarf an robusten, leicht reinigbaren Oberflächen, auch in stoss- und graffitibelasteten Sockelbereichen."@de ;
   skos:scopeNote "Distinct from generic synthetic panels (FaCP-SYNTHETIC-VENTILATED) where HPL/compact laminate is the dominant specified product family. Common on commercial and institutional facades in Central Europe."@en ;
   skos:scopeNote "Unterscheidet sich von generischen Kunststoffpaneelen (FaCP-SYNTHETIC-VENTILATED), wenn HPL/Kompaktplatte die dominante spezifizierte Produktfamilie ist. Häufig an Gewerbe- und Institutionalfassaden in Mitteleuropa."@de ;
   dcterms:subject "IfcCovering" ;
@@ -373,6 +406,8 @@
   skos:prefLabel "Ziegelriemchen- / Klinker-Vorhangfassade"@de ;
   skos:definition "Thin brick slip, tile, or masonry-unit ventilated rainscreen cladding on subframe, including retrofit tile-hung systems over insulation."@en ;
   skos:definition "Dünne Ziegelriemchen-, Fliesen- oder Mauersteinbekleidung als vorgehängte hinterlüftete Fassade auf Unterkonstruktion, einschliesslich Sanierungs-Klinkerfassaden über Daemmung."@de ;
+  dcterms:description "Non-load-bearing cladding with a masonry appearance from thin brick slips or small-format tiles in front of the insulated exterior wall, without any load transfer from the building. The slips are hung or bonded onto carrier rails, carrier boards, or a rendered carrier layer on a ventilated sub-frame, with pointed or open joints. Suitable for new build and retrofit where the appearance of solid facing masonry is required at low dead load, for instance when an existing brick facade is insulated from outside."@en ;
+  dcterms:description "Nichttragende Bekleidung im Mauerwerksbild aus dünnen Ziegelriemchen oder kleinformatigen Platten vor der gedämmten Aussenwand, ohne Lastabtrag aus dem Gebäude. Die Riemchen werden auf Trägerschienen, Trägerplatten oder einer verputzten Trägerschicht auf hinterlüfteter Unterkonstruktion eingehängt oder verklebt, mit verfugten oder offenen Stossfugen. Geeignet für Neubau und Sanierung, wenn das Bild massiven Sichtmauerwerks bei geringem Eigengewicht gefordert ist, etwa bei Aussendämmung einer bestehenden Klinkerfassade."@de ;
   skos:scopeNote "Distinct from load-bearing masonry walls (SWP-MASONRY) and large-format ceramic ventilated tiles (FaCP-CERAMIC-VENTILATED). Typical for retrofit over existing substrates."@en ;
   skos:scopeNote "Unterscheidet sich von tragendem Mauerwerk (SWP-MASONRY) und grossformatigen Keramik-Vorhangfassaden (FaCP-CERAMIC-VENTILATED). Typisch für Sanierung über bestehendem Untergrund."@de ;
   dcterms:subject "IfcCovering" ;
@@ -388,6 +423,8 @@
   skos:prefLabel "Sonstige / unbekannte Fassadenbekleidung"@de ;
   skos:definition "Facade covering product not classified or not yet known; emerging materials or experimental systems not listed in primary taxonomy."@en ;
   skos:definition "Fassadenbekleidungsprodukt nicht klassifiziert oder noch unbekannt; neuartige Materialien oder Versuchssysteme nicht in primärer Taxonomie aufgeführt."@de ;
+  dcterms:description "Placeholder for facade coverings whose product or system type is not yet fixed at tender stage or cannot be classified. Functional requirements such as weather protection, thermal performance, reaction to fire, substrate and fixing principle, and expected service life must be stated separately in the specification. Use only in early design stages or where information on the existing facade is incomplete."@en ;
+  dcterms:description "Platzhalter für Fassadenbekleidungen, deren Produkt- oder Systemtyp zum Zeitpunkt der Ausschreibung noch nicht festgelegt oder nicht klassifizierbar ist. Funktionale Anforderungen wie Wetterschutz, Wärmeschutz, Brandverhalten, Untergrund- und Befestigungsprinzip sowie erwartete Nutzungsdauer sind gesondert zu beschreiben. Nur in frühen Planungsphasen oder bei unvollständiger Bestandskenntnis verwenden."@de ;
   skos:scopeNote "Fallback for early design stages, missing data, or novel facade systems (e.g., smart coatings, bio-based composites, graphene-enhanced materials). Should be resolved to specific type before detailed specification."@en ;
   skos:scopeNote "Fallback für frühe Entwurfsstufen, fehlende Daten oder neuartige Fassadensysteme (z.B. intelligente Beschichtungen, biobasierte Verbundstoffe, graphen-verstärkte Materialien). Sollte vor detaillierter Spezifikation auf spezifischen Typ aufgelöst werden."@de ;
   dcterms:subject "IfcCovering" ;
@@ -395,63 +432,63 @@
 
 # CUSTOM PROPERTIES (extending SKOS for European context)
 
-:fireRating a skos:Concept ;
+:fireRating a owl:AnnotationProperty ;
   skos:prefLabel "Fire classification rating"@en ;
   skos:definition "European fire performance classification per EN 13501-1 (A1, A2-s1,d0, B-s1,d0, C-s2,d1, D-s2,d0, E, F)"@en .
 
-:thermalClass a skos:Concept ;
+:thermalClass a owl:AnnotationProperty ;
   skos:prefLabel "Thermal performance class"@en ;
   skos:definition "Qualitative thermal insulation capability (Very High: <0.12 W/m²K, High: 0.12-0.15, Medium-High: 0.15-0.20, Medium: 0.20-0.30, Low: >0.30)"@en .
 
-:systemType a skos:Concept ;
+:systemType a owl:AnnotationProperty ;
   skos:prefLabel "Facade system type"@en ;
   skos:definition "Structural/functional classification (Ventilated Rainscreen, Bonded Composite, Prefabricated Modular, Active Energy-Generating, etc.)"@en .
 
-:applicationContext a skos:Concept ;
+:applicationContext a owl:AnnotationProperty ;
   skos:prefLabel "Application context"@en ;
   skos:definition "Primary use case (New construction, Deep energy retrofit, Prestige renovation, Commercial, Industrial, etc.)"@en .
 
-:modularity a skos:Concept ;
+:modularity a owl:AnnotationProperty ;
   skos:prefLabel "Modularity level"@en ;
   skos:definition "Degree of prefabrication and on-site assembly standardization (Very High, High, Medium, Low)"@en .
 
-:prefabrication a skos:Concept ;
+:prefabrication a owl:AnnotationProperty ;
   skos:prefLabel "Prefabrication level"@en ;
   skos:definition "Factory manufacturing extent (Very High: >90% pre-assembly, High: 70-90%, Medium: 40-70%, Low: <40%)"@en .
 
-:sustainability a skos:Concept ;
+:sustainability a owl:AnnotationProperty ;
   skos:prefLabel "Sustainability profile"@en ;
   skos:definition "Environmental and circular economy alignment (renewable materials, recyclability, embodied carbon, REACH compliance, lifecycle)"@en .
 
-:retrofitMarketShare a skos:Concept ;
+:retrofitMarketShare a owl:AnnotationProperty ;
   skos:prefLabel "Retrofit market share"@en ;
   skos:definition "Estimated percentage of retrofit/renovation facade applications in European market"@en .
 
-:marketGrowth a skos:Concept ;
+:marketGrowth a owl:AnnotationProperty ;
   skos:prefLabel "Market growth rate"@en ;
   skos:definition "Compound annual growth rate (CAGR) forecast for European market segment"@en .
 
-:laborReduction a skos:Concept ;
+:laborReduction a owl:AnnotationProperty ;
   skos:prefLabel "Labor hour reduction"@en ;
   skos:definition "Estimated reduction in on-site labor hours vs. conventional methods"@en .
 
-:energyGeneration a skos:Concept ;
+:energyGeneration a owl:AnnotationProperty ;
   skos:prefLabel "Energy output"@en ;
   skos:definition "Typical electrical power generation per unit area (for active facades like BIPV)"@en .
 
-:durability a skos:Concept ;
+:durability a owl:AnnotationProperty ;
   skos:prefLabel "Expected service life"@en ;
   skos:definition "Typical lifecycle duration before major maintenance or replacement"@en .
 
-:thermalBridge a skos:Concept ;
+:thermalBridge a owl:AnnotationProperty ;
   skos:prefLabel "Thermal bridging mitigation"@en ;
   skos:definition "Effectiveness at reducing thermal bridge heat loss (Excellent: <0.04 W/mK, Good: 0.04-0.08, Moderate: 0.08-0.15, Poor: >0.15)"@en .
 
-:regulatorySupport a skos:Concept ;
+:regulatorySupport a owl:AnnotationProperty ;
   skos:prefLabel "Regulatory support"@en ;
   skos:definition "EU/national policy drivers or incentives (EPBD 2024, Fit-for-55, Green Building Directive, CPR 2024, etc.)"@en .
 
-:retrofitInnovation a skos:Concept ;
+:retrofitInnovation a owl:AnnotationProperty ;
   skos:prefLabel "Retrofit innovation category"@en ;
   skos:definition "Emerging retrofit technologies or approaches (Multifunctional exoskeleton, Modular retrofit wrapper, Adaptive systems, etc.)"@en .
 

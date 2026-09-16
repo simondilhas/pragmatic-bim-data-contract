@@ -52,6 +52,8 @@
   skos:prefLabel "Steckdose"@de ;
   skos:definition "Electrical socket outlet or power connection point."@en ;
   skos:definition "Elektrische Steckdose oder Stromanschlusspunkt."@de ;
+  dcterms:description "Provides a fixed connection point for supplying electrical power to appliances and equipment at the point of use. Mounted surface or flush in wall, floor, or furniture and connected to a final circuit of the electrical distribution, with earthing and overcurrent protection provided by the supplying board. Suitable for all room types, with position, quantity, and grouping matched to the intended use of the space and remaining accessible after fit-out."@en ;
+  dcterms:description "Stellt einen festen Anschlusspunkt für die Stromversorgung von Geräten am Nutzungsort bereit. Wird auf oder unter Putz in Wand, Boden oder Möbel montiert und an einen Endstromkreis der Elektroverteilung angeschlossen, wobei Erdung und Überstromschutz über die speisende Verteilung erfolgen. Geeignet für alle Raumtypen, wobei Lage, Anzahl und Gruppierung auf die Raumnutzung abgestimmt sind und nach dem Ausbau zugänglich bleiben."@de ;
   dcterms:subject "IfcOutlet" ;
   dcterms:identifier "socket" .
 
@@ -63,6 +65,8 @@
   skos:prefLabel "Leuchte"@de ;
   skos:definition "Fixed or portable luminaire or light fixture."@en ;
   skos:definition "Feste oder mobile Leuchte."@de ;
+  dcterms:description "Converts electrical power into light and delivers the illuminance and light quality required for the activities in the space. Mounted surface, recessed, suspended, or on a track and connected to a lighting circuit, with control by switches, dimmers, or presence and daylight sensors. Suitable for all room types, with layout and spacing matched to the task areas and with lamps, drivers, and diffusers accessible for maintenance and replacement."@en ;
+  dcterms:description "Wandelt elektrische Energie in Licht um und stellt die für die Tätigkeiten im Raum erforderliche Beleuchtungsstärke und Lichtqualität bereit. Wird auf Putz, eingebaut, abgehängt oder auf Schiene montiert und an einen Beleuchtungsstromkreis angeschlossen, mit Steuerung über Schalter, Dimmer oder Präsenz- und Tageslichtsensoren. Geeignet für alle Raumtypen, wobei Anordnung und Abstände auf die Arbeitsbereiche abgestimmt sind und Leuchtmittel, Betriebsgeräte und Abdeckungen für Wartung und Ersatz zugänglich bleiben."@de ;
   dcterms:subject "IfcLightFixture" ;
   dcterms:identifier "light" .
 
@@ -74,6 +78,8 @@
   skos:prefLabel "Schalter"@de ;
   skos:definition "Electrical switching device for lighting or power circuits."@en ;
   skos:definition "Elektrisches Schaltgeraet fuer Beleuchtungs- oder Stromkreise."@de ;
+  dcterms:description "Allows users to switch or dim lighting and power circuits locally in the served space. Mounted surface or flush in the wall at a defined height and wired into the circuit or connected as a control input to the building automation. Suitable for all room types, with positions near room entrances and doors, clear allocation of the switched groups, and labelling where several circuits are operated from one location."@en ;
+  dcterms:description "Ermöglicht das lokale Schalten oder Dimmen von Beleuchtungs- und Stromkreisen im versorgten Raum. Wird auf oder unter Putz in definierter Höhe an der Wand montiert und in den Stromkreis eingebunden oder als Steuereingang an die Gebäudeautomation angeschlossen. Geeignet für alle Raumtypen, mit Anordnung nahe Raumzugängen und Türen, eindeutiger Zuordnung der geschalteten Gruppen und Kennzeichnung, wenn mehrere Kreise von einer Stelle bedient werden."@de ;
   dcterms:subject "IfcSwitchingDevice" ;
   dcterms:identifier "switch" .
 
@@ -87,6 +93,8 @@
   skos:prefLabel "Datendose"@de ;
   skos:definition "Structured cabling data outlet or telecom connection point."@en ;
   skos:definition "Datendose oder Telekom-Anschlusspunkt der strukturierten Verkabelung."@de ;
+  dcterms:description "Provides the user-side connection point of the structured cabling and makes network and telecom services available in the space. Mounted surface or flush in wall, floor tank, or furniture and terminated on horizontal cabling running back to the floor distributor, with every port individually identified. Suitable for workplaces and technical rooms, with the number of outlets per workplace defined in advance and each link tested and documented before handover."@en ;
+  dcterms:description "Stellt den nutzerseitigen Anschlusspunkt der strukturierten Verkabelung bereit und macht Netzwerk- und Telekomdienste im Raum verfügbar. Wird auf oder unter Putz in Wand, Bodentank oder Möbel montiert und über die Etagenverkabelung auf den Etagenverteiler aufgelegt, wobei jeder Port einzeln gekennzeichnet wird. Geeignet für Arbeitsplätze und Technikräume, wobei die Anzahl der Anschlüsse je Arbeitsplatz vorab festgelegt und jede Verbindung vor der Übergabe geprüft und dokumentiert wird."@de ;
   dcterms:subject "IfcOutlet, IfcCommunicationsAppliance" ;
   dcterms:identifier "data-outlet" .
 
@@ -98,6 +106,8 @@
   skos:prefLabel "WLAN-Access-Point"@de ;
   skos:definition "Wireless LAN access point or distributed antenna node."@en ;
   skos:definition "WLAN-Access-Point oder Distributed-Antenna-Knoten."@de ;
+  dcterms:description "Provides wireless network coverage in the served space and links mobile devices to the cabled network. Mounted on ceiling or wall, normally fed by a single data cable that also carries the power supply, and managed centrally by a controller. Suitable for office, teaching, and public areas, with unit spacing derived from the required coverage and device density and with mounting positions kept accessible for replacement and reconfiguration."@en ;
+  dcterms:description "Stellt die Funknetzabdeckung im versorgten Raum bereit und verbindet mobile Endgeräte mit dem Kabelnetz. Wird an Decke oder Wand montiert, in der Regel über ein einzelnes Datenkabel gespeist, das zugleich die Stromversorgung übernimmt, und zentral über einen Controller verwaltet. Geeignet für Büro-, Unterrichts- und Publikumsbereiche, wobei die Geräteabstände aus der erforderlichen Abdeckung und Endgerätedichte abgeleitet werden und die Montageorte für Ersatz und Umkonfiguration zugänglich bleiben."@de ;
   dcterms:subject "IfcCommunicationsAppliance" ;
   dcterms:identifier "wifi-ap" .
 
@@ -109,6 +119,8 @@
   skos:prefLabel "Sensor / Aktuator (KNX / BACnet)"@de ;
   skos:definition "Building automation field device such as KNX or BACnet sensor or actuator."@en ;
   skos:definition "Gebaeudeautomations-Feldgeraet wie KNX- oder BACnet-Sensor oder -Aktuator."@de ;
+  dcterms:description "Captures room conditions or user input and converts automation commands into switching or positioning action on the served equipment. Mounted in the room, in the ceiling void, or directly on the controlled device and connected to the automation bus or control wiring, with addressing and parameters set during commissioning. Suitable wherever room conditions are controlled or monitored, with mounting positions representative of the space and reachable for parameter changes and replacement."@en ;
+  dcterms:description "Erfasst Raumzustände oder Nutzereingaben und setzt Befehle der Automation in Schalt- oder Stellvorgänge am versorgten Gerät um. Wird im Raum, im Deckenhohlraum oder direkt am geregelten Gerät montiert und an den Automationsbus oder die Steuerverdrahtung angeschlossen, wobei Adressierung und Parameter bei der Inbetriebnahme gesetzt werden. Geeignet überall dort, wo Raumzustände geregelt oder überwacht werden, mit für den Raum repräsentativen und für Parameteränderungen und Ersatz erreichbaren Montageorten."@de ;
   dcterms:subject "IfcSensor, IfcActuator" ;
   dcterms:identifier "sensor-actuator" .
 
@@ -122,6 +134,8 @@
   skos:prefLabel "Zuluft- / Abluftventil oder Diffusor"@de ;
   skos:definition "Supply, extract, or transfer air terminal, valve, or diffuser."@en ;
   skos:definition "Zuluft-, Abluft- oder Umluft-Endgeraet, Ventil oder Diffusor."@de ;
+  dcterms:description "Delivers supply air to the room or removes extract air from it and distributes the air flow so that draught-free conditions and the required air quality are achieved. Fitted in ceiling, wall, or floor and connected to the duct system through a plenum box or flexible connection, with the flow rate set by an adjustable element or a terminal control box. Suitable for offices, dwellings, and meeting rooms, with the number of terminals derived from the room air flow and with all setting devices and visible surfaces accessible for balancing and cleaning."@en ;
+  dcterms:description "Führt dem Raum Zuluft zu oder entnimmt Abluft und verteilt den Luftstrom so, dass zugfreie Verhältnisse und die geforderte Luftqualität erreicht werden. Wird in Decke, Wand oder Boden eingebaut und über Anschlusskasten oder flexible Verbindung an das Kanalnetz angeschlossen, wobei der Volumenstrom über ein verstellbares Element oder eine Volumenstromregeleinheit eingestellt wird. Geeignet für Büro-, Wohn- und Besprechungsräume, wobei die Anzahl der Endgeräte aus dem Raumluftvolumenstrom abgeleitet wird und alle Einstellorgane und Sichtflächen für Einregulierung und Reinigung zugänglich bleiben."@de ;
   dcterms:subject "IfcAirTerminal, IfcAirTerminalBox" ;
   dcterms:identifier "air-valve" .
 
@@ -133,6 +147,8 @@
   skos:prefLabel "Gitter / Luftgitter"@de ;
   skos:definition "Air transfer grille or linear slot diffuser without active control."@en ;
   skos:definition "Luftuebergangs-Gitter oder Linearschlitz ohne aktive Regelung."@de ;
+  dcterms:description "Lets air pass between rooms or between room and duct without active regulation and secures the intended air path for ventilation and pressure balance. Fitted into a wall, door, ceiling, or duct opening as a fixed grille or linear slot, without moving control elements. Suitable for transfer and overflow openings in sanitary, corridor, and technical areas, sized for a low pressure drop and with a face that can be cleaned in place."@en ;
+  dcterms:description "Lässt Luft ohne aktive Regelung zwischen Räumen oder zwischen Raum und Kanal übertreten und sichert den vorgesehenen Luftweg für Lüftung und Druckausgleich. Wird als festes Gitter oder Linearschlitz in Wand, Tür, Decke oder Kanalöffnung eingebaut, ohne bewegliche Regelorgane. Geeignet für Übertritts- und Überströmöffnungen in Sanitär-, Korridor- und Technikbereichen, ausgelegt auf geringen Druckverlust und mit im eingebauten Zustand reinigbarer Sichtfläche."@de ;
   dcterms:subject "IfcAirTerminal" ;
   dcterms:identifier "grille" .
 
@@ -146,6 +162,8 @@
   skos:prefLabel "Radiator / Heizkoerper"@de ;
   skos:definition "Space heating radiator or convector terminal."@en ;
   skos:definition "Raumheiz-Radiator oder Konvektor-Endgeraet."@de ;
+  dcterms:description "Transfers heat from the heating water into the room by radiation and convection and covers the heat loss of the space. Mounted on the wall or in a floor channel, usually below windows, and connected to flow and return of the heating distribution with shut-off, drain, and a thermostatic control valve. Suitable for individual rooms in dwellings, offices, and schools, with one or more units per room sized to the room heat load and with valve and surfaces accessible for adjustment and cleaning."@en ;
+  dcterms:description "Überträgt Wärme aus dem Heizwasser durch Strahlung und Konvektion in den Raum und deckt den Wärmeverlust des Raums. Wird an der Wand oder in einem Bodenkanal montiert, meist unter Fenstern, und an Vor- und Rücklauf der Heizverteilung mit Absperrung, Entleerung und Thermostatventil angeschlossen. Geeignet für Einzelräume in Wohnungen, Büros und Schulen, wobei je Raum ein oder mehrere Geräte auf die Raumheizlast ausgelegt werden und Ventil und Oberflächen für Einstellung und Reinigung zugänglich bleiben."@de ;
   dcterms:subject "IfcSpaceHeater" ;
   dcterms:identifier "radiator" .
 
@@ -157,6 +175,8 @@
   skos:prefLabel "Heizkreisverteiler (FBH)"@de ;
   skos:definition "Underfloor heating manifold or circuit distributor (Heizkreisverteiler)."@en ;
   skos:definition "Fussbodenheizungs-Heizkreisverteiler."@de ;
+  dcterms:description "Distributes heating water to the individual loops of a surface heating system and returns it to the distribution, so that every loop can be shut off and balanced separately. Installed in a recessed or surface cabinet in the served storey and connected to the main heating pipework, with loop valves, flow meters, and actuators for room-wise control. Suitable for dwellings and offices with surface heating, positioned so that loop lengths stay within limits and with the cabinet permanently accessible for balancing, venting, and identification of the loops."@en ;
+  dcterms:description "Verteilt Heizwasser auf die einzelnen Kreise einer Flächenheizung und führt es zur Verteilung zurück, sodass jeder Kreis einzeln abgesperrt und einreguliert werden kann. Wird in einem Einbau- oder Aufbauschrank im versorgten Geschoss installiert und an die Heizhauptleitung angeschlossen, mit Kreisventilen, Durchflussmessern und Stellantrieben für die raumweise Regelung. Geeignet für Wohn- und Bürobereiche mit Flächenheizung, so angeordnet, dass die Kreislängen im zulässigen Bereich bleiben, und mit dauerhaft zugänglichem Schrank für Einregulierung, Entlüftung und Kennzeichnung der Kreise."@de ;
   dcterms:subject "IfcValve" ;
   dcterms:identifier "ufh-manifold" .
 
@@ -168,6 +188,8 @@
   skos:prefLabel "Geblaesekonvektor (Heizbetrieb)"@de ;
   skos:definition "Fan coil unit operating in heating mode on a heating distribution system."@en ;
   skos:definition "Geblaesekonvektor im Heizbetrieb an einem Heizverteilungssystem."@de ;
+  dcterms:description "Heats room air by drawing it with a fan over a heat exchanger fed from the heating distribution and returning it to the space, so that heat loads are covered with a short response time. Mounted exposed or concealed on wall or ceiling or as a floor unit and connected to heating flow and return as well as power and control wiring, with room-wise control of fan stage and water flow. Suitable for rooms with high or strongly varying heat demand, with filter, fan, and heat exchanger reachable for cleaning and with air and water flows set during commissioning."@en ;
+  dcterms:description "Erwärmt die Raumluft, indem sie mit einem Ventilator über einen aus der Heizverteilung gespeisten Wärmeübertrager geführt und in den Raum zurückgegeben wird, sodass Heizlasten mit kurzer Reaktionszeit gedeckt werden. Wird sichtbar oder verdeckt an Wand oder Decke oder als Bodengerät montiert und an Heizungsvor- und -rücklauf sowie Strom- und Steuerleitungen angeschlossen, mit raumweiser Regelung von Ventilatorstufe und Wasserdurchsatz. Geeignet für Räume mit hohem oder stark wechselndem Wärmebedarf, wobei Filter, Ventilator und Wärmeübertrager für die Reinigung erreichbar sind und Luft- und Wasserdurchsatz bei der Inbetriebnahme eingestellt werden."@de ;
   dcterms:subject "IfcUnitaryEquipment" ;
   dcterms:identifier "fan-coil-heat" .
 
@@ -181,6 +203,8 @@
   skos:prefLabel "Geblaesekonvektor (Kuehlbetrieb)"@de ;
   skos:definition "Fan coil unit operating in cooling mode on a chilled-water or DX system."@en ;
   skos:definition "Geblaesekonvektor im Kuehlbetrieb an einem Kaltwasser- oder DX-System."@de ;
+  dcterms:description "Cools and dehumidifies room air by drawing it with a fan over a chilled-water or direct-expansion coil and returning it to the space, covering internal and solar cooling loads. Mounted exposed or concealed on wall or ceiling or as a floor unit and connected to chilled water or refrigerant, a condensate drain, and power and control wiring, with room-wise control of fan stage and coil output. Suitable for offices, meeting rooms, and other spaces with high internal loads, with filter, condensate tray, and drain accessible for cleaning and with air and water flows set during commissioning."@en ;
+  dcterms:description "Kühlt und entfeuchtet die Raumluft, indem sie mit einem Ventilator über einen Kaltwasser- oder Direktverdampfer-Wärmeübertrager geführt und in den Raum zurückgegeben wird, und deckt damit innere und solare Kühllasten. Wird sichtbar oder verdeckt an Wand oder Decke oder als Bodengerät montiert und an Kaltwasser oder Kältemittel, eine Kondensatleitung sowie Strom- und Steuerleitungen angeschlossen, mit raumweiser Regelung von Ventilatorstufe und Kühlleistung. Geeignet für Büros, Besprechungsräume und andere Räume mit hohen inneren Lasten, wobei Filter, Kondensatwanne und Ablauf für die Reinigung zugänglich sind und Luft- und Wasserdurchsatz bei der Inbetriebnahme eingestellt werden."@de ;
   dcterms:subject "IfcUnitaryEquipment" ;
   dcterms:identifier "fan-coil-cool" .
 
@@ -192,6 +216,8 @@
   skos:prefLabel "Kuehldecke / Kuehlbalken"@de ;
   skos:definition "Passive or active chilled ceiling panel or chilled beam terminal."@en ;
   skos:definition "Passive oder aktive Kuehldecke oder Kuehlbalken-Endgeraet."@de ;
+  dcterms:description "Removes heat from the room through cooled surfaces at ceiling level, largely without noise and draught, working purely by radiation and convection or supported by primary air. Suspended below the slab or integrated into the ceiling build-up and connected to chilled water flow and return with shut-off and balancing devices, with the supply temperature held above the room dew point so that no condensate forms. Suitable for offices, meeting rooms, and similar spaces with moderate sensible loads, with the output per unit derived from the available ceiling area and with connections and ceiling surfaces accessible for balancing and cleaning."@en ;
+  dcterms:description "Entzieht dem Raum Wärme über gekühlte Flächen im Deckenbereich, weitgehend geräusch- und zugfrei, und arbeitet rein über Strahlung und Konvektion oder durch Primärluft unterstützt. Wird unter der Decke abgehängt oder in den Deckenaufbau integriert und an Kaltwasservor- und -rücklauf mit Absperr- und Einregulierorganen angeschlossen, wobei die Vorlauftemperatur über dem Raumtaupunkt gehalten wird, damit kein Kondensat entsteht. Geeignet für Büros, Besprechungsräume und ähnliche Räume mit mässigen sensiblen Lasten, wobei die Leistung je Einheit aus der verfügbaren Deckenfläche abgeleitet wird und Anschlüsse und Deckenflächen für Einregulierung und Reinigung zugänglich bleiben."@de ;
   dcterms:subject "IfcCooledBeam" ;
   dcterms:identifier "chilled-ceiling" .
 
@@ -205,6 +231,8 @@
   skos:prefLabel "Wasserhahn"@de ;
   skos:definition "Potable water tap or faucet terminal."@en ;
   skos:definition "Trinkwasser-Wasserhahn oder Armatur."@de ;
+  dcterms:description "Delivers drinking water at the draw-off point in the required quantity and temperature and lets users open, close, and mix the flow. Mounted on the sanitary fixture, on the wall, or on the worktop and connected to cold and hot water pipework with shut-off and, where required, backflow protection. Suitable for kitchens, sanitary rooms, and cleaning points, with the flow rate limited to what the use requires and with connections and shut-off devices reachable for service and replacement."@en ;
+  dcterms:description "Gibt Trinkwasser an der Entnahmestelle in der erforderlichen Menge und Temperatur ab und ermöglicht den Nutzenden das Öffnen, Schliessen und Mischen des Wasserstroms. Wird am Sanitärapparat, an der Wand oder auf der Arbeitsfläche montiert und an Kalt- und Warmwasserleitung mit Absperrung und, wo erforderlich, Rückflussverhinderung angeschlossen. Geeignet für Küchen, Sanitärräume und Reinigungsstellen, wobei die Durchflussmenge auf den Nutzungsbedarf begrenzt wird und Anschlüsse und Absperrorgane für Service und Ersatz erreichbar bleiben."@de ;
   dcterms:subject "IfcSanitaryTerminal" ;
   dcterms:identifier "tap" .
 
@@ -216,6 +244,8 @@
   skos:prefLabel "Dusche"@de ;
   skos:definition "Shower terminal or shower set."@en ;
   skos:definition "Dusch-Terminal oder Duschset."@de ;
+  dcterms:description "Delivers mixed warm water as a spray for body cleaning and lets users set temperature and flow at the point of use. Mounted on wall or ceiling as an exposed or concealed set and connected to cold and hot water pipework and to the shower waste, with a mixer and protection against scalding. Suitable for bathrooms, changing rooms, and sports facilities, with hose, spray head, and mixer parts replaceable and descalable and with concealed parts served through an accessible inspection opening."@en ;
+  dcterms:description "Gibt gemischtes Warmwasser als Brausestrahl für die Körperreinigung ab und lässt Temperatur und Durchfluss an der Entnahmestelle einstellen. Wird als Auf- oder Unterputzgarnitur an Wand oder Decke montiert und an Kalt- und Warmwasserleitung sowie an den Duschablauf angeschlossen, mit Mischarmatur und Schutz gegen Verbrühung. Geeignet für Badezimmer, Garderoben und Sportanlagen, wobei Schlauch, Brausekopf und Mischerteile ersetzbar und entkalkbar sind und verdeckte Teile über eine zugängliche Revisionsöffnung bedient werden."@de ;
   dcterms:subject "IfcSanitaryTerminal" ;
   dcterms:identifier "shower" .
 
@@ -227,6 +257,8 @@
   skos:prefLabel "WC-Spuelung"@de ;
   skos:definition "WC flush valve or cistern inlet terminal on fresh water supply."@en ;
   skos:definition "WC-Spuelventil oder Spuelkasten-Zulauf an Frischwasser."@de ;
+  dcterms:description "Releases a measured volume of water to rinse the WC pan and refills the cistern or flush line after every operation. Installed concealed in the wall, in a prewall frame, or exposed above the pan and connected to the cold water supply with shut-off and backflow protection, with actuation by plate, push button, or sensor. Suitable for sanitary rooms of all use types, with dual or interruptible flush where water consumption is to be reduced, and with fill valve and shut-off reachable behind the actuation plate for service."@en ;
+  dcterms:description "Gibt eine dosierte Wassermenge zur Spülung des WC-Beckens ab und füllt Spülkasten oder Spülleitung nach jedem Vorgang wieder. Wird verdeckt in der Wand, in einem Vorwandgestell oder sichtbar über dem Becken eingebaut und an die Kaltwasserleitung mit Absperrung und Rückflussverhinderung angeschlossen, mit Auslösung über Platte, Taster oder Sensor. Geeignet für Sanitärräume aller Nutzungsarten, mit Zwei-Mengen- oder Spülstopp-Funktion, wo der Wasserverbrauch zu senken ist, und mit hinter der Betätigungsplatte erreichbarem Füllventil und Absperrorgan für den Service."@de ;
   dcterms:subject "IfcSanitaryTerminal" ;
   dcterms:identifier "wc-flush" .
 
@@ -240,6 +272,8 @@
   skos:prefLabel "Bodenablauf"@de ;
   skos:definition "Floor drain or gully waste terminal."@en ;
   skos:definition "Bodenablauf oder Gully-Abwasserterminal."@de ;
+  dcterms:description "Collects water from the floor surface and discharges it into the waste water pipework, so that the floor stays free of standing water. Set into the floor build-up flush with the finished surface and connected to the waste branch with a water trap and a sealed connection to the floor waterproofing. Suitable for sanitary and technical rooms, kitchens, and washing areas, positioned at the low point of the floor slope, with a removable grating and trap insert so that the drain can be cleaned and the water seal refilled."@en ;
+  dcterms:description "Nimmt Wasser von der Bodenfläche auf und leitet es in die Abwasserleitung ab, sodass der Boden frei von stehendem Wasser bleibt. Wird bündig mit der Fertigoberfläche in den Bodenaufbau eingesetzt und mit Geruchverschluss und dichtem Anschluss an die Bodenabdichtung an den Abwasserstrang angeschlossen. Geeignet für Sanitär- und Technikräume, Küchen und Waschbereiche, angeordnet am Tiefpunkt des Bodengefälles, mit herausnehmbarem Rost und Geruchverschlusseinsatz, damit der Ablauf gereinigt und das Sperrwasser ergänzt werden kann."@de ;
   dcterms:subject "IfcWasteTerminal" ;
   dcterms:identifier "floor-drain" .
 
@@ -251,6 +285,8 @@
   skos:prefLabel "WC-Ablauf"@de ;
   skos:definition "WC pan waste outlet connection."@en ;
   skos:definition "WC-Ablaufanschluss."@de ;
+  dcterms:description "Takes the discharge from the WC pan into the waste water pipework and seals the joint between fixture and pipe against water and odour. Formed as a horizontal or vertical connection through wall or floor, with a connector bend or sleeve fitted to the fixture outlet and aligned with the fixed pipe position. Suitable for all sanitary rooms, with the outlet position coordinated with fixture and prewall frame before the wall is closed and with the connection remaining serviceable once the fixture is removed."@en ;
+  dcterms:description "Nimmt den Abgang des WC-Beckens in die Abwasserleitung auf und dichtet den Übergang zwischen Apparat und Leitung wasser- und geruchdicht ab. Wird als waagrechter oder senkrechter Anschluss durch Wand oder Boden ausgebildet, mit Anschlussbogen oder Muffe am Apparateabgang und Abstimmung auf die feste Leitungslage. Geeignet für alle Sanitärräume, wobei die Abgangslage vor dem Schliessen der Wand mit Apparat und Vorwandgestell abgestimmt wird und der Anschluss bei ausgebautem Apparat instand gesetzt werden kann."@de ;
   dcterms:subject "IfcWasteTerminal" ;
   dcterms:identifier "wc-outlet" .
 
@@ -262,6 +298,8 @@
   skos:prefLabel "Spuelbeckenablauf"@de ;
   skos:definition "Sink, basin, or appliance waste drain terminal."@en ;
   skos:definition "Spuelbecken-, Waschbecken- oder Geraete-Abwasserablauf."@de ;
+  dcterms:description "Drains used water from a sink, basin, or appliance into the waste water pipework and keeps odour from entering the room. Fitted to the fixture outlet with a waste set and water trap and connected to the waste branch, with an additional connection for appliance hoses where required. Suitable for kitchens, sanitary rooms, and laboratories, with the trap reachable inside the cabinet or service space so that it can be opened and cleaned without dismantling the fixture."@en ;
+  dcterms:description "Führt Gebrauchtwasser von Spülbecken, Waschbecken oder Gerät in die Abwasserleitung ab und hält Gerüche vom Raum fern. Wird mit Ablaufgarnitur und Geruchverschluss am Apparateabgang montiert und an den Abwasserstrang angeschlossen, bei Bedarf mit zusätzlichem Anschluss für Geräteschläuche. Geeignet für Küchen, Sanitärräume und Labors, wobei der Geruchverschluss im Möbel oder Installationsraum erreichbar bleibt und ohne Ausbau des Apparats geöffnet und gereinigt werden kann."@de ;
   dcterms:subject "IfcWasteTerminal" ;
   dcterms:identifier "sink-drain" .
 
@@ -275,6 +313,8 @@
   skos:prefLabel "Gasentnahmestelle"@de ;
   skos:definition "Gas outlet terminal or appliance connection valve."@en ;
   skos:definition "Gasentnahmestelle oder Geraeteanschlussventil."@de ;
+  dcterms:description "Forms the draw-off point for gas at the appliance and allows the supply to be shut off manually at the point of use. Mounted on the wall or inside furniture and connected to the gas pipework, with a shut-off device and a tested connection to the appliance by rigid pipe or approved hose. Suitable for kitchens, laboratories, and heating plant rooms, positioned so that the shut-off device stays visible and reachable, with a leak test of the connection before the installation is put into service."@en ;
+  dcterms:description "Bildet die Entnahmestelle für Gas am Verbrauchsgerät und ermöglicht das manuelle Absperren der Versorgung am Nutzungsort. Wird an der Wand oder im Möbel montiert und an die Gasleitung angeschlossen, mit Absperrorgan und geprüfter Verbindung zum Gerät über feste Leitung oder zugelassenen Schlauch. Geeignet für Küchen, Labors und Heizzentralen, so angeordnet, dass das Absperrorgan sichtbar und erreichbar bleibt, mit Dichtheitsprüfung des Anschlusses vor Inbetriebnahme der Anlage."@de ;
   dcterms:subject "IfcGasTerminal" ;
   dcterms:identifier "gas-outlet" .
 
@@ -286,6 +326,8 @@
   skos:prefLabel "Sprinklerkopf"@de ;
   skos:definition "Fire sprinkler head or nozzle terminal."@en ;
   skos:definition "Sprinklerkopf oder Spruehduese."@de ;
+  dcterms:description "Detects heat at ceiling level, opens automatically, and discharges extinguishing water over the protected floor area so that a fire is controlled at its origin. Fitted into the ceiling, suspended below it, or on the wall as a pendent, upright, or sidewall unit and connected to the sprinkler pipework, with an escutcheon or cover matched to the ceiling build-up. Suitable for all areas to be protected, with unit spacing derived from the required coverage per head and the obstructions present, and with each head kept free of paint, cladding, and stored goods."@en ;
+  dcterms:description "Erkennt Wärme im Deckenbereich, öffnet selbsttätig und gibt Löschwasser über die geschützte Bodenfläche ab, sodass ein Brand am Entstehungsort begrenzt wird. Wird in der Decke, darunter hängend oder an der Wand als Hänge-, Steh- oder Wandausführung eingebaut und an das Sprinklerrohrnetz angeschlossen, mit auf den Deckenaufbau abgestimmter Rosette oder Abdeckung. Geeignet für alle zu schützenden Bereiche, wobei die Geräteabstände aus der erforderlichen Flächenabdeckung je Kopf und den vorhandenen Einbauten abgeleitet werden und jeder Kopf frei von Farbe, Bekleidung und Lagergut bleibt."@de ;
   dcterms:subject "IfcFireSuppressionTerminal" ;
   dcterms:identifier "sprinkler-head" .
 
@@ -297,6 +339,8 @@
   skos:prefLabel "Schlauchhaspel / Wandhydrant"@de ;
   skos:definition "Fire hose reel or wall hydrant terminal."@en ;
   skos:definition "Loeschwasser-Schlauchhaspel oder Wandhydrant."@de ;
+  dcterms:description "Provides a permanently charged water draw-off point with hose and nozzle so that occupants or the fire brigade can fight a fire by hand. Installed as a recessed or surface cabinet in the wall and connected to the fire water pipework through a shut-off valve, with the hose held on a reel ready for immediate use. Suitable for corridors, stairwell landings, and large open areas, positioned so that the hose reaches every point of the assigned area, and kept unobstructed, marked, and openable without tools."@en ;
+  dcterms:description "Stellt eine dauerhaft gefüllte Wasserentnahmestelle mit Schlauch und Strahlrohr bereit, damit Nutzende oder die Feuerwehr einen Brand von Hand bekämpfen können. Wird als Einbau- oder Aufbauschrank in der Wand installiert und über ein Absperrventil an das Löschwassernetz angeschlossen, wobei der Schlauch einsatzbereit auf einer Haspel liegt. Geeignet für Korridore, Treppenhauspodeste und grosse offene Bereiche, so angeordnet, dass der Schlauch jeden Punkt des zugeordneten Bereichs erreicht, und dauerhaft freigehalten, gekennzeichnet und ohne Werkzeug zu öffnen."@de ;
   dcterms:subject "IfcFireSuppressionTerminal" ;
   dcterms:identifier "hose-reel" .
 
@@ -310,6 +354,8 @@
   skos:prefLabel "Brandschutzklappe"@de ;
   skos:definition "Fire damper (Brandschutzklappe) inline on whichever host distribution system it serves."@en ;
   skos:definition "Brandschutzklappe inline am jeweiligen Verteilungssystem."@de ;
+  dcterms:description "Closes the duct penetration at a fire compartment boundary in case of fire and prevents fire and smoke from spreading into the adjoining compartment. Built into the wall or floor opening with a certified seal against the surrounding construction and connected inline in the distribution, with a release element or actuator and position feedback. Suitable at every compartment boundary crossed by the distribution, with an inspection opening or removable ceiling section at each unit so that function tests, resetting, and cleaning are possible."@en ;
+  dcterms:description "Verschliesst die Kanaldurchführung an einer Brandabschnittsgrenze im Brandfall und verhindert die Ausbreitung von Feuer und Rauch in den angrenzenden Abschnitt. Wird mit geprüfter Abschottung gegen das umgebende Bauteil in die Wand- oder Deckenöffnung eingebaut und inline in die Verteilung eingebunden, mit Auslöseelement oder Stellantrieb und Stellungsrückmeldung. Geeignet an jeder von der Verteilung gekreuzten Abschnittsgrenze, mit Revisionsöffnung oder abnehmbarem Deckenfeld je Gerät, damit Funktionsprüfung, Rückstellung und Reinigung möglich sind."@de ;
   skos:scopeNote "Cross-cutting: discipline inherited from inline host system (ventilation, heating, or cooling)."@en ;
   skos:scopeNote "Querschnitt: Disziplin wird vom Inline-Hostsystem uebernommen (Lueftung, Heizung oder Kuehlung)."@de ;
   dcterms:subject "IfcDamper" ;
@@ -323,6 +369,8 @@
   skos:prefLabel "Brandschutzklappen-Antrieb"@de ;
   skos:definition "Actuator for fire damper or smoke control damper."@en ;
   skos:definition "Antrieb fuer Brandschutz- oder Rauchschutzklappe."@de ;
+  dcterms:description "Drives the damper blade into its safe position on alarm or loss of power and reports the reached position back to the control system, so that closing can be triggered and verified remotely. Mounted directly on the damper shaft outside the duct and connected to power and monitoring wiring, with limit switches or a bus module for feedback and for scheduled test runs. Suitable wherever damper closing must be monitored or triggered centrally, with the actuator located at an inspection opening so that it stays replaceable without opening the surrounding construction."@en ;
+  dcterms:description "Fährt das Klappenblatt bei Alarm oder Spannungsausfall in die Sicherheitsstellung und meldet die erreichte Stellung an die Leittechnik zurück, sodass das Schliessen fernausgelöst und überprüft werden kann. Wird direkt auf der Klappenachse aussen am Kanal montiert und an Strom- und Überwachungsleitungen angeschlossen, mit Endschaltern oder Busmodul für Rückmeldung und zyklische Testfahrten. Geeignet überall dort, wo das Schliessen der Klappen überwacht oder zentral ausgelöst werden muss, wobei der Antrieb an einer Revisionsöffnung liegt und ohne Öffnen des umgebenden Bauteils ersetzbar bleibt."@de ;
   skos:scopeNote "Cross-cutting: discipline inherited from inline host system."@en ;
   skos:scopeNote "Querschnitt: Disziplin wird vom Inline-Hostsystem uebernommen."@de ;
   dcterms:subject "IfcActuator" ;
@@ -336,6 +384,8 @@
   skos:prefLabel "Rauchmelder"@de ;
   skos:definition "Smoke detector or fire alarm initiating device."@en ;
   skos:definition "Rauchmelder oder Brandmelder-Initialisierungseinrichtung."@de ;
+  dcterms:description "Monitors the air in the room or void for smoke and raises the alarm that starts evacuation and the linked fire control functions. Mounted on the ceiling or inside the monitored void on a base carrying the loop wiring, with each detector individually addressed so that it can be located from the alarm panel. Suitable for escape routes, occupied rooms, and concealed voids to be monitored, with the area covered per detector derived from room geometry and air movement and with the mounting position reachable for periodic testing and cleaning."@en ;
+  dcterms:description "Überwacht die Luft im Raum oder Hohlraum auf Rauch und löst den Alarm aus, der Evakuierung und die verknüpften Brandfallsteuerungen anstösst. Wird an der Decke oder im überwachten Hohlraum auf einem Sockel mit der Ringleitungsverdrahtung montiert, wobei jeder Melder einzeln adressiert und damit von der Zentrale aus lokalisierbar ist. Geeignet für Fluchtwege, genutzte Räume und zu überwachende verdeckte Hohlräume, wobei die überwachte Fläche je Melder aus Raumgeometrie und Luftbewegung abgeleitet wird und der Montageort für periodische Prüfung und Reinigung erreichbar bleibt."@de ;
   skos:scopeNote "Cross-cutting: typically on electrical or data fire-alarm system; discipline from parent system."@en ;
   skos:scopeNote "Querschnitt: typischerweise an elektrischem oder Daten-Brandmeldesystem; Disziplin vom Elternsystem."@de ;
   dcterms:subject "IfcSensor, IfcAlarm" ;
