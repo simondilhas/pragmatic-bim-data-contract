@@ -1,0 +1,441 @@
+@prefix : <https://example.org/abstract/site-facility-product/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract site facility products"@en ;
+  skos:prefLabel "Abstrakte Baustelleneinrichtungsprodukte"@de ;
+  dcterms:title "Abstract site facility products"@en ;
+  dcterms:identifier "SiteFacilityProduct" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-09-18" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Product-type classification for temporary construction-site facilities: plant, enclosures, logistics surfaces, accommodation, and site services. Assign one top concept per object. Distinct from permanent building products."@en ;
+  skos:definition "Produkttyp-Klassifikation fuer temporaere Baustelleneinrichtung: Geraete, Abschrankungen, Logistikflaechen, Aufenthalt und Baustellenanschluesse. Ein topConcept pro Objekt. Unterscheidet sich von dauerhaften Gebaeudeprodukten."@de ;
+  skos:scopeNote "Assign one topConcept per site-facility element. Neighbouring concepts stay separate: the crane machine, its swing envelope, its set-up pad, and its foundation are four concepts, not layers of one product."@en ;
+  skos:scopeNote "Ein topConcept pro Baustelleneinrichtungsobjekt. Benachbarte Konzepte bleiben getrennt: Kran, Schwenkbereich, Kranstellflaeche und Kranfundament sind vier Konzepte, keine Schichten eines Produkts."@de ;
+  skos:hasTopConcept
+    :SFP-CRANE,
+    :SFP-CRANE-SWING,
+    :SFP-CRANE-PAD,
+    :SFP-CRANE-FOUNDATION,
+    :SFP-CONTAINER,
+    :SFP-WHEEL-WASH,
+    :SFP-FENCE,
+    :SFP-GATE,
+    :SFP-CANOPY,
+    :SFP-STORAGE,
+    :SFP-STORE,
+    :SFP-BUFFER,
+    :SFP-TRANSFER,
+    :SFP-OFFICE,
+    :SFP-BREAK-ROOM,
+    :SFP-SANITARY,
+    :SFP-HAUL-ROAD,
+    :SFP-RAMP,
+    :SFP-TURNING,
+    :SFP-PARKING,
+    :SFP-SKIP-BAY,
+    :SFP-SILO,
+    :SFP-BATCH-PLANT,
+    :SFP-PUMP,
+    :SFP-HOIST,
+    :SFP-SCAFFOLD,
+    :SFP-POWER-DIST,
+    :SFP-WATER-CONN,
+    :SFP-OTH .
+
+:SFP-CRANE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-CRANE" ;
+  skos:prefLabel "Crane"@en ;
+  skos:prefLabel "Kran"@de ;
+  skos:definition "The crane as a machine: tower crane, mobile crane, or crawler crane stationed on site."@en ;
+  skos:definition "Der Kran als Maschine: Turmdrehkran, Mobilkran oder Raupenkran auf der Baustelle."@de ;
+  dcterms:description "The lifting machine itself, including mast or carrier, jib or boom, cab, and counterweight. The volume it can reach, the ground it stands on, and a cast foundation are separate concepts."@en ;
+  dcterms:description "Die Hebemaschine selbst, einschliesslich Mast oder Traeger, Ausleger, Kabine und Gegengewicht. Der erreichbare Raum, der Standplatz und ein betoniertes Fundament sind eigene Konzepte."@de ;
+  skos:scopeNote "Machine only. Reach and height are SFP-CRANE-SWING. Mobile-crane pad and outriggers are SFP-CRANE-PAD. Fixed foundation is SFP-CRANE-FOUNDATION."@en ;
+  skos:scopeNote "Nur die Maschine. Reichweite und Hoehe sind SFP-CRANE-SWING. Kranstellflaeche und Abstuetzungen sind SFP-CRANE-PAD. Festes Fundament ist SFP-CRANE-FOUNDATION."@de ;
+  dcterms:identifier "crane" .
+
+:SFP-CRANE-SWING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-CRANE-SWING" ;
+  skos:prefLabel "Crane swing envelope"@en ;
+  skos:prefLabel "Schwenkbereich"@de ;
+  skos:definition "The volume the crane can reach in plan and height, used to check collisions, oversailing, and load paths."@en ;
+  skos:definition "Der Raum, den der Kran in Grundriss und Hoehe erreicht, fuer Kollision, Ueberschwenken und Lastwege."@de ;
+  dcterms:description "Operational envelope of a crane: jib or boom radius, slewing sector, and hook height. Logistics and safety workflows test what the crane covers, independent of the machine that produces the envelope."@en ;
+  dcterms:description "Arbeitsbereich eines Krans: Auslegerradius, Schwenksektor und Hakenhoehe. Logistik- und Sicherheitsablaeufe pruefen, was der Kran abdeckt, unabhaengig von der Maschine, die den Bereich erzeugt."@de ;
+  skos:scopeNote "Not the crane machine (SFP-CRANE). The workflow is about the envelope, not the equipment."@en ;
+  skos:scopeNote "Nicht die Kranmaschine (SFP-CRANE). Der Ablauf betrifft den Schwenkbereich, nicht das Geraet."@de ;
+  dcterms:identifier "crane-swing-envelope" .
+
+:SFP-CRANE-PAD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-CRANE-PAD" ;
+  skos:prefLabel "Crane set-up pad"@en ;
+  skos:prefLabel "Kranstellfläche"@de ;
+  skos:definition "Prepared ground, bearing mats, and outrigger positions for a mobile crane."@en ;
+  skos:definition "Vorbereiteter Untergrund, Lastverteilplatten und Abstuetzpositionen fuer einen Mobilkran."@de ;
+  dcterms:description "Temporary bearing surface a mobile or crawler crane stands on, including outrigger pads and load-spreading. Checked for ground bearing. It is not the crane and not a permanent foundation."@en ;
+  dcterms:description "Temporaere Aufstandsflaeche fuer Mobil- oder Raupenkran, einschliesslich Abstuetzplatten und Lastverteilung. Wird auf Bodentragfaehigkeit geprueft. Weder der Kran noch ein dauerhaftes Fundament."@de ;
+  skos:scopeNote "Not SFP-CRANE and not SFP-CRANE-FOUNDATION. The pad is the temporary set-up surface and outriggers; the foundation is a fixed base."@en ;
+  skos:scopeNote "Nicht SFP-CRANE und nicht SFP-CRANE-FOUNDATION. Die Stellflaeche ist der temporaere Standplatz mit Abstuetzungen; das Fundament ist ein fester Sockel."@de ;
+  dcterms:identifier "crane-set-up-pad" .
+
+:SFP-CRANE-FOUNDATION a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-CRANE-FOUNDATION" ;
+  skos:prefLabel "Crane foundation"@en ;
+  skos:prefLabel "Kranfundament"@de ;
+  skos:definition "Fixed foundation for a tower crane, including the base, anchors, and ballast that stay in place for the crane's service."@en ;
+  skos:definition "Festes Fundament fuer einen Turmdrehkran, einschliesslich Sockel, Verankerung und Ballast fuer die Einsatzdauer."@de ;
+  dcterms:description "Cast or precast base that holds a tower crane, with anchors or a central ballast block. Removed or left according to the dismantling concept. Distinct from a mobile-crane pad."@en ;
+  dcterms:description "Ortbeton- oder Fertigteilsockel, der einen Turmdrehkran haelt, mit Ankern oder Zentralballast. Wird nach dem Rueckbaukonzept entfernt oder belassen. Unterscheidet sich von der Kranstellflaeche."@de ;
+  skos:scopeNote "Fixed foundation, not the mobile-crane pad (SFP-CRANE-PAD) and not the crane machine (SFP-CRANE)."@en ;
+  skos:scopeNote "Festes Fundament, nicht die Kranstellflaeche (SFP-CRANE-PAD) und nicht die Kranmaschine (SFP-CRANE)."@de ;
+  dcterms:identifier "crane-foundation" .
+
+:SFP-CONTAINER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-CONTAINER" ;
+  skos:prefLabel "Site container"@en ;
+  skos:prefLabel "Container"@de ;
+  skos:definition "Generic site container used as a relocatable unit, without a more specific accommodation or storage function."@en ;
+  skos:definition "Allgemeiner Baustellencontainer als versetzbare Einheit, ohne genauer bestimmte Aufenthalts- oder Lagerfunktion."@de ;
+  dcterms:description "Standard site container placed for temporary use. Use a more specific concept when the function is known: office, break room, sanitary facility, or lockable store."@en ;
+  dcterms:description "Standard-Baustellencontainer fuer temporaere Nutzung. Bei bekannter Funktion das genauere Konzept verwenden: Baubuero, Aufenthaltsraum, Sanitaeranlage oder Magazin."@de ;
+  skos:scopeNote "Generic container, not a lockable store (SFP-STORE). Office, break room, and sanitary units are SFP-OFFICE, SFP-BREAK-ROOM, and SFP-SANITARY."@en ;
+  skos:scopeNote "Allgemeiner Container, kein abschliessbares Magazin (SFP-STORE). Buero, Aufenthalt und Sanitaer sind SFP-OFFICE, SFP-BREAK-ROOM und SFP-SANITARY."@de ;
+  dcterms:identifier "site-container" .
+
+:SFP-WHEEL-WASH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-WHEEL-WASH" ;
+  skos:prefLabel "Wheel wash"@en ;
+  skos:prefLabel "Reifenwaschanlage"@de ;
+  skos:definition "Wheel-wash or drive-through cleaning plant at the site exit."@en ;
+  skos:definition "Reifenwasch- oder Durchfahrtsreinigungsanlage am Baustellenausgang."@de ;
+  dcterms:description "Installation that cleans vehicle tyres and chassis before they leave the site, so public roads stay free of mud. Includes the basin or spray frame, water feed, and sludge collection at the exit."@en ;
+  dcterms:description "Anlage, die Reifen und Fahrwerk reinigt, bevor Fahrzeuge die Baustelle verlassen, damit oeffentliche Strassen frei von Schlamm bleiben. Umfasst Becken oder Spruehportal, Wasserzufuhr und Schlammfang am Ausgang."@de ;
+  dcterms:identifier "wheel-wash" .
+
+:SFP-FENCE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-FENCE" ;
+  skos:prefLabel "Site fence"@en ;
+  skos:prefLabel "Zaun"@de ;
+  skos:definition "Temporary site fence that encloses the works and separates them from the public."@en ;
+  skos:definition "Temporaerer Bauzaun, der die Baustelle umschliesst und vom oeffentlichen Raum trennt."@de ;
+  dcterms:description "Hoarding or mesh fence on temporary posts that marks the site boundary, controls access, and screens the works. Gates in the fence are a separate concept."@en ;
+  dcterms:description "Bauzaun oder Sichtschutz auf temporaeren Pfosten, der die Baustellengrenze markiert, den Zutritt steuert und die Arbeiten abschirmt. Tore im Zaun sind ein eigenes Konzept."@de ;
+  skos:scopeNote "Enclosure, not a pedestrian cover. A protective roof over a public footway is SFP-CANOPY. Access openings are SFP-GATE."@en ;
+  skos:scopeNote "Abschrankung, kein Fussgaengerschutz. Ein Schutzdach ueber dem oeffentlichen Gehweg ist SFP-CANOPY. Zugaenge sind SFP-GATE."@de ;
+  dcterms:identifier "site-fence" .
+
+:SFP-GATE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-GATE" ;
+  skos:prefLabel "Gate"@en ;
+  skos:prefLabel "Tor"@de ;
+  skos:definition "Vehicle or pedestrian gate in the site fence."@en ;
+  skos:definition "Fahrzeug- oder Personentor im Bauzaun."@de ;
+  dcterms:description "Opening in the site enclosure for vehicles or people, including sliding, swing, or barrier gates, with the locking that belongs to the gate itself."@en ;
+  dcterms:description "Oeffnung in der Baustellenabschrankung fuer Fahrzeuge oder Personen, einschliesslich Schiebe-, Dreh- oder Schrankentoren, mit der zum Tor gehoerenden Verriegelung."@de ;
+  dcterms:identifier "gate" .
+
+:SFP-CANOPY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-CANOPY" ;
+  skos:prefLabel "Protective canopy"@en ;
+  skos:prefLabel "Schutzdach"@de ;
+  skos:definition "Temporary roof over a public footway or neighbouring access, protecting pedestrians from falling objects."@en ;
+  skos:definition "Temporaeres Dach ueber oeffentlichem Gehweg oder Nachbarzugang, das Fussgaenger vor herabfallenden Teilen schuetzt."@de ;
+  dcterms:description "Covered walkway along the public side of the site, with a deck that catches debris and a clear passage underneath. It is not a work scaffold and not the site fence."@en ;
+  dcterms:description "Ueberdachter Gang entlang der oeffentlichen Seite der Baustelle, mit einer Decke, die herabfallende Teile auffaengt, und einem freien Durchgang darunter. Kein Arbeitsgeruest und kein Bauzaun."@de ;
+  skos:scopeNote "Not SFP-SCAFFOLD and not SFP-FENCE. The canopy covers pedestrians on the public side; the scaffold is a work platform; the fence is the enclosure."@en ;
+  skos:scopeNote "Nicht SFP-SCAFFOLD und nicht SFP-FENCE. Das Schutzdach deckt Fussgaenger auf der oeffentlichen Seite; das Geruest ist eine Arbeitsbuehne; der Zaun ist die Abschrankung."@de ;
+  dcterms:identifier "protective-canopy" .
+
+:SFP-STORAGE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-STORAGE" ;
+  skos:prefLabel "Storage area"@en ;
+  skos:prefLabel "Lagerfläche"@de ;
+  skos:definition "Open area on site for storing materials that are not kept in a lockable store."@en ;
+  skos:definition "Offene Flaeche auf der Baustelle fuer Material, das nicht in einem abschliessbaren Magazin liegt."@de ;
+  dcterms:description "Marked outdoor surface, or a covered but open bay, for pallets, formwork, reinforcement, and similar bulk material. Not a room and not a container."@en ;
+  dcterms:description "Markierte Freiflaeche oder eine ueberdachte, aber offene Bucht fuer Paletten, Schalung, Bewehrung und aehnliches Massenmaterial. Kein Raum und kein Container."@de ;
+  skos:scopeNote "Open storage. A lockable store is SFP-STORE. Temporary holding between delivery and use is SFP-BUFFER. A generic container is SFP-CONTAINER."@en ;
+  skos:scopeNote "Offene Lagerung. Ein abschliessbares Magazin ist SFP-STORE. Temporaeres Halten zwischen Anlieferung und Verwendung ist SFP-BUFFER. Ein allgemeiner Container ist SFP-CONTAINER."@de ;
+  dcterms:identifier "storage-area" .
+
+:SFP-STORE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-STORE" ;
+  skos:prefLabel "Site store"@en ;
+  skos:prefLabel "Magazin"@de ;
+  skos:definition "Lockable store for tools, small materials, and equipment that must be secured."@en ;
+  skos:definition "Abschliessbares Magazin fuer Werkzeug, Kleinmaterial und Geraete, die gesichert werden muessen."@de ;
+  dcterms:description "Enclosed and lockable room or fitted container used as the site magazine. Distinct from an open storage yard and from a container whose function is not specified."@en ;
+  dcterms:description "Geschlossener und abschliessbarer Raum oder eingerichteter Container als Baustellenmagazin. Unterscheidet sich von der offenen Lagerflaeche und von einem Container ohne bestimmte Funktion."@de ;
+  skos:scopeNote "Not SFP-STORAGE, not SFP-BUFFER, and not SFP-CONTAINER. Storage area is open storage; intermediate storage is temporary holding; container is unspecific."@en ;
+  skos:scopeNote "Nicht SFP-STORAGE, nicht SFP-BUFFER und nicht SFP-CONTAINER. Lagerflaeche ist offene Lagerung; Zwischenlager ist temporaeres Halten; Container ist unspezifisch."@de ;
+  dcterms:identifier "site-store" .
+
+:SFP-TRANSFER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-TRANSFER" ;
+  skos:prefLabel "Transfer area"@en ;
+  skos:prefLabel "Umschlagplatz"@de ;
+  skos:definition "Area where materials are transferred between delivery vehicles, site plant, and storage."@en ;
+  skos:definition "Flaeche, auf der Material zwischen Lieferfahrzeugen, Baustellengeraeten und Lager umgeschlagen wird."@de ;
+  dcterms:description "Designated handling point for unloading, reloading, and short-term set-down between transport and the place of use. Includes the space the handling equipment needs, not the storage yard itself."@en ;
+  dcterms:description "Festgelegter Umschlagpunkt zum Abladen, Umladen und kurzen Abstellen zwischen Transport und Einbauort. Umfasst den Platz der Umschlaggeraete, nicht die Lagerflaeche selbst."@de ;
+  skos:scopeNote "Handling point, not a holding area. Material that waits before installation is SFP-BUFFER. Open storage is SFP-STORAGE."@en ;
+  skos:scopeNote "Umschlagpunkt, keine Warteflaeche. Material, das vor dem Einbau wartet, ist SFP-BUFFER. Offene Lagerung ist SFP-STORAGE."@de ;
+  dcterms:identifier "transfer-area" .
+
+:SFP-BUFFER a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-BUFFER" ;
+  skos:prefLabel "Intermediate storage"@en ;
+  skos:prefLabel "Zwischenlager"@de ;
+  skos:definition "Temporary holding area for material between delivery and installation or onward transport."@en ;
+  skos:definition "Temporaere Flaeche fuer Material zwischen Anlieferung und Einbau oder Weitertransport."@de ;
+  dcterms:description "Marked area where delivered material waits before it is installed or moved on. It is not the open storage yard, not the lockable store, and not the point where vehicles are unloaded."@en ;
+  dcterms:description "Markierte Flaeche, auf der angeliefertes Material wartet, bevor es eingebaut oder weitertransportiert wird. Keine offene Lagerflaeche, kein Magazin und kein Umschlagplatz."@de ;
+  skos:scopeNote "Not SFP-STORAGE, not SFP-STORE, and not SFP-TRANSFER. Distinct from room name RN-10-10-04 (Annahmelager), which is an indoor space at a delivery point."@en ;
+  skos:scopeNote "Nicht SFP-STORAGE, nicht SFP-STORE und nicht SFP-TRANSFER. Unterscheidet sich vom Raumnamen RN-10-10-04 (Annahmelager), der ein Innenraum am Annahmeort ist."@de ;
+  dcterms:identifier "intermediate-storage" .
+
+:SFP-OFFICE a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-OFFICE" ;
+  skos:prefLabel "Site office"@en ;
+  skos:prefLabel "Baubüro"@de ;
+  skos:definition "Temporary office for site management, planning, and meetings."@en ;
+  skos:definition "Temporaeres Buero fuer Bauleitung, Planung und Besprechungen."@de ;
+  dcterms:description "Container or temporary building fitted as an office, with workstations, meeting space, and document storage for the site team. Not a break room and not sanitary accommodation."@en ;
+  dcterms:description "Container oder temporaeres Gebaeude als Buero, mit Arbeitsplaetzen, Besprechungsraum und Ablage fuer die Baustellenmannschaft. Kein Aufenthaltsraum und keine Sanitaeranlage."@de ;
+  skos:scopeNote "Site office. A break room is SFP-BREAK-ROOM. Sanitary facilities are SFP-SANITARY."@en ;
+  skos:scopeNote "Baubuero. Ein Aufenthaltsraum ist SFP-BREAK-ROOM. Sanitaeranlagen sind SFP-SANITARY."@de ;
+  dcterms:identifier "site-office" .
+
+:SFP-BREAK-ROOM a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-BREAK-ROOM" ;
+  skos:prefLabel "Break room"@en ;
+  skos:prefLabel "Aufenthaltsraum"@de ;
+  skos:definition "Temporary room where site personnel eat and rest."@en ;
+  skos:definition "Temporaerer Raum, in dem Baustellenpersonal isst und pausiert."@de ;
+  dcterms:description "Furnished rest space for workers, with seating and a place to eat. It is neither the site office nor the sanitary unit."@en ;
+  dcterms:description "Eingerichteter Pausenraum fuer Beschaeftigte, mit Sitzplaetzen und einer Essmoeglichkeit. Weder das Baubuero noch die Sanitaeranlage."@de ;
+  skos:scopeNote "Not SFP-OFFICE and not SFP-SANITARY."@en ;
+  skos:scopeNote "Nicht SFP-OFFICE und nicht SFP-SANITARY."@de ;
+  dcterms:identifier "break-room" .
+
+:SFP-SANITARY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-SANITARY" ;
+  skos:prefLabel "Sanitary facility"@en ;
+  skos:prefLabel "Sanitäranlage"@de ;
+  skos:definition "Temporary toilets, washrooms, and showers for the site."@en ;
+  skos:definition "Temporaere Toiletten, Waschraeume und Duschen fuer die Baustelle."@de ;
+  dcterms:description "Sanitary containers or cabins with WC, washbasins, and where required showers, connected to site water and drainage. Not a break room and not an office."@en ;
+  dcterms:description "Sanitaercontainer oder Kabinen mit WC, Waschbecken und bei Bedarf Duschen, an Bauwasser und Entwaesserung angeschlossen. Kein Aufenthaltsraum und kein Buero."@de ;
+  skos:scopeNote "Sanitary facility. A break room is SFP-BREAK-ROOM. The site office is SFP-OFFICE."@en ;
+  skos:scopeNote "Sanitaeranlage. Ein Aufenthaltsraum ist SFP-BREAK-ROOM. Das Baubuero ist SFP-OFFICE."@de ;
+  dcterms:identifier "sanitary-facility" .
+
+:SFP-HAUL-ROAD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-HAUL-ROAD" ;
+  skos:prefLabel "Haul road"@en ;
+  skos:prefLabel "Baustraße"@de ;
+  skos:definition "Temporary road on site for construction traffic."@en ;
+  skos:definition "Temporaere Strasse auf der Baustelle fuer den Baustellenverkehr."@de ;
+  dcterms:description "Built-up or paved route that carries delivery and site vehicles between the entrance, storage, and the works. Turning places and ramps are separate concepts."@en ;
+  dcterms:description "Aufgebauter oder befestigter Weg, der Liefer- und Baustellenfahrzeuge zwischen Einfahrt, Lager und Einbauort fuehrt. Wendeflaechen und Rampen sind eigene Konzepte."@de ;
+  skos:scopeNote "Site road, not a turning area. Truck turning is SFP-TURNING. A ramp is SFP-RAMP."@en ;
+  skos:scopeNote "Baustrasse, keine Wendeflaeche. Das Wenden von Lastwagen ist SFP-TURNING. Eine Rampe ist SFP-RAMP."@de ;
+  dcterms:identifier "haul-road" .
+
+:SFP-RAMP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-RAMP" ;
+  skos:prefLabel "Ramp"@en ;
+  skos:prefLabel "Rampe"@de ;
+  skos:definition "Temporary ramp that bridges a level difference for vehicles or pedestrians on site."@en ;
+  skos:definition "Temporaere Rampe, die einen Hoehenunterschied fuer Fahrzeuge oder Personen auf der Baustelle ueberbrueckt."@de ;
+  dcterms:description "Inclined temporary structure or earth ramp that lets vehicles or people change level, for example into an excavation or up to a loading point. Not a haul road and not a turning area."@en ;
+  dcterms:description "Geneigte temporaere Konstruktion oder Erdrampe, ueber die Fahrzeuge oder Personen die Hoehe wechseln, zum Beispiel in eine Baugrube oder an eine Ladestelle. Keine Baustrasse und keine Wendeflaeche."@de ;
+  skos:scopeNote "Level-change ramp. A haul road is SFP-HAUL-ROAD. Truck turning is SFP-TURNING."@en ;
+  skos:scopeNote "Rampe fuer den Hoehenwechsel. Eine Baustrasse ist SFP-HAUL-ROAD. Das Wenden von Lastwagen ist SFP-TURNING."@de ;
+  dcterms:identifier "ramp" .
+
+:SFP-TURNING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-TURNING" ;
+  skos:prefLabel "Turning area"@en ;
+  skos:prefLabel "Wendefläche"@de ;
+  skos:definition "Area sized for trucks to turn on site."@en ;
+  skos:definition "Flaeche, die so bemessen ist, dass Lastwagen auf der Baustelle wenden koennen."@de ;
+  dcterms:description "Paved or reinforced surface whose geometry allows delivery vehicles to turn, including the swept path of the design vehicle. It is not the haul road that leads to it and not a ramp."@en ;
+  dcterms:description "Befestigte oder verstaerkte Flaeche, deren Geometrie Lieferfahrzeugen das Wenden erlaubt, einschliesslich der Schleppkurve des Bemessungsfahrzeugs. Nicht die zufuehrende Baustrasse und keine Rampe."@de ;
+  skos:scopeNote "Not SFP-HAUL-ROAD and not SFP-RAMP."@en ;
+  skos:scopeNote "Nicht SFP-HAUL-ROAD und nicht SFP-RAMP."@de ;
+  dcterms:identifier "turning-area" .
+
+:SFP-PARKING a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-PARKING" ;
+  skos:prefLabel "Parking area"@en ;
+  skos:prefLabel "Parkplatz"@de ;
+  skos:definition "Temporary parking for site vehicles and personnel."@en ;
+  skos:definition "Temporaerer Parkplatz fuer Baustellenfahrzeuge und Personal."@de ;
+  dcterms:description "Marked area where cars, vans, and site vehicles stand while they are not loading or turning. Distinct from the haul road, the turning area, and the transfer point."@en ;
+  dcterms:description "Markierte Flaeche, auf der Personenwagen, Lieferwagen und Baustellenfahrzeuge stehen, solange sie nicht laden oder wenden. Unterscheidet sich von Baustrasse, Wendeflaeche und Umschlagplatz."@de ;
+  dcterms:identifier "parking-area" .
+
+:SFP-SKIP-BAY a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-SKIP-BAY" ;
+  skos:prefLabel "Skip bay"@en ;
+  skos:prefLabel "Muldenplatz"@de ;
+  skos:definition "Set-down place for waste skips that are exchanged by truck."@en ;
+  skos:definition "Abstellplatz fuer Abfallmulden, die per Lastwagen getauscht werden."@de ;
+  dcterms:description "Reinforced bay where skips are placed, filled, and collected, with access for the skip lorry. Not general open storage and not the transfer area for construction materials."@en ;
+  dcterms:description "Verstaerkte Bucht, in der Mulden abgestellt, gefuellt und abgeholt werden, mit Zufahrt fuer den Muldenlastwagen. Keine allgemeine Lagerflaeche und kein Umschlagplatz fuer Baumaterial."@de ;
+  dcterms:identifier "skip-bay" .
+
+:SFP-SILO a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-SILO" ;
+  skos:prefLabel "Silo"@en ;
+  skos:prefLabel "Silo"@de ;
+  skos:definition "Temporary silo for bulk material such as cement, lime, or plaster."@en ;
+  skos:definition "Temporaeres Silo fuer Schuettgut wie Zement, Kalk oder Gips."@de ;
+  dcterms:description "Erected silo with filling and discharge, standing on a prepared base and feeding a mixer or pump. The silo is the storage vessel; the mixing plant and the pump are separate objects."@en ;
+  dcterms:description "Aufgestelltes Silo mit Befuellung und Austrag auf vorbereitetem Untergrund, das einen Mischer oder eine Pumpe speist. Das Silo ist der Behaelter; Mischanlage und Pumpe sind eigene Objekte."@de ;
+  dcterms:identifier "silo" .
+
+:SFP-BATCH-PLANT a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-BATCH-PLANT" ;
+  skos:prefLabel "Concrete batching plant"@en ;
+  skos:prefLabel "Betonmischanlage"@de ;
+  skos:definition "On-site plant that batches and mixes concrete."@en ;
+  skos:definition "Anlage auf der Baustelle, die Beton dosiert und mischt."@de ;
+  dcterms:description "Mixer, aggregate bins, cement feed, and controls of an on-site batching plant. It produces the concrete. The pump that places it, and the silos that feed it, are separate objects."@en ;
+  dcterms:description "Mischer, Zuschlagssilos, Zementzufuhr und Steuerung einer Baustellen-Mischanlage. Sie erzeugt den Beton. Die Pumpe, die ihn einbringt, und die Silos, die sie speisen, sind eigene Objekte."@de ;
+  skos:scopeNote "Mixing plant, not the pump. Pump position and boom are SFP-PUMP. Bulk silos are SFP-SILO."@en ;
+  skos:scopeNote "Mischanlage, nicht die Pumpe. Pumpenstandort und Ausleger sind SFP-PUMP. Schuettgutsilos sind SFP-SILO."@de ;
+  dcterms:identifier "concrete-batching-plant" .
+
+:SFP-PUMP a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-PUMP" ;
+  skos:prefLabel "Concrete pump"@en ;
+  skos:prefLabel "Betonpumpe"@de ;
+  skos:definition "Position and boom of a concrete pump, including the space the boom sweeps."@en ;
+  skos:definition "Standort und Ausleger einer Betonpumpe, einschliesslich des vom Ausleger ueberstrichenen Raums."@de ;
+  dcterms:description "Truck-mounted or stationary pump with its set-up position and the boom envelope used to reach the pour. Distinct from the batching plant that produces the concrete."@en ;
+  dcterms:description "Autobetonpumpe oder stationaere Pumpe mit Aufstellort und Auslegerbereich, mit dem die Einbringstelle erreicht wird. Unterscheidet sich von der Mischanlage, die den Beton erzeugt."@de ;
+  skos:scopeNote "Not SFP-BATCH-PLANT. The pump is the placing machine and its boom; the batching plant mixes the concrete."@en ;
+  skos:scopeNote "Nicht SFP-BATCH-PLANT. Die Pumpe ist die Einbringmaschine mit Ausleger; die Mischanlage mischt den Beton."@de ;
+  dcterms:identifier "concrete-pump" .
+
+:SFP-HOIST a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-HOIST" ;
+  skos:prefLabel "Construction hoist"@en ;
+  skos:prefLabel "Bauaufzug"@de ;
+  skos:definition "Temporary hoist for personnel or materials on the building face."@en ;
+  skos:definition "Temporaerer Aufzug fuer Personal oder Material an der Gebaeudefassade."@de ;
+  dcterms:description "Mast-guided hoist or material lift tied to the structure, with landings at the served levels. Not a crane and not scaffolding."@en ;
+  dcterms:description "Mastgefuehrter Personen- oder Materialaufzug, am Bauwerk verankert, mit Zugaengen auf den bedienten Ebenen. Kein Kran und kein Geruest."@de ;
+  dcterms:identifier "construction-hoist" .
+
+:SFP-SCAFFOLD a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-SCAFFOLD" ;
+  skos:prefLabel "Scaffold"@en ;
+  skos:prefLabel "Gerüst"@de ;
+  skos:definition "Temporary scaffold providing work platforms and access at height."@en ;
+  skos:definition "Temporaeres Geruest mit Arbeitsbuehnen und Zugang in der Hoehe."@de ;
+  dcterms:description "Frame or system scaffold with platforms, guardrails, and ties to the building. It is a work platform, not a protective canopy over the public footway and not the site fence."@en ;
+  dcterms:description "Rahmen- oder Systemgeruest mit Belag, Gelaender und Verankerung am Bauwerk. Es ist eine Arbeitsbuehne, kein Schutzdach ueber dem oeffentlichen Gehweg und kein Bauzaun."@de ;
+  skos:scopeNote "Work platform. A pedestrian cover on the public side is SFP-CANOPY. The site enclosure is SFP-FENCE."@en ;
+  skos:scopeNote "Arbeitsbuehne. Eine Fussgaengerabdeckung auf der oeffentlichen Seite ist SFP-CANOPY. Die Baustellenabschrankung ist SFP-FENCE."@de ;
+  dcterms:identifier "scaffold" .
+
+:SFP-POWER-DIST a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-POWER-DIST" ;
+  skos:prefLabel "Site power distribution board"@en ;
+  skos:prefLabel "Baustromverteiler"@de ;
+  skos:definition "Temporary electrical distribution board that supplies the site from the power connection."@en ;
+  skos:definition "Temporaerer Elektroverteiler, der die Baustelle ab dem Stromanschluss versorgt."@de ;
+  dcterms:description "Site distribution cabinet with outlets, protection, and sub-distribution for cranes, containers, and tools. The water connection is a separate concept."@en ;
+  dcterms:description "Baustromverteiler mit Abgaengen, Schutzorganen und Unterverteilung fuer Krane, Container und Werkzeuge. Der Wasseranschluss ist ein eigenes Konzept."@de ;
+  skos:scopeNote "Electrical distribution. The site water connection is SFP-WATER-CONN."@en ;
+  skos:scopeNote "Elektrische Verteilung. Der Bauwasseranschluss ist SFP-WATER-CONN."@de ;
+  dcterms:identifier "site-power-distribution-board" .
+
+:SFP-WATER-CONN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-WATER-CONN" ;
+  skos:prefLabel "Site water connection"@en ;
+  skos:prefLabel "Bauwasseranschluss"@de ;
+  skos:definition "Temporary water connection and distribution that supplies the site."@en ;
+  skos:definition "Temporaerer Wasseranschluss und die Verteilung, die die Baustelle versorgt."@de ;
+  dcterms:description "Connection to the public or a temporary water supply, with meter, stop valve, and distribution to sanitary units, the wheel wash, and the concrete plant. Counterpart of the site power distribution board."@en ;
+  dcterms:description "Anschluss an die oeffentliche oder eine temporaere Wasserversorgung, mit Zaehler, Absperrung und Verteilung zu Sanitaeranlagen, Reifenwaschanlage und Betonanlage. Gegenstueck zum Baustromverteiler."@de ;
+  skos:scopeNote "Counterpart of SFP-POWER-DIST. Water supply, not electrical distribution."@en ;
+  skos:scopeNote "Gegenstueck zu SFP-POWER-DIST. Wasserversorgung, nicht elektrische Verteilung."@de ;
+  dcterms:identifier "site-water-connection" .
+
+:SFP-OTH a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "SFP-OTH" ;
+  skos:prefLabel "Other / unknown site facility"@en ;
+  skos:prefLabel "Sonstige / unbekannte Baustelleneinrichtung"@de ;
+  skos:definition "Site facility not classified or not yet known."@en ;
+  skos:definition "Baustelleneinrichtung nicht klassifiziert oder noch unbekannt."@de ;
+  dcterms:description "Placeholder for site facilities whose type is not yet fixed or not covered by a specific concept. State the function separately. Use only in early stages or where data is incomplete."@en ;
+  dcterms:description "Platzhalter fuer Baustelleneinrichtung, deren Art noch nicht festgelegt oder von keinem spezifischen Konzept abgedeckt ist. Die Funktion ist gesondert zu beschreiben. Nur in fruehen Phasen oder bei unvollstaendiger Datenlage verwenden."@de ;
+  skos:scopeNote "Fallback for early design stages or missing data."@en ;
+  skos:scopeNote "Fallback fuer fruehe Entwurfsstufen oder fehlende Daten."@de ;
+  dcterms:identifier "other" .

@@ -17,6 +17,7 @@ SCHEME_IRI_PREFIXES = {
     "FaCP-": "https://example.org/abstract/facade-covering-product/",
     "RCP-": "https://example.org/abstract/roof-covering-product/",
     "FDP-": "https://example.org/abstract/foundation-product/",
+    "SFP-": "https://example.org/abstract/site-facility-product/",
     "CLP-": "https://example.org/abstract/column-product/",
     "BMP-": "https://example.org/abstract/beam-product/",
     "SRP-": "https://example.org/abstract/stair-product/",

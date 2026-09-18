@@ -24,6 +24,7 @@ classification/
 ├── abstract-material-classification/   # SKOS
 ├── abstract-covering-product-classification/  # SKOS — floor, wall, ceiling, facade, roof covering products
 ├── abstract-foundation-product-classification/  # SKOS — foundation products
+├── abstract-site-setup-classification/  # SKOS — temporary site facility products
 ├── abstract-separator-product-classification/  # SKOS — wall and slab separator products
 ├── abstract-connector-product-classification/  # SKOS — door and window connector products
 ├── abstract-member-product-classification/  # SKOS — column, beam, stair, railing products
@@ -51,6 +52,7 @@ classification/
 | `abstract-material-classification/` | Abstract material categories |
 | `abstract-covering-product-classification/` | Floor, wall, ceiling, facade, and roof covering product types |
 | `abstract-foundation-product-classification/` | Foundation product types (raft, strip, pile, slab-on-grade, …) |
+| `abstract-site-setup-classification/` | Temporary site facility products (crane, enclosure, logistics surfaces, accommodation, site services) |
 | `abstract-separator-product-classification/` | Wall and slab separator product types (interior/exterior via wall role classification) |
 | `abstract-connector-product-classification/` | Door and window connector product types (interior/exterior via BKP context) |
 | `abstract-member-product-classification/` | Column, beam, stair, and railing product types (material or infill based) |

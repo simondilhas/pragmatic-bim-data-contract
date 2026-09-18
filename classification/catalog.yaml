@@ -74,6 +74,10 @@ vocabularies:
     path: abstract-foundation-product-classification/foundation-products.skos.ttl
     title: Abstract foundation products
 
+  - slug: site-facility-product
+    path: abstract-site-setup-classification/site-setup-products.skos.ttl
+    title: Abstract site facility products
+
   - slug: wall-separator-product
     path: abstract-separator-product-classification/wall-separator-products.skos.ttl
     title: Abstract wall separator products
