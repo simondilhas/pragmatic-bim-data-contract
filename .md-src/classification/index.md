@@ -26,6 +26,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract facade covering products](facade-covering-product.md) | `abstract-covering-product-classification/facade-covering-products.skos.ttl` |
 | [Abstract roof covering products](roof-covering-product.md) | `abstract-covering-product-classification/roof-covering-products.skos.ttl` |
 | [Abstract foundation products](foundation-product.md) | `abstract-foundation-product-classification/foundation-products.skos.ttl` |
+| [Abstract site facility products](site-facility-product.md) | `abstract-site-setup-classification/site-setup-products.skos.ttl` |
 | [Abstract wall separator products](wall-separator-product.md) | `abstract-separator-product-classification/wall-separator-products.skos.ttl` |
 | [KBOB ecobilans construction materials](kbob-ecobilans-baumat.md) | `mapping/kbob-ecobilans-baumat.skos.ttl` |
 | [Abstract slab separator products](slab-separator-product.md) | `abstract-separator-product-classification/slab-separator-products.skos.ttl` |
