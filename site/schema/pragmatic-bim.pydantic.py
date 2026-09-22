@@ -1043,6 +1043,14 @@ class SpaceNameType(str, Enum):
     """
     Walkable flat-roof area accessible only for facility management and inspection.
     """
+    Technical_Plant_Pad = "rn_11_10_07"
+    """
+    Flat-roof or outdoor pad reserved for building-services equipment and plant.
+    """
+    Green_Roof = "rn_11_10_08"
+    """
+    Vegetated flat-roof area modeled as outdoor space.
+    """
     Garden_Area = "rn_11_20_01"
     """
     Landscaped outdoor area as space.
@@ -1070,6 +1078,10 @@ class SpaceNameType(str, Enum):
     Exterior_Stair = "rn_11_40_01"
     """
     Open or external stair for outdoor vertical circulation.
+    """
+    Street = "rn_11_40_02"
+    """
+    Outdoor vehicular circulation route as space, including access roads, driveways, and service roads.
     """
     Shaft = "rn_12_10_01"
     """

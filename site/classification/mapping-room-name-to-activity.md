@@ -73,14 +73,17 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `rn:RN-OUT-CWK` | `mapsToActivity` | `abs:O-CIR-PED` |
 | `rn:RN-OUT-EBL` | `mapsToActivity` | `abs:O-CIR-PED` |
 | `rn:RN-OUT-GDN` | `mapsToActivity` | `abs:O-GRN-GDN` |
+| `rn:RN-OUT-GRN` | `mapsToActivity` | `abs:O-GRN-GDN` |
 | `rn:RN-OUT-PAT` | `mapsToActivity` | `abs:O-GRN-REC` |
 | `rn:RN-OUT-PLY` | `mapsToActivity` | `abs:O-GRN-REC` |
 | `rn:RN-OUT-PRT` | `mapsToActivity` | `abs:O-CIR-PED` |
+| `rn:RN-OUT-RD` | `mapsToActivity` | `abs:O-CIR-RD` |
 | `rn:RN-OUT-RTN` | `mapsToActivity` | `abs:O-GRN-REC` |
 | `rn:RN-OUT-RTR` | `mapsToActivity` | `abs:O` |
 | `rn:RN-OUT-RWM` | `mapsToActivity` | `abs:O` |
 | `rn:RN-OUT-SPL` | `mapsToActivity` | `abs:O-GRN-REC` |
 | `rn:RN-OUT-STR` | `mapsToActivity` | `abs:O-CIR-PED` |
+| `rn:RN-OUT-TEQ` | `mapsToActivity` | `abs:O` |
 | `rn:RN-OUT-TRR` | `mapsToActivity` | `abs:O` |
 | `rn:RN-PRK-EXT-BIK` | `mapsToActivity` | `abs:S-PRK-EXT` |
 | `rn:RN-PRK-EXT-CAR` | `mapsToActivity` | `abs:S-PRK-EXT` |

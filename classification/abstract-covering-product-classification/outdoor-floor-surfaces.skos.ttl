@@ -1,4 +1,5 @@
 @prefix : <https://example.org/abstract/outdoor-floor-surface/> .
+@prefix map: <https://example.org/mapping/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
@@ -11,6 +12,7 @@
   dcterms:issued "2026-09-22" ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
   dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  dcterms:references map:outdoorFloorSurfacesToOutdoorRoomNameMapping ;
   skos:definition "Hierarchical classification of outdoor horizontal wearing courses by permeability. Tags the surface finish material, not the space use. Space or landscape function (garden, retention, pond) is classified separately via building space name (RN-*). Distinct from indoor floor covering products (FCP)."@en ;
   skos:definition "Hierarchische Klassifikation horizontaler Aussen-Nutzschichten nach Durchlässigkeit. Kennzeichnet den Oberflächenbelag, nicht die Raumnutzung. Raum- oder Landschaftsfunktion (Garten, Retention, Teich) wird separat über den Gebäuderaumnamen (RN-*) klassifiziert. Unterscheidet sich von Innen-Bodenbelagsprodukten (FCP)."@de ;
   skos:scopeNote "Top concepts are permeability classes (AOF-01 to AOF-03). Assign a leaf notation when a specific surface material is known; otherwise assign the parent class. Do not use this scheme for vegetated areas or open waterbodies as space types."@en ;

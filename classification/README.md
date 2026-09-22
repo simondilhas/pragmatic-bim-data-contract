@@ -81,6 +81,9 @@ classification/
 | `mapping/abstract-room-name-to-space-activity.mapping.ttl` | Room name → space activity |
 | `mapping/room-name-notation-v1-to-v2.mapping.ttl` | Mnemonic v1 room name codes → numeric v2 codes |
 | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` | armasuisse Raumliste → abstract room names |
+| `mapping/outdoor-floor-surfaces-to-outdoor-room-name.mapping.ttl` | Outdoor floor surfaces (AOF) → outdoor room names (RN-OUT-*) |
+| `mapping/roof-covering-products-to-outdoor-room-name.mapping.ttl` | Roof covering products (RCP) → outdoor room names on flat roofs (RN-OUT-*) |
+| `mapping/abstract-covering-products-to-material.mapping.ttl` | Abstract covering products → dominant material classes |
 | `mapping/abstract-roles-to-bkp.mapping.ttl` | Workflow roles → BKP cost lines |
 | `mapping/abstract-model-to-domain.mapping.ttl` | Discipline-model types → domain (ARC / STR / MEP) |
 | `mapping/abstract-model-to-bkp-delivered-by.mapping.ttl` | Discipline-model types → BKP Honorar lines (planner who delivers the model) |
@@ -94,7 +97,6 @@ classification/
 | `mapping/abstract-ratio-to-sia416.mapping.ttl` | Abstract building ratios → SIA 416 quotients |
 | `mapping/qto-buccaneer-to-abstract-metric.mapping.ttl` | qto_buccaneer metric keys → abstract metrics (guideline) |
 | `mapping/qto-buccaneer-to-abstract-ratio.mapping.ttl` | qto_buccaneer ratio keys → abstract ratios (guideline) |
-| `mapping/abstract-covering-products-to-material.mapping.ttl` | Abstract covering products → dominant material classes |
 | `mapping/abstract-covering-products-to-bkp.mapping.ttl` | Abstract covering products → BKP 281/282/283 (Ausbau 2) and 215.5/226/227 (facade, Rohbau 2) |
 | `mapping/abstract-foundation-products-to-bkp.mapping.ttl` | Abstract foundation products → BKP 211.5 / 17x (Fundation, Sicherung, Abdichtung) |
 | `mapping/abstract-roof-covering-products-to-bkp.mapping.ttl` | Abstract roof covering products → BKP 224.0 / 224.1 / 222 (Rohbau 2) |

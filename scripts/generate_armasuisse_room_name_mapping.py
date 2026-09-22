@@ -97,7 +97,7 @@ MANUAL_OVERRIDES: dict[str, str] = {
     "Gartenanlage": "RN-OUT-GDN",
     "Aussenanlagen Sport": "RN-OUT-PLY",
     "Wasserbecken": "RN-OUT-SPL",
-    "Strasse/Weg": "RN-OUT-CWK",
+    "Strasse/Weg": "RN-OUT-RD",
     "Sonstige Nutzung allgemein": "RN-WRK-OPN",
 }
 
@@ -129,6 +129,7 @@ KEYWORD_RULES: list[tuple[str, str]] = [
     (r"balkon|balcon", "RN-OUT-BLN"),
     (r"terrasse|terrace", "RN-OUT-TRR"),
     (r"garten|garden", "RN-OUT-GDN"),
+    (r"strasse|straße|road|fahrweg", "RN-OUT-RD"),
 ]
 
 MILITARY_PATTERNS = (

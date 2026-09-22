@@ -191,6 +191,14 @@ mappings:
     path: mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl
     title: armasuisse room name to abstract room name mapping
 
+  - slug: outdoor-floor-surfaces-to-outdoor-room-name
+    path: mapping/outdoor-floor-surfaces-to-outdoor-room-name.mapping.ttl
+    title: Outdoor floor surfaces to outdoor room name mapping
+
+  - slug: roof-covering-products-to-outdoor-room-name
+    path: mapping/roof-covering-products-to-outdoor-room-name.mapping.ttl
+    title: Roof covering products to outdoor room name mapping
+
   - slug: roles-to-bkp
     path: mapping/abstract-roles-to-bkp.mapping.ttl
     title: Abstract roles to BKP mapping

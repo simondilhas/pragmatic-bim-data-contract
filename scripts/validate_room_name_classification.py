@@ -29,7 +29,7 @@ ACT_SKOS = REPO_ROOT / "classification/abstract-room-classification/building_spa
 ENUM_PATH = REPO_ROOT / "contract/entity_schema_enums.yaml"
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
-EXPECTED_LEAF_COUNT = 125
+EXPECTED_LEAF_COUNT = 128
 
 
 def _check_unique_pref_labels(errors: list[str]) -> None:

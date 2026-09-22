@@ -60,6 +60,8 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Room name to space activity mapping](mapping-room-name-to-activity.md) | `mapping/abstract-room-name-to-space-activity.mapping.ttl` |
 | [Room name notation v1 to v2 mapping](mapping-room-name-notation-v1-to-v2.md) | `mapping/room-name-notation-v1-to-v2.mapping.ttl` |
 | [armasuisse room name to abstract room name mapping](mapping-armasuisse-room-name-to-room-name.md) | `mapping/armasuisse-room-name-to-abstract-room-name.mapping.ttl` |
+| [Outdoor floor surfaces to outdoor room name mapping](mapping-outdoor-floor-surfaces-to-outdoor-room-name.md) | `mapping/outdoor-floor-surfaces-to-outdoor-room-name.mapping.ttl` |
+| [Roof covering products to outdoor room name mapping](mapping-roof-covering-products-to-outdoor-room-name.md) | `mapping/roof-covering-products-to-outdoor-room-name.mapping.ttl` |
 | [Abstract roles to BKP mapping](mapping-roles-to-bkp.md) | `mapping/abstract-roles-to-bkp.mapping.ttl` |
 | [Abstract model to domain mapping](mapping-model-to-domain.md) | `mapping/abstract-model-to-domain.mapping.ttl` |
 | [Abstract model to BKP delivered-by mapping](mapping-model-to-bkp-delivered-by.md) | `mapping/abstract-model-to-bkp-delivered-by.mapping.ttl` |

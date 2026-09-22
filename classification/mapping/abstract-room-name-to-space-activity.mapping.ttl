@@ -115,6 +115,8 @@ rn:RN_OUT_PAT ex:mapsToActivity abs:O_GRN_REC .
 rn:RN_OUT_EBL ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_RTR ex:mapsToActivity abs:O .
 rn:RN_OUT_RWM ex:mapsToActivity abs:O .
+rn:RN_OUT_TEQ ex:mapsToActivity abs:O .
+rn:RN_OUT_GRN ex:mapsToActivity abs:O_GRN_GDN .
 rn:RN_OUT_GDN ex:mapsToActivity abs:O_GRN_GDN .
 rn:RN_OUT_PLY ex:mapsToActivity abs:O_GRN_REC .
 rn:RN_OUT_SPL ex:mapsToActivity abs:O_GRN_REC .
@@ -122,6 +124,7 @@ rn:RN_OUT_RTN ex:mapsToActivity abs:O_GRN_REC .
 rn:RN_OUT_CWK ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_PRT ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_STR ex:mapsToActivity abs:O_CIR_PED .
+rn:RN_OUT_RD ex:mapsToActivity abs:O_CIR_RD .
 rn:RN_VOI_SHA ex:mapsToActivity abs:S_TEC .
 rn:RN_VOI_RIS ex:mapsToActivity abs:S_TEC .
 rn:RN_VOI_PLN ex:mapsToActivity abs:S_VOI_PLN .

@@ -217,7 +217,7 @@ arma:raumliste_aussen_aussenanlagen_sport skos:closeMatch rn:RN_OUT_PLY ;
   skos:prefLabel "Aussenanlagen Sport"@de .
 arma:raumliste_aussen_gartenanlage skos:closeMatch rn:RN_OUT_GDN ;
   skos:prefLabel "Gartenanlage"@de .
-arma:raumliste_aussen_strasse_weg skos:closeMatch rn:RN_OUT_CWK ;
+arma:raumliste_aussen_strasse_weg skos:closeMatch rn:RN_OUT_RD ;
   skos:prefLabel "Strasse/Weg"@de .
 
 # mapped=104 unmapped=164

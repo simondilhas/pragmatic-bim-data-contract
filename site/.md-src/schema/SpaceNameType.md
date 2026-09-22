@@ -128,6 +128,8 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_11_10_04 | https://example.org/abstract/building-space-name-classification/RN_OUT_EBL | Exterior balcony serving as an escape route. | Title: Escape Balcony<br>|
 | rn_11_10_05 | https://example.org/abstract/building-space-name-classification/RN_OUT_RTR | Occupiable flat-roof area intended for outdoor use. | Title: Roof Terrace<br>|
 | rn_11_10_06 | https://example.org/abstract/building-space-name-classification/RN_OUT_RWM | Walkable flat-roof area accessible only for facility management and inspection. | Title: Maintenance Roof<br>|
+| rn_11_10_07 | https://example.org/abstract/building-space-name-classification/RN_OUT_TEQ | Flat-roof or outdoor pad reserved for building-services equipment and plant. | Title: Technical Plant Pad<br>|
+| rn_11_10_08 | https://example.org/abstract/building-space-name-classification/RN_OUT_GRN | Vegetated flat-roof area modeled as outdoor space. | Title: Green Roof<br>|
 | rn_11_20_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_GDN | Landscaped outdoor area as space. | Title: Garden Area<br>|
 | rn_11_20_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_PLY | Outdoor play area. | Title: Playground<br>|
 | rn_11_20_03 | https://example.org/abstract/building-space-name-classification/RN_OUT_SPL | Outdoor pool or water feature area. | Title: Pool Area<br>|
@@ -135,6 +137,7 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_11_30_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_CWK | Covered exterior pedestrian route. | Title: Covered Walkway<br>|
 | rn_11_30_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_PRT | Covered exterior entrance structure. | Title: Portico<br>|
 | rn_11_40_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_STR | Open or external stair for outdoor vertical circulation. | Title: Exterior Stair<br>|
+| rn_11_40_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_RD | Outdoor vehicular circulation route as space, including access roads, driveways, and service roads. | Title: Street<br>|
 | rn_12_10_01 | https://example.org/abstract/building-space-name-classification/RN_VOI_SHA | Vertical service or circulation shaft. | Title: Shaft<br>|
 | rn_12_10_02 | https://example.org/abstract/building-space-name-classification/RN_VOI_RIS | Vertical building services riser. | Title: Riser<br>|
 | rn_12_20_01 | https://example.org/abstract/building-space-name-classification/RN_VOI_PLN | Ceiling or floor service void. | Title: Plenum<br>|
@@ -1141,6 +1144,25 @@ permissible_values:
         source: de
         description: Wartungsdach
     title: Maintenance Roof
+  rn_11_10_07:
+    text: rn_11_10_07
+    description: Flat-roof or outdoor pad reserved for building-services equipment
+      and plant.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_TEQ
+    alt_descriptions:
+      de:
+        source: de
+        description: Technikaufstellfläche
+    title: Technical Plant Pad
+  rn_11_10_08:
+    text: rn_11_10_08
+    description: Vegetated flat-roof area modeled as outdoor space.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_GRN
+    alt_descriptions:
+      de:
+        source: de
+        description: Gründach
+    title: Green Roof
   rn_11_20_01:
     text: rn_11_20_01
     description: Landscaped outdoor area as space.
@@ -1205,6 +1227,16 @@ permissible_values:
         source: de
         description: Aussentreppe
     title: Exterior Stair
+  rn_11_40_02:
+    text: rn_11_40_02
+    description: Outdoor vehicular circulation route as space, including access roads,
+      driveways, and service roads.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_RD
+    alt_descriptions:
+      de:
+        source: de
+        description: Strasse
+    title: Street
   rn_12_10_01:
     text: rn_12_10_01
     description: Vertical service or circulation shaft.

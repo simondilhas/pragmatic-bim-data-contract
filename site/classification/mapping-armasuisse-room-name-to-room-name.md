@@ -18,7 +18,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `arma:raumliste-aussen-aussenanlagen-sport` | `closeMatch` | `rn:RN-OUT-PLY` |
 | `arma:raumliste-aussen-balkon` | `closeMatch` | `rn:RN-OUT-BLN` |
 | `arma:raumliste-aussen-gartenanlage` | `closeMatch` | `rn:RN-OUT-GDN` |
-| `arma:raumliste-aussen-strasse-weg` | `closeMatch` | `rn:RN-OUT-CWK` |
+| `arma:raumliste-aussen-strasse-weg` | `closeMatch` | `rn:RN-OUT-RD` |
 | `arma:raumliste-aussen-wasserbecken` | `closeMatch` | `rn:RN-OUT-SPL` |
 | `arma:raumliste-innen-abstellraum-hausdienst` | `closeMatch` | `rn:RN-STO-JAN` |
 | `arma:raumliste-innen-allgemeine-unterrichts-und-bungsr-ume-ohne-festes-gest-hl` | `closeMatch` | `rn:RN-LRN-CLS` |

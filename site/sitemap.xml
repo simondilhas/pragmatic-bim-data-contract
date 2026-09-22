@@ -169,6 +169,10 @@
          <lastmod>2026-09-22</lastmod>
     </url>
     <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-outdoor-floor-surfaces-to-outdoor-room-name.html</loc>
+         <lastmod>2026-09-22</lastmod>
+    </url>
+    <url>
          <loc>https://schema.pragmaticbim.ch/classification/mapping-person-relationship-type-to-target-kind.html</loc>
          <lastmod>2026-09-22</lastmod>
     </url>
@@ -194,6 +198,10 @@
     </url>
     <url>
          <loc>https://schema.pragmaticbim.ch/classification/mapping-roof-covering-products-to-kbob-ecobilans.html</loc>
+         <lastmod>2026-09-22</lastmod>
+    </url>
+    <url>
+         <loc>https://schema.pragmaticbim.ch/classification/mapping-roof-covering-products-to-outdoor-room-name.html</loc>
          <lastmod>2026-09-22</lastmod>
     </url>
     <url>

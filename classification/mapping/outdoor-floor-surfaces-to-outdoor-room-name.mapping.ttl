@@ -1,0 +1,38 @@
+@prefix aof: <https://example.org/abstract/outdoor-floor-surface/> .
+@prefix rn: <https://example.org/abstract/building-space-name-classification/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix map: <https://example.org/mapping/> .
+
+map:outdoorFloorSurfacesToOutdoorRoomNameMapping a dcterms:Dataset ;
+  dcterms:title "Outdoor floor surfaces to outdoor room name mapping"@en ;
+  dcterms:title "Mapping Aussenbodenbeläge zu Aussenraumnamen"@de ;
+  dcterms:references aof:scheme, rn:scheme ;
+  dcterms:issued "2026-09-22" ;
+  dcterms:modified "2026-09-22" ;
+  dcterms:description "Compatibility links from outdoor floor surface products (AOF) to outdoor room names (RN-OUT-*). Uses skos:relatedMatch: a surface product suggests typical outdoor space types where it is commonly applied. Space use remains assigned via room name; surface finish remains assigned via AOF. Not bijective — PBS rules disambiguate. Vegetated green-roof spaces (RN-OUT-GRN) are not linked here; see roof covering products mapping."@en ;
+  dcterms:description "Kompatibilitaetsverknuepfungen von Aussenbodenbelagsprodukten (AOF) zu Aussenraumnamen (RN-OUT-*). skos:relatedMatch: ein Belagsprodukt nennt typische Aussenraumtypen, in denen es ueblich ist. Raumnutzung bleibt ueber Raumnamen, Belag ueber AOF. Nicht bijektiv — Disambiguierung in PBS-Regeln. Begruente Gruendach-Raeume (RN-OUT-GRN) sind hier nicht verknuepft; siehe Dachbekleidungsprodukt-Mapping."@de .
+
+# --- Sealed (AOF-01) ---
+
+aof:AOF-01 skos:relatedMatch rn:RN_OUT_RD, rn:RN_OUT_TRR, rn:RN_OUT_PAT, rn:RN_OUT_RTR, rn:RN_OUT_RWM, rn:RN_OUT_TEQ .
+
+aof:AOF-01-01 skos:relatedMatch rn:RN_OUT_RD, rn:RN_OUT_RWM, rn:RN_OUT_TEQ .
+
+aof:AOF-01-02 skos:relatedMatch rn:RN_OUT_RD, rn:RN_OUT_TRR, rn:RN_OUT_PAT, rn:RN_OUT_RTR, rn:RN_OUT_BLN, rn:RN_OUT_RWM, rn:RN_OUT_TEQ .
+
+# --- Partially permeable (AOF-02) ---
+
+aof:AOF-02 skos:relatedMatch rn:RN_OUT_RD, rn:RN_OUT_CWK, rn:RN_OUT_GDN, rn:RN_OUT_PAT, rn:RN_OUT_RTR .
+
+aof:AOF-02-01 skos:relatedMatch rn:RN_OUT_RD, rn:RN_OUT_CWK, rn:RN_OUT_GDN, rn:RN_OUT_PAT, rn:RN_OUT_RTR .
+
+aof:AOF-02-02 skos:relatedMatch rn:RN_OUT_RD, rn:RN_OUT_GDN .
+
+aof:AOF-02-03 skos:relatedMatch rn:RN_OUT_CWK, rn:RN_OUT_GDN, rn:RN_OUT_RD, rn:RN_OUT_RTR .
+
+# --- Permeable (AOF-03) ---
+
+aof:AOF-03 skos:relatedMatch rn:RN_OUT_GDN, rn:RN_OUT_RTN, rn:RN_OUT_PLY .
+
+aof:AOF-03-01 skos:relatedMatch rn:RN_OUT_GDN, rn:RN_OUT_RTN, rn:RN_OUT_PLY .

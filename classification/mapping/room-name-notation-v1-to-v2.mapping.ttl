@@ -263,6 +263,10 @@ v1:rn_out_gdn skos:exactMatch rn:RN_OUT_GDN ;
   ex:supersedesNotation "RN-OUT-GDN" ;
   ex:mapsToNotation "RN-11-20-01" .
 
+v1:rn_out_grn skos:exactMatch rn:RN_OUT_GRN ;
+  ex:supersedesNotation "RN-OUT-GRN" ;
+  ex:mapsToNotation "RN-11-10-08" .
+
 v1:rn_out_pat skos:exactMatch rn:RN_OUT_PAT ;
   ex:supersedesNotation "RN-OUT-PAT" ;
   ex:mapsToNotation "RN-11-10-03" .
@@ -274,6 +278,10 @@ v1:rn_out_ply skos:exactMatch rn:RN_OUT_PLY ;
 v1:rn_out_prt skos:exactMatch rn:RN_OUT_PRT ;
   ex:supersedesNotation "RN-OUT-PRT" ;
   ex:mapsToNotation "RN-11-30-02" .
+
+v1:rn_out_rd skos:exactMatch rn:RN_OUT_RD ;
+  ex:supersedesNotation "RN-OUT-RD" ;
+  ex:mapsToNotation "RN-11-40-02" .
 
 v1:rn_out_rtn skos:exactMatch rn:RN_OUT_RTN ;
   ex:supersedesNotation "RN-OUT-RTN" ;
@@ -290,6 +298,14 @@ v1:rn_out_rwm skos:exactMatch rn:RN_OUT_RWM ;
 v1:rn_out_spl skos:exactMatch rn:RN_OUT_SPL ;
   ex:supersedesNotation "RN-OUT-SPL" ;
   ex:mapsToNotation "RN-11-20-03" .
+
+v1:rn_out_str skos:exactMatch rn:RN_OUT_STR ;
+  ex:supersedesNotation "RN-OUT-STR" ;
+  ex:mapsToNotation "RN-11-40-01" .
+
+v1:rn_out_teq skos:exactMatch rn:RN_OUT_TEQ ;
+  ex:supersedesNotation "RN-OUT-TEQ" ;
+  ex:mapsToNotation "RN-11-10-07" .
 
 v1:rn_out_trr skos:exactMatch rn:RN_OUT_TRR ;
   ex:supersedesNotation "RN-OUT-TRR" ;
