@@ -30,6 +30,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `abs:O-GRN-GDN` | `mapsToD0165` | `d0165:UUF` |
 | `abs:O-GRN-REC` | `mapsToD0165` | `d0165:BUF-10-3` |
 | `abs:O-GRN-SPT` | `mapsToD0165` | `d0165:BUF-10-3` |
+| `abs:O-TEC` | `mapsToD0165` | `d0165:AFF` |
 | `abs:S` | `mapsToD0165` | `d0165:NNF-7` |
 | `abs:S-CIR` | `mapsToD0165` | `d0165:VF-9` |
 | `abs:S-CIR-HOR` | `mapsToD0165` | `d0165:VF-9-1` |

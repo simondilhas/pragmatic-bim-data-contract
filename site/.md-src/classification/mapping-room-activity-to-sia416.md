@@ -6,7 +6,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 ## Dataset
 
-- **description (en):** Operational 1:1 mapping from leaf activity classes to a primary SIA area class. Parent classes may remain broader.
+- **description (en):** Operational 1:1 mapping from leaf activity classes to a primary SIA area class. Parent classes may remain broader. Outdoor leaf assignment uses ANF/AVF/AFF under AGF, not AGF itself.
 - **title (en):** Abstract Building Classification to SIA D0165 mapping
 
 ## Links
@@ -22,7 +22,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `abs:M-WRK` | `mapsToSia416` | `sia:HNF` |
 | `abs:M-WRK-KNW` | `mapsToSia416` | `sia:HNF` |
 | `abs:M-WRK-PRD` | `mapsToSia416` | `sia:HNF` |
-| `abs:O` | `mapsToSia416` | `sia:AGF` |
+| `abs:O` | `mapsToSia416` | `sia:ANF` |
 | `abs:O-CIR` | `mapsToSia416` | `sia:AVF` |
 | `abs:O-CIR-PED` | `mapsToSia416` | `sia:AVF` |
 | `abs:O-CIR-RD` | `mapsToSia416` | `sia:AVF` |
@@ -30,6 +30,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `abs:O-GRN-GDN` | `mapsToSia416` | `sia:UUF` |
 | `abs:O-GRN-REC` | `mapsToSia416` | `sia:BUF` |
 | `abs:O-GRN-SPT` | `mapsToSia416` | `sia:BUF` |
+| `abs:O-TEC` | `mapsToSia416` | `sia:AFF` |
 | `abs:S` | `mapsToSia416` | `sia:NNF` |
 | `abs:S-CIR` | `mapsToSia416` | `sia:VF` |
 | `abs:S-CIR-HOR` | `mapsToSia416` | `sia:VF` |

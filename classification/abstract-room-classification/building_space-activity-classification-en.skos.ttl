@@ -142,7 +142,7 @@
   skos:definition "Kategorie fuer aussenflaechen im Klassifikationssystem."@de ;
   dcterms:description "Open-air spaces that complement building functions"@en ;
   dcterms:description "Diese Klasse umfasst aussenflaechen innerhalb des Klassifikationssystems."@de ;
-  skos:narrower :O_CIR, :O_GRN ;
+  skos:narrower :O_CIR, :O_GRN, :O_TEC ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "O" .
 
@@ -185,6 +185,19 @@
   skos:broader :O_CIR ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "O-CIR-RD" .
+
+:O_TEC a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "O-TEC" ;
+  skos:prefLabel "Outdoor technical spaces"@en ;
+  skos:prefLabel "Aussen-Technikflächen"@de ;
+  skos:definition "Outdoor spaces for building-services plant, equipment pads, and maintenance-only roof access."@en ;
+  skos:definition "Aussenflächen für haustechnische Anlagen, Aufstellflächen und nur betrieblich begehbare Dachflächen."@de ;
+  dcterms:description "Maps to SIA d0165 / SIA 416 Aussen-Funktionsfläche AFF within Aussengeschossfläche AGF."@en ;
+  dcterms:description "Entspricht der Aussen-Funktionsfläche AFF innerhalb der Aussengeschossfläche AGF nach SIA d0165 / SIA 416."@de ;
+  skos:broader :O ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "O-TEC" .
 
 :O_GRN a skos:Concept ;
   skos:inScheme :scheme ;

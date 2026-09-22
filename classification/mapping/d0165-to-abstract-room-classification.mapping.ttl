@@ -8,7 +8,7 @@ ex:d0165ToAbstractMapping a dcterms:Dataset ;
   dcterms:references d0165:scheme, abs:scheme ;
   dcterms:description "Reverse operational mapping ensuring each D0165 concept has at least one abstract target."@en .
 
-d0165:AFF ex:mapsToAbstract abs:O .
+d0165:AFF ex:mapsToAbstract abs:O_TEC .
 d0165:AKFN ex:mapsToAbstract abs:S_VOI_STR .
 d0165:AKFT ex:mapsToAbstract abs:S_VOI_STR .
 d0165:ANF ex:mapsToAbstract abs:O .

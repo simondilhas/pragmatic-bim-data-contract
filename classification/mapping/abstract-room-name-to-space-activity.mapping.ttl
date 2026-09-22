@@ -111,11 +111,11 @@ rn:RN_STO_HAZ ex:mapsToActivity abs:S_STO_GEN .
 rn:RN_STO_SMP ex:mapsToActivity abs:S_STO_GEN .
 rn:RN_OUT_BLN ex:mapsToActivity abs:O .
 rn:RN_OUT_TRR ex:mapsToActivity abs:O .
-rn:RN_OUT_PAT ex:mapsToActivity abs:O_GRN_REC .
+rn:RN_OUT_PAT ex:mapsToActivity abs:O .
 rn:RN_OUT_EBL ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_RTR ex:mapsToActivity abs:O .
-rn:RN_OUT_RWM ex:mapsToActivity abs:O .
-rn:RN_OUT_TEQ ex:mapsToActivity abs:O .
+rn:RN_OUT_RWM ex:mapsToActivity abs:O_TEC .
+rn:RN_OUT_TEQ ex:mapsToActivity abs:O_TEC .
 rn:RN_OUT_GRN ex:mapsToActivity abs:O_GRN_GDN .
 rn:RN_OUT_GDN ex:mapsToActivity abs:O_GRN_GDN .
 rn:RN_OUT_PLY ex:mapsToActivity abs:O_GRN_REC .

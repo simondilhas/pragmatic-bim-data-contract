@@ -6,7 +6,7 @@
 ex:abstractToSia416Mapping a dcterms:Dataset ;
   dcterms:title "Abstract Building Classification to SIA D0165 mapping"@en ;
   dcterms:references abs:scheme, sia:scheme ;
-  dcterms:description "Operational 1:1 mapping from leaf activity classes to a primary SIA area class. Parent classes may remain broader."@en .
+  dcterms:description "Operational 1:1 mapping from leaf activity classes to a primary SIA area class. Parent classes may remain broader. Outdoor leaf assignment uses ANF/AVF/AFF under AGF, not AGF itself."@en .
 
 # Main activity domain
 abs:M ex:mapsToSia416 sia:HNF .
@@ -49,7 +49,8 @@ abs:S_VOI_STR ex:mapsToSia416 sia:KF .
 abs:S_VOI_MLT ex:mapsToSia416 sia:VF .
 
 # Outdoor domain
-abs:O ex:mapsToSia416 sia:AGF .
+abs:O ex:mapsToSia416 sia:ANF .
+abs:O_TEC ex:mapsToSia416 sia:AFF .
 abs:O_GRN ex:mapsToSia416 sia:UUF .
 abs:O_GRN_REC ex:mapsToSia416 sia:BUF .
 abs:O_GRN_SPT ex:mapsToSia416 sia:BUF .

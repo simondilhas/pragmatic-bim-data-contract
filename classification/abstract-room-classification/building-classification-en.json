@@ -443,6 +443,16 @@
             "RelatedIfcEntityNamesList": ["IfcSpace"],
             "Status": "Active",
             "ParentClassCode": "O-CIR"
+        },
+        {
+            "Code": "O-TEC",
+            "Name": "Outdoor technical spaces",
+            "ClassType": "Class",
+            "Definition": "Outdoor spaces for building-services plant, equipment pads, and maintenance-only roof access",
+            "Description": "Maps to SIA d0165 / SIA 416 Aussen-Funktionsfläche AFF within Aussengeschossfläche AGF",
+            "RelatedIfcEntityNamesList": ["IfcSpace"],
+            "Status": "Active",
+            "ParentClassCode": "O"
         }
     ]
 }

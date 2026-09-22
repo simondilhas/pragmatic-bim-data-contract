@@ -51,6 +51,7 @@ abs:S_VOI_MLT ex:mapsToD0165 d0165:VF_9_1 .
 
 # Outdoor domain
 abs:O ex:mapsToD0165 d0165:ANF .
+abs:O_TEC ex:mapsToD0165 d0165:AFF .
 abs:O_GRN ex:mapsToD0165 d0165:UUF .
 abs:O_GRN_REC ex:mapsToD0165 d0165:BUF_10_3 .
 abs:O_GRN_SPT ex:mapsToD0165 d0165:BUF_10_3 .
