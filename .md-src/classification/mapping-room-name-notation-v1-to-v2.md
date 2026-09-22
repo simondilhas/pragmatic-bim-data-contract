@@ -78,13 +78,17 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-out-cwk` | `exactMatch` | `rn:RN-OUT-CWK` |
 | `v1:rn-out-ebl` | `exactMatch` | `rn:RN-OUT-EBL` |
 | `v1:rn-out-gdn` | `exactMatch` | `rn:RN-OUT-GDN` |
+| `v1:rn-out-grn` | `exactMatch` | `rn:RN-OUT-GRN` |
 | `v1:rn-out-pat` | `exactMatch` | `rn:RN-OUT-PAT` |
 | `v1:rn-out-ply` | `exactMatch` | `rn:RN-OUT-PLY` |
 | `v1:rn-out-prt` | `exactMatch` | `rn:RN-OUT-PRT` |
+| `v1:rn-out-rd` | `exactMatch` | `rn:RN-OUT-RD` |
 | `v1:rn-out-rtn` | `exactMatch` | `rn:RN-OUT-RTN` |
 | `v1:rn-out-rtr` | `exactMatch` | `rn:RN-OUT-RTR` |
 | `v1:rn-out-rwm` | `exactMatch` | `rn:RN-OUT-RWM` |
 | `v1:rn-out-spl` | `exactMatch` | `rn:RN-OUT-SPL` |
+| `v1:rn-out-str` | `exactMatch` | `rn:RN-OUT-STR` |
+| `v1:rn-out-teq` | `exactMatch` | `rn:RN-OUT-TEQ` |
 | `v1:rn-out-trr` | `exactMatch` | `rn:RN-OUT-TRR` |
 | `v1:rn-res-apt` | `exactMatch` | `rn:RN-RES-APT` |
 | `v1:rn-res-bed` | `exactMatch` | `rn:RN-RES-BED` |

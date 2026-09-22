@@ -159,6 +159,8 @@ class n_RN_11_10_03["RN-11-10-03: Patio"]
 class n_RN_11_10_04["RN-11-10-04: Escape Balcony"]
 class n_RN_11_10_05["RN-11-10-05: Roof Terrace"]
 class n_RN_11_10_06["RN-11-10-06: Maintenance Roof"]
+class n_RN_11_10_07["RN-11-10-07: Technical Plant Pad"]
+class n_RN_11_10_08["RN-11-10-08: Green Roof"]
 class n_RN_11_20["RN-11-20: Landscape and recreation"]
 class n_RN_11_20_01["RN-11-20-01: Garden Area"]
 class n_RN_11_20_02["RN-11-20-02: Playground"]
@@ -169,6 +171,7 @@ class n_RN_11_30_01["RN-11-30-01: Covered Walkway"]
 class n_RN_11_30_02["RN-11-30-02: Portico"]
 class n_RN_11_40["RN-11-40: Exterior circulation"]
 class n_RN_11_40_01["RN-11-40-01: Exterior Stair"]
+class n_RN_11_40_02["RN-11-40-02: Street"]
 class n_RN_12["RN-12: Void"]
 class n_RN_12_10["RN-12-10: Vertical voids"]
 class n_RN_12_10_01["RN-12-10-01: Shaft"]
@@ -324,6 +327,8 @@ n_RN_11_10 <|-- n_RN_11_10_03
 n_RN_11_10 <|-- n_RN_11_10_04
 n_RN_11_10 <|-- n_RN_11_10_05
 n_RN_11_10 <|-- n_RN_11_10_06
+n_RN_11_10 <|-- n_RN_11_10_07
+n_RN_11_10 <|-- n_RN_11_10_08
 n_RN_11_20 <|-- n_RN_11_20_01
 n_RN_11_20 <|-- n_RN_11_20_02
 n_RN_11_20 <|-- n_RN_11_20_03
@@ -331,6 +336,7 @@ n_RN_11_20 <|-- n_RN_11_20_04
 n_RN_11_30 <|-- n_RN_11_30_01
 n_RN_11_30 <|-- n_RN_11_30_02
 n_RN_11_40 <|-- n_RN_11_40_01
+n_RN_11_40 <|-- n_RN_11_40_02
 n_RN_12 <|-- n_RN_12_10
 n_RN_12 <|-- n_RN_12_20
 n_RN_12_10 <|-- n_RN_12_10_01
@@ -1745,10 +1751,10 @@ n_RN_13_20 <|-- n_RN_13_20_04
 <td>RN-11-10</td>
 <td>RN-11</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussenplattformen</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Balkone, Fluchtbalkone, Terrassen, Dachterrassen, Wartungsdächer und Innenhöfe.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Balkone, Fluchtbalkone, Terrassen, Dachterrassen, Wartungsdächer, Technikaufstellflächen, Gründächer und Innenhöfe.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Exterior platforms</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Balconies, escape balconies, terraces, roof terraces, maintenance roofs, and patios.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Balconies, escape balconies, terraces, roof terraces, maintenance roofs, technical plant pads, green roofs, and patios.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1809,6 +1815,26 @@ n_RN_13_20 <|-- n_RN_13_20_04
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Maintenance Roof</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Walkable flat-roof area accessible only for facility management and inspection.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-11-10-07</td>
+<td>RN-11-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Technikaufstellfläche</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Flachdach- oder Aussenfläche für die Aufstellung haustechnischer Anlagen und Geräte.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Technical Plant Pad</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Flat-roof or outdoor pad reserved for building-services equipment and plant.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-11-10-08</td>
+<td>RN-11-10</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gründach</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Begrünte Flachdachfläche als Aussenraum modelliert.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Green Roof</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Vegetated flat-roof area modeled as outdoor space.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1895,10 +1921,10 @@ n_RN_13_20 <|-- n_RN_13_20_04
 <td>RN-11-40</td>
 <td>RN-11</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Aussenerschliessung</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussentreppen und aussenliegende vertikale Erschliessung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aussentreppen, Strassen und aussenliegende Erschliessungswege.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Exterior circulation</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior stairs and outdoor vertical access routes.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Exterior stairs, streets, and outdoor access routes.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1909,6 +1935,16 @@ n_RN_13_20 <|-- n_RN_13_20_04
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Exterior Stair</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Open or external stair for outdoor vertical circulation.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-11-40-02</td>
+<td>RN-11-40</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Strasse</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Als Raum modellierte äussere Fahrerschliessung, einschliesslich Zufahrts-, Betriebs- und Erschliessungsstrassen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Street</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Outdoor vehicular circulation route as space, including access roads, driveways, and service roads.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
