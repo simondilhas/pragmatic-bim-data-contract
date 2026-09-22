@@ -7,7 +7,7 @@ A pragmatic, graph-first LinkML data contract for BIM integration, querying, cos
 | | |
 |---|---|
 | **Schema URI** | [schema.pragmaticbim.ch](https://schema.pragmaticbim.ch/) |
-| **Version** | [v1.0.4](https://github.com/simondilhas/pragmatic-bim-data-contract/releases/tag/v1.0.4) |
+| **Version** | [v1.0.5](https://github.com/simondilhas/pragmatic-bim-data-contract/releases/tag/v1.0.5) |
 | **Source** | [github.com/simondilhas/pragmatic-bim-data-contract](https://github.com/simondilhas/pragmatic-bim-data-contract) |
 
 </div>

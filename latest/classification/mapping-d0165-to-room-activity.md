@@ -13,7 +13,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 
 | Source | Relation | Targets |
 | --- | --- | --- |
-| `d0165:AFF` | `mapsToAbstract` | `abs:O` |
+| `d0165:AFF` | `mapsToAbstract` | `abs:O-TEC` |
 | `d0165:AKFN` | `mapsToAbstract` | `abs:S-VOI-STR` |
 | `d0165:AKFT` | `mapsToAbstract` | `abs:S-VOI-STR` |
 | `d0165:ANF` | `mapsToAbstract` | `abs:O` |
