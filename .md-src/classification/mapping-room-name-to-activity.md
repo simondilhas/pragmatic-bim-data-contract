@@ -76,6 +76,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `rn:RN-OUT-PAT` | `mapsToActivity` | `abs:O-GRN-REC` |
 | `rn:RN-OUT-PLY` | `mapsToActivity` | `abs:O-GRN-REC` |
 | `rn:RN-OUT-PRT` | `mapsToActivity` | `abs:O-CIR-PED` |
+| `rn:RN-OUT-RTN` | `mapsToActivity` | `abs:O-GRN-REC` |
 | `rn:RN-OUT-RTR` | `mapsToActivity` | `abs:O` |
 | `rn:RN-OUT-RWM` | `mapsToActivity` | `abs:O` |
 | `rn:RN-OUT-SPL` | `mapsToActivity` | `abs:O-GRN-REC` |

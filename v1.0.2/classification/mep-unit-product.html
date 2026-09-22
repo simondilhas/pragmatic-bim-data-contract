@@ -1,0 +1,787 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://schema.pragmaticbim.ch/classification/mep-unit-product.html">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Abstract MEP unit products - Pragmatic BIM Data Contract</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/pragmatic-bim-brand.css">
+    
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".mermaid", ".d2"], "initial_zoom_level": 1.0}'> </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#abstract-mep-unit-products" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Pragmatic BIM Data Contract" class="md-header__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pragmatic BIM Data Contract
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Abstract MEP unit products
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/simondilhas/pragmatic-bim-data-contract" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    simondilhas/pragmatic-bim-data-contract
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Pragmatic BIM Data Contract" class="md-nav__button md-logo" aria-label="Pragmatic BIM Data Contract" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pragmatic BIM Data Contract
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/simondilhas/pragmatic-bim-data-contract" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    simondilhas/pragmatic-bim-data-contract
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pragmatic BIM Data Contract
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schema/pragmatic-bim.docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mapping/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mappings to IFC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scheme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="abstract-mep-unit-products">Abstract MEP unit products<a class="headerlink" href="#abstract-mep-unit-products" title="Permanent link">&para;</a></h1>
+<p>Source: <a href="sources/mep-unit-product.ttl"><code>mep-unit-products.skos.ttl</code></a></p>
+<h2 id="scheme">Scheme<a class="headerlink" href="#scheme" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>definition (de):</strong> Produkttyp-Klassifikation fuer TGA-Erzeuger- oder Wandlereinheiten (Erzeuger-/Wandlerrolle; entspricht SystemType.unit). Fuer Katalog-, Spezifikations- und Kostenworkflows auf Equipment und gruppierten IfcSystem-Anlagen.</li>
+<li><strong>definition (en):</strong> Product-type classification for MEP generating or converting units (producer/converter role; aligns with SystemType.unit). For catalog, specification, and cost workflows on Equipment and grouped IfcSystem plant.</li>
+<li><strong>prefLabel (de):</strong> Abstrakte TGA-Erzeuger-/Wandlerprodukte</li>
+<li><strong>prefLabel (en):</strong> Abstract MEP unit products</li>
+<li><strong>title (en):</strong> Abstract MEP unit products</li>
+</ul>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<div class="pbs-vocab-concepts" data-default-lang="en" data-active-lang="en">
+<div class="pbs-lang-switcher" role="group" aria-label="Language">
+<button type="button" class="pbs-lang-btn" data-lang="de">DE</button>
+<button type="button" class="pbs-lang-btn" data-lang="en">EN</button>
+</div>
+<table>
+<thead>
+<tr>
+<th>Notation</th>
+<th>Broader</th>
+<th class="pbs-lang-col" data-lang="de" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="de" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="de" data-field="description">Description</th>
+<th class="pbs-lang-col" data-lang="de" data-field="scope_note">Scope note</th>
+<th class="pbs-lang-col" data-lang="en" data-field="label">Label</th>
+<th class="pbs-lang-col" data-lang="en" data-field="definition">Definition</th>
+<th class="pbs-lang-col" data-lang="en" data-field="description">Description</th>
+<th class="pbs-lang-col" data-lang="en" data-field="scope_note">Scope note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MUP-COOL-CHILLER</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Kaelteanlage / Kaeltemaschine</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Kaelteanlage zur Erzeugung von Kaltwasser oder Direktverdampfungskuehlung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Entzieht dem Kaltwasser- oder Kältemittelkreis Wärme und gibt sie an die Umgebungsluft oder einen Rückkühlkreis ab, um die von den Kälteverbrauchern geforderte Vorlauftemperatur zu halten. Lieferung als werkseitig montierte Einheit für die Innenaufstellung in der Kältezentrale oder die Aussenaufstellung auf schwingungsentkoppelter Unterlage, Anschluss an Kaltwasservor- und -rücklauf, Rückkühlung, Stromversorgung und Kondensatentwässerung, Stufenschaltung und Sollwerte über die Gebäudeautomation. Geeignet für Gebäude mit dauerndem oder prozessbedingtem Kältebedarf; erfordert Platz für Luftwege und Wartung, Beachtung der Schallemission sowie Zugang für Servicearbeiten am Kältekreis und den Komponentenaustausch.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Chiller</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Chiller plant producing chilled water or direct expansion cooling.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Removes heat from the chilled water or refrigerant circuit and rejects it to the ambient air or a recooling circuit, holding the supply temperature required by the cooling consumers. Delivered as a factory-assembled unit for indoor placement in the refrigeration plant room or for outdoor placement on a vibration-isolated base, connected to chilled water flow and return, recooling, power supply, and condensate drainage, with staging and setpoints controlled from building automation. Suitable for buildings with continuous or process-driven cooling demand; requires space for air paths and maintenance, attention to noise emission, and access for refrigerant circuit servicing and component replacement.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-COOL-FREE-COOLER</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Freecooler</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Trockenkuehler, Kuehlturm oder Freecooling-Waermeabgabeeinheit.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Gibt Wärme aus einem Wasserkreis direkt an die Aussenluft ab und stellt Kälte ohne maschinelle Kälteerzeugung bereit, solange die Aussenbedingungen dies zulassen, oder dient als Rückkühler einer Kältemaschine. Lieferung als werkseitig montierte Einheit für Aussenaufstellung oder belüfteten Technikbereich auf schwingungsentkoppelter Unterlage oder Stahlrahmen, Anschluss an Vor- und Rücklauf, Stromversorgung und im Nassbetrieb an Wasserversorgung und Entwässerung, Umschaltung und Ventilatorregelung über die Gebäudeautomation. Geeignet für Gebäude mit ganzjährigem Kältebedarf und verfügbarer Aussenaufstellung; erfordert freie Luftwege, Schutz gegen Luftkurzschluss, Frostschutzmassnahmen und Zugang für Reinigung und Wartung der Wärmeübertrager.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Free cooler</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Dry cooler, cooling tower, or free-cooling heat rejection unit.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Rejects heat from a water circuit directly to the outdoor air and supplies cooling without mechanical refrigeration whenever outdoor conditions allow, or serves as recooler for a chiller. Delivered as a factory-assembled unit for outdoor placement or a ventilated plant area on a vibration-isolated support or steel frame, connected to circuit flow and return, power supply, and, in wet operation, water supply and drainage, with changeover and fan control from building automation. Suitable for buildings with year-round cooling demand and available outdoor placement; requires unobstructed air paths, protection against air short-circuiting, frost protection measures, and access for coil cleaning and maintenance.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-DATA-NETWORK-SWITCH</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Netzwerk-Switch / Rack</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Aktiver Netzwerk-Switch, Router oder rackmontierte ICT-Verteilungseinheit.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Vermittelt den Datenverkehr zwischen den angeschlossenen Endgeräten und dem Netzwerk-Backbone und speist bei Bedarf Endgeräte über dieselbe Verkabelung mit Energie. Lieferung als rackmontierte Komponente im Kommunikationsschrank mit gesicherter Stromversorgung, Uplink-Anbindung und Einbindung in Netzwerk- und Gebäudeautomationsmanagement. Geeignet für die Etagen- und Zonenverteilung von Gebäude-ICT- und Gebäudeautomationsnetzen; erfordert Rackplatz, Wärmeabfuhr aus dem Schrank und kontrollierten Zugang für Konfiguration und Austausch.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Network switch / rack</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Active network switch, router, or rack-mounted ICT distribution unit.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Forwards data traffic between the connected end devices and the network backbone and, where required, supplies terminal devices with power over the same cabling. Delivered as rack-mounted equipment in a communications cabinet with secured power supply, uplink connections, and integration into network and building automation management. Suitable for floor and zone distribution of building ICT and building automation networks; requires rack space, heat removal from the cabinet, and controlled access for configuration and replacement.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-DATA-PATCH-PANEL</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Patchpanel</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Patchpanel oder Kreuzschiene der strukturierten Verkabelung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Schliesst die strukturierte Verkabelung eines Verteilbereichs ab und erlaubt das Rangieren einzelner Verbindungen auf die aktive Technik mittels Patchkabel. Lieferung als vorgefertigte Panels oder Rangierfelder, montiert in Schrank oder Rack eines Kommunikationsraums, Verkabelung aufgelegt, geprüft und beschriftet, mit Kabelführung für Zugentlastung und Biegeradien. Geeignet für die flexible Umbelegung von Anschlüssen im Betrieb; erfordert Rackplatz, Rangierfreiraum an der Front und eine dokumentierte Portbeschriftung für den Unterhalt.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Patch panel</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Structured cabling patch panel or cross-connect frame.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Terminates the structured cabling of a distribution area and allows individual links to be cross-connected to active equipment with patch cords. Delivered as prefabricated panels or cross-connect frames mounted in a cabinet or rack in a communications room, with the cabling terminated, tested, and labelled and with cable management for strain relief and bend radii. Suitable for flexible reassignment of outlets during operation; requires rack space, patching clearance at the front, and documented port labelling for maintenance.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-DATA-SERVER</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Server</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Server oder Edge-Compute-Appliance in der Gebaeude-ICT-Infrastruktur.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Stellt Rechen- und Speicherkapazität für gebäudebezogene Anwendungen wie Automation, Zutrittskontrolle oder Medientechnik bereit. Lieferung als rackmontierte Hardware in einem Kommunikations- oder Serverraum mit gesicherter Stromversorgung, Netzwerkanbindung und Kühlung, Inbetriebnahme gemeinsam mit den betriebenen Anwendungen. Geeignet dort, wo Gebäudedaten lokal verarbeitet oder vorgehalten werden müssen; erfordert kontrolliertes Raumklima, überwachten Zugang und einen definierten Weg für Wartung, Datensicherung und Hardwareerneuerung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Server</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Server or edge compute appliance in building ICT infrastructure.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Provides computing and storage capacity for building-related applications such as automation, access control, or media services. Delivered as rack-mounted hardware in a communications or server room with secured power supply, network connection, and cooling, and commissioned together with the applications it hosts. Suitable where building data must be processed or retained locally; requires a controlled room climate, monitored access, and a defined path for maintenance, data backup, and hardware renewal.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-ELEC-GENERATOR</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Notstromaggregat</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Reserve- oder Notstromaggregat.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Erzeugt bei Ausfall der Netzversorgung elektrische Energie vor Ort und versorgt Sicherheits- und ausgewählte Ersatzverbraucher bis zur Rückkehr der Normalversorgung. Lieferung als werkseitig montiertes Aggregat auf schwingungsentkoppeltem Fundament oder in einem Aussengehäuse, mit Brennstoffversorgung, Abgas- und Verbrennungsluftführung, Kühlluftwegen sowie automatischer Zuschaltung auf die Verteilung über die Gebäudeautomation. Geeignet für Gebäude mit sicherheitsrelevanten oder betriebskritischen Verbrauchern; erfordert einen brandabgetrennten Aufstellort, Schall- und Abgasführung, Brennstofflagerung sowie regelmässige Probeläufe und Wartung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Backup generator</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Standby or emergency electrical generator set.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Generates electricity on site when the mains supply fails and feeds safety and selected standby loads until normal supply returns. Delivered as a factory-assembled set on a vibration-isolated foundation or in an outdoor enclosure, with fuel supply, exhaust and combustion air routes, cooling air paths, and automatic transfer to the distribution under control of building automation. Suitable for buildings with safety-relevant or business-critical loads; requires a fire-separated plant location, noise and exhaust routing, fuel storage, and periodic test runs and servicing.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-ELEC-MAIN-DIST-BOARD</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Hauptverteilung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Hauptverteilung (HV) am Gebaeude- oder Anschlusseingang.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Übernimmt die Einspeisung und verteilt sie auf Unterverteilungen und Hauptverbraucher, mit den Schutz-, Schalt-, Trenn- und Messstellen am Gebäude- oder Anschlusseingang. Lieferung als werkseitig gefertigte und geprüfte Felder, Aufstellung auf Sockel in einem Elektroraum, Anschluss über Schienen und Kabel an Einspeisung und Abgänge, Zustands- und Störmeldungen an die Gebäudeautomation. Geeignet als zentraler Versorgungsknoten eines Gebäudes; erfordert einen zugänglichen Elektroraum mit Bedienfreiräumen, Reserveplatz für spätere Abgänge und sicheren Zugang für Prüfung und Wartung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Main distribution board</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Main electrical distribution board (Hauptverteilung) at building or site entry.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Receives the incoming supply and distributes it to sub-distribution boards and main loads, providing the protection, switching, isolation, and metering points at building or site entry. Delivered as factory-built and tested cubicles, set on a plinth in an electrical room and connected by busbar and cable to the incoming supply and the outgoing circuits, with status and fault signals passed to building automation. Suitable as the central supply node of a building; requires an accessible electrical room with operating clearances, spare capacity for later circuits, and safe access for testing and maintenance.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-ELEC-SUB-DIST-BOARD</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Unterverteilung</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Unterverteilung (UV) fuer Etage, Zone oder Mietbereich.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Verteilt die Energie innerhalb einer Etage, Zone oder Mietfläche und stellt Schutz und Schaltung für die zugeordneten Endstromkreise bereit. Lieferung als werkseitig gefertigter Schrank für Wand-, Einbau- oder Standmontage in Steigzone, Korridor oder Nebenraum, Anschluss über eine Zuleitung an die vorgelagerte Verteilung, bei Bedarf Meldung der Stromkreiszustände an die Gebäudeautomation. Geeignet für etappierten Ausbau und Mieterwechsel; erfordert eine zugängliche Lage mit Bedienfreiraum und Reserveplätze für spätere Stromkreise.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Sub-distribution board</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Sub-distribution board (Unterverteilung) serving a floor, zone, or tenant.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Distributes power within a floor, zone, or tenancy and provides protection and switching for the final circuits it serves. Delivered as a factory-built cabinet for wall, recess, or floor mounting in a riser, corridor, or ancillary room, connected to the upstream distribution by a feeder cable and, where required, reporting circuit states to building automation. Suitable for staged fit-out and tenant changes; requires an accessible location with operating clearance and spare ways for later circuits.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-ELEC-TRANSFORMER</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Transformator</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Leistungstransformator zur Spannungswandlung fuer die Gebaeudeverteilung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Wandelt die einspeisende Mittelspannung auf das für die Gebäudeverteilung erforderliche Niederspannungsniveau und versorgt die Hauptverteilung. Lieferung als werkseitig montierte und geprüfte Einheit, Aufstellung auf lastverteilendem Fundament in einem eigenen Transformatorenraum, Anschluss an Mittelspannungsschaltanlage und Niederspannungsverteilung, Temperatur- und Störzustände an die Gebäudeautomation gemeldet. Geeignet für Gebäude mit eigener Übergabestation; erfordert Transportweg, Freiräume für Kühlluft und Wartung sowie Vorsorge für einen Austausch innerhalb der Nutzungsdauer.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Transformer</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Power transformer converting voltage for building distribution.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Converts the incoming medium-voltage supply to the low-voltage level required for building distribution and feeds the main distribution board. Delivered as a factory-assembled and tested unit, set on a load-distributing base in a dedicated transformer room and connected to medium-voltage switchgear and low-voltage distribution, with temperature and fault states reported to building automation. Suitable for buildings with their own supply station; requires a transport route, clearances for cooling air and maintenance, and provision for replacement within the service life.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-ELEC-UPS</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">USV-Anlage</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Unterbrechungsfreie Stromversorgung (USV) fuer kritische Verbraucher.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Überbrückt Versorgungsunterbrüche und Spannungsstörungen für kritische Verbraucher durch unterbrechungsfreie Umschaltung auf gespeicherte Energie. Lieferung als werkseitig montierte Einheit mit Batterie- oder Speicherschränken, Aufstellung in einem belüfteten oder gekühlten Technikraum, Einbindung zwischen vorgelagerter Verteilung und den geschützten Stromkreisen, Betriebs- und Speicherzustände an die Gebäudeautomation gemeldet. Geeignet dort, wo ein Versorgungsausfall nicht zulässig ist; erfordert ausreichende Bodentragfähigkeit, Wärmeabfuhr, einen Bypass für Servicearbeiten und geplanten Austausch der Speicherkomponenten innerhalb der Nutzungsdauer.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Uninterruptible power supply</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Uninterruptible power supply (UPS) unit for critical loads.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Bridges supply interruptions and voltage disturbances for critical loads by switching over to stored energy without interruption. Delivered as a factory-assembled unit with battery or storage cabinets, placed in a ventilated or cooled technical room and connected between the upstream distribution and the protected circuits, with operating and storage states reported to building automation. Suitable where a loss of supply is not acceptable; requires floor loading capacity, heat removal, a bypass for servicing, and planned replacement of the storage components within the service life.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-FW-PRESSURE-BOOSTER</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Druckerhoehungsanlage</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Trinkwasser-Druckerhoehungsanlage.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Erhöht den Druck der Trinkwasserversorgung, damit an allen Verbrauchern einschliesslich oberer Geschosse und entfernter Entnahmestellen der erforderliche Fliessdruck verfügbar ist. Lieferung als werkseitig montierte Pumpengruppe mit Steuerschrank, Druckbehälter und Sensorik auf schwingungsentkoppelter Unterlage im Hauseinführungs- oder Technikraum, Anschluss an die Einspeiseleitung und die Gebäudeverteilung, bedarfsgeführte Drehzahlregelung und Störmeldungen an die Gebäudeautomation. Geeignet für hohe Gebäude und Grundstücke mit unzureichendem Netzdruck; erfordert einen entwässerten Aufstellort, Beachtung von Schall- und Schwingungsübertragung sowie Zugang für Pumpen- und Steuerungswartung bei aufrechterhaltener Versorgung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Pressure booster</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Potable water pressure booster pump set (Druckerhoehung).</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Raises the pressure of the potable water supply so that the required flow pressure is available at all consumers, including upper floors and remote draw-off points. Delivered as a factory-assembled pump set with control cabinet, pressure vessel, and sensors on a vibration-isolated base in the service entry or plant room, connected to the incoming main and the building distribution, with demand-led speed control and fault signals to building automation. Suitable for tall buildings and sites with insufficient network pressure; requires a drained plant location, attention to noise and vibration transmission, and access for pump and control maintenance while supply is maintained.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-FW-WATER-HEATER</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Warmwasserbereiter</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Warmwasserbereiter oder Brauchwassererwaermer.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Erwärmt Trinkwasser auf die erforderliche Temperatur und hält einen Vorrat bereit, damit der Spitzenbedarf an den Entnahmestellen gedeckt wird. Lieferung als werkseitig gefertigte Einheit mit Speicherbehälter, Heizflächen oder Elektroheizeinsätzen, Dämmung und Sicherheitsarmaturen, Aufstellung auf Sockel im Technikraum, Anschluss an Wärmeerzeuger oder Stromversorgung, Kalt- und Warmwasserleitungen, Zirkulation und Entwässerung, Temperatur- und Hygienebetriebsarten über die Gebäudeautomation. Geeignet für die Warmwasserversorgung von Wohn- und Gewerbebauten; erfordert Bodentragfähigkeit und Raumhöhe für Einbringung und Ziehen der Heizeinsätze sowie Zugang für Kontrolle, Entkalkung und Austausch von Anode oder Komponenten.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Water heater / DHW boiler</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Domestic hot water heater or boiler (Warmwasserbereiter).</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Heats potable water to the required temperature and holds a reserve so that peak draw-off demand is covered at the taps. Delivered as a factory-made unit with storage vessel, heating surfaces or electric elements, insulation, and safety fittings, set on a plinth in the plant room and connected to the heat source or power supply, cold and hot water lines, circulation, and drainage, with temperature and hygiene operating modes controlled from building automation. Suitable for hot water supply in residential and commercial buildings; requires floor loading capacity and headroom for delivery and withdrawal of heating elements, and access for inspection, descaling, and replacement of anode or components.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-HEAT-BOILER</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Heizkessel</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Waermeerzeuger-Heizkessel fuer Raum- oder Prozesswaerme.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Erzeugt Wärme für Raum- oder Prozesswärme und übergibt sie mit der erforderlichen Vorlauftemperatur und dem erforderlichen Volumenstrom an den Heizkreis. Lieferung als werkseitig montierte Einheit, Aufstellung auf Sockel in der Heizzentrale, Anschluss an Brennstoffversorgung, Abgasanlage, Heizungsvor- und -rücklauf, Sicherheitseinrichtungen und Ausdehnung, Folge- und Temperaturregelung in die Gebäudeautomation eingebunden. Geeignet als Grund- oder Spitzenlasterzeuger in Einzel- und Mehrkesselanlagen; erfordert eine brandabgetrennte Heizzentrale, Zuluft- und Abgasführung, Transport- und Servicefreiräume sowie Zugang für Brenner- und Wärmetauscherwartung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Boiler</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Heat generator boiler for space or process heating.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Generates heat for space heating or process use and transfers it to the heating circuit at the required flow temperature and flow rate. Delivered as a factory-assembled unit set on a plinth in the heating plant room and connected to fuel supply, flue, heating flow and return, safety devices, and expansion, with sequence and temperature control integrated into building automation. Suitable as lead or peak-load generator in single and multi-unit plant; requires a fire-separated plant room, combustion air and flue routing, transport and service clearances, and access for burner and heat exchanger maintenance.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-HEAT-DISTRICT-HEAT-SUBSTATION</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Waermeuebergabestation</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Fernwaermeuebergabestation oder Waermeuebergabestation.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Überträgt Wärme aus dem externen Versorgungsnetz auf die Heiz- und Warmwasserkreise des Gebäudes, trennt Primär- und Sekundärseite hydraulisch und regelt die sekundäre Vorlauftemperatur. Lieferung als werkseitig montierte und geprüfte Kompaktstation mit Wärmetauscher, Pumpen, Regelventilen, Sicherheitseinrichtungen und Messung, Aufstellung im Übergaberaum nahe der Hauseinführung, Anschluss an Netzanschluss und Gebäudeverteilung, Regel- und Verbrauchsdaten an die Gebäudeautomation. Geeignet für Gebäude mit Anschluss an ein Fern- oder Nahwärmenetz; erfordert einen kompakten Übergaberaum mit Entwässerung, Freiraum für die Reinigung des Wärmetauschers und Zugang des Netzbetreibers zur Messeinrichtung.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">District heat substation</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">District heating substation or heat interface unit (Waermeuebergabestation).</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Transfers heat from the external supply network to the building heating and hot water circuits, separates the primary and secondary sides hydraulically, and controls the secondary flow temperature. Delivered as a factory-assembled and tested skid with heat exchanger, pumps, control valves, safety devices, and metering, placed in the transfer room near the service entry and connected to the network connection and the building distribution, with control and consumption data passed to building automation. Suitable for buildings supplied from a district or local heating network; requires a compact transfer room with drainage, clearance for cleaning the heat exchanger, and access for the network operator to the metering equipment.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-HEAT-HEAT-PUMP</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Waermepumpe</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Waermepumpenanlage fuer Heizbetrieb (optional auch Kuehlbetrieb).</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Hebt Wärme aus Luft, Erdreich, Wasser oder Abwärme auf ein nutzbares Temperaturniveau für den Heizkreis und liefert im reversiblen Betrieb zusätzlich Kälte. Lieferung als werkseitig montierte Innen- oder Ausseneinheit auf schwingungsentkoppelter Unterlage, Anschluss an Quellenkreis, Heizungsvor- und -rücklauf, Speicher, Stromversorgung und Kondensatentwässerung, Betriebsarten und Quellentemperaturen über die Gebäudeautomation geregelt. Geeignet dort, wo eine Wärmequelle auf dem Grundstück erschlossen werden kann; erfordert Quellenerschliessung, Platz und Freiräume um das Gerät, Beachtung der Schallemission am Aufstellort und Zugang für Servicearbeiten am Kältekreis.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Heat pump</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Heat pump unit for heating (and optionally cooling) operation.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Raises heat taken from air, ground, water, or waste heat to a usable temperature for the heating circuit and, in reversible operation, also supplies cooling. Delivered as a factory-assembled indoor or outdoor unit on a vibration-isolated base, connected to the source circuit, heating flow and return, buffer storage, power supply, and condensate drainage, with operating modes and source temperatures controlled through building automation. Suitable where a heat source can be developed on the site; requires source installation works, space and clearances around the unit, attention to noise emission at the installation point, and access for servicing the refrigerant circuit.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-SM-COMPRESSOR</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Druckluftkompressor</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Drucklufterzeugungs-Kompressor.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Erzeugt Druckluft mit dem von den angeschlossenen Verbrauchern geforderten Druck und der geforderten Qualität und hält die Versorgung über einen Behälter auch bei schwankendem Bedarf aufrecht. Lieferung als werkseitig montierte Einheit mit Antrieb, Kühlung, Behälter und Luftaufbereitung auf schwingungsentkoppelter Unterlage in einem belüfteten Technikraum, Anschluss an das Verteilnetz, die Stromversorgung, die Kondensatentwässerung und die Wärmeabfuhr, Lastregelung und Störmeldungen an die Gebäudeautomation. Geeignet für Werkstätten, Labore und Prozessbereiche; erfordert kühle Ansaugluft und Wärmeabfuhr aus dem Raum, Beachtung der Schallübertragung sowie Zugang für Filter-, Öl- und Komponentenservice.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Compressed air compressor</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Compressed air generation compressor unit.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Generates compressed air at the pressure and quality required by the connected consumers and maintains supply from a receiver against fluctuating demand. Delivered as a factory-assembled unit with drive, cooling, receiver, and air treatment on a vibration-isolated base in a ventilated plant room, connected to the distribution network, power supply, condensate drainage, and heat removal, with load control and fault signals passed to building automation. Suitable for workshops, laboratories, and process areas; requires cool intake air and heat rejection from the room, attention to noise transmission, and access for filter, oil, and component servicing.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-SM-FIRE-PUMP</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Sprinklerpumpe / Loeschwasserpumpe</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Sprinkler- oder Loeschwasserpumpenanlage.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Stellt dem Sprinkler- oder Hydrantennetz Löschwasser mit dem erforderlichen Druck und Volumenstrom bereit, sobald Bedarf erkannt wird, und hält das Netz im Bereitschaftsbetrieb unter Druck. Lieferung als werkseitig montierte Pumpengruppe mit Antrieb, Steuerschrank und Armaturen auf schwingungsentkoppeltem Fundament in einem eigenen, brandabgetrennten Pumpenraum, Anschluss an Vorratsbehälter oder Zuleitung, Steigleitungsnetz, Strom- oder Brennstoffversorgung und Entwässerung, Bereitschafts- und Störzustände überwacht und an Gebäudeautomation und Alarmierung gemeldet. Geeignet für Gebäude mit automatischen Löschanlagen oder druckbeaufschlagten Hydrantennetzen; erfordert eine gesicherte Versorgung und einen geschützten Pumpenraum mit Entwässerung sowie Zugang für regelmässige Probeläufe und Funktionskontrollen über die Nutzungsdauer.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Fire pump</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Fire suppression or sprinkler pump set.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Supplies the sprinkler or hydrant network with firefighting water at the required pressure and flow rate as soon as demand is detected, and holds the network pressurised in standby. Delivered as a factory-assembled pump set with drive, control cabinet, and fittings on a vibration-isolated foundation in a dedicated fire-separated pump room, connected to the storage tank or supply main, the riser network, power or fuel supply, and drainage, with readiness and fault states monitored and reported to building automation and the alarm system. Suitable for buildings with automatic extinguishing systems or pressurised hydrant networks; requires a secured supply and a protected pump room with drainage, and access for periodic test runs and functional checks over the service life.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-SM-GAS-REGULATOR</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Gasdruckregler</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Gasdruckregel- oder Messstation.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Reduziert den Gasdruck der Zuleitung auf den Betriebsdruck der Gebäudeinstallation, hält ihn bei wechselndem Bedarf konstant, erfasst die entnommene Menge und schliesst die Versorgung im Störungsfall ab. Lieferung als werkseitig montierte und geprüfte Station mit Filter, Regler, Sicherheitseinrichtungen und Zähler, Aufstellung in einem eigenen belüfteten Stationsraum oder Schrank an der Hauseinführung, Anschluss an Zu- und Abgangsleitung, Abblaseleitungen ins Freie geführt, Absperr- und Messsignale für die Gebäudeautomation verfügbar. Geeignet für Gebäude mit gasbefeuerten Anlagen oder Prozessverbrauchern; erfordert einen brandabgetrennten, belüfteten Aufstellort mit Zugang von aussen für den Netzbetreiber und Freiraum für Kontrolle und Zählerwechsel.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Gas pressure regulator</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Gas pressure regulation or metering station.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Reduces the gas pressure of the supply line to the operating pressure of the building installation, keeps it constant under varying demand, records the quantity taken, and shuts off the supply in case of a fault. Delivered as a factory-assembled and tested station with filter, regulator, safety devices, and meter, placed in a dedicated ventilated station room or cabinet at the service entry and connected to the incoming and outgoing gas lines, with relief lines led to the outside and shut-off and metering signals available to building automation. Suitable for buildings with gas-fired plant or process consumers; requires a fire-separated and ventilated location with access from outside for the network operator and clearance for inspection and meter exchange.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-VENT-AHU</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Lueftungsgeraet / Monoblock</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Packagiertes Lueftungsgeraet (RLT) oder Monoblock-Lueftungsanlage.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Konditioniert Aussen- und Abluft einer Lüftungszone durch Filterung, Wärmerückgewinnung, Heizung, Kühlung und bei Bedarf Feuchtebehandlung und fördert die Zu- und Abluftvolumenströme. Lieferung als werkseitig montierter Monoblock oder als vor Ort gefügte Modulsektionen, Aufstellung auf schwingungsentkoppeltem Grundrahmen in der Technikzentrale oder auf dem Dach, Anschluss an Kanalnetz, Heiz- und Kältekreise, Kondensatentwässerung und Stromversorgung, Regelung in die Gebäudeautomation eingebunden. Geeignet für Zonen mit definierten Anforderungen an Luftqualität oder Komfort; erfordert Platz in der Technikzentrale mit Freiräumen für Filter- und Komponentenzugang, einen Transportweg für die grösste Sektion und Vorsorge für den Austausch von Komponenten über die Nutzungsdauer.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Air handling unit / monoblock</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Packaged air handling unit (AHU) or monoblock ventilation plant.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Conditions outdoor and extract air for a ventilation zone by filtering, heat recovery, heating, cooling, and where required humidity treatment, and moves the supply and extract air volumes. Delivered as a factory-assembled monoblock or as modular sections joined on site, set on a vibration-isolated base frame in a plant room or on the roof and connected to ductwork, heating and cooling circuits, condensate drainage, and power supply, with its control integrated into building automation. Suitable for zones with defined air quality or comfort requirements; requires plant room space with clearances for filter and component access, a transport route for the largest section, and provision for component replacement over the service life.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-VENT-FAN</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Ventilator</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Eigenstaendiger Zuluft-, Abluft- oder Umluft-Ventilator.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Fördert Zu-, Ab- oder Umluft durch einen Kanal- oder Schachtabschnitt und überwindet dessen Strömungswiderstand, damit der erforderliche Luftvolumenstrom sichergestellt ist. Lieferung als werkseitig montierte Einheit für Kanal-, Wand-, Schacht- oder Sockelmontage auf schwingungsentkoppelter Unterlage, Anschluss an das Kanalnetz über flexible Verbindungen, an die Stromversorgung und an die Drehzahlregelung der Gebäudeautomation. Geeignet für Einzelräume, Schächte sowie Rauch- oder Prozessabluftaufgaben; erfordert Zugang für Inspektion, Laufradreinigung und Motorwechsel sowie Beachtung der Schallübertragung am Einbauort.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Fan</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Standalone supply, extract, or transfer fan unit.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Moves supply, extract, or transfer air through a duct or shaft section and overcomes its flow resistance so that the required air volume is maintained. Delivered as a factory-assembled unit for duct, wall, shaft, or base mounting on a vibration-isolated support, connected to the ductwork through flexible connectors, to the power supply, and to speed control from building automation. Suitable for single rooms, shafts, and smoke or process extract duties; requires access for inspection, impeller cleaning, and motor replacement, and attention to noise transmission at the installation point.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-WW-GREASE-SEPARATOR</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Fettabscheider</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Fett- oder Oelabscheider fuer Kuechen- oder Prozessabwasser.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Hält in Küchen- oder Prozessabwasser mitgeführte Fette und Öle zurück, bevor dieses in die öffentliche Kanalisation gelangt, und schützt damit nachgeschaltete Leitungen und Anlagen vor Ablagerungen. Lieferung als werkseitig gefertigter Behälter, Aufstellung freistehend im Raum oder erdverlegt im Aussenbereich mit befahrbarer Abdeckung, Anschluss an Zu- und Ablauf mit erforderlichem Gefälle sowie bei entsprechender Ausrüstung an die Stromversorgung für Entsorgungs- und Warneinrichtungen, Füllstands- und Alarmmeldungen für die Gebäudeautomation verfügbar. Geeignet für Gastronomie- und Lebensmittelbereiche; erfordert einen zugänglichen Aufstellort mit Entwässerung und Belüftung, freie Zufahrt und Anschlussstelle für die Entleerung per Saugfahrzeug sowie regelmässige Entleerung und Reinigung im Betrieb.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Grease separator</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Grease or oil separator for kitchen or process wastewater.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Retains grease and oil carried in kitchen or process wastewater before discharge into the public sewer and thereby protects downstream pipes and plant from deposits. Delivered as a factory-made tank, installed free-standing in a room or buried outside with a trafficable cover, connected to inflow and outflow at the required gradient and, where so equipped, to power supply for disposal and warning devices, with filling level and alarm signals available to building automation. Suitable for catering and food-processing areas; requires an accessible location with drainage and ventilation, a clear access route and connection point for emptying by tanker, and regular emptying and cleaning during operation.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>MUP-WW-LIFTING-STATION</td>
+<td></td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Hebeanlage</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Abwasser-Hebeanlage oder Foerderstation.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="description">Sammelt Abwasser von Entwässerungsstellen unterhalb der Rückstauebene und fördert es über diese Ebene in die Freispiegelentwässerung. Lieferung als werkseitig montierte Einheit mit Sammelbehälter, einer oder mehreren Pumpen, Rückfluss- und Absperrarmaturen sowie Steuerschrank, Aufstellung auf ebener Unterlage in Schacht oder Technikraum, Anschluss an Zulauf, Druckleitung, Lüftung und Stromversorgung, Niveau- und Störmeldungen an die Gebäudeautomation. Geeignet für Sanitärräume, Einstellhallen und Küchenbereiche in Untergeschossen; erfordert einen zugänglichen, entwässerten und belüfteten Aufstellort, geruchsdichten Einbau sowie Zugang für Reinigung, Laufradkontrolle und Pumpentausch.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Lifting station</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Wastewater lifting or pumping station (Hebeanlage).</td>
+<td class="pbs-lang-col" data-lang="en" data-field="description">Collects wastewater from drainage points below the backflow level and pumps it above that level into the gravity drain. Delivered as a factory-assembled unit with collecting tank, one or more pumps, non-return and isolating fittings, and control cabinet, placed on a level base in a pit or plant room and connected to inflow, pressure pipe, vent, and power supply, with level and fault signals reported to building automation. Suitable for sanitary rooms, parking garages, and kitchen areas in basement levels; requires an accessible, drained and ventilated location, odour-tight installation, and access for cleaning, impeller inspection, and pump replacement.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["search.suggest", "search.highlight", "content.code.copy", "navigation.top"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/mermaid-init.js"></script>
+      
+        <script src="../javascripts/classification-lang-switch.js"></script>
+      
+        <script src="../javascripts/version-selector.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
+      
+    
+  </body>
+</html>

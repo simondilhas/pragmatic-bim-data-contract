@@ -81,6 +81,7 @@ External target labels are not shipped in this repository; only codes and IRIs a
 | `v1:rn-out-pat` | `exactMatch` | `rn:RN-OUT-PAT` |
 | `v1:rn-out-ply` | `exactMatch` | `rn:RN-OUT-PLY` |
 | `v1:rn-out-prt` | `exactMatch` | `rn:RN-OUT-PRT` |
+| `v1:rn-out-rtn` | `exactMatch` | `rn:RN-OUT-RTN` |
 | `v1:rn-out-rtr` | `exactMatch` | `rn:RN-OUT-RTR` |
 | `v1:rn-out-rwm` | `exactMatch` | `rn:RN-OUT-RWM` |
 | `v1:rn-out-spl` | `exactMatch` | `rn:RN-OUT-SPL` |

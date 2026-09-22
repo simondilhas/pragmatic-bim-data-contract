@@ -131,6 +131,7 @@ URI: [pbs:SpaceNameType](https://schema.pragmaticbim.ch/SpaceNameType)
 | rn_11_20_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_GDN | Landscaped outdoor area as space. | Title: Garden Area<br>|
 | rn_11_20_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_PLY | Outdoor play area. | Title: Playground<br>|
 | rn_11_20_03 | https://example.org/abstract/building-space-name-classification/RN_OUT_SPL | Outdoor pool or water feature area. | Title: Pool Area<br>|
+| rn_11_20_04 | https://example.org/abstract/building-space-name-classification/RN_OUT_RTN | Multi-purpose area with temporary, planned water retention during heavy rainfall. | Title: Retention Area<br>|
 | rn_11_30_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_CWK | Covered exterior pedestrian route. | Title: Covered Walkway<br>|
 | rn_11_30_02 | https://example.org/abstract/building-space-name-classification/RN_OUT_PRT | Covered exterior entrance structure. | Title: Portico<br>|
 | rn_11_40_01 | https://example.org/abstract/building-space-name-classification/RN_OUT_STR | Open or external stair for outdoor vertical circulation. | Title: Exterior Stair<br>|
@@ -1167,6 +1168,16 @@ permissible_values:
         source: de
         description: Beckenfläche
     title: Pool Area
+  rn_11_20_04:
+    text: rn_11_20_04
+    description: Multi-purpose area with temporary, planned water retention during
+      heavy rainfall.
+    meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_RTN
+    alt_descriptions:
+      de:
+        source: de
+        description: Retentionsfläche
+    title: Retention Area
   rn_11_30_01:
     text: rn_11_30_01
     description: Covered exterior pedestrian route.
