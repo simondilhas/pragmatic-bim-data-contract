@@ -118,6 +118,7 @@ rn:RN_OUT_RWM ex:mapsToActivity abs:O .
 rn:RN_OUT_GDN ex:mapsToActivity abs:O_GRN_GDN .
 rn:RN_OUT_PLY ex:mapsToActivity abs:O_GRN_REC .
 rn:RN_OUT_SPL ex:mapsToActivity abs:O_GRN_REC .
+rn:RN_OUT_RTN ex:mapsToActivity abs:O_GRN_REC .
 rn:RN_OUT_CWK ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_PRT ex:mapsToActivity abs:O_CIR_PED .
 rn:RN_OUT_STR ex:mapsToActivity abs:O_CIR_PED .

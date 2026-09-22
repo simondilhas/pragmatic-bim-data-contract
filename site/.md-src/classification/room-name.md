@@ -163,6 +163,7 @@ class n_RN_11_20["RN-11-20: Landscape and recreation"]
 class n_RN_11_20_01["RN-11-20-01: Garden Area"]
 class n_RN_11_20_02["RN-11-20-02: Playground"]
 class n_RN_11_20_03["RN-11-20-03: Pool Area"]
+class n_RN_11_20_04["RN-11-20-04: Retention Area"]
 class n_RN_11_30["RN-11-30: Covered exterior routes"]
 class n_RN_11_30_01["RN-11-30-01: Covered Walkway"]
 class n_RN_11_30_02["RN-11-30-02: Portico"]
@@ -326,6 +327,7 @@ n_RN_11_10 <|-- n_RN_11_10_06
 n_RN_11_20 <|-- n_RN_11_20_01
 n_RN_11_20 <|-- n_RN_11_20_02
 n_RN_11_20 <|-- n_RN_11_20_03
+n_RN_11_20 <|-- n_RN_11_20_04
 n_RN_11_30 <|-- n_RN_11_30_01
 n_RN_11_30 <|-- n_RN_11_30_02
 n_RN_11_40 <|-- n_RN_11_40_01
@@ -1813,10 +1815,10 @@ n_RN_13_20 <|-- n_RN_13_20_04
 <td>RN-11-20</td>
 <td>RN-11</td>
 <td class="pbs-lang-col" data-lang="de" data-field="label">Landschaft und Freizeit</td>
-<td class="pbs-lang-col" data-lang="de" data-field="definition">Gärten, Spielplätze und Beckenflächen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Gärten, Spielplätze, Beckenflächen und Retentionsflächen.</td>
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Landscape and recreation</td>
-<td class="pbs-lang-col" data-lang="en" data-field="definition">Gardens, playgrounds, and pool areas.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Gardens, playgrounds, pool areas, and retention areas.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>
@@ -1847,6 +1849,16 @@ n_RN_13_20 <|-- n_RN_13_20_04
 <td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
 <td class="pbs-lang-col" data-lang="en" data-field="label">Pool Area</td>
 <td class="pbs-lang-col" data-lang="en" data-field="definition">Outdoor pool or water feature area.</td>
+<td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
+</tr>
+<tr>
+<td>RN-11-20-04</td>
+<td>RN-11-20</td>
+<td class="pbs-lang-col" data-lang="de" data-field="label">Retentionsfläche</td>
+<td class="pbs-lang-col" data-lang="de" data-field="definition">Mehrzweckfläche mit temporärer, geplanter Wasserrückhaltung bei Starkregen.</td>
+<td class="pbs-lang-col" data-lang="de" data-field="scope_note"></td>
+<td class="pbs-lang-col" data-lang="en" data-field="label">Retention Area</td>
+<td class="pbs-lang-col" data-lang="en" data-field="definition">Multi-purpose area with temporary, planned water retention during heavy rainfall.</td>
 <td class="pbs-lang-col" data-lang="en" data-field="scope_note"></td>
 </tr>
 <tr>

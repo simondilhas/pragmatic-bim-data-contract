@@ -1,0 +1,187 @@
+@prefix : <https://example.org/abstract/outdoor-floor-surface/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+:scheme a skos:ConceptScheme ;
+  skos:prefLabel "Abstract outdoor floor surfaces"@en ;
+  skos:prefLabel "Abstrakte Aussenbodenflächen"@de ;
+  dcterms:title "Abstract outdoor floor surfaces"@en ;
+  dcterms:identifier "AbstractOutdoorFloorSurface" ;
+  dcterms:creator "abstract" ;
+  dcterms:issued "2026-09-22" ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/simondilhas/pragmatic-bim-data-contract> ;
+  skos:definition "Hierarchical classification of outdoor horizontal surfaces by permeability and surface character, for landscape, stormwater, and exterior-space workflows. Distinct from indoor floor covering products (FCP)."@en ;
+  skos:definition "Hierarchische Klassifikation horizontaler Aussenflächen nach Durchlässigkeit und Oberflächencharakter für Landschafts-, Starkregen- und Aussenraum-Workflows. Unterscheidet sich von Innen-Bodenbelagsprodukten (FCP)."@de ;
+  skos:scopeNote "Top concepts are permeability classes (AOF-01 to AOF-04). Assign a leaf notation when a specific surface material is known; otherwise assign the parent class."@en ;
+  skos:scopeNote "Top-Konzepte sind Durchlässigkeitsklassen (AOF-01 bis AOF-04). Bei bekanntem Oberflächenmaterial Blattnotation zuweisen, sonst die Elternklasse."@de ;
+  skos:hasTopConcept :AOF-01, :AOF-02, :AOF-03, :AOF-04 .
+
+:AOF-01 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "AOF-01" ;
+  skos:prefLabel "Sealed"@en ;
+  skos:prefLabel "Versiegelt"@de ;
+  skos:definition "Impervious outdoor surface that sheds almost all precipitation as surface runoff."@en ;
+  skos:definition "Undurchlässige Aussenfläche, die Niederschlag weitgehend als Oberflächenabfluss ableitet."@de ;
+  skos:narrower :AOF-01-01, :AOF-01-02 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "sealed" .
+
+:AOF-01-01 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-01-01" ;
+  skos:prefLabel "Asphalt"@en ;
+  skos:prefLabel "Asphalt"@de ;
+  skos:definition "Sealed outdoor surface of asphalt pavement."@en ;
+  skos:definition "Versiegelte Aussenfläche aus Asphaltbelag."@de ;
+  skos:broader :AOF-01 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "asphalt" .
+
+:AOF-01-02 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-01-02" ;
+  skos:prefLabel "Concrete"@en ;
+  skos:prefLabel "Beton"@de ;
+  skos:definition "Sealed outdoor surface of concrete pavement or slab."@en ;
+  skos:definition "Versiegelte Aussenfläche aus Betonbelag oder -platte."@de ;
+  skos:broader :AOF-01 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "concrete" .
+
+:AOF-02 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "AOF-02" ;
+  skos:prefLabel "Partially permeable"@en ;
+  skos:prefLabel "Teildurchlässig"@de ;
+  skos:definition "Outdoor surface that allows partial infiltration through joints, voids, or a bound but permeable wearing course."@en ;
+  skos:definition "Aussenfläche mit teilweiser Versickerung über Fugen, Hohlräume oder eine gebundene, aber durchlässige Nutzschicht."@de ;
+  skos:narrower :AOF-02-01, :AOF-02-02, :AOF-02-03 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "partially-permeable" .
+
+:AOF-02-01 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-02-01" ;
+  skos:prefLabel "Paving with joints"@en ;
+  skos:prefLabel "Pflaster mit Fugen"@de ;
+  skos:definition "Partially permeable paving units with open or permeable joints."@en ;
+  skos:definition "Teildurchlässiges Pflaster mit offenen oder durchlässigen Fugen."@de ;
+  skos:broader :AOF-02 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "paving-with-joints" .
+
+:AOF-02-02 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-02-02" ;
+  skos:prefLabel "Grass pavers"@en ;
+  skos:prefLabel "Rasengittersteine"@de ;
+  skos:definition "Partially permeable grid pavers intended for grass or gravel fill."@en ;
+  skos:definition "Teildurchlässige Gittersteine für Rasen- oder Kiesfüllung."@de ;
+  skos:broader :AOF-02 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "grass-pavers" .
+
+:AOF-02-03 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-02-03" ;
+  skos:prefLabel "Water-bound surface"@en ;
+  skos:prefLabel "wassergebundene Decke"@de ;
+  skos:definition "Partially permeable water-bound mineral wearing course."@en ;
+  skos:definition "Teildurchlässige wassergebundene mineralische Nutzschicht."@de ;
+  skos:broader :AOF-02 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "water-bound-surface" .
+
+:AOF-03 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "AOF-03" ;
+  skos:prefLabel "Permeable / vegetation"@en ;
+  skos:prefLabel "Durchlässig / Vegetation"@de ;
+  skos:definition "Permeable outdoor surface dominated by vegetation or unbound mineral cover."@en ;
+  skos:definition "Durchlässige Aussenfläche mit Dominanz von Vegetation oder ungebundenem mineralischem Belag."@de ;
+  skos:narrower :AOF-03-01, :AOF-03-02, :AOF-03-03, :AOF-03-04 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "permeable-vegetation" .
+
+:AOF-03-01 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-03-01" ;
+  skos:prefLabel "Lawn"@en ;
+  skos:prefLabel "Rasen"@de ;
+  skos:definition "Permeable vegetated lawn surface."@en ;
+  skos:definition "Durchlässige begrünte Rasenfläche."@de ;
+  skos:broader :AOF-03 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "lawn" .
+
+:AOF-03-02 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-03-02" ;
+  skos:prefLabel "Meadow"@en ;
+  skos:prefLabel "Wiese"@de ;
+  skos:definition "Permeable vegetated meadow surface."@en ;
+  skos:definition "Durchlässige begrünte Wiesenfläche."@de ;
+  skos:broader :AOF-03 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "meadow" .
+
+:AOF-03-03 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-03-03" ;
+  skos:prefLabel "Gravel"@en ;
+  skos:prefLabel "Kies"@de ;
+  skos:definition "Permeable unbound gravel surface."@en ;
+  skos:definition "Durchlässige ungebundene Kiesfläche."@de ;
+  skos:broader :AOF-03 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "gravel" .
+
+:AOF-03-04 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-03-04" ;
+  skos:prefLabel "Planting bed"@en ;
+  skos:prefLabel "Pflanzbeet"@de ;
+  skos:definition "Permeable planted bed or planting area."@en ;
+  skos:definition "Durchlässiges Pflanzbeet oder Pflanzfläche."@de ;
+  skos:broader :AOF-03 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "planting-bed" .
+
+:AOF-04 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:topConceptOf :scheme ;
+  skos:notation "AOF-04" ;
+  skos:prefLabel "Water surface"@en ;
+  skos:prefLabel "Wasserfläche"@de ;
+  skos:definition "Open water or designed retention waterbody as outdoor surface."@en ;
+  skos:definition "Offene Wasserfläche oder geplantes Retentionsgewässer als Aussenfläche."@de ;
+  skos:narrower :AOF-04-01, :AOF-04-02 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "water-surface" .
+
+:AOF-04-01 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-04-01" ;
+  skos:prefLabel "Open retention basin"@en ;
+  skos:prefLabel "Offenes Retentionsbecken"@de ;
+  skos:definition "Open basin designed for temporary stormwater retention."@en ;
+  skos:definition "Offenes Becken für temporäre Wasserrückhaltung bei Starkregen."@de ;
+  skos:broader :AOF-04 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "open-retention-basin" .
+
+:AOF-04-02 a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "AOF-04-02" ;
+  skos:prefLabel "Pond"@en ;
+  skos:prefLabel "Teich"@de ;
+  skos:definition "Permanent or semi-permanent outdoor pond surface."@en ;
+  skos:definition "Dauerhafte oder halbpermanente Teichfläche im Aussenraum."@de ;
+  skos:broader :AOF-04 ;
+  dcterms:subject "IfcCovering" ;
+  dcterms:identifier "pond" .

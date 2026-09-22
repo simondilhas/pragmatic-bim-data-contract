@@ -54,6 +54,10 @@ vocabularies:
     path: abstract-covering-product-classification/floor-covering-products.skos.ttl
     title: Abstract floor covering products
 
+  - slug: outdoor-floor-surface
+    path: abstract-covering-product-classification/outdoor-floor-surfaces.skos.ttl
+    title: Abstract outdoor floor surfaces
+
   - slug: wall-covering-product
     path: abstract-covering-product-classification/wall-covering-products.skos.ttl
     title: Abstract wall covering products

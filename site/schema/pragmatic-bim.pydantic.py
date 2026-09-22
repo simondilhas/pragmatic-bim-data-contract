@@ -1055,6 +1055,10 @@ class SpaceNameType(str, Enum):
     """
     Outdoor pool or water feature area.
     """
+    Retention_Area = "rn_11_20_04"
+    """
+    Multi-purpose area with temporary, planned water retention during heavy rainfall.
+    """
     Covered_Walkway = "rn_11_30_01"
     """
     Covered exterior pedestrian route.

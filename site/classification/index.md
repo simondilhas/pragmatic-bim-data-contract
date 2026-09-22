@@ -21,6 +21,7 @@ License: [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) — sourced f
 | [Abstract building ratios](building-ratio.md) | `abstract-ratio-definition/building-ratios.skos.ttl` |
 | [pragmaticBIM Elementplan elements](elementplan-element.md) | `pragmaticbim-elementplan-classification/elementplan-elements.skos.ttl` |
 | [Abstract floor covering products](floor-covering-product.md) | `abstract-covering-product-classification/floor-covering-products.skos.ttl` |
+| [Abstract outdoor floor surfaces](outdoor-floor-surface.md) | `abstract-covering-product-classification/outdoor-floor-surfaces.skos.ttl` |
 | [Abstract wall covering products](wall-covering-product.md) | `abstract-covering-product-classification/wall-covering-products.skos.ttl` |
 | [Abstract ceiling covering products](ceiling-covering-product.md) | `abstract-covering-product-classification/ceiling-covering-products.skos.ttl` |
 | [Abstract facade covering products](facade-covering-product.md) | `abstract-covering-product-classification/facade-covering-products.skos.ttl` |

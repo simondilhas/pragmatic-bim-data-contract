@@ -512,10 +512,10 @@
   skos:notation "RN-11-20" ;
   skos:prefLabel "Landscape and recreation"@en ;
   skos:prefLabel "Landschaft und Freizeit"@de ;
-  skos:definition "Gardens, playgrounds, and pool areas."@en ;
-  skos:definition "Gärten, Spielplätze und Beckenflächen."@de ;
+  skos:definition "Gardens, playgrounds, pool areas, and retention areas."@en ;
+  skos:definition "Gärten, Spielplätze, Beckenflächen und Retentionsflächen."@de ;
   skos:broader :RN_OUT ;
-  skos:narrower :RN_OUT_GDN, :RN_OUT_PLY, :RN_OUT_SPL ;
+  skos:narrower :RN_OUT_GDN, :RN_OUT_PLY, :RN_OUT_SPL, :RN_OUT_RTN ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-20" .
 
@@ -1781,6 +1781,17 @@
   skos:broader :RN_OUT_LND_GRP ;
   dcterms:subject "IfcSpace" ;
   dcterms:identifier "RN-11-20-03" .
+
+:RN_OUT_RTN a skos:Concept ;
+  skos:inScheme :scheme ;
+  skos:notation "RN-11-20-04" ;
+  skos:prefLabel "Retention Area"@en ;
+  skos:prefLabel "Retentionsfläche"@de ;
+  skos:definition "Multi-purpose area with temporary, planned water retention during heavy rainfall."@en ;
+  skos:definition "Mehrzweckfläche mit temporärer, geplanter Wasserrückhaltung bei Starkregen."@de ;
+  skos:broader :RN_OUT_LND_GRP ;
+  dcterms:subject "IfcSpace" ;
+  dcterms:identifier "RN-11-20-04" .
 
 :RN_OUT_CWK a skos:Concept ;
   skos:inScheme :scheme ;

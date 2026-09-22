@@ -275,6 +275,10 @@ v1:rn_out_prt skos:exactMatch rn:RN_OUT_PRT ;
   ex:supersedesNotation "RN-OUT-PRT" ;
   ex:mapsToNotation "RN-11-30-02" .
 
+v1:rn_out_rtn skos:exactMatch rn:RN_OUT_RTN ;
+  ex:supersedesNotation "RN-OUT-RTN" ;
+  ex:mapsToNotation "RN-11-20-04" .
+
 v1:rn_out_rtr skos:exactMatch rn:RN_OUT_RTR ;
   ex:supersedesNotation "RN-OUT-RTR" ;
   ex:mapsToNotation "RN-11-10-05" .

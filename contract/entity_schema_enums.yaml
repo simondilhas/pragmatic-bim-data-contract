@@ -1771,6 +1771,14 @@ enums:
           de:
             source: de
             description: Beckenfläche
+      rn_11_20_04:
+        description: "Multi-purpose area with temporary, planned water retention during heavy rainfall."
+        meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_RTN
+        title: Retention Area
+        alt_descriptions:
+          de:
+            source: de
+            description: Retentionsfläche
       rn_11_30_01:
         description: "Covered exterior pedestrian route."
         meaning: https://example.org/abstract/building-space-name-classification/RN_OUT_CWK
